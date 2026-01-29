@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki Products - Explore our curated selection of healthy snacks, drinks, and meals from Bulgarian producers.">
+  <title>Products - Genki Wellness Benefits</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl">🌱</span>
+          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active">Products</a>
+          <a href="contact.html" class="btn-primary">Book a Demo</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-900 py-2">Products</a>
+      <a href="contact.html" class="btn-primary mt-4 text-center">Book a Demo</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-b from-amber-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+          Our <span class="gradient-text">Product Selection</span>
+        </h1>
+        <p class="text-xl text-gray-600 fade-up">
+          Carefully curated healthy options from 50+ Bulgarian producers. Everything your team needs to stay energized throughout the day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Navigation -->
+  <section class="py-8 bg-white border-b sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="#snacks" class="px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium hover:bg-green-200 transition-colors">Snacks</a>
+        <a href="#drinks" class="px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium hover:bg-blue-200 transition-colors">Drinks</a>
+        <a href="#fresh" class="px-4 py-2 rounded-full bg-amber-100 text-amber-700 font-medium hover:bg-amber-200 transition-colors">Fresh Foods</a>
+        <a href="#meals" class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 font-medium hover:bg-purple-200 transition-colors">Meals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snacks Section -->
+  <section id="snacks" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+          <span class="text-2xl">🥜</span>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Healthy Snacks</h2>
+          <p class="text-gray-600">Energy-boosting options for any time of day</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Product 1 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-6xl">
+            🥜
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Bio</span>
+            <h3 class="font-semibold text-gray-900">Mixed Nuts</h3>
+            <p class="text-sm text-gray-600 mt-1">Bulgarian almonds, walnuts & hazelnuts</p>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-6xl">
+            🍊
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Natural</span>
+            <h3 class="font-semibold text-gray-900">Dried Fruits</h3>
+            <p class="text-sm text-gray-600 mt-1">Apricots, figs & prunes from Plovdiv region</p>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center text-6xl">
+            🍫
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2">High Protein</span>
+            <h3 class="font-semibold text-gray-900">Protein Bars</h3>
+            <p class="text-sm text-gray-600 mt-1">No added sugar, 20g protein per bar</p>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-lime-100 to-lime-200 flex items-center justify-center text-6xl">
+            🌾
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Whole Grain</span>
+            <h3 class="font-semibold text-gray-900">Granola Mix</h3>
+            <p class="text-sm text-gray-600 mt-1">Oats, honey & Bulgarian honey</p>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center text-6xl">
+            🍎
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Bio</span>
+            <h3 class="font-semibold text-gray-900">Apple Chips</h3>
+            <p class="text-sm text-gray-600 mt-1">Crunchy, no added sugar, just apples</p>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center text-6xl">
+            🍘
+          </div>
+          <div class="p-4">
+            <span class="badge badge-blue mb-2">Low Calorie</span>
+            <h3 class="font-semibold text-gray-900">Rice Cakes</h3>
+            <p class="text-sm text-gray-600 mt-1">Whole grain, various flavors</p>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center text-6xl">
+            🌻
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Local</span>
+            <h3 class="font-semibold text-gray-900">Seed Mix</h3>
+            <p class="text-sm text-gray-600 mt-1">Sunflower, pumpkin & chia seeds</p>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center text-6xl">
+            🍓
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Natural</span>
+            <h3 class="font-semibold text-gray-900">Berry Mix</h3>
+            <p class="text-sm text-gray-600 mt-1">Freeze-dried Bulgarian berries</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drinks Section -->
+  <section id="drinks" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+          <span class="text-2xl">🧃</span>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Beverages</h2>
+          <p class="text-gray-600">Refreshing drinks without the sugar crash</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Drink 1 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center text-6xl">
+            🍊
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Fresh Pressed</span>
+            <h3 class="font-semibold text-gray-900">Fresh Juices</h3>
+            <p class="text-sm text-gray-600 mt-1">Orange, apple, carrot & mixed</p>
+          </div>
+        </div>
+
+        <!-- Drink 2 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
+            🍵
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Organic</span>
+            <h3 class="font-semibold text-gray-900">Herbal Teas</h3>
+            <p class="text-sm text-gray-600 mt-1">Bulgarian mountain herbs & flowers</p>
+          </div>
+        </div>
+
+        <!-- Drink 3 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-6xl">
+            🫖
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2">Probiotic</span>
+            <h3 class="font-semibold text-gray-900">Kombucha</h3>
+            <p class="text-sm text-gray-600 mt-1">Locally brewed, multiple flavors</p>
+          </div>
+        </div>
+
+        <!-- Drink 4 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center text-6xl">
+            💧
+          </div>
+          <div class="p-4">
+            <span class="badge badge-blue mb-2">Natural</span>
+            <h3 class="font-semibold text-gray-900">Mineral Water</h3>
+            <p class="text-sm text-gray-600 mt-1">From Bulgarian mountain springs</p>
+          </div>
+        </div>
+
+        <!-- Drink 5 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-6xl">
+            🥤
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">No Sugar</span>
+            <h3 class="font-semibold text-gray-900">Smoothies</h3>
+            <p class="text-sm text-gray-600 mt-1">Fruit & vegetable blends</p>
+          </div>
+        </div>
+
+        <!-- Drink 6 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center text-6xl">
+            🫐
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Antioxidant</span>
+            <h3 class="font-semibold text-gray-900">Berry Drinks</h3>
+            <p class="text-sm text-gray-600 mt-1">Blueberry, aronia & elderberry</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fresh Foods Section -->
+  <section id="fresh" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+          <span class="text-2xl">🥗</span>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Fresh Foods</h2>
+          <p class="text-gray-600">Daily fresh deliveries from local farms</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Fresh 1 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-amber-100 flex items-center justify-center text-6xl">
+            🧀
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Local</span>
+            <h3 class="font-semibold text-gray-900">Bulgarian Cheese</h3>
+            <p class="text-sm text-gray-600 mt-1">White cheese, kashkaval & cottage cheese</p>
+          </div>
+        </div>
+
+        <!-- Fresh 2 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center text-6xl">
+            🍓
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Seasonal</span>
+            <h3 class="font-semibold text-gray-900">Fresh Fruits</h3>
+            <p class="text-sm text-gray-600 mt-1">Seasonal selection from Bulgarian farms</p>
+          </div>
+        </div>
+
+        <!-- Fresh 3 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-slate-100 to-gray-100 flex items-center justify-center text-6xl">
+            🥛
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2">Probiotic</span>
+            <h3 class="font-semibold text-gray-900">Bulgarian Yogurt</h3>
+            <p class="text-sm text-gray-600 mt-1">Traditional recipe with live cultures</p>
+          </div>
+        </div>
+
+        <!-- Fresh 4 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center text-6xl">
+            🥒
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Fresh</span>
+            <h3 class="font-semibold text-gray-900">Veggie Sticks</h3>
+            <p class="text-sm text-gray-600 mt-1">Carrots, cucumbers & peppers with hummus</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meals Section -->
+  <section id="meals" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+          <span class="text-2xl">🍱</span>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Prepared Meals</h2>
+          <p class="text-gray-600">Full meals for busy workdays</p>
+        </div>
+      </div>
+      <p class="text-sm text-purple-600 mb-8 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        Available in Professional and Enterprise plans
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Meal 1 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
+            🥗
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Healthy</span>
+            <h3 class="font-semibold text-gray-900">Fresh Salads</h3>
+            <p class="text-sm text-gray-600 mt-1">Shopska, Greek, Caesar & more</p>
+          </div>
+        </div>
+
+        <!-- Meal 2 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center text-6xl">
+            🌯
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2">Filling</span>
+            <h3 class="font-semibold text-gray-900">Wraps & Sandwiches</h3>
+            <p class="text-sm text-gray-600 mt-1">Whole grain, fresh ingredients</p>
+          </div>
+        </div>
+
+        <!-- Meal 3 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center text-6xl">
+            🍲
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2">Hot</span>
+            <h3 class="font-semibold text-gray-900">Soups</h3>
+            <p class="text-sm text-gray-600 mt-1">Homemade Bulgarian recipes</p>
+          </div>
+        </div>
+
+        <!-- Meal 4 -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center text-6xl">
+            🍱
+          </div>
+          <div class="p-4">
+            <span class="badge badge-blue mb-2">Balanced</span>
+            <h3 class="font-semibold text-gray-900">Lunch Boxes</h3>
+            <p class="text-sm text-gray-600 mt-1">Complete balanced meals</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dietary Options -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up">We Accommodate All Diets</h2>
+        <p class="text-gray-600 fade-up">Every team member can find something they love.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+        <div class="text-center p-6 bg-green-50 rounded-xl fade-up">
+          <div class="text-4xl mb-3">🌱</div>
+          <h3 class="font-semibold text-gray-900">Vegan</h3>
+        </div>
+        <div class="text-center p-6 bg-emerald-50 rounded-xl fade-up">
+          <div class="text-4xl mb-3">🥬</div>
+          <h3 class="font-semibold text-gray-900">Vegetarian</h3>
+        </div>
+        <div class="text-center p-6 bg-amber-50 rounded-xl fade-up">
+          <div class="text-4xl mb-3">🌾</div>
+          <h3 class="font-semibold text-gray-900">Gluten-Free</h3>
+        </div>
+        <div class="text-center p-6 bg-blue-50 rounded-xl fade-up">
+          <div class="text-4xl mb-3">🥛</div>
+          <h3 class="font-semibold text-gray-900">Lactose-Free</h3>
+        </div>
+        <div class="text-center p-6 bg-purple-50 rounded-xl fade-up">
+          <div class="text-4xl mb-3">🥜</div>
+          <h3 class="font-semibold text-gray-900">Nut-Free</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 fade-up">Want to See the Full Catalog?</h2>
+      <p class="text-xl text-primary-100 mb-8 fade-up">Book a demo and we'll create a custom product selection based on your team's preferences.</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up">
+        Request Full Catalog
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="text-3xl">🌱</span>
+            <span class="text-2xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green">🇧🇬 Made in Bulgaria</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
+            <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
+            <li>Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">© 2026 Genki. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

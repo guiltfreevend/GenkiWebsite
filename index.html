@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki - Premium wellness benefits for modern companies. Healthy snacks, drinks & meals delivered to your office. Supporting Bulgarian businesses.">
+  <meta name="keywords" content="employee benefits, wellness, healthy snacks, office food, Bulgaria, HR benefits">
+  <title>Genki - Wellness Benefits for Modern Companies</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            secondary: {
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl">🌱</span>
+          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Products</a>
+          <a href="contact.html" class="btn-primary">Book a Demo</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-900 py-2">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2">Products</a>
+      <a href="contact.html" class="btn-primary mt-4 text-center">Book a Demo</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 fade-up">
+          <span class="mr-2">🇧🇬</span>
+          100% Bulgarian Products
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 fade-up">
+          Healthy Teams,
+          <span class="gradient-text">Thriving Business</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto fade-up">
+          Premium wellness benefits that employees actually love. Healthy snacks, drinks & meals delivered to your office — while supporting Bulgarian businesses and charity.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-up">
+          <a href="contact.html" class="btn-primary text-lg">
+            Book a Free Demo
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="companies.html" class="btn-secondary text-lg">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-6 text-gray-500 fade-up">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Zero Admin Burden</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Flexible Plans</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Instant Social Impact</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-white stats-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="50">50+</div>
+          <div class="text-gray-600 font-medium">Bulgarian Partners</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="10">10%</div>
+          <div class="text-gray-600 font-medium">Donated Monthly</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="100">100%</div>
+          <div class="text-gray-600 font-medium">Local Products</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="0">0</div>
+          <div class="text-gray-600 font-medium">Admin Work for HR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars Section -->
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up">
+          More Than Just a Benefit
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto fade-up">
+          Every Genki subscription creates a triple impact — for your team, for Bulgarian businesses, and for those in need.
+        </p>
+        <div class="section-divider mt-6 fade-up"></div>
+      </div>
+
+      <!-- Pillars Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Pillar 1: Health -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-green-100 text-green-600">
+            🥗
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Healthy & Bio Products</h3>
+          <p class="text-gray-600 mb-4">
+            Carefully curated selection of nutritious snacks, organic drinks, and balanced meals. No processed junk — only food that fuels performance.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Bio-certified options
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Nutritionist approved
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Dietary accommodations
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Local -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-blue-100 text-blue-600">
+            🇧🇬
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Supporting Bulgarian Businesses</h3>
+          <p class="text-gray-600 mb-4">
+            100% of our products come from local Bulgarian producers. Your benefit subscription directly supports the domestic economy.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> 50+ local partners
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> Farm-to-office freshness
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> Sustainable sourcing
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Charity -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-amber-100 text-amber-600">
+            💛
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Giving Back Monthly</h3>
+          <p class="text-gray-600 mb-4">
+            10% of every subscription goes directly to Bulgarian charities. Your company becomes a force for good — automatically.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> Transparent donations
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> Monthly impact reports
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> Choose your causes
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up">
+          Getting Started Is Simple
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto fade-up">
+          We handle everything. You just approve the setup and watch employee satisfaction soar.
+        </p>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Book a Demo</h3>
+          <p class="text-gray-600">
+            15-minute call to understand your team's needs and preferences.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Customize Plan</h3>
+          <p class="text-gray-600">
+            We create a tailored product mix based on your team size and preferences.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">We Deliver</h3>
+          <p class="text-gray-600">
+            Regular deliveries straight to your office. No storage hassles.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            4
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Team Enjoys</h3>
+          <p class="text-gray-600">
+            Your employees get great food. You get happier, healthier teams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition for HR -->
+  <section class="py-20 lg:py-28 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text Content -->
+        <div class="fade-up">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+            The Benefit Your HR Team Will Love
+          </h2>
+          <p class="text-xl text-primary-100 mb-8">
+            Unlike complex benefit programs, Genki requires zero administration. We handle everything — from sourcing to delivery to impact reporting.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">No Vendor Management</h4>
+                <p class="text-primary-100">One subscription, 50+ product partners handled by us.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Instant ESG Impact</h4>
+                <p class="text-primary-100">Built-in charity component boosts your CSR reporting.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Employee Retention Boost</h4>
+                <p class="text-primary-100">A tangible daily benefit that shows you care.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Feature Card -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-up">
+          <div class="text-center mb-6">
+            <div class="text-5xl mb-4">📊</div>
+            <h3 class="text-2xl font-bold">Like Multisport, But for Nutrition</h3>
+          </div>
+          <p class="text-primary-100 text-center mb-6">
+            Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.
+          </p>
+          <div class="bg-white/10 rounded-xl p-4 text-center">
+            <div class="text-4xl font-bold mb-1">87%</div>
+            <div class="text-sm text-primary-100">of employees say food benefits improve their workday</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 fade-up">
+        Ready to Transform Your Employee Benefits?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 fade-up">
+        Join forward-thinking companies that invest in their team's health while supporting local businesses and charity.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+        <a href="contact.html" class="btn-primary text-lg">
+          Schedule a Free Demo
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="companies.html" class="btn-secondary text-lg">
+          View Pricing
+        </a>
+      </div>
+      <p class="text-sm text-gray-500 mt-6 fade-up">
+        No commitment required. See if Genki is right for your team.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="text-3xl">🌱</span>
+            <span class="text-2xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md">
+            Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.
+          </p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green">🇧🇬 Made in Bulgaria</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>
+              <a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a>
+            </li>
+            <li>
+              <a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a>
+            </li>
+            <li>Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">
+          © 2026 Genki. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
