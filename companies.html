@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- COMING SOON REDIRECT - Remove this line when site is live -->
+  <script>window.location.href = 'index.html';</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Genki for Companies - Premium wellness benefits for IT companies. See pricing, ROI, and how we make HR's job easier.">
@@ -161,118 +163,160 @@
   <!-- Pricing Section -->
   <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-12">
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_pricing_title">Simple, Transparent Pricing</h2>
-        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_pricing_subtitle">Choose the plan that fits your team. All plans include delivery, setup, and charity donation.</p>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_pricing_subtitle">Choose the plan that fits your team and budget. All plans include delivery, setup, and charity donation.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <!-- Starter Plan -->
-        <div class="pricing-card fade-up">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 fade-up flex flex-col">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_starter">Starter</h3>
-            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_starter_desc">Perfect for growing teams</p>
-            <div class="flex items-baseline justify-center gap-1">
-              <span class="text-4xl font-bold text-gray-900">€15</span>
-              <span class="text-gray-600" data-i18n="companies_plan_per_employee">/employee/month</span>
-            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-1" data-i18n="companies_plan_starter_name">Starter</h3>
+            <p class="text-primary-600 font-semibold text-sm mb-2" data-i18n="companies_plan_starter_tagline">Wellness essentials</p>
+            <p class="text-gray-500 text-sm" data-i18n="companies_plan_starter_desc">Employees pay, company provides access</p>
           </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_weekly">Weekly snack delivery</span>
+
+          <ul class="space-y-3 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="starter_short_products">Snacks & drinks only</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_15_products">15+ product varieties</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="starter_short_delivery">Weekly deliveries</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_charity">10% charity donation</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="starter_short_support">Email support (24-48h)</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_email">Email support</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="starter_short_orders">WhatsApp order management</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-secondary w-full justify-center" data-i18n="companies_get_started">Get Started</a>
+
+          <a href="contact.html" class="btn-secondary w-full justify-center mt-6" data-i18n="companies_plan_cta_quote">Get Custom Quote</a>
         </div>
 
-        <!-- Professional Plan -->
-        <div class="pricing-card featured fade-up">
-          <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_professional">Professional</h3>
-            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_professional_desc">Most popular for tech companies</p>
-            <div class="flex items-baseline justify-center gap-1">
-              <span class="text-4xl font-bold text-gray-900">€25</span>
-              <span class="text-gray-600" data-i18n="companies_plan_per_employee">/employee/month</span>
-            </div>
+        <!-- Care Plan (Featured) -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-primary-500 fade-up flex flex-col relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="bg-primary-600 text-white text-sm font-medium px-4 py-1 rounded-full" data-i18n="companies_plan_badge_popular">Most Popular</span>
           </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_2x_weekly">2x weekly delivery</span>
+          <div class="text-center mb-6 pt-2">
+            <h3 class="text-xl font-bold text-gray-900 mb-1" data-i18n="companies_plan_care_name">Care</h3>
+            <p class="text-primary-600 font-semibold text-sm mb-2" data-i18n="companies_plan_care_tagline">Complete wellness solution</p>
+            <p class="text-gray-500 text-sm" data-i18n="companies_plan_care_desc">Full company coverage — our premium plan</p>
+          </div>
+
+          <ul class="space-y-3 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_products">Full product range + seasonal specials</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_30_products">30+ product varieties</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_delivery">Custom schedule + unlimited restocking</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_drinks">Drinks & beverages included</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_setup">Premium branded setup with kiosk</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_charity">10% charity donation</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_manager">Named account manager + monthly calls</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_report">Monthly impact report</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_analytics">Detailed analytics & employee insights</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_priority">Priority support</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_events">1-2 community events per quarter</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_charity">Employees vote on charity recipient</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="care_short_support">Priority same-day support</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-primary w-full justify-center" data-i18n="companies_get_started">Get Started</a>
+
+          <a href="contact.html" class="btn-primary w-full justify-center mt-6" data-i18n="companies_plan_cta_featured">Book a Call</a>
         </div>
 
-        <!-- Enterprise Plan -->
-        <div class="pricing-card fade-up">
+        <!-- Hybrid Plan -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 fade-up flex flex-col">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_enterprise">Enterprise</h3>
-            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_enterprise_desc">For large organizations</p>
-            <div class="flex items-baseline justify-center gap-1">
-              <span class="text-4xl font-bold text-gray-900" data-i18n="companies_plan_custom">Custom</span>
-            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-1" data-i18n="companies_plan_hybrid_name">Hybrid</h3>
+            <p class="text-primary-600 font-semibold text-sm mb-2" data-i18n="companies_plan_hybrid_tagline">Enhanced wellness</p>
+            <p class="text-gray-500 text-sm" data-i18n="companies_plan_hybrid_desc">Shared costs between company and employees</p>
           </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_daily">Daily fresh meals option</span>
+
+          <ul class="space-y-3 flex-grow">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_products">Snacks, drinks + 2-3 meal options monthly</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_unlimited">Unlimited product variety</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_delivery">Bi-weekly + 1 emergency restock/month</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_multi">Multi-location support</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_branding">Basic Genki branding elements</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_choose_charity">Choose your charities</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_contact">Dedicated contact + quarterly calls</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_dedicated">Dedicated account manager</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_reporting">Monthly detailed breakdown</span>
             </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              <span data-i18n="companies_plan_branding">Custom branding options</span>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="hybrid_short_support">Phone + email support (12-24h)</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-secondary w-full justify-center" data-i18n="companies_contact_sales">Contact Sales</a>
+
+          <a href="contact.html" class="btn-secondary w-full justify-center mt-6" data-i18n="companies_plan_cta_quote">Get Custom Quote</a>
+        </div>
+      </div>
+
+      <!-- All Plans Include Section -->
+      <div class="mt-12 max-w-3xl mx-auto fade-up">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-bold text-gray-900 text-center mb-6" data-i18n="all_plans_include_title">All plans include:</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_bulgarian">100% Bulgarian products</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_admin">Zero admin burden for HR</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_charity">10% donated to charity</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_setup">Professional setup & installation</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_support">Dedicated account support</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="all_plans_sizes">Customizable order sizes</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -436,8 +480,7 @@
       <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-500 text-sm" data-i18n="footer_rights">© 2026 Genki. All rights reserved.</p>
         <div class="flex items-center gap-6 text-sm text-gray-500">
-          <a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
-          <a href="#" class="hover:text-white" data-i18n="footer_terms">Terms of Service</a>
+          <a href="privacy.html" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
         </div>
       </div>
     </div>

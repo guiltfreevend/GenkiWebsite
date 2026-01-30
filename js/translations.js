@@ -486,108 +486,326 @@ const translations = {
     bg: "Просто и прозрачно ценообразуване"
   },
   companies_pricing_subtitle: {
-    en: "Choose the plan that fits your team. All plans include delivery, setup, and charity donation.",
-    bg: "Изберете плана, който отговаря на Вашия екип. Всички планове включват доставка, настройка и благотворително дарение."
+    en: "Choose the plan that fits your team and budget. All plans include delivery, setup, and charity donation.",
+    bg: "Изберете плана, който отговаря на екипа и бюджета Ви. Всички планове включват доставка, настройка и благотворително дарение."
   },
-  companies_plan_starter: {
+
+  // Plan Names & Taglines
+  companies_plan_starter_name: {
     en: "Starter",
-    bg: "Стартов"
+    bg: "Starter"
+  },
+  companies_plan_starter_tagline: {
+    en: "Wellness essentials",
+    bg: "Уелнес основи"
   },
   companies_plan_starter_desc: {
-    en: "Perfect for growing teams",
-    bg: "Перфектен за растящи екипи"
+    en: "Employees pay, company provides access",
+    bg: "Служителите плащат, компанията осигурява достъп"
   },
-  companies_plan_professional: {
-    en: "Professional",
-    bg: "Професионален"
+  companies_plan_hybrid_name: {
+    en: "Hybrid",
+    bg: "Hybrid"
   },
-  companies_plan_professional_desc: {
-    en: "Most popular for tech companies",
-    bg: "Най-популярен за технологични компании"
+  companies_plan_hybrid_tagline: {
+    en: "Enhanced wellness",
+    bg: "Надграден уелнес"
   },
-  companies_plan_enterprise: {
-    en: "Enterprise",
-    bg: "Корпоративен"
+  companies_plan_hybrid_desc: {
+    en: "Shared costs between company and employees",
+    bg: "Споделени разходи между компанията и служителите"
   },
-  companies_plan_enterprise_desc: {
-    en: "For large organizations",
-    bg: "За големи организации"
+  companies_plan_care_name: {
+    en: "Care",
+    bg: "Care"
   },
-  companies_plan_custom: {
-    en: "Custom",
-    bg: "По заявка"
+  companies_plan_care_tagline: {
+    en: "Complete wellness solution",
+    bg: "Пълно уелнес решение"
   },
-  companies_plan_per_employee: {
-    en: "/employee/month",
-    bg: "/служител/месец"
+  companies_plan_care_desc: {
+    en: "Full company coverage — our premium plan",
+    bg: "Изцяло покрито от компанията — нашият премиум план"
   },
-  companies_plan_weekly: {
-    en: "Weekly snack delivery",
-    bg: "Седмична доставка на снаксове"
+  companies_plan_badge_popular: {
+    en: "Most Popular",
+    bg: "Най-популярен"
   },
-  companies_plan_2x_weekly: {
-    en: "2x weekly delivery",
-    bg: "Доставка два пъти седмично"
+
+  // Section Headers
+  plan_section_products: {
+    en: "Product Range",
+    bg: "Продуктова гама"
   },
-  companies_plan_15_products: {
-    en: "15+ product varieties",
-    bg: "15+ различни продукта"
+  plan_section_delivery: {
+    en: "Delivery",
+    bg: "Доставка"
   },
-  companies_plan_30_products: {
-    en: "30+ product varieties",
-    bg: "30+ различни продукта"
+  plan_section_setup: {
+    en: "Setup",
+    bg: "Настройка"
   },
-  companies_plan_charity: {
-    en: "10% charity donation",
-    bg: "10% благотворително дарение"
+  plan_section_reporting: {
+    en: "Reporting",
+    bg: "Отчетност"
   },
-  companies_plan_email: {
-    en: "Email support",
-    bg: "Поддръжка по имейл"
+  plan_section_support: {
+    en: "Support",
+    bg: "Поддръжка"
   },
-  companies_plan_drinks: {
-    en: "Drinks & beverages included",
-    bg: "Включени напитки"
+  plan_section_account: {
+    en: "Account Management",
+    bg: "Управление на акаунта"
   },
-  companies_plan_report: {
-    en: "Monthly impact report",
-    bg: "Месечен отчет за въздействието"
+  plan_section_customization: {
+    en: "Customization",
+    bg: "Персонализация"
   },
-  companies_plan_priority: {
-    en: "Priority support",
-    bg: "Приоритетна поддръжка"
+  plan_section_events: {
+    en: "Community Events",
+    bg: "Community събития"
   },
-  companies_plan_daily: {
-    en: "Daily fresh meals option",
-    bg: "Опция за ежедневни пресни ястия"
+  plan_section_charity: {
+    en: "Charity Impact",
+    bg: "Благотворително въздействие"
   },
-  companies_plan_unlimited: {
-    en: "Unlimited product variety",
-    bg: "Неограничено разнообразие от продукти"
+  plan_section_included: {
+    en: "Also Included",
+    bg: "Също включено"
   },
-  companies_plan_multi: {
-    en: "Multi-location support",
-    bg: "Поддръжка на множество локации"
+
+  // Starter Plan Features
+  starter_products: {
+    en: "Snacks & drinks only (waffles, cookies, energy drinks, lemonades, bread sticks)",
+    bg: "Само снаксове и напитки (вафли, бисквити, енергийни напитки, лимонади, гризини)"
   },
-  companies_plan_choose_charity: {
-    en: "Choose your charities",
-    bg: "Изберете вашите благотворителни организации"
+  starter_delivery: {
+    en: "Weekly on fixed schedule",
+    bg: "Веднъж седмично по фиксиран график"
   },
-  companies_plan_dedicated: {
-    en: "Dedicated account manager",
-    bg: "Персонален акаунт мениджър"
+  starter_setup: {
+    en: "Professional consultation, infrastructure sourcing & installation",
+    bg: "Професионална консултация, осигуряване и монтаж на необходимата инфраструктура"
   },
-  companies_plan_branding: {
-    en: "Custom branding options",
-    bg: "Персонализирани опции за брандиране"
+  starter_reporting: {
+    en: "Monthly summary email with sales totals",
+    bg: "Месечен обобщаващ имейл с общи продажби"
   },
-  companies_get_started: {
-    en: "Get Started",
-    bg: "Започнете"
+  starter_support: {
+    en: "Email within 24-48 hours",
+    bg: "Отговор по имейл до 24–48 часа"
   },
-  companies_contact_sales: {
-    en: "Contact Sales",
-    bg: "Свържете се с продажби"
+  starter_account: {
+    en: "Order management via WhatsApp/email",
+    bg: "Управление на поръчките през WhatsApp/имейл"
+  },
+
+  // Care Plan Features
+  care_products: {
+    en: "FULL selection - all snacks, drinks, fresh juices, poke bowls, salads, premium burritos, kombucha + seasonal specials",
+    bg: "ПЪЛНА селекция — всички снаксове и напитки, пресни сокове, поке боул, салати, премиум бурито, комбуча + сезонни предложения"
+  },
+  care_delivery: {
+    en: "Custom schedule (daily/weekly/bi-weekly) + unlimited emergency restocking",
+    bg: "График по избор (ежедневно/седмично/на две седмици) + неограничени спешни зареждания"
+  },
+  care_setup: {
+    en: "Premium consultation, space planning, full infrastructure sourcing, installation & complete Genki branding (including kiosk system if needed)",
+    bg: "Премиум консултация, планиране на пространството, осигуряване на цялата инфраструктура, монтаж и пълно Genki брандиране (вкл. kiosk система при нужда)"
+  },
+  care_reporting: {
+    en: "Detailed monthly analytics with consumption patterns, product recommendations & employee satisfaction insights",
+    bg: "Детайлна месечна аналитика с модели на консумация, продуктови препоръки и инсайти за удовлетвореността на служителите"
+  },
+  care_support: {
+    en: "Priority same-day response via phone/WhatsApp",
+    bg: "Приоритетен отговор в същия ден по телефон/WhatsApp"
+  },
+  care_account: {
+    en: "Named account manager + monthly strategy calls + proactive optimization",
+    bg: "Персонален акаунт мениджър + месечни стратегически разговори + проактивна оптимизация"
+  },
+  care_customization: {
+    en: "Product rotation based on employee feedback + seasonal items + dietary preference accommodation",
+    bg: "Ротация на продуктите според обратната връзка + сезонни предложения + съобразяване с хранителни предпочитания"
+  },
+  care_events: {
+    en: "Organize 1-2 Genki community events per quarter (tree planting, shelter visits)",
+    bg: "Организация на 1–2 Genki community събития на тримесечие (залесяване, посещения на приюти и др.)"
+  },
+  care_charity: {
+    en: "10% donated + employees vote on monthly charity recipient + detailed impact reports with photos/stories",
+    bg: "10% дарение + служителите гласуват за месечната кауза + детайлни отчети за въздействие със снимки/истории"
+  },
+
+  // Hybrid Plan Features
+  hybrid_products: {
+    en: "Full snacks & drinks + rotating meal options (salads, burritos - 2-3 types monthly)",
+    bg: "Пълни снаксове и напитки + ротационни опции за храна (салати, бурито — 2–3 вида месечно)"
+  },
+  hybrid_delivery: {
+    en: "Bi-weekly with flexible timing + one emergency restock per month included",
+    bg: "На две седмици с гъвкаво време + едно спешно зареждане месечно (включено)"
+  },
+  hybrid_setup: {
+    en: "Full consultation, space planning, infrastructure sourcing, installation & basic Genki branding elements",
+    bg: "Пълна консултация, планиране на пространството, осигуряване на инфраструктура, монтаж + базови елементи Genki брандиране"
+  },
+  hybrid_reporting: {
+    en: "Monthly detailed breakdown with popular items, consumption patterns & recommendations",
+    bg: "Месечна детайлна разбивка с най-предпочитани продукти, модели на консумация и препоръки"
+  },
+  hybrid_support: {
+    en: "Phone + email within 12-24 hours",
+    bg: "Телефон + имейл до 12–24 часа"
+  },
+  hybrid_account: {
+    en: "Dedicated contact person + quarterly check-in calls",
+    bg: "Конкретно лице за контакт + тримесечни check-in разговори"
+  },
+  hybrid_customization: {
+    en: "Seasonal product updates based on availability",
+    bg: "Сезонни продуктови обновявания според наличностите"
+  },
+  hybrid_charity_feature: {
+    en: "10% of profits donated to charity + quarterly impact summary",
+    bg: "10% от печалбата се дарява за благотворителност + тримесечно обобщение за въздействието"
+  },
+
+  // Shared Features
+  feature_sizes: {
+    en: "Customizable order sizes",
+    bg: "Персонализируеми количества"
+  },
+  feature_bulgarian: {
+    en: "100% Bulgarian products",
+    bg: "100% български продукти"
+  },
+  feature_charity: {
+    en: "10% of profits donated to charity",
+    bg: "10% от печалбата се дарява за благотворителност"
+  },
+  feature_admin: {
+    en: "Zero admin burden for HR",
+    bg: "Нулева административна тежест за HR"
+  },
+
+  // Short Starter Features (for compact cards)
+  starter_short_products: {
+    en: "Snacks & drinks only",
+    bg: "Само снаксове и напитки"
+  },
+  starter_short_delivery: {
+    en: "Weekly deliveries",
+    bg: "Седмични доставки"
+  },
+  starter_short_support: {
+    en: "Email support (24-48h)",
+    bg: "Имейл поддръжка (24-48ч)"
+  },
+  starter_short_orders: {
+    en: "WhatsApp order management",
+    bg: "Управление на поръчки през WhatsApp"
+  },
+
+  // Short Care Features (for compact cards)
+  care_short_products: {
+    en: "Full product range + seasonal specials",
+    bg: "Пълна селекция + сезонни предложения"
+  },
+  care_short_delivery: {
+    en: "Custom schedule + unlimited restocking",
+    bg: "График по избор + неограничени зареждания"
+  },
+  care_short_setup: {
+    en: "Premium branded setup with kiosk",
+    bg: "Премиум брандирана настройка с kiosk"
+  },
+  care_short_manager: {
+    en: "Named account manager + monthly calls",
+    bg: "Личен мениджър + месечни разговори"
+  },
+  care_short_analytics: {
+    en: "Detailed analytics & employee insights",
+    bg: "Детайлна аналитика и инсайти"
+  },
+  care_short_events: {
+    en: "1-2 community events per quarter",
+    bg: "1-2 събития на тримесечие"
+  },
+  care_short_charity: {
+    en: "Employees vote on charity recipient",
+    bg: "Служителите гласуват за благотворителност"
+  },
+  care_short_support: {
+    en: "Priority same-day support",
+    bg: "Приоритетна поддръжка в същия ден"
+  },
+
+  // Short Hybrid Features (for compact cards)
+  hybrid_short_products: {
+    en: "Snacks, drinks + 2-3 meal options monthly",
+    bg: "Снаксове, напитки + 2-3 ястия месечно"
+  },
+  hybrid_short_delivery: {
+    en: "Bi-weekly + 1 emergency restock/month",
+    bg: "На две седмици + 1 спешно зареждане/месец"
+  },
+  hybrid_short_branding: {
+    en: "Basic Genki branding elements",
+    bg: "Основни Genki брандинг елементи"
+  },
+  hybrid_short_contact: {
+    en: "Dedicated contact + quarterly calls",
+    bg: "Лице за контакт + тримесечни разговори"
+  },
+  hybrid_short_reporting: {
+    en: "Monthly detailed breakdown",
+    bg: "Месечна детайлна разбивка"
+  },
+  hybrid_short_support: {
+    en: "Phone + email support (12-24h)",
+    bg: "Телефон + имейл (12-24ч)"
+  },
+
+  // All Plans Include Section
+  all_plans_include_title: {
+    en: "All plans include:",
+    bg: "Всички планове включват:"
+  },
+  all_plans_bulgarian: {
+    en: "100% Bulgarian products",
+    bg: "100% български продукти"
+  },
+  all_plans_admin: {
+    en: "Zero admin burden for HR",
+    bg: "Нулева административна тежест за HR"
+  },
+  all_plans_charity: {
+    en: "10% donated to charity",
+    bg: "10% дарение за благотворителност"
+  },
+  all_plans_setup: {
+    en: "Professional setup & installation",
+    bg: "Професионална настройка и инсталация"
+  },
+  all_plans_support: {
+    en: "Dedicated account support",
+    bg: "Персонална поддръжка на акаунта"
+  },
+  all_plans_sizes: {
+    en: "Customizable order sizes",
+    bg: "Персонализируеми количества"
+  },
+
+  // CTA Buttons
+  companies_plan_cta_quote: {
+    en: "Get Custom Quote",
+    bg: "Получете персонална оферта"
+  },
+  companies_plan_cta_featured: {
+    en: "Book a Call",
+    bg: "Запазете разговор"
   },
 
   // COMPANIES PAGE - ROI

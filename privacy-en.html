@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki Privacy Policy - How we collect, use, and protect your personal data in accordance with GDPR">
+  <meta name="robots" content="noindex, follow">
+  <title>Privacy Policy - Genki</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            secondary: {
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl">🌱</span>
+          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Products</a>
+
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors bg-primary-50 text-primary-700" data-lang="en">
+                <span>🇬🇧</span> English
+              </a>
+              <a href="privacy.html" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+                <span>🇧🇬</span> Български
+              </a>
+            </div>
+          </div>
+
+          <a href="contact.html" class="btn-primary">Book a Call</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2">Products</a>
+
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
+        <span class="text-gray-500 text-sm">Language:</span>
+        <span class="px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700">🇬🇧 EN</span>
+        <a href="privacy.html" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100">🇧🇬 BG</a>
+      </div>
+
+      <a href="contact.html" class="btn-primary mt-4 text-center">Book a Call</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="pt-32 pb-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h1 class="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
+
+      <p class="text-lg text-gray-600 mb-8">
+        This policy describes how "Guilt Free Vend" Ltd. collects, uses, stores, and protects personal data in accordance with Regulation (EU) 2016/679 (GDPR).
+      </p>
+
+      <!-- Section 1 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 1 – Data Controller</h2>
+      <div class="bg-gray-50 rounded-lg p-6 mb-8">
+        <p class="mb-2"><strong>Company name:</strong> "Guilt Free Vend" Ltd. (Гилт Фрий Венд ООД)</p>
+        <p class="mb-2"><strong>Registration number:</strong> 207668100</p>
+        <p class="mb-2"><strong>Address:</strong> Sofia, 57 Antim I Street, Floor 1</p>
+        <p class="mb-2"><strong>Managing Director:</strong> Yoan Biserov Marinov</p>
+        <p><strong>Contact email:</strong> <a href="mailto:hello@genki.bg" class="text-primary-600 hover:text-primary-700">hello@genki.bg</a></p>
+      </div>
+
+      <!-- Section 2 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 2 – What Personal Data We Collect</h2>
+      <p class="text-gray-700 mb-4">
+        We collect the following categories of personal data provided by you through the contact form on the website:
+      </p>
+      <ul class="list-disc pl-6 mb-8 space-y-2 text-gray-700">
+        <li>First and last name</li>
+        <li>Email address</li>
+        <li>Phone number (optional)</li>
+        <li>Company name (if applicable)</li>
+        <li>Number of employees (for quote purposes)</li>
+        <li>Role/Position (optional)</li>
+        <li>Message content</li>
+      </ul>
+
+      <!-- Section 3 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 3 – Legal Basis for Processing</h2>
+      <p class="text-gray-700 mb-8">
+        We process personal data based on your explicit consent, provided through the contact form on the website.
+      </p>
+
+      <!-- Section 4 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 4 – Purpose of Processing</h2>
+      <p class="text-gray-700 mb-8">
+        Personal data is used solely to contact you regarding your inquiry about wellness benefit services, preparing a customized quote, or scheduling a call.
+      </p>
+
+      <!-- Section 5 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 5 – Retention Period</h2>
+      <p class="text-gray-700 mb-8">
+        We store your data for up to 6 months from the date of receipt, unless a partnership is established that requires a longer retention period in accordance with applicable law.
+      </p>
+
+      <!-- Section 6 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 6 – Data Recipients</h2>
+      <p class="text-gray-700 mb-8">
+        Data is stored via the secure Formspree service and is not provided to third parties without your consent, except when required by law.
+      </p>
+
+      <!-- Section 7 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 7 – Your Rights</h2>
+      <p class="text-gray-700 mb-4">
+        Under GDPR, you have the following rights:
+      </p>
+      <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+        <li>Right to access your personal data</li>
+        <li>Right to correction or deletion</li>
+        <li>Right to restrict processing</li>
+        <li>Right to data portability</li>
+        <li>Right to object to processing</li>
+        <li>Right to withdraw your consent at any time</li>
+      </ul>
+      <p class="text-gray-700 mb-8">
+        To exercise these rights, please contact us at: <a href="mailto:hello@genki.bg" class="font-semibold text-primary-600 hover:text-primary-700">hello@genki.bg</a>
+      </p>
+
+      <!-- Section 8 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 8 – Cookies and Third-Party Services</h2>
+      <p class="text-gray-700 mb-8">
+        Our site may use cookies, including those from Google Analytics, to improve user experience and analyze traffic.
+      </p>
+
+      <!-- Section 9 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 9 – Data Security</h2>
+      <p class="text-gray-700 mb-8">
+        We implement appropriate technical and organizational measures to ensure the security of your personal data.
+      </p>
+
+      <!-- Section 10 -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Section 10 – Updates</h2>
+      <p class="text-gray-700 mb-4">
+        This policy may be updated periodically.
+      </p>
+      <p class="text-gray-700 font-semibold">
+        Last updated: January 30, 2026
+      </p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="text-3xl">🌱</span>
+            <span class="text-2xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md">
+            Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.
+          </p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green">🇧🇬 Made in Bulgaria</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>
+              <a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a>
+            </li>
+            <li>
+              <a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a>
+            </li>
+            <li>Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">
+          © 2026 Genki. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    // Language switcher for privacy page
+    document.querySelectorAll('.lang-option[data-lang="bg"]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'privacy.html';
+      });
+    });
+  </script>
+</body>
+</html>
