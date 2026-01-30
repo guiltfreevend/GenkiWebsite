@@ -22,8 +22,8 @@ const translations = {
     bg: "Идва"
   },
   coming_subheadline: {
-    en: "Premium wellness benefit that fuels your team, supports Bulgarian businesses, and gives back to charity — every month.",
-    bg: "Премиум уелнес бенефит, който зарежда екипа Ви, подкрепя българския бизнес и дарява за благотворителност — всеки месец."
+    en: "A fresh approach to workplace wellness. Good for your team. Good for Bulgaria.",
+    bg: "Нов поглед към уелнеса на работното място. Добро за екипа. Добро за България."
   },
   coming_signup_title: {
     en: "Be the first to know when we launch",
