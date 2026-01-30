@@ -266,8 +266,8 @@ const translations = {
     bg: "100% от нашите продукти идват от български производители. Вашият абонамент директно подкрепя местната икономика."
   },
   index_pillar2_item1: {
-    en: "50+ local partners",
-    bg: "50+ местни партньори"
+    en: "10+ Bulgarian partners",
+    bg: "10+ български партньори"
   },
   index_pillar2_item2: {
     en: "Farm-to-office freshness",
@@ -282,8 +282,8 @@ const translations = {
     bg: "Месечни дарения"
   },
   index_pillar3_desc: {
-    en: "10% of every subscription goes directly to Bulgarian charities. Your company becomes a force for good — automatically.",
-    bg: "10% от всеки абонамент отива директно за български благотворителни организации. Вашата компания става сила за добро — автоматично."
+    en: "10% of our profits go directly to Bulgarian charities. Your company becomes a force for good — automatically.",
+    bg: "10% от печалбата ни отива директно за български благотворителни организации. Вашата компания става двигател на положителна промяна — автоматично."
   },
   index_pillar3_item1: {
     en: "Transparent donations",
@@ -444,8 +444,8 @@ const translations = {
     bg: "Вградена КСО"
   },
   companies_benefit2_desc: {
-    en: "10% charity donation included. Get automatic ESG impact for your sustainability reports.",
-    bg: "Включваме 10% дарение за благотворителност. Получавате автоматично ESG въздействие за отчетите Ви за устойчивост."
+    en: "10% of profits donated to charity included. Get automatic ESG impact for your sustainability reports.",
+    bg: "Включено е дарение на 10% от печалбата ни за благотворителност. Получавате автоматично ESG въздействие за отчетите Ви за устойчивост."
   },
   companies_benefit3_title: {
     en: "Boost Retention",
@@ -1033,8 +1033,8 @@ const translations = {
     bg: "Месечни дарения"
   },
   mission_pillar3_desc: {
-    en: "10% of every subscription goes directly to Bulgarian charities. It's not optional — it's built into our DNA. When you choose Genki, you automatically become a force for good.",
-    bg: "10% от всеки абонамент отива директно за български благотворителни организации. Не е опционално — това е вградено в нашата ДНК. Когато изберете Genki, автоматично ставате сила за добро."
+    en: "10% of our profits go directly to Bulgarian charities. It's not optional — it's built into our DNA. When you choose Genki, you automatically become a force for good.",
+    bg: "10% от печалбата ни отива директно за български благотворителни организации. Това не е по избор — заложено е в нашата ДНК. Когато изберете Genki, автоматично ставате част от положителната промяна."
   },
   mission_pillar3_transparent_title: {
     en: "Transparent Donations",
@@ -1978,12 +1978,12 @@ const translations = {
     bg: "100% Българско"
   },
   contact_trust_charity: {
-    en: "10% to Charity",
-    bg: "10% за благотворителност"
+    en: "10% Profits to Charity",
+    bg: "10% от печалбата за благотворителност"
   },
   contact_badge_charity: {
-    en: "10% to Charity",
-    bg: "10% за благотворителност"
+    en: "10% Profits to Charity",
+    bg: "10% от печалбата за благотворителност"
   },
   contact_trust_partners: {
     en: "50+ Partners",
