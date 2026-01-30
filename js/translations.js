@@ -3,6 +3,86 @@
 
 const translations = {
   // ===================
+  // COMING SOON PAGE
+  // ===================
+  coming_badge: {
+    en: "Launching Soon in Bulgaria",
+    bg: "Скоро в България"
+  },
+  coming_headline_1: {
+    en: "Something",
+    bg: "Нещо"
+  },
+  coming_headline_2: {
+    en: "Healthy",
+    bg: "здравословно"
+  },
+  coming_headline_3: {
+    en: "Is Coming",
+    bg: "идва"
+  },
+  coming_subheadline: {
+    en: "Premium wellness benefits that fuel your team, support Bulgarian businesses, and give back to charity — every month.",
+    bg: "Премиум уелнес придобивки, които зареждат екипа ви, подкрепят българския бизнес и даряват за благотворителност — всеки месец."
+  },
+  coming_signup_title: {
+    en: "Be the first to know when we launch",
+    bg: "Бъдете първите, които ще научат за стартирането"
+  },
+  coming_email_placeholder: {
+    en: "Enter your work email",
+    bg: "Въведете служебния си имейл"
+  },
+  coming_signup_button: {
+    en: "Get Early Access",
+    bg: "Ранен достъп"
+  },
+  coming_signup_note: {
+    en: "No spam. Just one email when we're ready.",
+    bg: "Без спам. Само един имейл, когато сме готови."
+  },
+  coming_success_title: {
+    en: "You're on the list!",
+    bg: "Вие сте в списъка!"
+  },
+  coming_success_desc: {
+    en: "We'll notify you as soon as Genki launches.",
+    bg: "Ще ви уведомим веднага щом Genki стартира."
+  },
+  coming_pillar1_title: {
+    en: "100% Healthy",
+    bg: "100% здравословно"
+  },
+  coming_pillar1_desc: {
+    en: "Bio & nutritious products only",
+    bg: "Само био и хранителни продукти"
+  },
+  coming_pillar2_title: {
+    en: "Bulgarian Made",
+    bg: "Българско производство"
+  },
+  coming_pillar2_desc: {
+    en: "Supporting local businesses",
+    bg: "Подкрепа за местния бизнес"
+  },
+  coming_pillar3_title: {
+    en: "10%+ to Charity",
+    bg: "10%+ за благотворителност"
+  },
+  coming_pillar3_desc: {
+    en: "Every month, guaranteed",
+    bg: "Всеки месец, гарантирано"
+  },
+  coming_pillar4_title: {
+    en: "Zero Admin",
+    bg: "Нулева администрация"
+  },
+  coming_pillar4_desc: {
+    en: "We handle everything for HR",
+    bg: "Ние поемаме всичко за HR"
+  },
+
+  // ===================
   // COMMON / NAVIGATION
   // ===================
   nav_home: {
