@@ -24,7 +24,7 @@ Genki partners with forward-thinking companies to deliver curated healthy food o
 ├── companies.html      # For Companies (B2B)
 ├── mission.html        # Our Mission
 ├── products.html       # Product Portfolio
-├── contact.html        # Contact & Demo Booking
+├── contact.html        # Contact & Call Booking
 ├── css/
 │   └── custom.css      # Custom styles
 ├── js/
