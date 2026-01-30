@@ -212,20 +212,20 @@ const translations = {
 
   // INDEX PAGE - STATS
   index_stat_partners: {
-    en: "Bulgarian Partners",
-    bg: "Български партньори"
+    en: "Bulgarian Products",
+    bg: "Български продукти"
   },
   index_stat_donated: {
-    en: "Donated Monthly",
+    en: "Monthly Donations",
     bg: "Месечни дарения"
   },
   index_stat_local: {
-    en: "Local Products",
-    bg: "Местни продукти"
+    en: "Healthy & Bio",
+    bg: "Здравословно и био"
   },
   index_stat_admin: {
-    en: "Admin Work for HR",
-    bg: "Администрация за HR"
+    en: "Admin Burden",
+    bg: "Административна тежест"
   },
 
   // INDEX PAGE - THREE PILLARS
