@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Genki - Premium wellness benefits for modern companies. Coming soon to Bulgaria.">
-  <title>Genki - Something Healthy Is Coming</title>
+  <meta name="description" content="Genki - Premium wellness benefits for modern companies. Healthy snacks, drinks & meals delivered to your office. Supporting Bulgarian businesses.">
+  <meta name="keywords" content="employee benefits, wellness, healthy snacks, office food, Bulgaria, HR benefits">
+  <title>Genki - Wellness Benefits for Modern Companies</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
@@ -47,321 +48,476 @@
     }
   </script>
 
-  <style>
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.5); }
-    }
-
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 1s ease-out forwards;
-    }
-
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .animate-pulse-glow {
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-    .delay-500 { animation-delay: 0.5s; }
-    .delay-600 { animation-delay: 0.6s; }
-    .delay-700 { animation-delay: 0.7s; }
-
-    .opacity-0 { opacity: 0; }
-
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Gradient background */
-    .gradient-bg {
-      background: linear-gradient(-45deg, #f0fdf4, #dcfce7, #f0fdfa, #ffffff);
-      background-size: 400% 400%;
-      animation: gradient-shift 15s ease infinite;
-    }
-
-    /* Glass card */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    /* Premium button */
-    .btn-premium {
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-    }
-
-    .btn-premium:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
-    }
-
-    /* Input field */
-    .input-premium {
-      background: white;
-      border: 2px solid #e5e7eb;
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .input-premium:focus {
-      outline: none;
-      border-color: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
-    }
-
-    /* Pillar card */
-    .pillar-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="font-sans antialiased gradient-bg min-h-screen">
+<body class="font-sans antialiased">
 
-  <!-- Main Container -->
-  <div class="min-h-screen flex flex-col">
-
-    <!-- Header -->
-    <header class="py-6 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <a href="#" class="flex items-center space-x-2 opacity-0 animate-fade-in">
-          <span class="text-4xl animate-float">🌱</span>
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-3xl">🌱</span>
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
 
-        <!-- Language Switcher -->
-        <div class="relative opacity-0 animate-fade-in">
-          <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors">
-            <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+                <span>🇬🇧</span> English
+              </a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+                <span>🇧🇬</span> Български
+              </a>
+            </div>
+          </div>
+
+          <a href="contact.html" class="btn-primary" data-i18n="nav_book_call">Book a Call</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-900 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
+        <span class="text-gray-500 text-sm">Language:</span>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">🇧🇬 BG</button>
+      </div>
+
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 fade-up">
+          <span class="mr-2">🇧🇬</span>
+          <span data-i18n="index_badge">100% Bulgarian Products</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 fade-up">
+          <span data-i18n="index_hero_title_1">Healthy Teams,</span>
+          <span class="gradient-text" data-i18n="index_hero_title_2">Thriving Business</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto fade-up" data-i18n="index_hero_subtitle">
+          Premium wellness benefits that employees actually love. Healthy snacks, drinks & meals delivered to your office — while supporting Bulgarian businesses and charity.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-up">
+          <a href="contact.html" class="btn-primary text-lg">
+            <span data-i18n="index_cta_book">Book a Free Call</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
-          </button>
-          <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-              <span>🇬🇧</span> English
-            </a>
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-              <span>🇧🇬</span> Български
-            </a>
+          </a>
+          <a href="companies.html" class="btn-secondary text-lg" data-i18n="index_cta_how">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-6 text-gray-500 fade-up">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span data-i18n="index_trust_admin">Zero Admin Burden</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span data-i18n="index_trust_flexible">Flexible Plans</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span data-i18n="index_trust_impact">Instant Social Impact</span>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-      <div class="max-w-4xl mx-auto text-center">
+  <!-- Stats Section -->
+  <section class="py-16 bg-white stats-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="50">50+</div>
+          <div class="text-gray-600 font-medium" data-i18n="index_stat_partners">Bulgarian Partners</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="10">10%</div>
+          <div class="text-gray-600 font-medium" data-i18n="index_stat_donated">Donated Monthly</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="100">100%</div>
+          <div class="text-gray-600 font-medium" data-i18n="index_stat_local">Local Products</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-count="0">0</div>
+          <div class="text-gray-600 font-medium" data-i18n="index_stat_admin">Admin Work for HR</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Hero Section -->
-        <div class="mb-12">
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-8 opacity-0 animate-fade-in-up">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-            </span>
-            <span data-i18n="coming_badge">Launching Soon in Bulgaria</span>
+  <!-- Three Pillars Section -->
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="index_pillars_title">
+          More Than Just a Benefit
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto fade-up" data-i18n="index_pillars_subtitle">
+          Every Genki subscription creates a triple impact — for your team, for Bulgarian businesses, and for those in need.
+        </p>
+        <div class="section-divider mt-6 fade-up"></div>
+      </div>
+
+      <!-- Pillars Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Pillar 1: Health -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-green-100 text-green-600">
+            🥗
           </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar1_title">Healthy & Bio Products</h3>
+          <p class="text-gray-600 mb-4" data-i18n="index_pillar1_desc">
+            Carefully curated selection of nutritious snacks, organic drinks, and balanced meals. No processed junk — only food that fuels performance.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> <span data-i18n="index_pillar1_item1">Bio-certified options</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> <span data-i18n="index_pillar1_item2">Nutritionist approved</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> <span data-i18n="index_pillar1_item3">Dietary accommodations</span>
+            </li>
+          </ul>
+        </div>
 
-          <!-- Main Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight opacity-0 animate-fade-in-up delay-100">
-            <span data-i18n="coming_headline_1">Something</span> <span class="gradient-text" data-i18n="coming_headline_2">Healthy</span><br class="hidden sm:block"> <span data-i18n="coming_headline_3">Is Coming</span>
-          </h1>
+        <!-- Pillar 2: Local -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-blue-100 text-blue-600">
+            🇧🇬
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar2_title">Supporting Bulgarian Businesses</h3>
+          <p class="text-gray-600 mb-4" data-i18n="index_pillar2_desc">
+            100% of our products come from local Bulgarian producers. Your benefit subscription directly supports the domestic economy.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> <span data-i18n="index_pillar2_item1">50+ local partners</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> <span data-i18n="index_pillar2_item2">Farm-to-office freshness</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">✓</span> <span data-i18n="index_pillar2_item3">Sustainable sourcing</span>
+            </li>
+          </ul>
+        </div>
 
-          <!-- Subheadline -->
-          <p class="text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in-up delay-200" data-i18n="coming_subheadline">
-            Premium wellness benefits that fuel your team, support Bulgarian businesses, and give back to charity — every month.
+        <!-- Pillar 3: Charity -->
+        <div class="card pillar-card fade-up">
+          <div class="card-icon bg-amber-100 text-amber-600">
+            💛
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar3_title">Giving Back Monthly</h3>
+          <p class="text-gray-600 mb-4" data-i18n="index_pillar3_desc">
+            10% of every subscription goes directly to Bulgarian charities. Your company becomes a force for good — automatically.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> <span data-i18n="index_pillar3_item1">Transparent donations</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> <span data-i18n="index_pillar3_item2">Monthly impact reports</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber-500">✓</span> <span data-i18n="index_pillar3_item3">Choose your causes</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="index_how_title">
+          Getting Started Is Simple
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto fade-up" data-i18n="index_how_subtitle">
+          We handle everything. You just approve the setup and watch employee satisfaction soar.
+        </p>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="index_step1_title">Book a Call</h3>
+          <p class="text-gray-600" data-i18n="index_step1_desc">
+            15-minute call to understand your team's needs and preferences.
           </p>
         </div>
 
-        <!-- Email Signup -->
-        <div id="signup-container" class="max-w-md mx-auto mb-16 opacity-0 animate-fade-in-up delay-300">
-          <div class="glass-card rounded-2xl p-6 sm:p-8">
-            <p class="text-gray-700 font-medium mb-4" data-i18n="coming_signup_title">Be the first to know when we launch</p>
-            <form id="signup-form" class="space-y-4">
-              <input
-                type="email"
-                id="email"
-                data-i18n-placeholder="coming_email_placeholder"
-                placeholder="Enter your work email"
-                class="input-premium"
-                required
-              >
-              <button type="submit" class="btn-premium w-full flex items-center justify-center gap-2">
-                <span data-i18n="coming_signup_button">Get Early Access</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        <!-- Step 2 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="index_step2_title">Customize Plan</h3>
+          <p class="text-gray-600" data-i18n="index_step2_desc">
+            We create a tailored product mix based on your team size and preferences.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="index_step3_title">We Deliver</h3>
+          <p class="text-gray-600" data-i18n="index_step3_desc">
+            Regular deliveries straight to your office. No storage hassles.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center fade-up">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-2xl font-bold text-primary-600 mx-auto mb-4">
+            4
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="index_step4_title">Team Enjoys</h3>
+          <p class="text-gray-600" data-i18n="index_step4_desc">
+            Your employees get great food. You get happier, healthier teams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition for HR -->
+  <section class="py-20 lg:py-28 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text Content -->
+        <div class="fade-up">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6" data-i18n="index_hr_title">
+            The Benefit Your HR Team Will Love
+          </h2>
+          <p class="text-xl text-primary-100 mb-8" data-i18n="index_hr_subtitle">
+            Unlike complex benefit programs, Genki requires zero administration. We handle everything — from sourcing to delivery to impact reporting.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-              </button>
-            </form>
-            <p class="text-sm text-gray-500 mt-4" data-i18n="coming_signup_note">No spam. Just one email when we're ready.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg" data-i18n="index_hr_vendor_title">No Vendor Management</h4>
+                <p class="text-primary-100" data-i18n="index_hr_vendor_desc">One subscription, 50+ product partners handled by us.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg" data-i18n="index_hr_esg_title">Instant ESG Impact</h4>
+                <p class="text-primary-100" data-i18n="index_hr_esg_desc">Built-in charity component boosts your CSR reporting.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg" data-i18n="index_hr_retention_title">Employee Retention Boost</h4>
+                <p class="text-primary-100" data-i18n="index_hr_retention_desc">A tangible daily benefit that shows you care.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Success Message (hidden by default) -->
-        <div id="success-message" class="hidden max-w-md mx-auto mb-16">
-          <div class="glass-card rounded-2xl p-8 text-center">
-            <div class="text-5xl mb-4">🎉</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="coming_success_title">You're on the list!</h3>
-            <p class="text-gray-600" data-i18n="coming_success_desc">We'll notify you as soon as Genki launches.</p>
+        <!-- Right: Feature Card -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-up">
+          <div class="text-center mb-6">
+            <div class="text-5xl mb-4">📊</div>
+            <h3 class="text-2xl font-bold" data-i18n="index_hr_card_title">Like Multisport, But for Nutrition</h3>
           </div>
-        </div>
-
-        <!-- Pillar Teasers -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-          <div class="pillar-card opacity-0 animate-fade-in-up delay-400">
-            <div class="text-4xl mb-3">🥗</div>
-            <h3 class="font-semibold text-gray-900 mb-1" data-i18n="coming_pillar1_title">100% Healthy</h3>
-            <p class="text-sm text-gray-600" data-i18n="coming_pillar1_desc">Bio & nutritious products only</p>
+          <p class="text-primary-100 text-center mb-6" data-i18n="index_hr_card_desc">
+            Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.
+          </p>
+          <div class="bg-white/10 rounded-xl p-4 text-center">
+            <div class="text-4xl font-bold mb-1">87%</div>
+            <div class="text-sm text-primary-100" data-i18n="index_hr_stat_desc">of employees say food benefits improve their workday</div>
           </div>
-
-          <div class="pillar-card opacity-0 animate-fade-in-up delay-500">
-            <div class="text-4xl mb-3">🇧🇬</div>
-            <h3 class="font-semibold text-gray-900 mb-1" data-i18n="coming_pillar2_title">Bulgarian Made</h3>
-            <p class="text-sm text-gray-600" data-i18n="coming_pillar2_desc">Supporting local businesses</p>
-          </div>
-
-          <div class="pillar-card opacity-0 animate-fade-in-up delay-600">
-            <div class="text-4xl mb-3">💚</div>
-            <h3 class="font-semibold text-gray-900 mb-1" data-i18n="coming_pillar3_title">10%+ to Charity</h3>
-            <p class="text-sm text-gray-600" data-i18n="coming_pillar3_desc">Every month, guaranteed</p>
-          </div>
-
-          <div class="pillar-card opacity-0 animate-fade-in-up delay-700">
-            <div class="text-4xl mb-3">✨</div>
-            <h3 class="font-semibold text-gray-900 mb-1" data-i18n="coming_pillar4_title">Zero Admin</h3>
-            <p class="text-sm text-gray-600" data-i18n="coming_pillar4_desc">We handle everything for HR</p>
-          </div>
-        </div>
-
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
-          <span class="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-3 py-1 rounded-full font-medium" data-i18n="footer_badge">
-            🇧🇬 Made in Bulgaria
-          </span>
-          <a href="mailto:hello@genki.bg" class="hover:text-primary-600 transition-colors">
-            hello@genki.bg
-          </a>
-          <span data-i18n="footer_copyright">© 2026 Genki</span>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-  </div>
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 fade-up" data-i18n="index_cta_title">
+        Ready to Transform Your Employee Benefits?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 fade-up" data-i18n="index_cta_subtitle">
+        Join forward-thinking companies that invest in their team's health while supporting local businesses and charity.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+        <a href="contact.html" class="btn-primary text-lg">
+          <span data-i18n="index_cta_schedule">Schedule a Free Call</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="companies.html" class="btn-secondary text-lg" data-i18n="index_cta_pricing">
+          View Pricing
+        </a>
+      </div>
+      <p class="text-sm text-gray-500 mt-6 fade-up" data-i18n="index_cta_note">
+        No commitment required. See if Genki is right for your team.
+      </p>
+    </div>
+  </section>
 
-  <!-- Translations -->
-  <script src="js/translations.js"></script>
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="text-3xl">🌱</span>
+            <span class="text-2xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">
+            Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.
+          </p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green">🇧🇬 <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>
+              <a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a>
+            </li>
+            <li>
+              <a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a>
+            </li>
+            <li>Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm" data-i18n="footer_rights">
+          © 2026 Genki. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" class="hover:text-white" data-i18n="footer_terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- JavaScript -->
-  <script>
-    // Form submission
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-
-      // Show success message
-      document.getElementById('signup-container').classList.add('hidden');
-      document.getElementById('success-message').classList.remove('hidden');
-
-      // Log to console (for testing)
-      console.log('Early access signup:', email);
-
-      // You can add your email collection logic here
-      // Options:
-      // 1. mailto link
-      // 2. Google Forms
-      // 3. Formspree
-      // 4. Netlify Forms
-      // 5. Custom backend
-    });
-
-    // Update placeholder text for language
-    function updatePlaceholders() {
-      const emailInput = document.getElementById('email');
-      if (emailInput) {
-        const key = emailInput.getAttribute('data-i18n-placeholder');
-        if (key && translations[key] && translations[key][currentLang]) {
-          emailInput.placeholder = translations[key][currentLang];
-        }
-      }
-    }
-
-    // Override updateContent to also update placeholders
-    const originalUpdateContent = updateContent;
-    updateContent = function() {
-      originalUpdateContent();
-      updatePlaceholders();
-    };
-  </script>
-
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
