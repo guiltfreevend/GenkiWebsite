@@ -37,11 +37,28 @@
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Home</a>
-          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">For Companies</a>
-          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Mission</a>
-          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Products</a>
-          <a href="contact.html" class="btn-primary">Book a Call</a>
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+                <span>🇬🇧</span> English
+              </a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+                <span>🇧🇬</span> Български
+              </a>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" data-i18n="nav_cta">Book a Call</a>
         </div>
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
           <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,11 +81,23 @@
       </button>
     </div>
     <div class="flex flex-col space-y-4">
-      <a href="index.html" class="text-lg font-medium text-gray-700 py-2">Home</a>
-      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2">For Companies</a>
-      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2">Our Mission</a>
-      <a href="products.html" class="text-lg font-medium text-gray-700 py-2">Products</a>
-      <a href="contact.html" class="btn-primary mt-4 text-center">Book a Call</a>
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+      <!-- Mobile Language Switcher -->
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
+        <div class="flex gap-2">
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+            <span>🇬🇧</span> EN
+          </a>
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+            <span>🇧🇬</span> BG
+          </a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_cta">Book a Call</a>
     </div>
   </div>
 
@@ -77,9 +106,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
-          Let's Talk About <span class="gradient-text">Your Team</span>
+          <span data-i18n="contact_hero_title">Let's Talk About</span> <span class="gradient-text" data-i18n="contact_hero_highlight">Your Team</span>
         </h1>
-        <p class="text-xl text-gray-600 fade-up">
+        <p class="text-xl text-gray-600 fade-up" data-i18n="contact_hero_subtitle">
           Book a free call and discover how Genki can transform your employee benefits while supporting local businesses and charity.
         </p>
       </div>
@@ -93,101 +122,101 @@
         <!-- Form Section -->
         <div class="fade-up">
           <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Book a Free Call</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="contact_form_title">Book a Free Call</h2>
             <form data-validate class="space-y-6">
               <!-- Name Fields -->
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label for="firstName" class="form-label">First Name *</label>
+                  <label for="firstName" class="form-label" data-i18n="contact_firstname">First Name *</label>
                   <input type="text" id="firstName" name="firstName" required class="form-input" placeholder="Maria">
                 </div>
                 <div>
-                  <label for="lastName" class="form-label">Last Name *</label>
+                  <label for="lastName" class="form-label" data-i18n="contact_lastname">Last Name *</label>
                   <input type="text" id="lastName" name="lastName" required class="form-input" placeholder="Petrova">
                 </div>
               </div>
 
               <!-- Email -->
               <div>
-                <label for="email" class="form-label">Work Email *</label>
+                <label for="email" class="form-label" data-i18n="contact_email">Work Email *</label>
                 <input type="email" id="email" name="email" required class="form-input" placeholder="maria@company.bg">
               </div>
 
               <!-- Phone -->
               <div>
-                <label for="phone" class="form-label">Phone Number *</label>
+                <label for="phone" class="form-label" data-i18n="contact_phone">Phone Number *</label>
                 <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+359 888 123 456">
               </div>
 
               <!-- Company -->
               <div>
-                <label for="company" class="form-label">Company Name *</label>
+                <label for="company" class="form-label" data-i18n="contact_company">Company Name *</label>
                 <input type="text" id="company" name="company" required class="form-input" placeholder="Acme Technologies">
               </div>
 
               <!-- Company Size -->
               <div>
-                <label for="companySize" class="form-label">Number of Employees *</label>
+                <label for="companySize" class="form-label" data-i18n="contact_size">Number of Employees *</label>
                 <select id="companySize" name="companySize" required class="form-input">
-                  <option value="">Select team size</option>
-                  <option value="100-200">100-200 employees</option>
-                  <option value="200-500">200-500 employees</option>
-                  <option value="500-1000">500-1000 employees</option>
-                  <option value="1000+">1000+ employees</option>
+                  <option value="" data-i18n="contact_size_select">Select team size</option>
+                  <option value="100-200" data-i18n="contact_size_100">100-200 employees</option>
+                  <option value="200-500" data-i18n="contact_size_200">200-500 employees</option>
+                  <option value="500-1000" data-i18n="contact_size_500">500-1000 employees</option>
+                  <option value="1000+" data-i18n="contact_size_1000">1000+ employees</option>
                 </select>
               </div>
 
               <!-- Role -->
               <div>
-                <label for="role" class="form-label">Your Role</label>
+                <label for="role" class="form-label" data-i18n="contact_role">Your Role</label>
                 <select id="role" name="role" class="form-input">
-                  <option value="">Select your role</option>
-                  <option value="hr">HR Manager / Director</option>
-                  <option value="office">Office Manager</option>
-                  <option value="ceo">CEO / Founder</option>
-                  <option value="coo">COO / Operations</option>
-                  <option value="other">Other</option>
+                  <option value="" data-i18n="contact_role_select">Select your role</option>
+                  <option value="hr" data-i18n="contact_role_hr">HR Manager / Director</option>
+                  <option value="office" data-i18n="contact_role_office">Office Manager</option>
+                  <option value="ceo" data-i18n="contact_role_ceo">CEO / Founder</option>
+                  <option value="coo" data-i18n="contact_role_coo">COO / Operations</option>
+                  <option value="other" data-i18n="contact_role_other">Other</option>
                 </select>
               </div>
 
               <!-- Interested In -->
               <div>
-                <label class="form-label">Interested In</label>
+                <label class="form-label" data-i18n="contact_interests">Interested In</label>
                 <div class="space-y-2">
                   <label class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" name="interests" value="snacks" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700">Healthy Snacks</span>
+                    <span class="text-gray-700" data-i18n="contact_interest_snacks">Healthy Snacks</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" name="interests" value="drinks" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700">Beverages</span>
+                    <span class="text-gray-700" data-i18n="contact_interest_drinks">Beverages</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" name="interests" value="meals" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700">Fresh Meals</span>
+                    <span class="text-gray-700" data-i18n="contact_interest_meals">Fresh Meals</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" name="interests" value="all" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700">Full Package (Everything)</span>
+                    <span class="text-gray-700" data-i18n="contact_interest_all">Full Package (Everything)</span>
                   </label>
                 </div>
               </div>
 
               <!-- Message -->
               <div>
-                <label for="message" class="form-label">Anything else we should know?</label>
-                <textarea id="message" name="message" rows="4" class="form-input" placeholder="Tell us about your team, any dietary requirements, or specific needs..."></textarea>
+                <label for="message" class="form-label" data-i18n="contact_message">Anything else we should know?</label>
+                <textarea id="message" name="message" rows="4" class="form-input" data-i18n-placeholder="contact_message_placeholder" placeholder="Tell us about your team, any dietary requirements, or specific needs..."></textarea>
               </div>
 
               <!-- Submit Button -->
-              <button type="submit" class="btn-primary w-full justify-center text-lg">
+              <button type="submit" class="btn-primary w-full justify-center text-lg" data-i18n="contact_submit">
                 Request a Call
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </button>
 
-              <p class="text-sm text-gray-500 text-center">
+              <p class="text-sm text-gray-500 text-center" data-i18n="contact_response">
                 We'll get back to you within 24 hours.
               </p>
             </form>
@@ -198,15 +227,15 @@
         <div class="space-y-8">
           <!-- What to Expect -->
           <div class="bg-gray-50 rounded-2xl p-8 fade-up">
-            <h3 class="text-xl font-bold text-gray-900 mb-6">What to Expect</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-6" data-i18n="contact_expect_title">What to Expect</h3>
             <div class="space-y-4">
               <div class="flex items-start gap-4">
                 <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <span class="text-primary-600 font-bold">1</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-gray-900">Quick Discovery Call</h4>
-                  <p class="text-gray-600 text-sm">15 minutes to understand your team's needs and preferences.</p>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step1_title">Quick Discovery Call</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step1_desc">15 minutes to understand your team's needs and preferences.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
@@ -214,8 +243,8 @@
                   <span class="text-primary-600 font-bold">2</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-gray-900">Custom Proposal</h4>
-                  <p class="text-gray-600 text-sm">We'll create a tailored product mix and pricing for your team.</p>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step2_title">Custom Proposal</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step2_desc">We'll create a tailored product mix and pricing for your team.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
@@ -223,8 +252,8 @@
                   <span class="text-primary-600 font-bold">3</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-gray-900">Sample Box</h4>
-                  <p class="text-gray-600 text-sm">Try our products risk-free before committing.</p>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step3_title">Sample Box</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step3_desc">Try our products risk-free before committing.</p>
                 </div>
               </div>
             </div>
@@ -232,7 +261,7 @@
 
           <!-- Contact Info -->
           <div class="bg-gradient-to-br from-primary-600 to-secondary-700 rounded-2xl p-8 text-white fade-up">
-            <h3 class="text-xl font-bold mb-6">Prefer to Reach Out Directly?</h3>
+            <h3 class="text-xl font-bold mb-6" data-i18n="contact_direct_title">Prefer to Reach Out Directly?</h3>
             <div class="space-y-4">
               <a href="mailto:hello@genki.bg" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
@@ -241,7 +270,7 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100">Email us</p>
+                  <p class="text-sm text-primary-100" data-i18n="contact_email_label">Email us</p>
                   <p class="font-semibold">hello@genki.bg</p>
                 </div>
               </a>
@@ -252,7 +281,7 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100">Call us</p>
+                  <p class="text-sm text-primary-100" data-i18n="contact_phone_label">Call us</p>
                   <p class="font-semibold">+359 888 123 456</p>
                 </div>
               </a>
@@ -264,8 +293,8 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100">Visit us</p>
-                  <p class="font-semibold">Sofia, Bulgaria</p>
+                  <p class="text-sm text-primary-100" data-i18n="contact_visit_label">Visit us</p>
+                  <p class="font-semibold" data-i18n="footer_location">Sofia, Bulgaria</p>
                 </div>
               </div>
             </div>
@@ -276,15 +305,15 @@
             <div class="grid grid-cols-3 gap-4 text-center">
               <div>
                 <div class="text-3xl mb-2">🇧🇬</div>
-                <p class="text-sm text-gray-600">100% Bulgarian</p>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_bulgarian">100% Bulgarian</p>
               </div>
               <div>
                 <div class="text-3xl mb-2">💛</div>
-                <p class="text-sm text-gray-600">10% to Charity</p>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_charity">10% to Charity</p>
               </div>
               <div>
                 <div class="text-3xl mb-2">🌱</div>
-                <p class="text-sm text-gray-600">50+ Partners</p>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_partners">50+ Partners</p>
               </div>
             </div>
           </div>
@@ -296,26 +325,26 @@
   <!-- FAQ Section -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8 fade-up">Quick Answers</h2>
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8 fade-up" data-i18n="contact_faq_title">Quick Answers</h2>
       <div class="space-y-4">
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">Is there a minimum commitment period?</summary>
-          <p class="text-gray-600 mt-4">We offer flexible 3-month, 6-month, or annual contracts. You can start with a 3-month pilot to test with your team.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq1_q">Is there a minimum commitment period?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq1_a">We offer flexible 3-month, 6-month, or annual contracts. You can start with a 3-month pilot to test with your team.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">How quickly can we get started?</summary>
-          <p class="text-gray-600 mt-4">Once you approve the proposal, we can have your first delivery within a week. Setup is completely hassle-free for your team.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq2_q">How quickly can we get started?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq2_a">Once you approve the proposal, we can have your first delivery within a week. Setup is completely hassle-free for your team.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">Do you deliver outside Sofia?</summary>
-          <p class="text-gray-600 mt-4">Yes! We deliver to major cities across Bulgaria including Plovdiv, Varna, Burgas, and more. Contact us for specific availability.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq3_q">Do you deliver outside Sofia?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq3_a">Yes! We deliver to major cities across Bulgaria including Plovdiv, Varna, Burgas, and more. Contact us for specific availability.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">Can we customize the product selection?</summary>
-          <p class="text-gray-600 mt-4">Absolutely. We'll work with you to create a mix that matches your team's preferences, dietary needs, and budget.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq4_q">Can we customize the product selection?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq4_a">Absolutely. We'll work with you to create a mix that matches your team's preferences, dietary needs, and budget.</p>
         </details>
       </div>
     </div>
@@ -330,39 +359,40 @@
             <span class="text-3xl">🌱</span>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
-          <p class="text-gray-400 mb-4 max-w-md">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green">🇧🇬 Made in Bulgaria</span>
+            <span class="badge badge-green" data-i18n="footer_badge">🇧🇬 Made in Bulgaria</span>
           </div>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-400 hover:text-white">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-400 hover:text-white">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
           <ul class="space-y-2 text-gray-400">
             <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
             <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
-            <li>Sofia, Bulgaria</li>
+            <li data-i18n="footer_location">Sofia, Bulgaria</li>
           </ul>
         </div>
       </div>
       <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-gray-500 text-sm">© 2026 Genki. All rights reserved.</p>
+        <p class="text-gray-500 text-sm" data-i18n="footer_copyright">© 2026 Genki. All rights reserved.</p>
         <div class="flex items-center gap-6 text-sm text-gray-500">
-          <a href="#" class="hover:text-white">Privacy Policy</a>
-          <a href="#" class="hover:text-white">Terms of Service</a>
+          <a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" class="hover:text-white" data-i18n="footer_terms">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

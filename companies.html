@@ -37,16 +37,24 @@
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Home</a>
-          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active">For Companies</a>
-          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Mission</a>
-          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Products</a>
-          <a href="contact.html" class="btn-primary">Book a Call</a>
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" data-i18n="nav_book_call">Book a Call</a>
         </div>
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
     </nav>
@@ -58,17 +66,20 @@
     <div class="flex items-center justify-between mb-8">
       <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
-        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
     </div>
     <div class="flex flex-col space-y-4">
-      <a href="index.html" class="text-lg font-medium text-gray-700 py-2">Home</a>
-      <a href="companies.html" class="text-lg font-medium text-gray-900 py-2">For Companies</a>
-      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2">Our Mission</a>
-      <a href="products.html" class="text-lg font-medium text-gray-700 py-2">Products</a>
-      <a href="contact.html" class="btn-primary mt-4 text-center">Book a Call</a>
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-900 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+      <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
+        <span class="text-gray-500 text-sm">Language:</span>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">🇧🇬 BG</button>
+      </div>
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
     </div>
   </div>
 
@@ -76,11 +87,11 @@
   <section class="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge badge-green mb-4">For IT Companies with 100+ Employees</span>
+        <span class="badge badge-green mb-4" data-i18n="companies_badge">For IT Companies with 100+ Employees</span>
         <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
-          The Employee Benefit That <span class="gradient-text">Actually Gets Used</span>
+          <span data-i18n="companies_hero_title_1">The Employee Benefit That</span> <span class="gradient-text" data-i18n="companies_hero_title_2">Actually Gets Used</span>
         </h1>
-        <p class="text-xl text-gray-600 fade-up">
+        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_hero_subtitle">
           Gym memberships sit unused. Genki snacks get enjoyed every day. Give your team a tangible benefit they'll love — with zero admin burden.
         </p>
       </div>
@@ -91,75 +102,57 @@
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up">Why HR Leaders Choose Genki</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_why_title">Why HR Leaders Choose Genki</h2>
         <div class="section-divider mt-4"></div>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Benefit 1 -->
         <div class="card fade-up">
           <div class="card-icon bg-green-100">
-            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Zero Time Investment</h3>
-          <p class="text-gray-600">No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit1_title">Zero Time Investment</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit1_desc">No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.</p>
         </div>
 
-        <!-- Benefit 2 -->
         <div class="card fade-up">
           <div class="card-icon bg-blue-100">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Built-in CSR</h3>
-          <p class="text-gray-600">10% charity donation included. Get automatic ESG impact for your sustainability reports.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit2_title">Built-in CSR</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit2_desc">10% charity donation included. Get automatic ESG impact for your sustainability reports.</p>
         </div>
 
-        <!-- Benefit 3 -->
         <div class="card fade-up">
           <div class="card-icon bg-purple-100">
-            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Boost Retention</h3>
-          <p class="text-gray-600">Daily visible benefit that employees appreciate. Shows you care about their wellbeing.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit3_title">Boost Retention</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit3_desc">Daily visible benefit that employees appreciate. Shows you care about their wellbeing.</p>
         </div>
 
-        <!-- Benefit 4 -->
         <div class="card fade-up">
           <div class="card-icon bg-amber-100">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Predictable Pricing</h3>
-          <p class="text-gray-600">Fixed per-employee cost. No surprise invoices, no complex calculations.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit4_title">Predictable Pricing</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit4_desc">Fixed per-employee cost. No surprise invoices, no complex calculations.</p>
         </div>
 
-        <!-- Benefit 5 -->
         <div class="card fade-up">
           <div class="card-icon bg-red-100">
-            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Healthier Teams</h3>
-          <p class="text-gray-600">Replace vending machine junk with nutritious options. Better focus, fewer sick days.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit5_title">Healthier Teams</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit5_desc">Replace vending machine junk with nutritious options. Better focus, fewer sick days.</p>
         </div>
 
-        <!-- Benefit 6 -->
         <div class="card fade-up">
           <div class="card-icon bg-teal-100">
-            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Support Local</h3>
-          <p class="text-gray-600">100% Bulgarian products. Your benefit spending stays in the local economy.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit6_title">Support Local</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit6_desc">100% Bulgarian products. Your benefit spending stays in the local economy.</p>
         </div>
       </div>
     </div>
@@ -169,117 +162,117 @@
   <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up">Simple, Transparent Pricing</h2>
-        <p class="text-xl text-gray-600 fade-up">Choose the plan that fits your team. All plans include delivery, setup, and charity donation.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_pricing_title">Simple, Transparent Pricing</h2>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_pricing_subtitle">Choose the plan that fits your team. All plans include delivery, setup, and charity donation.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <!-- Starter Plan -->
         <div class="pricing-card fade-up">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
-            <p class="text-gray-600 text-sm mb-4">Perfect for growing teams</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_starter">Starter</h3>
+            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_starter_desc">Perfect for growing teams</p>
             <div class="flex items-baseline justify-center gap-1">
               <span class="text-4xl font-bold text-gray-900">€15</span>
-              <span class="text-gray-600">/employee/month</span>
+              <span class="text-gray-600" data-i18n="companies_plan_per_employee">/employee/month</span>
             </div>
           </div>
           <ul class="space-y-3 mb-8">
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Weekly snack delivery
+              <span data-i18n="companies_plan_weekly">Weekly snack delivery</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              15+ product varieties
+              <span data-i18n="companies_plan_15_products">15+ product varieties</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              10% charity donation
+              <span data-i18n="companies_plan_charity">10% charity donation</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Email support
+              <span data-i18n="companies_plan_email">Email support</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-secondary w-full justify-center">Get Started</a>
+          <a href="contact.html" class="btn-secondary w-full justify-center" data-i18n="companies_get_started">Get Started</a>
         </div>
 
         <!-- Professional Plan -->
         <div class="pricing-card featured fade-up">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Professional</h3>
-            <p class="text-gray-600 text-sm mb-4">Most popular for tech companies</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_professional">Professional</h3>
+            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_professional_desc">Most popular for tech companies</p>
             <div class="flex items-baseline justify-center gap-1">
               <span class="text-4xl font-bold text-gray-900">€25</span>
-              <span class="text-gray-600">/employee/month</span>
+              <span class="text-gray-600" data-i18n="companies_plan_per_employee">/employee/month</span>
             </div>
           </div>
           <ul class="space-y-3 mb-8">
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              2x weekly delivery
+              <span data-i18n="companies_plan_2x_weekly">2x weekly delivery</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              30+ product varieties
+              <span data-i18n="companies_plan_30_products">30+ product varieties</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Drinks & beverages included
+              <span data-i18n="companies_plan_drinks">Drinks & beverages included</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              10% charity donation
+              <span data-i18n="companies_plan_charity">10% charity donation</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Monthly impact report
+              <span data-i18n="companies_plan_report">Monthly impact report</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Priority support
+              <span data-i18n="companies_plan_priority">Priority support</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-primary w-full justify-center">Get Started</a>
+          <a href="contact.html" class="btn-primary w-full justify-center" data-i18n="companies_get_started">Get Started</a>
         </div>
 
         <!-- Enterprise Plan -->
         <div class="pricing-card fade-up">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
-            <p class="text-gray-600 text-sm mb-4">For large organizations</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_plan_enterprise">Enterprise</h3>
+            <p class="text-gray-600 text-sm mb-4" data-i18n="companies_plan_enterprise_desc">For large organizations</p>
             <div class="flex items-baseline justify-center gap-1">
-              <span class="text-4xl font-bold text-gray-900">Custom</span>
+              <span class="text-4xl font-bold text-gray-900" data-i18n="companies_plan_custom">Custom</span>
             </div>
           </div>
           <ul class="space-y-3 mb-8">
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Daily fresh meals option
+              <span data-i18n="companies_plan_daily">Daily fresh meals option</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Unlimited product variety
+              <span data-i18n="companies_plan_unlimited">Unlimited product variety</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Multi-location support
+              <span data-i18n="companies_plan_multi">Multi-location support</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Choose your charities
+              <span data-i18n="companies_plan_choose_charity">Choose your charities</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Dedicated account manager
+              <span data-i18n="companies_plan_dedicated">Dedicated account manager</span>
             </li>
             <li class="flex items-center gap-2 text-gray-600">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              Custom branding options
+              <span data-i18n="companies_plan_branding">Custom branding options</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn-secondary w-full justify-center">Contact Sales</a>
+          <a href="contact.html" class="btn-secondary w-full justify-center" data-i18n="companies_contact_sales">Contact Sales</a>
         </div>
       </div>
     </div>
@@ -290,8 +283,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="fade-up">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">The ROI of Wellness Benefits</h2>
-          <p class="text-xl text-gray-600 mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" data-i18n="companies_roi_title">The ROI of Wellness Benefits</h2>
+          <p class="text-xl text-gray-600 mb-8" data-i18n="companies_roi_subtitle">
             Investing in employee health isn't just the right thing to do — it's smart business.
           </p>
 
@@ -301,8 +294,8 @@
                 <span class="text-2xl">📈</span>
               </div>
               <div>
-                <h4 class="font-bold text-gray-900 mb-1">Reduced Turnover</h4>
-                <p class="text-gray-600">Companies with strong benefits see 31% lower voluntary turnover. Replacing one employee costs 50-200% of their salary.</p>
+                <h4 class="font-bold text-gray-900 mb-1" data-i18n="companies_roi_turnover_title">Reduced Turnover</h4>
+                <p class="text-gray-600" data-i18n="companies_roi_turnover_desc">Companies with strong benefits see 31% lower voluntary turnover. Replacing one employee costs 50-200% of their salary.</p>
               </div>
             </div>
 
@@ -311,8 +304,8 @@
                 <span class="text-2xl">🎯</span>
               </div>
               <div>
-                <h4 class="font-bold text-gray-900 mb-1">Higher Productivity</h4>
-                <p class="text-gray-600">Healthy snacking improves focus and energy levels. No more post-lunch sugar crashes.</p>
+                <h4 class="font-bold text-gray-900 mb-1" data-i18n="companies_roi_productivity_title">Higher Productivity</h4>
+                <p class="text-gray-600" data-i18n="companies_roi_productivity_desc">Healthy snacking improves focus and energy levels. No more post-lunch sugar crashes.</p>
               </div>
             </div>
 
@@ -321,38 +314,38 @@
                 <span class="text-2xl">💼</span>
               </div>
               <div>
-                <h4 class="font-bold text-gray-900 mb-1">Easier Recruiting</h4>
-                <p class="text-gray-600">Stand out in the competitive IT market with tangible, visible benefits candidates appreciate.</p>
+                <h4 class="font-bold text-gray-900 mb-1" data-i18n="companies_roi_recruiting_title">Easier Recruiting</h4>
+                <p class="text-gray-600" data-i18n="companies_roi_recruiting_desc">Stand out in the competitive IT market with tangible, visible benefits candidates appreciate.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="bg-gray-50 rounded-2xl p-8 fade-up">
-          <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Sample ROI Calculation</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-6 text-center" data-i18n="companies_roi_calc_title">Sample ROI Calculation</h3>
           <div class="space-y-4">
             <div class="flex justify-between items-center py-3 border-b border-gray-200">
-              <span class="text-gray-600">Team size</span>
-              <span class="font-semibold text-gray-900">150 employees</span>
+              <span class="text-gray-600" data-i18n="companies_roi_team_size">Team size</span>
+              <span class="font-semibold text-gray-900">150 <span data-i18n="companies_roi_employees">employees</span></span>
             </div>
             <div class="flex justify-between items-center py-3 border-b border-gray-200">
-              <span class="text-gray-600">Monthly investment</span>
+              <span class="text-gray-600" data-i18n="companies_roi_monthly">Monthly investment</span>
               <span class="font-semibold text-gray-900">€3,750</span>
             </div>
             <div class="flex justify-between items-center py-3 border-b border-gray-200">
-              <span class="text-gray-600">Charity donated (10%)</span>
+              <span class="text-gray-600" data-i18n="companies_roi_charity_donated">Charity donated (10%)</span>
               <span class="font-semibold text-green-600">€375/month</span>
             </div>
             <div class="flex justify-between items-center py-3 border-b border-gray-200">
-              <span class="text-gray-600">Reduced turnover (est. 2 employees/year)</span>
-              <span class="font-semibold text-gray-900">€60,000 saved</span>
+              <span class="text-gray-600" data-i18n="companies_roi_reduced">Reduced turnover (est. 2 employees/year)</span>
+              <span class="font-semibold text-gray-900">€60,000 <span data-i18n="companies_roi_saved">saved</span></span>
             </div>
             <div class="flex justify-between items-center py-3 bg-green-50 rounded-lg px-4">
-              <span class="font-bold text-gray-900">Net Annual Benefit</span>
+              <span class="font-bold text-gray-900" data-i18n="companies_roi_net">Net Annual Benefit</span>
               <span class="font-bold text-green-600">€15,000+</span>
             </div>
           </div>
-          <p class="text-sm text-gray-500 mt-4 text-center">
+          <p class="text-sm text-gray-500 mt-4 text-center" data-i18n="companies_roi_disclaimer">
             *Based on industry averages. Your results may vary.
           </p>
         </div>
@@ -364,33 +357,33 @@
   <section class="py-20 bg-gray-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up">Frequently Asked Questions</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_faq_title">Frequently Asked Questions</h2>
       </div>
 
       <div class="space-y-4">
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">What's the minimum team size?</summary>
-          <p class="text-gray-600 mt-4">We work with companies that have 100+ employees. This allows us to provide the best value and service quality.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq1_q">What's the minimum team size?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq1_a">We work with companies that have 100+ employees. This allows us to provide the best value and service quality.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">How does delivery work?</summary>
-          <p class="text-gray-600 mt-4">We deliver directly to your office on a scheduled basis (weekly or bi-weekly depending on your plan). No need for storage — we bring exactly what your team needs.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq2_q">How does delivery work?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq2_a">We deliver directly to your office on a scheduled basis (weekly or bi-weekly depending on your plan). No need for storage — we bring exactly what your team needs.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">Can employees with dietary restrictions participate?</summary>
-          <p class="text-gray-600 mt-4">Absolutely. We accommodate vegetarian, vegan, gluten-free, and other dietary needs. Just let us know your team's requirements.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq3_q">Can employees with dietary restrictions participate?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq3_a">Absolutely. We accommodate vegetarian, vegan, gluten-free, and other dietary needs. Just let us know your team's requirements.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">Which charities receive the donations?</summary>
-          <p class="text-gray-600 mt-4">We partner with vetted Bulgarian charities. Enterprise clients can choose specific causes. All donations are documented for your CSR reporting.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq4_q">Which charities receive the donations?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq4_a">We partner with vetted Bulgarian charities. Enterprise clients can choose specific causes. All donations are documented for your CSR reporting.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer">What's the contract length?</summary>
-          <p class="text-gray-600 mt-4">We offer flexible 3-month, 6-month, or annual contracts. Start with a pilot to see how your team responds.</p>
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq5_q">What's the contract length?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq5_a">We offer flexible 3-month, 6-month, or annual contracts. Start with a pilot to see how your team responds.</p>
         </details>
       </div>
     </div>
@@ -399,13 +392,11 @@
   <!-- CTA Section -->
   <section class="py-20 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6 fade-up">Ready to Upgrade Your Benefits Package?</h2>
-      <p class="text-xl text-primary-100 mb-8 fade-up">Book a free call and see how Genki can transform your workplace.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 fade-up" data-i18n="companies_cta_title">Ready to Upgrade Your Benefits Package?</h2>
+      <p class="text-xl text-primary-100 mb-8 fade-up" data-i18n="companies_cta_subtitle">Book a free call and see how Genki can transform your workplace.</p>
       <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up">
-        Schedule Your Call
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
+        <span data-i18n="companies_cta_schedule">Schedule Your Call</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
     </div>
   </section>
@@ -419,22 +410,22 @@
             <span class="text-3xl">🌱</span>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
-          <p class="text-gray-400 mb-4 max-w-md">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green">🇧🇬 Made in Bulgaria</span>
+            <span class="badge badge-green">🇧🇬 <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
           </div>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-400 hover:text-white">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-400 hover:text-white">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
           <ul class="space-y-2 text-gray-400">
             <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
             <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
@@ -443,15 +434,16 @@
         </div>
       </div>
       <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-gray-500 text-sm">© 2026 Genki. All rights reserved.</p>
+        <p class="text-gray-500 text-sm" data-i18n="footer_rights">© 2026 Genki. All rights reserved.</p>
         <div class="flex items-center gap-6 text-sm text-gray-500">
-          <a href="#" class="hover:text-white">Privacy Policy</a>
-          <a href="#" class="hover:text-white">Terms of Service</a>
+          <a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" class="hover:text-white" data-i18n="footer_terms">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
