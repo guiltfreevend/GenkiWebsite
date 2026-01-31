@@ -680,8 +680,8 @@ const translations = {
     bg: "Нулева административна тежест за HR"
   },
   pricing_all_f3: {
-    en: "Professional setup & installation",
-    bg: "Професионална настройка и инсталация"
+    en: "Turnkey setup & installation (one-time setup investment)",
+    bg: "Цялостна настройка и инсталация (еднократна инвестиция за стартиране)"
   },
   pricing_all_f4: {
     en: "Dedicated account support",
@@ -1022,8 +1022,8 @@ const translations = {
     bg: "10% дарение за благотворителност"
   },
   all_plans_setup: {
-    en: "Professional setup & installation",
-    bg: "Професионална настройка и инсталация"
+    en: "Turnkey setup & installation (one-time setup investment)",
+    bg: "Цялостна настройка и инсталация (еднократна инвестиция за стартиране)"
   },
   all_plans_support: {
     en: "Dedicated account support",
@@ -1286,8 +1286,8 @@ const translations = {
     bg: "Как работи доставката?"
   },
   companies_faq2_a: {
-    en: "We deliver directly to your office on a scheduled basis (weekly or bi-weekly depending on your plan). No need for storage — we bring exactly what your team needs.",
-    bg: "Доставяме директно до Вашия офис по график (седмично или два пъти седмично, в зависимост от плана). Без нужда от съхранение — носим точно това, от което екипът Ви се нуждае."
+    en: "We deliver directly to your office on a customized schedule. Depending on your plan, this could be weekly, bi-weekly, twice a month, every 10 days, or monthly. Care plan offers maximum flexibility in scheduling, Hybrid offers good flexibility, and Starter has more structured options. During our initial call, we'll discuss your team's consumption patterns and find the delivery frequency that works best within your plan.",
+    bg: "Доставяме директно до Вашия офис по персонализиран график. В зависимост от плана, това може да бъде седмично, на две седмици, два пъти месечно, на всеки 10 дни или месечно. Care планът предлага максимална гъвкавост в графика, Hybrid предлага добра гъвкавост, а Starter има по-структурирани опции. По време на първоначалния ни разговор ще обсъдим моделите на консумация на Вашия екип и ще намерим честотата на доставка, която работи най-добре в рамките на Вашия план."
   },
   companies_faq3_q: {
     en: "Can employees with dietary restrictions participate?",
@@ -1312,6 +1312,14 @@ const translations = {
   companies_faq5_a: {
     en: "We offer flexible 3-month, 6-month, or annual contracts. Start with a pilot to see how your team responds.",
     bg: "Предлагаме гъвкави 3-месечни, 6-месечни или годишни договори. Започнете с пилотен период, за да видите как реагира екипът ви."
+  },
+  companies_faq_setup_q: {
+    en: "What about equipment and installation?",
+    bg: "Какво става с оборудването и инсталацията?"
+  },
+  companies_faq_setup_a: {
+    en: "We're a true A-Z solution. If your office doesn't have the necessary equipment (refrigerators, shelves, branded displays, or kiosk systems), we source and install everything for you. There's a one-time setup investment that covers all equipment, professional installation, and Genki branding. The amount depends on what your space needs - we'll assess this during our initial call and provide a clear quote. Most companies appreciate having one partner handle everything rather than coordinating multiple vendors.",
+    bg: "Ние сме истинско решение от А до Я. Ако вашият офис няма необходимото оборудване (хладилници, рафтове, брандирани дисплеи или kiosk системи), ние го осигуряваме и инсталираме всичко вместо вас. Има еднократна инвестиция за стартиране, която покрива цялото оборудване, професионален монтаж и Genki брандиране. Сумата зависи от това, от което се нуждае вашето пространство - ще го оценим по време на първоначалния разговор и ще предоставим ясна оферта. Повечето компании оценяват това да имат един партньор, който се грижи за всичко, вместо да координират множество доставчици."
   },
 
   // COMPANIES PAGE - CTA
@@ -1469,12 +1477,12 @@ const translations = {
     bg: "Внесени продукти"
   },
   mission_farm_title: {
-    en: "Farm-to-Office Freshness",
-    bg: "Свежест от фермата до офиса"
+    en: "Fresh & Local",
+    bg: "Пресно и местно"
   },
   mission_farm_desc: {
-    en: "Shorter supply chains mean fresher products. Many items reach your office within days of production.",
-    bg: "По-късите вериги за доставки означават по-пресни продукти. Много артикули достигат офиса Ви в рамките на дни от производството."
+    en: "Working with Bulgarian suppliers means fresher products for your team and support for local businesses and families.",
+    bg: "Работата с български доставчици означава по-пресни продукти за Вашия екип и подкрепа за местни бизнеси и семейства."
   },
   mission_economy_title: {
     en: "Strengthening Local Economy",
@@ -1777,8 +1785,8 @@ const translations = {
     bg: "Продуктова селекция"
   },
   products_hero_subtitle: {
-    en: "Carefully curated healthy options from 50+ Bulgarian producers. Everything your team needs to stay energized throughout the day.",
-    bg: "Внимателно подбрани здравословни опции от 50+ български производители. Всичко, от което екипът Ви се нуждае, за да остане енергичен през целия ден."
+    en: "Carefully curated healthy options from Bulgarian producers. Everything your team needs to stay energized throughout the day.",
+    bg: "Внимателно подбрани здравословни опции от български производители. Всичко, от което екипът Ви се нуждае, за да остане енергичен през целия ден."
   },
   products_cat_snacks: {
     en: "Snacks",
@@ -1833,20 +1841,24 @@ const translations = {
     bg: "Ежедневни пресни доставки от местни ферми"
   },
   products_meals_title: {
-    en: "Prepared Meals",
-    bg: "Приготвени ястия"
+    en: "Fresh Meals (Customized Upon Request)",
+    bg: "Пресни ястия (по заявка)"
   },
   products_meals_subtitle: {
-    en: "Full meals for busy workdays",
-    bg: "Пълноценни ястия за натоварени работни дни"
+    en: "We partner with local Bulgarian kitchens to provide healthy meal options when your team needs them.",
+    bg: "Партнираме с местни български кухни, за да осигурим здравословни ястия, когато екипът Ви има нужда от тях."
   },
   products_meals_desc: {
-    en: "Full meals for busy workdays",
-    bg: "Пълноценни ястия за натоварени работни дни"
+    en: "We partner with local Bulgarian kitchens to provide healthy meal options when your team needs them.",
+    bg: "Партнираме с местни български кухни, за да осигурим здравословни ястия, когато екипът Ви има нужда от тях."
   },
   products_meals_note: {
-    en: "Available in Professional and Enterprise plans",
-    bg: "Достъпно в плановете Професионален и Корпоративен"
+    en: "Available with Hybrid and Care plans",
+    bg: "Достъпно с Hybrid и Care планове"
+  },
+  products_meals_custom: {
+    en: "Meal options are customized based on your team's needs and preferences. During our consultation, we'll discuss what's possible and provide you with the best options.",
+    bg: "Опциите за ястия са персонализирани според нуждите и предпочитанията на Вашия екип. По време на консултацията ще обсъдим възможностите и ще Ви предложим най-добрите опции."
   },
   products_badge_bio: {
     en: "Bio",
@@ -1934,8 +1946,84 @@ const translations = {
     bg: "Протеинови барове"
   },
   products_bars_desc: {
-    en: "No added sugar, 20g protein per bar",
-    bg: "Без добавена захар, 20г протеин на бар"
+    en: "No added sugar, high protein content",
+    bg: "Без добавена захар, високо съдържание на протеин"
+  },
+  products_cookies_title: {
+    en: "Cookies",
+    bg: "Бисквити"
+  },
+  products_cookies_desc: {
+    en: "Healthy cookies with natural ingredients",
+    bg: "Здравословни бисквити с натурални съставки"
+  },
+  products_wafers_title: {
+    en: "Wafers",
+    bg: "Вафли"
+  },
+  products_wafers_desc: {
+    en: "Light and crispy, perfect for a quick snack",
+    bg: "Леки и хрупкави, перфектни за бърза закуска"
+  },
+  products_icetea_title: {
+    en: "Ice Teas",
+    bg: "Ледени чайове"
+  },
+  products_icetea_desc: {
+    en: "Chilled teas in various flavors",
+    bg: "Охладени чайове с различни вкусове"
+  },
+  products_energy_title: {
+    en: "Energy Drinks",
+    bg: "Енергийни напитки"
+  },
+  products_energy_desc: {
+    en: "Healthy energy boost options",
+    bg: "Здравословни опции за енергия"
+  },
+  products_sparkling_title: {
+    en: "Sparkling Water",
+    bg: "Газирана вода"
+  },
+  products_sparkling_desc: {
+    en: "Refreshing sparkling options",
+    bg: "Освежаващи газирани опции"
+  },
+  products_balanced_title: {
+    en: "Balanced Meals",
+    bg: "Балансирани ястия"
+  },
+  products_balanced_desc: {
+    en: "Lunch boxes & more",
+    bg: "Кутии за обяд и още"
+  },
+  products_poke_title: {
+    en: "Poke Bowls",
+    bg: "Поке боули"
+  },
+  products_poke_desc: {
+    en: "Fresh and healthy bowl options",
+    bg: "Пресни и здравословни опции за боули"
+  },
+  products_salads_desc: {
+    en: "Various healthy salad options available",
+    bg: "Различни здравословни опции за салати"
+  },
+  products_badge_tasty: {
+    en: "Tasty",
+    bg: "Вкусно"
+  },
+  products_badge_refreshing: {
+    en: "Refreshing",
+    bg: "Освежаващо"
+  },
+  products_badge_energy: {
+    en: "Energy",
+    bg: "Енергия"
+  },
+  products_badge_request: {
+    en: "Upon Request",
+    bg: "По заявка"
   },
   products_granola_title: {
     en: "Granola Mix",
@@ -2061,7 +2149,7 @@ const translations = {
     en: "Fresh Salads",
     bg: "Пресни салати"
   },
-  products_salads_desc: {
+  products_salads_desc_old: {
     en: "Shopska, Greek, Caesar & more",
     bg: "Шопска, гръцка, Цезар и други"
   },
