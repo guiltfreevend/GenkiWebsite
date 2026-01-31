@@ -1397,28 +1397,28 @@ const translations = {
   },
   // Mission page aliases (matching data-i18n keys used in HTML)
   mission_bio_title: {
-    en: "Bio-Certified Options",
-    bg: "Био-сертифицирани опции"
+    en: "Healthier Alternatives",
+    bg: "По-здравословни алтернативи"
   },
   mission_bio_desc: {
-    en: "Many of our products carry organic certifications, ensuring they're free from harmful pesticides and additives.",
-    bg: "Много от нашите продукти имат органични сертификати, гарантиращи, че са без вредни пестициди и добавки."
+    en: "We stock the healthy versions of what people actually want - protein bars instead of candy, kombucha instead of soda, nutritious cookies instead of sugar bombs.",
+    bg: "Предлагаме здравословните версии на това, което хората наистина искат - протеинови барове вместо бонбони, комбуча вместо газирано, питателни бисквити вместо захарни бомби."
   },
   mission_nutritionist_title: {
-    en: "Nutritionist Approved",
-    bg: "Одобрено от нутриционист"
+    en: "No Harmful Ingredients",
+    bg: "Без вредни съставки"
   },
   mission_nutritionist_desc: {
-    en: "Every product in our catalog is reviewed for nutritional value. We focus on balanced macros, natural ingredients, and sustained energy.",
-    bg: "Всеки продукт в нашия каталог е прегледан за хранителна стойност. Фокусираме се върху балансирани макроси, естествени съставки и устойчива енергия."
+    en: "Every product meets our quality standards - no artificial additives, no excessive sugar, no empty calories. Just real ingredients that fuel your team.",
+    bg: "Всеки продукт отговаря на нашите стандарти за качество - без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа ви."
   },
   mission_nojunk_title: {
-    en: "No Junk Food",
-    bg: "Без вредна храна"
+    en: "Energy & Performance",
+    bg: "Енергия и продуктивност"
   },
   mission_nojunk_desc: {
-    en: "You won't find chips, candy, or sugary drinks in our selection. We're here to fuel performance, not sugar crashes.",
-    bg: "Няма да намерите чипс, бонбони или сладки напитки в нашата селекция. Тук сме, за да подхранваме производителността, не захарните сривове."
+    en: "Designed for sustained energy throughout the workday. No sugar crashes, no afternoon slumps - just consistent fuel for focus and productivity.",
+    bg: "Създадено за устойчива енергия през целия работен ден. Без захарни сривове, без следобеден спад - само постоянно гориво за фокус и продуктивност."
   },
   mission_offer_title: {
     en: "What We Offer",
@@ -1429,52 +1429,52 @@ const translations = {
     bg: "Снаксове"
   },
   mission_offer_snacks_desc: {
-    en: "Nuts, dried fruits, protein bars, rice cakes, granola",
-    bg: "Ядки, сушени плодове, протеинови барове, оризови бисквити, гранола"
+    en: "Cookies, wafers, protein bars, rice cakes",
+    bg: "Бисквити, вафли, протеинови барове, оризови бисквити"
   },
   mission_offer_drinks: {
     en: "Drinks",
     bg: "Напитки"
   },
   mission_offer_drinks_desc: {
-    en: "Fresh juices, herbal teas, kombucha, natural waters",
-    bg: "Пресни сокове, билкови чайове, комбуча, натурални води"
+    en: "Ice teas, energy drinks, fresh juices, sparkling water, kombucha",
+    bg: "Ледени чайове, енергийни напитки, пресни сокове, газирана вода, комбуча"
   },
   mission_offer_fresh: {
-    en: "Fresh Foods",
-    bg: "Пресни храни"
+    en: "Fresh Options",
+    bg: "Пресни опции"
   },
   mission_offer_fresh_desc: {
-    en: "Yogurt, cheese, seasonal fruits, salads",
-    bg: "Кисело мляко, сирене, сезонни плодове, салати"
+    en: "Yogurt, granola, healthy breakfast items",
+    bg: "Кисело мляко, гранола, здравословни закуски"
   },
   mission_offer_meals: {
     en: "Meals",
     bg: "Ястия"
   },
   mission_offer_meals_desc: {
-    en: "Healthy lunches, wraps, soups (Enterprise)",
-    bg: "Здравословни обеди, рапове, супи (Корпоративен)"
+    en: "Salads, balanced meals (Care plan, limited options for Hybrid)",
+    bg: "Салати, балансирани ястия (Care план, ограничени опции за Hybrid)"
   },
   mission_partners_title: {
     en: "Our Partners",
     bg: "Нашите партньори"
   },
   mission_stat_producers: {
-    en: "Local producers",
-    bg: "Местни производители"
+    en: "Imported Products",
+    bg: "Внесени продукти"
   },
   mission_stat_regions: {
-    en: "Regions represented",
-    bg: "Представени региони"
+    en: "Product Categories",
+    bg: "Продуктови категории"
   },
   mission_stat_sourcing: {
-    en: "Bulgarian sourcing",
-    bg: "Българско снабдяване"
+    en: "Revenue Stays in Bulgaria",
+    bg: "Приходите остават в България"
   },
   mission_stat_imported: {
-    en: "Imported products",
-    bg: "Внесени продукти"
+    en: "Supplier Relationships",
+    bg: "Връзки с доставчици"
   },
   mission_farm_title: {
     en: "Fresh & Local",
