@@ -374,8 +374,8 @@ const translations = {
     bg: "Осезаема ежедневна придобивка, която показва, че се грижите."
   },
   index_hr_card_title: {
-    en: "Like Multisport, But for Nutrition",
-    bg: "Като Multisport, но за хранене"
+    en: "Like Sports Cards, But for Nutrition",
+    bg: "Като спортните карти, но за хранене"
   },
   index_hr_card_desc: {
     en: "Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.",
@@ -412,8 +412,8 @@ const translations = {
   // COMPANIES PAGE
   // ===================
   companies_badge: {
-    en: "For IT Companies with 100+ Employees",
-    bg: "За IT компании със 100+ служители"
+    en: "Ideal for Growing IT Teams",
+    bg: "Идеално за разрастващи се IT екипи"
   },
   companies_hero_title_1: {
     en: "The Employee Benefit That",
@@ -456,12 +456,12 @@ const translations = {
     bg: "Ежедневна видима придобивка, която служителите ценят. Показва, че се грижите за тяхното благополучие."
   },
   companies_benefit4_title: {
-    en: "Predictable Pricing",
-    bg: "Предвидимо ценообразуване"
+    en: "Build Culture",
+    bg: "Изградете екипна култура"
   },
   companies_benefit4_desc: {
-    en: "Fixed per-employee cost. No surprise invoices, no complex calculations.",
-    bg: "Фиксирана цена на служител. Без изненадващи фактури, без сложни изчисления."
+    en: "Create a social hub with 85-90% daily engagement. Turn healthy eating into team bonding moments.",
+    bg: "Създайте социално средище с 85–90% ежедневна ангажираност. Превърнете здравословното хранене в моменти за сплотяване на екипа."
   },
   companies_benefit5_title: {
     en: "Healthier Teams",
@@ -488,6 +488,242 @@ const translations = {
   companies_pricing_subtitle: {
     en: "Choose the plan that fits your team and budget. All plans include delivery, setup, and charity donation.",
     bg: "Изберете плана, който отговаря на екипа и бюджета Ви. Всички планове включват доставка, настройка и благотворително дарение."
+  },
+
+  // NEW PRICING PAGE - Hero Section
+  pricing_hero_title: {
+    en: "Flexible Wellness Plans",
+    bg: "Гъвкави уелнес планове"
+  },
+  pricing_hero_subtitle: {
+    en: "Not all wellness benefits are equal. Choose the plan that matches your culture ambitions.",
+    bg: "Не всички уелнес бенефити са еднакви. Изберете плана, който пасва на културата, която искате да изградите."
+  },
+
+  // NEW PRICING - Starter Card
+  pricing_starter_tagline: {
+    en: "Wellness Access",
+    bg: "Уелнес достъп"
+  },
+  pricing_starter_desc: {
+    en: "Employees pay, company provides infrastructure",
+    bg: "Служителите плащат, компанията осигурява инфраструктурата"
+  },
+  pricing_starter_f1: {
+    en: "Snacks & drinks only",
+    bg: "Само снаксове и напитки"
+  },
+  pricing_starter_f2: {
+    en: "Weekly deliveries",
+    bg: "Седмични доставки"
+  },
+  pricing_starter_f3: {
+    en: "Monthly sales summary",
+    bg: "Месечно резюме на продажбите"
+  },
+  pricing_starter_f4: {
+    en: "Email support (24-48h)",
+    bg: "Имейл поддръжка (24–48 ч)"
+  },
+  pricing_starter_reality: {
+    en: "Low engagement — employees treat it like any paid kiosk. Minimal culture impact.",
+    bg: "Ниска ангажираност — служителите го възприемат като просто платен киоск. Минимално въздействие върху екипната култура."
+  },
+  pricing_starter_best: {
+    en: "Best for: Budget-conscious companies wanting basic wellness option",
+    bg: "Подходящ за: Компании с ограничен бюджет, които търсят базова уелнес опция."
+  },
+
+  // NEW PRICING - Care Card
+  pricing_badge_popular: {
+    en: "Highest Impact",
+    bg: "Максимален Ефект"
+  },
+  pricing_care_tagline: {
+    en: "Complete Culture Solution",
+    bg: "Пълно решение за екипната култура"
+  },
+  pricing_care_desc: {
+    en: "Full company coverage — FREE for all employees",
+    bg: "Изцяло покрито от компанията — БЕЗПЛАТНО за всички служители"
+  },
+  pricing_care_f1: {
+    en: "Full product range + seasonal specials",
+    bg: "Пълна продуктова гама + сезонни предложения"
+  },
+  pricing_care_f2: {
+    en: "Custom schedule + unlimited emergency restocking",
+    bg: "График по избор + неограничени спешни зареждания"
+  },
+  pricing_care_f3: {
+    en: "Named account manager + monthly strategy calls",
+    bg: "Личен мениджър + месечни стратегически разговори"
+  },
+  pricing_care_f4: {
+    en: "Detailed analytics & employee insights",
+    bg: "Детайлна аналитика и изводи за екипа"
+  },
+  pricing_care_f5: {
+    en: "2-4 community events per year",
+    bg: "2–4 събития годишно"
+  },
+  pricing_care_f6: {
+    en: "Employees vote on charity + impact reports",
+    bg: "Служителите гласуват за каузата + отчети за въздействието"
+  },
+  pricing_care_f7: {
+    en: "Priority support 7 days/week (10-19h)",
+    bg: "Приоритетна поддръжка 7 дни/седмица (10–19 ч)"
+  },
+  pricing_care_impact: {
+    en: "HIGH ENGAGEMENT: 85-90% daily usage with 3-5 visits per day. This transforms your office into a culture hub, not just a workplace.",
+    bg: "ВИСОКА АНГАЖИРАНОСТ: 85–90% ежедневна употреба с 3–5 посещения на ден. Това превръща офиса Ви в социално средище — не просто работно място."
+  },
+  pricing_care_best: {
+    en: "Best for: Companies serious about retention, culture, and winning the talent war",
+    bg: "Подходящ за: Компании, които поставят фокус върху задържането, екипната култура и силното позициониране като работодател."
+  },
+
+  // NEW PRICING - Hybrid Card
+  pricing_hybrid_tagline: {
+    en: "Enhanced Wellness",
+    bg: "Надграден уелнес"
+  },
+  pricing_hybrid_desc: {
+    en: "Shared investment — test impact before full commitment",
+    bg: "Споделена инвестиция — тествайте въздействието преди пълен ангажимент"
+  },
+  pricing_hybrid_f1: {
+    en: "Snacks, drinks + 2-3 meal options monthly",
+    bg: "Снаксове, напитки + 2-3 опции за храна месечно"
+  },
+  pricing_hybrid_f2: {
+    en: "Flexible schedule + 1 emergency restock/month",
+    bg: "Гъвкав график + 1 спешно зареждане/месец"
+  },
+  pricing_hybrid_f3: {
+    en: "Monthly detailed analytics",
+    bg: "Месечна детайлна аналитика"
+  },
+  pricing_hybrid_f4: {
+    en: "Dedicated contact + quarterly calls",
+    bg: "Лице за контакт + тримесечни разговори"
+  },
+  pricing_hybrid_f5: {
+    en: "Phone + email support (12-24h, Mon-Fri)",
+    bg: "Телефон + имейл поддръжка (12–24 ч, Пон–Пет)"
+  },
+  pricing_hybrid_reality: {
+    en: "Medium engagement — employees use it occasionally. Some culture building, but cost barrier limits daily usage.",
+    bg: "Средна ангажираност — служителите го използват от време на време. Има ефект върху екипната култура, но ценовата бариера ограничава ежедневната употреба."
+  },
+  pricing_hybrid_best: {
+    en: "Best for: Companies ready to invest but wanting to measure engagement first",
+    bg: "Подходящ за: Компании, готови да инвестират, но които искат първо да измерят ангажираността."
+  },
+
+  // NEW PRICING - CTAs
+  pricing_cta_quote: {
+    en: "Get Custom Quote",
+    bg: "Получете оферта"
+  },
+  pricing_cta_call: {
+    en: "Book a Call",
+    bg: "Запазете разговор"
+  },
+
+  // NEW PRICING - Why Care Works Section
+  pricing_why_title: {
+    en: "Why Free Changes Everything",
+    bg: "Защо безплатното променя всичко"
+  },
+  pricing_why_subtitle: {
+    en: "It's not just about the food. It's about daily touchpoints that build culture, connection, and retention.",
+    bg: "Не е само храната. Важни са ежедневните моменти на контакт, които изграждат култура, свързаност и задържане на таланти."
+  },
+  pricing_why1_title: {
+    en: "The Engagement Gap",
+    bg: "Разликата в ангажираността"
+  },
+  pricing_why1_text: {
+    en: "Starter: ~15-20% regular usage | Hybrid: ~40-50% engagement | <strong>Care: 85-90% daily usage with 3-5 visits per day</strong>",
+    bg: "Starter: ~15–20% редовна употреба | Hybrid: ~40–50% ангажираност | <strong>Care: 85–90% ежедневна употреба с 3–5 посещения на ден</strong>"
+  },
+  pricing_why2_title: {
+    en: "The Social Hub Effect",
+    bg: "Ефектът на социалното средище"
+  },
+  pricing_why2_text: {
+    en: "When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections. Not a kiosk — a culture hub.",
+    bg: "Когато е безплатно, Genki кътът става естественото място за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истинска свързаност. Не киоск — място, което изгражда екипна култура."
+  },
+  pricing_why3_title: {
+    en: "The Retention Tool",
+    bg: "Инструментът за задържане"
+  },
+  pricing_why3_text: {
+    en: "\"We have free healthy food daily\" shows up in interviews. Employees mention it as why they stayed. Your competitors can't easily copy this.",
+    bg: '„Имаме безплатна здравословна храна всеки ден" се споменава в интервюта. Служителите го посочват като причина да останат. Конкурентите Ви трудно могат да копират това — оперативната сложност се превръща във Ваше устойчиво предимство.'
+  },
+
+  // NEW PRICING - All Plans Include
+  pricing_all_title: {
+    en: "All plans include:",
+    bg: "Всички планове включват:"
+  },
+  pricing_all_f1: {
+    en: "100% Bulgarian products",
+    bg: "100% български продукти"
+  },
+  pricing_all_f2: {
+    en: "Zero admin burden for HR",
+    bg: "Нулева административна тежест за HR"
+  },
+  pricing_all_f3: {
+    en: "Professional setup & installation",
+    bg: "Професионална настройка и инсталация"
+  },
+  pricing_all_f4: {
+    en: "Dedicated account support",
+    bg: "Персонална поддръжка"
+  },
+  pricing_all_f5: {
+    en: "10% donated to charity monthly",
+    bg: "10% от печалбата — месечно дарение за благотворителност"
+  },
+  pricing_all_f6: {
+    en: "Customizable order sizes",
+    bg: "Персонализируеми количества"
+  },
+
+  // NEW PRICING - Comparison Section
+  pricing_compare_title: {
+    en: "Compare to Other Benefits",
+    bg: "Сравнете с други бенефити"
+  },
+  pricing_compare_ms1: {
+    en: "Usage: 1-2x per week by 20% of employees",
+    bg: "Употреба: 1–2 пъти седмично от ~20% от служителите"
+  },
+  pricing_compare_ms2: {
+    en: "Requires: Motivation + time after work",
+    bg: "Изисква: мотивация + време след работа"
+  },
+  pricing_compare_ms3: {
+    en: "Impact: Individual health (if they go)",
+    bg: "Ефект: индивидуално здраве (ако се използва)"
+  },
+  pricing_compare_gc1: {
+    en: "<strong>Usage: 3-5x per day by 90% of employees</strong>",
+    bg: "<strong>Употреба: 3–5 пъти на ден от ~90% от служителите</strong>"
+  },
+  pricing_compare_gc2: {
+    en: "Requires: Nothing — it's just there",
+    bg: "Изисква: нищо — просто е там"
+  },
+  pricing_compare_gc3: {
+    en: "<strong>Impact: Culture transformation + health + retention</strong>",
+    bg: "<strong>Ефект: по-силна екипна култура + здраве + задържане на таланти</strong>"
   },
 
   // Plan Names & Taglines
@@ -528,8 +764,8 @@ const translations = {
     bg: "Изцяло покрито от компанията — нашият премиум план"
   },
   companies_plan_badge_popular: {
-    en: "Most Popular",
-    bg: "Най-популярен"
+    en: "Highest Impact",
+    bg: "Максимален Ефект"
   },
 
   // Section Headers
@@ -878,18 +1114,172 @@ const translations = {
     bg: "*Въз основа на средни стойности за индустрията. Вашите резултати може да варират."
   },
 
+  // INTERACTIVE ROI CALCULATOR
+  roi_calc_title: {
+    en: "Calculate Your Wellness ROI",
+    bg: "Изчислете Вашата ROI от уелнес"
+  },
+  roi_team_size_label: {
+    en: "Team Size",
+    bg: "Размер на екипа"
+  },
+  roi_employees: {
+    en: "employees",
+    bg: "служители"
+  },
+  roi_scenario: {
+    en: "💡 Example: Mid-sized IT Company",
+    bg: "💡 Пример: Средна IT компания"
+  },
+  roi_avg_salary: {
+    en: "Avg IT Salary Bulgaria:",
+    bg: "Средна IT заплата в България:"
+  },
+  roi_per_year: {
+    en: "/year",
+    bg: "/годишно"
+  },
+  roi_monthly_investment: {
+    en: "Monthly Genki Investment:",
+    bg: "Месечна инвестиция в Genki:"
+  },
+  roi_per_employee: {
+    en: "/employee",
+    bg: "/служител"
+  },
+  roi_thats_just: {
+    en: "🎯 That's just",
+    bg: "🎯 Това е само"
+  },
+  roi_per_day: {
+    en: "per day per employee",
+    bg: "на ден на служител"
+  },
+  roi_calculation: {
+    en: "(€30/month ÷ 30 days)",
+    bg: "(€30/месец ÷ 30 дни)"
+  },
+  roi_compare: {
+    en: "Compare to:",
+    bg: "Сравнете с:"
+  },
+  roi_coffee: {
+    en: "Coffee:",
+    bg: "Кафе:"
+  },
+  roi_vending: {
+    en: "Vending:",
+    bg: "Автомат:"
+  },
+  roi_takeout: {
+    en: "Takeout:",
+    bg: "Храна за вкъщи:"
+  },
+  roi_team_lunch: {
+    en: "Team lunch:",
+    bg: "Екипен обяд:"
+  },
+  roi_with_genki: {
+    en: "✨ Genki: €1/day = Unlimited healthy food all day",
+    bg: "✨ Genki: €1/ден = Неограничена здравословна храна цял ден"
+  },
+  roi_annual_returns: {
+    en: "📈 Your Annual Returns",
+    bg: "📈 Вашите годишни ползи"
+  },
+  roi_turnover_title: {
+    en: "Reduced Turnover",
+    bg: "Намалено текучество"
+  },
+  roi_turnover_detail: {
+    en: "25% lower voluntary turnover*",
+    bg: "25% по-ниско доброволно текучество*"
+  },
+  roi_sick_title: {
+    en: "Fewer Sick Days",
+    bg: "По-малко болнични"
+  },
+  roi_sick_detail: {
+    en: "27% reduction in sick days*",
+    bg: "27% намаление на болничните дни*"
+  },
+  roi_productivity_title: {
+    en: "Productivity Boost",
+    bg: "Повишена продуктивност"
+  },
+  roi_productivity_detail: {
+    en: "12% higher productivity*",
+    bg: "12% по-висока продуктивност*"
+  },
+  roi_sources: {
+    en: "*Sources: Corporate wellness research, British Journal of Health Psychology, Global Wellness Institute",
+    bg: "*Източници: Корпоративни уелнес изследвания, British Journal of Health Psychology, Global Wellness Institute"
+  },
+  roi_bottom_line: {
+    en: "Bottom Line",
+    bg: "Крайна сметка"
+  },
+  roi_annual_investment: {
+    en: "Annual Genki Investment:",
+    bg: "Годишна инвестиция в Genki:"
+  },
+  roi_charity_impact: {
+    en: "Charity impact (10%):",
+    bg: "Благотворителност (10%):"
+  },
+  roi_total_benefits: {
+    en: "Total Annual Benefits:",
+    bg: "Общи годишни ползи:"
+  },
+  roi_net_benefit: {
+    en: "Net Annual Benefit:",
+    bg: "Нетна годишна полза:"
+  },
+  roi_secret_title: {
+    en: "The Secret: High Engagement",
+    bg: "Тайната: Висока ангажираност"
+  },
+  roi_care_plan: {
+    en: "Care plan",
+    bg: "Care план"
+  },
+  roi_care_desc: {
+    en: "(company sponsors): 85-90% daily engagement",
+    bg: "(компанията спонсорира): 85-90% ежедневна ангажираност"
+  },
+  roi_starter_plan: {
+    en: "Starter plan",
+    bg: "Starter план"
+  },
+  roi_starter_desc: {
+    en: "(employees pay): 15-25% typical engagement",
+    bg: "(служителите плащат): 15-25% типична ангажираност"
+  },
+  roi_survey_source: {
+    en: "💡 95% of companies measuring wellness ROI see positive returns — Wellhub 2024",
+    bg: "💡 95% от компаниите, измерващи ROI от уелнес, виждат положителна възвръщаемост — Wellhub 2024"
+  },
+  roi_disclaimer: {
+    en: "📝 Example calculation for illustration. Book a call for your custom quote.",
+    bg: "📝 Примерно изчисление за илюстрация. Запазете разговор за персонална оферта."
+  },
+  roi_cta: {
+    en: "Book Your Custom Quote",
+    bg: "Запазете персонална оферта"
+  },
+
   // COMPANIES PAGE - FAQ
   companies_faq_title: {
     en: "Frequently Asked Questions",
     bg: "Често задавани въпроси"
   },
   companies_faq1_q: {
-    en: "What's the minimum team size?",
-    bg: "Какъв е минималният размер на екипа?"
+    en: "What team sizes do you work with?",
+    bg: "С какъв размер екипи работите?"
   },
   companies_faq1_a: {
-    en: "We work with companies that have 100+ employees. This allows us to provide the best value and service quality.",
-    bg: "Работим с компании, които имат 100+ служители. Това ни позволява да предоставим най-добрата стойност и качество на услугата."
+    en: "We work best with companies of 100+ employees, where we can deliver maximum value. For smaller teams (70-99 employees), we recommend our Care plan for the most impactful experience. Contact us to discuss how Genki can work for your specific team size.",
+    bg: "Работим най-добре с компании от 100+ служители, където можем да осигурим максимална стойност. За по-малки екипи (70-99 служители) препоръчваме нашия Care план за най-въздействащо преживяване. Свържете се с нас, за да обсъдим как Genki може да работи за Вашия конкретен размер екип."
   },
   companies_faq2_q: {
     en: "How does delivery work?",
@@ -2019,6 +2409,10 @@ const translations = {
     en: "Select team size",
     bg: "Изберете размер на екипа"
   },
+  contact_size_70: {
+    en: "70-99 employees",
+    bg: "70-99 служители"
+  },
   contact_size_100: {
     en: "100-200 employees",
     bg: "100-200 служители"
@@ -2068,24 +2462,44 @@ const translations = {
     bg: "Друго"
   },
   contact_interests: {
-    en: "Interested In",
-    bg: "Интересувам се от"
+    en: "Which plan interests you?",
+    bg: "Кой план Ви интересува?"
   },
-  contact_interest_snacks: {
-    en: "Healthy Snacks",
-    bg: "Здравословни снаксове"
+  contact_plan_starter: {
+    en: "Starter",
+    bg: "Starter"
   },
-  contact_interest_drinks: {
-    en: "Beverages",
-    bg: "Напитки"
+  contact_plan_starter_desc: {
+    en: "Basic wellness option with snacks and drinks only",
+    bg: "Базова уелнес опция само със снаксове и напитки"
   },
-  contact_interest_meals: {
-    en: "Fresh Meals",
-    bg: "Пресни ястия"
+  contact_plan_care: {
+    en: "Care",
+    bg: "Care"
   },
-  contact_interest_all: {
-    en: "Full Package (Everything)",
-    bg: "Пълен пакет (всичко)"
+  contact_plan_popular: {
+    en: "Highest Impact",
+    bg: "Максимален Ефект"
+  },
+  contact_plan_care_desc: {
+    en: "Full wellness with snacks, drinks & fresh food",
+    bg: "Пълен уелнес със снаксове, напитки и пресни храни"
+  },
+  contact_plan_hybrid: {
+    en: "Hybrid",
+    bg: "Hybrid"
+  },
+  contact_plan_hybrid_desc: {
+    en: "Enhanced wellness option with shared payment",
+    bg: "Разширена уелнес опция със споделено плащане"
+  },
+  contact_plan_help: {
+    en: "Help Me Decide",
+    bg: "Помогнете ми да избера"
+  },
+  contact_plan_help_desc: {
+    en: "Not sure yet? We'll recommend the best fit for your team",
+    bg: "Не сте сигурни? Ще Ви препоръчаме най-подходящия план за Вашия екип"
   },
   contact_message: {
     en: "Anything else we should know?",
@@ -2148,16 +2562,16 @@ const translations = {
     bg: "Мострена кутия"
   },
   contact_step3_title: {
-    en: "Sample Box",
-    bg: "Мострена кутия"
+    en: "Office Assessment",
+    bg: "Оценка на офиса"
   },
   contact_expect3_desc: {
-    en: "Try our products risk-free before committing.",
-    bg: "Опитайте продуктите ни без риск преди да се ангажирате."
+    en: "We visit your office to plan the perfect setup for your team.",
+    bg: "Посещаваме офиса Ви, за да планираме най-подходящата организация за екипа Ви."
   },
   contact_step3_desc: {
-    en: "Try our products risk-free before committing.",
-    bg: "Опитайте продуктите ни без риск преди да се ангажирате."
+    en: "We visit your office to plan the perfect setup for your team.",
+    bg: "Посещаваме офиса Ви, за да планираме най-подходящата организация за екипа Ви."
   },
   contact_direct_title: {
     en: "Prefer to Reach Out Directly?",
@@ -2339,33 +2753,45 @@ function initLanguageSwitcher() {
   updateContent();
   updateLangSwitcher();
 
-  // Add click handler for language options
-  document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.addEventListener('click', (e) => {
-      e.preventDefault();
-      const lang = opt.getAttribute('data-lang');
-      setLanguage(lang);
-      // Close dropdown
-      document.getElementById('lang-dropdown')?.classList.add('hidden');
-    });
-  });
-
   // Toggle dropdown
   const langToggle = document.getElementById('lang-toggle');
   const langDropdown = document.getElementById('lang-dropdown');
 
   if (langToggle && langDropdown) {
-    langToggle.addEventListener('click', (e) => {
+    langToggle.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       langDropdown.classList.toggle('hidden');
     });
 
     // Close dropdown when clicking outside
-    document.addEventListener('click', () => {
-      langDropdown.classList.add('hidden');
+    document.addEventListener('click', function(e) {
+      if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+        langDropdown.classList.add('hidden');
+      }
     });
   }
+
+  // Add click handler for language options (both links and buttons)
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const lang = this.getAttribute('data-lang');
+      if (lang) {
+        setLanguage(lang);
+        // Close dropdown
+        if (langDropdown) {
+          langDropdown.classList.add('hidden');
+        }
+      }
+    });
+  });
 }
 
 // Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+} else {
+  initLanguageSwitcher();
+}

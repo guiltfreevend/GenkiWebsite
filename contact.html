@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- COMING SOON REDIRECT - Remove this line when site is live -->
-  <script>window.location.href = 'index.html';</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Genki - Book a free call and see how we can transform your employee benefits.">
@@ -104,7 +102,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-12 bg-gradient-to-b from-primary-50 to-white">
+  <section class="pt-40 pb-20 bg-gradient-to-b from-primary-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
@@ -161,6 +159,7 @@
                 <label for="companySize" class="form-label" data-i18n="contact_size">Number of Employees *</label>
                 <select id="companySize" name="companySize" required class="form-input">
                   <option value="" data-i18n="contact_size_select">Select team size</option>
+                  <option value="70-99" data-i18n="contact_size_70">70-99 employees</option>
                   <option value="100-200" data-i18n="contact_size_100">100-200 employees</option>
                   <option value="200-500" data-i18n="contact_size_200">200-500 employees</option>
                   <option value="500-1000" data-i18n="contact_size_500">500-1000 employees</option>
@@ -181,25 +180,40 @@
                 </select>
               </div>
 
-              <!-- Interested In -->
+              <!-- Interested In (Plans) -->
               <div>
-                <label class="form-label" data-i18n="contact_interests">Interested In</label>
-                <div class="space-y-2">
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" name="interests" value="snacks" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700" data-i18n="contact_interest_snacks">Healthy Snacks</span>
+                <label class="form-label" data-i18n="contact_interests">Which plan interests you?</label>
+                <div class="space-y-3">
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all">
+                    <input type="checkbox" name="plan" value="starter" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_starter">Starter</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_starter_desc">Basic wellness option with snacks and drinks only</p>
+                    </div>
                   </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" name="interests" value="drinks" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700" data-i18n="contact_interest_drinks">Beverages</span>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border-2 border-primary-300 bg-primary-50/50 hover:bg-primary-50 transition-all">
+                    <input type="checkbox" name="plan" value="care" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-900" data-i18n="contact_plan_care">Care</span>
+                        <span class="text-xs bg-primary-600 text-white px-2 py-0.5 rounded-full" data-i18n="contact_plan_popular">Highest Impact</span>
+                      </div>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_care_desc">Full wellness with snacks, drinks & fresh food</p>
+                    </div>
                   </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" name="interests" value="meals" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700" data-i18n="contact_interest_meals">Fresh Meals</span>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all">
+                    <input type="checkbox" name="plan" value="hybrid" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_hybrid">Hybrid</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_hybrid_desc">Enhanced wellness option with shared payment</p>
+                    </div>
                   </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" name="interests" value="all" class="w-5 h-5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                    <span class="text-gray-700" data-i18n="contact_interest_all">Full Package (Everything)</span>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-dashed border-gray-300 hover:border-primary-300 hover:bg-gray-50 transition-all">
+                    <input type="checkbox" name="plan" value="help" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_help">Help Me Decide</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_help_desc">Not sure yet? We'll recommend the best fit for your team</p>
+                    </div>
                   </label>
                 </div>
               </div>
@@ -254,8 +268,8 @@
                   <span class="text-primary-600 font-bold">3</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step3_title">Sample Box</h4>
-                  <p class="text-gray-600 text-sm" data-i18n="contact_step3_desc">Try our products risk-free before committing.</p>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step3_title">Office Assessment</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step3_desc">We visit your office to plan the perfect setup for your team.</p>
                 </div>
               </div>
             </div>

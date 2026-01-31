@@ -288,11 +288,50 @@
   <!-- JavaScript -->
   <script src="js/main.js"></script>
   <script>
-    // Language switcher for privacy page
-    document.querySelectorAll('.lang-option[data-lang="en"]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = 'privacy-en.html';
+    // Privacy page language handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('genki-lang') || 'en';
+
+      // If user's preferred language is EN, redirect to English privacy page
+      if (savedLang === 'en') {
+        window.location.replace('privacy-en.html');
+        return;
+      }
+
+      // Set localStorage to BG since we're on the BG page
+      localStorage.setItem('genki-lang', 'bg');
+
+      // Language toggle dropdown
+      const langToggle = document.getElementById('lang-toggle');
+      const langDropdown = document.getElementById('lang-dropdown');
+
+      if (langToggle && langDropdown) {
+        langToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          langDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+            langDropdown.classList.add('hidden');
+          }
+        });
+      }
+
+      // Handle language switch
+      document.querySelectorAll('.lang-option').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = this.getAttribute('data-lang');
+          if (lang === 'en') {
+            localStorage.setItem('genki-lang', 'en');
+            window.location.href = 'privacy-en.html';
+          } else {
+            langDropdown.classList.add('hidden');
+          }
+        });
       });
     });
   </script>

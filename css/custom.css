@@ -407,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card.featured::before {
-  content: 'Most Popular';
+  content: 'Highest Impact';
   position: absolute;
   top: -12px;
   left: 50%;
@@ -479,4 +479,71 @@ select:focus {
   .no-print {
     display: none !important;
   }
+}
+
+/* ROI Calculator Styles */
+#roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #d1d5db 0%, #d1d5db 100%);
+}
+
+#roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+#roi-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+}
+
+.roi-highlight {
+  animation: pulse-highlight 2s ease-in-out infinite;
+}
+
+@keyframes pulse-highlight {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* ROI Calculator animations */
+#per-day-box {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+#per-day-box.scale-105 {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+}
+
+#per-day-amount {
+  transition: transform 0.15s ease-out;
+}
+
+#per-day-box.scale-105 #per-day-amount {
+  transform: scale(1.05);
 }
