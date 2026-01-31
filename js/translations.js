@@ -1713,28 +1713,28 @@ const translations = {
     bg: "Инициативи за опазване и устойчивост в цяла България"
   },
   mission_impact_title: {
-    en: "Our Collective Impact",
-    bg: "Нашето колективно въздействие"
+    en: "Our Commitment",
+    bg: "Нашият ангажимент"
   },
   mission_impact_subtitle: {
-    en: "Together with our partner companies, we're making a difference.",
-    bg: "Заедно с нашите партньорски компании правим разлика."
+    en: "Built on principles that matter from day one.",
+    bg: "Изградено върху принципи, които имат значение от първия ден."
   },
   mission_impact_donated: {
-    en: "Donated to charity",
-    bg: "Дарено за благотворителност"
+    en: "To Charity Monthly",
+    bg: "За благотворителност месечно"
   },
   mission_impact_employees: {
-    en: "Employees served",
-    bg: "Обслужени служители"
+    en: "Harmful Ingredients",
+    bg: "Вредни съставки"
   },
   mission_impact_partners: {
-    en: "Local partners",
-    bg: "Местни партньори"
+    en: "Local Sourcing",
+    bg: "Местни доставки"
   },
   mission_impact_charities: {
-    en: "Charities supported",
-    bg: "Подкрепени благотворителни организации"
+    en: "Product Categories",
+    bg: "Продуктови категории"
   },
   mission_why_genki_title: {
     en: 'Why "Genki"?',
