@@ -1302,8 +1302,8 @@ const translations = {
     bg: "Кои благотворителни организации получават даренията?"
   },
   companies_faq4_a: {
-    en: "We partner with vetted Bulgarian charities. Enterprise clients can choose specific causes. All donations are documented for your CSR reporting.",
-    bg: "Партнираме с проверени български благотворителни организации. Корпоративните клиенти могат да избират конкретни каузи. Всички дарения са документирани за вашите КСО отчети."
+    en: "We partner with vetted Bulgarian charities. Care plan clients can choose specific causes. All donations are documented for your CSR reporting.",
+    bg: "Партнираме с проверени български благотворителни организации. Клиентите на Care план могат да избират конкретни каузи. Всички дарения са документирани за вашите КСО отчети."
   },
   companies_faq5_q: {
     en: "What's the contract length?",
@@ -1521,8 +1521,8 @@ const translations = {
     bg: "Изберете вашите каузи"
   },
   mission_causes_desc: {
-    en: "Enterprise clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Корпоративните клиенти могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско благополучие."
+    en: "Care plan clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
+    bg: "Клиентите на Care план могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско благополучие."
   },
   mission_support_title: {
     en: "Causes We Support",
@@ -1581,8 +1581,8 @@ const translations = {
     bg: "Ястия"
   },
   mission_pillar1_meals_desc: {
-    en: "Healthy lunches, wraps, soups (Enterprise)",
-    bg: "Здравословни обеди, рапове, супи (Корпоративен)"
+    en: "Healthy lunches, wraps, soups (Care plan)",
+    bg: "Здравословни обеди, рапове, супи (Care план)"
   },
   mission_pillar2_badge: {
     en: "Pillar 2",
@@ -1673,8 +1673,8 @@ const translations = {
     bg: "Изберете вашите каузи"
   },
   mission_pillar3_choose_desc: {
-    en: "Enterprise clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Корпоративните клиенти могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско благополучие."
+    en: "Care plan clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
+    bg: "Клиентите на Care план могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско благополучие."
   },
   mission_causes_title: {
     en: "Causes We Support",
