@@ -375,7 +375,7 @@ const translations = {
   },
   index_hr_card_title: {
     en: "Like Sports Cards, But for Nutrition",
-    bg: "Като спортните карти, но за хранене"
+    bg: "Като спортна карта, но за хранене"
   },
   index_hr_card_desc: {
     en: "Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.",
@@ -433,7 +433,7 @@ const translations = {
   },
   companies_benefit1_title: {
     en: "Zero Time Investment",
-    bg: "Без ангажимент на време"
+    bg: "Без загуба на време"
   },
   companies_benefit1_desc: {
     en: "No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.",
@@ -445,7 +445,7 @@ const translations = {
   },
   companies_benefit2_desc: {
     en: "10% of profits donated to charity included. Get automatic ESG impact for your sustainability reports.",
-    bg: "Включено е дарение на 10% от печалбата ни за благотворителност. Получавате автоматично ESG въздействие за отчетите Ви за устойчивост."
+    bg: "10% от печалбата ни се дарява за благотворителност. Получавате автоматичен ESG ефект за отчетите Ви за устойчивост."
   },
   companies_benefit3_title: {
     en: "Boost Retention",
@@ -537,7 +537,7 @@ const translations = {
   // NEW PRICING - Care Card
   pricing_badge_popular: {
     en: "Highest Impact",
-    bg: "Максимален Ефект"
+    bg: "Най-голям ефект"
   },
   pricing_care_tagline: {
     en: "Complete Culture Solution",
@@ -561,7 +561,7 @@ const translations = {
   },
   pricing_care_f4: {
     en: "Detailed analytics & employee insights",
-    bg: "Детайлна аналитика и изводи за екипа"
+    bg: "Детайлна аналитика и инсайти за екипа"
   },
   pricing_care_f5: {
     en: "2-4 community events per year",
@@ -655,7 +655,7 @@ const translations = {
   },
   pricing_why2_text: {
     en: "When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections. Not a kiosk — a culture hub.",
-    bg: "Когато е безплатно, Genki кътът става естественото място за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истинска свързаност. Не киоск — място, което изгражда екипна култура."
+    bg: "Когато е безплатно, Genki кътът става естественото място за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истински връзки. Не киоск — място, което изгражда екипна култура."
   },
   pricing_why3_title: {
     en: "The Retention Tool",
@@ -689,7 +689,7 @@ const translations = {
   },
   pricing_all_f5: {
     en: "10% donated to charity monthly",
-    bg: "10% от печалбата — месечно дарение за благотворителност"
+    bg: "10% от печалбата се дарява всеки месец"
   },
   pricing_all_f6: {
     en: "Customizable order sizes",
@@ -765,7 +765,7 @@ const translations = {
   },
   companies_plan_badge_popular: {
     en: "Highest Impact",
-    bg: "Максимален Ефект"
+    bg: "Най-голям ефект"
   },
 
   // Section Headers
@@ -799,7 +799,7 @@ const translations = {
   },
   plan_section_events: {
     en: "Community Events",
-    bg: "Community събития"
+    bg: "Общностни събития"
   },
   plan_section_charity: {
     en: "Charity Impact",
@@ -825,7 +825,7 @@ const translations = {
   },
   starter_reporting: {
     en: "Monthly summary email with sales totals",
-    bg: "Месечен обобщаващ имейл с общи продажби"
+    bg: "Месечен обобщаващ имейл с общия обем продажби"
   },
   starter_support: {
     en: "Email within 24-48 hours",
@@ -847,7 +847,7 @@ const translations = {
   },
   care_setup: {
     en: "Premium consultation, space planning, full infrastructure sourcing, installation & complete Genki branding (including kiosk system if needed)",
-    bg: "Премиум консултация, планиране на пространството, осигуряване на цялата инфраструктура, монтаж и пълно Genki брандиране (вкл. kiosk система при нужда)"
+    bg: "Премиум консултация, планиране на пространството, осигуряване на цялата инфраструктура, монтаж и пълно Genki брандиране (вкл. киоск система при нужда)"
   },
   care_reporting: {
     en: "Detailed monthly analytics with consumption patterns, product recommendations & employee satisfaction insights",
@@ -859,7 +859,7 @@ const translations = {
   },
   care_account: {
     en: "Named account manager + monthly strategy calls + proactive optimization",
-    bg: "Персонален акаунт мениджър + месечни стратегически разговори + проактивна оптимизация"
+    bg: "Личен акаунт мениджър + месечни стратегически разговори + проактивна оптимизация"
   },
   care_customization: {
     en: "Product rotation based on employee feedback + seasonal items + dietary preference accommodation",
@@ -867,7 +867,7 @@ const translations = {
   },
   care_events: {
     en: "Organize 1-2 Genki community events per quarter (tree planting, shelter visits)",
-    bg: "Организация на 1–2 Genki community събития на тримесечие (залесяване, посещения на приюти и др.)"
+    bg: "Организация на 1–2 Genki общностни събития на тримесечие (залесяване, посещения на приюти и др.)"
   },
   care_charity: {
     en: "10% donated + employees vote on monthly charity recipient + detailed impact reports with photos/stories",
@@ -877,7 +877,7 @@ const translations = {
   // Hybrid Plan Features
   hybrid_products: {
     en: "Full snacks & drinks + rotating meal options (salads, burritos - 2-3 types monthly)",
-    bg: "Пълни снаксове и напитки + ротационни опции за храна (салати, бурито — 2–3 вида месечно)"
+    bg: "Пълна селекция от снаксове и напитки + ротационни опции за храна (салати, бурито — 2–3 вида месечно)"
   },
   hybrid_delivery: {
     en: "Bi-weekly with flexible timing + one emergency restock per month included",
@@ -885,7 +885,7 @@ const translations = {
   },
   hybrid_setup: {
     en: "Full consultation, space planning, infrastructure sourcing, installation & basic Genki branding elements",
-    bg: "Пълна консултация, планиране на пространството, осигуряване на инфраструктура, монтаж + базови елементи Genki брандиране"
+    bg: "Пълна консултация, планиране на пространството, осигуряване на инфраструктура, монтаж + базови елементи от Genki брандирането"
   },
   hybrid_reporting: {
     en: "Monthly detailed breakdown with popular items, consumption patterns & recommendations",
@@ -897,7 +897,7 @@ const translations = {
   },
   hybrid_account: {
     en: "Dedicated contact person + quarterly check-in calls",
-    bg: "Конкретно лице за контакт + тримесечни check-in разговори"
+    bg: "Конкретно лице за контакт + тримесечни разговори за преглед"
   },
   hybrid_customization: {
     en: "Seasonal product updates based on availability",
@@ -1117,7 +1117,7 @@ const translations = {
   // INTERACTIVE ROI CALCULATOR
   roi_calc_title: {
     en: "Calculate Your Wellness ROI",
-    bg: "Изчислете Вашата ROI от уелнес"
+    bg: "Изчислете възвръщаемостта (ROI) от уелнес"
   },
   roi_team_size_label: {
     en: "Team Size",
@@ -1181,7 +1181,7 @@ const translations = {
   },
   roi_with_genki: {
     en: "✨ Genki: €1/day = Unlimited healthy food all day",
-    bg: "✨ Genki: €1/ден = Неограничена здравословна храна цял ден"
+    bg: "✨ Genki: €1/ден = Неограничена здравословна храна през целия ден"
   },
   roi_annual_returns: {
     en: "📈 Your Annual Returns",
@@ -1303,7 +1303,7 @@ const translations = {
   },
   companies_faq4_a: {
     en: "We partner with vetted Bulgarian charities. Care plan clients can choose specific causes. All donations are documented for your CSR reporting.",
-    bg: "Партнираме с проверени български благотворителни организации. Клиентите на Care план могат да избират конкретни каузи. Всички дарения са документирани за вашите КСО отчети."
+    bg: "Партнираме с проверени български благотворителни организации. Клиентите на Care план могат да избират конкретни каузи. Всички дарения са документирани за Вашите КСО отчети."
   },
   companies_faq5_q: {
     en: "What's the contract length?",
@@ -1311,7 +1311,7 @@ const translations = {
   },
   companies_faq5_a: {
     en: "We offer flexible 3-month, 6-month, or annual contracts. Start with a pilot to see how your team responds.",
-    bg: "Предлагаме гъвкави 3-месечни, 6-месечни или годишни договори. Започнете с пилотен период, за да видите как реагира екипът ви."
+    bg: "Предлагаме гъвкави 3-месечни, 6-месечни или годишни договори. Започнете с пилотен период, за да видите как реагира екипът Ви."
   },
   companies_faq_setup_q: {
     en: "What about equipment and installation?",
@@ -1319,7 +1319,7 @@ const translations = {
   },
   companies_faq_setup_a: {
     en: "We're a true A-Z solution. If your office doesn't have the necessary equipment (refrigerators, shelves, branded displays, or kiosk systems), we source and install everything for you. There's a one-time setup investment that covers all equipment, professional installation, and Genki branding. The amount depends on what your space needs - we'll assess this during our initial call and provide a clear quote. Most companies appreciate having one partner handle everything rather than coordinating multiple vendors.",
-    bg: "Ние сме истинско решение от А до Я. Ако вашият офис няма необходимото оборудване (хладилници, рафтове, брандирани дисплеи или kiosk системи), ние го осигуряваме и инсталираме всичко вместо вас. Има еднократна инвестиция за стартиране, която покрива цялото оборудване, професионален монтаж и Genki брандиране. Сумата зависи от това, от което се нуждае вашето пространство - ще го оценим по време на първоначалния разговор и ще предоставим ясна оферта. Повечето компании оценяват това да имат един партньор, който се грижи за всичко, вместо да координират множество доставчици."
+    bg: "Ние сме истинско решение от А до Я. Ако Вашият офис няма необходимото оборудване (хладилници, рафтове, брандирани дисплеи или киоск системи), ние го осигуряваме и инсталираме всичко вместо Вас. Има еднократна инвестиция за стартиране, която покрива цялото оборудване, професионален монтаж и Genki брандиране. Сумата зависи от това, от което се нуждае Вашето пространство - ще го оценим по време на първоначалния разговор и ще предоставим ясна оферта. Повечето компании оценяват това да имат един партньор, който се грижи за всичко, вместо да координират множество доставчици."
   },
 
   // COMPANIES PAGE - CTA
@@ -1410,7 +1410,7 @@ const translations = {
   },
   mission_nutritionist_desc: {
     en: "Every product meets our quality standards - no artificial additives, no excessive sugar, no empty calories. Just real ingredients that fuel your team.",
-    bg: "Всеки продукт отговаря на нашите стандарти за качество - без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа ви."
+    bg: "Всеки продукт отговаря на нашите стандарти за качество - без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа Ви."
   },
   mission_nojunk_title: {
     en: "Energy & Performance",
@@ -1490,7 +1490,7 @@ const translations = {
   },
   mission_economy_desc: {
     en: "Your subscription money stays in Bulgaria, supporting families and communities across the country.",
-    bg: "Парите от вашия абонамент остават в България, подкрепяйки семейства и общности в цялата страна."
+    bg: "Парите от Вашия абонамент остават в България, подкрепяйки семейства и общности в цялата страна."
   },
   mission_carbon_title: {
     en: "Lower Carbon Footprint",
@@ -1506,7 +1506,7 @@ const translations = {
   },
   mission_transparent_desc: {
     en: "We document every donation. You'll know exactly where your contribution goes and the impact it makes.",
-    bg: "Документираме всяко дарение. Ще знаете точно къде отива вашият принос и какво въздействие има."
+    bg: "Документираме всяко дарение. Ще знаете точно къде отива Вашият принос и какво въздействие има."
   },
   mission_reports_title: {
     en: "Monthly Impact Reports",
@@ -1514,7 +1514,7 @@ const translations = {
   },
   mission_reports_desc: {
     en: "Receive regular updates showing the cumulative impact of your company's contribution to society.",
-    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на вашата компания към обществото."
+    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на Вашата компания към обществото."
   },
   mission_causes_title: {
     en: "Choose Your Causes",
@@ -1594,7 +1594,7 @@ const translations = {
   },
   mission_pillar2_desc: {
     en: "Every product we deliver comes from a Bulgarian producer. We're not just a delivery service — we're a bridge connecting your company to the best of local craftsmanship.",
-    bg: "Всеки продукт, който доставяме, идва от български производител. Ние не сме просто услуга за доставка — ние сме мост, свързващ вашата компания с най-доброто от местното производство."
+    bg: "Всеки продукт, който доставяме, идва от български производител. Ние не сме просто услуга за доставка — ние сме мост, свързващ Вашата компания с най-доброто от местното производство."
   },
   mission_pillar2_partners: {
     en: "Our Partners",
@@ -1870,7 +1870,7 @@ const translations = {
   },
   products_badge_protein: {
     en: "High Protein",
-    bg: "Висок протеин"
+    bg: "Високо протеиново"
   },
   products_badge_wholegrain: {
     en: "Whole Grain",
@@ -1890,7 +1890,7 @@ const translations = {
   },
   products_badge_organic: {
     en: "Organic",
-    bg: "Органичен"
+    bg: "Органично"
   },
   products_badge_probiotic: {
     en: "Probiotic",
@@ -1906,7 +1906,7 @@ const translations = {
   },
   products_badge_filling: {
     en: "Filling",
-    bg: "Ситно"
+    bg: "Засищащо"
   },
   products_badge_hot: {
     en: "Hot",
@@ -1922,7 +1922,7 @@ const translations = {
   },
   products_badge_antioxidant: {
     en: "Antioxidant",
-    bg: "Антиоксидант"
+    bg: "Антиоксидантно"
   },
   // Product items (aliases for HTML keys)
   products_nuts_title: {
@@ -1979,7 +1979,7 @@ const translations = {
   },
   products_energy_desc: {
     en: "Healthy energy boost options",
-    bg: "Здравословни опции за енергия"
+    bg: "Здравословен енергиен заряд"
   },
   products_sparkling_title: {
     en: "Sparkling Water",
@@ -1987,7 +1987,7 @@ const translations = {
   },
   products_sparkling_desc: {
     en: "Refreshing sparkling options",
-    bg: "Освежаващи газирани опции"
+    bg: "Освежаваща газирана вода"
   },
   products_balanced_title: {
     en: "Balanced Meals",
@@ -2031,7 +2031,7 @@ const translations = {
   },
   products_granola_desc: {
     en: "Oats, honey & Bulgarian honey",
-    bg: "Овесени ядки, мед и български мед"
+    bg: "Овесени ядки и български мед"
   },
   products_apple_title: {
     en: "Apple Chips",
@@ -2239,7 +2239,7 @@ const translations = {
   },
   products_granola_desc: {
     en: "Oats, honey & Bulgarian honey",
-    bg: "Овесени ядки, мед и български мед"
+    bg: "Овесени ядки и български мед"
   },
   products_apple_chips: {
     en: "Apple Chips",
@@ -2387,11 +2387,11 @@ const translations = {
   },
   products_diets_title: {
     en: "We Accommodate All Diets",
-    bg: "Предлагаме за всички диети"
+    bg: "Съобразяваме се с всички диети"
   },
   products_diets_subtitle: {
     en: "Every team member can find something they love.",
-    bg: "Всеки член на екипа може да намери нещо, което обича."
+    bg: "Всеки член на екипа може да намери нещо, което му харесва."
   },
   products_diet_vegan: {
     en: "Vegan",
@@ -2567,7 +2567,7 @@ const translations = {
   },
   contact_plan_popular: {
     en: "Highest Impact",
-    bg: "Максимален Ефект"
+    bg: "Най-голям ефект"
   },
   contact_plan_care_desc: {
     en: "Full wellness with snacks, drinks & fresh food",
@@ -2646,8 +2646,8 @@ const translations = {
     bg: "Ще създадем персонализирана продуктова комбинация и ценообразуване за Вашия екип."
   },
   contact_expect3_title: {
-    en: "Sample Box",
-    bg: "Мострена кутия"
+    en: "Office Assessment",
+    bg: "Оценка на офиса"
   },
   contact_step3_title: {
     en: "Office Assessment",
