@@ -285,19 +285,30 @@
   <!-- JavaScript -->
   <script>
     // Check if user is returning after form submission - redirect immediately
-    (function() {
+    function checkAndRedirect() {
       const submittedAt = localStorage.getItem('genki_coming_soon_submitted');
       if (submittedAt) {
         const elapsed = Date.now() - parseInt(submittedAt);
         if (elapsed < 5 * 60 * 1000) {
           localStorage.removeItem('genki_coming_soon_submitted');
           window.location.replace('thank-you-coming-soon.html');
-          return; // Stop execution
+          return true;
         } else {
           localStorage.removeItem('genki_coming_soon_submitted');
         }
       }
-    })();
+      return false;
+    }
+
+    // Check on initial load
+    checkAndRedirect();
+
+    // Also check when returning via back button (bfcache)
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        checkAndRedirect();
+      }
+    });
 
     // Track form submission - save to localStorage before navigating to Formspree
     document.addEventListener('DOMContentLoaded', function() {

@@ -415,18 +415,30 @@
 
   <!-- Redirect to thank you page if returning after form submission -->
   <script>
-    (function() {
+    function checkAndRedirect() {
       const submittedAt = localStorage.getItem('genki_contact_submitted');
       if (submittedAt) {
         const elapsed = Date.now() - parseInt(submittedAt);
         if (elapsed < 5 * 60 * 1000) {
           localStorage.removeItem('genki_contact_submitted');
           window.location.replace('thank-you-contact.html');
+          return true;
         } else {
           localStorage.removeItem('genki_contact_submitted');
         }
       }
-    })();
+      return false;
+    }
+
+    // Check on initial load
+    checkAndRedirect();
+
+    // Also check when returning via back button (bfcache)
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        checkAndRedirect();
+      }
+    });
   </script>
 </body>
 </html>
