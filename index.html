@@ -227,10 +227,16 @@
         <div id="signup-container" class="max-w-md mx-auto mb-16 opacity-0 animate-fade-in-up delay-300">
           <div class="glass-card rounded-2xl p-6 sm:p-8">
             <p class="text-gray-700 font-medium mb-4" data-i18n="coming_signup_title">Be the first to know when we launch</p>
-            <form id="signup-form" class="space-y-4">
+            <form id="signup-form" class="space-y-4" action="https://formspree.io/f/mjgokaea" method="POST">
+              <!-- Formspree hidden fields -->
+              <input type="hidden" name="_subject" value="🎉 New signup from Coming Soon page!">
+              <input type="hidden" name="_template" value="box">
+              <input type="hidden" name="_next" value="https://genki.bg/thank-you-coming-soon.html">
+
               <input
                 type="email"
                 id="email"
+                name="email"
                 data-i18n-placeholder="coming_email_placeholder"
                 placeholder="Enter your work email"
                 class="input-premium"
@@ -278,30 +284,10 @@
 
   <!-- Translations -->
   <script src="js/translations.js"></script>
+  <script src="js/formspree-integration.js"></script>
 
   <!-- JavaScript -->
   <script>
-    // Form submission
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-
-      // Show success message
-      document.getElementById('signup-container').classList.add('hidden');
-      document.getElementById('success-message').classList.remove('hidden');
-
-      // Log to console (for testing)
-      console.log('Early access signup:', email);
-
-      // You can add your email collection logic here
-      // Options:
-      // 1. mailto link
-      // 2. Google Forms
-      // 3. Formspree
-      // 4. Netlify Forms
-      // 5. Custom backend
-    });
-
     // Update placeholder text for language
     function updatePlaceholders() {
       const emailInput = document.getElementById('email');

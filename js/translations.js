@@ -49,6 +49,75 @@ const translations = {
     en: "We'll notify you as soon as Genki launches.",
     bg: "Ще Ви уведомим веднага щом Genki стартира."
   },
+
+  // Thank You - Coming Soon Page
+  thankyou_coming_title: {
+    en: "You're on the list!",
+    bg: "Записахме Ви!"
+  },
+  thankyou_coming_desc: {
+    en: "We'll notify you as soon as Genki launches. Get ready for a healthier workplace!",
+    bg: "Ще Ви уведомим веднага щом Genki стартира. Подгответе се за по-здравословно работно място!"
+  },
+  thankyou_coming_next_title: {
+    en: "What happens next?",
+    bg: "Какво следва?"
+  },
+  thankyou_coming_next_1: {
+    en: "You'll receive a confirmation email shortly",
+    bg: "Скоро ще получите имейл за потвърждение"
+  },
+  thankyou_coming_next_2: {
+    en: "We'll email you when we launch",
+    bg: "Ще Ви изпратим имейл при стартирането"
+  },
+  thankyou_coming_next_3: {
+    en: "Early subscribers get exclusive benefits",
+    bg: "Ранните абонати получават ексклузивни предимства"
+  },
+  thankyou_coming_back: {
+    en: "Back to Homepage",
+    bg: "Обратно към началото"
+  },
+
+  // Thank You - Contact Page
+  thankyou_contact_title: {
+    en: "Thank you for reaching out!",
+    bg: "Благодарим Ви, че се свързахте с нас!"
+  },
+  thankyou_contact_subtitle: {
+    en: "Your message has been received. We're excited to learn more about your team!",
+    bg: "Получихме Вашето съобщение. Нямаме търпение да научим повече за Вашия екип!"
+  },
+  thankyou_contact_response_title: {
+    en: "Expected Response Time",
+    bg: "Очаквано време за отговор"
+  },
+  thankyou_contact_response_time: {
+    en: "Within 24 hours (typically within 2 business hours)",
+    bg: "До 24 часа (обикновено до 2 работни часа)"
+  },
+  thankyou_contact_meanwhile: {
+    en: "In the meantime, you can reach us directly at:",
+    bg: "Междувременно можете да се свържете директно с нас на:"
+  },
+  thankyou_contact_home: {
+    en: "Return to Homepage",
+    bg: "Към началната страница"
+  },
+  thankyou_contact_plans: {
+    en: "Learn About Our Plans",
+    bg: "Вижте нашите планове"
+  },
+  thankyou_redirect: {
+    en: "Redirecting in",
+    bg: "Пренасочване след"
+  },
+  thankyou_seconds: {
+    en: "seconds...",
+    bg: "секунди..."
+  },
+
   coming_pillar1_title: {
     en: "100% Healthy",
     bg: "100% здравословно"

@@ -123,7 +123,12 @@
         <div class="fade-up">
           <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <h2 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="contact_form_title">Book a Free Call</h2>
-            <form data-validate class="space-y-6">
+            <form data-validate class="space-y-6" action="https://formspree.io/f/xaqbnpda" method="POST">
+              <!-- Formspree hidden fields -->
+              <input type="hidden" name="_subject" value="📧 New Contact Form - Genki Website">
+              <input type="hidden" name="_template" value="box">
+              <input type="hidden" name="_next" value="https://genki.bg/thank-you-contact.html">
+              <input type="hidden" name="_cc" value="yoan@genki.bg">
               <!-- Name Fields -->
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -409,5 +414,6 @@
 
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/formspree-integration.js"></script>
 </body>
 </html>
