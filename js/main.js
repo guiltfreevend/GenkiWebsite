@@ -177,56 +177,9 @@ function isValidPhone(phone) {
 }
 
 function handleFormSubmit(form) {
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-
-  // Show loading state
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = `
-    <svg class="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
-      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-    </svg>
-    Sending...
-  `;
-
-  // Actually submit the form to Formspree
-  const formData = new FormData(form);
-  const action = form.getAttribute('action');
-
-  if (action && action.includes('formspree.io')) {
-    // Submit to Formspree
-    fetch(action, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        // Redirect to thank you page
-        const nextUrl = form.querySelector('input[name="_next"]');
-        if (nextUrl && nextUrl.value) {
-          window.location.href = nextUrl.value;
-        } else {
-          showSuccessMessage(form);
-          form.reset();
-        }
-      } else {
-        throw new Error('Form submission failed');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-      alert('Something went wrong. Please try again or email us at hello@genki.bg');
-    });
-  } else {
-    // Fallback: native form submission
-    form.submit();
-  }
+  // After validation passes, submit the form natively
+  // Formspree will handle the redirect via the _next hidden field
+  form.submit();
 }
 
 function showSuccessMessage(form) {
