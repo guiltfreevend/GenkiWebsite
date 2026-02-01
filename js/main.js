@@ -326,8 +326,18 @@ function isValidPhone(phone) {
 }
 
 function handleFormSubmit(form) {
+  // Save to localStorage for thank you page redirect when user returns
+  const formAction = form.getAttribute('action') || '';
+  if (formAction.includes('formspree')) {
+    // Determine which form this is based on the page
+    if (window.location.pathname.includes('contact')) {
+      localStorage.setItem('genki_contact_submitted', Date.now().toString());
+    } else {
+      localStorage.setItem('genki_coming_soon_submitted', Date.now().toString());
+    }
+  }
+
   // Native form submission - works with Formspree reCAPTCHA
-  // Formspree will show its own thank you page, then user can navigate back
   form.submit();
 }
 

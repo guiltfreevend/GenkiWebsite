@@ -284,30 +284,30 @@
 
   <!-- JavaScript -->
   <script>
-    // Check if user is returning after form submission
+    // Check if user is returning after form submission - redirect immediately
     (function() {
       const submittedAt = localStorage.getItem('genki_coming_soon_submitted');
       if (submittedAt) {
         const elapsed = Date.now() - parseInt(submittedAt);
-        // If submitted within last 5 minutes, redirect to thank you page
         if (elapsed < 5 * 60 * 1000) {
           localStorage.removeItem('genki_coming_soon_submitted');
-          window.location.href = 'thank-you-coming-soon.html';
+          window.location.replace('thank-you-coming-soon.html');
+          return; // Stop execution
         } else {
           localStorage.removeItem('genki_coming_soon_submitted');
         }
       }
-
-      // Track form submission
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('signup-form');
-        if (form) {
-          form.addEventListener('submit', function() {
-            localStorage.setItem('genki_coming_soon_submitted', Date.now().toString());
-          });
-        }
-      });
     })();
+
+    // Track form submission - save to localStorage before navigating to Formspree
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('signup-form');
+      if (form) {
+        form.addEventListener('submit', function() {
+          localStorage.setItem('genki_coming_soon_submitted', Date.now().toString());
+        });
+      }
+    });
 
     // Update placeholder text for language
     function updatePlaceholders() {

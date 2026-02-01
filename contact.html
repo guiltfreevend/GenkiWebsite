@@ -413,29 +413,18 @@
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Form submission tracking for thank you page redirect -->
+  <!-- Redirect to thank you page if returning after form submission -->
   <script>
     (function() {
-      // Check if user is returning after form submission
       const submittedAt = localStorage.getItem('genki_contact_submitted');
       if (submittedAt) {
         const elapsed = Date.now() - parseInt(submittedAt);
-        // If submitted within last 5 minutes, redirect to thank you page
         if (elapsed < 5 * 60 * 1000) {
           localStorage.removeItem('genki_contact_submitted');
-          window.location.href = 'thank-you-contact.html';
+          window.location.replace('thank-you-contact.html');
         } else {
-          // Expired, clean up
           localStorage.removeItem('genki_contact_submitted');
         }
-      }
-
-      // Track form submission
-      const form = document.querySelector('form[action*="formspree"]');
-      if (form) {
-        form.addEventListener('submit', function() {
-          localStorage.setItem('genki_contact_submitted', Date.now().toString());
-        });
       }
     })();
   </script>
