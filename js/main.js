@@ -190,15 +190,43 @@ function handleFormSubmit(form) {
     Sending...
   `;
 
-  // Simulate form submission (replace with actual API call)
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
+  // Actually submit the form to Formspree
+  const formData = new FormData(form);
+  const action = form.getAttribute('action');
 
-    // Show success message
-    showSuccessMessage(form);
-    form.reset();
-  }, 1500);
+  if (action && action.includes('formspree.io')) {
+    // Submit to Formspree
+    fetch(action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Redirect to thank you page
+        const nextUrl = form.querySelector('input[name="_next"]');
+        if (nextUrl && nextUrl.value) {
+          window.location.href = nextUrl.value;
+        } else {
+          showSuccessMessage(form);
+          form.reset();
+        }
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      alert('Something went wrong. Please try again or email us at hello@genki.bg');
+    });
+  } else {
+    // Fallback: native form submission
+    form.submit();
+  }
 }
 
 function showSuccessMessage(form) {
