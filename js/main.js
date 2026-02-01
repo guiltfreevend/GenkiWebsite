@@ -340,7 +340,7 @@ function handleFormSubmit(form) {
     Sending...
   `;
 
-  // Submit via fetch for better error handling
+  // Submit via fetch to Formspree
   if (action && action.includes('formspree.io')) {
     const formData = new FormData(form);
 
@@ -352,21 +352,18 @@ function handleFormSubmit(form) {
       }
     })
     .then(response => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+
       if (response.ok) {
-        // Success - redirect to thank you page
-        const nextUrl = form.querySelector('input[name="_next"]');
-        if (nextUrl && nextUrl.value) {
-          window.location.href = nextUrl.value;
-        } else {
-          showSuccessModal('Message Sent!', 'Thank you for reaching out. We\'ll get back to you within 24 hours.');
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }
+        // Success - show beautiful modal
+        form.reset();
+        showSuccessModal(
+          'Message Sent!',
+          'Thank you for reaching out. We\'ll get back to you within 24 hours.'
+        );
       } else {
-        return response.json().then(data => {
-          throw new Error(data.error || 'Form submission failed');
-        });
+        throw new Error('Form submission failed');
       }
     })
     .catch(error => {
