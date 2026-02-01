@@ -303,12 +303,18 @@
     // Check on initial load
     checkAndRedirect();
 
-    // Also check when returning via back button (bfcache)
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
+    // Check on ANY pageshow (back button, bfcache, etc.)
+    window.addEventListener('pageshow', checkAndRedirect);
+
+    // Also check when tab becomes visible again
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') {
         checkAndRedirect();
       }
     });
+
+    // And when window gets focus
+    window.addEventListener('focus', checkAndRedirect);
 
     // Track form submission - save to localStorage before navigating to Formspree
     document.addEventListener('DOMContentLoaded', function() {
