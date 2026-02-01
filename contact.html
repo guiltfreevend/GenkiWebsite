@@ -6,6 +6,17 @@
   <meta name="description" content="Contact Genki - Book a free call and see how we can transform your employee benefits.">
   <title>Contact Us - Genki Wellness Benefits</title>
 
+  <!-- EARLY REDIRECT: Check if returning from form submission -->
+  <script>
+    (function() {
+      var submittedAt = localStorage.getItem('genki_contact_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_contact_submitted');
+        window.location.replace('thank-you-contact.html');
+      }
+    })();
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -413,38 +424,19 @@
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Redirect to thank you page if returning after form submission -->
+  <!-- Handle bfcache/back button cases -->
   <script>
-    function checkAndRedirect() {
-      const submittedAt = localStorage.getItem('genki_contact_submitted');
-      if (submittedAt) {
-        const elapsed = Date.now() - parseInt(submittedAt);
-        if (elapsed < 5 * 60 * 1000) {
-          localStorage.removeItem('genki_contact_submitted');
-          window.location.replace('thank-you-contact.html');
-          return true;
-        } else {
-          localStorage.removeItem('genki_contact_submitted');
-        }
+    function checkFormSubmission() {
+      var submittedAt = localStorage.getItem('genki_contact_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_contact_submitted');
+        window.location.replace('thank-you-contact.html');
       }
-      return false;
     }
-
-    // Check on initial load
-    checkAndRedirect();
-
-    // Check on ANY pageshow (back button, bfcache, etc.)
-    window.addEventListener('pageshow', checkAndRedirect);
-
-    // Also check when tab becomes visible again
+    window.addEventListener('pageshow', checkFormSubmission);
     document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'visible') {
-        checkAndRedirect();
-      }
+      if (document.visibilityState === 'visible') checkFormSubmission();
     });
-
-    // And when window gets focus
-    window.addEventListener('focus', checkAndRedirect);
   </script>
 </body>
 </html>

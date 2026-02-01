@@ -6,6 +6,17 @@
   <meta name="description" content="Genki - Premium wellness benefits for modern companies. Coming soon to Bulgaria.">
   <title>Genki - Something Healthy Is Coming</title>
 
+  <!-- EARLY REDIRECT: Check if returning from form submission -->
+  <script>
+    (function() {
+      var submittedAt = localStorage.getItem('genki_coming_soon_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_coming_soon_submitted');
+        window.location.replace('thank-you-coming-soon.html');
+      }
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
 
@@ -284,37 +295,18 @@
 
   <!-- JavaScript -->
   <script>
-    // Check if user is returning after form submission - redirect immediately
-    function checkAndRedirect() {
-      const submittedAt = localStorage.getItem('genki_coming_soon_submitted');
-      if (submittedAt) {
-        const elapsed = Date.now() - parseInt(submittedAt);
-        if (elapsed < 5 * 60 * 1000) {
-          localStorage.removeItem('genki_coming_soon_submitted');
-          window.location.replace('thank-you-coming-soon.html');
-          return true;
-        } else {
-          localStorage.removeItem('genki_coming_soon_submitted');
-        }
+    // Handle bfcache/back button cases
+    function checkFormSubmission() {
+      var submittedAt = localStorage.getItem('genki_coming_soon_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_coming_soon_submitted');
+        window.location.replace('thank-you-coming-soon.html');
       }
-      return false;
     }
-
-    // Check on initial load
-    checkAndRedirect();
-
-    // Check on ANY pageshow (back button, bfcache, etc.)
-    window.addEventListener('pageshow', checkAndRedirect);
-
-    // Also check when tab becomes visible again
+    window.addEventListener('pageshow', checkFormSubmission);
     document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'visible') {
-        checkAndRedirect();
-      }
+      if (document.visibilityState === 'visible') checkFormSubmission();
     });
-
-    // And when window gets focus
-    window.addEventListener('focus', checkAndRedirect);
 
     // Track form submission - save to localStorage before navigating to Formspree
     document.addEventListener('DOMContentLoaded', function() {
