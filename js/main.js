@@ -8,7 +8,156 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initFormValidation();
   initHeaderScroll();
+  initModal();
 });
+
+// Modal System
+function initModal() {
+  // Create modal container if it doesn't exist
+  if (!document.getElementById('genki-modal')) {
+    const modalHTML = `
+      <div id="genki-modal" class="fixed inset-0 z-[100] hidden">
+        <!-- Backdrop -->
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+          <div id="modal-content" class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
+            <!-- Close Button -->
+            <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+            <!-- Icon -->
+            <div id="modal-icon" class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"></div>
+            <!-- Title -->
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-900 text-center mb-3"></h3>
+            <!-- Message -->
+            <p id="modal-message" class="text-gray-600 text-center mb-6"></p>
+            <!-- Actions -->
+            <div id="modal-actions" class="flex flex-col sm:flex-row gap-3 justify-center"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Close modal on backdrop click
+    document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+}
+
+function showModal(options) {
+  const modal = document.getElementById('genki-modal');
+  const icon = document.getElementById('modal-icon');
+  const title = document.getElementById('modal-title');
+  const message = document.getElementById('modal-message');
+  const actions = document.getElementById('modal-actions');
+  const content = document.getElementById('modal-content');
+
+  // Set type styling
+  if (options.type === 'error') {
+    icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-red-100';
+    icon.innerHTML = `<svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>`;
+  } else if (options.type === 'success') {
+    icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-green-100';
+    icon.innerHTML = `<svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>`;
+  } else {
+    icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-primary-100';
+    icon.innerHTML = `<svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>`;
+  }
+
+  title.textContent = options.title || '';
+  message.textContent = options.message || '';
+
+  // Build action buttons
+  actions.innerHTML = '';
+  if (options.primaryButton) {
+    const btn = document.createElement('button');
+    btn.className = 'px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all';
+    btn.textContent = options.primaryButton.text;
+    btn.onclick = () => {
+      if (options.primaryButton.action) options.primaryButton.action();
+      closeModal();
+    };
+    actions.appendChild(btn);
+  }
+  if (options.secondaryButton) {
+    const btn = document.createElement('button');
+    btn.className = 'px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all';
+    btn.textContent = options.secondaryButton.text;
+    btn.onclick = () => {
+      if (options.secondaryButton.action) options.secondaryButton.action();
+      closeModal();
+    };
+    actions.appendChild(btn);
+  }
+
+  // Show modal with animation
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  // Trigger animation
+  setTimeout(() => {
+    content.classList.add('scale-100', 'opacity-100');
+    content.classList.remove('scale-95', 'opacity-0');
+  }, 10);
+}
+
+function closeModal() {
+  const modal = document.getElementById('genki-modal');
+  const content = document.getElementById('modal-content');
+
+  content.classList.add('scale-95', 'opacity-0');
+  content.classList.remove('scale-100', 'opacity-100');
+
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }, 200);
+}
+
+// Global function to show error modal
+function showErrorModal(title, message) {
+  showModal({
+    type: 'error',
+    title: title,
+    message: message,
+    primaryButton: {
+      text: 'Try Again',
+      action: () => {}
+    },
+    secondaryButton: {
+      text: 'Email Us',
+      action: () => { window.location.href = 'mailto:hello@genki.bg'; }
+    }
+  });
+}
+
+// Global function to show success modal
+function showSuccessModal(title, message) {
+  showModal({
+    type: 'success',
+    title: title,
+    message: message,
+    primaryButton: {
+      text: 'Got it!',
+      action: () => {}
+    }
+  });
+}
 
 // Navigation - Active State
 function initNavigation() {
@@ -177,9 +326,62 @@ function isValidPhone(phone) {
 }
 
 function handleFormSubmit(form) {
-  // After validation passes, submit the form natively
-  // Formspree will handle the redirect via the _next hidden field
-  form.submit();
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  const action = form.getAttribute('action');
+
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `
+    <svg class="animate-spin h-5 w-5 mr-2 inline" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Sending...
+  `;
+
+  // Submit via fetch for better error handling
+  if (action && action.includes('formspree.io')) {
+    const formData = new FormData(form);
+
+    fetch(action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Success - redirect to thank you page
+        const nextUrl = form.querySelector('input[name="_next"]');
+        if (nextUrl && nextUrl.value) {
+          window.location.href = nextUrl.value;
+        } else {
+          showSuccessModal('Message Sent!', 'Thank you for reaching out. We\'ll get back to you within 24 hours.');
+          form.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      } else {
+        return response.json().then(data => {
+          throw new Error(data.error || 'Form submission failed');
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Form error:', error);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      showErrorModal(
+        'Something went wrong',
+        'We couldn\'t send your message. Please try again or email us directly at hello@genki.bg'
+      );
+    });
+  } else {
+    // No Formspree action - just submit natively
+    form.submit();
+  }
 }
 
 function showSuccessMessage(form) {

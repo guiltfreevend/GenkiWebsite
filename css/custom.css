@@ -547,3 +547,48 @@ select:focus {
 #per-day-box.scale-105 #per-day-amount {
   transform: scale(1.05);
 }
+
+/* Modal Styles */
+#genki-modal {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+#genki-modal.hidden {
+  display: none;
+}
+
+#modal-content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#modal-content.scale-95 {
+  transform: scale(0.95);
+}
+
+#modal-content.opacity-0 {
+  opacity: 0;
+}
+
+#modal-content.scale-100 {
+  transform: scale(1);
+}
+
+#modal-content.opacity-100 {
+  opacity: 1;
+}
