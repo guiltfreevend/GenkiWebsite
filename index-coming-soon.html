@@ -7,12 +7,15 @@
   <title>Genki - Something Healthy Is Coming</title>
 
   <!-- EARLY REDIRECT: Check if returning from form submission -->
+  <style>body{opacity:0}</style>
   <script>
     (function() {
       var submittedAt = localStorage.getItem('genki_coming_soon_submitted');
       if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
         localStorage.removeItem('genki_coming_soon_submitted');
         window.location.replace('thank-you-coming-soon.html');
+      } else {
+        document.write('<style>body{opacity:1}</style>');
       }
     })();
   </script>
