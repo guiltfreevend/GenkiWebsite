@@ -731,8 +731,28 @@ const translations = {
     bg: "Инструментът за задържане"
   },
   pricing_why3_text: {
-    en: "\"We have free healthy food daily\" shows up in interviews. Employees mention it as why they stayed. Your competitors can't easily copy this.",
-    bg: '„Имаме безплатна здравословна храна всеки ден" се споменава в интервюта. Служителите го посочват като причина да останат. Конкурентите Ви трудно могат да копират това — оперативната сложност се превръща във Ваше устойчиво предимство.'
+    en: "Shows up in interviews. Employees mention it as why they stayed. Your competitors can't easily copy this.",
+    bg: "Споменава се в интервюта. Служителите го посочват като причина да останат. Конкурентите ви трудно могат да копират това."
+  },
+  pricing_why_badge: {
+    en: "The Care Difference",
+    bg: "Разликата на Care"
+  },
+  pricing_why1_note: {
+    en: "3-5 visits per employee per day",
+    bg: "3-5 посещения на служител дневно"
+  },
+  pricing_why2_text: {
+    en: "When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections.",
+    bg: "Когато е безплатно, Genki кътът става МЯСТОТО за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истински връзки."
+  },
+  pricing_why2_tagline: {
+    en: "Not a kiosk — a culture hub.",
+    bg: "Не киоск — център на културата."
+  },
+  pricing_why3_quote: {
+    en: "\"We have free healthy food daily\"",
+    bg: "„Имаме безплатна здравословна храна всеки ден""
   },
 
   // NEW PRICING - All Plans Include
