@@ -59,7 +59,7 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="index.html" class="flex items-center space-x-2">
-          <span class="text-3xl">🌱</span>
+          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
 
@@ -73,17 +73,17 @@
           <!-- Language Switcher -->
           <div class="relative">
             <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
-              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <span id="lang-current">EN</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
             <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                <span>🇬🇧</span> English
+                English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-                <span>🇧🇬</span> Български
+                Български
               </a>
             </div>
           </div>
@@ -105,7 +105,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -121,8 +121,8 @@
       <!-- Mobile Language Switcher -->
       <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
         <span class="text-gray-500 text-sm">Language:</span>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">🇬🇧 EN</button>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">🇧🇬 BG</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
       </div>
 
       <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
@@ -139,7 +139,7 @@
       <div class="text-center max-w-4xl mx-auto">
         <!-- Badge -->
         <div class="inline-flex items-center bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 fade-up">
-          <span class="mr-2">🇧🇬</span>
+          <i data-lucide="flag" class="w-4 h-4 mr-2"></i>
           <span data-i18n="index_badge">100% Bulgarian Products</span>
         </div>
 
@@ -234,8 +234,8 @@
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Pillar 1: Health -->
         <div class="card pillar-card fade-up">
-          <div class="card-icon bg-green-100 text-green-600">
-            🥗
+          <div class="card-icon bg-green-100">
+            <i data-lucide="salad" class="w-8 h-8 text-green-600"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar1_title">Healthy & Bio Products</h3>
           <p class="text-gray-600 mb-4" data-i18n="index_pillar1_desc">
@@ -256,8 +256,8 @@
 
         <!-- Pillar 2: Local -->
         <div class="card pillar-card fade-up">
-          <div class="card-icon bg-blue-100 text-blue-600">
-            🇧🇬
+          <div class="card-icon bg-blue-100">
+            <i data-lucide="flag" class="w-8 h-8 text-blue-600"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar2_title">Supporting Bulgarian Businesses</h3>
           <p class="text-gray-600 mb-4" data-i18n="index_pillar2_desc">
@@ -278,8 +278,8 @@
 
         <!-- Pillar 3: Charity -->
         <div class="card pillar-card fade-up">
-          <div class="card-icon bg-amber-100 text-amber-600">
-            💛
+          <div class="card-icon bg-amber-100">
+            <i data-lucide="heart" class="w-8 h-8 text-amber-600"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="index_pillar3_title">Giving Back Monthly</h3>
           <p class="text-gray-600 mb-4" data-i18n="index_pillar3_desc">
@@ -418,7 +418,9 @@
         <!-- Right: Feature Card -->
         <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-up">
           <div class="text-center mb-6">
-            <div class="text-5xl mb-4">📊</div>
+            <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center">
+              <i data-lucide="bar-chart-3" class="w-10 h-10 text-white"></i>
+            </div>
             <h3 class="text-2xl font-bold" data-i18n="index_hr_card_title">Like Sports Cards, But for Nutrition</h3>
           </div>
           <p class="text-primary-100 text-center mb-6" data-i18n="index_hr_card_desc">
@@ -466,14 +468,14 @@
         <!-- Brand -->
         <div class="md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-3xl">🌱</span>
+            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">
             Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.
           </p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green">🇧🇬 <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
           </div>
         </div>
 
@@ -516,7 +518,9 @@
   </footer>
 
   <!-- JavaScript -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

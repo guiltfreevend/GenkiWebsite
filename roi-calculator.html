@@ -32,7 +32,9 @@
   <!-- Password Gate -->
   <div id="password-gate" class="fixed inset-0 z-[200] bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 max-w-md w-full text-center">
-      <div class="text-5xl mb-6">🌱</div>
+      <div class="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-2xl flex items-center justify-center">
+        <i data-lucide="sprout" class="w-10 h-10 text-primary-600"></i>
+      </div>
       <h1 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="roi_password_title">ROI Calculator</h1>
       <p class="text-gray-600 mb-8" data-i18n="roi_password_subtitle">Enter your access code to continue</p>
 
@@ -66,19 +68,19 @@
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <a href="index.html" class="flex items-center space-x-2">
-            <span class="text-3xl">🌱</span>
+            <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
             <span class="text-2xl font-bold text-gray-900">Genki</span>
           </a>
           <div class="flex items-center gap-4">
             <!-- Language Switcher -->
             <div class="relative">
               <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
-                <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+                <span id="lang-current">EN</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
               <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
-                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">English</a>
+                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">Български</a>
               </div>
             </div>
             <span class="text-sm text-gray-500 hidden sm:inline" data-i18n="roi_header_badge">Internal Sales Tool</span>
@@ -92,7 +94,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
           <span class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <span class="text-lg">📊</span>
+            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
             <span data-i18n="roi_hero_badge">ROI Calculator</span>
           </span>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
@@ -113,7 +115,7 @@
           <!-- Left Column: Inputs -->
           <div class="bg-gray-50 rounded-2xl p-6 lg:p-8">
             <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span class="text-2xl">⚙️</span>
+              <i data-lucide="settings" class="w-6 h-6 text-gray-600"></i>
               <span data-i18n="roi_inputs_title">Your Company Profile</span>
             </h2>
 
@@ -187,7 +189,7 @@
             <!-- Low Engagement Warning -->
             <div id="engagement-warning" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
               <p class="text-sm text-amber-800 flex items-start gap-2">
-                <span class="text-lg">⚠️</span>
+                <i data-lucide="alert-triangle" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
                 <span data-i18n="roi_warning_low_engagement">Lower consumption may reduce health outcomes and ROI benefits. Genki Care works best with 85-90% employee engagement (2.5-3.5 products/day average).</span>
               </p>
             </div>
@@ -199,7 +201,7 @@
             <!-- HERO: Savings Card (Lead with Value!) -->
             <div class="bg-gradient-to-br from-primary-600 to-emerald-600 rounded-2xl p-6 sm:p-8 text-white shadow-xl">
               <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
-                <span class="text-xl">💰</span>
+                <i data-lucide="piggy-bank" class="w-6 h-6"></i>
                 <span data-i18n="roi_savings_hero_title">Your Annual Savings with Genki</span>
               </h3>
 
@@ -226,7 +228,7 @@
               <!-- PROMINENT: Daily Cost Hero -->
               <div class="border-t border-white/20 pt-5">
                 <p class="text-white/70 text-sm mb-3 flex items-center justify-center gap-2">
-                  <span>📊</span>
+                  <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
                   <span data-i18n="roi_investment_breakdown">Investment Breakdown</span>
                 </p>
 
@@ -275,7 +277,7 @@
             <!-- Savings Breakdown -->
             <div class="bg-white border-2 border-gray-200 rounded-2xl p-6">
               <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <span class="text-xl">📊</span>
+                <i data-lucide="bar-chart-3" class="w-5 h-5 text-gray-600"></i>
                 <span data-i18n="roi_breakdown_title">Savings Breakdown</span>
               </h3>
 
@@ -340,7 +342,9 @@
           <!-- Conservative -->
           <div class="scenario-card bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="conservative">
             <div class="text-center mb-4">
-              <span class="text-3xl">🛡️</span>
+              <div class="w-12 h-12 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-6 h-6 text-gray-600"></i>
+              </div>
               <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_conservative_title">Conservative</h3>
               <p class="text-sm text-gray-500" data-i18n="roi_scenario_conservative_desc">Minimum expected benefits</p>
             </div>
@@ -363,7 +367,9 @@
               <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="roi_scenario_recommended">Recommended</span>
             </div>
             <div class="text-center mb-4 pt-2">
-              <span class="text-3xl">⚖️</span>
+              <div class="w-12 h-12 mx-auto bg-primary-100 rounded-full flex items-center justify-center">
+                <i data-lucide="scale" class="w-6 h-6 text-primary-600"></i>
+              </div>
               <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_moderate_title">Moderate</h3>
               <p class="text-sm text-gray-500" data-i18n="roi_scenario_moderate_desc">Realistic baseline scenario</p>
             </div>
@@ -383,7 +389,9 @@
           <!-- Optimistic -->
           <div class="scenario-card bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="optimistic">
             <div class="text-center mb-4">
-              <span class="text-3xl">🚀</span>
+              <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center">
+                <i data-lucide="rocket" class="w-6 h-6 text-blue-600"></i>
+              </div>
               <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_optimistic_title">Optimistic</h3>
               <p class="text-sm text-gray-500" data-i18n="roi_scenario_optimistic_desc">Best-case with high engagement</p>
             </div>
@@ -411,7 +419,9 @@
 
           <div class="grid md:grid-cols-2 gap-8 mt-6">
             <div class="text-center">
-              <div class="text-4xl mb-2">🆓</div>
+              <div class="w-12 h-12 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
+                <i data-lucide="gift" class="w-6 h-6 text-emerald-600"></i>
+              </div>
               <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_care">Care Plan (Company Pays)</h4>
               <div class="bg-emerald-100 rounded-full h-4 mb-2">
                 <div class="bg-emerald-500 h-full rounded-full" style="width: 87%"></div>
@@ -421,7 +431,9 @@
             </div>
 
             <div class="text-center">
-              <div class="text-4xl mb-2">💳</div>
+              <div class="w-12 h-12 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
+                <i data-lucide="credit-card" class="w-6 h-6 text-gray-600"></i>
+              </div>
               <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_starter">Starter Plan (Employees Pay)</h4>
               <div class="bg-gray-100 rounded-full h-4 mb-2">
                 <div class="bg-gray-400 h-full rounded-full" style="width: 20%"></div>
@@ -469,7 +481,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex items-center space-x-2">
-            <span class="text-2xl">🌱</span>
+            <i data-lucide="sprout" class="w-6 h-6 text-green-400"></i>
             <span class="text-xl font-bold text-white">Genki</span>
           </div>
           <p class="text-gray-400 text-sm" data-i18n="roi_footer_note">Internal sales tool. Data for illustrative purposes only.</p>
@@ -480,8 +492,10 @@
 
   </div>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/translations.js"></script>
   <script src="js/research-data.js"></script>
   <script src="js/roi-calculator.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

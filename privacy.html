@@ -59,7 +59,7 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="index.html" class="flex items-center space-x-2">
-          <span class="text-3xl">🌱</span>
+          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
 
@@ -73,17 +73,17 @@
           <!-- Language Switcher -->
           <div class="relative">
             <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
-              <span id="lang-current"><span class="mr-1">🇧🇬</span> BG</span>
+              <span id="lang-current">BG</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
             <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="privacy-en.html" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                <span>🇬🇧</span> English
+                English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors bg-primary-50 text-primary-700" data-lang="bg">
-                <span>🇧🇬</span> Български
+                Български
               </a>
             </div>
           </div>
@@ -105,7 +105,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -121,8 +121,8 @@
       <!-- Mobile Language Switcher -->
       <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
         <span class="text-gray-500 text-sm">Език:</span>
-        <a href="privacy-en.html" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100">🇬🇧 EN</a>
-        <span class="px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700">🇧🇬 BG</span>
+        <a href="privacy-en.html" class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100">EN</a>
+        <span class="px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700">BG</span>
       </div>
 
       <a href="contact.html" class="btn-primary mt-4 text-center">Запазете разговор</a>
@@ -236,14 +236,14 @@
         <!-- Brand -->
         <div class="md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-3xl">🌱</span>
+            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
           <p class="text-gray-400 mb-4 max-w-md">
             Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители, месечни дарения.
           </p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green">🇧🇬 Произведено в България</span>
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> Произведено в България</span>
           </div>
         </div>
 
@@ -286,7 +286,9 @@
   </footer>
 
   <!-- JavaScript -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
   <script>
     // Privacy page language handling
     document.addEventListener('DOMContentLoaded', function() {

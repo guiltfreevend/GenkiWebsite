@@ -33,7 +33,7 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <a href="index.html" class="flex items-center space-x-2">
-          <span class="text-3xl">🌱</span>
+          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
         <div class="hidden md:flex items-center space-x-8">
@@ -43,12 +43,12 @@
           <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
           <div class="relative">
             <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
-              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <span id="lang-current">EN</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
-              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">English</a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">Български</a>
             </div>
           </div>
           <a href="contact.html" class="btn-primary" data-i18n="nav_book_call">Book a Call</a>
@@ -64,7 +64,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
@@ -76,8 +76,8 @@
       <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
       <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
         <span class="text-gray-500 text-sm">Language:</span>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">🇬🇧 EN</button>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">🇧🇬 BG</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
       </div>
       <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
     </div>
@@ -322,7 +322,7 @@
         <!-- Card 1: The Engagement Gap -->
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
           <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-            <span class="text-3xl">📊</span>
+            <i data-lucide="bar-chart-3" class="w-8 h-8 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-4" data-i18n="pricing_why1_title">The Engagement Gap</h3>
 
@@ -362,7 +362,7 @@
         <!-- Card 2: The Social Hub Effect -->
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
           <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-            <span class="text-3xl">💬</span>
+            <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-4" data-i18n="pricing_why2_title">The Social Hub Effect</h3>
           <p class="text-white/80 leading-relaxed" data-i18n="pricing_why2_text">When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections.</p>
@@ -374,7 +374,7 @@
         <!-- Card 3: The Retention Tool -->
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
           <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-            <span class="text-3xl">🏆</span>
+            <i data-lucide="trophy" class="w-8 h-8 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-4" data-i18n="pricing_why3_title">The Retention Tool</h3>
           <div class="bg-white/10 rounded-xl p-4 mb-4 border-l-4 border-amber-400">
@@ -430,22 +430,22 @@
         <!-- 4 Savings Mini-Cards in Grid -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
           <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <span class="text-2xl">💰</span>
+            <i data-lucide="piggy-bank" class="w-6 h-6 text-emerald-500 mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_turnover_title">Reduced Turnover</p>
             <p class="text-lg font-bold text-emerald-600">€<span id="roi-turnover">263,250</span></p>
           </div>
           <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <span class="text-2xl">📈</span>
+            <i data-lucide="trending-up" class="w-6 h-6 text-emerald-500 mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_productivity_title">Productivity Gains</p>
             <p class="text-lg font-bold text-emerald-600">€<span id="roi-productivity">270,000</span></p>
           </div>
           <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <span class="text-2xl">🏥</span>
+            <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-500 mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_sick_title">Fewer Sick Days</p>
             <p class="text-lg font-bold text-emerald-600">€<span id="roi-sick">39,273</span></p>
           </div>
           <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <span class="text-2xl">💊</span>
+            <i data-lucide="pill" class="w-6 h-6 text-emerald-500 mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_healthcare_title">Healthcare Savings</p>
             <p class="text-lg font-bold text-emerald-600">€<span id="roi-healthcare">7,500</span></p>
           </div>
@@ -535,12 +535,12 @@
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-3xl">🌱</span>
+            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green">🇧🇬 <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
           </div>
         </div>
         <div>
@@ -570,8 +570,10 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 
   <!-- ROI Calculator - Uses SAME formulas as roi-calculator.js -->
   <script>

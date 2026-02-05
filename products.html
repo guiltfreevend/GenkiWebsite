@@ -33,7 +33,7 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <a href="index.html" class="flex items-center space-x-2">
-          <span class="text-3xl">🌱</span>
+          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
           <span class="text-2xl font-bold text-gray-900">Genki</span>
         </a>
         <div class="hidden md:flex items-center space-x-8">
@@ -44,17 +44,17 @@
           <!-- Language Switcher -->
           <div class="relative">
             <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
-              <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+              <span id="lang-current">EN</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
             <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                <span>🇬🇧</span> English
+                English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-                <span>🇧🇬</span> Български
+                Български
               </a>
             </div>
           </div>
@@ -73,7 +73,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900">🌱 Genki</span>
+      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -90,10 +90,10 @@
         <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
         <div class="flex gap-2">
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-            <span>🇬🇧</span> EN
+            EN
           </a>
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-            <span>🇧🇬</span> BG
+            BG
           </a>
         </div>
       </div>
@@ -131,7 +131,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-8">
         <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-          <span class="text-2xl">🥜</span>
+          <i data-lucide="cookie" class="w-6 h-6 text-green-600"></i>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_snacks_title">Healthy Snacks</h2>
@@ -142,8 +142,8 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Cookies -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-6xl">
-            🍪
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+            <i data-lucide="cookie" class="w-16 h-16 text-amber-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-green mb-2" data-i18n="products_badge_natural">Natural</span>
@@ -154,8 +154,8 @@
 
         <!-- Wafers -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl">
-            🍫
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="candy" class="w-16 h-16 text-orange-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-amber mb-2" data-i18n="products_badge_tasty">Tasty</span>
@@ -166,8 +166,8 @@
 
         <!-- Protein Bars -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center text-6xl">
-            🍫
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+            <i data-lucide="dumbbell" class="w-16 h-16 text-yellow-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-amber mb-2" data-i18n="products_badge_protein">High Protein</span>
@@ -178,8 +178,8 @@
 
         <!-- Rice Cakes -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center text-6xl">
-            🍘
+          <div class="h-48 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+            <i data-lucide="wheat" class="w-16 h-16 text-stone-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-blue mb-2" data-i18n="products_badge_lowcal">Low Calorie</span>
@@ -196,7 +196,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-8">
         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-          <span class="text-2xl">🧃</span>
+          <i data-lucide="cup-soda" class="w-6 h-6 text-blue-600"></i>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_drinks_title">Beverages</h2>
@@ -207,8 +207,8 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Ice Teas -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
-            🧊
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="glass-water" class="w-16 h-16 text-teal-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-green mb-2" data-i18n="products_badge_refreshing">Refreshing</span>
@@ -219,8 +219,8 @@
 
         <!-- Energy Drinks -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl">
-            ⚡
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="zap" class="w-16 h-16 text-orange-500"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-amber mb-2" data-i18n="products_badge_energy">Energy</span>
@@ -231,8 +231,8 @@
 
         <!-- Fresh Juices -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center text-6xl">
-            🍊
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center">
+            <i data-lucide="citrus" class="w-16 h-16 text-orange-500"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-green mb-2" data-i18n="products_badge_fresh">Fresh Pressed</span>
@@ -243,8 +243,8 @@
 
         <!-- Sparkling Water -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center text-6xl">
-            💧
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center">
+            <i data-lucide="droplets" class="w-16 h-16 text-blue-500"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-blue mb-2" data-i18n="products_badge_natural">Natural</span>
@@ -255,8 +255,8 @@
 
         <!-- Kombucha -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-6xl">
-            🫖
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="wine" class="w-16 h-16 text-amber-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-amber mb-2" data-i18n="products_badge_probiotic">Probiotic</span>
@@ -267,8 +267,8 @@
 
         <!-- Smoothies -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-6xl">
-            🥤
+          <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center">
+            <i data-lucide="cup-soda" class="w-16 h-16 text-pink-500"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-green mb-2" data-i18n="products_badge_nosugar">No Sugar</span>
@@ -285,7 +285,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
         <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-          <span class="text-2xl">🍱</span>
+          <i data-lucide="utensils" class="w-6 h-6 text-purple-600"></i>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_meals_title">Fresh Meals (Customized Upon Request)</h2>
@@ -300,8 +300,8 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Soups -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center text-6xl">
-            🍲
+          <div class="h-48 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="soup" class="w-16 h-16 text-red-500"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-green mb-2" data-i18n="products_badge_hot">Hot</span>
@@ -312,8 +312,8 @@
 
         <!-- Salads -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
-            🥗
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="salad" class="w-16 h-16 text-green-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
@@ -324,8 +324,8 @@
 
         <!-- Poke Bowls -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center text-6xl">
-            🥢
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="utensils-crossed" class="w-16 h-16 text-cyan-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
@@ -336,8 +336,8 @@
 
         <!-- Balanced Meals -->
         <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center text-6xl">
-            🍱
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+            <i data-lucide="package" class="w-16 h-16 text-purple-600"></i>
           </div>
           <div class="p-4">
             <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
@@ -366,23 +366,33 @@
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
         <div class="text-center p-6 bg-green-50 rounded-xl fade-up">
-          <div class="text-4xl mb-3">🌱</div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
+            <i data-lucide="sprout" class="w-6 h-6 text-green-600"></i>
+          </div>
           <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegan">Vegan</h3>
         </div>
         <div class="text-center p-6 bg-emerald-50 rounded-xl fade-up">
-          <div class="text-4xl mb-3">🥬</div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
+            <i data-lucide="leaf" class="w-6 h-6 text-emerald-600"></i>
+          </div>
           <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegetarian">Vegetarian</h3>
         </div>
         <div class="text-center p-6 bg-amber-50 rounded-xl fade-up">
-          <div class="text-4xl mb-3">🌾</div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
+            <i data-lucide="wheat-off" class="w-6 h-6 text-amber-600"></i>
+          </div>
           <h3 class="font-semibold text-gray-900" data-i18n="products_diet_glutenfree">Gluten-Free</h3>
         </div>
         <div class="text-center p-6 bg-blue-50 rounded-xl fade-up">
-          <div class="text-4xl mb-3">🥛</div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+            <i data-lucide="milk-off" class="w-6 h-6 text-blue-600"></i>
+          </div>
           <h3 class="font-semibold text-gray-900" data-i18n="products_diet_lactosefree">Lactose-Free</h3>
         </div>
         <div class="text-center p-6 bg-purple-50 rounded-xl fade-up">
-          <div class="text-4xl mb-3">🥜</div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
+            <i data-lucide="ban" class="w-6 h-6 text-purple-600"></i>
+          </div>
           <h3 class="font-semibold text-gray-900" data-i18n="products_diet_nutfree">Nut-Free</h3>
         </div>
       </div>
@@ -409,12 +419,12 @@
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-3xl">🌱</span>
+            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
             <span class="text-2xl font-bold text-white">Genki</span>
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
-            <span class="badge badge-green" data-i18n="footer_badge">🇧🇬 Made in Bulgaria</span>
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="footer_badge_text">Made in Bulgaria</span></span>
           </div>
         </div>
         <div>
@@ -444,7 +454,9 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
