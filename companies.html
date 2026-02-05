@@ -540,7 +540,7 @@
               </div>
               <div class="text-right">
                 <p class="text-white/80 text-sm font-medium">ROI</p>
-                <p class="text-3xl font-bold"><span id="roi-percent">291</span>%</p>
+                <p class="text-3xl font-bold"><span id="roi-percent-hero">291</span>%</p>
               </div>
             </div>
           </div>
@@ -864,9 +864,11 @@
         // Net benefit & ROI
         const netEl = document.getElementById('roi-net');
         const percentEl = document.getElementById('roi-percent');
+        const percentHeroEl = document.getElementById('roi-percent-hero');
         const paybackEl = document.getElementById('roi-payback');
         if (netEl) netEl.textContent = formatNumber(data.netBenefit);
         if (percentEl) percentEl.textContent = Math.round(data.roiPercent);
+        if (percentHeroEl) percentHeroEl.textContent = Math.round(data.roiPercent);
         if (paybackEl) paybackEl.textContent = data.paybackMonths.toFixed(1);
 
         // Animate the per-day box
