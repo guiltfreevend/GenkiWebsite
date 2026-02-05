@@ -1333,8 +1333,8 @@ const translations = {
     bg: "📝 Примерно изчисление за илюстрация. Запазете консултация за персонална оферта."
   },
   roi_cta: {
-    en: "Book Your Custom Quote",
-    bg: "Запазете персонална оферта"
+    en: "Book a Consultation",
+    bg: "Запазете час за консултация"
   },
 
   // Simplified Public ROI Calculator (companies.html)
@@ -1437,6 +1437,14 @@ const translations = {
   roi_total_savings: {
     en: "Total Annual Savings",
     bg: "Общи годишни спестявания"
+  },
+  roi_net_benefit: {
+    en: "Net benefit after Genki investment",
+    bg: "Нетна полза след инвестицията в Genki"
+  },
+  roi_breakdown_label: {
+    en: "Research-Based Breakdown",
+    bg: "Разбивка по изследвания"
   },
   roi_engagement_note: {
     en: "Care Plan Engagement",
