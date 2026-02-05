@@ -27,22 +27,16 @@ const researchStudies = {
           link: 'https://hbr.org/2010/12/whats-the-hard-return-on-employee-wellness-programs'
         },
         {
-          title: 'Cost-Effectiveness of Workplace Health Interventions',
-          source: 'Vitality Group (2024)',
-          finding: 'Wellness programs reduce annual healthcare expenditure by €462 per employee on average, with high-engagement programs showing even greater savings.',
-          link: 'https://www.rand.org/pubs/research_briefs/RB9744.html'
-        },
-        {
           title: 'Good OSH is Good for Business',
           source: 'EU-OSHA (European Agency for Safety and Health at Work)',
           finding: 'Workplace health investments return €2.20 per €1 invested across European companies, with absenteeism reductions of 12-36% documented.',
           link: 'https://osha.europa.eu/en/themes/good-osh-is-good-for-business'
         },
         {
-          title: 'Corporate Wellness ROI Meta-Analysis',
-          source: 'Multiple Studies Compilation (2025)',
-          finding: '95% of companies measuring wellness ROI see positive returns. Overall benefit-to-cost ratio ranges from 3:1 (conservative) to 6:1 (well-run programs).',
-          link: 'https://selerix.com/blog/roi-on-wellness-programs/'
+          title: 'Workplace Wellness Programs Study',
+          source: 'American Journal of Health Promotion (2012)',
+          finding: 'Meta-analysis of 42 published studies found average ROI of $3.27 saved for every $1 spent on wellness programs, with 25% reduction in sick leave and health costs.',
+          link: 'https://journals.sagepub.com/doi/10.4278/ajhp.26.1.TAHP-1'
         }
       ]
     },
@@ -59,7 +53,7 @@ const researchStudies = {
         },
         {
           title: 'Healthy Eating and Job Performance',
-          source: 'BYU Population Health (Multiple Studies)',
+          source: 'Brigham Young University Health Study (2012)',
           finding: 'Employees who eat healthy throughout the workday are 25% more likely to demonstrate higher job performance compared to those with poor dietary habits.',
           link: 'https://news.byu.edu/news/poor-employee-health-means-slacking-job-business-losses'
         },
@@ -126,10 +120,10 @@ const researchStudies = {
           link: 'https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx'
         },
         {
-          title: 'Benefits Satisfaction and Employee Retention',
-          source: 'Multiple HR Studies (2024)',
-          finding: 'Employees are 5x more likely to stay with their employer when satisfied with benefits packages. Companies with high workplace wellbeing see 33% less voluntary turnover compared to low-wellbeing organizations.',
-          link: 'https://www.infeedo.ai/blog/corporate-wellness-programs-worth-every-penny-2025'
+          title: 'Employee Benefits Trends Study',
+          source: 'MetLife Annual Benefits Report (2023)',
+          finding: 'Employees are 2x more likely to stay with their employer when satisfied with benefits packages. 73% of employees say wellbeing benefits will be important when evaluating future job offers.',
+          link: 'https://www.metlife.com/employee-benefit-trends/'
         },
         {
           title: 'Tech Company Retention Statistics',
@@ -199,8 +193,8 @@ const researchStudies = {
           link: 'https://techbehemoths.com/companies/bulgaria'
         },
         {
-          title: 'Bulgaria Best Price/Quality Ratio',
-          source: 'Multiple Industry Sources (2024)',
+          title: 'Bulgaria IT Outsourcing Competitiveness',
+          source: 'TechBehemoths Industry Analysis (2024)',
           finding: 'Bulgaria offers one of the best price-to-quality ratios in European IT market. Combines low labor costs, high technical skills, EU membership benefits, and cultural alignment with Western Europe.',
           link: 'https://techbehemoths.com/companies/bulgaria'
         }
@@ -274,10 +268,10 @@ const researchStudies = {
           link: 'https://www.who.int/news/item/13-04-2016-investing-in-treatment-for-depression-and-anxiety-leads-to-fourfold-return'
         },
         {
-          title: 'Mental Health Treatment Impact on Work Performance',
-          source: 'Multiple Clinical Studies (2024)',
-          finding: 'Employees treated for depression show 86% improved work performance. Mental health interventions produce 40-60% reduction in absenteeism and presenteeism among affected employees.',
-          link: 'https://vorecol.com/blogs/blog-the-roi-of-mental-health-initiatives-how-wellness-program-standards-influence-employee-productivity-205974'
+          title: 'Depression and Work Performance',
+          source: 'American Psychiatric Association Foundation (2022)',
+          finding: 'Employees receiving adequate depression treatment show significant work improvements. Untreated depression costs employers $44 billion annually in lost productivity in the US alone.',
+          link: 'https://workplacementalhealth.org/mental-health-topics/depression'
         },
         {
           title: 'Workplace Mental Health Programs ROI',
