@@ -1454,6 +1454,10 @@ const translations = {
     en: "Fixed rate: 2.5 products × €1.50 per employee",
     bg: "Фиксирана цена: 2.5 продукта × €1.50 на служител"
   },
+  roi_advanced_note: {
+    en: "Want more control? We have an advanced calculator with custom inputs for salary, turnover rates, and scenarios — available during your consultation.",
+    bg: "Искате повече контрол? Имаме разширен калкулатор с персонализирани входни данни за заплата, текучество и сценарии — достъпен по време на консултацията."
+  },
 
   // COMPANIES PAGE - FAQ
   companies_faq_title: {
