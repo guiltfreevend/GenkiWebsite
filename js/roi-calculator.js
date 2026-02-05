@@ -36,6 +36,19 @@
     }
   };
 
+  // Bulgarian market prices (EUR) - Sofia, February 2026
+  const BULGARIAN_PRICES = {
+    coffee: 1.50,
+    cappuccino: 1.75,
+    espresso: 1.25,
+    sandwich: 1.30,
+    pizzaSlice: 0.60,
+    restaurantMeal: 6.10,
+    mcdonaldsMeal: 7.65,
+    beer: 1.50,
+    cinemaTicket: 6.10
+  };
+
   // Current state
   let currentScenario = 'moderate';
   let currentInputs = {
@@ -321,6 +334,7 @@
     // Re-query elements if not cached (handles hidden content case)
     const resultInvestment = elements.resultInvestment || document.getElementById('result-investment');
     const resultDaily = elements.resultDaily || document.getElementById('result-daily');
+    const resultMonthly = elements.resultMonthly || document.getElementById('result-monthly');
     const resultSavings = elements.resultSavings || document.getElementById('result-savings');
     const resultNet = elements.resultNet || document.getElementById('result-net');
     const resultRoi = elements.resultRoi || document.getElementById('result-roi');
@@ -332,6 +346,9 @@
     }
     if (resultDaily) {
       resultDaily.textContent = results.genkiCostDaily.toFixed(2);
+    }
+    if (resultMonthly) {
+      resultMonthly.textContent = results.genkiCostMonthly.toFixed(2);
     }
 
     // Update ROI summary
@@ -348,11 +365,53 @@
       resultPayback.textContent = results.paybackMonths.toFixed(1);
     }
 
+    // Update Bulgarian price comparison
+    updateCostComparison(results.genkiCostDaily);
+
     // Update breakdown bars
     updateBreakdownBars(results);
 
     // Update all scenario cards
     updateScenarioCards();
+  }
+
+  function updateCostComparison(dailyCost) {
+    const comparisonCoffees = document.getElementById('comparison-coffees');
+    const comparisonSandwiches = document.getElementById('comparison-sandwiches');
+    const comparisonBox = document.getElementById('cost-comparison');
+
+    if (!comparisonCoffees || !comparisonSandwiches) return;
+
+    // Calculate how many coffees/sandwiches this equals
+    const coffees = dailyCost / BULGARIAN_PRICES.coffee;
+    const sandwiches = dailyCost / BULGARIAN_PRICES.sandwich;
+
+    // Format to 1 decimal place, remove trailing .0
+    comparisonCoffees.textContent = formatDecimal(coffees);
+    comparisonSandwiches.textContent = formatDecimal(sandwiches);
+
+    // Update comparison box color based on cost
+    if (comparisonBox) {
+      if (dailyCost < 3.00) {
+        // Very affordable - green
+        comparisonBox.className = 'bg-green-400/20 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-green-400';
+      } else if (dailyCost < 5.00) {
+        // Moderate - yellow/amber
+        comparisonBox.className = 'bg-amber-400/20 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-amber-400';
+      } else {
+        // Premium - keep white/neutral
+        comparisonBox.className = 'bg-white/10 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-white/40';
+      }
+    }
+  }
+
+  function formatDecimal(num) {
+    // Format numbers nicely: 2.5, not 2.50 or 2.500000001
+    const rounded = Math.round(num * 10) / 10;
+    if (rounded === Math.floor(rounded)) {
+      return rounded.toString();
+    }
+    return rounded.toFixed(1);
   }
 
   function updateBreakdownBars(results) {

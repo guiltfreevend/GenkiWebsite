@@ -3000,25 +3000,37 @@ const translations = {
     en: "Pure profit in your pocket",
     bg: "Чиста печалба за вас"
   },
-  roi_investment_required: {
-    en: "Investment Required",
-    bg: "Необходима инвестиция"
+  roi_investment_breakdown: {
+    en: "Investment Breakdown",
+    bg: "Разбивка на инвестицията"
   },
-  roi_per_year: {
-    en: "/year",
-    bg: "/годишно"
+  roi_only: {
+    en: "Only",
+    bg: "Само"
   },
-  roi_daily_context_prefix: {
-    en: "Only €",
-    bg: "Само €"
+  roi_per_employee_day: {
+    en: "per employee per day",
+    bg: "на служител на ден"
   },
-  roi_daily_context_suffix: {
-    en: "/employee/day",
-    bg: "/служител/ден"
+  roi_coffees: {
+    en: "coffees",
+    bg: "кафета"
   },
-  roi_less_than_coffee: {
-    en: "(less than a coffee)",
-    bg: "(по-малко от едно кафе)"
+  roi_or: {
+    en: "or",
+    bg: "или"
+  },
+  roi_sandwiches: {
+    en: "sandwiches",
+    bg: "сандвича"
+  },
+  roi_annual_total: {
+    en: "Annual Total",
+    bg: "Годишно общо"
+  },
+  roi_monthly_employee: {
+    en: "Monthly/Employee",
+    bg: "Месечно/Служител"
   },
 
   // Savings Breakdown
