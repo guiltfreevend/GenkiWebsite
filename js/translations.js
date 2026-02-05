@@ -1390,6 +1390,14 @@ const translations = {
     en: "Net Annual Benefit",
     bg: "Нетна годишна полза"
   },
+  roi_what_you_save: {
+    en: "What You Save Annually",
+    bg: "Какво спестявате годишно"
+  },
+  roi_save_subtitle: {
+    en: "from reduced turnover, productivity & health costs",
+    bg: "от намалено текучество, продуктивност и здравни разходи"
+  },
   roi_label: {
     en: "ROI:",
     bg: "ROI:"
