@@ -378,7 +378,6 @@
   function updateCostComparison(dailyCost) {
     const comparisonCoffees = document.getElementById('comparison-coffees');
     const comparisonSandwiches = document.getElementById('comparison-sandwiches');
-    const comparisonBox = document.getElementById('cost-comparison');
 
     if (!comparisonCoffees || !comparisonSandwiches) return;
 
@@ -389,20 +388,6 @@
     // Format to 1 decimal place, remove trailing .0
     comparisonCoffees.textContent = formatDecimal(coffees);
     comparisonSandwiches.textContent = formatDecimal(sandwiches);
-
-    // Update comparison box color based on cost
-    if (comparisonBox) {
-      if (dailyCost < 3.00) {
-        // Very affordable - green
-        comparisonBox.className = 'bg-green-400/20 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-green-400';
-      } else if (dailyCost < 5.00) {
-        // Moderate - yellow/amber
-        comparisonBox.className = 'bg-amber-400/20 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-amber-400';
-      } else {
-        // Premium - keep white/neutral
-        comparisonBox.className = 'bg-white/10 rounded-lg px-4 py-3 text-center mb-4 border-l-4 border-white/40';
-      }
-    }
   }
 
   function formatDecimal(num) {
