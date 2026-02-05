@@ -321,8 +321,12 @@
     // Update investment display
     if (elements.resultInvestment) {
       elements.resultInvestment.textContent = formatNumber(results.genkiCostAnnual);
-      elements.resultMonthly.textContent = results.genkiCostMonthly.toFixed(2);
-      elements.resultDaily.textContent = results.genkiCostDaily.toFixed(2);
+      if (elements.resultMonthly) {
+        elements.resultMonthly.textContent = results.genkiCostMonthly.toFixed(2);
+      }
+      if (elements.resultDaily) {
+        elements.resultDaily.textContent = results.genkiCostDaily.toFixed(2);
+      }
     }
 
     // Update ROI summary

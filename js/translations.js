@@ -2987,6 +2987,40 @@ const translations = {
     bg: "месеца"
   },
 
+  // Savings Hero Card (Value-First Messaging)
+  roi_savings_hero_title: {
+    en: "Your Annual Savings with Genki",
+    bg: "Вашите годишни спестявания с Genki"
+  },
+  roi_net_benefit_after: {
+    en: "Net Benefit After Investment",
+    bg: "Нетна полза след инвестиция"
+  },
+  roi_pure_profit: {
+    en: "Pure profit in your pocket",
+    bg: "Чиста печалба за вас"
+  },
+  roi_investment_required: {
+    en: "Investment Required",
+    bg: "Необходима инвестиция"
+  },
+  roi_per_year: {
+    en: "/year",
+    bg: "/годишно"
+  },
+  roi_daily_context_prefix: {
+    en: "Only €",
+    bg: "Само €"
+  },
+  roi_daily_context_suffix: {
+    en: "/employee/day",
+    bg: "/служител/ден"
+  },
+  roi_less_than_coffee: {
+    en: "(less than a coffee)",
+    bg: "(по-малко от едно кафе)"
+  },
+
   // Savings Breakdown
   roi_breakdown_title: {
     en: "Savings Breakdown",

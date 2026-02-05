@@ -196,26 +196,11 @@
           <!-- Right Column: Results -->
           <div class="space-y-6">
 
-            <!-- Investment Card -->
-            <div class="bg-white border-2 border-gray-200 rounded-2xl p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <!-- HERO: Savings Card (Lead with Value!) -->
+            <div class="bg-gradient-to-br from-primary-600 to-emerald-600 rounded-2xl p-6 sm:p-8 text-white shadow-xl">
+              <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
                 <span class="text-xl">💰</span>
-                <span data-i18n="roi_investment_title">Your Annual Genki Investment</span>
-              </h3>
-              <div class="text-center py-4">
-                <p class="text-4xl sm:text-5xl font-extrabold text-gray-900">€<span id="result-investment">198,000</span></p>
-                <div class="flex justify-center gap-6 mt-4 text-sm text-gray-600">
-                  <span>€<span id="result-monthly">82.50</span><span data-i18n="roi_per_month">/employee/month</span></span>
-                  <span>€<span id="result-daily">3.75</span><span data-i18n="roi_per_day">/employee/day</span></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ROI Summary Card -->
-            <div class="bg-gradient-to-br from-primary-600 to-secondary-700 rounded-2xl p-6 text-white">
-              <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                <span class="text-xl">📈</span>
-                <span data-i18n="roi_summary_title">Your Return on Investment</span>
+                <span data-i18n="roi_savings_hero_title">Your Annual Savings with Genki</span>
               </h3>
 
               <!-- Scenario Tabs -->
@@ -225,23 +210,43 @@
                 <button class="scenario-tab px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/20 hover:bg-white/30" data-scenario="optimistic" data-i18n="roi_scenario_optimistic">Optimistic</button>
               </div>
 
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white/10 rounded-xl p-4">
-                  <p class="text-sm text-white/80" data-i18n="roi_total_savings">Total Annual Savings</p>
-                  <p class="text-2xl font-bold">€<span id="result-savings">872,000</span></p>
+              <!-- HERO NUMBER: Total Savings -->
+              <div class="text-center mb-6">
+                <p class="text-white/80 text-sm mb-1" data-i18n="roi_total_savings">Total Annual Savings</p>
+                <p class="text-5xl sm:text-6xl font-extrabold text-white drop-shadow-lg">€<span id="result-savings">872,000</span></p>
+              </div>
+
+              <!-- SECONDARY: Net Benefit -->
+              <div class="bg-white/15 rounded-xl p-4 text-center mb-6">
+                <p class="text-white/80 text-sm" data-i18n="roi_net_benefit_after">Net Benefit After Investment</p>
+                <p class="text-3xl sm:text-4xl font-bold text-green-300">€<span id="result-net">674,000</span></p>
+                <p class="text-xs text-white/60 mt-1" data-i18n="roi_pure_profit">Pure profit in your pocket</p>
+              </div>
+
+              <!-- DE-EMPHASIZED: Investment Context -->
+              <div class="border-t border-white/20 pt-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-center sm:text-left">
+                  <div>
+                    <p class="text-white/60 text-sm" data-i18n="roi_investment_required">Investment Required</p>
+                    <p class="text-xl font-semibold text-white/90">€<span id="result-investment">198,000</span><span class="text-white/60 text-sm" data-i18n="roi_per_year">/year</span></p>
+                  </div>
+                  <div class="text-white/50 text-sm italic">
+                    <span data-i18n="roi_daily_context_prefix">Only €</span><span id="result-daily">3.75</span><span data-i18n="roi_daily_context_suffix">/employee/day</span><br>
+                    <span class="text-xs" data-i18n="roi_less_than_coffee">(less than a coffee)</span>
+                  </div>
                 </div>
-                <div class="bg-white/10 rounded-xl p-4">
-                  <p class="text-sm text-white/80" data-i18n="roi_net_benefit">Net Annual Benefit</p>
-                  <p class="text-2xl font-bold text-green-300">€<span id="result-net">674,000</span></p>
-                </div>
-                <div class="bg-white/10 rounded-xl p-4">
-                  <p class="text-sm text-white/80" data-i18n="roi_percentage">ROI Percentage</p>
-                  <p class="text-2xl font-bold"><span id="result-roi">340</span>%</p>
-                </div>
-                <div class="bg-white/10 rounded-xl p-4">
-                  <p class="text-sm text-white/80" data-i18n="roi_payback">Payback Period</p>
-                  <p class="text-2xl font-bold"><span id="result-payback">2.7</span> <span data-i18n="roi_months">months</span></p>
-                </div>
+              </div>
+            </div>
+
+            <!-- ROI Metrics Row -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white border-2 border-primary-200 rounded-xl p-4 text-center">
+                <p class="text-sm text-gray-500" data-i18n="roi_percentage">ROI Percentage</p>
+                <p class="text-3xl font-extrabold text-primary-600"><span id="result-roi">340</span>%</p>
+              </div>
+              <div class="bg-white border-2 border-primary-200 rounded-xl p-4 text-center">
+                <p class="text-sm text-gray-500" data-i18n="roi_payback">Payback Period</p>
+                <p class="text-3xl font-extrabold text-primary-600"><span id="result-payback">2.7</span> <span class="text-lg" data-i18n="roi_months">months</span></p>
               </div>
             </div>
 
