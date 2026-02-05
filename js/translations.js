@@ -1342,6 +1342,14 @@ const translations = {
     en: "📋 Based on Bulgarian IT market:",
     bg: "📋 Базирано на българския IT пазар:"
   },
+  roi_assumptions_compact: {
+    en: "Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, Genki Care plan",
+    bg: "Базирано на българския IT пазар: €36k заплата, 13% текучество, 8 болнични/год., план Care"
+  },
+  roi_research_note: {
+    en: "Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.",
+    bg: "Базирано на рецензирани изследвания от Harvard, SHRM, EU-OSHA и други."
+  },
   roi_turnover_rate: {
     en: "Turnover:",
     bg: "Текучество:"
