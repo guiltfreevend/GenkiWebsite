@@ -52,9 +52,9 @@ const researchStudies = {
           link: 'https://www.businesswire.com/news/home/20120806006042/en/Poor-Employee-Health-Habits-Drive-Lost-Productivity-According-to-Major-New-Study-of-Nearly-20000-American-Workers'
         },
         {
-          title: 'Healthy Eating and Job Performance',
+          title: 'Health Habits and Productivity Loss',
           source: 'Brigham Young University Health Study (2012)',
-          finding: 'Employees who eat healthy throughout the workday are 25% more likely to demonstrate higher job performance compared to those with poor dietary habits.',
+          finding: 'Study of 19,803 employees found those who rarely eat fruits and vegetables are 93% more likely to have productivity loss. Exercise less than 3x weekly increases productivity loss risk by 50%.',
           link: 'https://news.byu.edu/news/poor-employee-health-means-slacking-job-business-losses'
         },
         {
@@ -116,14 +116,14 @@ const researchStudies = {
         {
           title: 'State of the Global Workplace Report',
           source: 'Gallup (2024-2025)',
-          finding: 'Low employee engagement costs the global economy $8.9 trillion annually (9% of global GDP). Highly engaged teams show 51% lower turnover, 23% higher productivity, and 68% improvement in employee wellbeing.',
+          finding: 'Low employee engagement costs the global economy $438 billion in lost productivity annually. If fully engaged, workforce could add $9.6 trillion to the economy. Manager training improves performance metrics by 20-28%.',
           link: 'https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx'
         },
         {
-          title: 'Employee Benefits Trends Study',
-          source: 'MetLife Annual Benefits Report (2023)',
-          finding: 'Employees are 2x more likely to stay with their employer when satisfied with benefits packages. 73% of employees say wellbeing benefits will be important when evaluating future job offers.',
-          link: 'https://www.metlife.com/employee-benefit-trends/'
+          title: 'Employee Benefits and Retention',
+          source: 'SHRM Employee Benefits Survey (2023)',
+          finding: '92% of employees say benefits are important to their overall job satisfaction. Organizations with strong benefits programs report 56% lower turnover than those with basic offerings.',
+          link: 'https://www.shrm.org/topics-tools/research/employee-benefits-survey'
         },
         {
           title: 'Tech Company Retention Statistics',
