@@ -643,6 +643,43 @@ select:focus {
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
 }
 
+/* Public ROI Calculator Slider (companies.html) */
+.roi-slider-style {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #d1d5db 0%, #d1d5db 100%);
+  cursor: pointer;
+}
+
+.roi-slider-style::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.roi-slider-style::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+}
+
+.roi-slider-style::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+}
+
 /* Scenario Cards */
 .scenario-card {
   position: relative;

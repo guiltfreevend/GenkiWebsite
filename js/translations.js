@@ -1337,6 +1337,120 @@ const translations = {
     bg: "Запазете персонална оферта"
   },
 
+  // Simplified Public ROI Calculator (companies.html)
+  roi_assumptions: {
+    en: "📋 Based on Bulgarian IT market:",
+    bg: "📋 Базирано на българския IT пазар:"
+  },
+  roi_turnover_rate: {
+    en: "Turnover:",
+    bg: "Текучество:"
+  },
+  roi_sick_days_avg: {
+    en: "Sick days:",
+    bg: "Болнични:"
+  },
+  roi_care_plan_label: {
+    en: "Plan:",
+    bg: "План:"
+  },
+  roi_daily_investment: {
+    en: "Your Daily Investment",
+    bg: "Вашата дневна инвестиция"
+  },
+  roi_per_employee_day: {
+    en: "/employee/day",
+    bg: "/служител/ден"
+  },
+  roi_coffees: {
+    en: "coffees",
+    bg: "кафета"
+  },
+  roi_or: {
+    en: "or",
+    bg: "или"
+  },
+  roi_sandwiches: {
+    en: "sandwiches",
+    bg: "сандвича"
+  },
+  roi_monthly_total: {
+    en: "Monthly Total",
+    bg: "Месечно общо"
+  },
+  roi_net_annual_benefit: {
+    en: "Net Annual Benefit",
+    bg: "Нетна годишна полза"
+  },
+  roi_label: {
+    en: "ROI:",
+    bg: "ROI:"
+  },
+  roi_payback_label: {
+    en: "Payback:",
+    bg: "Възвръщаемост:"
+  },
+  roi_months: {
+    en: "mo",
+    bg: "мес"
+  },
+  roi_turnover_formula: {
+    en: "25% reduction × 1.5× salary replacement cost",
+    bg: "25% намаление × 1.5× разходи за смяна"
+  },
+  roi_source: {
+    en: "Source:",
+    bg: "Източник:"
+  },
+  roi_turnover_source: {
+    en: "Replacement costs 100-150% of salary",
+    bg: "Разходите за смяна са 100-150% от заплатата"
+  },
+  roi_productivity_formula: {
+    en: "5% improvement across workforce",
+    bg: "5% подобрение в целия екип"
+  },
+  roi_productivity_source: {
+    en: "Unhealthy diet = 66% more productivity loss",
+    bg: "Нездравословна диета = 66% повече загуба на продуктивност"
+  },
+  roi_sick_formula: {
+    en: "20% reduction in absenteeism",
+    bg: "20% намаление на отсъствията"
+  },
+  roi_sick_source: {
+    en: "12-36% absenteeism reduction documented",
+    bg: "Документирано 12-36% намаление на отсъствията"
+  },
+  roi_healthcare_title: {
+    en: "Healthcare Savings",
+    bg: "Здравни спестявания"
+  },
+  roi_healthcare_formula: {
+    en: "10% reduction in health costs",
+    bg: "10% намаление на здравните разходи"
+  },
+  roi_healthcare_source: {
+    en: "J&J saved $250M over decade",
+    bg: "J&J спестиха $250M за десетилетие"
+  },
+  roi_total_savings: {
+    en: "Total Annual Savings",
+    bg: "Общи годишни спестявания"
+  },
+  roi_engagement_note: {
+    en: "Care Plan Engagement",
+    bg: "Ангажираност Care план"
+  },
+  roi_care_engagement: {
+    en: "Care Plan engagement",
+    bg: "Ангажираност Care план"
+  },
+  roi_starter_engagement: {
+    en: "When employees pay",
+    bg: "Когато служителите плащат"
+  },
+
   // COMPANIES PAGE - FAQ
   companies_faq_title: {
     en: "Frequently Asked Questions",

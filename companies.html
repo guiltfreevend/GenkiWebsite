@@ -433,174 +433,197 @@
   <!-- ROI Section -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[45%_55%] gap-12 items-start">
-        <div class="fade-up">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" data-i18n="companies_roi_title">The ROI of Wellness Benefits</h2>
-          <p class="text-xl text-gray-600 mb-8" data-i18n="companies_roi_subtitle">
-            Investing in employee health isn't just the right thing to do — it's smart business.
-          </p>
+      <div class="text-center mb-12 fade-up">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-i18n="companies_roi_title">The ROI of Wellness Benefits</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="companies_roi_subtitle">
+          Investing in employee health isn't just the right thing to do — it's smart business.
+        </p>
+      </div>
 
-          <div class="space-y-8">
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <span class="text-3xl">📈</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_roi_turnover_title">Reduced Turnover</h4>
-                <p class="text-lg text-gray-600" data-i18n="companies_roi_turnover_desc">Companies with strong benefits see 31% lower voluntary turnover. Replacing one employee costs 50-200% of their salary.</p>
-              </div>
-            </div>
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
 
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <span class="text-3xl">🎯</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_roi_productivity_title">Higher Productivity</h4>
-                <p class="text-lg text-gray-600" data-i18n="companies_roi_productivity_desc">Healthy snacking improves focus and energy levels. No more post-lunch sugar crashes.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <span class="text-3xl">💼</span>
-              </div>
-              <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_roi_recruiting_title">Easier Recruiting</h4>
-                <p class="text-lg text-gray-600" data-i18n="companies_roi_recruiting_desc">Stand out in the competitive IT market with tangible, visible benefits candidates appreciate.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive ROI Calculator -->
+        <!-- Left: Interactive Calculator -->
         <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 lg:p-8 fade-up border border-gray-200 shadow-lg">
           <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <span class="text-2xl">📊</span>
             <span data-i18n="roi_calc_title">Calculate Your Wellness ROI</span>
           </h3>
 
-          <!-- Slider -->
+          <!-- Team Size Slider -->
           <div class="mb-6">
             <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_team_size_label">Team Size</label>
-            <input type="range" id="roi-slider" min="100" max="500" value="150" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-emerald-500">
-            <div class="flex justify-between text-sm text-gray-500 mt-1">
-              <span>100</span>
-              <span class="font-semibold text-emerald-600"><span id="roi-team-size">150</span> <span data-i18n="roi_employees">employees</span></span>
+            <input type="range" id="roi-slider" min="50" max="500" value="150" step="10" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer roi-slider-style">
+            <div class="flex justify-between text-sm text-gray-500 mt-2">
+              <span>50</span>
+              <span class="text-lg font-bold text-emerald-600"><span id="roi-team-size">150</span> <span data-i18n="roi_employees">employees</span></span>
               <span>500</span>
             </div>
           </div>
 
-          <!-- Scenario Info -->
-          <div class="bg-white rounded-xl p-4 mb-4 border border-gray-100">
-            <p class="text-sm text-gray-500 mb-2" data-i18n="roi_scenario">💡 Example: Mid-sized IT Company</p>
-            <div class="text-sm text-gray-600 space-y-1">
-              <p><span data-i18n="roi_avg_salary">Avg IT Salary Bulgaria:</span> <strong>€36,000</strong><span data-i18n="roi_per_year">/year</span></p>
-              <p><span data-i18n="roi_monthly_investment">Monthly Genki Investment:</span> <strong>€30</strong><span data-i18n="roi_per_employee">/employee</span></p>
+          <!-- Assumptions Box -->
+          <div class="bg-white/80 rounded-lg p-3 mb-5 text-xs text-gray-500 border border-gray-100">
+            <p class="font-medium text-gray-600 mb-1" data-i18n="roi_assumptions">📋 Based on Bulgarian IT market:</p>
+            <div class="grid grid-cols-2 gap-1">
+              <span><span data-i18n="roi_avg_salary">Avg salary:</span> €36,000/yr</span>
+              <span><span data-i18n="roi_turnover_rate">Turnover:</span> 13%/yr</span>
+              <span><span data-i18n="roi_sick_days_avg">Sick days:</span> 8/yr</span>
+              <span><span data-i18n="roi_care_plan_label">Plan:</span> Genki Care</span>
             </div>
           </div>
 
-          <!-- €1/day Highlight -->
-          <div id="per-day-box" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl p-6 mb-4 text-center transform transition-all duration-300 shadow-lg">
-            <p class="text-sm opacity-90 mb-2" data-i18n="roi_thats_just">🎯 That's just</p>
-            <p class="text-5xl sm:text-6xl font-extrabold mb-2 roi-highlight" id="per-day-amount">€1</p>
-            <p class="text-lg font-medium" data-i18n="roi_per_day">per day per employee</p>
-            <p class="text-xs opacity-75 mt-3" data-i18n="roi_calculation">(€30/month ÷ 30 days)</p>
-          </div>
-
-          <!-- Compare To -->
-          <div class="bg-white rounded-xl p-4 mb-4 border border-gray-100">
-            <p class="text-sm font-semibold text-gray-700 mb-2" data-i18n="roi_compare">Compare to:</p>
-            <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
-              <span>☕ <span data-i18n="roi_coffee">Coffee:</span> €2-3</span>
-              <span>🍫 <span data-i18n="roi_vending">Vending:</span> €3-5</span>
-              <span>🥡 <span data-i18n="roi_takeout">Takeout:</span> €10-15</span>
-              <span>🍽️ <span data-i18n="roi_team_lunch">Team lunch:</span> €15-20</span>
+          <!-- THE DAILY COST - Hero Section -->
+          <div id="per-day-box" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl p-6 mb-5 text-center transform transition-all duration-300 shadow-lg">
+            <p class="text-white/80 text-sm mb-1" data-i18n="roi_daily_investment">Your Daily Investment</p>
+            <div class="flex items-baseline justify-center gap-2 mb-2">
+              <span class="text-5xl sm:text-6xl font-extrabold" id="roi-daily-cost">€3.75</span>
+              <span class="text-lg opacity-90" data-i18n="roi_per_employee_day">/employee/day</span>
             </div>
-            <p class="text-xs text-emerald-600 font-medium mt-2" data-i18n="roi_with_genki">✨ Genki: €1/day = Unlimited healthy food all day</p>
+            <p class="text-white/70 text-sm">
+              (<span id="roi-coffees">2.5</span> <span data-i18n="roi_coffees">coffees</span> <span data-i18n="roi_or">or</span> <span id="roi-sandwiches">2.9</span> <span data-i18n="roi_sandwiches">sandwiches</span>)
+            </p>
           </div>
 
-          <!-- Annual Returns -->
-          <div class="bg-white rounded-xl p-4 mb-4 border border-gray-100">
-            <p class="text-sm font-semibold text-gray-700 mb-3" data-i18n="roi_annual_returns">📈 Your Annual Returns</p>
-
-            <div class="space-y-3">
-              <div class="flex justify-between items-start">
-                <div class="flex-1">
-                  <p class="font-medium text-gray-800">💰 <span data-i18n="roi_turnover_title">Reduced Turnover</span></p>
-                  <p class="text-xs text-gray-500" data-i18n="roi_turnover_detail">25% lower voluntary turnover*</p>
-                </div>
-                <span class="text-lg font-bold text-emerald-600">€<span id="roi-turnover">90,000</span></span>
-              </div>
-
-              <div class="flex justify-between items-start">
-                <div class="flex-1">
-                  <p class="font-medium text-gray-800">🏥 <span data-i18n="roi_sick_title">Fewer Sick Days</span></p>
-                  <p class="text-xs text-gray-500" data-i18n="roi_sick_detail">27% reduction in sick days*</p>
-                </div>
-                <span class="text-lg font-bold text-emerald-600">€<span id="roi-sick">53,136</span></span>
-              </div>
-
-              <div class="flex justify-between items-start">
-                <div class="flex-1">
-                  <p class="font-medium text-gray-800">📊 <span data-i18n="roi_productivity_title">Productivity Boost</span></p>
-                  <p class="text-xs text-gray-500" data-i18n="roi_productivity_detail">12% higher productivity*</p>
-                </div>
-                <span class="text-lg font-bold text-emerald-600">€<span id="roi-productivity">648,000</span></span>
-              </div>
+          <!-- Annual Investment Summary -->
+          <div class="flex justify-between items-center bg-white rounded-lg p-3 mb-5 border border-gray-100">
+            <div class="text-sm">
+              <p class="text-gray-500" data-i18n="roi_annual_investment">Annual Investment</p>
+              <p class="text-xl font-bold text-gray-800">€<span id="roi-investment">148,500</span></p>
             </div>
-
-            <p class="text-xs text-gray-400 mt-3 italic" data-i18n="roi_sources">*Sources: Corporate wellness research, British Journal of Health Psychology, Global Wellness Institute</p>
-          </div>
-
-          <!-- Bottom Line -->
-          <div class="bg-emerald-50 rounded-xl p-4 mb-4 border-2 border-emerald-200">
-            <p class="text-sm font-semibold text-emerald-800 mb-3">💚 <span data-i18n="roi_bottom_line">Bottom Line</span> (<span id="roi-team-display">150</span> <span data-i18n="roi_employees">employees</span>)</p>
-
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between">
-                <span class="text-gray-600" data-i18n="roi_annual_investment">Annual Genki Investment:</span>
-                <span class="font-medium">€<span id="roi-investment">54,000</span></span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-gray-600" data-i18n="roi_charity_impact">Charity impact (10%):</span>
-                <span class="font-medium text-emerald-600">€<span id="roi-charity">5,400</span></span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-gray-600" data-i18n="roi_total_benefits">Total Annual Benefits:</span>
-                <span class="font-medium">€<span id="roi-total-benefits">791,136</span></span>
-              </div>
-              <div class="border-t border-emerald-300 my-2"></div>
-              <div class="flex justify-between items-center">
-                <span class="font-bold text-emerald-800" data-i18n="roi_net_benefit">Net Annual Benefit:</span>
-                <span class="text-2xl font-extrabold text-emerald-600">€<span id="roi-net">737,136</span></span>
-              </div>
-              <div class="flex justify-between text-emerald-700">
-                <span class="font-semibold">ROI:</span>
-                <span class="font-bold"><span id="roi-percent">1,365</span>%</span>
-              </div>
+            <div class="text-sm text-right">
+              <p class="text-gray-500" data-i18n="roi_monthly_total">Monthly Total</p>
+              <p class="text-xl font-bold text-gray-800">€<span id="roi-monthly">12,375</span></p>
             </div>
           </div>
 
-          <!-- Engagement Secret -->
-          <div class="bg-amber-50 rounded-xl p-4 mb-4 border border-amber-200">
-            <p class="text-sm font-semibold text-amber-800 mb-2">🎯 <span data-i18n="roi_secret_title">The Secret: High Engagement</span></p>
-            <div class="text-xs text-amber-700 space-y-1">
-              <p><strong data-i18n="roi_care_plan">Care plan</strong> <span data-i18n="roi_care_desc">(company sponsors): 85-90% daily engagement</span></p>
-              <p><strong data-i18n="roi_starter_plan">Starter plan</strong> <span data-i18n="roi_starter_desc">(employees pay): 15-25% typical engagement</span></p>
+          <!-- Net Benefit Hero -->
+          <div class="bg-emerald-50 rounded-xl p-5 mb-5 border-2 border-emerald-200 text-center">
+            <p class="text-sm text-emerald-700 mb-2" data-i18n="roi_net_annual_benefit">Net Annual Benefit</p>
+            <p class="text-4xl sm:text-5xl font-extrabold text-emerald-600 mb-2">€<span id="roi-net">654,170</span></p>
+            <div class="flex justify-center gap-6 text-sm">
+              <span class="text-emerald-700"><span data-i18n="roi_label">ROI:</span> <strong><span id="roi-percent">440</span>%</strong></span>
+              <span class="text-emerald-700"><span data-i18n="roi_payback_label">Payback:</span> <strong><span id="roi-payback">2.2</span> <span data-i18n="roi_months">mo</span></strong></span>
             </div>
-            <p class="text-xs text-amber-600 mt-2 italic" data-i18n="roi_survey_source">💡 95% of companies measuring wellness ROI see positive returns — Wellhub 2024</p>
           </div>
 
-          <!-- Disclaimer + CTA -->
-          <p class="text-xs text-gray-500 text-center mb-4" data-i18n="roi_disclaimer">
-            📝 Example calculation for illustration. Book a call for your custom quote.
-          </p>
-
-          <a href="contact.html" class="btn-primary w-full justify-center text-lg" data-i18n="roi_cta">
-            Book Your Custom Quote
+          <!-- CTA -->
+          <a href="contact.html" class="btn-primary w-full justify-center text-lg">
+            <span data-i18n="roi_cta">Book Your Custom Quote</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
+
+          <p class="text-xs text-gray-400 text-center mt-3" data-i18n="roi_disclaimer">
+            * Moderate scenario based on peer-reviewed research. Individual results may vary.
+          </p>
+        </div>
+
+        <!-- Right: Savings Breakdown with Sources -->
+        <div class="space-y-4 fade-up">
+
+          <!-- Turnover Savings -->
+          <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                  <span class="text-2xl">💰</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900" data-i18n="roi_turnover_title">Reduced Turnover</h4>
+                  <p class="text-xs text-gray-500" data-i18n="roi_turnover_formula">25% reduction × 1.5× salary replacement cost</p>
+                </div>
+              </div>
+              <span class="text-2xl font-bold text-emerald-600">€<span id="roi-turnover">365,625</span></span>
+            </div>
+            <p class="text-xs text-gray-400 border-t border-gray-100 pt-2">
+              <span data-i18n="roi_source">Source:</span> <a href="https://www.shrm.org" target="_blank" class="text-emerald-600 hover:underline">SHRM</a> — <span data-i18n="roi_turnover_source">Replacement costs 100-150% of salary</span>
+            </p>
+          </div>
+
+          <!-- Productivity Gains -->
+          <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <span class="text-2xl">📈</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900" data-i18n="roi_productivity_title">Productivity Gains</h4>
+                  <p class="text-xs text-gray-500" data-i18n="roi_productivity_formula">5% improvement across workforce</p>
+                </div>
+              </div>
+              <span class="text-2xl font-bold text-emerald-600">€<span id="roi-productivity">270,000</span></span>
+            </div>
+            <p class="text-xs text-gray-400 border-t border-gray-100 pt-2">
+              <span data-i18n="roi_source">Source:</span> <a href="https://news.byu.edu" target="_blank" class="text-emerald-600 hover:underline">BYU Study</a> — <span data-i18n="roi_productivity_source">Unhealthy diet = 66% more productivity loss</span>
+            </p>
+          </div>
+
+          <!-- Absenteeism Savings -->
+          <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                  <span class="text-2xl">🏥</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900" data-i18n="roi_sick_title">Fewer Sick Days</h4>
+                  <p class="text-xs text-gray-500" data-i18n="roi_sick_formula">20% reduction in absenteeism</p>
+                </div>
+              </div>
+              <span class="text-2xl font-bold text-emerald-600">€<span id="roi-sick">39,273</span></span>
+            </div>
+            <p class="text-xs text-gray-400 border-t border-gray-100 pt-2">
+              <span data-i18n="roi_source">Source:</span> <a href="https://osha.europa.eu" target="_blank" class="text-emerald-600 hover:underline">EU-OSHA</a> — <span data-i18n="roi_sick_source">12-36% absenteeism reduction documented</span>
+            </p>
+          </div>
+
+          <!-- Healthcare Savings -->
+          <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                  <span class="text-2xl">💊</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900" data-i18n="roi_healthcare_title">Healthcare Savings</h4>
+                  <p class="text-xs text-gray-500" data-i18n="roi_healthcare_formula">10% reduction in health costs</p>
+                </div>
+              </div>
+              <span class="text-2xl font-bold text-emerald-600">€<span id="roi-healthcare">7,500</span></span>
+            </div>
+            <p class="text-xs text-gray-400 border-t border-gray-100 pt-2">
+              <span data-i18n="roi_source">Source:</span> <a href="https://hbr.org" target="_blank" class="text-emerald-600 hover:underline">Harvard Business Review</a> — <span data-i18n="roi_healthcare_source">J&J saved $250M over decade</span>
+            </p>
+          </div>
+
+          <!-- Total Savings -->
+          <div class="bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl p-5 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-white/80 text-sm" data-i18n="roi_total_savings">Total Annual Savings</p>
+                <p class="text-3xl font-extrabold">€<span id="roi-total">682,398</span></p>
+              </div>
+              <div class="text-right">
+                <p class="text-white/80 text-sm" data-i18n="roi_engagement_note">Care Plan Engagement</p>
+                <p class="text-2xl font-bold">85-90%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engagement Comparison -->
+          <div class="bg-amber-50 rounded-xl p-4 border border-amber-200">
+            <p class="text-sm font-semibold text-amber-800 mb-2">🎯 <span data-i18n="roi_secret_title">Why Company-Paid Works Better</span></p>
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <div class="bg-white rounded-lg p-3 text-center">
+                <p class="text-2xl font-bold text-emerald-600">85-90%</p>
+                <p class="text-xs text-gray-600" data-i18n="roi_care_engagement">Care Plan engagement</p>
+              </div>
+              <div class="bg-white rounded-lg p-3 text-center">
+                <p class="text-2xl font-bold text-gray-400">15-25%</p>
+                <p class="text-xs text-gray-600" data-i18n="roi_starter_engagement">When employees pay</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -699,80 +722,144 @@
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- ROI Calculator -->
+  <!-- ROI Calculator - Uses SAME formulas as roi-calculator.js -->
   <script>
     (function() {
       const slider = document.getElementById('roi-slider');
       if (!slider) return;
 
-      const SALARY = 36000;
-      const MONTHLY_PER_EMPLOYEE = 30;
-      const REPLACEMENT_COST_PERCENT = 1.25;
-      const TURNOVER_REDUCTION = 0.25;
-      const SICK_DAY_REDUCTION = 0.27;
-      const SICK_DAYS_PER_YEAR = 8;
-      const DAILY_COST = SALARY / 220;
-      const PRODUCTIVITY_BOOST = 0.12;
+      // CONFIG - Matches roi-calculator.js exactly
+      const CONFIG = {
+        workingDaysPerMonth: 22,
+        workingDaysPerYear: 220,
+        monthsPerYear: 12,
+        replacementCostMultiplier: 1.5,
+        healthcareCostPerEmployee: 500,
+        // Using MODERATE scenario (same as roi-calculator.js default)
+        turnoverReduction: 0.25,
+        absenteeismReduction: 0.20,
+        productivityGain: 0.05,
+        healthcareReduction: 0.10
+      };
+
+      // Bulgarian IT market defaults
+      const DEFAULTS = {
+        salary: 36000,           // Bulgarian IT average
+        turnoverRate: 13,        // Industry average
+        sickDays: 8,             // Average sick days
+        productsPerDay: 2.5,     // Genki Care plan
+        productCost: 1.50        // Average product cost
+      };
+
+      // Bulgarian prices for comparison
+      const PRICES = { coffee: 1.50, sandwich: 1.30 };
 
       function formatNumber(num) {
         return Math.round(num).toLocaleString('en-US');
       }
 
+      function formatDecimal(num) {
+        const rounded = Math.round(num * 10) / 10;
+        return rounded === Math.floor(rounded) ? rounded.toString() : rounded.toFixed(1);
+      }
+
       function calculate(teamSize) {
-        const annualInvestment = teamSize * MONTHLY_PER_EMPLOYEE * 12;
-        const charity = annualInvestment * 0.1;
+        // GENKI COST - Same formula as roi-calculator.js
+        const genkiCostAnnual = teamSize * DEFAULTS.productsPerDay * DEFAULTS.productCost * CONFIG.workingDaysPerMonth * CONFIG.monthsPerYear;
+        const genkiCostMonthly = genkiCostAnnual / CONFIG.monthsPerYear;
+        const genkiCostDaily = (genkiCostAnnual / CONFIG.monthsPerYear / teamSize) / CONFIG.workingDaysPerMonth;
 
-        // Turnover savings: retain ~2 employees per 150
-        const retainedEmployees = Math.max(1, Math.round(teamSize / 75));
-        const turnoverSavings = retainedEmployees * SALARY * REPLACEMENT_COST_PERCENT;
+        // TURNOVER SAVINGS - Same formula as roi-calculator.js
+        const replacementCost = DEFAULTS.salary * CONFIG.replacementCostMultiplier;
+        const currentTurnoverCost = teamSize * (DEFAULTS.turnoverRate / 100) * replacementCost;
+        const turnoverSavings = currentTurnoverCost * CONFIG.turnoverReduction;
 
-        // Sick day savings
-        const sickDaysSaved = teamSize * SICK_DAYS_PER_YEAR * SICK_DAY_REDUCTION;
-        const sickSavings = sickDaysSaved * DAILY_COST;
+        // ABSENTEEISM SAVINGS - Same formula as roi-calculator.js
+        const dailySalary = DEFAULTS.salary / CONFIG.workingDaysPerYear;
+        const currentAbsenteeismCost = teamSize * DEFAULTS.sickDays * dailySalary;
+        const absenteeismSavings = currentAbsenteeismCost * CONFIG.absenteeismReduction;
 
-        // Productivity boost
-        const totalSalaries = teamSize * SALARY;
-        const productivityValue = totalSalaries * PRODUCTIVITY_BOOST;
+        // PRODUCTIVITY GAINS - Same formula as roi-calculator.js
+        const productivityValue = teamSize * DEFAULTS.salary * CONFIG.productivityGain;
 
-        const totalBenefits = turnoverSavings + sickSavings + productivityValue;
-        const netBenefit = totalBenefits - annualInvestment;
-        const roi = Math.round((netBenefit / annualInvestment) * 100);
+        // HEALTHCARE SAVINGS - Same formula as roi-calculator.js
+        const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * CONFIG.healthcareReduction;
+
+        // TOTALS - Same formula as roi-calculator.js
+        const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+        const netBenefit = totalSavings - genkiCostAnnual;
+        const roiPercent = (netBenefit / genkiCostAnnual) * 100;
+        const paybackMonths = (genkiCostAnnual / totalSavings) * CONFIG.monthsPerYear;
+
+        // Price comparisons
+        const coffees = genkiCostDaily / PRICES.coffee;
+        const sandwiches = genkiCostDaily / PRICES.sandwich;
 
         return {
           teamSize,
-          annualInvestment,
-          charity,
+          genkiCostAnnual,
+          genkiCostMonthly,
+          genkiCostDaily,
           turnoverSavings,
-          sickSavings,
+          absenteeismSavings,
           productivityValue,
-          totalBenefits,
+          healthcareSavings,
+          totalSavings,
           netBenefit,
-          roi
+          roiPercent,
+          paybackMonths,
+          coffees,
+          sandwiches
         };
       }
 
-      function pulseElement(el) {
-        el.classList.add('scale-105');
-        setTimeout(() => el.classList.remove('scale-105'), 200);
-      }
-
       function updateDisplay(data, animate) {
-        document.getElementById('roi-team-size').textContent = data.teamSize;
-        document.getElementById('roi-team-display').textContent = data.teamSize;
-        document.getElementById('roi-investment').textContent = formatNumber(data.annualInvestment);
-        document.getElementById('roi-charity').textContent = formatNumber(data.charity);
-        document.getElementById('roi-turnover').textContent = formatNumber(data.turnoverSavings);
-        document.getElementById('roi-sick').textContent = formatNumber(data.sickSavings);
-        document.getElementById('roi-productivity').textContent = formatNumber(data.productivityValue);
-        document.getElementById('roi-total-benefits').textContent = formatNumber(data.totalBenefits);
-        document.getElementById('roi-net').textContent = formatNumber(data.netBenefit);
-        document.getElementById('roi-percent').textContent = formatNumber(data.roi);
+        // Team size
+        const teamSizeEl = document.getElementById('roi-team-size');
+        if (teamSizeEl) teamSizeEl.textContent = data.teamSize;
 
-        // Animate the per-day box when slider changes
+        // Daily cost (hero)
+        const dailyCostEl = document.getElementById('roi-daily-cost');
+        if (dailyCostEl) dailyCostEl.textContent = '€' + data.genkiCostDaily.toFixed(2);
+
+        // Price comparisons
+        const coffeesEl = document.getElementById('roi-coffees');
+        const sandwichesEl = document.getElementById('roi-sandwiches');
+        if (coffeesEl) coffeesEl.textContent = formatDecimal(data.coffees);
+        if (sandwichesEl) sandwichesEl.textContent = formatDecimal(data.sandwiches);
+
+        // Investment
+        const investmentEl = document.getElementById('roi-investment');
+        const monthlyEl = document.getElementById('roi-monthly');
+        if (investmentEl) investmentEl.textContent = formatNumber(data.genkiCostAnnual);
+        if (monthlyEl) monthlyEl.textContent = formatNumber(data.genkiCostMonthly);
+
+        // Savings breakdown
+        const turnoverEl = document.getElementById('roi-turnover');
+        const productivityEl = document.getElementById('roi-productivity');
+        const sickEl = document.getElementById('roi-sick');
+        const healthcareEl = document.getElementById('roi-healthcare');
+        const totalEl = document.getElementById('roi-total');
+        if (turnoverEl) turnoverEl.textContent = formatNumber(data.turnoverSavings);
+        if (productivityEl) productivityEl.textContent = formatNumber(data.productivityValue);
+        if (sickEl) sickEl.textContent = formatNumber(data.absenteeismSavings);
+        if (healthcareEl) healthcareEl.textContent = formatNumber(data.healthcareSavings);
+        if (totalEl) totalEl.textContent = formatNumber(data.totalSavings);
+
+        // Net benefit & ROI
+        const netEl = document.getElementById('roi-net');
+        const percentEl = document.getElementById('roi-percent');
+        const paybackEl = document.getElementById('roi-payback');
+        if (netEl) netEl.textContent = formatNumber(data.netBenefit);
+        if (percentEl) percentEl.textContent = Math.round(data.roiPercent);
+        if (paybackEl) paybackEl.textContent = data.paybackMonths.toFixed(1);
+
+        // Animate the per-day box
         if (animate) {
           const perDayBox = document.getElementById('per-day-box');
           if (perDayBox) {
-            pulseElement(perDayBox);
+            perDayBox.classList.add('scale-105');
+            setTimeout(() => perDayBox.classList.remove('scale-105'), 200);
           }
         }
       }
@@ -782,7 +869,7 @@
         updateDisplay(data, true);
       });
 
-      // Initialize without animation
+      // Initialize
       updateDisplay(calculate(150), false);
     })();
   </script>
