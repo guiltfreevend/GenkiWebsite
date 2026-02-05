@@ -318,23 +318,34 @@
     // Calculate for current scenario
     const results = calculateROI(currentInputs, currentScenario);
 
+    // Re-query elements if not cached (handles hidden content case)
+    const resultInvestment = elements.resultInvestment || document.getElementById('result-investment');
+    const resultDaily = elements.resultDaily || document.getElementById('result-daily');
+    const resultSavings = elements.resultSavings || document.getElementById('result-savings');
+    const resultNet = elements.resultNet || document.getElementById('result-net');
+    const resultRoi = elements.resultRoi || document.getElementById('result-roi');
+    const resultPayback = elements.resultPayback || document.getElementById('result-payback');
+
     // Update investment display
-    if (elements.resultInvestment) {
-      elements.resultInvestment.textContent = formatNumber(results.genkiCostAnnual);
-      if (elements.resultMonthly) {
-        elements.resultMonthly.textContent = results.genkiCostMonthly.toFixed(2);
-      }
-      if (elements.resultDaily) {
-        elements.resultDaily.textContent = results.genkiCostDaily.toFixed(2);
-      }
+    if (resultInvestment) {
+      resultInvestment.textContent = formatNumber(results.genkiCostAnnual);
+    }
+    if (resultDaily) {
+      resultDaily.textContent = results.genkiCostDaily.toFixed(2);
     }
 
     // Update ROI summary
-    if (elements.resultSavings) {
-      elements.resultSavings.textContent = formatNumber(results.totalSavings);
-      elements.resultNet.textContent = formatNumber(results.netBenefit);
-      elements.resultRoi.textContent = Math.round(results.roiPercent);
-      elements.resultPayback.textContent = results.paybackMonths.toFixed(1);
+    if (resultSavings) {
+      resultSavings.textContent = formatNumber(results.totalSavings);
+    }
+    if (resultNet) {
+      resultNet.textContent = formatNumber(results.netBenefit);
+    }
+    if (resultRoi) {
+      resultRoi.textContent = Math.round(results.roiPercent);
+    }
+    if (resultPayback) {
+      resultPayback.textContent = results.paybackMonths.toFixed(1);
     }
 
     // Update breakdown bars
@@ -353,24 +364,34 @@
     const healthcarePct = (results.healthcareSavings / total) * 100;
     const absenteeismPct = (results.absenteeismSavings / total) * 100;
 
-    if (elements.barTurnoverValue) {
-      elements.barTurnoverValue.textContent = formatNumber(results.turnoverSavings);
-      elements.barTurnover.style.width = turnoverPct + '%';
+    // Re-query elements if not cached
+    const barTurnoverValue = elements.barTurnoverValue || document.getElementById('bar-turnover-value');
+    const barTurnover = elements.barTurnover || document.getElementById('bar-turnover');
+    const barProductivityValue = elements.barProductivityValue || document.getElementById('bar-productivity-value');
+    const barProductivity = elements.barProductivity || document.getElementById('bar-productivity');
+    const barHealthcareValue = elements.barHealthcareValue || document.getElementById('bar-healthcare-value');
+    const barHealthcare = elements.barHealthcare || document.getElementById('bar-healthcare');
+    const barAbsenteeismValue = elements.barAbsenteeismValue || document.getElementById('bar-absenteeism-value');
+    const barAbsenteeism = elements.barAbsenteeism || document.getElementById('bar-absenteeism');
+
+    if (barTurnoverValue) {
+      barTurnoverValue.textContent = formatNumber(results.turnoverSavings);
+      barTurnover.style.width = turnoverPct + '%';
     }
 
-    if (elements.barProductivityValue) {
-      elements.barProductivityValue.textContent = formatNumber(results.productivityValue);
-      elements.barProductivity.style.width = productivityPct + '%';
+    if (barProductivityValue) {
+      barProductivityValue.textContent = formatNumber(results.productivityValue);
+      barProductivity.style.width = productivityPct + '%';
     }
 
-    if (elements.barHealthcareValue) {
-      elements.barHealthcareValue.textContent = formatNumber(results.healthcareSavings);
-      elements.barHealthcare.style.width = healthcarePct + '%';
+    if (barHealthcareValue) {
+      barHealthcareValue.textContent = formatNumber(results.healthcareSavings);
+      barHealthcare.style.width = healthcarePct + '%';
     }
 
-    if (elements.barAbsenteeismValue) {
-      elements.barAbsenteeismValue.textContent = formatNumber(results.absenteeismSavings);
-      elements.barAbsenteeism.style.width = absenteeismPct + '%';
+    if (barAbsenteeismValue) {
+      barAbsenteeismValue.textContent = formatNumber(results.absenteeismSavings);
+      barAbsenteeism.style.width = absenteeismPct + '%';
     }
   }
 
