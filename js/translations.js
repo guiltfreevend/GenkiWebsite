@@ -1450,6 +1450,10 @@ const translations = {
     en: "When employees pay",
     bg: "Когато служителите плащат"
   },
+  roi_fixed_cost_note: {
+    en: "Fixed rate: 2.5 products × €1.50 per employee",
+    bg: "Фиксирана цена: 2.5 продукта × €1.50 на служител"
+  },
 
   // COMPANIES PAGE - FAQ
   companies_faq_title: {
