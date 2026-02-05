@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki ROI Calculator - Calculate the return on investment for your wellness benefits program">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ROI Calculator - Genki Wellness Benefits</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased bg-gray-50">
+
+  <!-- Password Gate -->
+  <div id="password-gate" class="fixed inset-0 z-[200] bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 max-w-md w-full text-center">
+      <div class="text-5xl mb-6">🌱</div>
+      <h1 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="roi_password_title">ROI Calculator</h1>
+      <p class="text-gray-600 mb-8" data-i18n="roi_password_subtitle">Enter your access code to continue</p>
+
+      <form id="password-form" class="space-y-4">
+        <div>
+          <input
+            type="password"
+            id="password-input"
+            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-center text-lg tracking-widest"
+            placeholder="••••••••"
+            autocomplete="off"
+          >
+          <p id="password-error" class="text-red-500 text-sm mt-2 hidden" data-i18n="roi_password_error">Incorrect password. Please try again.</p>
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all" data-i18n="roi_password_submit">
+          Access Calculator
+        </button>
+      </form>
+
+      <p class="text-sm text-gray-400 mt-6" data-i18n="roi_password_contact">
+        Need access? Contact <a href="mailto:hello@genki.bg" class="text-primary-600 hover:underline">hello@genki.bg</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden until authenticated) -->
+  <div id="main-content" class="hidden">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="flex items-center space-x-2">
+            <span class="text-3xl">🌱</span>
+            <span class="text-2xl font-bold text-gray-900">Genki</span>
+          </a>
+          <div class="flex items-center gap-4">
+            <!-- Language Switcher -->
+            <div class="relative">
+              <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+                <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
+                <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+              </div>
+            </div>
+            <span class="text-sm text-gray-500 hidden sm:inline" data-i18n="roi_header_badge">Internal Sales Tool</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-28 pb-8 bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <span class="text-lg">📊</span>
+            <span data-i18n="roi_hero_badge">ROI Calculator</span>
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+            <span data-i18n="roi_hero_title">Calculate Your</span> <span class="gradient-text" data-i18n="roi_hero_title_highlight">Wellness ROI</span>
+          </h1>
+          <p class="text-lg text-gray-600" data-i18n="roi_hero_subtitle">
+            See exactly how Genki Care transforms your employee benefits into measurable business returns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="py-8 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+
+          <!-- Left Column: Inputs -->
+          <div class="bg-gray-50 rounded-2xl p-6 lg:p-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <span class="text-2xl">⚙️</span>
+              <span data-i18n="roi_inputs_title">Your Company Profile</span>
+            </h2>
+
+            <!-- Slider: Team Size -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_team_size">Team Size</label>
+              <input type="range" id="slider-team-size" min="50" max="500" value="200" step="10" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>50</span>
+                <span class="font-semibold text-primary-600"><span id="display-team-size">200</span> <span data-i18n="roi_employees">employees</span></span>
+                <span>500</span>
+              </div>
+            </div>
+
+            <!-- Slider: Average Salary -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_salary">Average Annual Salary</label>
+              <input type="range" id="slider-salary" min="30000" max="80000" value="50000" step="1000" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>€30k</span>
+                <span class="font-semibold text-primary-600">€<span id="display-salary">50,000</span></span>
+                <span>€80k</span>
+              </div>
+            </div>
+
+            <!-- Slider: Turnover Rate -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_turnover">Current Annual Turnover Rate</label>
+              <input type="range" id="slider-turnover" min="5" max="25" value="13" step="1" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>5%</span>
+                <span class="font-semibold text-primary-600"><span id="display-turnover">13</span>%</span>
+                <span>25%</span>
+              </div>
+            </div>
+
+            <!-- Slider: Sick Days -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_sick_days">Current Sick Days (per employee/year)</label>
+              <input type="range" id="slider-sick-days" min="2" max="15" value="8" step="1" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>2</span>
+                <span class="font-semibold text-primary-600"><span id="display-sick-days">8</span> <span data-i18n="roi_days">days</span></span>
+                <span>15</span>
+              </div>
+            </div>
+
+            <!-- Slider: Products per Day -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_products">Products Consumed per Day</label>
+              <input type="range" id="slider-products" min="1" max="5" value="2.5" step="0.1" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>1.0</span>
+                <span class="font-semibold text-primary-600"><span id="display-products">2.5</span> <span data-i18n="roi_products">products</span></span>
+                <span>5.0</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-1" data-i18n="roi_products_hint">Care plan average: 2.5-3.5 products/day with 85-90% engagement</p>
+            </div>
+
+            <!-- Slider: Product Cost -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_cost">Average Product Cost (after markup)</label>
+              <input type="range" id="slider-cost" min="1" max="3.5" value="1.5" step="0.1" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>€1.00</span>
+                <span class="font-semibold text-primary-600">€<span id="display-cost">1.50</span></span>
+                <span>€3.50</span>
+              </div>
+            </div>
+
+            <!-- Low Engagement Warning -->
+            <div id="engagement-warning" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+              <p class="text-sm text-amber-800 flex items-start gap-2">
+                <span class="text-lg">⚠️</span>
+                <span data-i18n="roi_warning_low_engagement">Lower consumption may reduce health outcomes and ROI benefits. Genki Care works best with 85-90% employee engagement (2.5-3.5 products/day average).</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Results -->
+          <div class="space-y-6">
+
+            <!-- Investment Card -->
+            <div class="bg-white border-2 border-gray-200 rounded-2xl p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span class="text-xl">💰</span>
+                <span data-i18n="roi_investment_title">Your Annual Genki Investment</span>
+              </h3>
+              <div class="text-center py-4">
+                <p class="text-4xl sm:text-5xl font-extrabold text-gray-900">€<span id="result-investment">198,000</span></p>
+                <div class="flex justify-center gap-6 mt-4 text-sm text-gray-600">
+                  <span>€<span id="result-monthly">82.50</span><span data-i18n="roi_per_month">/employee/month</span></span>
+                  <span>€<span id="result-daily">3.75</span><span data-i18n="roi_per_day">/employee/day</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROI Summary Card -->
+            <div class="bg-gradient-to-br from-primary-600 to-secondary-700 rounded-2xl p-6 text-white">
+              <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                <span class="text-xl">📈</span>
+                <span data-i18n="roi_summary_title">Your Return on Investment</span>
+              </h3>
+
+              <!-- Scenario Tabs -->
+              <div class="flex gap-2 mb-6">
+                <button class="scenario-tab px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/20 hover:bg-white/30" data-scenario="conservative" data-i18n="roi_scenario_conservative">Conservative</button>
+                <button class="scenario-tab px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white text-primary-700" data-scenario="moderate" data-i18n="roi_scenario_moderate">Moderate</button>
+                <button class="scenario-tab px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/20 hover:bg-white/30" data-scenario="optimistic" data-i18n="roi_scenario_optimistic">Optimistic</button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/10 rounded-xl p-4">
+                  <p class="text-sm text-white/80" data-i18n="roi_total_savings">Total Annual Savings</p>
+                  <p class="text-2xl font-bold">€<span id="result-savings">872,000</span></p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4">
+                  <p class="text-sm text-white/80" data-i18n="roi_net_benefit">Net Annual Benefit</p>
+                  <p class="text-2xl font-bold text-green-300">€<span id="result-net">674,000</span></p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4">
+                  <p class="text-sm text-white/80" data-i18n="roi_percentage">ROI Percentage</p>
+                  <p class="text-2xl font-bold"><span id="result-roi">340</span>%</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4">
+                  <p class="text-sm text-white/80" data-i18n="roi_payback">Payback Period</p>
+                  <p class="text-2xl font-bold"><span id="result-payback">2.7</span> <span data-i18n="roi_months">months</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Savings Breakdown -->
+            <div class="bg-white border-2 border-gray-200 rounded-2xl p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span class="text-xl">📊</span>
+                <span data-i18n="roi_breakdown_title">Savings Breakdown</span>
+              </h3>
+
+              <div class="space-y-4">
+                <!-- Turnover Savings -->
+                <div>
+                  <div class="flex justify-between mb-1 text-sm">
+                    <span class="text-gray-700" data-i18n="roi_breakdown_turnover">Turnover Savings</span>
+                    <span class="font-semibold text-gray-900">€<span id="bar-turnover-value">325,000</span></span>
+                  </div>
+                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                    <div id="bar-turnover" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 37%"></div>
+                  </div>
+                </div>
+
+                <!-- Productivity Gains -->
+                <div>
+                  <div class="flex justify-between mb-1 text-sm">
+                    <span class="text-gray-700" data-i18n="roi_breakdown_productivity">Productivity Gains</span>
+                    <span class="font-semibold text-gray-900">€<span id="bar-productivity-value">400,000</span></span>
+                  </div>
+                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                    <div id="bar-productivity" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 46%"></div>
+                  </div>
+                </div>
+
+                <!-- Healthcare Savings -->
+                <div>
+                  <div class="flex justify-between mb-1 text-sm">
+                    <span class="text-gray-700" data-i18n="roi_breakdown_healthcare">Healthcare Savings</span>
+                    <span class="font-semibold text-gray-900">€<span id="bar-healthcare-value">92,000</span></span>
+                  </div>
+                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                    <div id="bar-healthcare" class="h-full bg-purple-500 rounded-full transition-all duration-500" style="width: 11%"></div>
+                  </div>
+                </div>
+
+                <!-- Absenteeism Savings -->
+                <div>
+                  <div class="flex justify-between mb-1 text-sm">
+                    <span class="text-gray-700" data-i18n="roi_breakdown_absenteeism">Absenteeism Savings</span>
+                    <span class="font-semibold text-gray-900">€<span id="bar-absenteeism-value">55,000</span></span>
+                  </div>
+                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                    <div id="bar-absenteeism" class="h-full bg-amber-500 rounded-full transition-all duration-500" style="width: 6%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scenario Comparison Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8" data-i18n="roi_scenarios_title">Scenario Comparison</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Conservative -->
+          <div class="scenario-card bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="conservative">
+            <div class="text-center mb-4">
+              <span class="text-3xl">🛡️</span>
+              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_conservative_title">Conservative</h3>
+              <p class="text-sm text-gray-500" data-i18n="roi_scenario_conservative_desc">Minimum expected benefits</p>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">15%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">10%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">3%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">5%</span></div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
+              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
+              <p class="text-2xl font-bold text-gray-900">€<span id="scenario-conservative-net">234,000</span></p>
+              <p class="text-sm font-semibold text-primary-600"><span id="scenario-conservative-roi">118</span>% ROI</p>
+            </div>
+          </div>
+
+          <!-- Moderate (Featured) -->
+          <div class="scenario-card bg-white rounded-2xl p-6 border-2 border-primary-500 shadow-lg transform md:-translate-y-2 cursor-pointer" data-scenario="moderate">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="roi_scenario_recommended">Recommended</span>
+            </div>
+            <div class="text-center mb-4 pt-2">
+              <span class="text-3xl">⚖️</span>
+              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_moderate_title">Moderate</h3>
+              <p class="text-sm text-gray-500" data-i18n="roi_scenario_moderate_desc">Realistic baseline scenario</p>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">25%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">20%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">5%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">10%</span></div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
+              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
+              <p class="text-2xl font-bold text-primary-600">€<span id="scenario-moderate-net">674,000</span></p>
+              <p class="text-sm font-semibold text-primary-600"><span id="scenario-moderate-roi">340</span>% ROI</p>
+            </div>
+          </div>
+
+          <!-- Optimistic -->
+          <div class="scenario-card bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="optimistic">
+            <div class="text-center mb-4">
+              <span class="text-3xl">🚀</span>
+              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_optimistic_title">Optimistic</h3>
+              <p class="text-sm text-gray-500" data-i18n="roi_scenario_optimistic_desc">Best-case with high engagement</p>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">35%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">30%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">8%</span></div>
+              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">15%</span></div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
+              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
+              <p class="text-2xl font-bold text-gray-900">€<span id="scenario-optimistic-net">1,114,000</span></p>
+              <p class="text-sm font-semibold text-primary-600"><span id="scenario-optimistic-roi">562</span>% ROI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagement Impact Section -->
+    <section class="py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-amber-50 to-emerald-50 rounded-2xl p-8 border border-amber-200">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 text-center" data-i18n="roi_engagement_title">Why Free Access Matters</h3>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-6">
+            <div class="text-center">
+              <div class="text-4xl mb-2">🆓</div>
+              <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_care">Care Plan (Company Pays)</h4>
+              <div class="bg-emerald-100 rounded-full h-4 mb-2">
+                <div class="bg-emerald-500 h-full rounded-full" style="width: 87%"></div>
+              </div>
+              <p class="text-2xl font-bold text-emerald-600">85-90%</p>
+              <p class="text-sm text-gray-500" data-i18n="roi_engagement_care_desc">Daily engagement rate</p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-4xl mb-2">💳</div>
+              <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_starter">Starter Plan (Employees Pay)</h4>
+              <div class="bg-gray-100 rounded-full h-4 mb-2">
+                <div class="bg-gray-400 h-full rounded-full" style="width: 20%"></div>
+              </div>
+              <p class="text-2xl font-bold text-gray-600">15-20%</p>
+              <p class="text-sm text-gray-500" data-i18n="roi_engagement_starter_desc">Typical engagement rate</p>
+            </div>
+          </div>
+
+          <p class="text-center text-gray-600 mt-6 text-sm" data-i18n="roi_engagement_note">
+            Higher investment in the Care plan creates exponentially higher engagement, transforming the Genki corner into a social hub and culture builder.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Database Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="roi_research_title">Research Foundation</h2>
+          <p class="text-gray-600" data-i18n="roi_research_subtitle">Our calculations are backed by peer-reviewed research and industry studies</p>
+        </div>
+
+        <div id="research-accordion" class="space-y-4">
+          <!-- Research categories will be rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4" data-i18n="roi_cta_title">Ready to Transform Your Benefits?</h2>
+        <p class="text-xl text-primary-100 mb-8" data-i18n="roi_cta_subtitle">Book a call to discuss a custom proposal for your team.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all">
+          <span data-i18n="roi_cta_button">Schedule Your Call</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-2">
+            <span class="text-2xl">🌱</span>
+            <span class="text-xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 text-sm" data-i18n="roi_footer_note">Internal sales tool. Data for illustrative purposes only.</p>
+          <a href="mailto:hello@genki.bg" class="text-gray-400 hover:text-white text-sm">hello@genki.bg</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/research-data.js"></script>
+  <script src="js/roi-calculator.js"></script>
+</body>
+</html>

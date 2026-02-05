@@ -176,11 +176,11 @@ const translations = {
   },
   nav_book_call: {
     en: "Book a Call",
-    bg: "Запазете разговор"
+    bg: "Запазете консултация"
   },
   nav_cta: {
     en: "Book a Call",
-    bg: "Запазете разговор"
+    bg: "Запазете консултация"
   },
   mobile_language: {
     en: "Language",
@@ -260,7 +260,7 @@ const translations = {
   },
   index_cta_book: {
     en: "Book a Free Call",
-    bg: "Запазете безплатен разговор"
+    bg: "Запазете безплатна консултация"
   },
   index_cta_how: {
     en: "See How It Works",
@@ -378,7 +378,7 @@ const translations = {
   },
   index_step1_title: {
     en: "Book a Call",
-    bg: "Запазете разговор"
+    bg: "Запазете консултация"
   },
   index_step1_desc: {
     en: "15-minute call to understand your team's needs and preferences.",
@@ -466,7 +466,7 @@ const translations = {
   },
   index_cta_schedule: {
     en: "Schedule a Free Call",
-    bg: "Запазете безплатен разговор"
+    bg: "Запазете безплатна консултация"
   },
   index_cta_pricing: {
     en: "View Pricing",
@@ -566,7 +566,7 @@ const translations = {
   },
   pricing_hero_subtitle: {
     en: "Not all wellness benefits are equal. Choose the plan that matches your culture ambitions.",
-    bg: "Не всички уелнес бенефити са еднакви. Изберете плана, който пасва на културата, която искате да изградите."
+    bg: "Не всички уелнес бенефити са еднакви. Изберете плана, който пасва на концепцията, която искате да изградите."
   },
 
   // NEW PRICING - Starter Card
@@ -698,7 +698,7 @@ const translations = {
   },
   pricing_cta_call: {
     en: "Book a Call",
-    bg: "Запазете разговор"
+    bg: "Запазете консултация"
   },
 
   // NEW PRICING - Why Care Works Section
@@ -1110,7 +1110,7 @@ const translations = {
   },
   companies_plan_cta_featured: {
     en: "Book a Call",
-    bg: "Запазете разговор"
+    bg: "Запазете консултация"
   },
 
   // COMPANIES PAGE - ROI
@@ -1330,7 +1330,7 @@ const translations = {
   },
   roi_disclaimer: {
     en: "📝 Example calculation for illustration. Book a call for your custom quote.",
-    bg: "📝 Примерно изчисление за илюстрация. Запазете разговор за персонална оферта."
+    bg: "📝 Примерно изчисление за илюстрация. Запазете консултация за персонална оферта."
   },
   roi_cta: {
     en: "Book Your Custom Quote",
@@ -1398,7 +1398,7 @@ const translations = {
   },
   companies_cta_subtitle: {
     en: "Book a free call and see how Genki can transform your workplace.",
-    bg: "Запазете безплатен разговор и вижте как Genki може да трансформира работното Ви място."
+    bg: "Запазете безплатна консултация и вижте как Genki може да трансформира работното Ви място."
   },
   companies_cta_schedule: {
     en: "Schedule Your Call",
@@ -1499,7 +1499,7 @@ const translations = {
   },
   mission_offer_snacks_desc: {
     en: "Cookies, wafers, protein bars, rice cakes",
-    bg: "Бисквити, вафли, протеинови барове, оризови бисквити"
+    bg: "Бисквити, вафли, протеинови барове, оризовки"
   },
   mission_offer_drinks: {
     en: "Drinks",
@@ -1507,7 +1507,7 @@ const translations = {
   },
   mission_offer_drinks_desc: {
     en: "Ice teas, energy drinks, fresh juices, sparkling water, kombucha",
-    bg: "Ледени чайове, енергийни напитки, пресни сокове, газирана вода, комбуча"
+    bg: "Студени чайове, енергийни напитки, пресни сокове, газирана вода, комбуча"
   },
   mission_offer_fresh: {
     en: "Fresh Options",
@@ -1547,7 +1547,7 @@ const translations = {
   },
   mission_farm_title: {
     en: "Fresh & Local",
-    bg: "Пресно и местно"
+    bg: "Прясно и местно"
   },
   mission_farm_desc: {
     en: "Working with Bulgarian suppliers means fresher products for your team and support for local businesses and families.",
@@ -1627,7 +1627,7 @@ const translations = {
   },
   mission_pillar1_snacks_desc: {
     en: "Nuts, dried fruits, protein bars, rice cakes, granola",
-    bg: "Ядки, сушени плодове, протеинови барове, оризови бисквити, гранола"
+    bg: "Ядки, сушени плодове, протеинови барове, оризовки, гранола"
   },
   mission_pillar1_drinks: {
     en: "Drinks",
@@ -1831,7 +1831,7 @@ const translations = {
   },
   mission_cta_button: {
     en: "Start Your Impact Today",
-    bg: "Започнете вашето въздействие днес"
+    bg: "Започнете Вашето въздействие днес"
   },
 
   // ===================
@@ -2036,7 +2036,7 @@ const translations = {
   },
   products_icetea_title: {
     en: "Ice Teas",
-    bg: "Ледени чайове"
+    bg: "Студени чайове"
   },
   products_icetea_desc: {
     en: "Chilled teas in various flavors",
@@ -2112,7 +2112,7 @@ const translations = {
   },
   products_rice_title: {
     en: "Rice Cakes",
-    bg: "Оризови бисквити"
+    bg: "Оризовки"
   },
   products_rice_desc: {
     en: "Whole grain, various flavors",
@@ -2272,7 +2272,7 @@ const translations = {
   },
   products_cta_desc: {
     en: "Book a call and we'll create a custom product selection based on your team's preferences.",
-    bg: "Запазете разговор и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
+    bg: "Запазете консултация и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
   },
   products_cta_button: {
     en: "Request Full Catalog",
@@ -2320,7 +2320,7 @@ const translations = {
   },
   products_rice_cakes: {
     en: "Rice Cakes",
-    bg: "Оризови бисквити"
+    bg: "Оризовки"
   },
   products_rice_cakes_desc: {
     en: "Whole grain, various flavors",
@@ -2488,7 +2488,7 @@ const translations = {
   },
   products_cta_subtitle: {
     en: "Book a call and we'll create a custom product selection based on your team's preferences.",
-    bg: "Запазете разговор и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
+    bg: "Запазете консултация и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
   },
   products_cta_button: {
     en: "Request Full Catalog",
@@ -2516,11 +2516,11 @@ const translations = {
   },
   contact_hero_subtitle: {
     en: "Book a free call and discover how Genki can transform your employee benefits while supporting local businesses and charity.",
-    bg: "Запазете безплатен разговор и открийте как Genki може да трансформира придобивките на служителите Ви, като същевременно подкрепя местни бизнеси и благотворителност."
+    bg: "Запазете безплатна консултация и открийте как Genki може да трансформира придобивките на служителите Ви, като същевременно подкрепя местни бизнеси и благотворителност."
   },
   contact_form_title: {
     en: "Book a Free Call",
-    bg: "Запазете безплатен разговор"
+    bg: "Запазете безплатна консултация"
   },
   contact_first_name: {
     en: "First Name *",
@@ -2843,6 +2843,434 @@ const translations = {
   form_success: {
     en: "Thank you! We'll be in touch within 24 hours.",
     bg: "Благодарим Ви! Ще се свържем с Вас до 24 часа."
+  },
+
+  // ==========================================
+  // ROI Calculator Page
+  // ==========================================
+
+  // Page Title
+  roi_page_title: {
+    en: "ROI Calculator | Genki",
+    bg: "ROI Калкулатор | Genki"
+  },
+
+  // Password Gate
+  roi_password_title: {
+    en: "ROI Calculator",
+    bg: "ROI Калкулатор"
+  },
+  roi_password_subtitle: {
+    en: "This tool is exclusively for HR decision-makers evaluating Genki for their organization.",
+    bg: "Този инструмент е изключително за HR специалисти, които оценяват Genki за тяхната организация."
+  },
+  roi_password_label: {
+    en: "Access Password",
+    bg: "Парола за достъп"
+  },
+  roi_password_placeholder: {
+    en: "Enter password",
+    bg: "Въведете парола"
+  },
+  roi_password_button: {
+    en: "Access Calculator",
+    bg: "Достъп до калкулатора"
+  },
+  roi_password_error: {
+    en: "Incorrect password. Please contact your Genki representative.",
+    bg: "Грешна парола. Моля, свържете се с Вашия Genki представител."
+  },
+  roi_password_hint: {
+    en: "Need access?",
+    bg: "Нуждаете се от достъп?"
+  },
+  roi_password_contact: {
+    en: "Contact us",
+    bg: "Свържете се с нас"
+  },
+
+  // Hero Section
+  roi_hero_title: {
+    en: "Calculate Your ROI",
+    bg: "Изчислете Вашата ROI"
+  },
+  roi_hero_subtitle: {
+    en: "See how investing in employee nutrition drives measurable financial returns through reduced turnover, fewer sick days, and increased productivity.",
+    bg: "Вижте как инвестицията в храненето на служителите води до измерими финансови резултати чрез намалено текучество, по-малко болнични и повишена продуктивност."
+  },
+
+  // Input Labels
+  roi_input_team_size: {
+    en: "Team Size",
+    bg: "Размер на екипа"
+  },
+  roi_input_team_size_unit: {
+    en: "employees",
+    bg: "служители"
+  },
+  roi_input_salary: {
+    en: "Average Annual Salary",
+    bg: "Средна годишна заплата"
+  },
+  roi_input_turnover: {
+    en: "Current Annual Turnover Rate",
+    bg: "Текущ годишен процент на текучество"
+  },
+  roi_input_sick_days: {
+    en: "Average Sick Days Per Employee",
+    bg: "Средни болнични дни на служител"
+  },
+  roi_input_sick_days_unit: {
+    en: "days/year",
+    bg: "дни/година"
+  },
+  roi_input_products: {
+    en: "Products Consumed Per Day",
+    bg: "Консумирани продукти на ден"
+  },
+  roi_input_products_unit: {
+    en: "products/employee/day",
+    bg: "продукти/служител/ден"
+  },
+  roi_input_cost: {
+    en: "Average Product Cost",
+    bg: "Средна цена на продукт"
+  },
+
+  // Engagement Warning
+  roi_engagement_warning: {
+    en: "Low product consumption may indicate lower program engagement. Consider strategies to increase daily participation.",
+    bg: "Ниската консумация на продукти може да означава по-ниска ангажираност. Обмислете стратегии за увеличаване на ежедневното участие."
+  },
+
+  // Investment Section
+  roi_investment_title: {
+    en: "Your Genki Investment",
+    bg: "Вашата Genki инвестиция"
+  },
+  roi_investment_annual: {
+    en: "Annual Investment",
+    bg: "Годишна инвестиция"
+  },
+  roi_investment_monthly: {
+    en: "per employee/month",
+    bg: "на служител/месец"
+  },
+  roi_investment_daily: {
+    en: "per employee/day",
+    bg: "на служител/ден"
+  },
+
+  // ROI Summary
+  roi_summary_title: {
+    en: "Your Return on Investment",
+    bg: "Вашата възвръщаемост"
+  },
+  roi_total_savings: {
+    en: "Total Annual Savings",
+    bg: "Общи годишни спестявания"
+  },
+  roi_net_benefit: {
+    en: "Net Annual Benefit",
+    bg: "Нетна годишна полза"
+  },
+  roi_percentage: {
+    en: "ROI",
+    bg: "ROI"
+  },
+  roi_payback: {
+    en: "Payback Period",
+    bg: "Период на изплащане"
+  },
+  roi_payback_months: {
+    en: "months",
+    bg: "месеца"
+  },
+
+  // Savings Breakdown
+  roi_breakdown_title: {
+    en: "Savings Breakdown",
+    bg: "Разбивка на спестяванията"
+  },
+  roi_breakdown_turnover: {
+    en: "Turnover Cost Reduction",
+    bg: "Намаляване на разходите за текучество"
+  },
+  roi_breakdown_productivity: {
+    en: "Productivity Gains",
+    bg: "Ръст на продуктивността"
+  },
+  roi_breakdown_healthcare: {
+    en: "Healthcare Cost Savings",
+    bg: "Спестявания от здравни разходи"
+  },
+  roi_breakdown_absenteeism: {
+    en: "Absenteeism Reduction",
+    bg: "Намаляване на отсъствията"
+  },
+
+  // Scenario Section
+  roi_scenario_title: {
+    en: "Scenario Comparison",
+    bg: "Сравнение на сценарии"
+  },
+  roi_scenario_subtitle: {
+    en: "Based on industry research, expected outcomes vary by implementation quality and engagement levels.",
+    bg: "Въз основа на индустриални проучвания, очакваните резултати варират според качеството на изпълнение и нивата на ангажираност."
+  },
+  roi_scenario_conservative: {
+    en: "Conservative",
+    bg: "Консервативен"
+  },
+  roi_scenario_moderate: {
+    en: "Moderate",
+    bg: "Умерен"
+  },
+  roi_scenario_optimistic: {
+    en: "Optimistic",
+    bg: "Оптимистичен"
+  },
+  roi_scenario_net_benefit: {
+    en: "Net Benefit",
+    bg: "Нетна полза"
+  },
+  roi_scenario_conservative_desc: {
+    en: "Minimum expected impact with basic program implementation.",
+    bg: "Минимален очакван ефект при базово изпълнение на програмата."
+  },
+  roi_scenario_moderate_desc: {
+    en: "Typical results with active engagement and communication.",
+    bg: "Типични резултати при активна ангажираност и комуникация."
+  },
+  roi_scenario_optimistic_desc: {
+    en: "Best-case scenario with full organizational commitment.",
+    bg: "Най-добър сценарий при пълен организационен ангажимент."
+  },
+
+  // Assumptions Section
+  roi_assumptions_title: {
+    en: "Calculation Assumptions",
+    bg: "Предположения за изчисленията"
+  },
+  roi_assumption_working_days: {
+    en: "Working days per year: 220",
+    bg: "Работни дни годишно: 220"
+  },
+  roi_assumption_replacement: {
+    en: "Employee replacement cost: 150% of annual salary",
+    bg: "Разходи за смяна на служител: 150% от годишната заплата"
+  },
+  roi_assumption_healthcare: {
+    en: "Baseline healthcare cost per employee: €500/year",
+    bg: "Базови здравни разходи на служител: €500/година"
+  },
+
+  // Research Section
+  roi_research_title: {
+    en: "Research Database",
+    bg: "База данни с проучвания"
+  },
+  roi_research_subtitle: {
+    en: "Our ROI calculations are based on peer-reviewed research and industry studies. Explore the evidence below.",
+    bg: "Нашите ROI изчисления са базирани на рецензирани проучвания. Разгледайте доказателствата по-долу."
+  },
+  roi_research_view: {
+    en: "View Research",
+    bg: "Виж проучването"
+  },
+  roi_research_studies: {
+    en: "studies",
+    bg: "проучвания"
+  },
+
+  // Research Categories
+  roi_category_healthcare: {
+    en: "Healthcare Cost Savings",
+    bg: "Спестявания от здравни разходи"
+  },
+  roi_category_nutrition: {
+    en: "Nutrition-Productivity Connection",
+    bg: "Връзка храна-продуктивност"
+  },
+  roi_category_turnover: {
+    en: "Tech Industry Turnover Costs",
+    bg: "Разходи за текучество в IT"
+  },
+  roi_category_engagement: {
+    en: "Employee Engagement & Retention",
+    bg: "Ангажираност и задържане на служители"
+  },
+  roi_category_bulgarian: {
+    en: "Bulgarian IT Market Data",
+    bg: "Данни за българския IT пазар"
+  },
+  roi_category_diabetes: {
+    en: "Diabetes Prevention Economics",
+    bg: "Икономика на превенцията на диабет"
+  },
+  roi_category_obesity: {
+    en: "Obesity Cost Economics",
+    bg: "Икономика на разходите за затлъстяване"
+  },
+  roi_category_mental: {
+    en: "Mental Health & Wellbeing ROI",
+    bg: "ROI на психичното здраве"
+  },
+  roi_category_presenteeism: {
+    en: "Presenteeism vs Absenteeism Costs",
+    bg: "Разходи за презентеизъм срещу отсъствия"
+  },
+  roi_category_additional: {
+    en: "Additional Supporting Research",
+    bg: "Допълнителни подкрепящи проучвания"
+  },
+
+  // CTA Section
+  roi_cta_title: {
+    en: "Ready to Transform Your Workplace?",
+    bg: "Готови ли сте да трансформирате работното си място?"
+  },
+  roi_cta_subtitle: {
+    en: "Let's discuss how Genki can deliver these results for your organization.",
+    bg: "Нека обсъдим как Genki може да постигне тези резултати за Вашата организация."
+  },
+  roi_cta_button: {
+    en: "Schedule a Consultation",
+    bg: "Насрочете консултация"
+  },
+  roi_cta_demo: {
+    en: "Request Demo",
+    bg: "Заяви демо"
+  },
+
+  // Additional ROI Keys
+  roi_password_submit: {
+    en: "Access Calculator",
+    bg: "Достъп до калкулатора"
+  },
+  roi_password_contact: {
+    en: "Need access? Contact <a href=\"mailto:hello@genki.bg\" class=\"text-primary-600 hover:underline\">hello@genki.bg</a>",
+    bg: "Нуждаете се от достъп? Свържете се с <a href=\"mailto:hello@genki.bg\" class=\"text-primary-600 hover:underline\">hello@genki.bg</a>"
+  },
+  roi_header_badge: {
+    en: "Internal Sales Tool",
+    bg: "Вътрешен инструмент за продажби"
+  },
+  roi_hero_badge: {
+    en: "ROI Calculator",
+    bg: "ROI Калкулатор"
+  },
+  roi_hero_title: {
+    en: "Calculate Your",
+    bg: "Изчислете Вашата"
+  },
+  roi_hero_title_highlight: {
+    en: "Wellness ROI",
+    bg: "ROI на уелнес"
+  },
+  roi_inputs_title: {
+    en: "Your Company Profile",
+    bg: "Профил на Вашата компания"
+  },
+  roi_employees: {
+    en: "employees",
+    bg: "служители"
+  },
+  roi_days: {
+    en: "days",
+    bg: "дни"
+  },
+  roi_products: {
+    en: "products",
+    bg: "продукти"
+  },
+  roi_products_hint: {
+    en: "Care plan average: 2.5-3.5 products/day with 85-90% engagement",
+    bg: "Care план средно: 2.5-3.5 продукти/ден с 85-90% ангажираност"
+  },
+  roi_warning_low_engagement: {
+    en: "Lower consumption may reduce health outcomes and ROI benefits. Genki Care works best with 85-90% employee engagement (2.5-3.5 products/day average).",
+    bg: "По-ниската консумация може да намали здравните резултати и ROI ползите. Genki Care работи най-добре с 85-90% ангажираност (2.5-3.5 продукти/ден средно)."
+  },
+  roi_per_month: {
+    en: "/employee/month",
+    bg: "/служител/месец"
+  },
+  roi_per_day: {
+    en: "/employee/day",
+    bg: "/служител/ден"
+  },
+  roi_months: {
+    en: "months",
+    bg: "месеца"
+  },
+  roi_scenarios_title: {
+    en: "Scenario Comparison",
+    bg: "Сравнение на сценарии"
+  },
+  roi_scenario_conservative_title: {
+    en: "Conservative",
+    bg: "Консервативен"
+  },
+  roi_scenario_moderate_title: {
+    en: "Moderate",
+    bg: "Умерен"
+  },
+  roi_scenario_optimistic_title: {
+    en: "Optimistic",
+    bg: "Оптимистичен"
+  },
+  roi_sc_turnover: {
+    en: "Turnover reduction:",
+    bg: "Намаление на текучество:"
+  },
+  roi_sc_absenteeism: {
+    en: "Absenteeism reduction:",
+    bg: "Намаление на отсъствия:"
+  },
+  roi_sc_productivity: {
+    en: "Productivity gain:",
+    bg: "Ръст на продуктивност:"
+  },
+  roi_sc_healthcare: {
+    en: "Healthcare savings:",
+    bg: "Здравни спестявания:"
+  },
+  roi_sc_net: {
+    en: "Net Benefit",
+    bg: "Нетна полза"
+  },
+  roi_scenario_recommended: {
+    en: "Recommended",
+    bg: "Препоръчителен"
+  },
+  roi_engagement_title: {
+    en: "Why Free Access Matters",
+    bg: "Защо е важен безплатният достъп"
+  },
+  roi_engagement_care: {
+    en: "Care Plan (Company Pays)",
+    bg: "Care план (компанията плаща)"
+  },
+  roi_engagement_care_desc: {
+    en: "Daily engagement rate",
+    bg: "Дневен процент на ангажираност"
+  },
+  roi_engagement_starter: {
+    en: "Starter Plan (Employees Pay)",
+    bg: "Starter план (служителите плащат)"
+  },
+  roi_engagement_starter_desc: {
+    en: "Typical engagement rate",
+    bg: "Типичен процент на ангажираност"
+  },
+  roi_engagement_note: {
+    en: "When employees have free access, engagement rates increase dramatically, maximizing health benefits and ROI.",
+    bg: "Когато служителите имат безплатен достъп, нивата на ангажираност се увеличават драматично, максимизирайки ползите за здравето и ROI."
+  },
+  roi_footer_note: {
+    en: "Internal sales tool. Data for illustrative purposes only.",
+    bg: "Вътрешен инструмент за продажби. Данните са само за илюстративни цели."
   }
 };
 

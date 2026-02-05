@@ -592,3 +592,130 @@ select:focus {
 #modal-content.opacity-100 {
   opacity: 1;
 }
+
+/* ==========================================
+   ROI Calculator Styles
+   ========================================== */
+
+/* ROI Sliders */
+.roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #d1d5db 0%, #d1d5db 100%);
+  cursor: pointer;
+}
+
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+.roi-slider::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+.roi-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+}
+
+.roi-slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+/* Scenario Cards */
+.scenario-card {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.scenario-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Scenario Tabs */
+.scenario-tab {
+  transition: all 0.2s ease;
+}
+
+/* Savings Bars */
+.savings-bar {
+  transition: width 0.5s ease-out;
+}
+
+/* Research Accordion */
+.research-category summary {
+  list-style: none;
+}
+
+.research-category summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-category[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.research-category summary svg {
+  transition: transform 0.2s ease;
+}
+
+/* Password Gate Animation */
+#password-gate {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ROI Results Animation */
+.roi-result-value {
+  transition: all 0.3s ease-out;
+}
+
+/* Engagement Meter Animation */
+.engagement-meter .meter-fill {
+  transition: width 0.8s ease-out;
+}
+
+/* Print Styles for ROI Calculator */
+@media print {
+  #password-gate {
+    display: none !important;
+  }
+
+  .scenario-card {
+    break-inside: avoid;
+  }
+
+  .roi-slider {
+    display: none;
+  }
+
+  #main-content {
+    display: block !important;
+  }
+}
