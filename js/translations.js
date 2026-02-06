@@ -3487,7 +3487,7 @@ const translations = {
 };
 
 // Language Switcher Functions
-let currentLang = localStorage.getItem('genki-lang') || 'en';
+let currentLang = localStorage.getItem('genki-lang') || 'bg';
 
 function setLanguage(lang) {
   currentLang = lang;
@@ -3529,9 +3529,7 @@ function updateContent() {
 function updateLangSwitcher() {
   const switcher = document.getElementById('lang-current');
   if (switcher) {
-    switcher.innerHTML = currentLang === 'en'
-      ? '<span class="mr-1">🇬🇧</span> EN'
-      : '<span class="mr-1">🇧🇬</span> BG';
+    switcher.textContent = currentLang === 'en' ? 'EN' : 'BG';
   }
 
   // Update active state in dropdown
