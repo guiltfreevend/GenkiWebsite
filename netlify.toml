@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+# Enable pretty URLs (removes .html extension)
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  force = false
+
+# Ensure index.html is served for root
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200

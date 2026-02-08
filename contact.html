@@ -13,7 +13,7 @@
       var submittedAt = localStorage.getItem('genki_contact_submitted');
       if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
         localStorage.removeItem('genki_contact_submitted');
-        window.location.replace('thank-you-contact.html');
+        window.location.replace('/thank-you-contact');
       } else {
         document.write('<style>body{opacity:1}</style>');
       }
@@ -86,14 +86,14 @@
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="index.html" class="flex items-center">
+        <a href="/" class="flex items-center">
           <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
         </a>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
-          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
-          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
-          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+          <a href="/" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="/companies" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
+          <a href="/mission" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="/products" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
           <!-- Language Switcher -->
           <div class="relative">
             <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
@@ -111,7 +111,7 @@
               </a>
             </div>
           </div>
-          <a href="contact.html" class="btn-primary" data-i18n="nav_cta">Book a Call</a>
+          <a href="/contact" class="btn-primary" data-i18n="nav_cta">Book a Call</a>
         </div>
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
           <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,10 +134,10 @@
       </button>
     </div>
     <div class="flex flex-col space-y-4">
-      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
-      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
-      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
-      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+      <a href="/" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="/companies" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="/mission" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="/products" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
       <!-- Mobile Language Switcher -->
       <div class="border-t border-gray-200 pt-4 mt-4">
         <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
@@ -150,7 +150,7 @@
           </a>
         </div>
       </div>
-      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_cta">Book a Call</a>
+      <a href="/contact" class="btn-primary mt-4 text-center" data-i18n="nav_cta">Book a Call</a>
     </div>
   </div>
 
@@ -179,7 +179,7 @@
             <form data-validate class="space-y-6" action="https://formspree.io/f/xaqbnpda" method="POST">
               <!-- Formspree hidden fields -->
               <input type="hidden" name="_subject" value="📧 New Contact Form - Genki Website">
-              <input type="hidden" name="_next" value="https://www.genki.bg/thank-you-contact.html">
+              <input type="hidden" name="_next" value="https://www.genki.bg//thank-you-contact">
               <!-- Name Fields -->
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -444,10 +444,10 @@
         <div>
           <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-300 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-300 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-300 hover:text-white" data-i18n="nav_products">Products</a></li>
-            <li><a href="contact.html" class="text-gray-300 hover:text-white" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="/companies" class="text-gray-300 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="/mission" class="text-gray-300 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="/products" class="text-gray-300 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="/contact" class="text-gray-300 hover:text-white" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -462,7 +462,7 @@
       <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-500 text-sm" data-i18n="footer_copyright">© 2026 Genki. All rights reserved.</p>
         <div class="flex items-center gap-6 text-sm text-gray-500">
-          <a href="privacy.html" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="/privacy" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
         </div>
       </div>
     </div>
@@ -479,7 +479,7 @@
       var submittedAt = localStorage.getItem('genki_contact_submitted');
       if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
         localStorage.removeItem('genki_contact_submitted');
-        window.location.replace('thank-you-contact.html');
+        window.location.replace('/thank-you-contact');
       }
     }
     window.addEventListener('pageshow', checkFormSubmission);
