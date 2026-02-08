@@ -6,7 +6,10 @@
   <meta name="description" content="Thank you for contacting Genki - We'll be in touch soon">
   <title>Thank You - Genki Wellness Benefits</title>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,8 +19,45 @@
       theme: {
         extend: {
           colors: {
-            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
+            primary: {
+              50: '#f0f9f4',
+              100: '#dcf2e6',
+              200: '#b8e5cc',
+              300: '#88d4aa',
+              400: '#4fba7d',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e6b48',
+              800: '#1a5a3d',
+              900: '#164a33',
+            },
+            forest: {
+              400: '#3a9d6a',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e5128',
+              800: '#18451f',
+              900: '#14401f',
+            },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
+            accent: {
+              50: '#fffef8',
+              100: '#fefdf0',
+              200: '#f5f5dc',
+              300: '#e8ddb5',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            }
           },
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
         }
@@ -44,9 +84,8 @@
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="index.html" class="flex items-center space-x-2">
-          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
-          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
         </a>
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
@@ -61,12 +100,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                English
+                🇬🇧 English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-                Български
+                🇧🇬 Български
               </a>
             </div>
           </div>
@@ -85,7 +124,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
+      <img src="assets/images/genki_logo.png" alt="Genki" class="h-10">
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -101,10 +140,10 @@
         <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
         <div class="flex gap-2">
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-            EN
+            🇬🇧 EN
           </a>
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-            BG
+            🇧🇬 BG
           </a>
         </div>
       </div>
@@ -125,7 +164,7 @@
         </div>
 
         <!-- Title -->
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
           <span data-i18n="thankyou_contact_title">Thank you for reaching out!</span>
         </h1>
 
@@ -186,9 +225,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div class="md:col-span-2">
-          <div class="flex items-center space-x-2 mb-4">
-            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
-            <span class="text-2xl font-bold text-white">Genki</span>
+          <div class="flex items-center">
+            <img src="assets/images/genki_logo_light.png" alt="Genki" class="h-24">
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
@@ -198,10 +236,10 @@
         <div>
           <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="companies.html" class="text-gray-300 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-300 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-300 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div>

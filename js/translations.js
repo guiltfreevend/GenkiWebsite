@@ -752,7 +752,7 @@ const translations = {
   },
   pricing_why3_quote: {
     en: "\"We have free healthy food daily\"",
-    bg: "„Имаме безплатна здравословна храна всеки ден""
+    bg: "\"Имаме безплатна здравословна храна всеки ден\""
   },
 
   // NEW PRICING - All Plans Include
@@ -3483,6 +3483,66 @@ const translations = {
   roi_footer_note: {
     en: "Internal sales tool. Data for illustrative purposes only.",
     bg: "Вътрешен инструмент за продажби. Данните са само за илюстративни цели."
+  },
+
+  // ==========================================
+  // COMPREHENSIVE IMPROVEMENTS - NEW KEYS
+  // ==========================================
+
+  // Trust Section (Homepage)
+  index_trusted_by: {
+    en: "Trusted by forward-thinking Bulgarian companies",
+    bg: "Избрани от прогресивни български компании"
+  },
+
+  // Testimonials Section (Homepage)
+  index_testimonials_title: {
+    en: "Loved by HR Teams",
+    bg: "Обичани от HR екипите"
+  },
+  index_testimonials_subtitle: {
+    en: "See what companies are saying about Genki",
+    bg: "Вижте какво казват компаниите за Genki"
+  },
+  index_testimonial1_text: {
+    en: "\"Our team absolutely loves the Genki snacks. It's become a daily ritual and really brings people together in the kitchen. The fact that it supports local businesses is a huge bonus.\"",
+    bg: "\"Екипът ни обожава снаксовете на Genki. Това се превърна в ежедневен ритуал и наистина сближава хората в кухнята. Фактът, че подкрепяме местни бизнеси, е огромен бонус.\""
+  },
+  index_testimonial1_role: {
+    en: "HR Director, TechCorp Bulgaria",
+    bg: "HR Директор, TechCorp България"
+  },
+  index_testimonial2_text: {
+    en: "\"Best decision we made this year. Zero admin work for us, employees are happier, and we're supporting charity every month. It's a win-win-win.\"",
+    bg: "\"Най-доброто решение, което взехме тази година. Нулева административна работа за нас, служителите са по-щастливи и подкрепяме благотворителност всеки месец. Печелят всички.\""
+  },
+  index_testimonial2_role: {
+    en: "CEO, Digital Solutions Ltd",
+    bg: "Изпълнителен директор, Digital Solutions Ltd"
+  },
+  index_testimonial3_text: {
+    en: "\"We switched from another provider to Genki and the difference is night and day. Quality products, responsive team, and our employees actually use this benefit.\"",
+    bg: "\"Преминахме от друг доставчик към Genki и разликата е като ден и нощ. Качествени продукти, отзивчив екип и служителите ни наистина използват тази придобивка.\""
+  },
+  index_testimonial3_role: {
+    en: "Office Manager, StartupHub Sofia",
+    bg: "Офис мениджър, StartupHub Sofia"
+  },
+
+  // Companies Page Testimonial
+  companies_testimonial_quote: {
+    en: "\"The ROI calculator was accurate — we saved more than projected in the first 6 months. Our team's productivity and morale are visibly higher.\"",
+    bg: "\"ROI калкулаторът беше точен — спестихме повече от прогнозираното през първите 6 месеца. Продуктивността и духът на екипа ни са видимо по-високи.\""
+  },
+  companies_testimonial_source: {
+    en: "— CFO, Tech company with 180 employees",
+    bg: "— Финансов директор, IT компания със 180 служители"
+  },
+
+  // Contact Page Urgency Badge
+  contact_urgency_badge: {
+    en: "Q1 onboarding now open — Limited spots available",
+    bg: "Q1 onboarding е отворен — Ограничен брой места"
   }
 };
 

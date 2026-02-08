@@ -8,7 +8,9 @@
   <title>Genki - Wellness Benefits for Modern Companies</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,21 +25,47 @@
         extend: {
           colors: {
             primary: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
+              50: '#f0f9f4',
+              100: '#dcf2e6',
+              200: '#b8e5cc',
+              300: '#88d4aa',
+              400: '#4fba7d',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e6b48',
+              800: '#1a5a3d',
+              900: '#164a33',
+            },
+            forest: {
+              400: '#3a9d6a',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e5128',
+              800: '#18451f',
+              900: '#14401f',
             },
             secondary: {
               500: '#14b8a6',
               600: '#0d9488',
               700: '#0f766e',
+            },
+            accent: {
+              50: '#fffef8',
+              100: '#fefdf0',
+              200: '#f5f5dc',
+              300: '#e8ddb5',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
             }
           },
           fontFamily: {
@@ -58,9 +86,8 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-2">
-          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
-          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
         </a>
 
         <!-- Desktop Navigation -->
@@ -78,12 +105,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                English
+                🇬🇧 English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-                Български
+                🇧🇬 Български
               </a>
             </div>
           </div>
@@ -105,7 +132,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
+      <img src="assets/images/genki_logo.png" alt="Genki" class="h-10">
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -121,8 +148,8 @@
       <!-- Mobile Language Switcher -->
       <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
         <span class="text-gray-500 text-sm">Language:</span>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">EN</button>
-        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">🇧🇬 BG</button>
       </div>
 
       <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
@@ -144,7 +171,7 @@
         </div>
 
         <!-- Main Heading -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 fade-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 fade-up">
           <span data-i18n="index_hero_title_1">Healthy Teams,</span>
           <span class="gradient-text" data-i18n="index_hero_title_2">Thriving Business</span>
         </h1>
@@ -201,7 +228,7 @@
           <div class="text-gray-600 font-medium" data-i18n="index_stat_partners">Bulgarian Products</div>
         </div>
         <div class="stat-item fade-up">
-          <div class="stat-number" data-count="10" data-suffix="%+">10%+</div>
+          <div class="stat-number text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600" data-count="10" data-suffix="%+">10%+</div>
           <div class="text-gray-600 font-medium" data-i18n="index_stat_donated">Monthly Donations</div>
         </div>
         <div class="stat-item fade-up">
@@ -364,52 +391,52 @@
   </section>
 
   <!-- Value Proposition for HR -->
-  <section class="py-20 lg:py-28 bg-gradient-to-br from-primary-600 to-secondary-700 text-white">
+  <section class="py-20 lg:py-28 bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left: Text Content -->
         <div class="fade-up">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-6" data-i18n="index_hr_title">
+          <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6" data-i18n="index_hr_title">
             The Benefit Your HR Team Will Love
           </h2>
-          <p class="text-xl text-primary-100 mb-8" data-i18n="index_hr_subtitle">
+          <p class="text-xl text-on-green mb-8" data-i18n="index_hr_subtitle">
             Unlike complex benefit programs, Genki requires zero administration. We handle everything — from sourcing to delivery to impact reporting.
           </p>
 
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg" data-i18n="index_hr_vendor_title">No Vendor Management</h4>
-                <p class="text-primary-100" data-i18n="index_hr_vendor_desc">One subscription, 50+ product partners handled by us.</p>
+                <h4 class="font-semibold text-lg feature-heading-on-green" data-i18n="index_hr_vendor_title">No Vendor Management</h4>
+                <p class="text-on-green-light" data-i18n="index_hr_vendor_desc">One subscription, 50+ product partners handled by us.</p>
               </div>
             </div>
 
             <div class="flex items-start gap-4">
               <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg" data-i18n="index_hr_esg_title">Instant ESG Impact</h4>
-                <p class="text-primary-100" data-i18n="index_hr_esg_desc">Built-in charity component boosts your CSR reporting.</p>
+                <h4 class="font-semibold text-lg feature-heading-on-green" data-i18n="index_hr_esg_title">Instant ESG Impact</h4>
+                <p class="text-on-green-light" data-i18n="index_hr_esg_desc">Built-in charity component boosts your CSR reporting.</p>
               </div>
             </div>
 
             <div class="flex items-start gap-4">
               <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg" data-i18n="index_hr_retention_title">Employee Retention Boost</h4>
-                <p class="text-primary-100" data-i18n="index_hr_retention_desc">A tangible daily benefit that shows you care.</p>
+                <h4 class="font-semibold text-lg feature-heading-on-green" data-i18n="index_hr_retention_title">Employee Retention Boost</h4>
+                <p class="text-on-green-light" data-i18n="index_hr_retention_desc">A tangible daily benefit that shows you care.</p>
               </div>
             </div>
           </div>
@@ -421,14 +448,14 @@
             <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center">
               <i data-lucide="bar-chart-3" class="w-10 h-10 text-white"></i>
             </div>
-            <h3 class="text-2xl font-bold" data-i18n="index_hr_card_title">Like Sports Cards, But for Nutrition</h3>
+            <h3 class="text-2xl font-bold subheading-on-green" data-i18n="index_hr_card_title">Like Sports Cards, But for Nutrition</h3>
           </div>
-          <p class="text-primary-100 text-center mb-6" data-i18n="index_hr_card_desc">
+          <p class="text-on-green-light text-center mb-6" data-i18n="index_hr_card_desc">
             Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.
           </p>
           <div class="bg-white/10 rounded-xl p-4 text-center">
-            <div class="text-4xl font-bold mb-1">87%</div>
-            <div class="text-sm text-primary-100" data-i18n="index_hr_stat_desc">of employees say food benefits improve their workday</div>
+            <div class="text-4xl font-bold stat-on-green mb-1">87%</div>
+            <div class="text-sm text-on-green-light" data-i18n="index_hr_stat_desc">of employees say food benefits improve their workday</div>
           </div>
         </div>
       </div>
@@ -467,9 +494,8 @@
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <!-- Brand -->
         <div class="md:col-span-2">
-          <div class="flex items-center space-x-2 mb-4">
-            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
-            <span class="text-2xl font-bold text-white">Genki</span>
+          <div class="flex items-center">
+            <img src="assets/images/genki_logo_light.png" alt="Genki" class="h-24">
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">
             Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.
@@ -483,10 +509,10 @@
         <div>
           <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="companies.html" class="text-gray-300 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-300 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-300 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
 

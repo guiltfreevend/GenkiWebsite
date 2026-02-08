@@ -20,7 +20,10 @@
     })();
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,8 +33,45 @@
       theme: {
         extend: {
           colors: {
-            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
+            primary: {
+              50: '#f0f9f4',
+              100: '#dcf2e6',
+              200: '#b8e5cc',
+              300: '#88d4aa',
+              400: '#4fba7d',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e6b48',
+              800: '#1a5a3d',
+              900: '#164a33',
+            },
+            forest: {
+              400: '#3a9d6a',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e5128',
+              800: '#18451f',
+              900: '#14401f',
+            },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
+            accent: {
+              50: '#fffef8',
+              100: '#fefdf0',
+              200: '#f5f5dc',
+              300: '#e8ddb5',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            }
           },
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
         }
@@ -46,9 +86,8 @@
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="index.html" class="flex items-center space-x-2">
-          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
-          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
         </a>
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
@@ -63,12 +102,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-                English
+                🇬🇧 English
               </a>
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-                Български
+                🇧🇬 Български
               </a>
             </div>
           </div>
@@ -87,7 +126,7 @@
   <div id="mobile-overlay" class="mobile-overlay"></div>
   <div id="mobile-menu" class="mobile-menu">
     <div class="flex items-center justify-between mb-8">
-      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
+      <img src="assets/images/genki_logo.png" alt="Genki" class="h-10">
       <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -104,10 +143,10 @@
         <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
         <div class="flex gap-2">
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
-            EN
+            🇬🇧 EN
           </a>
           <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
-            BG
+            🇧🇬 BG
           </a>
         </div>
       </div>
@@ -119,7 +158,7 @@
   <section class="pt-40 pb-20 bg-gradient-to-b from-primary-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
           <span data-i18n="contact_hero_title">Let's Talk About</span> <span class="gradient-text" data-i18n="contact_hero_highlight">Your Team</span>
         </h1>
         <p class="text-xl text-gray-600 fade-up" data-i18n="contact_hero_subtitle">
@@ -293,41 +332,41 @@
           </div>
 
           <!-- Contact Info -->
-          <div class="bg-gradient-to-br from-primary-600 to-secondary-700 rounded-2xl p-8 text-white fade-up">
-            <h3 class="text-xl font-bold mb-6" data-i18n="contact_direct_title">Prefer to Reach Out Directly?</h3>
+          <div class="bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft rounded-2xl p-8 fade-up">
+            <h3 class="text-xl font-bold subheading-on-green mb-6" data-i18n="contact_direct_title">Prefer to Reach Out Directly?</h3>
             <div class="space-y-4">
               <a href="mailto:hello@genki.bg" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100" data-i18n="contact_email_label">Email us</p>
-                  <p class="font-semibold">hello@genki.bg</p>
+                  <p class="text-sm text-on-green-light" data-i18n="contact_email_label">Email us</p>
+                  <p class="font-semibold text-on-green">hello@genki.bg</p>
                 </div>
               </a>
               <a href="tel:+359888123456" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100" data-i18n="contact_phone_label">Call us</p>
-                  <p class="font-semibold">+359 888 123 456</p>
+                  <p class="text-sm text-on-green-light" data-i18n="contact_phone_label">Call us</p>
+                  <p class="font-semibold text-on-green">+359 888 123 456</p>
                 </div>
               </a>
               <div class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-primary-100" data-i18n="contact_visit_label">Visit us</p>
-                  <p class="font-semibold" data-i18n="footer_location">Sofia, Bulgaria</p>
+                  <p class="text-sm text-on-green-light" data-i18n="contact_visit_label">Visit us</p>
+                  <p class="font-semibold text-on-green" data-i18n="footer_location">Sofia, Bulgaria</p>
                 </div>
               </div>
             </div>
@@ -394,9 +433,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div class="md:col-span-2">
-          <div class="flex items-center space-x-2 mb-4">
-            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
-            <span class="text-2xl font-bold text-white">Genki</span>
+          <div class="flex items-center">
+            <img src="assets/images/genki_logo_light.png" alt="Genki" class="h-24">
           </div>
           <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
           <div class="flex items-center gap-2 text-sm">
@@ -406,10 +444,10 @@
         <div>
           <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
-            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
-            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="companies.html" class="text-gray-300 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-300 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-300 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div>

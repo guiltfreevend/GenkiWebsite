@@ -1,22 +1,70 @@
 /* Genki - Custom Styles */
 
-/* CSS Variables */
+/* CSS Variables - Premium Three-Layer Color System */
 :root {
-  --color-primary: #16a34a;
-  --color-primary-dark: #15803d;
-  --color-primary-light: #22c55e;
+  /* ========================================
+     THREE-LAYER PREMIUM COLOR ARCHITECTURE
+     Layer 1: LIGHT (90%) - whites, creams
+     Layer 2: MEDIUM GREEN (#2d8659) - CTAs, sections
+     Layer 3: DARK FOREST (#1e5128) - logo, headings
+     ======================================== */
+
+  /* Forest Green Primary Palette */
+  --color-primary: #2d8659;
+  --color-primary-dark: #248459;
+  --color-primary-light: #3a9d6a;
+  --color-primary-50: #f0f9f4;
+  --color-primary-100: #dcf2e6;
+  --color-primary-200: #b8e5cc;
+  --color-primary-300: #88d4aa;
+  --color-primary-400: #4fba7d;
+  --color-primary-500: #2d8659;
+  --color-primary-600: #248459;
+  --color-primary-700: #1e6b48;
+  --color-primary-800: #1a5a3d;
+  --color-primary-900: #164a33;
+
+  /* Forest Green - Dark (for logo/brand elements) */
+  --color-forest: #1e5128;
+  --color-forest-dark: #14401f;
+  --color-forest-medium: #2d8659;
+
+  /* Secondary - Teal accents */
   --color-secondary: #0f766e;
-  --color-accent: #f59e0b;
+  --color-secondary-500: #14b8a6;
+  --color-secondary-600: #0d9488;
+  --color-secondary-700: #0f766e;
+
+  /* Accent - Beige/Cream (Layer 1) */
+  --color-accent: #f5f5dc;
+  --color-accent-50: #fffef8;
+  --color-accent-100: #fefdf0;
+  --color-accent-200: #f5f5dc;
+  --color-accent-300: #e8ddb5;
+
+  /* Neutral colors */
   --color-dark: #1f2937;
   --color-light: #f9fafb;
   --color-text: #374151;
   --color-text-light: #6b7280;
-  --gradient-primary: linear-gradient(135deg, #16a34a 0%, #0f766e 100%);
-  --gradient-hero: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+
+  /* Premium Gradients - Medium Forest */
+  --gradient-primary: linear-gradient(135deg, #2d8659 0%, #248459 100%);
+  --gradient-dark: linear-gradient(135deg, #1e5128 0%, #14401f 100%);
+  --gradient-hero: linear-gradient(180deg, #f0f7f3 0%, #ffffff 100%);
+  --gradient-cta: linear-gradient(135deg, #2d8659 0%, #1e6b48 100%);
+
+  /* Legacy emerald support (for gradual transition) */
+  --color-emerald: #2d8659;
+  --color-emerald-dark: #248459;
+  --color-emerald-light: #3a9d6a;
+
+  /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-green: 0 4px 14px rgba(45, 134, 89, 0.3);
 }
 
 /* Base Styles */
@@ -36,7 +84,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
-  color: var(--color-dark);
+  /* Color now inherited from parent or set via Tailwind classes */
 }
 
 /* Custom Gradient Text */
@@ -64,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 .blob-1 {
   width: 400px;
   height: 400px;
-  background: #86efac;
+  background: #b8e5cc;
   top: -100px;
   right: -100px;
   animation-delay: 0s;
@@ -73,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 .blob-2 {
   width: 300px;
   height: 300px;
-  background: #5eead4;
+  background: #88d4aa;
   bottom: -50px;
   left: -50px;
   animation-delay: 2s;
@@ -82,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 .blob-3 {
   width: 250px;
   height: 250px;
-  background: #fcd34d;
+  background: #f5e6b3;
   top: 50%;
   left: 50%;
   animation-delay: 4s;
@@ -134,11 +182,39 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer animation - light moving through button */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: btn-shimmer 3s infinite;
+}
+
+@keyframes btn-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:hover::before {
+  animation-duration: 1.5s;
 }
 
 .btn-secondary {
@@ -152,12 +228,40 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle border pulse for secondary buttons */
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.5rem;
+  padding: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary-500), var(--color-primary));
+  background-size: 200% 100%;
+  animation: border-shimmer 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@keyframes border-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.btn-secondary:hover::before {
+  opacity: 1;
 }
 
 .btn-secondary:hover {
   background: var(--color-primary);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* Cards */
@@ -251,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+  box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.15);
 }
 
 .form-input::placeholder {
@@ -262,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  color: var(--color-dark);
+  color: #374151; /* gray-700 - forms are always on light backgrounds */
 }
 
 /* Footer */
@@ -496,25 +600,25 @@ select:focus {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 #roi-slider::-webkit-slider-thumb:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 12px rgba(45, 134, 89, 0.5);
 }
 
 #roi-slider::-moz-range-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
   border: none;
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
 }
 
 .roi-highlight {
@@ -537,7 +641,7 @@ select:focus {
 
 #per-day-box.scale-105 {
   transform: scale(1.03);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 20px 40px rgba(45, 134, 89, 0.3);
 }
 
 #per-day-amount {
@@ -613,15 +717,15 @@ select:focus {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .roi-slider::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 12px rgba(45, 134, 89, 0.5);
 }
 
 .roi-slider::-webkit-slider-thumb:active {
@@ -632,15 +736,15 @@ select:focus {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
   border: none;
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
 }
 
 .roi-slider::-moz-range-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 12px rgba(45, 134, 89, 0.5);
 }
 
 /* Public ROI Calculator Slider (companies.html) */
@@ -659,25 +763,25 @@ select:focus {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 2px 8px rgba(45, 134, 89, 0.5);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .roi-slider-style::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+  box-shadow: 0 4px 14px rgba(45, 134, 89, 0.6);
 }
 
 .roi-slider-style::-moz-range-thumb {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
   cursor: pointer;
   border: none;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 2px 8px rgba(45, 134, 89, 0.5);
 }
 
 /* Scenario Cards */
@@ -756,3 +860,186 @@ select:focus {
     display: block !important;
   }
 }
+
+/* ==========================================
+   TEXT ON GREEN BACKGROUNDS - CREAM + SHADOWS
+   Premium warm cream text for forest green sections
+   ========================================== */
+
+/* Main headings on green backgrounds (h1, h2) */
+.heading-on-green {
+  color: #fffef8; /* Warm cream white */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Subheadings on green backgrounds */
+.subheading-on-green {
+  color: #fffef8;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Body text on green backgrounds */
+.text-on-green {
+  color: rgba(255, 254, 248, 0.90);
+}
+
+/* Lighter body text on green backgrounds */
+.text-on-green-light {
+  color: rgba(255, 254, 248, 0.80);
+}
+
+/* Feature headings on green (h3, h4) */
+.feature-heading-on-green {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats/numbers on green backgrounds */
+.stat-on-green {
+  color: #fffef8;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   PHASE 4: GREEN SECTION SOFT EDGES
+   ========================================== */
+
+.green-section-soft {
+  position: relative;
+}
+
+.green-section-soft::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.green-section-soft::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ==========================================
+   PHASE 6: TESTIMONIAL CARDS
+   ========================================== */
+
+.testimonial-card-new {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  position: relative;
+  border: 2px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card-new:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  border-color: #2d8659;
+}
+
+.testimonial-quote-mark {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 4rem;
+  color: #2d8659;
+  opacity: 0.15;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2d8659 0%, #1e6b48 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* ==========================================
+   PHASE 9: TERTIARY BUTTON
+   ========================================== */
+
+.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-tertiary:hover {
+  color: var(--color-primary-dark);
+  gap: 0.75rem;
+}
+
+.btn-tertiary svg {
+  transition: transform 0.2s ease;
+}
+
+.btn-tertiary:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   PHASE 12: LOADING STATES & POLISH
+   ========================================== */
+
+/* Button loading state */
+.btn-primary.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-primary.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Smooth scroll padding for fixed header */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Improved form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.1) !important;
+}
+
+/* Stat numbers are always visible - animation enhances but doesn't hide */
