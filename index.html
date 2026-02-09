@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Genki - Premium wellness benefits for modern companies. Healthy snacks, drinks & meals delivered to your office. Supporting Bulgarian businesses.">
   <meta name="keywords" content="employee benefits, wellness, healthy snacks, office food, Bulgaria, HR benefits">
   <title>Genki - Wellness Benefits for Modern Companies</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.genki.bg/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Genki">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Genki - Wellness Benefits for Modern Companies">
+  <meta property="og:description" content="Premium wellness benefits for modern companies. Healthy snacks, drinks &amp; meals delivered to your office. Supporting Bulgarian businesses.">
+  <meta property="og:url" content="https://www.genki.bg/">
+  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+  <meta property="og:image:width" content="1563">
+  <meta property="og:image:height" content="1563">
+  <meta property="og:image:alt" content="Genki - Wellness Benefits">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Genki - Wellness Benefits for Modern Companies">
+  <meta name="twitter:description" content="Premium wellness benefits for modern companies. Healthy snacks, drinks &amp; meals delivered to your office.">
+  <meta name="twitter:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+  <meta name="twitter:image:alt" content="Genki - Wellness Benefits">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
@@ -18,66 +41,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: '#f0f9f4',
-              100: '#dcf2e6',
-              200: '#b8e5cc',
-              300: '#88d4aa',
-              400: '#4fba7d',
-              500: '#2d8659',
-              600: '#248459',
-              700: '#1e6b48',
-              800: '#1a5a3d',
-              900: '#164a33',
-            },
-            forest: {
-              400: '#3a9d6a',
-              500: '#2d8659',
-              600: '#248459',
-              700: '#1e5128',
-              800: '#18451f',
-              900: '#14401f',
-            },
-            secondary: {
-              500: '#14b8a6',
-              600: '#0d9488',
-              700: '#0f766e',
-            },
-            accent: {
-              50: '#fffef8',
-              100: '#fefdf0',
-              200: '#f5f5dc',
-              300: '#e8ddb5',
-            },
-            amber: {
-              50: '#fffbeb',
-              100: '#fef3c7',
-              200: '#fde68a',
-              300: '#fcd34d',
-              400: '#fbbf24',
-              500: '#f59e0b',
-              600: '#d97706',
-              700: '#b45309',
-              800: '#92400e',
-              900: '#78350f',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="js/tailwind-config.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Genki",
+    "url": "https://www.genki.bg",
+    "logo": "https://www.genki.bg/assets/images/genki_logo.png",
+    "description": "Premium wellness benefits for modern companies in Bulgaria. Healthy snacks, drinks and meals delivered to your office.",
+    "email": "hello@genki.bg",
+    "telephone": "+359888123456",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sofia",
+      "addressCountry": "BG"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Genki",
+    "url": "https://www.genki.bg",
+    "inLanguage": ["bg", "en"]
+  }
+  </script>
 </head>
 <body class="font-sans antialiased">
 
@@ -544,7 +541,7 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
   <script>lucide.createIcons();</script>

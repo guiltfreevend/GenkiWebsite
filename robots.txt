@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /index-main
+Disallow: /index-coming-soon
+Disallow: /thank-you-contact
+Disallow: /thank-you-coming-soon
+Disallow: /roi-calculator
+Disallow: /Backups/
+
+Sitemap: https://www.genki.bg/sitemap.xml
