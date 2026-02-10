@@ -3608,6 +3608,9 @@ function initLanguageSwitcher() {
   updateContent();
   updateLangSwitcher();
 
+  // Reveal content now that correct language is applied (prevents FOUC)
+  document.documentElement.classList.add('i18n-ready');
+
   // Toggle dropdown
   const langToggle = document.getElementById('lang-toggle');
   const langDropdown = document.getElementById('lang-dropdown');

@@ -27,7 +27,6 @@
   /* Forest Green - Dark (for logo/brand elements) */
   --color-forest: #1e5128;
   --color-forest-dark: #14401f;
-  --color-forest-medium: #2d8659;
 
   /* Secondary - Teal accents */
   --color-secondary: #0f766e;
@@ -54,11 +53,6 @@
   --gradient-hero: linear-gradient(180deg, #f0f7f3 0%, #ffffff 100%);
   --gradient-cta: linear-gradient(135deg, #2d8659 0%, #1e6b48 100%);
 
-  /* Legacy emerald support (for gradual transition) */
-  --color-emerald: #2d8659;
-  --color-emerald-dark: #248459;
-  --color-emerald-light: #3a9d6a;
-
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -78,6 +72,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide translatable text until i18n is applied (prevents flash of wrong language) */
+html:not(.i18n-ready) [data-i18n] {
+  visibility: hidden;
 }
 
 /* Typography */
@@ -318,27 +317,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Testimonials */
-.testimonial-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-}
-
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 4rem;
-  color: var(--color-primary);
-  opacity: 0.2;
-  font-family: Georgia, serif;
-  line-height: 1;
 }
 
 /* Form Styles */
@@ -583,42 +561,6 @@ select:focus {
   .no-print {
     display: none !important;
   }
-}
-
-/* ROI Calculator Styles */
-#roi-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 8px;
-  border-radius: 4px;
-  background: linear-gradient(to right, #d1d5db 0%, #d1d5db 100%);
-}
-
-#roi-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#roi-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(45, 134, 89, 0.5);
-}
-
-#roi-slider::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2d8659 0%, #248459 100%);
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 2px 6px rgba(45, 134, 89, 0.4);
 }
 
 .roi-highlight {
@@ -931,50 +873,6 @@ select:focus {
 }
 
 /* ==========================================
-   PHASE 6: TESTIMONIAL CARDS
-   ========================================== */
-
-.testimonial-card-new {
-  background: white;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  position: relative;
-  border: 2px solid #f3f4f6;
-  transition: all 0.3s ease;
-}
-
-.testimonial-card-new:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-  border-color: #2d8659;
-}
-
-.testimonial-quote-mark {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 4rem;
-  color: #2d8659;
-  opacity: 0.15;
-  font-family: Georgia, serif;
-  line-height: 1;
-}
-
-.testimonial-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2d8659 0%, #1e6b48 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-/* ==========================================
    PHASE 9: TERTIARY BUTTON
    ========================================== */
 
@@ -1043,3 +941,13 @@ select:focus {
 }
 
 /* Stat numbers are always visible - animation enhances but doesn't hide */
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
