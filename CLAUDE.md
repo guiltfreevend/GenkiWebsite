@@ -26,6 +26,7 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks,
   thank-you-contact.html      - Post-contact thank you (noindex)
   thank-you-coming-soon.html  - Post-signup thank you (noindex)
   roi-calculator.html         - Internal ROI tool (noindex)
+  404.html            - Branded 404 error page (noindex)
   sitemap.xml         - 5 indexable pages
   robots.txt          - Allows all, disallows utility pages
   netlify.toml        - Clean URL redirects
@@ -47,6 +48,12 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks,
 - `<meta name="robots" content="noindex, nofollow">` on utility/thank-you pages
 - sitemap.xml with 5 indexable pages
 - robots.txt with proper disallow rules
+
+## Workflow Rules
+1. **Test first**: After every change, test locally before deploying. Open in browser, verify nothing is broken.
+2. **Owner approval**: The owner tests locally too. Only deploy (push) when they confirm it's ready.
+3. **Rollbackable commits**: Every logical change gets its own commit. Never bundle unrelated changes into one commit. This way any change can be reverted with `git revert <hash>` without affecting other work.
+4. **Never auto-push**: Do NOT push to origin unless the owner explicitly says to deploy/push.
 
 ## Known Architecture Decisions
 - **Header/footer is duplicated** across all HTML files (~170 lines each). This is intentional for now (no build step). When updating nav links or footer content, you MUST update ALL 10 active HTML files.
@@ -71,6 +78,7 @@ When changing the navigation, header, or footer, update these 10 files:
 Completed:
 - [x] SEO Readiness (D -> B+): OG tags, canonical URLs, JSON-LD, sitemap, robots.txt
 - [x] Technical Foundation - Minimalist pass (C -> B-): Pinned CDNs, extracted config, fixed Formspree bug, cleaned orphans
+- [x] Technical Hardening (pending local test): Security headers, ARIA accessibility, scroll throttling, CSS cleanup, 404 page, prefers-reduced-motion
 
 Future (post-launch):
 - [ ] Technical Foundation - Pragmatist upgrade: PostHTML includes for shared partials, Tailwind CLI build, src/dist separation (~4-6 hours)

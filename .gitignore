@@ -34,3 +34,6 @@ ehthumbs.db
 # Compiled files
 *.min.js
 *.min.css
+
+# Local Netlify folder
+.netlify
