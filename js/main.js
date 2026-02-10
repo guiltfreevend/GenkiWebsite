@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initFormValidation();
   initHeaderScroll();
   initModal();
+  initLangSwitcher();
 });
 
 // Modal System
@@ -253,21 +254,26 @@ function initHeaderScroll() {
   const header = document.getElementById('header');
   if (!header) return;
 
-  let lastScroll = 0;
+  let ticking = false;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 50) {
-      header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-      header.classList.remove('bg-transparent');
-    } else {
-      header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-      header.classList.add('bg-transparent');
+        if (currentScroll > 50) {
+          header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+          header.classList.remove('bg-transparent');
+        } else {
+          header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+          header.classList.add('bg-transparent');
+        }
+
+        ticking = false;
+      });
+      ticking = true;
     }
-
-    lastScroll = currentScroll;
-  });
+  }, { passive: true });
 }
 
 // Form Validation
@@ -305,14 +311,19 @@ function initFormValidation() {
 
 function showError(input, message) {
   input.classList.add('border-red-500');
+  const errorId = input.id + '-error';
   const error = document.createElement('span');
+  error.id = errorId;
   error.className = 'text-red-500 text-sm mt-1 error-message';
   error.textContent = message;
+  error.setAttribute('role', 'alert');
+  input.setAttribute('aria-describedby', errorId);
   input.parentNode.appendChild(error);
 }
 
 function removeError(input) {
   input.classList.remove('border-red-500');
+  input.removeAttribute('aria-describedby');
   const error = input.parentNode.querySelector('.error-message');
   if (error) error.remove();
 }
@@ -401,4 +412,23 @@ if (statsSection) {
   }, { threshold: 0.5 });
 
   observer.observe(statsSection);
+}
+
+// Language Switcher Accessibility
+function initLangSwitcher() {
+  const toggle = document.getElementById('lang-toggle');
+  const dropdown = document.getElementById('lang-dropdown');
+  if (!toggle || !dropdown) return;
+
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
