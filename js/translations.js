@@ -1711,6 +1711,14 @@ const translations = {
     en: "Supplier Relationships",
     bg: "Връзки с доставчици"
   },
+  mission_stat_direct_title: {
+    en: "Local",
+    bg: "Локални"
+  },
+  mission_stat_direct_subtitle: {
+    en: "Suppliers",
+    bg: "Доставчици"
+  },
   mission_farm_title: {
     en: "Fresh & Local",
     bg: "Прясно и местно"
@@ -2965,8 +2973,8 @@ const translations = {
     bg: "Колко бързо можем да започнем?"
   },
   contact_faq2_a: {
-    en: "Once you approve the offer, we sign the contract, and the initial fee is paid, we can make the first delivery within 1 week to 1 month (depending on what type of equipment you will need, your branding requirements, etc.). Delivery, installation, and setup is completely hassle-free for your team.",
-    bg: "След като одобрите офертата, сключим договора и се заплати първоначалната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще трябва, изискванията Ви за брандиране и тн.). Доставката, монтажът и настройката е напълно безпроблемна за Вашия екип."
+    en: "Once you approve the offer, we sign the contract, and the initial fee is paid, we can make the first delivery within 1 week to 1 month (depending on what type of equipment you will need, your branding requirements, etc.). Delivery, installation, and setup are completely free for your team.",
+    bg: "След като одобрите офертата, сключим договора и се заплати първоначалната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще трябва, изискванията Ви за брандиране и тн.). Доставката, монтажът и настройката са напълно безплатни за Вашия екип."
   },
   contact_faq3_q: {
     en: "Do you deliver outside Sofia?",
