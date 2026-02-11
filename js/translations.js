@@ -2933,12 +2933,12 @@ const translations = {
     bg: "100% Българско"
   },
   contact_trust_charity: {
-    en: "10% Profits to Charity",
-    bg: "10% от печалбата за благотворителност"
+    en: "10% to Charity",
+    bg: "10% за благотворителност"
   },
   contact_badge_charity: {
-    en: "10% Profits to Charity",
-    bg: "10% от печалбата за благотворителност"
+    en: "10% to Charity",
+    bg: "10% за благотворителност"
   },
   contact_trust_partners: {
     en: "10+ Partners",
