@@ -3579,6 +3579,14 @@ function updateContent() {
     }
   });
 
+  // Update placeholder translations
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[key] && translations[key][currentLang]) {
+      el.placeholder = translations[key][currentLang];
+    }
+  });
+
   // Update page title
   const titleKey = document.querySelector('title')?.getAttribute('data-i18n');
   if (titleKey && translations[titleKey]) {
