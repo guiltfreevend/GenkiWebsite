@@ -1,6 +1,54 @@
 [build]
   publish = "."
 
+# ===== COMING SOON MODE =====
+# Redirect all page routes to homepage (coming soon page)
+# Remove this block and uncomment "Live site redirects" to go live
+
+[[redirects]]
+  from = "/companies"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/mission"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/products"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/privacy-en"
+  to = "/"
+  status = 302
+  force = true
+
+# Allow thank-you-coming-soon (form redirect target)
+[[redirects]]
+  from = "/thank-you-coming-soon"
+  to = "/thank-you-coming-soon.html"
+  status = 200
+
+# ===== END COMING SOON MODE =====
+
 # Enable pretty URLs (removes .html extension)
 [[redirects]]
   from = "/*"
