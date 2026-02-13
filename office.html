@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Спестете €110K-250K годишно с Genki — здравословна хранителна придобивка за IT компании. Изчислете вашия ROI безплатно.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Genki ROI — Спестявания за IT Компании</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.genki.bg/office">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Genki">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:title" content="Genki — Спестете €110K-250K годишно">
+  <meta property="og:description" content="Здравословна хранителна придобивка за IT компании. Нулева администрация, български продукти, 10% за благотворителност.">
+  <meta property="og:url" content="https://www.genki.bg/office">
+  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Genki — Спестете €110K-250K годишно">
+  <meta name="twitter:description" content="Здравословна хранителна придобивка за IT компании. Изчислете вашия ROI.">
+  <meta name="twitter:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    /* Prevent flash of wrong language */
+    [data-i18n] { transition: opacity 0.15s ease; }
+
+    /* Slider styles */
+    .landing-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      cursor: pointer;
+      width: 100%;
+    }
+    .landing-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .landing-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+    }
+    .landing-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Count-up animation */
+    .count-up { transition: all 0.4s ease-out; }
+
+    /* Fade-in on scroll */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Pulse for CTA */
+    @keyframes gentle-pulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.5); }
+    }
+    .cta-pulse { animation: gentle-pulse 2s ease-in-out infinite; }
+
+    /* Respect motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Focus states */
+    a:focus, button:focus, input:focus { outline: 2px solid #10b981; outline-offset: 2px; }
+  </style>
+</head>
+<body class="font-sans antialiased bg-white text-gray-800">
+
+  <!-- ============================================ -->
+  <!-- STICKY HEADER -->
+  <!-- ============================================ -->
+  <header id="landing-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="flex items-center">
+        <img src="assets/images/genki_logo.png" alt="Genki" class="h-20">
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="#roi-calculator" class="hidden sm:inline-flex items-center gap-2 bg-primary-500 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary-600 transition-colors" data-i18n="lp_nav_cta">Изчислете ROI</a>
+        <!-- Language Toggle -->
+        <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100 font-medium transition-colors text-sm" aria-label="Switch language">
+          <span id="lang-label">EN</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: HERO -->
+  <!-- ============================================ -->
+  <section class="pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-32 bg-gradient-to-b from-primary-50 via-white to-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.15] sm:leading-[1.15] mb-8 sm:mb-10">
+        <span data-i18n="lp_hero_headline">Спестете <span class="text-primary-500">€110K-250K</span> годишно и спечелете войната за таланти</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 sm:mb-14" data-i18n="lp_hero_subheadline">
+        Здравословна хранителна придобивка за IT компании — Нулева администрация, български продукти, 10% за благотворителност.
+      </p>
+
+      <a href="#roi-calculator" class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-600 transition-all cta-pulse" data-i18n="lp_hero_cta">
+        Изчислете Вашия ROI
+      </a>
+
+      <!-- Trust Pills -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-14 sm:mt-16">
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="flag" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_1">Български продукти</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="heart" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_2">10% дарение</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="shield-x" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_3">Нула вредни съставки</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="check-circle" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_4">Пълно обслужване</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: THE PROBLEM -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_problem_headline">
+        Какво изтощава вашия бюджет
+      </h2>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="clock" class="w-6 h-6 text-red-500"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_problem_1_title">Загубена производителност</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_problem_1_desc">60мин/ден загубени = <strong class="text-red-600">€26K-40K/година</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="user-minus" class="w-6 h-6 text-red-500"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_problem_2_title">Разходи за текучество</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_problem_2_desc">2-3 човека напускат = <strong class="text-red-600">€50K-150K загубени</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="heart-crack" class="w-6 h-6 text-red-500"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_problem_3_title">Болнични</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_problem_3_desc">120 ненужни дни = <strong class="text-red-600">€19K/година</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="file-x" class="w-6 h-6 text-red-500"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_problem_4_title">HR администрация</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_problem_4_desc">5-10 часа/седмица = <strong class="text-red-600">€6K-12K/година</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6 sm:col-span-2 sm:max-w-md sm:mx-auto">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="user-search" class="w-6 h-6 text-red-500"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_problem_5_title">Бавно наемане</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_problem_5_desc">Такси за recruiters се трупат</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: THE SOLUTION -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-primary-50 fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_solution_headline">
+        Как Genki ви спестява пари
+      </h2>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <div class="bg-white border border-primary-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="zap" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_solution_1_title">Храна на място</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_solution_1_desc">Съкращава обедната почивка от 90мин → 30мин</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-primary-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="trending-up" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_solution_2_title">Осезаема ежедневна придобивка</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_solution_2_desc">Хората остават по-дълго</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-primary-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="heart" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_solution_3_title">Здравословна храна</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_solution_3_desc">По-малко болнични + стабилна енергия</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-primary-100 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="package" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_solution_4_title">Ние се грижим за всичко A-to-Z</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_solution_4_desc">Вие не правите нищо</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-primary-100 rounded-2xl p-6 sm:col-span-2 sm:max-w-md sm:mx-auto">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i data-lucide="award" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1" data-i18n="lp_solution_5_title">Моментална диференциация</p>
+              <p class="text-gray-600 text-sm" data-i18n="lp_solution_5_desc">По-бързи наемания, по-ниски такси</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: ROI CALCULATOR -->
+  <!-- ============================================ -->
+  <section id="roi-calculator" class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-4" data-i18n="lp_calc_headline">
+        Вашият персонализиран ROI
+      </h2>
+      <p class="text-gray-500 text-center mb-12 text-lg" data-i18n="lp_calc_subheadline">Настройте стойностите и вижте колко бихте спестили</p>
+
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+        <!-- LEFT: Inputs -->
+        <div class="bg-gray-50 rounded-2xl p-6 sm:p-8">
+          <!-- Employees -->
+          <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_employees">Брой служители</label>
+              <span class="text-sm font-bold text-primary-600" id="val-employees">150</span>
+            </div>
+            <input type="range" id="slider-employees" min="50" max="500" value="150" step="10" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>50</span><span>500</span></div>
+          </div>
+
+          <!-- Salary -->
+          <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_salary">Средна месечна заплата (€)</label>
+              <span class="text-sm font-bold text-primary-600">€<span id="val-salary">2,000</span></span>
+            </div>
+            <input type="range" id="slider-salary" min="1000" max="5000" value="2000" step="100" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>€1,000</span><span>€5,000</span></div>
+          </div>
+
+          <!-- Turnover -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_turnover">Процент текучество (%)</label>
+              <span class="text-sm font-bold text-primary-600"><span id="val-turnover">15</span>%</span>
+            </div>
+            <input type="range" id="slider-turnover" min="5" max="30" value="15" step="1" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>5%</span><span>30%</span></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div>
+          <!-- Big number -->
+          <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-6 sm:p-8 text-white text-center mb-6">
+            <p class="text-white/80 text-sm mb-1" data-i18n="lp_calc_annual_savings">Годишни спестявания</p>
+            <p class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-2">€<span id="result-total" class="count-up">157,080</span></p>
+            <p class="text-white/60 text-xs" data-i18n="lp_calc_estimate_note">Базирано на вашите входни данни</p>
+          </div>
+
+          <!-- Breakdown (matches main ROI calculator categories) -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b1">Намалено текучество</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-turnover">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b2">Производителност</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-productivity">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b3">Намалени болнични</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-absenteeism">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b4">Здравеопазване</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-healthcare">0</span></span>
+            </div>
+          </div>
+
+          <!-- CTA below results -->
+          <div class="mt-8 text-center">
+            <a href="#final-cta" class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-primary-600 transition-all cta-pulse" data-i18n="lp_calc_cta">
+              Осигурете тези спестявания — Резервирайте разговор
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 5: THE 3 PILLARS -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50 fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_pillars_headline">
+        Защо Genki печели
+      </h2>
+
+      <div class="grid sm:grid-cols-3 gap-6 sm:gap-8">
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="leaf" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_1_title">Само здравословни и био продукти</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_1_desc">Нула вредни съставки, точка.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="map-pin" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_2_title">100% български доставчици</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_2_desc">Подкрепете местния бизнес, нахранете екипа си.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="heart" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_3_title">10%+ месечно дарение</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_3_desc">Социална отговорност, от ден първи.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: FINAL CTA -->
+  <!-- ============================================ -->
+  <section id="final-cta" class="py-16 sm:py-24 bg-primary-500 fade-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-6" data-i18n="lp_cta_headline">
+        Спрете да губите €150K+ — Започнете да спестявате днес
+      </h2>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <!-- Primary: Calendly -->
+        <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-primary-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-lg" data-i18n="lp_cta_primary" data-umami-event="landing-book-call">
+          Резервирайте 30-минутен разговор
+        </a>
+
+        <!-- Secondary: Email capture -->
+        <button id="open-email-modal" class="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all" data-i18n="lp_cta_secondary" data-umami-event="landing-download-report">
+          Изтеглете ROI доклада
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-gray-900 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-3 gap-8 text-center sm:text-left">
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_contact">Контакт</h4>
+          <p class="text-gray-400 text-sm">hello@genki.bg</p>
+        </div>
+        <!-- Legal -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_legal">Правна информация</h4>
+          <a href="privacy.html?minimal=1" id="privacy-link" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm block mb-1" data-i18n="lp_footer_privacy">Поверителност</a>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_company">Компания</h4>
+          <p class="text-gray-400 text-sm">"Guilt Free Vend" Ltd.</p>
+          <p class="text-gray-500 text-xs mt-1">EIK: 207668100</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 Genki. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- EMAIL CAPTURE MODAL -->
+  <!-- ============================================ -->
+  <div id="email-modal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 modal-backdrop" id="modal-backdrop-el"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+        <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="text-center mb-6">
+          <div class="w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="file-text" class="w-7 h-7 text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="lp_modal_title">Изтеглете ROI доклада</h3>
+          <p class="text-gray-500 text-sm mt-1" data-i18n="lp_modal_desc">Оставете данните си и ще получите персонализиран доклад.</p>
+        </div>
+
+        <form id="email-form" action="https://formspree.io/f/mkovjqpr" method="POST">
+          <input type="hidden" name="_subject" id="form-subject" value="🎯 ROI Report Request">
+          <!-- Hidden ROI data fields (populated by JS before submit) -->
+          <input type="hidden" name="roi_report" id="form-roi-report" value="">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_name">Име</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_name_ph" placeholder="Вашето име">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_email">Имейл</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_email_ph" placeholder="name@company.bg">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_company">Компания</label>
+              <input type="text" name="company" id="form-company" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_company_ph" placeholder="Име на компанията">
+            </div>
+            <button type="submit" class="w-full bg-primary-500 text-white py-3 rounded-xl font-bold text-base hover:bg-primary-600 transition-colors" data-i18n="lp_modal_submit" data-umami-event="landing-email-submit">
+              Изпратете
+            </button>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div id="form-success" class="hidden text-center py-6">
+          <div class="text-5xl mb-3">&#10003;</div>
+          <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="lp_modal_success_title">Благодаря!</h4>
+          <p class="text-gray-500" data-i18n="lp_modal_success_desc">Проверете имейла си.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT -->
+  <!-- ============================================ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // =============================================
+    // TRANSLATIONS
+    // =============================================
+    const T = {
+      lp_nav_cta: { bg: 'Изчислете ROI', en: 'Calculate ROI' },
+      lp_hero_headline: {
+        bg: 'Спестете <span class="text-primary-500">€110K-250K</span> годишно и спечелете войната за таланти',
+        en: 'Save <span class="text-primary-500">€110K-250K</span> Annually While Winning the Talent War'
+      },
+      lp_hero_subheadline: {
+        bg: 'Здравословна хранителна придобивка за IT компании — Нулева администрация, български продукти, 10% за благотворителност.',
+        en: 'Healthy workplace food benefit for IT companies — Zero admin, Bulgarian-made, 10% to charity.'
+      },
+      lp_hero_cta: { bg: 'Изчислете Вашия ROI', en: 'Calculate Your ROI' },
+      lp_pill_1: { bg: 'Български продукти', en: 'Bulgarian Products' },
+      lp_pill_2: { bg: '10% дарение', en: '10% Donated' },
+      lp_pill_3: { bg: 'Нула вредни съставки', en: 'Zero Junk' },
+      lp_pill_4: { bg: 'Пълно обслужване', en: 'Full Service' },
+      lp_problem_headline: { bg: 'Какво изтощава вашия бюджет', en: "What's Draining Your Budget" },
+      lp_problem_1_title: { bg: 'Загубена производителност', en: 'Lost Productivity' },
+      lp_problem_1_desc: { bg: '60мин/ден загубени = <strong class="text-red-600">€26K-40K/година</strong>', en: '60min/day wasted = <strong class="text-red-600">€26K-40K/year</strong>' },
+      lp_problem_2_title: { bg: 'Разходи за текучество', en: 'Turnover Costs' },
+      lp_problem_2_desc: { bg: '2-3 човека напускат = <strong class="text-red-600">€50K-150K загубени</strong>', en: '2-3 people leaving = <strong class="text-red-600">€50K-150K lost</strong>' },
+      lp_problem_3_title: { bg: 'Болнични', en: 'Sick Days' },
+      lp_problem_3_desc: { bg: '120 ненужни дни = <strong class="text-red-600">€19K/година</strong>', en: '120 unnecessary days = <strong class="text-red-600">€19K/year</strong>' },
+      lp_problem_4_title: { bg: 'HR администрация', en: 'HR Admin Waste' },
+      lp_problem_4_desc: { bg: '5-10 часа/седмица = <strong class="text-red-600">€6K-12K/година</strong>', en: '5-10 hours/week = <strong class="text-red-600">€6K-12K/year</strong>' },
+      lp_problem_5_title: { bg: 'Бавно наемане', en: 'Slow Hiring' },
+      lp_problem_5_desc: { bg: 'Такси за recruiters се трупат', en: 'Recruiter fees pile up' },
+      lp_solution_headline: { bg: 'Как Genki ви спестява пари', en: 'How Genki Saves You Money' },
+      lp_solution_1_title: { bg: 'Храна на място', en: 'On-site Food' },
+      lp_solution_1_desc: { bg: 'Съкращава обедната почивка от 90мин → 30мин', en: 'Cuts lunch breaks from 90min → 30min' },
+      lp_solution_2_title: { bg: 'Осезаема ежедневна придобивка', en: 'Tangible Daily Benefit' },
+      lp_solution_2_desc: { bg: 'Хората остават по-дълго', en: 'People stay longer' },
+      lp_solution_3_title: { bg: 'Здравословна храна', en: 'Healthy Food' },
+      lp_solution_3_desc: { bg: 'По-малко болнични + стабилна енергия', en: 'Fewer sick days + stable energy' },
+      lp_solution_4_title: { bg: 'Ние се грижим за всичко A-to-Z', en: 'We Handle Everything A-to-Z' },
+      lp_solution_4_desc: { bg: 'Вие не правите нищо', en: 'You do nothing' },
+      lp_solution_5_title: { bg: 'Моментална диференциация', en: 'Instant Differentiation' },
+      lp_solution_5_desc: { bg: 'По-бързи наемания, по-ниски такси', en: 'Faster hires, lower fees' },
+      lp_calc_headline: { bg: 'Вашият персонализиран ROI', en: 'Your Personalized ROI' },
+      lp_calc_subheadline: { bg: 'Настройте стойностите и вижте колко бихте спестили', en: 'Adjust the values and see how much you could save' },
+      lp_calc_employees: { bg: 'Брой служители', en: 'Number of Employees' },
+      lp_calc_salary: { bg: 'Средна месечна заплата (€)', en: 'Average Monthly Salary (€)' },
+      lp_calc_turnover: { bg: 'Процент текучество (%)', en: 'Turnover Rate (%)' },
+      lp_calc_annual_savings: { bg: 'Годишни спестявания', en: 'Annual Savings' },
+      lp_calc_estimate_note: { bg: 'Базирано на вашите входни данни', en: 'Based on your input data' },
+      lp_calc_b1: { bg: 'Намалено текучество', en: 'Turnover Savings' },
+      lp_calc_b2: { bg: 'Производителност', en: 'Productivity Gains' },
+      lp_calc_b3: { bg: 'Намалени болнични', en: 'Absenteeism Savings' },
+      lp_calc_b4: { bg: 'Здравеопазване', en: 'Healthcare Savings' },
+      lp_calc_cta: { bg: 'Осигурете тези спестявания — Резервирайте разговор', en: 'Lock These Savings — Book Your Call' },
+      lp_pillars_headline: { bg: 'Защо Genki печели', en: 'Why Genki Wins' },
+      lp_pillar_1_title: { bg: 'Само здравословни и био продукти', en: 'Only Healthy & Bio' },
+      lp_pillar_1_desc: { bg: 'Нула вредни съставки, точка.', en: 'Zero harmful ingredients, period.' },
+      lp_pillar_2_title: { bg: '100% български доставчици', en: '100% Bulgarian Suppliers' },
+      lp_pillar_2_desc: { bg: 'Подкрепете местния бизнес, нахранете екипа си.', en: 'Support local, feed your team.' },
+      lp_pillar_3_title: { bg: '10%+ месечно дарение', en: '10%+ Monthly Donation' },
+      lp_pillar_3_desc: { bg: 'Социална отговорност, от ден първи.', en: 'Social responsibility, day one.' },
+      lp_cta_headline: { bg: 'Спрете да губите €150K+ — Започнете да спестявате днес', en: 'Stop Losing €150K+ — Start Saving Today' },
+      lp_cta_primary: { bg: 'Резервирайте 30-минутен разговор', en: 'Book 30-Min Call' },
+      lp_cta_secondary: { bg: 'Изтеглете ROI доклада', en: 'Download ROI Report' },
+      lp_footer_contact: { bg: 'Контакт', en: 'Contact' },
+      lp_footer_legal: { bg: 'Правна информация', en: 'Legal' },
+      lp_footer_privacy: { bg: 'Поверителност', en: 'Privacy Policy' },
+      lp_footer_company: { bg: 'Компания', en: 'Company' },
+      lp_modal_title: { bg: 'Изтеглете ROI доклада', en: 'Download ROI Report' },
+      lp_modal_desc: { bg: 'Оставете данните си и ще получите персонализиран доклад.', en: 'Leave your details and receive a personalized report.' },
+      lp_modal_name: { bg: 'Име', en: 'Name' },
+      lp_modal_name_ph: { bg: 'Вашето име', en: 'Your name' },
+      lp_modal_email: { bg: 'Имейл', en: 'Email' },
+      lp_modal_email_ph: { bg: 'name@company.bg', en: 'name@company.bg' },
+      lp_modal_company: { bg: 'Компания', en: 'Company' },
+      lp_modal_company_ph: { bg: 'Име на компанията', en: 'Company name' },
+      lp_modal_submit: { bg: 'Изпратете', en: 'Submit' },
+      lp_modal_success_title: { bg: 'Благодаря!', en: 'Thank you!' },
+      lp_modal_success_desc: { bg: 'Проверете имейла си.', en: 'Check your email.' },
+    };
+
+    let currentLang = localStorage.getItem('genki_lp_lang') || 'bg';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('genki_lp_lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[key] && T[key][lang]) {
+          el.innerHTML = T[key][lang];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (T[key] && T[key][lang]) {
+          el.placeholder = T[key][lang];
+        }
+      });
+
+      // Update privacy link to match language
+      const privacyLink = document.getElementById('privacy-link');
+      if (privacyLink) privacyLink.href = lang === 'en' ? 'privacy-en.html?minimal=1' : 'privacy.html?minimal=1';
+
+      const label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'bg' ? 'EN' : 'BG';
+    }
+
+    // =============================================
+    // LANGUAGE TOGGLE
+    // =============================================
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      const next = currentLang === 'bg' ? 'en' : 'bg';
+      applyLanguage(next);
+    });
+
+    // =============================================
+    // ROI CALCULATOR (mirrors roi-calculator.js exactly)
+    // =============================================
+    const sliderEmployees = document.getElementById('slider-employees');
+    const sliderSalary = document.getElementById('slider-salary');
+    const sliderTurnover = document.getElementById('slider-turnover');
+
+    // Config — identical to roi-calculator.js
+    const CONFIG = {
+      workingDaysPerMonth: 22,
+      workingDaysPerYear: 220,
+      monthsPerYear: 12,
+      replacementCostMultiplier: 1.5,
+      healthcareCostPerEmployee: 500,
+      // Hidden inputs (fixed at sensible defaults for landing page)
+      sickDays: 8,
+      productsPerDay: 2.5,
+      productCost: 1.5
+    };
+
+    // Moderate scenario — same as roi-calculator.js
+    const SCENARIO = {
+      turnoverReduction: 0.25,
+      absenteeismReduction: 0.20,
+      productivityGain: 0.05,
+      healthcareReduction: 0.10
+    };
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function calculate() {
+      const teamSize = parseInt(sliderEmployees.value);
+      const monthlySalary = parseInt(sliderSalary.value);
+      const turnoverRate = parseInt(sliderTurnover.value) / 100;
+      const annualSalary = monthlySalary * CONFIG.monthsPerYear;
+
+      // === Exact same formulas as roi-calculator.js calculateROI() ===
+
+      // Turnover Savings
+      const replacementCost = annualSalary * CONFIG.replacementCostMultiplier;
+      const currentTurnoverCost = teamSize * turnoverRate * replacementCost;
+      const turnoverSavings = currentTurnoverCost * SCENARIO.turnoverReduction;
+
+      // Absenteeism Savings
+      const dailySalary = annualSalary / CONFIG.workingDaysPerYear;
+      const currentAbsenteeismCost = teamSize * CONFIG.sickDays * dailySalary;
+      const absenteeismSavings = currentAbsenteeismCost * SCENARIO.absenteeismReduction;
+
+      // Productivity Gains
+      const productivityValue = teamSize * annualSalary * SCENARIO.productivityGain;
+
+      // Healthcare Savings
+      const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * SCENARIO.healthcareReduction;
+
+      // Total
+      const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+
+      // Update displays
+      document.getElementById('val-employees').textContent = teamSize;
+      document.getElementById('val-salary').textContent = fmt(monthlySalary);
+      document.getElementById('val-turnover').textContent = sliderTurnover.value;
+
+      animateValue('result-total', totalSavings);
+      animateValue('result-turnover', turnoverSavings);
+      animateValue('result-productivity', productivityValue);
+      animateValue('result-absenteeism', absenteeismSavings);
+      animateValue('result-healthcare', healthcareSavings);
+    }
+
+    // Smooth count-up animation
+    const animationFrames = {};
+    function animateValue(id, target) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const current = parseInt(el.textContent.replace(/,/g, '')) || 0;
+      const diff = target - current;
+      const steps = 20;
+      let step = 0;
+
+      if (animationFrames[id]) cancelAnimationFrame(animationFrames[id]);
+
+      function tick() {
+        step++;
+        const progress = step / steps;
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(current + diff * eased);
+        el.textContent = fmt(value);
+        if (step < steps) {
+          animationFrames[id] = requestAnimationFrame(tick);
+        } else {
+          el.textContent = fmt(Math.round(target));
+        }
+      }
+      tick();
+    }
+
+    sliderEmployees.addEventListener('input', calculate);
+    sliderSalary.addEventListener('input', calculate);
+    sliderTurnover.addEventListener('input', calculate);
+
+    // =============================================
+    // EMAIL MODAL
+    // =============================================
+    const modal = document.getElementById('email-modal');
+    const openBtn = document.getElementById('open-email-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const backdrop = document.getElementById('modal-backdrop-el');
+    const form = document.getElementById('email-form');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Build detailed ROI report from current calculator state
+    function buildROIReport() {
+      const teamSize = parseInt(sliderEmployees.value);
+      const monthlySalary = parseInt(sliderSalary.value);
+      const turnoverRate = parseInt(sliderTurnover.value);
+      const annualSalary = monthlySalary * CONFIG.monthsPerYear;
+
+      // Recalculate all values (same formulas as calculate())
+      const replacementCost = annualSalary * CONFIG.replacementCostMultiplier;
+      const currentTurnoverCost = teamSize * (turnoverRate / 100) * replacementCost;
+      const turnoverSavings = currentTurnoverCost * SCENARIO.turnoverReduction;
+
+      const dailySalary = annualSalary / CONFIG.workingDaysPerYear;
+      const currentAbsenteeismCost = teamSize * CONFIG.sickDays * dailySalary;
+      const absenteeismSavings = currentAbsenteeismCost * SCENARIO.absenteeismReduction;
+
+      const productivityValue = teamSize * annualSalary * SCENARIO.productivityGain;
+      const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * SCENARIO.healthcareReduction;
+      const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+
+      // Genki investment cost (same as main calculator)
+      const genkiCostAnnual = teamSize * CONFIG.productsPerDay * CONFIG.productCost * CONFIG.workingDaysPerMonth * CONFIG.monthsPerYear;
+      const genkiCostMonthly = genkiCostAnnual / CONFIG.monthsPerYear / teamSize;
+      const genkiCostDaily = genkiCostMonthly / CONFIG.workingDaysPerMonth;
+      const netBenefit = totalSavings - genkiCostAnnual;
+      const roiPercent = (netBenefit / genkiCostAnnual) * 100;
+      const paybackMonths = (genkiCostAnnual / totalSavings) * CONFIG.monthsPerYear;
+
+      const companyName = document.getElementById('form-company').value || 'N/A';
+
+      return '═══════════════════════════════════════\n' +
+        '   GENKI ROI REPORT — ' + companyName.toUpperCase() + '\n' +
+        '═══════════════════════════════════════\n\n' +
+        '📊 COMPANY PROFILE\n' +
+        '───────────────────────────────────────\n' +
+        '  Team Size:            ' + teamSize + ' employees\n' +
+        '  Avg Monthly Salary:   €' + fmt(monthlySalary) + '\n' +
+        '  Avg Annual Salary:    €' + fmt(annualSalary) + '\n' +
+        '  Turnover Rate:        ' + turnoverRate + '%\n' +
+        '  Sick Days/Employee:   ' + CONFIG.sickDays + ' days/year\n' +
+        '  Scenario:             Moderate (research-backed baseline)\n\n' +
+        '💰 ANNUAL SAVINGS BREAKDOWN\n' +
+        '───────────────────────────────────────\n' +
+        '  Turnover Reduction:   €' + fmt(turnoverSavings) + '\n' +
+        '    → ' + teamSize + ' employees × ' + turnoverRate + '% turnover × €' + fmt(replacementCost) + ' replacement cost × 25% reduction\n' +
+        '    → Replacement cost = 1.5× annual salary (industry standard)\n\n' +
+        '  Productivity Gains:   €' + fmt(productivityValue) + '\n' +
+        '    → ' + teamSize + ' employees × €' + fmt(annualSalary) + ' salary × 5% productivity improvement\n' +
+        '    → On-site healthy food reduces lunch breaks from 90min to 30min\n\n' +
+        '  Absenteeism Savings:  €' + fmt(absenteeismSavings) + '\n' +
+        '    → ' + teamSize + ' employees × ' + CONFIG.sickDays + ' sick days × €' + fmt(Math.round(dailySalary)) + '/day × 20% reduction\n' +
+        '    → Healthy nutrition reduces illness-related absences\n\n' +
+        '  Healthcare Savings:   €' + fmt(healthcareSavings) + '\n' +
+        '    → ' + teamSize + ' employees × €' + CONFIG.healthcareCostPerEmployee + ' healthcare cost × 10% reduction\n' +
+        '    → Preventive nutrition lowers healthcare claims\n\n' +
+        '  ─────────────────────────────────────\n' +
+        '  TOTAL ANNUAL SAVINGS: €' + fmt(totalSavings) + '\n\n' +
+        '📈 GENKI INVESTMENT\n' +
+        '───────────────────────────────────────\n' +
+        '  Daily per employee:   €' + genkiCostDaily.toFixed(2) + '\n' +
+        '  Monthly per employee: €' + genkiCostMonthly.toFixed(2) + '\n' +
+        '  Annual total:         €' + fmt(genkiCostAnnual) + '\n' +
+        '    → ' + CONFIG.productsPerDay + ' products/day × €' + CONFIG.productCost.toFixed(2) + '/product × ' + CONFIG.workingDaysPerMonth + ' days/month × 12 months × ' + teamSize + ' employees\n\n' +
+        '🏆 NET RESULTS\n' +
+        '───────────────────────────────────────\n' +
+        '  Net Annual Benefit:   €' + fmt(netBenefit) + '\n' +
+        '  ROI:                  ' + Math.round(roiPercent) + '%\n' +
+        '  Payback Period:       ' + paybackMonths.toFixed(1) + ' months\n\n' +
+        '📋 SCENARIO ASSUMPTIONS (Moderate)\n' +
+        '───────────────────────────────────────\n' +
+        '  Turnover reduction:     25% (research range: 15-35%)\n' +
+        '  Absenteeism reduction:  20% (research range: 10-30%)\n' +
+        '  Productivity gain:      5% (research range: 3-8%)\n' +
+        '  Healthcare reduction:   10% (research range: 5-15%)\n\n' +
+        '───────────────────────────────────────\n' +
+        'Generated by Genki ROI Calculator\n' +
+        'www.genki.bg | hello@genki.bg\n' +
+        '═══════════════════════════════════════';
+    }
+
+    // Form submission via fetch to avoid page reload
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Populate hidden ROI report field with detailed data
+      var companyName = document.getElementById('form-company').value || '';
+      document.getElementById('form-subject').value = '🎯 ROI Report — ' + companyName + ' (€' + (document.getElementById('result-total').textContent) + ' savings)';
+      document.getElementById('form-roi-report').value = buildROIReport();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+          if (typeof umami !== 'undefined') {
+            umami.track('landing-email-success');
+          }
+        }
+      }).catch(function() {
+        // Fallback: submit natively
+        form.submit();
+      });
+    });
+
+    // =============================================
+    // SCROLL ANIMATIONS
+    // =============================================
+    const fadeSections = document.querySelectorAll('.fade-section');
+    if (fadeSections.length) {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      fadeSections.forEach(function(el) { observer.observe(el); });
+    }
+
+    // =============================================
+    // SMOOTH SCROLL
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // =============================================
+    // INIT
+    // =============================================
+    applyLanguage(currentLang);
+    calculate();
+    lucide.createIcons();
+
+  })();
+  </script>
+
+</body>
+</html>

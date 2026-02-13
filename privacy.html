@@ -290,9 +290,10 @@
     // Privacy page language handling
     document.addEventListener('DOMContentLoaded', function() {
       const savedLang = localStorage.getItem('genki-lang') || 'en';
+      const isMinimal = new URLSearchParams(window.location.search).has('minimal');
 
-      // If user's preferred language is EN, redirect to English privacy page
-      if (savedLang === 'en') {
+      // If user's preferred language is EN, redirect to English privacy page (skip in minimal mode)
+      if (savedLang === 'en' && !isMinimal) {
         window.location.replace('/privacy-en');
         return;
       }
@@ -333,6 +334,18 @@
         });
       });
     });
+  </script>
+  <!-- Minimal mode: hide nav/footer when opened from landing page -->
+  <script>
+    if (new URLSearchParams(window.location.search).has('minimal')) {
+      document.getElementById('header').style.display = 'none';
+      document.getElementById('mobile-menu').style.display = 'none';
+      var overlay = document.getElementById('mobile-overlay');
+      if (overlay) overlay.style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
+      var mainEl = document.querySelector('main');
+      if (mainEl) mainEl.style.paddingTop = '2rem';
+    }
   </script>
 </body>
 </html>
