@@ -3373,8 +3373,8 @@ const translations = {
     bg: "Нуждаете се от достъп? Свържете се с <a href=\"mailto:hello@genki.bg\" class=\"text-primary-600 hover:underline\">hello@genki.bg</a>"
   },
   roi_header_badge: {
-    en: "Internal Sales Tool",
-    bg: "Вътрешен инструмент за продажби"
+    en: "Internal Consultation Tool",
+    bg: "Вътрешен инструмент за консултации"
   },
   roi_hero_badge: {
     en: "ROI Calculator",
@@ -3489,8 +3489,8 @@ const translations = {
     bg: "Когато служителите имат безплатен достъп, нивата на ангажираност се увеличават драматично, максимизирайки ползите за здравето и ROI."
   },
   roi_footer_note: {
-    en: "Internal sales tool. Data for illustrative purposes only.",
-    bg: "Вътрешен инструмент за продажби. Данните са само за илюстративни цели."
+    en: "Internal Consultation tool. Data for illustrative purposes only.",
+    bg: "Вътрешен инструмент за консултации. Данните са само за илюстративни цели."
   },
 
   // ==========================================
