@@ -4,23 +4,26 @@
 B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks, drinks & meals to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
 
 ## Tech Stack
-- **Static HTML** site (12 active pages) hosted on **Netlify**
+- **Static HTML** site (12 active pages) hosted on **Cloudflare Pages** (project: `genkiwebsite`)
 - **Tailwind CSS** via CDN (pinned to v3.4.17) - config in `js/tailwind-config.js`
 - **Lucide icons** via CDN (pinned to v0.344.0)
 - **Custom CSS** in `css/custom.css` (CSS variables, component styles, animations)
 - **i18n**: Custom system using `data-i18n` attributes + `js/translations.js` (BG default, EN alternate)
-- **Forms**: Formspree (`https://formspree.io/f/xaqbnpda`) on contact.html
-- **Clean URLs**: Netlify redirects strip `.html` extensions (see `netlify.toml`)
+- **Forms**: Cloudflare Worker (`https://genki-email.tsvetelin-sotirov.workers.dev`) on office.html; Formspree on contact.html
+- **Email**: Resend API (from `hello@genki.bg`, domain verified, API key in Worker secret `RESEND_API_KEY`)
+- **Clean URLs**: Cloudflare Pages + `_headers` for cache control
 - **Domain**: `www.genki.bg`
+- **Repo**: GitHub `guiltfreevend/GenkiWebsite`, auto-deploys on push to `main`
 
 ## File Structure
 ```
-/ (root = Netlify publish directory)
+/ (root = Cloudflare Pages publish directory)
   index.html          - Homepage (main landing page)
   companies.html      - B2B sales page with pricing tiers
   products.html       - Product catalog
   mission.html        - Three pillars + "Why Genki?" etymology
   contact.html        - Contact form (Formspree)
+  office.html         - B2B ROI landing page with Cloudflare Worker form
   privacy.html        - Privacy policy (Bulgarian)
   privacy-en.html     - Privacy policy (English)
   thank-you-contact.html      - Post-contact thank you (noindex)
@@ -29,7 +32,8 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks,
   404.html            - Branded 404 error page (noindex)
   sitemap.xml         - 5 indexable pages
   robots.txt          - Allows all, disallows utility pages
-  netlify.toml        - Clean URL redirects
+  _headers            - Cloudflare Pages cache control headers
+  netlify.toml        - Legacy redirects (may be unused)
   CNAME               - www.genki.bg
   css/custom.css      - Custom styles, CSS variables
   js/main.js          - Navigation, animations, form validation
@@ -49,11 +53,31 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks,
 - sitemap.xml with 5 indexable pages
 - robots.txt with proper disallow rules
 
-## Workflow Rules
-1. **Test first**: After every change, test locally before deploying. Open in browser, verify nothing is broken.
-2. **Owner approval**: The owner tests locally too. Only deploy (push) when they confirm it's ready.
-3. **Rollbackable commits**: Every logical change gets its own commit. Never bundle unrelated changes into one commit. This way any change can be reverted with `git revert <hash>` without affecting other work.
-4. **Never auto-push**: Do NOT push to origin unless the owner explicitly says to deploy/push.
+## Deploy Workflow (CRITICAL — follow exactly)
+The site deploys to **Cloudflare Pages** via **Wrangler CLI** for instant deploys (~2 seconds).
+
+### Standard deploy steps:
+1. **Edit code**
+2. **Test locally**: `python3 -m http.server 8765` then open `http://localhost:8765`
+3. **Owner approval**: The owner tests locally too. Only deploy when they confirm it's ready.
+4. **Commit**: `git add <files> && git commit -m "message"`
+5. **Deploy instantly via Wrangler**:
+   ```
+   npx wrangler pages deploy . --project-name=genkiwebsite --branch=main --commit-dirty=true
+   ```
+   This uploads files directly to Cloudflare Pages in ~2 seconds. Live immediately.
+6. **Push to GitHub** (keeps repo in sync):
+   ```
+   git push origin main
+   ```
+
+### Key rules:
+- **Wrangler for speed**: Always use Wrangler CLI to deploy. Do NOT rely on GitHub auto-deploy for quick iterations.
+- **Git push for sync**: Always push to GitHub after deploying so the repo stays in sync.
+- **Rollbackable commits**: Every logical change gets its own commit. Never bundle unrelated changes.
+- **Never auto-push**: Do NOT push/deploy unless the owner explicitly says to.
+- **Cache headers**: `_headers` file ensures HTML is never cached — deploys are instantly visible to visitors.
+- **Wrangler auth**: `CLOUDFLARE_API_TOKEN` is set in `~/.zshrc`. If it stops working, create a new token at https://dash.cloudflare.com/profile/api-tokens (use "Edit Cloudflare Workers" template).
 
 ## Known Architecture Decisions
 - **Header/footer is duplicated** across all HTML files (~170 lines each). This is intentional for now (no build step). When updating nav links or footer content, you MUST update ALL 10 active HTML files.
