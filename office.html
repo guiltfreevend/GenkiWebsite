@@ -1387,15 +1387,52 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // Exit intent: mouse leaves toward top of viewport
-    document.addEventListener('mouseout', function(e) {
+    // Exit intent detection (multi-signal)
+    function triggerExit() {
       if (exitShown) return;
       if (sessionStorage.getItem('genki_exit_shown')) return;
-      if (e.clientY <= 0 && e.relatedTarget === null) {
-        exitShown = true;
-        sessionStorage.setItem('genki_exit_shown', '1');
-        openModal();
+      exitShown = true;
+      sessionStorage.setItem('genki_exit_shown', '1');
+      openModal();
+    }
+
+    // 1. Desktop: mouse leaves viewport from top or sides
+    document.addEventListener('mouseout', function(e) {
+      if (e.relatedTarget === null && (e.clientY <= 5 || e.clientX <= 0 || e.clientX >= window.innerWidth - 1)) {
+        triggerExit();
       }
+    });
+
+    // 2. Desktop: rapid mouse movement toward top (user heading for back/close/tab)
+    var lastY = 0;
+    document.addEventListener('mousemove', function(e) {
+      if (e.clientY < 100 && (lastY - e.clientY) > 40) {
+        triggerExit();
+      }
+      lastY = e.clientY;
+    });
+
+    // 3. Mobile/tablet: back button or tab switch (page becomes hidden)
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') {
+        triggerExit();
+      }
+    });
+
+    // 4. Mobile: user scrolls back to very top quickly (about to leave)
+    var lastScrollY = 0;
+    var scrollUpCount = 0;
+    window.addEventListener('scroll', function() {
+      var currentY = window.scrollY;
+      if (currentY < lastScrollY && currentY < 200) {
+        scrollUpCount++;
+        if (scrollUpCount > 3 && currentY < 50) {
+          triggerExit();
+        }
+      } else {
+        scrollUpCount = 0;
+      }
+      lastScrollY = currentY;
     });
 
     // Build detailed ROI report from current calculator state
