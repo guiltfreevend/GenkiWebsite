@@ -447,6 +447,11 @@
               </div>
               <span class="text-sm font-bold text-gray-900">€<span id="result-absenteeism">0</span></span>
             </div>
+            <div class="flex items-center justify-center bg-amber-50 rounded-lg px-4 py-2 -mt-1">
+              <p class="text-xs text-gray-500 flex items-center gap-1">
+                ⏱️ ~<span id="lp-break-hours" class="font-semibold text-amber-600">33,000</span> <span data-i18n="roi_break_time_saved">hours/year saved from shorter breaks with Genki in-office</span>
+              </p>
+            </div>
             <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 rounded-full bg-amber-500"></div>
@@ -1038,6 +1043,7 @@
       lp_calc_b2: { bg: 'Производителност', en: 'Productivity Gains' },
       lp_calc_b3: { bg: 'Намалени болнични', en: 'Absenteeism Savings' },
       lp_calc_b4: { bg: 'Здравеопазване', en: 'Healthcare Savings' },
+      roi_break_time_saved: { bg: 'часа/годишно спестени от по-кратки почивки с Genki в офиса', en: 'hours/year saved from shorter breaks with Genki in-office' },
       lp_calc_cta: { bg: 'Осигурете тези спестявания — Резервирайте разговор', en: 'Lock These Savings — Book Your Call' },
 
       // Social proof
@@ -1242,6 +1248,9 @@
       // Healthcare Savings
       var healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * SCENARIO.healthcareReduction;
 
+      // Break time saved
+      var breakHoursSaved = teamSize * CONFIG.workingDaysPerYear * (30 / 60);
+
       // Total
       var totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
 
@@ -1256,6 +1265,10 @@
       setResultValue('result-productivity', productivityValue);
       setResultValue('result-absenteeism', absenteeismSavings);
       setResultValue('result-healthcare', healthcareSavings);
+
+      // Break hours saved
+      var breakHoursEl = document.getElementById('lp-break-hours');
+      if (breakHoursEl) breakHoursEl.textContent = fmt(breakHoursSaved);
 
       // Update tooltips with formula breakdowns
       updateTooltips(teamSize, monthlySalary, turnoverRate, annualSalary, replacementCost, dailySalary);

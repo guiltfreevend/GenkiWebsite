@@ -482,6 +482,7 @@
             <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-500 mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_sick_title">Fewer Sick Days</p>
             <p class="text-lg font-bold text-emerald-600">€<span id="roi-sick">39,273</span></p>
+            <p class="text-[10px] text-gray-400 mt-1">⏱️ ~<span id="roi-break-hours" class="font-semibold text-amber-600">33,000</span> <span data-i18n="roi_hours_saved_short">hrs/yr saved</span></p>
           </div>
           <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
             <i data-lucide="pill" class="w-6 h-6 text-emerald-500 mx-auto"></i>
@@ -677,6 +678,9 @@
         // HEALTHCARE SAVINGS
         const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * CONFIG.healthcareReduction;
 
+        // BREAK TIME SAVED
+        const breakHoursSaved = teamSize * CONFIG.workingDaysPerYear * (30 / 60);
+
         // TOTALS
         const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
         const netBenefit = totalSavings - genkiCostAnnual;
@@ -694,6 +698,7 @@
           genkiCostDaily,
           turnoverSavings,
           absenteeismSavings,
+          breakHoursSaved,
           productivityValue,
           healthcareSavings,
           totalSavings,
@@ -729,6 +734,10 @@
         if (productivityEl) productivityEl.textContent = formatNumber(data.productivityValue);
         if (sickEl) sickEl.textContent = formatNumber(data.absenteeismSavings);
         if (healthcareEl) healthcareEl.textContent = formatNumber(data.healthcareSavings);
+
+        // Break hours saved
+        const breakHoursEl = document.getElementById('roi-break-hours');
+        if (breakHoursEl) breakHoursEl.textContent = formatNumber(data.breakHoursSaved);
 
         // Net benefit & ROI
         const netEl = document.getElementById('roi-net');

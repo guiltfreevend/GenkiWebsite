@@ -1288,6 +1288,10 @@ const translations = {
     en: "Fewer Sick Days",
     bg: "По-малко болнични"
   },
+  roi_hours_saved_short: {
+    en: "hrs/yr saved",
+    bg: "часа/год. спестени"
+  },
   roi_sick_detail: {
     en: "27% reduction in sick days*",
     bg: "27% намаление на болничните дни*"
