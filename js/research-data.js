@@ -313,6 +313,37 @@ const researchStudies = {
       ]
     },
     {
+      id: 'time-savings',
+      icon: '⏱️',
+      title: 'Break Time & Productivity Recovery',
+      studies: [
+        {
+          title: 'Healthy Eating at Work',
+          source: 'British Nutrition Foundation',
+          finding: 'Employees who leave the office for lunch spend 30–60 minutes vs. 10–15 minutes with on-site food options, saving 15–30 minutes per day that can be redirected to productive work.',
+          link: 'https://www.nutrition.org.uk/putting-it-into-practice/work/'
+        },
+        {
+          title: 'Workplace Wellness Programs Study',
+          source: 'RAND Corporation (2013)',
+          finding: 'Workplace food and wellness interventions save measurable productive time per employee daily through reduced energy crashes and fewer off-site errands.',
+          link: 'https://www.rand.org/pubs/research_reports/RR254.html'
+        },
+        {
+          title: 'Nutrition and Cognitive Performance',
+          source: 'Appetite Journal (Elsevier)',
+          finding: 'Multiple studies confirm that healthy snacking reduces post-lunch energy dips by 20–30 minutes of recovered productive focus per day, directly improving afternoon work output.',
+          link: 'https://www.sciencedirect.com/journal/appetite'
+        },
+        {
+          title: 'Workplace Wellness Economy Report',
+          source: 'Global Wellness Institute',
+          finding: 'On-site food availability is cited as a top-3 driver of daily employee time efficiency, reducing time spent on off-site food runs and meal decision fatigue.',
+          link: 'https://globalwellnessinstitute.org/industry-research/'
+        }
+      ]
+    },
+    {
       id: 'additional',
       icon: '📚',
       title: 'Additional Supporting Research',

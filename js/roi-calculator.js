@@ -12,6 +12,7 @@
     workingDaysPerMonth: 22,
     workingDaysPerYear: 220,
     monthsPerYear: 12,
+    breakTimeSavedMinutes: 30,
     replacementCostMultiplier: 1.5,
     healthcareCostPerEmployee: 500,
     scenarios: {
@@ -306,6 +307,9 @@
     // Healthcare Savings
     const healthcareSavings = inputs.teamSize * CONFIG.healthcareCostPerEmployee * s.healthcareReduction;
 
+    // Break time saved: employees save ~30 min/day by eating in-office vs going out
+    const breakHoursSaved = inputs.teamSize * CONFIG.workingDaysPerYear * (CONFIG.breakTimeSavedMinutes / 60);
+
     // Totals
     const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
     const netBenefit = totalSavings - genkiCostAnnual;
@@ -318,6 +322,7 @@
       genkiCostDaily,
       turnoverSavings,
       absenteeismSavings,
+      breakHoursSaved,
       productivityValue,
       healthcareSavings,
       totalSavings,
@@ -436,6 +441,12 @@
     if (barAbsenteeismValue) {
       barAbsenteeismValue.textContent = formatNumber(results.absenteeismSavings);
       barAbsenteeism.style.width = absenteeismPct + '%';
+    }
+
+    // Update break time saved
+    const breakHoursSaved = document.getElementById('break-hours-saved');
+    if (breakHoursSaved) {
+      breakHoursSaved.textContent = formatNumber(results.breakHoursSaved);
     }
   }
 

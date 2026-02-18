@@ -3228,6 +3228,14 @@ const translations = {
     en: "Absenteeism Reduction",
     bg: "Намаляване на отсъствията"
   },
+  roi_break_time_saved_prefix: {
+    en: "~",
+    bg: "~"
+  },
+  roi_break_time_saved: {
+    en: "hours/year saved from shorter breaks with Genki in-office",
+    bg: "часа/годишно спестени от по-кратки почивки с Genki в офиса"
+  },
 
   // Scenario Section
   roi_scenario_title: {
