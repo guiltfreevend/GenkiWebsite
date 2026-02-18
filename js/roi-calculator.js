@@ -54,7 +54,7 @@
   let currentScenario = 'moderate';
   let currentInputs = {
     teamSize: 300,
-    salary: 50000,
+    salary: 36000,
     turnoverRate: 13,
     sickDays: 8,
     productsPerDay: 2.5,
