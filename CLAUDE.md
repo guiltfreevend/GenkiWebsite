@@ -1,5 +1,9 @@
 # Genki Website - Project Context
 
+## Handoff System (MANDATORY)
+1. **At the START of every session** — read `HANDOFF.md` in the project root and summarize the current state before doing anything else.
+2. **After EVERY completed task** — update `HANDOFF.md` with: what was just done, current status of all active features, and what's next.
+
 ## What is Genki?
 B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks, drinks & meals to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
 
