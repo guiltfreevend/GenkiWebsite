@@ -1,0 +1,17 @@
+# ===== COMING SOON MODE =====
+# Redirect all page routes to homepage (coming soon page)
+# Remove this block and uncomment "Live site redirects" to go live
+
+/companies / 302
+/mission / 302
+/products / 302
+/contact / 302
+/office / 302
+/privacy / 302
+/privacy-en / 302
+/roi-calculator / 302
+
+# Allow thank-you-coming-soon (form redirect target)
+/thank-you-coming-soon /thank-you-coming-soon.html 200
+
+# ===== END COMING SOON MODE =====
