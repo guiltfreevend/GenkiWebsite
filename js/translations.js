@@ -3232,10 +3232,6 @@ const translations = {
     en: "Absenteeism Reduction",
     bg: "Намаляване на отсъствията"
   },
-  roi_break_time_saved_prefix: {
-    en: "~",
-    bg: "~"
-  },
   roi_break_time_saved: {
     en: "hours/year saved from shorter breaks with Genki in-office",
     bg: "часа/годишно спестени от по-кратки почивки с Genki в офиса"
@@ -3563,6 +3559,42 @@ const translations = {
   contact_urgency_badge: {
     en: "Q1 onboarding now open — Limited spots available",
     bg: "Q1 onboarding е отворен — Ограничен брой места"
+  },
+
+  // ===================
+  // BOX LANDING PAGE
+  // ===================
+  box_badge: {
+    en: "Your Genki Box has arrived",
+    bg: "Вашата Genki кутия пристигна"
+  },
+  box_headline_1: {
+    en: "Welcome to",
+    bg: "Добре дошли в"
+  },
+  box_subheadline: {
+    en: "You're holding something special. Enter the code from your greeting card to unlock your personal welcome page.",
+    bg: "Държите нещо специално в ръцете си. Въведете кода от поздравителната картичка, за да отключите Вашата персонална страница."
+  },
+  box_input_label: {
+    en: "Your unique code",
+    bg: "Вашият уникален код"
+  },
+  box_input_helper: {
+    en: "Find your code on the card inside your box",
+    bg: "Намерете кода върху картичката в кутията Ви"
+  },
+  box_submit: {
+    en: "Open my page",
+    bg: "Отвори моята страница"
+  },
+  box_lost_code: {
+    en: "Lost your code?",
+    bg: "Изгубихте кода си?"
+  },
+  box_footer: {
+    en: "© 2026 Genki · Made in Bulgaria 🇧🇬",
+    bg: "© 2026 Genki · Произведено в България 🇧🇬"
   }
 };
 

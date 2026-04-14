@@ -446,7 +446,7 @@
     // Update break time saved
     const breakHoursSaved = document.getElementById('break-hours-saved');
     if (breakHoursSaved) {
-      breakHoursSaved.textContent = formatNumber(results.breakHoursSaved);
+      breakHoursSaved.textContent = '~' + formatNumber(results.breakHoursSaved);
     }
   }
 

@@ -449,7 +449,7 @@
             </div>
             <div class="flex items-center justify-center bg-amber-50 rounded-lg px-4 py-2 -mt-1">
               <p class="text-xs text-gray-500 flex items-center gap-1">
-                ⏱️ ~<span id="lp-break-hours" class="font-semibold text-amber-600">33,000</span> <span data-i18n="roi_break_time_saved">hours/year saved from shorter breaks with Genki in-office</span>
+                ⏱️ <span id="lp-break-hours" class="font-semibold text-amber-600">~33,000</span> <span data-i18n="roi_break_time_saved">hours/year saved from shorter breaks with Genki in-office</span>
               </p>
             </div>
             <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
@@ -1268,7 +1268,7 @@
 
       // Break hours saved
       var breakHoursEl = document.getElementById('lp-break-hours');
-      if (breakHoursEl) breakHoursEl.textContent = fmt(breakHoursSaved);
+      if (breakHoursEl) breakHoursEl.textContent = '~' + fmt(breakHoursSaved);
 
       // Update tooltips with formula breakdowns
       updateTooltips(teamSize, monthlySalary, turnoverRate, annualSalary, replacementCost, dailySalary);

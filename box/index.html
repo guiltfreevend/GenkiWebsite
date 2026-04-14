@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вашата Genki кутия | Genki</title>
+  <meta name="description" content="Въведете уникалния си код, за да отключите Вашата персонална Genki страница.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.genki.bg/box">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Вашата Genki кутия | Genki">
+  <meta property="og:description" content="Въведете уникалния си код, за да отключите Вашата персонална Genki страница.">
+  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+  <meta property="og:url" content="https://www.genki.bg/box">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Вашата Genki кутия | Genki">
+  <meta name="twitter:description" content="Въведете уникалния си код, за да отключите Вашата персонална Genki страница.">
+  <meta name="twitter:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../js/tailwind-config.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/custom.css">
+
+  <style>
+    /* Page-specific gradient background */
+    .gradient-bg-box {
+      background: linear-gradient(180deg, #f0f9f4 0%, #ffffff 60%, #fffef8 100%);
+    }
+
+    /* Fade-in-up animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    /* Code input placeholder */
+    #code-input::placeholder {
+      color: #d1d5db;
+      letter-spacing: 0.2em;
+    }
+
+    /* Hide translatable text until i18n loads */
+    html:not(.i18n-ready) [data-i18n] {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased gradient-bg-box min-h-screen relative overflow-hidden">
+
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Background Blobs -->
+    <div aria-hidden="true">
+      <div class="blob" style="width: 400px; height: 400px; background: #b8e5cc; top: -120px; right: -120px; opacity: 0.35; pointer-events: none; z-index: 0;"></div>
+      <div class="blob" style="width: 320px; height: 320px; background: #88d4aa; bottom: -80px; left: -80px; opacity: 0.35; pointer-events: none; z-index: 0; animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 py-6 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center">
+          <img src="../assets/images/genki_logo.png" alt="Genki" class="h-20 sm:h-24">
+        </a>
+
+        <!-- Language Switcher -->
+        <div class="relative">
+          <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors">
+            <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+              <span>🇬🇧</span> English
+            </a>
+            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+              <span>🇧🇬</span> Български
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16" style="margin-top: -9vh;">
+      <div class="max-w-xl mx-auto text-center">
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 opacity-0 animate-fade-in-up">
+          <i data-lucide="gift" class="w-4 h-4"></i>
+          <span data-i18n="box_badge">Вашата Genki кутия пристигна</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight opacity-0 animate-fade-in-up delay-100">
+          <span data-i18n="box_headline_1">Добре дошли в</span> <span class="gradient-text">Genki</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-lg sm:text-xl text-gray-600 mb-10 max-w-lg mx-auto opacity-0 animate-fade-in-up delay-200" data-i18n="box_subheadline">
+          Държите нещо специално в ръцете си. Въведете кода от поздравителната картичка, за да отключите Вашата персонална страница.
+        </p>
+
+        <!-- Code Entry Card -->
+        <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-primary-100 p-6 sm:p-8 opacity-0 animate-fade-in-up delay-300">
+          <label for="code-input" class="block text-sm font-semibold text-gray-700 mb-3 text-left" data-i18n="box_input_label">Вашият уникален код</label>
+
+          <form id="code-form" class="space-y-4">
+            <div class="flex items-stretch rounded-xl border-2 border-gray-200 focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-primary-100 transition-all bg-white overflow-hidden">
+              <span class="flex items-center px-4 bg-gray-50 text-gray-500 font-mono font-bold text-xl sm:text-2xl tracking-wider border-r-2 border-gray-200 select-none">GK-</span>
+              <input
+                type="text"
+                id="code-input"
+                maxlength="6"
+                autocomplete="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                class="flex-1 px-4 py-4 font-mono text-xl sm:text-2xl tracking-[0.2em] uppercase text-gray-900 bg-white outline-none w-full text-center"
+                placeholder="A3F2B1"
+                aria-label="Genki Box code"
+                required
+              >
+            </div>
+
+            <p class="text-xs text-gray-500 text-left flex items-center gap-1.5" data-i18n="box_input_helper">
+              <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              Намерете кода върху картичката в кутията Ви
+            </p>
+
+            <button type="submit" id="submit-btn" disabled class="btn-primary w-full justify-center text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+              <span data-i18n="box_submit">Отвори моята страница</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Lost Code Fallback -->
+        <p class="text-sm text-gray-400 mt-8 opacity-0 animate-fade-in-up delay-300">
+          <span data-i18n="box_lost_code">Изгубихте кода си?</span>
+          <a href="mailto:hello@genki.bg" class="text-primary-600 hover:text-primary-700 font-medium ml-1">hello@genki.bg</a>
+        </p>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-6 px-4 text-center">
+      <p class="text-sm text-gray-400" data-i18n="box_footer">© 2026 Genki · Произведено в България 🇧🇬</p>
+    </footer>
+
+  </div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <!-- Translations -->
+  <script src="../js/translations.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Code input handling
+    (function() {
+      const input = document.getElementById('code-input');
+      const submitBtn = document.getElementById('submit-btn');
+      const form = document.getElementById('code-form');
+
+      // Allowed characters: A-Z, 0-9 only (alphanumeric)
+      function sanitize(value) {
+        return value
+          .toUpperCase()
+          .replace(/[^A-Z0-9]/g, '')
+          .slice(0, 6);
+      }
+
+      input.addEventListener('input', function(e) {
+        const cleaned = sanitize(e.target.value);
+        if (e.target.value !== cleaned) {
+          e.target.value = cleaned;
+        }
+        submitBtn.disabled = cleaned.length !== 6;
+      });
+
+      // Handle paste events that might include "GK-" prefix or whitespace
+      input.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('text');
+        // Strip "GK-" or "gk-" prefix if user pasted the full code
+        const stripped = pasted.replace(/^gk[-\s]*/i, '');
+        const cleaned = sanitize(stripped);
+        input.value = cleaned;
+        submitBtn.disabled = cleaned.length !== 6;
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const code = sanitize(input.value);
+        if (code.length === 6) {
+          // Track the event in Umami if available
+          if (typeof umami !== 'undefined') {
+            umami.track('box-code-submitted', { code: 'GK-' + code });
+          }
+          window.location.href = '/box/GK-' + code;
+        }
+      });
+
+      // Auto-focus on load
+      input.focus();
+    })();
+  </script>
+
+</body>
+</html>
