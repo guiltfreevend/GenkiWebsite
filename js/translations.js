@@ -3725,7 +3725,9 @@ const translations = {
 };
 
 // Language Switcher Functions
-let currentLang = localStorage.getItem('genki-lang') || 'bg';
+// Every page load starts in Bulgarian. Toggle still works within the session,
+// but a fresh page load (or navigation to another page) resets to BG.
+let currentLang = 'bg';
 
 function setLanguage(lang) {
   currentLang = lang;

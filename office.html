@@ -1217,7 +1217,9 @@
       lp_modal_success_desc: { bg: 'Проверете имейла си.', en: 'Check your email.' },
     };
 
-    var currentLang = localStorage.getItem('genki_lp_lang') || 'bg';
+    // Every page load starts in Bulgarian. Toggle still works within the session;
+    // a fresh load resets to BG.
+    var currentLang = 'bg';
 
     function applyLanguage(lang) {
       currentLang = lang;

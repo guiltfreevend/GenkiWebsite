@@ -285,19 +285,8 @@
   <script src="js/main.js"></script>
   <script>lucide.createIcons();</script>
   <script>
-    // Privacy page language handling
+    // Privacy page language handling — direct visits to /privacy-en show EN; no auto-redirect back to BG.
     document.addEventListener('DOMContentLoaded', function() {
-      const savedLang = localStorage.getItem('genki-lang') || 'en';
-      const isMinimal = new URLSearchParams(window.location.search).has('minimal');
-
-      // If user's preferred language is BG, redirect to Bulgarian privacy page (skip in minimal mode)
-      if (savedLang === 'bg' && !isMinimal) {
-        window.location.replace('/privacy');
-        return;
-      }
-
-      // Set localStorage to EN since we're on the EN page
-      localStorage.setItem('genki-lang', 'en');
 
       // Language toggle dropdown
       const langToggle = document.getElementById('lang-toggle');
