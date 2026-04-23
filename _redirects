@@ -1,14 +1,3 @@
 # ===== LIVE SITE =====
 # Coming Soon mode disabled on 2026-04-23. All routes publicly accessible.
-
-# Clean-URL rewrites (Cloudflare Pages handles .html automatically, but kept for safety)
-/companies /companies.html 200
-/mission /mission.html 200
-/products /products.html 200
-/contact /contact.html 200
-/office /office.html 200
-/privacy /privacy.html 200
-/privacy-en /privacy-en.html 200
-/roi-calculator /roi-calculator.html 200
-/thank-you-contact /thank-you-contact.html 200
-/thank-you-coming-soon /thank-you-coming-soon.html 200
+# Cloudflare Pages handles clean-URL .html routing automatically — no rewrites needed here.
