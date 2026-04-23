@@ -1,17 +1,14 @@
-# ===== COMING SOON MODE =====
-# Redirect all page routes to homepage (coming soon page)
-# Remove this block and uncomment "Live site redirects" to go live
+# ===== LIVE SITE =====
+# Coming Soon mode disabled on 2026-04-23. All routes publicly accessible.
 
-/companies / 302
-/mission / 302
-/products / 302
-/contact / 302
-/office / 302
-/privacy / 302
-/privacy-en / 302
-/roi-calculator / 302
-
-# Allow thank-you-coming-soon (form redirect target)
+# Clean-URL rewrites (Cloudflare Pages handles .html automatically, but kept for safety)
+/companies /companies.html 200
+/mission /mission.html 200
+/products /products.html 200
+/contact /contact.html 200
+/office /office.html 200
+/privacy /privacy.html 200
+/privacy-en /privacy-en.html 200
+/roi-calculator /roi-calculator.html 200
+/thank-you-contact /thank-you-contact.html 200
 /thank-you-coming-soon /thank-you-coming-soon.html 200
-
-# ===== END COMING SOON MODE =====
