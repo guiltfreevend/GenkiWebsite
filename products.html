@@ -141,15 +141,59 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="pt-40 pb-28 bg-gradient-to-b from-amber-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="pt-40 pb-24 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
-          <span data-i18n="products_hero_title">Our</span> <span class="gradient-text" data-i18n="products_hero_highlight">Product Selection</span>
+        <span class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 fade-up">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span data-i18n="products_hero_eyebrow">The Genki Experience</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up leading-tight">
+          <span data-i18n="products_hero_title">Built for your team,</span><br>
+          <span class="gradient-text" data-i18n="products_hero_highlight">not pulled from a catalog</span>
         </h1>
         <p class="text-xl text-gray-600 fade-up" data-i18n="products_hero_subtitle">
-          Carefully curated healthy options from Bulgarian producers. Everything your team needs to stay energized throughout the day.
+          Every Genki office starts with a conversation. The examples below show the range — your final assortment is curated with you and rotates seasonally.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_how_title">How your assortment comes together</h2>
+        <p class="text-lg text-gray-600 fade-up" data-i18n="products_how_sub">No generic stocking. Every Genki corner is shaped around your team and kept fresh.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Step 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="users" class="w-7 h-7 text-primary-600"></i>
+          </div>
+          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">01</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step1_title">Tell us about your team</h3>
+          <p class="text-gray-600" data-i18n="products_how_step1_desc">Dietary needs, favourite snacks, allergies, the vegan colleague everyone forgets. We listen on a 30-minute consultation.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="sparkles" class="w-7 h-7 text-primary-600"></i>
+          </div>
+          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">02</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step2_title">We curate your assortment</h3>
+          <p class="text-gray-600" data-i18n="products_how_step2_desc">A hand-picked selection from trusted Bulgarian producers, shaped around your team's preferences — never a one-size-fits-all catalog.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="calendar-clock" class="w-7 h-7 text-primary-600"></i>
+          </div>
+          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">03</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step3_title">Delivered fresh, rotated seasonally</h3>
+          <p class="text-gray-600" data-i18n="products_how_step3_desc">Fresh deliveries on your cadence. We rotate products each season so the team never gets bored — and you never stock what they don't eat.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -178,7 +222,7 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Cookies -->
         <div class="product-card fade-up">
           <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
@@ -188,18 +232,6 @@
             <span class="badge badge-green mb-2" data-i18n="products_badge_natural">Natural</span>
             <h3 class="font-semibold text-gray-900" data-i18n="products_cookies_title">Cookies</h3>
             <p class="text-sm text-gray-600 mt-1" data-i18n="products_cookies_desc">Healthy cookies with natural ingredients</p>
-          </div>
-        </div>
-
-        <!-- Wafers -->
-        <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
-            <i data-lucide="layers" class="w-16 h-16 text-orange-600"></i>
-          </div>
-          <div class="p-4">
-            <span class="badge badge-amber mb-2" data-i18n="products_badge_tasty">Tasty</span>
-            <h3 class="font-semibold text-gray-900" data-i18n="products_wafers_title">Wafers</h3>
-            <p class="text-sm text-gray-600 mt-1" data-i18n="products_wafers_desc">Light and crispy, perfect for a quick snack</p>
           </div>
         </div>
 
@@ -244,30 +276,6 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Ice Teas -->
-        <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
-            <i data-lucide="glass-water" class="w-16 h-16 text-teal-600"></i>
-          </div>
-          <div class="p-4">
-            <span class="badge badge-green mb-2" data-i18n="products_badge_refreshing">Refreshing</span>
-            <h3 class="font-semibold text-gray-900" data-i18n="products_icetea_title">Ice Teas</h3>
-            <p class="text-sm text-gray-600 mt-1" data-i18n="products_icetea_desc">Chilled teas in various flavors</p>
-          </div>
-        </div>
-
-        <!-- Energy Drinks -->
-        <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
-            <i data-lucide="zap" class="w-16 h-16 text-orange-500"></i>
-          </div>
-          <div class="p-4">
-            <span class="badge badge-amber mb-2" data-i18n="products_badge_energy">Energy</span>
-            <h3 class="font-semibold text-gray-900" data-i18n="products_energy_title">Energy Drinks</h3>
-            <p class="text-sm text-gray-600 mt-1" data-i18n="products_energy_desc">Healthy energy boost options</p>
-          </div>
-        </div>
-
         <!-- Fresh Juices -->
         <div class="product-card fade-up">
           <div class="h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center">
@@ -303,18 +311,6 @@
             <p class="text-sm text-gray-600 mt-1" data-i18n="products_kombucha_desc">Locally brewed, multiple flavors</p>
           </div>
         </div>
-
-        <!-- Smoothies -->
-        <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center">
-            <i data-lucide="cup-soda" class="w-16 h-16 text-pink-500"></i>
-          </div>
-          <div class="p-4">
-            <span class="badge badge-green mb-2" data-i18n="products_badge_nosugar">No Sugar</span>
-            <h3 class="font-semibold text-gray-900" data-i18n="products_smoothie_title">Smoothies</h3>
-            <p class="text-sm text-gray-600 mt-1" data-i18n="products_smoothie_desc">Fruit & vegetable blends</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -336,7 +332,7 @@
         <span data-i18n="products_meals_note">Available with Hybrid and Care plans</span>
       </p>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Soups -->
         <div class="product-card fade-up">
           <div class="h-48 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
@@ -358,18 +354,6 @@
             <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
             <h3 class="font-semibold text-gray-900" data-i18n="products_salads_title">Fresh Salads</h3>
             <p class="text-sm text-gray-600 mt-1" data-i18n="products_salads_desc">Various healthy salad options available</p>
-          </div>
-        </div>
-
-        <!-- Poke Bowls -->
-        <div class="product-card fade-up">
-          <div class="h-48 bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center">
-            <i data-lucide="utensils-crossed" class="w-16 h-16 text-cyan-600"></i>
-          </div>
-          <div class="p-4">
-            <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
-            <h3 class="font-semibold text-gray-900" data-i18n="products_poke_title">Poke Bowls</h3>
-            <p class="text-sm text-gray-600 mt-1" data-i18n="products_poke_desc">Fresh and healthy bowl options</p>
           </div>
         </div>
 
@@ -441,8 +425,8 @@
   <!-- CTA Section -->
   <section class="py-20 bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="products_cta_title">Want to See the Full Catalog?</h2>
-      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="products_cta_desc">Book a call and we'll create a custom product selection based on your team's preferences.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="products_cta_title">See what Genki would look like in your office</h2>
+      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="products_cta_desc">Book a 30-minute consultation and we'll shape a product selection around your team.</p>
       <a href="/contact" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up" data-i18n="products_cta_button">
         Book consultation
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -479,7 +463,6 @@
           <ul class="space-y-2 text-gray-400">
             <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
             <li><a href="tel:+359877261682" class="hover:text-white">+359 877 261 682</a></li>
-            <li><a href="tel:+359896567515" class="hover:text-white">+359 896 567 515</a></li>
             <li data-i18n="footer_location">Sofia, Bulgaria</li>
           </ul>
         </div>

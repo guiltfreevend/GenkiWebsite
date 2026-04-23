@@ -185,128 +185,163 @@
     </div>
   </section>
 
-  <!-- 3. PRICING (merged: heading + 3 cards + All Plans Include) -->
+  <!-- 3. PRICING (Care hero + Stepping stones + All Plans Include) -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="pricing_hero_title">Flexible Wellness Plans</h2>
-        <p class="text-xl text-gray-600 fade-up" data-i18n="pricing_hero_subtitle">Not all wellness benefits are equal. Choose the plan that matches your culture ambitions.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="pricing_hero_title">Built around Care</h2>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="pricing_hero_subtitle">Genki is built on one simple belief: wellness works when the company takes care of it. Starter and Hybrid are how teams grow into Care.</p>
         <div class="section-divider mt-6 fade-up"></div>
       </div>
 
-      <!-- 3 Pricing Cards -->
-      <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mb-12">
+      <!-- CARE HERO BLOCK -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-forest-700 via-forest-500 to-forest-600 shadow-2xl fade-up green-section-soft mb-16 max-w-6xl mx-auto">
+        <!-- Decorative blurred accents -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-300/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-amber-300/10 blur-3xl pointer-events-none"></div>
 
-        <!-- STARTER CARD -->
-        <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-          <div class="mb-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-1">Starter</h3>
-            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_starter_tagline">Wellness Access</p>
-            <p class="text-gray-600 text-base" data-i18n="pricing_starter_desc">Employees pay, company provides infrastructure</p>
+        <div class="relative z-10 p-8 sm:p-12 lg:p-16">
+          <!-- Eyebrow pill -->
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-semibold mb-6 text-on-green">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+            </span>
+            <span data-i18n="pricing_badge_popular">Highest Impact</span>
           </div>
-          <ul class="space-y-4 flex-grow mb-6">
+
+          <!-- Headline -->
+          <h3 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold heading-on-green mb-5 leading-tight">
+            <span data-i18n="care_hero_headline">Care — free wellness for your whole team</span>
+          </h3>
+          <p class="text-xl sm:text-2xl subheading-on-green mb-10 max-w-2xl" data-i18n="care_hero_sub">You cover everything. They just enjoy it. Daily.</p>
+
+          <!-- Feature grid -->
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 mb-10 max-w-3xl">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f1">Full product range + seasonal specials</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f2">Custom schedule + unlimited emergency restocking</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f3">Named account manager + monthly strategy calls</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f4">Detailed analytics & employee insights</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f5">2-4 community events per year</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f6">Employees vote on charity + impact reports</span>
+            </div>
+            <div class="flex items-start gap-3 sm:col-span-2">
+              <svg class="w-6 h-6 text-amber-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-on-green" data-i18n="pricing_care_f7">Priority support 7 days/week (10-19h)</span>
+            </div>
+          </div>
+
+          <!-- CTA row -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-50 hover:shadow-2xl transition-all shadow-xl">
+              <span data-i18n="care_hero_cta">Book 30-minute consultation</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+            <p class="text-on-green-light text-sm leading-relaxed" data-i18n="care_hero_reassurance">
+              <span class="font-semibold text-on-green">85–90%</span> daily engagement · <span class="font-semibold text-on-green">3–5</span> visits per employee per day
+            </p>
+          </div>
+
+          <!-- Best-for line -->
+          <p class="text-on-green-light text-sm italic mt-8 max-w-2xl" data-i18n="pricing_care_best">Best for: Companies serious about retention, culture, and winning the talent war</p>
+        </div>
+      </div>
+
+      <!-- STEPPING STONES HEADING -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 fade-up" data-i18n="steppingstones_title">Not ready for full coverage? Start small, grow into Care.</h3>
+        <p class="text-base text-gray-600 fade-up" data-i18n="steppingstones_sub">These are stepping stones — for teams that want to measure impact first. Both plans are designed to lead into Care once you see the difference.</p>
+      </div>
+
+      <!-- STARTER + HYBRID ROW -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+
+        <!-- STARTER (muted) -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">01</span>
+            <h4 class="text-xl font-bold text-gray-900">Starter</h4>
+          </div>
+          <p class="text-sm font-semibold text-primary-600 mb-1" data-i18n="pricing_starter_tagline">Wellness Access</p>
+          <p class="text-gray-600 mb-6" data-i18n="pricing_starter_desc">Employees pay, company provides infrastructure</p>
+          <ul class="space-y-3 flex-grow mb-6">
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_starter_f1">Snacks & drinks only</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_starter_f1">Snacks & drinks only</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_starter_f2">Weekly deliveries</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_starter_f2">Weekly deliveries</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_starter_f3">Monthly sales summary</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_starter_f3">Monthly sales summary</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_starter_f4">Email support (24-48h)</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_starter_f4">Email support (24-48h)</span>
             </li>
           </ul>
-          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_starter_best">Best for: Budget-conscious companies wanting basic wellness option</p>
-          <a href="/contact" class="w-full py-3 px-6 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 transition-colors" data-i18n="pricing_cta_quote">Book consultation</a>
+          <p class="text-gray-500 text-sm italic mb-5" data-i18n="pricing_starter_best">Best for: Budget-conscious companies wanting basic wellness option</p>
+          <a href="/contact" class="w-full py-2.5 px-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg text-center hover:bg-primary-50 hover:border-primary-500 hover:text-primary-700 transition-all" data-i18n="pricing_cta_quote">Book consultation</a>
         </div>
 
-        <!-- CARE CARD (Featured) -->
-        <div class="bg-white rounded-xl p-8 border-[3px] border-emerald-500 shadow-xl flex flex-col fade-up relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 lg:-mt-4 lg:mb-[-16px]">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-            <span class="bg-emerald-500 text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg" data-i18n="pricing_badge_popular">Highest Impact</span>
+        <!-- HYBRID (muted) -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">02</span>
+            <h4 class="text-xl font-bold text-gray-900">Hybrid</h4>
           </div>
-          <div class="mb-6 pt-4">
-            <h3 class="text-2xl font-bold text-gray-900 mb-1">Care</h3>
-            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_care_tagline">Complete Culture Solution</p>
-            <p class="text-gray-600 text-base" data-i18n="pricing_care_desc">Full company coverage — FREE for all employees</p>
-          </div>
-          <ul class="space-y-4 flex-grow mb-6">
+          <p class="text-sm font-semibold text-primary-600 mb-1" data-i18n="pricing_hybrid_tagline">Enhanced Wellness</p>
+          <p class="text-gray-600 mb-6" data-i18n="pricing_hybrid_desc">Shared investment — test impact before full commitment</p>
+          <ul class="space-y-3 flex-grow mb-6">
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f1">Full product range + seasonal specials</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_hybrid_f1">Snacks, drinks + 2-3 meal options monthly</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f2">Custom schedule + unlimited emergency restocking</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_hybrid_f2">Flexible schedule + 1 emergency restock/month</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f3">Named account manager + monthly strategy calls</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_hybrid_f3">Monthly detailed analytics</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f4">Detailed analytics & employee insights</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_hybrid_f4">Dedicated contact + quarterly calls</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f5">2-4 community events per year</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f6">Employees vote on charity + impact reports</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_care_f7">Priority support 7 days/week (10-19h)</span>
+              <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700 text-sm" data-i18n="pricing_hybrid_f5">Phone + email support (12-24h, Mon-Fri)</span>
             </li>
           </ul>
-          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_care_best">Best for: Companies serious about retention, culture, and winning the talent war</p>
-          <a href="/contact" class="w-full py-3 px-6 bg-emerald-500 text-white font-semibold rounded-lg text-center hover:bg-emerald-600 transition-colors shadow-lg" data-i18n="pricing_cta_call">Book consultation</a>
-        </div>
-
-        <!-- HYBRID CARD -->
-        <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-          <div class="mb-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-1">Hybrid</h3>
-            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_hybrid_tagline">Enhanced Wellness</p>
-            <p class="text-gray-600 text-base" data-i18n="pricing_hybrid_desc">Shared investment — test impact before full commitment</p>
-          </div>
-          <ul class="space-y-4 flex-grow mb-6">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_hybrid_f1">Snacks, drinks + 2-3 meal options monthly</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_hybrid_f2">Flexible schedule + 1 emergency restock/month</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_hybrid_f3">Monthly detailed analytics</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_hybrid_f4">Dedicated contact + quarterly calls</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_hybrid_f5">Phone + email support (12-24h, Mon-Fri)</span>
-            </li>
-          </ul>
-          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_hybrid_best">Best for: Companies ready to invest but wanting to measure engagement first</p>
-          <a href="/contact" class="w-full py-3 px-6 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 transition-colors" data-i18n="pricing_cta_quote">Book consultation</a>
+          <p class="text-gray-500 text-sm italic mb-5" data-i18n="pricing_hybrid_best">Best for: Companies ready to invest but wanting to measure engagement first</p>
+          <a href="/contact" class="w-full py-2.5 px-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg text-center hover:bg-primary-50 hover:border-primary-500 hover:text-primary-700 transition-all" data-i18n="pricing_cta_quote">Book consultation</a>
         </div>
 
       </div>
 
-      <!-- All Plans Include (merged into pricing section) -->
+      <!-- All Plans Include -->
       <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-gray-200 fade-up">
           <h3 class="text-2xl font-bold text-gray-900 text-center mb-8" data-i18n="pricing_all_title">All plans include:</h3>
@@ -596,7 +631,6 @@
           <ul class="space-y-2 text-gray-400">
             <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
             <li><a href="tel:+359877261682" class="hover:text-white">+359 877 261 682</a></li>
-            <li><a href="tel:+359896567515" class="hover:text-white">+359 896 567 515</a></li>
             <li>Sofia, Bulgaria</li>
           </ul>
         </div>

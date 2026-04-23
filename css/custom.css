@@ -463,6 +463,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #92400e;
 }
 
+.badge-purple {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
 /* Section Divider */
 .section-divider {
   width: 80px;

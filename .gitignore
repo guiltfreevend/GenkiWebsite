@@ -18,6 +18,10 @@ build/
 .env.local
 .env.*.local
 
+# Secrets / recovery codes — never commit
+twilio_2FA_recovery_code.txt
+*_recovery_code.txt
+
 # Logs
 *.log
 npm-debug.log*

@@ -1,0 +1,16 @@
+{
+  "name": "genki-website",
+  "version": "1.0.0",
+  "description": "Genki wellness benefit landing pages",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "resend": "^3.2.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

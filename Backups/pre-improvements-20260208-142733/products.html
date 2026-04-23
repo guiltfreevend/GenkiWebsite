@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki Products - Explore our curated selection of healthy snacks, drinks, and meals from Bulgarian producers.">
+  <title>Products - Genki Wellness Benefits</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9f4',
+              100: '#dcf2e6',
+              200: '#b8e5cc',
+              300: '#88d4aa',
+              400: '#4fba7d',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e6b48',
+              800: '#1a5a3d',
+              900: '#164a33',
+            },
+            forest: {
+              400: '#3a9d6a',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e5128',
+              800: '#18451f',
+              900: '#14401f',
+            },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
+            accent: {
+              50: '#fffef8',
+              100: '#fefdf0',
+              200: '#f5f5dc',
+              300: '#e8ddb5',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active" data-i18n="nav_products">Products</a>
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current">EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+                English
+              </a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+                Български
+              </a>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" data-i18n="nav_cta">Book a Call</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <img src="assets/images/genki_logo.png" alt="Genki" class="h-10">
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-900 py-2" data-i18n="nav_products">Products</a>
+      <!-- Mobile Language Switcher -->
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
+        <div class="flex gap-2">
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+            EN
+          </a>
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+            BG
+          </a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_cta">Book a Call</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="pt-40 pb-28 bg-gradient-to-b from-amber-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+          <span data-i18n="products_hero_title">Our</span> <span class="gradient-text" data-i18n="products_hero_highlight">Product Selection</span>
+        </h1>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="products_hero_subtitle">
+          Carefully curated healthy options from Bulgarian producers. Everything your team needs to stay energized throughout the day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Navigation -->
+  <section class="py-8 bg-white border-b sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="#snacks" class="px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium hover:bg-green-200 transition-colors" data-i18n="products_cat_snacks">Snacks</a>
+        <a href="#drinks" class="px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium hover:bg-blue-200 transition-colors" data-i18n="products_cat_drinks">Drinks</a>
+        <a href="#meals" class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 font-medium hover:bg-purple-200 transition-colors" data-i18n="products_cat_meals">Meals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snacks Section -->
+  <section id="snacks" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+          <i data-lucide="cookie" class="w-6 h-6 text-green-600"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_snacks_title">Healthy Snacks</h2>
+          <p class="text-gray-600" data-i18n="products_snacks_desc">Energy-boosting options for any time of day</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Cookies -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+            <i data-lucide="cookie" class="w-16 h-16 text-amber-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2" data-i18n="products_badge_natural">Natural</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_cookies_title">Cookies</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_cookies_desc">Healthy cookies with natural ingredients</p>
+          </div>
+        </div>
+
+        <!-- Wafers -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="layers" class="w-16 h-16 text-orange-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2" data-i18n="products_badge_tasty">Tasty</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_wafers_title">Wafers</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_wafers_desc">Light and crispy, perfect for a quick snack</p>
+          </div>
+        </div>
+
+        <!-- Protein Bars -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+            <i data-lucide="dumbbell" class="w-16 h-16 text-yellow-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2" data-i18n="products_badge_protein">High Protein</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_bars_title">Protein Bars</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_bars_desc">No added sugar, high protein content</p>
+          </div>
+        </div>
+
+        <!-- Rice Cakes -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+            <i data-lucide="circle" class="w-16 h-16 text-stone-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-blue mb-2" data-i18n="products_badge_lowcal">Low Calorie</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_rice_title">Rice Cakes</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_rice_desc">Whole grain, various flavors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drinks Section -->
+  <section id="drinks" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+          <i data-lucide="cup-soda" class="w-6 h-6 text-blue-600"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_drinks_title">Beverages</h2>
+          <p class="text-gray-600" data-i18n="products_drinks_desc">Refreshing drinks without the sugar crash</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Ice Teas -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="glass-water" class="w-16 h-16 text-teal-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2" data-i18n="products_badge_refreshing">Refreshing</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_icetea_title">Ice Teas</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_icetea_desc">Chilled teas in various flavors</p>
+          </div>
+        </div>
+
+        <!-- Energy Drinks -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="zap" class="w-16 h-16 text-orange-500"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2" data-i18n="products_badge_energy">Energy</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_energy_title">Energy Drinks</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_energy_desc">Healthy energy boost options</p>
+          </div>
+        </div>
+
+        <!-- Fresh Juices -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center">
+            <i data-lucide="citrus" class="w-16 h-16 text-orange-500"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2" data-i18n="products_badge_fresh">Fresh Pressed</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_juice_title">Fresh Juices</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_juice_desc">Orange, apple, carrot & mixed</p>
+          </div>
+        </div>
+
+        <!-- Sparkling Water -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center">
+            <i data-lucide="droplets" class="w-16 h-16 text-blue-500"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-blue mb-2" data-i18n="products_badge_natural">Natural</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_sparkling_title">Sparkling Water</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_sparkling_desc">Refreshing sparkling options</p>
+          </div>
+        </div>
+
+        <!-- Kombucha -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="wine" class="w-16 h-16 text-amber-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-amber mb-2" data-i18n="products_badge_probiotic">Probiotic</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_kombucha_title">Kombucha</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_kombucha_desc">Locally brewed, multiple flavors</p>
+          </div>
+        </div>
+
+        <!-- Smoothies -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center">
+            <i data-lucide="cup-soda" class="w-16 h-16 text-pink-500"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2" data-i18n="products_badge_nosugar">No Sugar</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_smoothie_title">Smoothies</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_smoothie_desc">Fruit & vegetable blends</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meals Section -->
+  <section id="meals" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+          <i data-lucide="utensils" class="w-6 h-6 text-purple-600"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900" data-i18n="products_meals_title">Fresh Meals (Customized Upon Request)</h2>
+          <p class="text-gray-600" data-i18n="products_meals_desc">We partner with local Bulgarian kitchens to provide healthy meal options when your team needs them.</p>
+        </div>
+      </div>
+      <p class="text-sm text-purple-600 mb-8 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <span data-i18n="products_meals_note">Available with Hybrid and Care plans</span>
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Soups -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+            <i data-lucide="soup" class="w-16 h-16 text-red-500"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-green mb-2" data-i18n="products_badge_hot">Hot</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_soups_title">Soups</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_soups_desc">Homemade Bulgarian recipes</p>
+          </div>
+        </div>
+
+        <!-- Salads -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="salad" class="w-16 h-16 text-green-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_salads_title">Fresh Salads</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_salads_desc">Various healthy salad options available</p>
+          </div>
+        </div>
+
+        <!-- Poke Bowls -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center">
+            <i data-lucide="utensils-crossed" class="w-16 h-16 text-cyan-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_poke_title">Poke Bowls</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_poke_desc">Fresh and healthy bowl options</p>
+          </div>
+        </div>
+
+        <!-- Balanced Meals -->
+        <div class="product-card fade-up">
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+            <i data-lucide="package" class="w-16 h-16 text-purple-600"></i>
+          </div>
+          <div class="p-4">
+            <span class="badge badge-purple mb-2" data-i18n="products_badge_request">Upon Request</span>
+            <h3 class="font-semibold text-gray-900" data-i18n="products_balanced_title">Balanced Meals</h3>
+            <p class="text-sm text-gray-600 mt-1" data-i18n="products_balanced_desc">Lunch boxes & more</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note about customization -->
+      <div class="mt-8 p-4 bg-purple-50 rounded-xl border border-purple-100">
+        <p class="text-sm text-purple-700 text-center" data-i18n="products_meals_custom">
+          Meal options are customized based on your team's needs and preferences. During our consultation, we'll discuss what's possible and provide you with the best options.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dietary Options -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_diets_title">We Accommodate All Diets</h2>
+        <p class="text-gray-600 fade-up" data-i18n="products_diets_desc">Every team member can find something they love.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+        <div class="text-center p-6 bg-green-50 rounded-xl fade-up">
+          <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
+            <i data-lucide="sprout" class="w-6 h-6 text-green-600"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegan">Vegan</h3>
+        </div>
+        <div class="text-center p-6 bg-emerald-50 rounded-xl fade-up">
+          <div class="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
+            <i data-lucide="leaf" class="w-6 h-6 text-emerald-600"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegetarian">Vegetarian</h3>
+        </div>
+        <div class="text-center p-6 bg-amber-50 rounded-xl fade-up">
+          <div class="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
+            <i data-lucide="wheat-off" class="w-6 h-6 text-amber-600"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_glutenfree">Gluten-Free</h3>
+        </div>
+        <div class="text-center p-6 bg-blue-50 rounded-xl fade-up">
+          <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
+            <i data-lucide="milk-off" class="w-6 h-6 text-blue-600"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_lactosefree">Lactose-Free</h3>
+        </div>
+        <div class="text-center p-6 bg-purple-50 rounded-xl fade-up">
+          <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
+            <i data-lucide="ban" class="w-6 h-6 text-purple-600"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_nutfree">Nut-Free</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-forest-500 to-forest-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="products_cta_title">Want to See the Full Catalog?</h2>
+      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="products_cta_desc">Book a call and we'll create a custom product selection based on your team's preferences.</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up" data-i18n="products_cta_button">
+        Request Full Catalog
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <img src="assets/images/genki_logo_light.png" alt="Genki" class="h-10">
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="footer_badge_text">Made in Bulgaria</span></span>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
+            <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
+            <li data-i18n="footer_location">Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm" data-i18n="footer_copyright">© 2026 Genki. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="privacy.html" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

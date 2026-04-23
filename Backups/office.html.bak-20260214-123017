@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Спестете €110K-250K годишно с Genki — здравословна хранителна придобивка за модерни компании. Изчислете вашия ROI безплатно.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Genki ROI — Спестявания за Модерни Компании</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.genki.bg/office">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Genki">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:title" content="Genki — Спестете €110K-250K годишно за Модерни Компании">
+  <meta property="og:description" content="Здравословна хранителна придобивка за модерни компании. Нулева администрация, български продукти, 10% за благотворителност.">
+  <meta property="og:url" content="https://www.genki.bg/office">
+  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Genki — Спестете €110K-250K годишно за Модерни Компании">
+  <meta name="twitter:description" content="Здравословна хранителна придобивка за модерни компании. Изчислете вашия ROI.">
+  <meta name="twitter:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    /* Prevent flash of wrong language */
+    [data-i18n] { transition: opacity 0.15s ease; }
+
+    /* Slider styles */
+    .landing-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      cursor: pointer;
+      width: 100%;
+    }
+    .landing-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .landing-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+    }
+    .landing-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Count-up animation */
+    .count-up { transition: all 0.4s ease-out; }
+
+    /* Fade-in on scroll */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Pulse for CTA */
+    @keyframes gentle-pulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.5); }
+    }
+    .cta-pulse { animation: gentle-pulse 2s ease-in-out infinite; }
+
+    /* Expandable/collapsible content */
+    .expand-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .expand-content.open {
+      max-height: 2000px;
+      opacity: 1;
+      transition: max-height 0.6s ease-in, opacity 0.3s ease;
+    }
+    .expand-chevron {
+      transition: transform 0.3s ease;
+    }
+    .expand-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* FAQ accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.3s ease, padding 0.3s ease;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .faq-answer.open {
+      max-height: 500px;
+      opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      transition: max-height 0.6s ease-in, opacity 0.3s ease, padding 0.3s ease;
+    }
+
+    /* Tooltip styles */
+    .tooltip-trigger { position: relative; cursor: help; }
+    .tooltip-trigger .tooltip-box {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1f2937;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      white-space: nowrap;
+      z-index: 50;
+      transition: opacity 0.2s, visibility 0.2s;
+      pointer-events: none;
+      max-width: 320px;
+      white-space: normal;
+    }
+    .tooltip-trigger .tooltip-box::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1f2937;
+    }
+    .tooltip-trigger:hover .tooltip-box {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Respect motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Focus states */
+    a:focus, button:focus, input:focus { outline: 2px solid #10b981; outline-offset: 2px; }
+  </style>
+</head>
+<body class="font-sans antialiased bg-white text-gray-800">
+
+  <!-- ============================================ -->
+  <!-- STICKY HEADER -->
+  <!-- ============================================ -->
+  <header id="landing-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="flex items-center">
+        <img src="assets/images/genki_logo.png" alt="Genki" class="h-20">
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="#final-cta" class="hidden sm:inline-flex items-center gap-2 bg-primary-500 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary-600 transition-colors" data-i18n="lp_nav_cta">Резервирайте демо</a>
+        <!-- Language Toggle -->
+        <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100 font-medium transition-colors text-sm" aria-label="Switch language">
+          <span id="lang-label">EN</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: HERO -->
+  <!-- ============================================ -->
+  <section class="pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-32 bg-gradient-to-b from-primary-50 via-white to-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.15] sm:leading-[1.15] mb-8 sm:mb-10">
+        <span data-i18n="lp_hero_headline">Спестете <span class="text-primary-500">€110K-250K</span> годишно и спечелете войната за таланти</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 sm:mb-14" data-i18n="lp_hero_subheadline">
+        Здравословна хранителна придобивка за модерни компании — Нулева администрация, български продукти, 10% за благотворителност.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#final-cta" class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-600 transition-all cta-pulse" data-i18n="lp_hero_cta">
+          Резервирайте 30-мин демо
+        </a>
+        <a href="#roi-calculator" class="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all" data-i18n="lp_hero_cta_secondary">
+          Виж как работи калкулаторът
+        </a>
+      </div>
+
+      <!-- Trust Pills -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-14 sm:mt-16">
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="flag" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_1">Български продукти</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="heart" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_2">10% дарение</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="shield-x" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_3">Нула вредни съставки</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+          <i data-lucide="check-circle" class="w-4 h-4 text-primary-500"></i>
+          <span data-i18n="lp_pill_4">Пълно обслужване</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: RESEARCH CREDIBILITY -->
+  <!-- ============================================ -->
+  <section class="py-12 sm:py-16 bg-primary-50 fade-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-primary-100">
+        <p class="text-base sm:text-lg text-gray-700 font-medium" data-i18n="lp_research_main">
+          <span class="text-xl mr-2">💡</span> Базирано на 43 рецензирани научни изследвания от Harvard, WHO, RAND Corporation, Global Wellness Institute
+        </p>
+        <button id="toggle-methodology" class="mt-4 flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors">
+          <span data-i18n="lp_research_toggle">Виж пълната методология и изследвания</span>
+          <svg class="w-4 h-4 expand-chevron" id="methodology-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <div id="methodology-content" class="expand-content mt-4">
+          <div class="border-t border-gray-100 pt-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-6" data-i18n="lp_research_expand_title">Как изчисляваме ROI спестяванията:</h3>
+
+            <!-- Turnover -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-2" data-i18n="lp_research_t1_title">1. Намаление на текучеството (25%)</h4>
+              <ul class="text-sm text-gray-600 space-y-1 ml-4 list-disc" data-i18n="lp_research_t1_list">
+                <li>SHRM 2024: Разход за заместване = 1.5× годишна заплата за средно ниво, 2-2.5× за старши позиции</li>
+                <li>American Fidelity: Уелнес програми намаляват текучеството от 15% на 9% — разлика от 6 напускания на екип от 100 души</li>
+                <li>За модерни компании: €50K-€75K разход за заместване на специалист от средно ниво</li>
+              </ul>
+            </div>
+
+            <!-- Productivity -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-2" data-i18n="lp_research_t2_title">2. Производителност (5% подобрение)</h4>
+              <ul class="text-sm text-gray-600 space-y-1 ml-4 list-disc" data-i18n="lp_research_t2_list">
+                <li>Harvard Business Review: Уелнес програмата на Johnson & Johnson доведе до 12-25% подобрение на производителността</li>
+                <li>Brigham Young University: Нездравословното хранене прави работниците 66% по-склонни към загуба на производителност</li>
+                <li>Проучване на МОТ: 1% увеличение на калорийната адекватност = 2.27% увеличение на трудовата производителност</li>
+              </ul>
+            </div>
+
+            <!-- Sick days -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-2" data-i18n="lp_research_t3_title">3. Намаление на болничните (20%)</h4>
+              <ul class="text-sm text-gray-600 space-y-1 ml-4 list-disc" data-i18n="lp_research_t3_list">
+                <li>WHO Доклад за уелнес на работното място: 27% намаление на отсъствията</li>
+                <li>BMC Public Health: 7 от 39 контролирани проучвания показаха значително подобрение в отсъствията</li>
+                <li>Данни за България: Средно 8 болнични дни/година на служител</li>
+              </ul>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-2" data-i18n="lp_research_t4_title">4. Намаление на здравните разходи (10%)</h4>
+              <ul class="text-sm text-gray-600 space-y-1 ml-4 list-disc" data-i18n="lp_research_t4_list">
+                <li>Harvard School of Public Health: Медицинските разходи спадат с €3.27 за всяко €1 инвестирано в уелнес</li>
+                <li>RAND Corporation: Програмите за управление на заболяванията носят €3.80 възвръщаемост на долар</li>
+                <li>EU-OSHA: Европейските компании виждат €2.20 възвръщаемост за всяко €1 инвестирано</li>
+              </ul>
+            </div>
+
+            <a href="/roi-calculator" class="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors" data-i18n="lp_research_full_link">
+              Виж всички 43 изследвания и детайлни източници →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: ROI CALCULATOR -->
+  <!-- ============================================ -->
+  <section id="roi-calculator" class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-4" data-i18n="lp_calc_headline">
+        Вашият персонализиран ROI
+      </h2>
+      <p class="text-gray-500 text-center mb-12 text-lg" data-i18n="lp_calc_subheadline">Настройте стойностите и вижте колко бихте спестили</p>
+
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+        <!-- LEFT: Inputs -->
+        <div class="bg-gray-50 rounded-2xl p-6 sm:p-8">
+          <!-- Employees -->
+          <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_employees">Брой служители</label>
+              <span class="text-sm font-bold text-primary-600" id="val-employees">150</span>
+            </div>
+            <input type="range" id="slider-employees" min="50" max="500" value="150" step="10" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>50</span><span>500</span></div>
+          </div>
+
+          <!-- Salary -->
+          <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_salary">Средна месечна заплата (€)</label>
+              <span class="text-sm font-bold text-primary-600">€<span id="val-salary">2,000</span></span>
+            </div>
+            <input type="range" id="slider-salary" min="1000" max="5000" value="2000" step="100" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>€1,000</span><span>€5,000</span></div>
+          </div>
+
+          <!-- Turnover -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold text-gray-700" data-i18n="lp_calc_turnover">Процент текучество (%)</label>
+              <span class="text-sm font-bold text-primary-600"><span id="val-turnover">15</span>%</span>
+            </div>
+            <input type="range" id="slider-turnover" min="5" max="30" value="15" step="1" class="landing-slider">
+            <div class="flex justify-between text-xs text-gray-400 mt-1"><span>5%</span><span>30%</span></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div>
+          <!-- Big number -->
+          <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-6 sm:p-8 text-white text-center mb-6">
+            <p class="text-white/80 text-sm mb-1" data-i18n="lp_calc_annual_savings">Годишни спестявания</p>
+            <p class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-2">€<span id="result-total" class="count-up">0</span></p>
+            <p class="text-white/60 text-xs" data-i18n="lp_calc_estimate_note">Базирано на вашите входни данни</p>
+          </div>
+
+          <!-- Breakdown with tooltips -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b1">Намалено текучество</span>
+                <span class="tooltip-trigger text-gray-400 text-xs">
+                  &#9432;
+                  <span class="tooltip-box" id="tooltip-turnover"></span>
+                </span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-turnover">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b2">Производителност</span>
+                <span class="tooltip-trigger text-gray-400 text-xs">
+                  &#9432;
+                  <span class="tooltip-box" id="tooltip-productivity"></span>
+                </span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-productivity">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b3">Намалени болнични</span>
+                <span class="tooltip-trigger text-gray-400 text-xs">
+                  &#9432;
+                  <span class="tooltip-box" id="tooltip-absenteeism"></span>
+                </span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-absenteeism">0</span></span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-50 rounded-xl px-5 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <span class="text-sm text-gray-700" data-i18n="lp_calc_b4">Здравеопазване</span>
+                <span class="tooltip-trigger text-gray-400 text-xs">
+                  &#9432;
+                  <span class="tooltip-box" id="tooltip-healthcare"></span>
+                </span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">€<span id="result-healthcare">0</span></span>
+            </div>
+          </div>
+
+          <!-- CTA below results -->
+          <div class="mt-8 text-center">
+            <a href="#final-cta" class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-primary-600 transition-all cta-pulse" data-i18n="lp_calc_cta">
+              Осигурете тези спестявания — Резервирайте разговор
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: SOCIAL PROOF -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50 fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-4" data-i18n="lp_social_headline">
+        Изграден върху доказана наука
+      </h2>
+      <p class="text-gray-500 text-center mb-12 text-lg" data-i18n="lp_social_subheadline">43 рецензирани изследвания показват измерими резултати при здравословни придобивки</p>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+          <p class="text-3xl sm:text-4xl font-extrabold text-primary-500 mb-2">€3-6</p>
+          <p class="text-sm font-medium text-gray-700 mb-1" data-i18n="lp_social_s1_label">Възвръщаемост за всяко €1 инвестирано</p>
+          <p class="text-xs text-gray-400">Harvard School of Public Health</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+          <p class="text-3xl sm:text-4xl font-extrabold text-primary-500 mb-2">25%</p>
+          <p class="text-sm font-medium text-gray-700 mb-1" data-i18n="lp_social_s2_label">Намаление на текучество</p>
+          <p class="text-xs text-gray-400">SHRM & American Fidelity</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+          <p class="text-3xl sm:text-4xl font-extrabold text-primary-500 mb-2">12-25%</p>
+          <p class="text-sm font-medium text-gray-700 mb-1" data-i18n="lp_social_s3_label">Ръст на производителността</p>
+          <p class="text-xs text-gray-400">Harvard Business Review</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+          <p class="text-3xl sm:text-4xl font-extrabold text-primary-500 mb-2">27%</p>
+          <p class="text-sm font-medium text-gray-700 mb-1" data-i18n="lp_social_s4_label">Намаление на болнични дни</p>
+          <p class="text-xs text-gray-400">WHO Workplace Wellness</p>
+        </div>
+      </div>
+
+      <!-- Aggregated Testimonial -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 text-3xl text-primary-300">"</div>
+          <div>
+            <p class="text-gray-600 italic text-sm sm:text-base" data-i18n="lp_social_quote">
+              След въвеждане на уелнес програма на работното място, текучеството спадна от 18% на 11%. Възвръщаемостта се реализира още в първото тримесечие, с измерим ръст на производителността.
+            </p>
+            <p class="text-gray-400 text-xs mt-3" data-i18n="lp_social_quote_attr">
+              — Типичен резултат базиран на казуси от Harvard Business Review и изследвания на American Fidelity
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 5: WHAT YOU GET -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_whatyouget_headline">
+        Какво получавате от ден първи
+      </h2>
+
+      <!-- 4 Benefit Cards -->
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="text-3xl mb-3">⚡</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_wyg_1_title">Инсталация за 1-3 седмици</h3>
+          <p class="text-gray-600 text-sm" data-i18n="lp_wyg_1_desc">В зависимост от нужното оборудване — персонализирана настройка за вашия офис</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="text-3xl mb-3">📦</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_wyg_2_title">Седмични доставки</h3>
+          <p class="text-gray-600 text-sm" data-i18n="lp_wyg_2_desc">Управлявани изцяло от нас — нула HR администрация</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="text-3xl mb-3">🥗</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_wyg_3_title">Основни ястия на поръчка</h3>
+          <p class="text-gray-600 text-sm" data-i18n="lp_wyg_3_desc">Салати, поке, бурито при предварителна поръчка — пресни и здравословни</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="text-3xl mb-3">🔧</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_wyg_4_title">Пълно обслужване</h3>
+          <p class="text-gray-600 text-sm" data-i18n="lp_wyg_4_desc">Инсталация, поддръжка, месечни отчети — включено в цената</p>
+        </div>
+      </div>
+
+      <!-- SLA Guarantees -->
+      <div class="bg-white rounded-2xl border-2 border-primary-200 p-6 sm:p-8 mb-6">
+        <h3 class="text-lg font-bold text-gray-900 text-center mb-6" data-i18n="lp_wyg_sla_title">Оперативни гаранции</h3>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary-500">48h</p>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1" data-i18n="lp_wyg_sla_1">Реакция при изчерпване</p>
+          </div>
+          <div>
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary-500">0h</p>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1" data-i18n="lp_wyg_sla_2">HR администрация/месец</p>
+          </div>
+          <div>
+            <p class="text-3xl sm:text-4xl font-extrabold text-primary-500">4h</p>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1" data-i18n="lp_wyg_sla_3">Време за отговор на поддръжка</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilot Guarantee -->
+      <div class="bg-primary-50 rounded-2xl border border-primary-200 p-6 sm:p-8">
+        <div class="flex items-start gap-4">
+          <div class="text-3xl flex-shrink-0">🛡️</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_wyg_pilot_title">30-дневен пилот период</h3>
+            <p class="text-gray-600 text-sm" data-i18n="lp_wyg_pilot_desc">Платено от вас (инсталацията е включена), след това минимум 1 година. Прекратяване с 45 дни предизвестие, без санкции при ниско ползване.</p>
+            <p class="text-gray-400 text-xs mt-2" data-i18n="lp_wyg_pilot_note">Опция: Брандиране на оборудването</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: WHO THIS IS FOR -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50 fade-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_who_headline">
+        Genki е идеален за вас, ако:
+      </h2>
+
+      <!-- Positive Criteria -->
+      <div class="bg-primary-50 rounded-2xl p-6 sm:p-8 mb-6 border border-primary-100">
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <span class="text-gray-700" data-i18n="lp_who_yes_1">Модерна компания с 150+ служители (минимум за оптимален ROI)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <span class="text-gray-700" data-i18n="lp_who_yes_2">Офис в София с присъствен или хибриден модел</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <span class="text-gray-700" data-i18n="lp_who_yes_3">Имате бюджет за придобивки и искате да инвестирате в екипа</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <span class="text-gray-700" data-i18n="lp_who_yes_4">Търсите придобивка, която стои до Multisport и CoolFit като "must-have"</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Negative Criteria -->
+      <div class="bg-gray-100 rounded-2xl p-6 sm:p-8 border border-gray-200">
+        <h3 class="text-base font-bold text-gray-700 mb-4" data-i18n="lp_who_no_title">Genki НЕ е подходящ за:</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <span class="text-gray-600" data-i18n="lp_who_no_1">Изцяло дистанционни компании без офис присъствие</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <span class="text-gray-600" data-i18n="lp_who_no_2">Компании, които искат служителите да плащат 100% от разходите</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <span class="text-gray-600" data-i18n="lp_who_no_3">Компании извън София (за момента)</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 7: PROBLEMS + SOLUTIONS COMBINED -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_ps_headline">
+        Какво ви струва пари + Как Genki ви спестява
+      </h2>
+
+      <div class="space-y-6">
+
+        <!-- Block 1: Productivity -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <p class="text-gray-800 font-semibold" data-i18n="lp_ps_1_problem">Проблем: Служителите губят 60+ минути на ден, чакайки за храна в ресторанти и опашки</p>
+          </div>
+          <div class="flex items-start gap-3 ml-0 sm:ml-8">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <p class="text-gray-700" data-i18n="lp_ps_1_solution">Решение: Храна на място съкращава обедната почивка от 90мин → 30мин. 30 минути × 150 служители × 220 работни дни = €26K-€40K спестени годишно</p>
+          </div>
+        </div>
+
+        <!-- Block 2: Turnover -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <p class="text-gray-800 font-semibold" data-i18n="lp_ps_2_problem">Проблем: Губите €50K-€150K всеки път когато старши специалист напусне за конкурент с по-добри придобивки</p>
+          </div>
+          <div class="flex items-start gap-3 ml-0 sm:ml-8">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <p class="text-gray-700" data-i18n="lp_ps_2_solution">Решение: Осезаема ежедневна придобивка прави хората да остават по-дълго. Уелнес програмите намаляват текучеството с 25%</p>
+          </div>
+        </div>
+
+        <!-- Block 3: Sick Days -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <p class="text-gray-800 font-semibold" data-i18n="lp_ps_3_problem">Проблем: 120 ненужни болнични дни годишно от нездравословна храна, стрес и прегаряне</p>
+          </div>
+          <div class="flex items-start gap-3 ml-0 sm:ml-8">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <p class="text-gray-700" data-i18n="lp_ps_3_solution">Решение: Здравословна храна намалява болничните с 20-27%. По-малко отсъствия = по-стабилна продуктивност</p>
+          </div>
+        </div>
+
+        <!-- Block 4: HR Admin -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <p class="text-gray-800 font-semibold" data-i18n="lp_ps_4_problem">Проблем: Вашият HR харчи 5-10 часа седмично, управлявайки доставчици на храна вместо да намира таланти</p>
+          </div>
+          <div class="flex items-start gap-3 ml-0 sm:ml-8">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <p class="text-gray-700" data-i18n="lp_ps_4_solution">Решение: Ние се грижим за всичко A-to-Z. Нула часа администрация от ваша страна</p>
+          </div>
+        </div>
+
+        <!-- Block 5: Hiring Speed -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-red-500 font-bold text-lg flex-shrink-0">❌</span>
+            <p class="text-gray-800 font-semibold" data-i18n="lp_ps_5_problem">Проблем: Загубвате кандидати на финалния етап, защото офер-ът изглежда "средно" спрямо конкуренцията</p>
+          </div>
+          <div class="flex items-start gap-3 ml-0 sm:ml-8">
+            <span class="text-primary-500 font-bold text-lg flex-shrink-0">✅</span>
+            <p class="text-gray-700" data-i18n="lp_ps_5_solution">Решение: Моментална диференциация. Придобивки като Genki + Multisport + здравно = работодателска марка от висок клас</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 8: WHY GENKI WINS (DIFFERENTIATORS) -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50 fade-section">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_pillars_headline">
+        Защо Genki печели
+      </h2>
+
+      <div class="grid sm:grid-cols-3 gap-6 sm:gap-8">
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="leaf" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_1_title">Само здравословни и био продукти</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_1_desc">Нула вредни съставки, точка.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="map-pin" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_2_title">100% български доставчици</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_2_desc">Подкрепете местния бизнес, нахранете екипа си.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="heart" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="lp_pillar_3_title">10%+ месечно дарение</h3>
+          <p class="text-gray-500 text-sm" data-i18n="lp_pillar_3_desc">Социална отговорност, от ден първи.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 9: FAQ -->
+  <!-- ============================================ -->
+  <section class="py-16 sm:py-24 bg-white fade-section">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 text-center mb-12" data-i18n="lp_faq_headline">
+        Често задавани въпроси
+      </h2>
+
+      <div class="space-y-3" id="faq-accordion">
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q1">Какво се случва ако служителите не ползват Genki?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a1">
+            Ако ползването е под 50%, ще обсъдим заедно какво да променим. Можете да прекратите с 45 дни предизвестие, без санкции. Нашият опит от пилотни програми показва 85%+ ползване когато компанията покрива разходите.
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q2">Колко струва инсталацията?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a2">
+            Зависи от оборудването, брандирането и количеството продукти. Обикновено €1,500-€2,500. Първите 10 клиента получават 10% отстъпка на инсталацията.
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q3">Какъв е минималният ангажимент?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a3">
+            30-дневен пилот период (платен от вас включително инсталация), след това минимум 1 година. Прекратяване с 60 дни предизвестие след пилотния период.
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q4">Колко бързо можем да стартираме?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a4">
+            1-3 седмици от подписан договор, в зависимост от нуждите от оборудване и брандиране. Ден 1-3: Оценка на офиса → Ден 4-10: Инсталация и брандиране → Ден 11-21: Първа доставка
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q5">Имате ли минимален брой служители?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a5">
+            Не, но се фокусираме върху компании с 150+ служители за оптимална възвръщаемост и бюджетен капацитет. По-малки офиси могат да работят с нас, но калкулаторът е оптимизиран за екипи от 150+ души.
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q6">Работите ли с remote компании?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a6">
+            Не — нуждаем се от физически офис в София с присъствен или хибриден модел (поне 3 дни седмично присъствие). Изцяло дистанционните компании не могат да се възползват от ефекта на социалния център.
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl border border-gray-100">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base pr-4" data-i18n="lp_faq_q7">Как се позиционирате спрямо Multisport, CoolFit?</span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 expand-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer px-6 text-sm text-gray-600" data-i18n="lp_faq_a7">
+            Стоим редом до тях като задължителна придобивка. Те покриват фитнеса, ние покриваме здравословната храна и енергията през деня. Компаниите, които предлагат и двете, виждат най-висока удовлетвореност на служителите.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 10: FINAL CTA WITH URGENCY -->
+  <!-- ============================================ -->
+  <section id="final-cta" class="py-16 sm:py-24 bg-primary-500 fade-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4" data-i18n="lp_cta_headline">
+        Спрете да губите €150K+ — Първите 10 компании получават 10% отстъпка
+      </h2>
+
+      <p class="text-white/80 text-base sm:text-lg mb-8" data-i18n="lp_cta_urgency">
+        Ограничена оферта: Резервирайте до 28 Февруари 2026 и получете 10% отстъпка на инсталацията (спестете €150-€250)
+      </p>
+
+      <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-primary-700 px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-lg mb-8" data-i18n="lp_cta_primary" data-umami-event="landing-book-call">
+        Резервирайте 30-мин демо сега
+      </a>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6">
+        <p class="text-white/60 text-sm" data-i18n="lp_cta_badge_1">Базирано на 43 научни изследвания</p>
+        <p class="text-white/60 text-sm">•</p>
+        <p class="text-white/60 text-sm" data-i18n="lp_cta_badge_2">85%+ степен на ползване при пилотни програми</p>
+        <p class="text-white/60 text-sm">•</p>
+        <p class="text-white/60 text-sm" data-i18n="lp_cta_badge_3">Гарантиран ROI или прекратяване без санкции</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-gray-900 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-3 gap-8 text-center sm:text-left">
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_contact">Контакт</h4>
+          <p class="text-gray-400 text-sm">hello@genki.bg</p>
+        </div>
+        <!-- Legal -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_legal">Правна информация</h4>
+          <a href="privacy.html?minimal=1" id="privacy-link" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm block mb-1" data-i18n="lp_footer_privacy">Поверителност</a>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-semibold mb-3" data-i18n="lp_footer_company">Компания</h4>
+          <p class="text-gray-400 text-sm">"Guilt Free Vend" Ltd.</p>
+          <p class="text-gray-500 text-xs mt-1">EIK: 207668100</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 Genki. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- EMAIL CAPTURE MODAL (for exit-intent only) -->
+  <!-- ============================================ -->
+  <div id="email-modal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 modal-backdrop" id="modal-backdrop-el"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+        <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="text-center mb-6">
+          <div class="text-4xl mb-3">⚠️</div>
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="lp_exit_title">Чакай! Преди да напуснеш...</h3>
+          <p class="text-gray-500 text-sm mt-1" data-i18n="lp_exit_subtitle">Изтегли безплатния наръчник за ROI на придобивките</p>
+        </div>
+
+        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+          <li class="flex items-start gap-2">
+            <span class="text-primary-500 flex-shrink-0">•</span>
+            <span data-i18n="lp_exit_bullet_1">Казуси от 43 рецензирани научни изследвания</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-500 flex-shrink-0">•</span>
+            <span data-i18n="lp_exit_bullet_2">Сравнителни данни за българския пазар</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-500 flex-shrink-0">•</span>
+            <span data-i18n="lp_exit_bullet_3">Чеклист за внедряване</span>
+          </li>
+        </ul>
+
+        <form id="email-form" action="https://formspree.io/f/mkovjqpr" method="POST">
+          <input type="hidden" name="_subject" id="form-subject" value="🎯 ROI Report Request">
+          <input type="hidden" name="_replyto" id="form-replyto" value="">
+          <input type="hidden" name="roi_report" id="form-roi-report" value="">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_name">Име</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_name_ph" placeholder="Вашето име">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_email">Имейл</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_email_ph" placeholder="name@company.bg">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="lp_modal_company">Компания</label>
+              <input type="text" name="company" id="form-company" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-0 outline-none transition-colors text-sm" data-i18n-placeholder="lp_modal_company_ph" placeholder="Име на компанията">
+            </div>
+            <button type="submit" class="w-full bg-primary-500 text-white py-3 rounded-xl font-bold text-base hover:bg-primary-600 transition-colors" data-i18n="lp_exit_submit" data-umami-event="landing-exit-email-submit">
+              Изтегли безплатно
+            </button>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div id="form-success" class="hidden text-center py-6">
+          <div class="text-5xl mb-3">&#10003;</div>
+          <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="lp_modal_success_title">Благодаря!</h4>
+          <p class="text-gray-500" data-i18n="lp_modal_success_desc">Проверете имейла си.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT -->
+  <!-- ============================================ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // =============================================
+    // TRANSLATIONS
+    // =============================================
+    var T = {
+      lp_nav_cta: { bg: 'Резервирайте демо', en: 'Book Demo' },
+      lp_hero_headline: {
+        bg: 'Спестете <span class="text-primary-500">€110K-250K</span> годишно и спечелете войната за таланти',
+        en: 'Save <span class="text-primary-500">€110K-250K</span> Annually While Winning the Talent War'
+      },
+      lp_hero_subheadline: {
+        bg: 'Здравословна хранителна придобивка за модерни компании — Нулева администрация, български продукти, 10% за благотворителност.',
+        en: 'Healthy workplace food benefit for modern companies — Zero admin, Bulgarian-made, 10% to charity.'
+      },
+      lp_hero_cta: { bg: 'Резервирайте 30-мин демо', en: 'Book 30-Min Demo' },
+      lp_hero_cta_secondary: { bg: 'Виж как работи калкулаторът', en: 'See How the ROI Calculator Works' },
+      lp_pill_1: { bg: 'Български продукти', en: 'Bulgarian Products' },
+      lp_pill_2: { bg: '10% дарение', en: '10% Donated' },
+      lp_pill_3: { bg: 'Нула вредни съставки', en: 'Zero Junk' },
+      lp_pill_4: { bg: 'Пълно обслужване', en: 'Full Service' },
+
+      // Research credibility
+      lp_research_main: {
+        bg: '<span class="text-xl mr-2">💡</span> Базирано на 43 рецензирани научни изследвания от Harvard, WHO, RAND Corporation, Global Wellness Institute',
+        en: '<span class="text-xl mr-2">💡</span> Based on 43 peer-reviewed studies from Harvard, WHO, RAND Corporation, Global Wellness Institute'
+      },
+      lp_research_toggle: { bg: 'Виж пълната методология и изследвания', en: 'See full methodology and research' },
+      lp_research_expand_title: { bg: 'Как изчисляваме ROI спестяванията:', en: 'How we calculate ROI savings:' },
+      lp_research_t1_title: { bg: '1. Намаление на текучеството (25%)', en: '1. Turnover Reduction (25%)' },
+      lp_research_t1_list: {
+        bg: '<li>SHRM 2024: Разход за заместване = 1.5× годишна заплата за средно ниво, 2-2.5× за старши позиции</li><li>American Fidelity: Уелнес програми намаляват текучеството от 15% на 9% — разлика от 6 напускания на екип от 100 души</li><li>За модерни компании: €50K-€75K разход за заместване на специалист от средно ниво</li>',
+        en: '<li>SHRM 2024: Replacement cost = 1.5× annual salary for mid-level, 2-2.5× for senior positions</li><li>American Fidelity: Wellness programs reduce turnover from 15% to 9% — a difference of 6 departures per 100-person team</li><li>For modern companies: €50K-€75K replacement cost for mid-level specialist</li>'
+      },
+      lp_research_t2_title: { bg: '2. Производителност (5% подобрение)', en: '2. Productivity (5% gain)' },
+      lp_research_t2_list: {
+        bg: '<li>Harvard Business Review: Уелнес програмата на Johnson & Johnson доведе до 12-25% подобрение на производителността</li><li>Brigham Young University: Нездравословното хранене прави работниците 66% по-склонни към загуба на производителност</li><li>Проучване на МОТ: 1% увеличение на калорийната адекватност = 2.27% увеличение на трудовата производителност</li>',
+        en: '<li>Harvard Business Review: Johnson & Johnson wellness program delivered 12-25% productivity improvements</li><li>Brigham Young University: Unhealthy diets make workers 66% more likely to have productivity loss</li><li>ILO Study: 1% increase in caloric adequacy = 2.27% increase in labor productivity</li>'
+      },
+      lp_research_t3_title: { bg: '3. Намаление на болничните (20%)', en: '3. Sick Days Reduction (20%)' },
+      lp_research_t3_list: {
+        bg: '<li>WHO Доклад за уелнес на работното място: 27% намаление на отсъствията</li><li>BMC Public Health: 7 от 39 контролирани проучвания показаха значително подобрение в отсъствията</li><li>Данни за България: Средно 8 болнични дни/година на служител</li>',
+        en: '<li>WHO Workplace Wellness Report: 27% reduction in absenteeism</li><li>BMC Public Health: 7 of 39 controlled studies showed significant improvements in absenteeism</li><li>Bulgaria data: Average 8 sick days/year per employee</li>'
+      },
+      lp_research_t4_title: { bg: '4. Намаление на здравните разходи (10%)', en: '4. Healthcare Cost Reduction (10%)' },
+      lp_research_t4_list: {
+        bg: '<li>Harvard School of Public Health: Медицинските разходи спадат с €3.27 за всяко €1 инвестирано в уелнес</li><li>RAND Corporation: Програмите за управление на заболяванията носят €3.80 възвръщаемост на долар</li><li>EU-OSHA: Европейските компании виждат €2.20 възвръщаемост за всяко €1 инвестирано</li>',
+        en: '<li>Harvard School of Public Health: Medical costs fall by €3.27 for every €1 invested in wellness</li><li>RAND Corporation: Disease management programs deliver €3.80 ROI per dollar</li><li>EU-OSHA: European companies see €2.20 return for every €1 invested</li>'
+      },
+      lp_research_full_link: { bg: 'Виж всички 43 изследвания и детайлни източници →', en: 'See all 43 studies and detailed sources →' },
+
+      // Calculator
+      lp_calc_headline: { bg: 'Вашият персонализиран ROI', en: 'Your Personalized ROI' },
+      lp_calc_subheadline: { bg: 'Настройте стойностите и вижте колко бихте спестили', en: 'Adjust the values and see how much you could save' },
+      lp_calc_employees: { bg: 'Брой служители', en: 'Number of Employees' },
+      lp_calc_salary: { bg: 'Средна месечна заплата (€)', en: 'Average Monthly Salary (€)' },
+      lp_calc_turnover: { bg: 'Процент текучество (%)', en: 'Turnover Rate (%)' },
+      lp_calc_annual_savings: { bg: 'Годишни спестявания', en: 'Annual Savings' },
+      lp_calc_estimate_note: { bg: 'Базирано на вашите входни данни', en: 'Based on your input data' },
+      lp_calc_b1: { bg: 'Намалено текучество', en: 'Turnover Savings' },
+      lp_calc_b2: { bg: 'Производителност', en: 'Productivity Gains' },
+      lp_calc_b3: { bg: 'Намалени болнични', en: 'Absenteeism Savings' },
+      lp_calc_b4: { bg: 'Здравеопазване', en: 'Healthcare Savings' },
+      lp_calc_cta: { bg: 'Осигурете тези спестявания — Резервирайте разговор', en: 'Lock These Savings — Book Your Call' },
+
+      // Social proof
+      lp_social_headline: { bg: 'Изграден върху доказана наука', en: 'Built on Proven Science' },
+      lp_social_subheadline: { bg: '43 рецензирани изследвания показват измерими резултати при здравословни придобивки', en: '43 peer-reviewed studies show measurable results with health-focused benefits' },
+      lp_social_s1_label: { bg: 'Възвръщаемост за всяко €1 инвестирано', en: 'Return for Every €1 Invested' },
+      lp_social_s2_label: { bg: 'Намаление на текучество', en: 'Turnover Reduction' },
+      lp_social_s3_label: { bg: 'Ръст на производителността', en: 'Productivity Gain' },
+      lp_social_s4_label: { bg: 'Намаление на болнични дни', en: 'Sick Days Reduction' },
+      lp_social_quote: {
+        bg: 'След въвеждане на уелнес програма на работното място, текучеството спадна от 18% на 11%. Възвръщаемостта се реализира още в първото тримесечие, с измерим ръст на производителността.',
+        en: 'After implementing a workplace wellness program, turnover dropped from 18% to 11%. ROI occurred in the first quarter, with measurable productivity gains.'
+      },
+      lp_social_quote_attr: {
+        bg: '— Типичен резултат базиран на казуси от Harvard Business Review и изследвания на American Fidelity',
+        en: '— Typical result based on case studies from Harvard Business Review and American Fidelity research'
+      },
+
+      // What you get
+      lp_whatyouget_headline: { bg: 'Какво получавате от ден първи', en: 'What You Get From Day One' },
+      lp_wyg_1_title: { bg: 'Инсталация за 1-3 седмици', en: 'Setup in 1-3 Weeks' },
+      lp_wyg_1_desc: { bg: 'В зависимост от нужното оборудване — персонализирана настройка за вашия офис', en: 'Depending on equipment needed — personalized setup for your office' },
+      lp_wyg_2_title: { bg: 'Седмични доставки', en: 'Weekly Deliveries' },
+      lp_wyg_2_desc: { bg: 'Управлявани изцяло от нас — нула HR администрация', en: 'Fully managed by us — zero HR admin' },
+      lp_wyg_3_title: { bg: 'Основни ястия на поръчка', en: 'Meals on Order' },
+      lp_wyg_3_desc: { bg: 'Салати, поке, бурито при предварителна поръчка — пресни и здравословни', en: 'Salads, poke bowls, burritos via pre-order — fresh and healthy' },
+      lp_wyg_4_title: { bg: 'Пълно обслужване', en: 'Full Service' },
+      lp_wyg_4_desc: { bg: 'Инсталация, поддръжка, месечни отчети — включено в цената', en: 'Installation, maintenance, monthly reports — included in the price' },
+      lp_wyg_sla_title: { bg: 'Оперативни гаранции', en: 'Operational Guarantees' },
+      lp_wyg_sla_1: { bg: 'Реакция при изчерпване', en: 'Stockout response time' },
+      lp_wyg_sla_2: { bg: 'HR администрация/месец', en: 'HR admin/month' },
+      lp_wyg_sla_3: { bg: 'Време за отговор на поддръжка', en: 'Support response time' },
+      lp_wyg_pilot_title: { bg: '30-дневен пилот период', en: '30-Day Pilot Period' },
+      lp_wyg_pilot_desc: { bg: 'Платено от вас (инсталацията е включена), след това минимум 1 година. Прекратяване с 45 дни предизвестие, без санкции при ниско ползване.', en: 'Paid by you (setup included), then minimum 1 year. Cancel with 45 days notice, no penalties for low adoption.' },
+      lp_wyg_pilot_note: { bg: 'Опция: Брандиране на оборудването', en: 'Option: Equipment branding' },
+
+      // Who this is for
+      lp_who_headline: { bg: 'Genki е идеален за вас, ако:', en: 'Genki Is Ideal For You If:' },
+      lp_who_yes_1: { bg: 'Модерна компания с 150+ служители (минимум за оптимален ROI)', en: 'Modern company with 150+ employees (minimum for optimal ROI)' },
+      lp_who_yes_2: { bg: 'Офис в София с присъствен или хибриден модел', en: 'Office in Sofia with in-office or hybrid model' },
+      lp_who_yes_3: { bg: 'Имате бюджет за придобивки и искате да инвестирате в екипа', en: 'You have budget for employee benefits and want to invest in your team' },
+      lp_who_yes_4: { bg: 'Търсите придобивка, която стои до Multisport и CoolFit като "must-have"', en: 'Looking for a benefit that stands next to Multisport and CoolFit as a "must-have"' },
+      lp_who_no_title: { bg: 'Genki НЕ е подходящ за:', en: 'Genki Is NOT Right For:' },
+      lp_who_no_1: { bg: 'Изцяло дистанционни компании без офис присъствие', en: 'Remote-first companies without office presence' },
+      lp_who_no_2: { bg: 'Компании, които искат служителите да плащат 100% от разходите', en: 'Companies wanting employees to pay 100% of costs' },
+      lp_who_no_3: { bg: 'Компании извън София (за момента)', en: 'Companies outside Sofia (for now)' },
+
+      // Problems + Solutions
+      lp_ps_headline: { bg: 'Какво ви струва пари + Как Genki ви спестява', en: "What's Costing You Money + How Genki Saves" },
+      lp_ps_1_problem: { bg: 'Проблем: Служителите губят 60+ минути на ден, чакайки за храна в ресторанти и опашки', en: 'Problem: Employees lose 60+ minutes daily waiting for food in restaurants and queues' },
+      lp_ps_1_solution: { bg: 'Решение: Храна на място съкращава обедната почивка от 90мин → 30мин. 30 минути × 150 служители × 220 работни дни = €26K-€40K спестени годишно', en: 'Solution: On-site food cuts lunch from 90min → 30min. 30 min × 150 employees × 220 days = €26K-€40K saved annually' },
+      lp_ps_2_problem: { bg: 'Проблем: Губите €50K-€150K всеки път когато старши специалист напусне за конкурент с по-добри придобивки', en: 'Problem: You lose €50K-€150K every time a senior developer leaves for a competitor with better benefits' },
+      lp_ps_2_solution: { bg: 'Решение: Осезаема ежедневна придобивка прави хората да остават по-дълго. Уелнес програмите намаляват текучеството с 25%', en: 'Solution: A tangible daily benefit makes people stay longer. Wellness programs reduce turnover by 25%' },
+      lp_ps_3_problem: { bg: 'Проблем: 120 ненужни болнични дни годишно от нездравословна храна, стрес и прегаряне', en: 'Problem: 120 unnecessary sick days yearly from unhealthy food, stress and burnout' },
+      lp_ps_3_solution: { bg: 'Решение: Здравословна храна намалява болничните с 20-27%. По-малко отсъствия = по-стабилна продуктивност', en: 'Solution: Healthy food reduces sick days by 20-27%. Less sick leave = more stable productivity' },
+      lp_ps_4_problem: { bg: 'Проблем: Вашият HR харчи 5-10 часа седмично, управлявайки доставчици на храна вместо да намира таланти', en: 'Problem: Your HR spends 5-10 hours weekly managing food suppliers instead of finding talent' },
+      lp_ps_4_solution: { bg: 'Решение: Ние се грижим за всичко A-to-Z. Нула часа администрация от ваша страна', en: 'Solution: We handle everything A-to-Z. Zero hours of admin on your side' },
+      lp_ps_5_problem: { bg: 'Проблем: Загубвате кандидати на финалния етап, защото офер-ът изглежда "средно" спрямо конкуренцията', en: 'Problem: You lose candidates at the final stage because the offer looks "average" vs competition' },
+      lp_ps_5_solution: { bg: 'Решение: Моментална диференциация. Придобивки като Genki + Multisport + здравно = работодателска марка от висок клас', en: 'Solution: Instant differentiation. Benefits like Genki + Multisport + health = premium employer brand' },
+
+      // Differentiators
+      lp_pillars_headline: { bg: 'Защо Genki печели', en: 'Why Genki Wins' },
+      lp_pillar_1_title: { bg: 'Само здравословни и био продукти', en: 'Only Healthy & Bio' },
+      lp_pillar_1_desc: { bg: 'Нула вредни съставки, точка.', en: 'Zero harmful ingredients, period.' },
+      lp_pillar_2_title: { bg: '100% български доставчици', en: '100% Bulgarian Suppliers' },
+      lp_pillar_2_desc: { bg: 'Подкрепете местния бизнес, нахранете екипа си.', en: 'Support local, feed your team.' },
+      lp_pillar_3_title: { bg: '10%+ месечно дарение', en: '10%+ Monthly Donation' },
+      lp_pillar_3_desc: { bg: 'Социална отговорност, от ден първи.', en: 'Social responsibility, day one.' },
+
+      // FAQ
+      lp_faq_headline: { bg: 'Често задавани въпроси', en: 'Frequently Asked Questions' },
+      lp_faq_q1: { bg: 'Какво се случва ако служителите не ползват Genki?', en: 'What happens if employees don\'t use Genki?' },
+      lp_faq_a1: { bg: 'Ако ползването е под 50%, ще обсъдим заедно какво да променим. Можете да прекратите с 45 дни предизвестие, без санкции. Нашият опит от пилотни програми показва 85%+ ползване когато компанията покрива разходите.', en: 'If adoption is below 50%, we\'ll discuss what to change together. You can cancel with 45 days notice, no penalties. Our pilot experience shows 85%+ adoption when the company covers costs.' },
+      lp_faq_q2: { bg: 'Колко струва инсталацията?', en: 'How much does setup cost?' },
+      lp_faq_a2: { bg: 'Зависи от оборудването, брандирането и количеството продукти. Обикновено €1,500-€2,500. Първите 10 клиента получават 10% отстъпка на инсталацията.', en: 'Depends on equipment, branding and product quantity. Usually €1,500-€2,500. First 10 clients get 10% setup discount.' },
+      lp_faq_q3: { bg: 'Какъв е минималният ангажимент?', en: 'What is the minimum commitment?' },
+      lp_faq_a3: { bg: '30-дневен пилот период (платен от вас включително инсталация), след това минимум 1 година. Прекратяване с 60 дни предизвестие след пилотния период.', en: '30-day pilot period (paid by you including setup), then minimum 1 year. Cancel with 60 days notice after pilot.' },
+      lp_faq_q4: { bg: 'Колко бързо можем да стартираме?', en: 'How quickly can we start?' },
+      lp_faq_a4: { bg: '1-3 седмици от подписан договор, в зависимост от нуждите от оборудване и брандиране. Ден 1-3: Оценка на офиса → Ден 4-10: Инсталация и брандиране → Ден 11-21: Първа доставка', en: '1-3 weeks from signed contract, depending on equipment and branding needs. Day 1-3: Office assessment → Day 4-10: Setup & branding → Day 11-21: First delivery' },
+      lp_faq_q5: { bg: 'Имате ли минимален брой служители?', en: 'Do you have a minimum employee count?' },
+      lp_faq_a5: { bg: 'Не, но се фокусираме върху компании с 150+ служители за оптимална възвръщаемост и бюджетен капацитет. По-малки офиси могат да работят с нас, но калкулаторът е оптимизиран за екипи от 150+ души.', en: 'No, but we focus on companies with 150+ employees for optimal ROI and budget capacity. Smaller offices can work with us, but the ROI calculator is optimized for 150+ teams.' },
+      lp_faq_q6: { bg: 'Работите ли с remote компании?', en: 'Do you work with remote companies?' },
+      lp_faq_a6: { bg: 'Не — нуждаем се от физически офис в София с присъствен или хибриден модел (поне 3 дни седмично присъствие). Изцяло дистанционните компании не могат да се възползват от ефекта на социалния център.', en: 'No — we need a physical office in Sofia with in-office or hybrid model (at least 3 days/week presence). Remote-first companies can\'t benefit from the social hub effect.' },
+      lp_faq_q7: { bg: 'Как се позиционирате спрямо Multisport, CoolFit?', en: 'How do you compare to Multisport, CoolFit?' },
+      lp_faq_a7: { bg: 'Стоим редом до тях като задължителна придобивка. Те покриват фитнеса, ние покриваме здравословната храна и енергията през деня. Компаниите, които предлагат и двете, виждат най-висока удовлетвореност на служителите.', en: 'We stand alongside them as a "must-have" benefit. They cover fitness, we cover healthy food and daytime energy. Companies offering both see the highest employee satisfaction.' },
+
+      // Final CTA
+      lp_cta_headline: { bg: 'Спрете да губите €150K+ — Първите 10 компании получават 10% отстъпка', en: 'Stop Losing €150K+ — First 10 Companies Get 10% Off' },
+      lp_cta_urgency: { bg: 'Ограничена оферта: Резервирайте до 28 Февруари 2026 и получете 10% отстъпка на инсталацията (спестете €150-€250)', en: 'Limited offer: Book by February 28, 2026 and get 10% off setup (save €150-€250)' },
+      lp_cta_primary: { bg: 'Резервирайте 30-мин демо сега', en: 'Book 30-Min Demo Now' },
+      lp_cta_badge_1: { bg: 'Базирано на 43 научни изследвания', en: 'Based on 43 scientific studies' },
+      lp_cta_badge_2: { bg: '85%+ степен на ползване при пилотни програми', en: '85%+ adoption rate in pilot programs' },
+      lp_cta_badge_3: { bg: 'Гарантиран ROI или прекратяване без санкции', en: 'Guaranteed ROI or cancel without penalties' },
+
+      // Footer
+      lp_footer_contact: { bg: 'Контакт', en: 'Contact' },
+      lp_footer_legal: { bg: 'Правна информация', en: 'Legal' },
+      lp_footer_privacy: { bg: 'Поверителност', en: 'Privacy Policy' },
+      lp_footer_company: { bg: 'Компания', en: 'Company' },
+
+      // Exit-intent modal
+      lp_exit_title: { bg: 'Чакай! Преди да напуснеш...', en: 'Wait! Before you leave...' },
+      lp_exit_subtitle: { bg: 'Изтегли безплатния наръчник за ROI на придобивките', en: 'Download the free IT Benefits ROI Guide' },
+      lp_exit_bullet_1: { bg: 'Казуси от 43 рецензирани научни изследвания', en: 'Case studies from 43 peer-reviewed studies' },
+      lp_exit_bullet_2: { bg: 'Сравнителни данни за българския пазар', en: 'Benchmark data for the Bulgarian market' },
+      lp_exit_bullet_3: { bg: 'Чеклист за внедряване', en: 'Implementation checklist' },
+      lp_exit_submit: { bg: 'Изтегли безплатно', en: 'Download for Free' },
+      lp_modal_name: { bg: 'Име', en: 'Name' },
+      lp_modal_name_ph: { bg: 'Вашето име', en: 'Your name' },
+      lp_modal_email: { bg: 'Имейл', en: 'Email' },
+      lp_modal_email_ph: { bg: 'name@company.bg', en: 'name@company.bg' },
+      lp_modal_company: { bg: 'Компания', en: 'Company' },
+      lp_modal_company_ph: { bg: 'Име на компанията', en: 'Company name' },
+      lp_modal_success_title: { bg: 'Благодаря!', en: 'Thank you!' },
+      lp_modal_success_desc: { bg: 'Проверете имейла си.', en: 'Check your email.' },
+    };
+
+    var currentLang = localStorage.getItem('genki_lp_lang') || 'bg';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('genki_lp_lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (T[key] && T[key][lang]) {
+          el.innerHTML = T[key][lang];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        if (T[key] && T[key][lang]) {
+          el.placeholder = T[key][lang];
+        }
+      });
+
+      // Update privacy link to match language
+      var privacyLink = document.getElementById('privacy-link');
+      if (privacyLink) privacyLink.href = lang === 'en' ? 'privacy-en.html?minimal=1' : 'privacy.html?minimal=1';
+
+      var label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'bg' ? 'EN' : 'BG';
+    }
+
+    // =============================================
+    // LANGUAGE TOGGLE
+    // =============================================
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      var next = currentLang === 'bg' ? 'en' : 'bg';
+      applyLanguage(next);
+    });
+
+    // =============================================
+    // ROI CALCULATOR
+    // =============================================
+    var sliderEmployees = document.getElementById('slider-employees');
+    var sliderSalary = document.getElementById('slider-salary');
+    var sliderTurnover = document.getElementById('slider-turnover');
+
+    var CONFIG = {
+      workingDaysPerMonth: 22,
+      workingDaysPerYear: 220,
+      monthsPerYear: 12,
+      replacementCostMultiplier: 1.5,
+      healthcareCostPerEmployee: 500,
+      sickDays: 8,
+      productsPerDay: 2.5,
+      productCost: 1.5
+    };
+
+    var SCENARIO = {
+      turnoverReduction: 0.25,
+      absenteeismReduction: 0.20,
+      productivityGain: 0.05,
+      healthcareReduction: 0.10
+    };
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function calculate() {
+      var teamSize = parseInt(sliderEmployees.value);
+      var monthlySalary = parseInt(sliderSalary.value);
+      var turnoverRate = parseInt(sliderTurnover.value) / 100;
+      var annualSalary = monthlySalary * CONFIG.monthsPerYear;
+
+      // Turnover Savings
+      var replacementCost = annualSalary * CONFIG.replacementCostMultiplier;
+      var currentTurnoverCost = teamSize * turnoverRate * replacementCost;
+      var turnoverSavings = currentTurnoverCost * SCENARIO.turnoverReduction;
+
+      // Absenteeism Savings
+      var dailySalary = annualSalary / CONFIG.workingDaysPerYear;
+      var currentAbsenteeismCost = teamSize * CONFIG.sickDays * dailySalary;
+      var absenteeismSavings = currentAbsenteeismCost * SCENARIO.absenteeismReduction;
+
+      // Productivity Gains
+      var productivityValue = teamSize * annualSalary * SCENARIO.productivityGain;
+
+      // Healthcare Savings
+      var healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * SCENARIO.healthcareReduction;
+
+      // Total
+      var totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+
+      // Update slider display values
+      document.getElementById('val-employees').textContent = teamSize;
+      document.getElementById('val-salary').textContent = fmt(monthlySalary);
+      document.getElementById('val-turnover').textContent = sliderTurnover.value;
+
+      // Update result displays — direct set + animation
+      setResultValue('result-total', totalSavings);
+      setResultValue('result-turnover', turnoverSavings);
+      setResultValue('result-productivity', productivityValue);
+      setResultValue('result-absenteeism', absenteeismSavings);
+      setResultValue('result-healthcare', healthcareSavings);
+
+      // Update tooltips with formula breakdowns
+      updateTooltips(teamSize, monthlySalary, turnoverRate, annualSalary, replacementCost, dailySalary);
+    }
+
+    // Direct value set with smooth animation
+    var animationFrames = {};
+    function setResultValue(id, target) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var current = parseInt(el.textContent.replace(/,/g, '')) || 0;
+      var diff = target - current;
+      var steps = 20;
+      var step = 0;
+
+      if (animationFrames[id]) cancelAnimationFrame(animationFrames[id]);
+
+      // If no animation needed, set directly
+      if (Math.abs(diff) < 1) {
+        el.textContent = fmt(Math.round(target));
+        return;
+      }
+
+      function tick() {
+        step++;
+        var progress = step / steps;
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.round(current + diff * eased);
+        el.textContent = fmt(value);
+        if (step < steps) {
+          animationFrames[id] = requestAnimationFrame(tick);
+        } else {
+          el.textContent = fmt(Math.round(target));
+        }
+      }
+      tick();
+    }
+
+    function updateTooltips(teamSize, monthlySalary, turnoverRate, annualSalary, replacementCost, dailySalary) {
+      var turnoverPct = Math.round(turnoverRate * 100);
+      var ttTurnover = document.getElementById('tooltip-turnover');
+      if (ttTurnover) {
+        ttTurnover.textContent = 'Изчисление: ' + teamSize + ' служители × ' + turnoverPct + '% текучество × €' + fmt(replacementCost) + ' разход за заместване × 25% намаление';
+      }
+      var ttProductivity = document.getElementById('tooltip-productivity');
+      if (ttProductivity) {
+        ttProductivity.textContent = 'Изчисление: ' + teamSize + ' служители × €' + fmt(annualSalary) + ' заплата × 5% ръст на производителността';
+      }
+      var ttAbsenteeism = document.getElementById('tooltip-absenteeism');
+      if (ttAbsenteeism) {
+        ttAbsenteeism.textContent = 'Изчисление: ' + teamSize + ' служители × 8 болнични × €' + fmt(Math.round(dailySalary)) + '/ден × 20% намаление';
+      }
+      var ttHealthcare = document.getElementById('tooltip-healthcare');
+      if (ttHealthcare) {
+        ttHealthcare.textContent = 'Изчисление: ' + teamSize + ' служители × €500 здравни разходи × 10% намаление';
+      }
+    }
+
+    sliderEmployees.addEventListener('input', calculate);
+    sliderSalary.addEventListener('input', calculate);
+    sliderTurnover.addEventListener('input', calculate);
+
+    // =============================================
+    // METHODOLOGY TOGGLE
+    // =============================================
+    var methodologyBtn = document.getElementById('toggle-methodology');
+    var methodologyContent = document.getElementById('methodology-content');
+    var methodologyChevron = document.getElementById('methodology-chevron');
+
+    if (methodologyBtn) {
+      methodologyBtn.addEventListener('click', function() {
+        methodologyContent.classList.toggle('open');
+        methodologyChevron.classList.toggle('rotated');
+      });
+    }
+
+    // =============================================
+    // FAQ ACCORDION
+    // =============================================
+    var faqToggles = document.querySelectorAll('.faq-toggle');
+    faqToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        var answer = this.nextElementSibling;
+        var chevron = this.querySelector('.expand-chevron');
+        var isOpen = answer.classList.contains('open');
+
+        // Close all others
+        faqToggles.forEach(function(otherToggle) {
+          var otherAnswer = otherToggle.nextElementSibling;
+          var otherChevron = otherToggle.querySelector('.expand-chevron');
+          if (otherAnswer !== answer) {
+            otherAnswer.classList.remove('open');
+            otherChevron.classList.remove('rotated');
+          }
+        });
+
+        // Toggle current
+        if (isOpen) {
+          answer.classList.remove('open');
+          chevron.classList.remove('rotated');
+        } else {
+          answer.classList.add('open');
+          chevron.classList.add('rotated');
+        }
+      });
+    });
+
+    // =============================================
+    // EXIT-INTENT POPUP
+    // =============================================
+    var modal = document.getElementById('email-modal');
+    var closeBtn = document.getElementById('close-modal');
+    var backdrop = document.getElementById('modal-backdrop-el');
+    var form = document.getElementById('email-form');
+    var exitShown = false;
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Exit intent: mouse leaves toward top of viewport
+    document.addEventListener('mouseout', function(e) {
+      if (exitShown) return;
+      if (sessionStorage.getItem('genki_exit_shown')) return;
+      if (e.clientY <= 0 && e.relatedTarget === null) {
+        exitShown = true;
+        sessionStorage.setItem('genki_exit_shown', '1');
+        openModal();
+      }
+    });
+
+    // Build detailed ROI report from current calculator state
+    function buildROIReport() {
+      var teamSize = parseInt(sliderEmployees.value);
+      var monthlySalary = parseInt(sliderSalary.value);
+      var turnoverRate = parseInt(sliderTurnover.value);
+      var annualSalary = monthlySalary * CONFIG.monthsPerYear;
+
+      var replacementCost = annualSalary * CONFIG.replacementCostMultiplier;
+      var currentTurnoverCost = teamSize * (turnoverRate / 100) * replacementCost;
+      var turnoverSavings = currentTurnoverCost * SCENARIO.turnoverReduction;
+
+      var dailySalary = annualSalary / CONFIG.workingDaysPerYear;
+      var currentAbsenteeismCost = teamSize * CONFIG.sickDays * dailySalary;
+      var absenteeismSavings = currentAbsenteeismCost * SCENARIO.absenteeismReduction;
+
+      var productivityValue = teamSize * annualSalary * SCENARIO.productivityGain;
+      var healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * SCENARIO.healthcareReduction;
+      var totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+
+      var genkiCostAnnual = teamSize * CONFIG.productsPerDay * CONFIG.productCost * CONFIG.workingDaysPerMonth * CONFIG.monthsPerYear;
+      var genkiCostMonthly = genkiCostAnnual / CONFIG.monthsPerYear / teamSize;
+      var genkiCostDaily = genkiCostMonthly / CONFIG.workingDaysPerMonth;
+      var netBenefit = totalSavings - genkiCostAnnual;
+      var roiPercent = (netBenefit / genkiCostAnnual) * 100;
+      var paybackMonths = (genkiCostAnnual / totalSavings) * CONFIG.monthsPerYear;
+
+      var companyName = document.getElementById('form-company').value || 'N/A';
+
+      return '═══════════════════════════════════════\n' +
+        '   GENKI ROI REPORT — ' + companyName.toUpperCase() + '\n' +
+        '═══════════════════════════════════════\n\n' +
+        '📊 COMPANY PROFILE\n' +
+        '───────────────────────────────────────\n' +
+        '  Team Size:            ' + teamSize + ' employees\n' +
+        '  Avg Monthly Salary:   €' + fmt(monthlySalary) + '\n' +
+        '  Avg Annual Salary:    €' + fmt(annualSalary) + '\n' +
+        '  Turnover Rate:        ' + turnoverRate + '%\n' +
+        '  Sick Days/Employee:   ' + CONFIG.sickDays + ' days/year\n' +
+        '  Scenario:             Moderate (research-backed baseline)\n\n' +
+        '💰 ANNUAL SAVINGS BREAKDOWN\n' +
+        '───────────────────────────────────────\n' +
+        '  Turnover Reduction:   €' + fmt(turnoverSavings) + '\n' +
+        '    → ' + teamSize + ' employees × ' + turnoverRate + '% turnover × €' + fmt(replacementCost) + ' replacement cost × 25% reduction\n' +
+        '    → Replacement cost = 1.5× annual salary (industry standard)\n\n' +
+        '  Productivity Gains:   €' + fmt(productivityValue) + '\n' +
+        '    → ' + teamSize + ' employees × €' + fmt(annualSalary) + ' salary × 5% productivity improvement\n' +
+        '    → On-site healthy food reduces lunch breaks from 90min to 30min\n\n' +
+        '  Absenteeism Savings:  €' + fmt(absenteeismSavings) + '\n' +
+        '    → ' + teamSize + ' employees × ' + CONFIG.sickDays + ' sick days × €' + fmt(Math.round(dailySalary)) + '/day × 20% reduction\n' +
+        '    → Healthy nutrition reduces illness-related absences\n\n' +
+        '  Healthcare Savings:   €' + fmt(healthcareSavings) + '\n' +
+        '    → ' + teamSize + ' employees × €' + CONFIG.healthcareCostPerEmployee + ' healthcare cost × 10% reduction\n' +
+        '    → Preventive nutrition lowers healthcare claims\n\n' +
+        '  ─────────────────────────────────────\n' +
+        '  TOTAL ANNUAL SAVINGS: €' + fmt(totalSavings) + '\n\n' +
+        '📈 GENKI INVESTMENT\n' +
+        '───────────────────────────────────────\n' +
+        '  Daily per employee:   €' + genkiCostDaily.toFixed(2) + '\n' +
+        '  Monthly per employee: €' + genkiCostMonthly.toFixed(2) + '\n' +
+        '  Annual total:         €' + fmt(genkiCostAnnual) + '\n' +
+        '    → ' + CONFIG.productsPerDay + ' products/day × €' + CONFIG.productCost.toFixed(2) + '/product × ' + CONFIG.workingDaysPerMonth + ' days/month × 12 months × ' + teamSize + ' employees\n\n' +
+        '🏆 NET RESULTS\n' +
+        '───────────────────────────────────────\n' +
+        '  Net Annual Benefit:   €' + fmt(netBenefit) + '\n' +
+        '  ROI:                  ' + Math.round(roiPercent) + '%\n' +
+        '  Payback Period:       ' + paybackMonths.toFixed(1) + ' months\n\n' +
+        '📋 SCENARIO ASSUMPTIONS (Moderate)\n' +
+        '───────────────────────────────────────\n' +
+        '  Turnover reduction:     25% (research range: 15-35%)\n' +
+        '  Absenteeism reduction:  20% (research range: 10-30%)\n' +
+        '  Productivity gain:      5% (research range: 3-8%)\n' +
+        '  Healthcare reduction:   10% (research range: 5-15%)\n\n' +
+        '───────────────────────────────────────\n' +
+        'Generated by Genki ROI Calculator\n' +
+        'www.genki.bg | hello@genki.bg\n' +
+        '═══════════════════════════════════════';
+    }
+
+    // Form submission via fetch
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var companyName = document.getElementById('form-company').value || '';
+      var emailField = form.querySelector('input[name="email"]');
+      document.getElementById('form-subject').value = '🎯 ROI Report — ' + companyName + ' (€' + (document.getElementById('result-total').textContent) + ' savings)';
+      document.getElementById('form-replyto').value = emailField ? emailField.value : '';
+      document.getElementById('form-roi-report').value = buildROIReport();
+
+      var formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+          if (typeof umami !== 'undefined') {
+            umami.track('landing-exit-email-success');
+          }
+        }
+      }).catch(function() {
+        form.submit();
+      });
+    });
+
+    // =============================================
+    // SCROLL ANIMATIONS
+    // =============================================
+    var fadeSections = document.querySelectorAll('.fade-section');
+    if (fadeSections.length) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      fadeSections.forEach(function(el) { observer.observe(el); });
+    }
+
+    // =============================================
+    // SMOOTH SCROLL
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // =============================================
+    // INIT
+    // =============================================
+    applyLanguage(currentLang);
+    calculate();
+    lucide.createIcons();
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -381,8 +381,8 @@ const translations = {
     bg: "Запазете консултация"
   },
   index_step1_desc: {
-    en: "15-minute call to understand your team's needs and preferences.",
-    bg: "15-минутен разговор, за да разберем нуждите и предпочитанията на вашия екип."
+    en: "30-minute call to understand your team's needs and preferences.",
+    bg: "30-минутен разговор, за да разберем нуждите и предпочитанията на вашия екип."
   },
   index_step2_title: {
     en: "Customize Plan",
@@ -561,12 +561,40 @@ const translations = {
 
   // NEW PRICING PAGE - Hero Section
   pricing_hero_title: {
-    en: "Flexible Wellness Plans",
-    bg: "Гъвкави уелнес планове"
+    en: "Built around Care",
+    bg: "Изградено около Care"
   },
   pricing_hero_subtitle: {
-    en: "Not all wellness benefits are equal. Choose the plan that matches your culture ambitions.",
-    bg: "Не всички уелнес бенефити са еднакви. Изберете плана, който пасва на концепцията, която искате да изградите."
+    en: "Genki is built on one simple belief: wellness works when the company takes care of it. Starter and Hybrid are how teams grow into Care.",
+    bg: "Genki се гради върху едно просто убеждение: уелнесът работи, когато компанията се грижи за него. Starter и Hybrid са начинът, по който екипите прерастват в Care."
+  },
+
+  // Care hero block
+  care_hero_headline: {
+    en: "Care — free wellness for your whole team",
+    bg: "Care — безплатен уелнес за целия Ви екип"
+  },
+  care_hero_sub: {
+    en: "You cover everything. They just enjoy it. Daily.",
+    bg: "Вие покривате всичко. Те просто му се наслаждават. Всеки ден."
+  },
+  care_hero_cta: {
+    en: "Book 30-minute consultation",
+    bg: "Запазете 30-минутна консултация"
+  },
+  care_hero_reassurance: {
+    en: "85–90% daily engagement · 3–5 visits per employee per day",
+    bg: "85–90% дневна ангажираност · 3–5 посещения на служител на ден"
+  },
+
+  // Stepping stones row
+  steppingstones_title: {
+    en: "Not ready for full coverage? Start small, grow into Care.",
+    bg: "Не сте готови за пълно покритие? Започнете малко и прераснете в Care."
+  },
+  steppingstones_sub: {
+    en: "These are stepping stones — for teams that want to measure impact first. Both plans are designed to lead into Care once you see the difference.",
+    bg: "Това са стъпки — за екипи, които искат първо да измерят ефекта. И двата плана са създадени, за да водят към Care, след като видите разликата."
   },
 
   // NEW PRICING - Starter Card
@@ -2015,25 +2043,63 @@ const translations = {
   // ===================
   // PRODUCTS PAGE
   // ===================
+  products_hero_eyebrow: {
+    en: "The Genki Experience",
+    bg: "Преживяването Genki"
+  },
   products_hero_title_1: {
-    en: "Our",
-    bg: "Нашата"
+    en: "Built for your team,",
+    bg: "Създадено за Вашия екип,"
   },
   products_hero_title: {
-    en: "Our",
-    bg: "Нашата"
+    en: "Built for your team,",
+    bg: "Създадено за Вашия екип,"
   },
   products_hero_title_2: {
-    en: "Product Selection",
-    bg: "Продуктова селекция"
+    en: "not pulled from a catalog",
+    bg: "не извадено от каталог"
   },
   products_hero_highlight: {
-    en: "Product Selection",
-    bg: "Продуктова селекция"
+    en: "not pulled from a catalog",
+    bg: "не извадено от каталог"
   },
   products_hero_subtitle: {
-    en: "Carefully curated healthy options from Bulgarian producers. Everything your team needs to stay energized throughout the day.",
-    bg: "Внимателно подбрани здравословни опции от български производители. Всичко, от което екипът Ви се нуждае, за да остане енергичен през целия ден."
+    en: "Your final assortment is curated per office during onboarding and rotates seasonally. The products below are illustrative examples of what your team could enjoy.",
+    bg: "Вашият финален асортимент се подбира персонално за всеки офис при стартирането и се обновява сезонно. Продуктите по-долу са илюстративни примери за това, на което екипът Ви би могъл да се наслаждава."
+  },
+
+  // Products page — How your assortment comes together
+  products_how_title: {
+    en: "How your assortment comes together",
+    bg: "Как се създава Вашият асортимент"
+  },
+  products_how_sub: {
+    en: "No generic stocking. Every Genki corner is shaped around your team and kept fresh.",
+    bg: "Без стандартно зареждане. Всеки Genki кът е оформен около Вашия екип и се поддържа свеж."
+  },
+  products_how_step1_title: {
+    en: "Tell us about your team",
+    bg: "Разкажете ни за екипа си"
+  },
+  products_how_step1_desc: {
+    en: "Dietary needs, favourite snacks, allergies, the vegan colleague everyone forgets. We listen on a 30-minute consultation.",
+    bg: "Хранителни нужди, любими снаксове, алергии, веганският колега, когото всички забравят. Изслушваме Ви в 30-минутна консултация."
+  },
+  products_how_step2_title: {
+    en: "We curate your assortment",
+    bg: "Ние подбираме асортимента"
+  },
+  products_how_step2_desc: {
+    en: "A hand-picked selection from trusted Bulgarian producers, shaped around your team's preferences — never a one-size-fits-all catalog.",
+    bg: "Ръчно подбрана селекция от доверени български производители, оформена според предпочитанията на Вашия екип — никога универсален каталог."
+  },
+  products_how_step3_title: {
+    en: "Delivered fresh, rotated seasonally",
+    bg: "Доставено прясно, с сезонно обновяване"
+  },
+  products_how_step3_desc: {
+    en: "Fresh deliveries on your cadence. We rotate products each season so the team never gets bored — and you never stock what they don't eat.",
+    bg: "Пресни доставки с Вашата честота. Обновяваме продуктите всеки сезон, така че екипът никога да не се отегчава — а Вие никога да не зареждате това, което не ядат."
   },
   products_cat_snacks: {
     en: "Snacks",
@@ -2445,12 +2511,12 @@ const translations = {
     bg: "Без ядки"
   },
   products_cta_title: {
-    en: "Want to See the Full Catalog?",
-    bg: "Искате да видите пълния каталог?"
+    en: "See what Genki would look like in your office",
+    bg: "Вижте как Genki би изглеждал във Вашия офис"
   },
   products_cta_desc: {
-    en: "Book a call and we'll create a custom product selection based on your team's preferences.",
-    bg: "Запазете консултация и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
+    en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
+    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция около Вашия екип."
   },
   products_cta_button: {
     en: "Book consultation",
@@ -2661,12 +2727,12 @@ const translations = {
     bg: "Без ядки"
   },
   products_cta_title: {
-    en: "Want to See the Full Catalog?",
-    bg: "Искате да видите пълния каталог?"
+    en: "See what Genki would look like in your office",
+    bg: "Вижте как Genki би изглеждал във Вашия офис"
   },
   products_cta_subtitle: {
-    en: "Book a call and we'll create a custom product selection based on your team's preferences.",
-    bg: "Запазете консултация и ще създадем персонализирана продуктова селекция, базирана на предпочитанията на Вашия екип."
+    en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
+    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция около Вашия екип."
   },
   products_cta_button: {
     en: "Book consultation",
@@ -2869,12 +2935,12 @@ const translations = {
     bg: "Кратък опознавателен разговор"
   },
   contact_expect1_desc: {
-    en: "15 minutes to understand your team's needs and preferences.",
-    bg: "15 минути, за да разберем нуждите и предпочитанията на Вашия екип."
+    en: "30 minutes to understand your team's needs and preferences.",
+    bg: "30 минути, за да разберем нуждите и предпочитанията на Вашия екип."
   },
   contact_step1_desc: {
-    en: "15 minutes to understand your team's needs and preferences.",
-    bg: "15 минути, за да разберем нуждите и предпочитанията на Вашия екип."
+    en: "30 minutes to understand your team's needs and preferences.",
+    bg: "30 минути, за да разберем нуждите и предпочитанията на Вашия екип."
   },
   contact_expect2_title: {
     en: "Custom Proposal",
@@ -3595,6 +3661,66 @@ const translations = {
   box_footer: {
     en: "© 2026 Genki · Made in Bulgaria 🇧🇬",
     bg: "© 2026 Genki · Произведено в България 🇧🇬"
+  },
+
+  // ===================
+  // BOX PERSONALIZED PAGE
+  // ===================
+  box_personal_greeting_no_name: {
+    en: "Welcome to Genki × {{COMPANY}}",
+    bg: "Добре дошли в Genki × {{COMPANY}}"
+  },
+  box_personal_greeting_with_name: {
+    en: "Hello {{HR_NAME}}. Welcome to Genki × {{COMPANY}}",
+    bg: "Здравейте, {{HR_NAME}}. Добре дошли в Genki × {{COMPANY}}"
+  },
+  box_personal_subline: {
+    en: "A Genki Box is our way of saying: let's talk about your team's wellness.",
+    bg: "Genki кутията е нашият начин да кажем: нека поговорим за благополучието на Вашия екип."
+  },
+  box_personal_scroll_cta: {
+    en: "Pick a time below",
+    bg: "Изберете час по-долу"
+  },
+  box_personal_calendly_heading: {
+    en: "Pick a 30-minute slot that works for you",
+    bg: "Изберете 30-минутен слот, който Ви устройва"
+  },
+  box_personal_footer_questions: {
+    en: "Any questions?",
+    bg: "Въпроси?"
+  },
+  box_cal_heading: {
+    en: "Let's talk",
+    bg: "Нека поговорим"
+  },
+  box_cal_subheading: {
+    en: "30-minute intro call",
+    bg: "30-минутен въвеждащ разговор"
+  },
+  box_cal_duration: {
+    en: "30 minutes",
+    bg: "30 минути"
+  },
+  box_cal_duration_sub: {
+    en: "Short and effective",
+    bg: "Кратък и ефективен"
+  },
+  box_cal_meet_sub: {
+    en: "Link sent after booking",
+    bg: "Линкът се изпраща след резервацията"
+  },
+  box_cal_lang: {
+    en: "Bulgarian or English",
+    bg: "Български или English"
+  },
+  box_cal_lang_sub: {
+    en: "Whichever you prefer",
+    bg: "Както Ви е удобно"
+  },
+  box_cal_closing: {
+    en: "We'll discuss your team's needs and what we can build together. No pressure, no long presentations — just a conversation.",
+    bg: "Ще обсъдим нуждите на Вашия екип и какво можем да изградим заедно. Без натиск, без дълги презентации — просто разговор."
   }
 };
 

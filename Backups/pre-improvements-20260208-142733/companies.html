@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genki for Companies - Premium wellness benefits for IT companies. See pricing, ROI, and how we make HR's job easier.">
+  <title>For Companies - Genki Wellness Benefits</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9f4',
+              100: '#dcf2e6',
+              200: '#b8e5cc',
+              300: '#88d4aa',
+              400: '#4fba7d',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e6b48',
+              800: '#1a5a3d',
+              900: '#164a33',
+            },
+            forest: {
+              400: '#3a9d6a',
+              500: '#2d8659',
+              600: '#248459',
+              700: '#1e5128',
+              800: '#18451f',
+              900: '#14401f',
+            },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
+            accent: {
+              50: '#fffef8',
+              100: '#fefdf0',
+              200: '#f5f5dc',
+              300: '#e8ddb5',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium active" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current">EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">English</a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">Български</a>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" data-i18n="nav_book_call">Book a Call</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <img src="assets/images/genki_logo.png" alt="Genki" class="h-10">
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-900 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+      <div class="flex items-center gap-4 py-2 border-t border-gray-200 mt-2 pt-4">
+        <span class="text-gray-500 text-sm">Language:</span>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">EN</button>
+        <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
+      </div>
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a Call</a>
+    </div>
+  </div>
+
+  <!-- 1. HERO SECTION -->
+  <section class="pt-32 pb-12 sm:pt-36 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="badge badge-green mb-4" data-i18n="companies_badge">Ideal for Growing IT Teams</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+          <span data-i18n="companies_hero_title_1">The Employee Benefit That</span> <span class="gradient-text" data-i18n="companies_hero_title_2">Actually Gets Used</span>
+        </h1>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_hero_subtitle">
+          Gym memberships sit unused. Genki snacks get enjoyed every day. Give your team a tangible benefit they'll love — with zero admin burden.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WHY HR LEADERS CHOOSE GENKI (4 cards) -->
+  <section class="py-12 sm:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_why_title">Why HR Leaders Choose Genki</h2>
+        <div class="section-divider mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Zero Time Investment -->
+        <div class="card fade-up">
+          <div class="card-icon bg-green-100">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit1_title">Zero Time Investment</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit1_desc">No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.</p>
+        </div>
+
+        <!-- Built-in CSR -->
+        <div class="card fade-up">
+          <div class="card-icon bg-blue-100">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit2_title">Built-in CSR</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit2_desc">10% charity donation included. Get automatic ESG impact for your sustainability reports.</p>
+        </div>
+
+        <!-- Build Culture -->
+        <div class="card fade-up">
+          <div class="card-icon bg-orange-100">
+            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit4_title">Build Culture</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit4_desc">Create a social hub with 85-90% daily engagement. Turn healthy eating into team bonding moments.</p>
+        </div>
+
+        <!-- Support Local -->
+        <div class="card fade-up">
+          <div class="card-icon bg-teal-100">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit6_title">Support Local</h3>
+          <p class="text-gray-600" data-i18n="companies_benefit6_desc">100% Bulgarian products. Your benefit spending stays in the local economy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PRICING (merged: heading + 3 cards + All Plans Include) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="pricing_hero_title">Flexible Wellness Plans</h2>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="pricing_hero_subtitle">Not all wellness benefits are equal. Choose the plan that matches your culture ambitions.</p>
+        <div class="section-divider mt-6 fade-up"></div>
+      </div>
+
+      <!-- 3 Pricing Cards -->
+      <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mb-12">
+
+        <!-- STARTER CARD -->
+        <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-1">Starter</h3>
+            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_starter_tagline">Wellness Access</p>
+            <p class="text-gray-600 text-base" data-i18n="pricing_starter_desc">Employees pay, company provides infrastructure</p>
+          </div>
+          <ul class="space-y-4 flex-grow mb-6">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_starter_f1">Snacks & drinks only</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_starter_f2">Weekly deliveries</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_starter_f3">Monthly sales summary</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_starter_f4">Email support (24-48h)</span>
+            </li>
+          </ul>
+          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_starter_best">Best for: Budget-conscious companies wanting basic wellness option</p>
+          <a href="contact.html" class="w-full py-3 px-6 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 transition-colors" data-i18n="pricing_cta_quote">Get Custom Quote</a>
+        </div>
+
+        <!-- CARE CARD (Featured) -->
+        <div class="bg-white rounded-xl p-8 border-[3px] border-emerald-500 shadow-xl flex flex-col fade-up relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 lg:-mt-4 lg:mb-[-16px]">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="bg-emerald-500 text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg" data-i18n="pricing_badge_popular">Highest Impact</span>
+          </div>
+          <div class="mb-6 pt-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-1">Care</h3>
+            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_care_tagline">Complete Culture Solution</p>
+            <p class="text-gray-600 text-base" data-i18n="pricing_care_desc">Full company coverage — FREE for all employees</p>
+          </div>
+          <ul class="space-y-4 flex-grow mb-6">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f1">Full product range + seasonal specials</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f2">Custom schedule + unlimited emergency restocking</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f3">Named account manager + monthly strategy calls</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f4">Detailed analytics & employee insights</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f5">2-4 community events per year</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f6">Employees vote on charity + impact reports</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_care_f7">Priority support 7 days/week (10-19h)</span>
+            </li>
+          </ul>
+          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_care_best">Best for: Companies serious about retention, culture, and winning the talent war</p>
+          <a href="contact.html" class="w-full py-3 px-6 bg-emerald-500 text-white font-semibold rounded-lg text-center hover:bg-emerald-600 transition-colors shadow-lg" data-i18n="pricing_cta_call">Book a Call</a>
+        </div>
+
+        <!-- HYBRID CARD -->
+        <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-1">Hybrid</h3>
+            <p class="text-lg font-semibold text-emerald-500 mb-2" data-i18n="pricing_hybrid_tagline">Enhanced Wellness</p>
+            <p class="text-gray-600 text-base" data-i18n="pricing_hybrid_desc">Shared investment — test impact before full commitment</p>
+          </div>
+          <ul class="space-y-4 flex-grow mb-6">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_hybrid_f1">Snacks, drinks + 2-3 meal options monthly</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_hybrid_f2">Flexible schedule + 1 emergency restock/month</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_hybrid_f3">Monthly detailed analytics</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_hybrid_f4">Dedicated contact + quarterly calls</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_hybrid_f5">Phone + email support (12-24h, Mon-Fri)</span>
+            </li>
+          </ul>
+          <p class="text-gray-500 text-sm italic mb-6" data-i18n="pricing_hybrid_best">Best for: Companies ready to invest but wanting to measure engagement first</p>
+          <a href="contact.html" class="w-full py-3 px-6 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg text-center hover:bg-emerald-50 transition-colors" data-i18n="pricing_cta_quote">Get Custom Quote</a>
+        </div>
+
+      </div>
+
+      <!-- All Plans Include (merged into pricing section) -->
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-gray-200 fade-up">
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-8" data-i18n="pricing_all_title">All plans include:</h3>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f1">100% Bulgarian products</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f2">Zero admin burden for HR</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f3">Turnkey setup & installation (one-time setup investment)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f4">Dedicated account support</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f5">10% donated to charity monthly</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-gray-700" data-i18n="pricing_all_f6">Customizable order sizes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FREE CHANGES EVERYTHING -->
+  <section class="py-20 bg-gradient-to-br from-forest-500 via-forest-500 to-forest-400 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-on-green-light text-sm font-medium mb-4 fade-up" data-i18n="pricing_why_badge">The Care Difference</span>
+        <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-4 fade-up" data-i18n="pricing_why_title">Why Free Changes Everything</h2>
+        <p class="text-lg text-on-green max-w-2xl mx-auto fade-up" data-i18n="pricing_why_subtitle">It's not just about the food. It's about daily touchpoints that build culture, connection, and retention.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Card 1: The Engagement Gap -->
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
+          <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+            <i data-lucide="bar-chart-3" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold feature-heading-on-green mb-4" data-i18n="pricing_why1_title">The Engagement Gap</h3>
+
+          <!-- Visual engagement bars -->
+          <div class="space-y-3 mb-4">
+            <div>
+              <div class="flex justify-between text-sm text-on-green-light mb-1">
+                <span>Starter</span>
+                <span>15-20%</span>
+              </div>
+              <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-white/40 rounded-full" style="width: 18%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm text-on-green-light mb-1">
+                <span>Hybrid</span>
+                <span>40-50%</span>
+              </div>
+              <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-white/60 rounded-full" style="width: 45%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm text-on-green mb-1 font-semibold">
+                <span>Care</span>
+                <span>85-90%</span>
+              </div>
+              <div class="h-3 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-amber-400 to-emerald-300 rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-on-green-light text-sm" data-i18n="pricing_why1_note">3-5 visits per employee per day</p>
+        </div>
+
+        <!-- Card 2: The Social Hub Effect -->
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+            <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold feature-heading-on-green mb-4" data-i18n="pricing_why2_title">The Social Hub Effect</h3>
+          <p class="text-on-green-light leading-relaxed" data-i18n="pricing_why2_text">When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections.</p>
+          <div class="mt-6 pt-4 border-t border-white/20">
+            <p class="text-on-green font-semibold text-sm" data-i18n="pricing_why2_tagline">Not a kiosk — a culture hub.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: The Retention Tool -->
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 fade-up group">
+          <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+            <i data-lucide="trophy" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold feature-heading-on-green mb-4" data-i18n="pricing_why3_title">The Retention Tool</h3>
+          <div class="bg-white/10 rounded-xl p-4 mb-4 border-l-4 border-amber-400">
+            <p class="text-on-green italic text-sm" data-i18n="pricing_why3_quote">"We have free healthy food daily"</p>
+          </div>
+          <p class="text-on-green-light text-sm" data-i18n="pricing_why3_text">Shows up in interviews. Employees mention it as why they stayed. Your competitors can't easily copy this.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ROI CALCULATOR (simplified single-column) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 fade-up">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-i18n="companies_roi_title">The ROI of Wellness Benefits</h2>
+        <p class="text-xl text-gray-600" data-i18n="companies_roi_subtitle">
+          Investing in employee health isn't just the right thing to do — it's smart business.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 lg:p-8 fade-up border border-gray-200 shadow-lg">
+
+        <!-- Team Size Slider -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_team_size_label">Team Size</label>
+          <input type="range" id="roi-slider" min="50" max="500" value="150" step="10" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer roi-slider-style">
+          <div class="flex justify-between text-sm text-gray-500 mt-2">
+            <span>50</span>
+            <span class="text-lg font-bold text-emerald-600"><span id="roi-team-size">150</span> <span data-i18n="roi_employees">employees</span></span>
+            <span>500</span>
+          </div>
+        </div>
+
+        <!-- Compact Assumptions (one line) -->
+        <p class="text-xs text-gray-500 mb-5 text-center" data-i18n="roi_assumptions_compact">
+          Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, Genki Care plan
+        </p>
+
+        <!-- Daily Cost Hero Box -->
+        <div id="per-day-box" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl p-6 mb-6 text-center transform transition-all duration-300 shadow-lg">
+          <p class="text-white/80 text-sm mb-1" data-i18n="roi_daily_investment">Your Daily Investment</p>
+          <div class="flex items-baseline justify-center gap-2 mb-1">
+            <span class="text-5xl sm:text-6xl font-extrabold" id="roi-daily-cost">€3.75</span>
+            <span class="text-lg opacity-90" data-i18n="roi_per_employee_day">/employee/day</span>
+          </div>
+          <p class="text-white/60 text-xs">
+            (<span id="roi-coffees">2.5</span> <span data-i18n="roi_coffees">coffees</span> <span data-i18n="roi_or">or</span> <span id="roi-sandwiches">2.9</span> <span data-i18n="roi_sandwiches">sandwiches</span>)
+          </p>
+        </div>
+
+        <!-- 4 Savings Mini-Cards in Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
+            <i data-lucide="piggy-bank" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+            <p class="text-xs text-gray-500 mt-1" data-i18n="roi_turnover_title">Reduced Turnover</p>
+            <p class="text-lg font-bold text-emerald-600">€<span id="roi-turnover">263,250</span></p>
+          </div>
+          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
+            <i data-lucide="trending-up" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+            <p class="text-xs text-gray-500 mt-1" data-i18n="roi_productivity_title">Productivity Gains</p>
+            <p class="text-lg font-bold text-emerald-600">€<span id="roi-productivity">270,000</span></p>
+          </div>
+          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
+            <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+            <p class="text-xs text-gray-500 mt-1" data-i18n="roi_sick_title">Fewer Sick Days</p>
+            <p class="text-lg font-bold text-emerald-600">€<span id="roi-sick">39,273</span></p>
+          </div>
+          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
+            <i data-lucide="pill" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+            <p class="text-xs text-gray-500 mt-1" data-i18n="roi_healthcare_title">Healthcare Savings</p>
+            <p class="text-lg font-bold text-emerald-600">€<span id="roi-healthcare">7,500</span></p>
+          </div>
+        </div>
+
+        <!-- Net Benefit Hero -->
+        <div class="bg-emerald-50 rounded-xl p-5 mb-5 border-2 border-emerald-200 text-center">
+          <p class="text-sm text-emerald-700 mb-1" data-i18n="roi_what_you_save">What You Save Annually</p>
+          <p class="text-4xl sm:text-5xl font-extrabold text-emerald-600 mb-1">€<span id="roi-net">431,523</span></p>
+          <p class="text-xs text-emerald-600/70 mb-2" data-i18n="roi_save_subtitle">from reduced turnover, productivity & health costs</p>
+          <div class="flex justify-center gap-6 text-sm">
+            <span class="text-emerald-700"><span data-i18n="roi_label">ROI:</span> <strong><span id="roi-percent">291</span>%</strong></span>
+            <span class="text-emerald-700"><span data-i18n="roi_payback_label">Payback:</span> <strong><span id="roi-payback">3.1</span> <span data-i18n="roi_months">mo</span></strong></span>
+          </div>
+        </div>
+
+        <!-- Research Note -->
+        <p class="text-xs text-gray-400 text-center mb-5" data-i18n="roi_research_note">
+          Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.
+        </p>
+
+        <!-- CTA -->
+        <a href="contact.html" class="btn-primary w-full justify-center text-lg">
+          <span data-i18n="roi_cta">Book a Consultation</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+
+        <p class="text-xs text-gray-400 text-center mt-3" data-i18n="roi_disclaimer">
+          * Moderate scenario based on peer-reviewed research. Individual results may vary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ SECTION -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_faq_title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq1_q">What team sizes do you work with?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq1_a">We work best with companies of 100+ employees, where we can deliver maximum value. For smaller teams (70-99 employees), we recommend our Care plan for the most impactful experience. Contact us to discuss how Genki can work for your specific team size.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq2_q">How does delivery work?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq2_a">We deliver directly to your office on a customized schedule. Depending on your plan, this could be weekly, bi-weekly, twice a month, every 10 days, or monthly. Care plan offers maximum flexibility in scheduling, Hybrid offers good flexibility, and Starter has more structured options. During our initial call, we'll discuss your team's consumption patterns and find the delivery frequency that works best within your plan.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq3_q">Can employees with dietary restrictions participate?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq3_a">Absolutely. We accommodate vegetarian, vegan, gluten-free, and other dietary needs. Just let us know your team's requirements.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq4_q">Which charities receive the donations?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq4_a">We partner with vetted Bulgarian charities. Care plan clients can choose specific causes. All donations are documented for your CSR reporting.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq_setup_q">What about equipment and installation?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq_setup_a">We're a true A-Z solution. If your office doesn't have the necessary equipment (refrigerators, shelves, branded displays, or kiosk systems), we source and install everything for you. There's a one-time setup investment that covers all equipment, professional installation, and Genki branding. The amount depends on what your space needs - we'll assess this during our initial call and provide a clear quote. Most companies appreciate having one partner handle everything rather than coordinating multiple vendors.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA SECTION -->
+  <section class="py-20 bg-gradient-to-br from-forest-500 to-forest-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="companies_cta_title">Ready to Upgrade Your Benefits Package?</h2>
+      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="companies_cta_subtitle">Book a free call and see how Genki can transform your workplace.</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up">
+        <span data-i18n="companies_cta_schedule">Schedule Your Call</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <img src="assets/images/genki_logo_light.png" alt="Genki" class="h-10">
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_description">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="badge_made_in_bulgaria">Made in Bulgaria</span></span>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
+            <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
+            <li>Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm" data-i18n="footer_rights">© 2026 Genki. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="privacy.html" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+
+  <!-- ROI Calculator - Uses SAME formulas as roi-calculator.js -->
+  <script>
+    (function() {
+      const slider = document.getElementById('roi-slider');
+      if (!slider) return;
+
+      // CONFIG - Matches roi-calculator.js exactly
+      const CONFIG = {
+        workingDaysPerMonth: 22,
+        workingDaysPerYear: 220,
+        monthsPerYear: 12,
+        replacementCostMultiplier: 1.5,
+        healthcareCostPerEmployee: 500,
+        // Using MODERATE scenario (same as roi-calculator.js default)
+        turnoverReduction: 0.25,
+        absenteeismReduction: 0.20,
+        productivityGain: 0.05,
+        healthcareReduction: 0.10
+      };
+
+      // Bulgarian IT market defaults
+      const DEFAULTS = {
+        salary: 36000,
+        turnoverRate: 13,
+        sickDays: 8,
+        productsPerDay: 2.5,
+        productCost: 1.50
+      };
+
+      // Bulgarian prices for comparison
+      const PRICES = { coffee: 1.50, sandwich: 1.30 };
+
+      function formatNumber(num) {
+        return Math.round(num).toLocaleString('en-US');
+      }
+
+      function formatDecimal(num) {
+        const rounded = Math.round(num * 10) / 10;
+        return rounded === Math.floor(rounded) ? rounded.toString() : rounded.toFixed(1);
+      }
+
+      function calculate(teamSize) {
+        // GENKI COST
+        const genkiCostAnnual = teamSize * DEFAULTS.productsPerDay * DEFAULTS.productCost * CONFIG.workingDaysPerMonth * CONFIG.monthsPerYear;
+        const genkiCostMonthly = genkiCostAnnual / CONFIG.monthsPerYear;
+        const genkiCostDaily = (genkiCostAnnual / CONFIG.monthsPerYear / teamSize) / CONFIG.workingDaysPerMonth;
+
+        // TURNOVER SAVINGS
+        const replacementCost = DEFAULTS.salary * CONFIG.replacementCostMultiplier;
+        const currentTurnoverCost = teamSize * (DEFAULTS.turnoverRate / 100) * replacementCost;
+        const turnoverSavings = currentTurnoverCost * CONFIG.turnoverReduction;
+
+        // ABSENTEEISM SAVINGS
+        const dailySalary = DEFAULTS.salary / CONFIG.workingDaysPerYear;
+        const currentAbsenteeismCost = teamSize * DEFAULTS.sickDays * dailySalary;
+        const absenteeismSavings = currentAbsenteeismCost * CONFIG.absenteeismReduction;
+
+        // PRODUCTIVITY GAINS
+        const productivityValue = teamSize * DEFAULTS.salary * CONFIG.productivityGain;
+
+        // HEALTHCARE SAVINGS
+        const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * CONFIG.healthcareReduction;
+
+        // TOTALS
+        const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
+        const netBenefit = totalSavings - genkiCostAnnual;
+        const roiPercent = (netBenefit / genkiCostAnnual) * 100;
+        const paybackMonths = (genkiCostAnnual / totalSavings) * CONFIG.monthsPerYear;
+
+        // Price comparisons
+        const coffees = genkiCostDaily / PRICES.coffee;
+        const sandwiches = genkiCostDaily / PRICES.sandwich;
+
+        return {
+          teamSize,
+          genkiCostAnnual,
+          genkiCostMonthly,
+          genkiCostDaily,
+          turnoverSavings,
+          absenteeismSavings,
+          productivityValue,
+          healthcareSavings,
+          totalSavings,
+          netBenefit,
+          roiPercent,
+          paybackMonths,
+          coffees,
+          sandwiches
+        };
+      }
+
+      function updateDisplay(data, animate) {
+        // Team size
+        const teamSizeEl = document.getElementById('roi-team-size');
+        if (teamSizeEl) teamSizeEl.textContent = data.teamSize;
+
+        // Daily cost (hero)
+        const dailyCostEl = document.getElementById('roi-daily-cost');
+        if (dailyCostEl) dailyCostEl.textContent = '€' + data.genkiCostDaily.toFixed(2);
+
+        // Price comparisons
+        const coffeesEl = document.getElementById('roi-coffees');
+        const sandwichesEl = document.getElementById('roi-sandwiches');
+        if (coffeesEl) coffeesEl.textContent = formatDecimal(data.coffees);
+        if (sandwichesEl) sandwichesEl.textContent = formatDecimal(data.sandwiches);
+
+        // Savings breakdown
+        const turnoverEl = document.getElementById('roi-turnover');
+        const productivityEl = document.getElementById('roi-productivity');
+        const sickEl = document.getElementById('roi-sick');
+        const healthcareEl = document.getElementById('roi-healthcare');
+        if (turnoverEl) turnoverEl.textContent = formatNumber(data.turnoverSavings);
+        if (productivityEl) productivityEl.textContent = formatNumber(data.productivityValue);
+        if (sickEl) sickEl.textContent = formatNumber(data.absenteeismSavings);
+        if (healthcareEl) healthcareEl.textContent = formatNumber(data.healthcareSavings);
+
+        // Net benefit & ROI
+        const netEl = document.getElementById('roi-net');
+        const percentEl = document.getElementById('roi-percent');
+        const paybackEl = document.getElementById('roi-payback');
+        if (netEl) netEl.textContent = formatNumber(data.netBenefit);
+        if (percentEl) percentEl.textContent = Math.round(data.roiPercent);
+        if (paybackEl) paybackEl.textContent = data.paybackMonths.toFixed(1);
+
+        // Animate the per-day box
+        if (animate) {
+          const perDayBox = document.getElementById('per-day-box');
+          if (perDayBox) {
+            perDayBox.classList.add('scale-105');
+            setTimeout(() => perDayBox.classList.remove('scale-105'), 200);
+          }
+        }
+      }
+
+      slider.addEventListener('input', function() {
+        const data = calculate(parseInt(this.value));
+        updateDisplay(data, true);
+      });
+
+      // Initialize
+      updateDisplay(calculate(150), false);
+    })();
+  </script>
+</body>
+</html>

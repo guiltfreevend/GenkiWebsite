@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Genki - Book a free call and see how we can transform your employee benefits.">
+  <title>Contact Us - Genki Wellness Benefits</title>
+
+  <!-- EARLY REDIRECT: Check if returning from form submission -->
+  <style>body{opacity:0}</style>
+  <script>
+    (function() {
+      var submittedAt = localStorage.getItem('genki_contact_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_contact_submitted');
+        window.location.replace('thank-you-contact.html');
+      } else {
+        document.write('<style>body{opacity:1}</style>');
+      }
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+            secondary: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center space-x-2">
+          <i data-lucide="sprout" class="w-8 h-8 text-green-500"></i>
+          <span class="text-2xl font-bold text-gray-900">Genki</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
+          <a href="companies.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_companies">For Companies</a>
+          <a href="mission.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_mission">Our Mission</a>
+          <a href="products.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_products">Products</a>
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors">
+              <span id="lang-current">EN</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+                English
+              </a>
+              <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+                Български
+              </a>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" data-i18n="nav_cta">Book a Call</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide="sprout" class="w-6 h-6 text-green-500"></i> Genki</span>
+      <button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <a href="index.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_home">Home</a>
+      <a href="companies.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_companies">For Companies</a>
+      <a href="mission.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_mission">Our Mission</a>
+      <a href="products.html" class="text-lg font-medium text-gray-700 py-2" data-i18n="nav_products">Products</a>
+      <!-- Mobile Language Switcher -->
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-sm text-gray-500 mb-2" data-i18n="mobile_language">Language</p>
+        <div class="flex gap-2">
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en">
+            EN
+          </a>
+          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg">
+            BG
+          </a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-primary mt-4 text-center" data-i18n="nav_cta">Book a Call</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="pt-40 pb-20 bg-gradient-to-b from-primary-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
+          <span data-i18n="contact_hero_title">Let's Talk About</span> <span class="gradient-text" data-i18n="contact_hero_highlight">Your Team</span>
+        </h1>
+        <p class="text-xl text-gray-600 fade-up" data-i18n="contact_hero_subtitle">
+          Book a free call and discover how Genki can transform your employee benefits while supporting local businesses and charity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Form Section -->
+        <div class="fade-up">
+          <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="contact_form_title">Book a Free Call</h2>
+            <form data-validate class="space-y-6" action="https://formspree.io/f/xaqbnpda" method="POST">
+              <!-- Formspree hidden fields -->
+              <input type="hidden" name="_subject" value="📧 New Contact Form - Genki Website">
+              <input type="hidden" name="_next" value="https://www.genki.bg/thank-you-contact.html">
+              <!-- Name Fields -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="form-label" data-i18n="contact_firstname">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required class="form-input" placeholder="Maria">
+                </div>
+                <div>
+                  <label for="lastName" class="form-label" data-i18n="contact_lastname">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required class="form-input" placeholder="Petrova">
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="form-label" data-i18n="contact_email">Work Email *</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="maria@company.bg">
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone" class="form-label" data-i18n="contact_phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+359 888 123 456">
+              </div>
+
+              <!-- Company -->
+              <div>
+                <label for="company" class="form-label" data-i18n="contact_company">Company Name *</label>
+                <input type="text" id="company" name="company" required class="form-input" placeholder="Acme Technologies">
+              </div>
+
+              <!-- Company Size -->
+              <div>
+                <label for="companySize" class="form-label" data-i18n="contact_size">Number of Employees *</label>
+                <select id="companySize" name="companySize" required class="form-input">
+                  <option value="" data-i18n="contact_size_select">Select team size</option>
+                  <option value="70-99" data-i18n="contact_size_70">70-99 employees</option>
+                  <option value="100-200" data-i18n="contact_size_100">100-200 employees</option>
+                  <option value="200-500" data-i18n="contact_size_200">200-500 employees</option>
+                  <option value="500-1000" data-i18n="contact_size_500">500-1000 employees</option>
+                  <option value="1000+" data-i18n="contact_size_1000">1000+ employees</option>
+                </select>
+              </div>
+
+              <!-- Role -->
+              <div>
+                <label for="role" class="form-label" data-i18n="contact_role">Your Role</label>
+                <select id="role" name="role" class="form-input">
+                  <option value="" data-i18n="contact_role_select">Select your role</option>
+                  <option value="HR Manager / Director" data-i18n="contact_role_hr">HR Manager / Director</option>
+                  <option value="Office Manager" data-i18n="contact_role_office">Office Manager</option>
+                  <option value="CEO / Founder" data-i18n="contact_role_ceo">CEO / Founder</option>
+                  <option value="COO / Operations" data-i18n="contact_role_coo">COO / Operations</option>
+                  <option value="Other" data-i18n="contact_role_other">Other</option>
+                </select>
+              </div>
+
+              <!-- Interested In (Plans) -->
+              <div>
+                <label class="form-label" data-i18n="contact_interests">Which plan interests you?</label>
+                <div class="space-y-3">
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all">
+                    <input type="checkbox" name="plan" value="Starter Plan" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_starter">Starter</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_starter_desc">Basic wellness option with snacks and drinks only</p>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border-2 border-primary-300 bg-primary-50/50 hover:bg-primary-50 transition-all">
+                    <input type="checkbox" name="plan" value="Care Plan" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-900" data-i18n="contact_plan_care">Care</span>
+                        <span class="text-xs bg-primary-600 text-white px-2 py-0.5 rounded-full" data-i18n="contact_plan_popular">Highest Impact</span>
+                      </div>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_care_desc">Full wellness with snacks, drinks & fresh food</p>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all">
+                    <input type="checkbox" name="plan" value="Hybrid Plan" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_hybrid">Hybrid</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_hybrid_desc">Enhanced wellness option with shared payment</p>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg border border-dashed border-gray-300 hover:border-primary-300 hover:bg-gray-50 transition-all">
+                    <input type="checkbox" name="plan" value="Help Me Decide" class="w-5 h-5 mt-0.5 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <div>
+                      <span class="font-medium text-gray-900" data-i18n="contact_plan_help">Help Me Decide</span>
+                      <p class="text-sm text-gray-500" data-i18n="contact_plan_help_desc">Not sure yet? We'll recommend the best fit for your team</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label for="message" class="form-label" data-i18n="contact_message">Anything else we should know?</label>
+                <textarea id="message" name="message" rows="4" class="form-input" data-i18n-placeholder="contact_message_placeholder" placeholder="Tell us about your team, any dietary requirements, or specific needs..."></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn-primary w-full justify-center text-lg" data-i18n="contact_submit">
+                Request a Call
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+
+              <p class="text-sm text-gray-500 text-center" data-i18n="contact_response">
+                We'll get back to you within 24 hours.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="space-y-8">
+          <!-- What to Expect -->
+          <div class="bg-gray-50 rounded-2xl p-8 fade-up">
+            <h3 class="text-xl font-bold text-gray-900 mb-6" data-i18n="contact_expect_title">What to Expect</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-primary-600 font-bold">1</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step1_title">Quick Discovery Call</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step1_desc">15 minutes to understand your team's needs and preferences.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-primary-600 font-bold">2</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step2_title">Custom Proposal</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step2_desc">We'll create a tailored product mix and pricing for your team.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-primary-600 font-bold">3</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900" data-i18n="contact_step3_title">Office Assessment</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="contact_step3_desc">We visit your office to plan the perfect setup for your team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="bg-gradient-to-br from-primary-600 to-secondary-700 rounded-2xl p-8 text-white fade-up">
+            <h3 class="text-xl font-bold mb-6" data-i18n="contact_direct_title">Prefer to Reach Out Directly?</h3>
+            <div class="space-y-4">
+              <a href="mailto:hello@genki.bg" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-primary-100" data-i18n="contact_email_label">Email us</p>
+                  <p class="font-semibold">hello@genki.bg</p>
+                </div>
+              </a>
+              <a href="tel:+359888123456" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-primary-100" data-i18n="contact_phone_label">Call us</p>
+                  <p class="font-semibold">+359 888 123 456</p>
+                </div>
+              </a>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-primary-100" data-i18n="contact_visit_label">Visit us</p>
+                  <p class="font-semibold" data-i18n="footer_location">Sofia, Bulgaria</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 fade-up">
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="w-10 h-10 mx-auto mb-2 bg-primary-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="flag" class="w-5 h-5 text-primary-600"></i>
+                </div>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_bulgarian">100% Bulgarian</p>
+              </div>
+              <div>
+                <div class="w-10 h-10 mx-auto mb-2 bg-amber-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="heart" class="w-5 h-5 text-amber-600"></i>
+                </div>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_charity">10% to Charity</p>
+              </div>
+              <div>
+                <div class="w-10 h-10 mx-auto mb-2 bg-green-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="sprout" class="w-5 h-5 text-green-600"></i>
+                </div>
+                <p class="text-sm text-gray-600" data-i18n="contact_badge_partners">50+ Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8 fade-up" data-i18n="contact_faq_title">Quick Answers</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq1_q">Is there a minimum commitment period?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq1_a">We offer flexible 3-month, 6-month, or annual contracts. You can start with a 3-month pilot to test with your team.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq2_q">How quickly can we get started?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq2_a">Once you approve the proposal, we can have your first delivery within a week. Setup is completely hassle-free for your team.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq3_q">Do you deliver outside Sofia?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq3_a">Yes! We deliver to major cities across Bulgaria including Plovdiv, Varna, Burgas, and more. Contact us for specific availability.</p>
+        </details>
+
+        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
+          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="contact_faq4_q">Can we customize the product selection?</summary>
+          <p class="text-gray-600 mt-4" data-i18n="contact_faq4_a">Absolutely. We'll work with you to create a mix that matches your team's preferences, dietary needs, and budget.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <i data-lucide="sprout" class="w-8 h-8 text-green-400"></i>
+            <span class="text-2xl font-bold text-white">Genki</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md" data-i18n="footer_desc">Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.</p>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="badge badge-green flex items-center gap-1"><i data-lucide="flag" class="w-4 h-4"></i> <span data-i18n="footer_badge_text">Made in Bulgaria</span></span>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_links_title">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="companies.html" class="text-gray-400 hover:text-white" data-i18n="nav_companies">For Companies</a></li>
+            <li><a href="mission.html" class="text-gray-400 hover:text-white" data-i18n="nav_mission">Our Mission</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-white" data-i18n="nav_products">Products</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white" data-i18n="footer_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="mailto:hello@genki.bg" class="hover:text-white">hello@genki.bg</a></li>
+            <li><a href="tel:+359888123456" class="hover:text-white">+359 888 123 456</a></li>
+            <li data-i18n="footer_location">Sofia, Bulgaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm" data-i18n="footer_copyright">© 2026 Genki. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <a href="privacy.html" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+
+  <!-- Handle bfcache/back button cases -->
+  <script>
+    function checkFormSubmission() {
+      var submittedAt = localStorage.getItem('genki_contact_submitted');
+      if (submittedAt && (Date.now() - parseInt(submittedAt)) < 300000) {
+        localStorage.removeItem('genki_contact_submitted');
+        window.location.replace('thank-you-contact.html');
+      }
+    }
+    window.addEventListener('pageshow', checkFormSubmission);
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') checkFormSubmission();
+    });
+  </script>
+</body>
+</html>
