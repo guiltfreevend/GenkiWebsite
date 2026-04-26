@@ -53,14 +53,14 @@
     }
     .animate-bounce-arrow { animation: bounce-arrow 1.8s ease-in-out infinite; }
 
-    /* Mesh gradient — HP cyan-blue. */
+    /* Mesh gradient — HP brand blue (#0096D6). */
     .hero-mesh {
       background-color: #fffef8;
       background-image:
         radial-gradient(ellipse 65% 55% at 12% 18%, rgba(45, 134, 89, 0.52), transparent 70%),
         radial-gradient(ellipse 40% 45% at 22% 52%, rgba(45, 134, 89, 0.20), transparent 70%),
         radial-gradient(ellipse 65% 55% at 88% 18%, rgba(0, 150, 214, 0.52), transparent 70%),
-        radial-gradient(ellipse 40% 45% at 78% 52%, rgba(0, 150, 214, 0.20), transparent 70%),
+        radial-gradient(ellipse 40% 45% at 78% 52%, rgba(0, 150, 214, 0.22), transparent 70%),
         radial-gradient(ellipse 50% 35% at 50% 72%, rgba(20, 184, 166, 0.15), transparent 65%),
         radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 254, 248, 0.55), transparent 70%);
     }
@@ -82,31 +82,32 @@
 
   <section class="relative w-full h-screen hero-mesh hero-noise overflow-hidden">
 
-    <a href="/" class="absolute top-10 left-10 sm:top-12 sm:left-14 z-20">
-      <img src="../../assets/images/genki_logo.png" alt="Genki" class="h-28 sm:h-36 lg:h-40">
-    </a>
-
-    <div class="absolute top-10 right-10 sm:top-12 sm:right-14 z-20">
-      <svg viewBox="0 0 200 200" class="h-20 sm:h-28 lg:h-32 w-auto drop-shadow-md">
-        <circle cx="100" cy="100" r="95" fill="#0096d6"/>
-        <text x="100" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="78" fill="white">HP</text>
-      </svg>
-    </div>
-
-    <div class="absolute top-8 left-1/2 -translate-x-1/2 z-30">
-      <div class="relative">
-        <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors text-sm">
-          <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div id="lang-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
-          <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+    <!-- Header: balanced logo row + centered language switcher -->
+    <header class="absolute top-0 left-0 right-0 z-20">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-6 sm:pt-8 lg:pt-10 flex items-center justify-between gap-4">
+        <a href="/" class="block flex-shrink-0">
+          <img src="../../assets/images/genki_logo.png" alt="Genki" class="h-20 sm:h-24 lg:h-28 w-auto">
+        </a>
+        <div class="flex-shrink-0 flex items-center">
+          <img src="../_assets/logos/HP_logo_transperant.png" alt="HP" class="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-md">
         </div>
       </div>
-    </div>
+
+      <div class="absolute top-7 sm:top-9 lg:top-11 left-1/2 -translate-x-1/2 z-30">
+        <div class="relative">
+          <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors text-sm">
+            <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
+            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
+            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 text-center">
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-5 opacity-0 animate-fade-in-up max-w-3xl" style="line-height: 1.1; letter-spacing: -0.02em; text-shadow: 0 2px 16px rgba(30, 81, 40, 0.12);" data-i18n="box_p_greeting_hp">
