@@ -434,20 +434,36 @@ function initLangSwitcher() {
   });
 }
 
-// Pricing tier toggle (Lite ↔ Standard) — flips all station cards in lockstep.
-// Persists tier in sessionStorage so users keep their choice across in-page nav.
+// Pricing tier toggle (Lite ↔ Standard) — flips all station cards in lockstep
+// AND drives the per-card headcount slider. Tier choice + per-card headcount
+// both persist in sessionStorage so the user's setup survives in-page nav.
 function initPricingToggle() {
   const toggle = document.querySelector('[data-pricing-toggle]');
   if (!toggle || !window.PRICING) return;
 
-  const STORAGE_KEY = 'genki-pricing-tier';
-  const initialTier = sessionStorage.getItem(STORAGE_KEY) || 'standard';
+  const TIER_KEY = 'genki-pricing-tier';
+  let currentTier = sessionStorage.getItem(TIER_KEY) || 'standard';
 
-  function fmtNumber(n) {
-    return n.toLocaleString('bg-BG');
+  const fmtInt = n => n.toLocaleString('bg-BG');
+  const fmtMoney = n => n.toFixed(2);
+
+  function headcountKey(stationKey, tier) {
+    return 'genki-headcount-' + stationKey + '-' + tier;
+  }
+
+  function updatePerPerson(card, stationKey, tier, headcount) {
+    if (!headcount) return;
+    const monthly = window.PRICING[stationKey][tier].price;
+    const perMonth = monthly / headcount;
+    const perDay = perMonth / 22;
+    const perMonthEl = card.querySelector('[data-per-month]');
+    const perDayEl = card.querySelector('[data-per-day]');
+    if (perMonthEl) perMonthEl.textContent = fmtMoney(perMonth);
+    if (perDayEl) perDayEl.textContent = fmtMoney(perDay);
   }
 
   function applyTier(tier) {
+    currentTier = tier;
     document.querySelectorAll('[data-station-card]').forEach(card => {
       const stationKey = card.dataset.stationCard;
       const station = window.PRICING[stationKey];
@@ -458,16 +474,27 @@ function initPricingToggle() {
       const priceEl = card.querySelector('[data-price]');
       const visitsEl = card.querySelector('[data-visits]');
       const productsEl = card.querySelector('[data-products]');
-      const bestForEl = card.querySelector('[data-best-for]');
-
-      if (priceEl) priceEl.textContent = fmtNumber(data.price);
+      if (priceEl) priceEl.textContent = fmtInt(data.price);
       if (visitsEl) visitsEl.textContent = data.visits;
-      if (productsEl) productsEl.textContent = fmtNumber(data.products);
-      if (bestForEl) bestForEl.textContent = sweet;
+      if (productsEl) productsEl.textContent = fmtInt(data.products);
 
-      // Hub anchor pill ("Most Impact") only on Hub Standard.
-      const pill = card.querySelector('[data-anchor-pill]');
-      if (pill) pill.style.display = (stationKey === 'hub' && tier === 'standard') ? '' : 'none';
+      const slider = card.querySelector('[data-headcount-slider]');
+      if (slider && sweet) {
+        const persisted = parseInt(sessionStorage.getItem(headcountKey(stationKey, tier)), 10);
+        const value = (Number.isFinite(persisted) && persisted >= sweet.min && persisted <= sweet.max)
+          ? persisted
+          : sweet.default;
+        slider.min = sweet.min;
+        slider.max = sweet.max;
+        slider.value = value;
+        const headcountEl = card.querySelector('[data-headcount]');
+        const sweetMinEl = card.querySelector('[data-sweet-min]');
+        const sweetMaxEl = card.querySelector('[data-sweet-max]');
+        if (headcountEl) headcountEl.textContent = value;
+        if (sweetMinEl) sweetMinEl.textContent = sweet.min;
+        if (sweetMaxEl) sweetMaxEl.textContent = sweet.max;
+        updatePerPerson(card, stationKey, tier, value);
+      }
     });
 
     toggle.querySelectorAll('[data-tier]').forEach(btn => {
@@ -476,7 +503,7 @@ function initPricingToggle() {
       btn.setAttribute('aria-selected', String(isActive));
     });
 
-    sessionStorage.setItem(STORAGE_KEY, tier);
+    sessionStorage.setItem(TIER_KEY, tier);
   }
 
   toggle.addEventListener('click', e => {
@@ -484,5 +511,19 @@ function initPricingToggle() {
     if (btn) applyTier(btn.dataset.tier);
   });
 
-  applyTier(initialTier);
+  // Per-card headcount sliders — live update on drag.
+  document.querySelectorAll('[data-station-card]').forEach(card => {
+    const stationKey = card.dataset.stationCard;
+    const slider = card.querySelector('[data-headcount-slider]');
+    if (!slider) return;
+    slider.addEventListener('input', () => {
+      const value = parseInt(slider.value, 10);
+      const headcountEl = card.querySelector('[data-headcount]');
+      if (headcountEl) headcountEl.textContent = value;
+      updatePerPerson(card, stationKey, currentTier, value);
+      sessionStorage.setItem(headcountKey(stationKey, currentTier), String(value));
+    });
+  });
+
+  applyTier(currentTier);
 }

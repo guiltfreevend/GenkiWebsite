@@ -216,15 +216,15 @@
       <!-- 4 Station cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
 
-        <!-- COUNTER -->
-        <div data-station-card="counter" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-              <i data-lucide="square" class="w-5 h-5 text-primary-600"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900" data-i18n="station_counter_name">Counter</h3>
-          </div>
-          <p class="text-sm text-gray-500 mb-5" data-i18n="station_counter_descriptor">Countertop wellness station</p>
+        <!-- DESK -->
+        <div data-station-card="desk" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <img src="assets/images/stations/desk.png"
+               alt="Compact Genki Desk station for small offices"
+               data-i18n-alt="station_desk_alt"
+               class="station-image mb-3"
+               width="240" height="180" loading="lazy">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="station_desk_name">Desk</h3>
+          <p class="text-sm text-gray-500 mb-5" data-i18n="station_desk_descriptor">Compact office wellness station</p>
 
           <div class="mb-5">
             <div class="flex items-baseline gap-1">
@@ -242,18 +242,37 @@
               <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
               <span><span class="font-semibold station-num" data-products>440</span> <span data-i18n="pricing_unit_products">products per month</span></span>
             </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span><span data-i18n="pricing_best_for_prefix">Best for</span> <span class="font-semibold station-num" data-best-for>35–60</span> <span data-i18n="pricing_best_for_suffix">employees</span></span>
-            </li>
             <li class="flex items-start gap-2 text-gray-500">
               <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="pricing_identical_hardware">Identical hardware and 70/30 product mix across both tiers</span>
+              <span data-i18n="pricing_identical_hardware">Identical hardware and product quality across Lite and Standard</span>
             </li>
           </ul>
 
+          <!-- Per-employee cost calculator -->
+          <div class="station-headcount-block rounded-lg bg-gray-50 border border-gray-100 p-3 mb-4" data-headcount-block>
+            <div class="flex items-baseline justify-between gap-2 mb-2 text-sm">
+              <span class="text-gray-700">
+                <span class="font-bold station-num text-gray-900" data-headcount>45</span>
+                <span data-i18n="pricing_employees_label">employees</span>
+              </span>
+              <span class="text-xs text-gray-400 station-num"><span data-sweet-min>35</span>–<span data-sweet-max>60</span></span>
+            </div>
+            <input type="range" data-headcount-slider min="35" max="60" value="45" step="1"
+                   class="station-slider w-full" aria-label="Team size">
+            <div class="flex flex-col gap-0.5 mt-2.5">
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-month>28.67</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_month">/employee/month</span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-day>1.30</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_day">/employee/day</span>
+              </div>
+            </div>
+          </div>
+
           <p class="text-xs text-gray-500 mb-4">
-            <span data-i18n="pricing_setup_fee_label">One-time setup fee</span>:
+            <span data-i18n="pricing_setup_fee_label">One-time activation fee</span>:
             <span class="font-semibold text-gray-700">€1,190</span>
           </p>
 
@@ -262,12 +281,12 @@
 
         <!-- TOWER DRY -->
         <div data-station-card="towerDry" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-              <i data-lucide="package" class="w-5 h-5 text-primary-600"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_dry_name">Tower Dry</h3>
-          </div>
+          <img src="assets/images/stations/tower-dry.png"
+               alt="Free-standing Genki Tower Dry station for dry products"
+               data-i18n-alt="station_tower_dry_alt"
+               class="station-image mb-3"
+               width="240" height="180" loading="lazy">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_dry_name">Tower Dry</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_tower_dry_descriptor">Floor-standing dry-storage tower</p>
 
           <div class="mb-5">
@@ -286,32 +305,54 @@
               <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
               <span><span class="font-semibold station-num" data-products>1,000</span> <span data-i18n="pricing_unit_products">products per month</span></span>
             </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span><span data-i18n="pricing_best_for_prefix">Best for</span> <span class="font-semibold station-num" data-best-for>80–120</span> <span data-i18n="pricing_best_for_suffix">employees</span></span>
-            </li>
             <li class="flex items-start gap-2 text-gray-500">
               <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="pricing_identical_hardware">Identical hardware and 70/30 product mix across both tiers</span>
+              <span data-i18n="pricing_identical_hardware">Identical hardware and product quality across Lite and Standard</span>
             </li>
           </ul>
 
+          <!-- Per-employee cost calculator -->
+          <div class="station-headcount-block rounded-lg bg-gray-50 border border-gray-100 p-3 mb-4" data-headcount-block>
+            <div class="flex items-baseline justify-between gap-2 mb-2 text-sm">
+              <span class="text-gray-700">
+                <span class="font-bold station-num text-gray-900" data-headcount>100</span>
+                <span data-i18n="pricing_employees_label">employees</span>
+              </span>
+              <span class="text-xs text-gray-400 station-num"><span data-sweet-min>80</span>–<span data-sweet-max>120</span></span>
+            </div>
+            <input type="range" data-headcount-slider min="80" max="120" value="100" step="1"
+                   class="station-slider w-full" aria-label="Team size">
+            <div class="flex flex-col gap-0.5 mt-2.5">
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-month>22.90</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_month">/employee/month</span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-day>1.04</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_day">/employee/day</span>
+              </div>
+            </div>
+          </div>
+
           <p class="text-xs text-gray-500 mb-4">
-            <span data-i18n="pricing_setup_fee_label">One-time setup fee</span>:
+            <span data-i18n="pricing_setup_fee_label">One-time activation fee</span>:
             <span class="font-semibold text-gray-700">€2,290</span>
           </p>
 
           <a href="/contact" class="w-full py-2.5 px-5 bg-primary-600 text-white font-semibold rounded-lg text-center hover:bg-primary-700 transition-all" data-i18n="pricing_cta_quote">Book consultation</a>
         </div>
 
-        <!-- TOWER FRIDGE -->
-        <div data-station-card="towerFridge" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-              <i data-lucide="snowflake" class="w-5 h-5 text-primary-600"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_fridge_name">Tower Fridge</h3>
-          </div>
+        <!-- TOWER FRIDGE (anchored — "Most Popular" pill) -->
+        <!-- Pricing anchor: currently on Tower Fridge (Sweet Spot — fastest pipeline).
+             Reconsider moving to Hub Standard once 5+ enterprise contracts are closed. -->
+        <div data-station-card="towerFridge" class="station-card station-card-anchor bg-white rounded-2xl p-6 border-2 border-amber-400 shadow-md flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative">
+          <div data-anchor-pill class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap" data-i18n="pricing_anchor_pill">We recommend</div>
+          <img src="assets/images/stations/tower-fridge.png"
+               alt="Free-standing Genki Tower Fridge station with built-in fridge"
+               data-i18n-alt="station_tower_fridge_alt"
+               class="station-image mb-3"
+               width="240" height="180" loading="lazy">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_fridge_name">Tower Fridge</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_tower_fridge_descriptor">Floor-standing chilled tower</p>
 
           <div class="mb-5">
@@ -330,33 +371,51 @@
               <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
               <span><span class="font-semibold station-num" data-products>1,300</span> <span data-i18n="pricing_unit_products">products per month</span></span>
             </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span><span data-i18n="pricing_best_for_prefix">Best for</span> <span class="font-semibold station-num" data-best-for>100–150</span> <span data-i18n="pricing_best_for_suffix">employees</span></span>
-            </li>
             <li class="flex items-start gap-2 text-gray-500">
               <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="pricing_identical_hardware">Identical hardware and 70/30 product mix across both tiers</span>
+              <span data-i18n="pricing_identical_hardware">Identical hardware and product quality across Lite and Standard</span>
             </li>
           </ul>
 
+          <!-- Per-employee cost calculator -->
+          <div class="station-headcount-block rounded-lg bg-gray-50 border border-gray-100 p-3 mb-4" data-headcount-block>
+            <div class="flex items-baseline justify-between gap-2 mb-2 text-sm">
+              <span class="text-gray-700">
+                <span class="font-bold station-num text-gray-900" data-headcount>125</span>
+                <span data-i18n="pricing_employees_label">employees</span>
+              </span>
+              <span class="text-xs text-gray-400 station-num"><span data-sweet-min>100</span>–<span data-sweet-max>150</span></span>
+            </div>
+            <input type="range" data-headcount-slider min="100" max="150" value="125" step="1"
+                   class="station-slider w-full" aria-label="Team size">
+            <div class="flex flex-col gap-0.5 mt-2.5">
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-month>22.32</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_month">/employee/month</span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-day>1.01</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_day">/employee/day</span>
+              </div>
+            </div>
+          </div>
+
           <p class="text-xs text-gray-500 mb-4">
-            <span data-i18n="pricing_setup_fee_label">One-time setup fee</span>:
+            <span data-i18n="pricing_setup_fee_label">One-time activation fee</span>:
             <span class="font-semibold text-gray-700">€2,590</span>
           </p>
 
           <a href="/contact" class="w-full py-2.5 px-5 bg-primary-600 text-white font-semibold rounded-lg text-center hover:bg-primary-700 transition-all" data-i18n="pricing_cta_quote">Book consultation</a>
         </div>
 
-        <!-- HUB (anchored — Most Impact pill on Standard) -->
-        <div data-station-card="hub" class="station-card station-card-anchor bg-white rounded-2xl p-6 border-2 border-amber-400 shadow-md flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative">
-          <div data-anchor-pill class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide" data-i18n="pricing_hub_anchor_pill">Most Impact</div>
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-              <i data-lucide="layers" class="w-5 h-5 text-amber-600"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900" data-i18n="station_hub_name">Hub</h3>
-          </div>
+        <!-- HUB -->
+        <div data-station-card="hub" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <img src="assets/images/stations/hub.png"
+               alt="Premium Genki Hub wall station for large offices"
+               data-i18n-alt="station_hub_alt"
+               class="station-image mb-3"
+               width="240" height="180" loading="lazy">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="station_hub_name">Hub</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_hub_descriptor">Multi-station office wellness hub</p>
 
           <div class="mb-5">
@@ -375,18 +434,37 @@
               <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
               <span><span class="font-semibold station-num" data-products>5,000</span> <span data-i18n="pricing_unit_products">products per month</span></span>
             </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span><span data-i18n="pricing_best_for_prefix">Best for</span> <span class="font-semibold station-num" data-best-for>250–400</span> <span data-i18n="pricing_best_for_suffix">employees</span></span>
-            </li>
             <li class="flex items-start gap-2 text-gray-500">
               <svg class="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="pricing_identical_hardware">Identical hardware and 70/30 product mix across both tiers</span>
+              <span data-i18n="pricing_identical_hardware">Identical hardware and product quality across Lite and Standard</span>
             </li>
           </ul>
 
+          <!-- Per-employee cost calculator -->
+          <div class="station-headcount-block rounded-lg bg-gray-50 border border-gray-100 p-3 mb-4" data-headcount-block>
+            <div class="flex items-baseline justify-between gap-2 mb-2 text-sm">
+              <span class="text-gray-700">
+                <span class="font-bold station-num text-gray-900" data-headcount>325</span>
+                <span data-i18n="pricing_employees_label">employees</span>
+              </span>
+              <span class="text-xs text-gray-400 station-num"><span data-sweet-min>250</span>–<span data-sweet-max>400</span></span>
+            </div>
+            <input type="range" data-headcount-slider min="250" max="400" value="325" step="1"
+                   class="station-slider w-full" aria-label="Team size">
+            <div class="flex flex-col gap-0.5 mt-2.5">
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-month>26.12</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_month">/employee/month</span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-base font-bold text-gray-900 station-num">€<span data-per-day>1.19</span></span>
+                <span class="text-xs text-gray-500" data-i18n="pricing_per_employee_day">/employee/day</span>
+              </div>
+            </div>
+          </div>
+
           <p class="text-xs text-gray-500 mb-4">
-            <span data-i18n="pricing_setup_fee_label">One-time setup fee</span>:
+            <span data-i18n="pricing_setup_fee_label">One-time activation fee</span>:
             <span class="font-semibold text-gray-700">€5,990</span>
           </p>
 
@@ -409,7 +487,7 @@
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f2">70/30 base/premium product mix (identical across Lite and Standard)</span>
+              <span class="text-gray-700" data-i18n="pricing_all_f2">Identical product quality across Lite and Standard — only visit cadence and reload size differ</span>
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -446,20 +524,31 @@
       <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 lg:p-8 fade-up border border-gray-200 shadow-lg">
 
         <!-- Team Size Slider -->
-        <div class="mb-6">
+        <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_team_size_label">Team Size</label>
-          <input type="range" id="roi-slider" min="100" max="2000" value="300" step="25" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer roi-slider-style">
+          <input type="range" id="roi-slider" min="25" max="2000" value="300" step="25" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer roi-slider-style">
           <div class="flex justify-between text-sm text-gray-500 mt-2">
-            <span>100</span>
+            <span>25</span>
             <span class="text-lg font-bold text-emerald-600"><span id="roi-team-size">300</span> <span data-i18n="roi_employees">employees</span></span>
             <span>2000</span>
           </div>
+          <!-- Recommended setup line — derived from headcount via roi-engine -->
+          <p class="text-xs text-gray-500 mt-2 text-center">
+            <span data-i18n="roi_recommended_setup_label">Recommended setup</span>:
+            <span id="roi-setup-name" class="font-semibold text-gray-700">Hub Standard</span>
+          </p>
         </div>
 
         <!-- Compact Assumptions (one line) -->
         <p class="text-xs text-gray-500 mb-5 text-center" data-i18n="roi_assumptions_compact">
-          Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, ~€1.20/employee/day Genki cost
+          Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/year
         </p>
+
+        <!-- Under-25 disabled state -->
+        <div id="roi-mini-unsupported" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5">
+          <p class="text-sm text-amber-900 font-semibold mb-1" data-i18n="roi_under_min_title">Genki isn't suited to teams under 25 employees</p>
+          <p class="text-xs text-amber-800" data-i18n="roi_under_min_desc">Below 25 people, the Desk Lite station is over-specified. We recommend revisiting once your team grows, or reaching out to discuss a custom arrangement.</p>
+        </div>
 
         <!-- Daily Cost Hero Box -->
         <div id="per-day-box" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl p-6 mb-6 text-center transform transition-all duration-300 shadow-lg">
@@ -510,9 +599,33 @@
         </div>
 
         <!-- Research Note -->
-        <p class="text-xs text-gray-400 text-center mb-5" data-i18n="roi_research_note">
+        <p class="text-xs text-gray-400 text-center mb-3" data-i18n="roi_research_note">
           Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.
         </p>
+
+        <!-- How is this calculated? — transparency expandable -->
+        <details class="mb-5 bg-white rounded-xl border border-gray-200 group">
+          <summary class="text-sm font-semibold text-gray-700 cursor-pointer p-4 flex items-center justify-between hover:bg-gray-50 rounded-xl transition-colors">
+            <span class="flex items-center gap-2"><i data-lucide="info" class="w-4 h-4 text-primary-600"></i><span data-i18n="roi_explainer_title">How is this calculated?</span></span>
+            <svg class="w-4 h-4 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </summary>
+          <div class="px-4 pb-4 space-y-3 text-xs text-gray-600">
+            <div>
+              <p class="font-semibold text-gray-800 mb-0.5" data-i18n="roi_explainer_assumptions_title">Assumptions</p>
+              <p data-i18n="roi_explainer_assumptions_body">Average salary €36,000/year, 13% annual turnover, 8 sick days per employee per year. Cost is the live monthly price of the recommended Genki station configuration for your headcount.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-800 mb-0.5" data-i18n="roi_explainer_multipliers_title">Conservative scenario multipliers (the default — most defensible read)</p>
+              <ul class="list-disc list-outside pl-5 space-y-1">
+                <li data-i18n="roi_explainer_mul_turnover">Turnover reduction 5%: a daily, visible benefit shows up in retention surveys and exit-interview reasoning, but only one factor among many.</li>
+                <li data-i18n="roi_explainer_mul_absenteeism">Absenteeism reduction 10%: better daily nutrition modestly reduces sick days driven by energy crashes and poor diet.</li>
+                <li data-i18n="roi_explainer_mul_productivity">Productivity gain 1%: fewer afternoon slumps and shorter coffee runs add up to about one extra focused hour per employee per week.</li>
+                <li data-i18n="roi_explainer_mul_healthcare">Healthcare reduction 3%: better baseline nutrition modestly lowers preventable medical claims long-term.</li>
+              </ul>
+            </div>
+            <p class="text-[11px] text-gray-500 italic border-t border-gray-100 pt-2" data-i18n="roi_explainer_note">These figures assume Genki contributes alongside other wellness initiatives (Multisport, healthcare, mental-health support), not in isolation. Allow a 4–6 week calibration period before evaluating actual outcomes.</p>
+          </div>
+        </details>
 
         <!-- CTA -->
         <a href="/contact" class="btn-primary w-full justify-center text-lg">
@@ -537,7 +650,7 @@
       <div class="space-y-4">
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
           <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq1_q">What team sizes do you work with?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq1_a">Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Counter station as an entry tier. Contact us to discuss the right station and tier for your team.</p>
+          <p class="text-gray-600 mt-4" data-i18n="companies_faq1_a">Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Desk station as an entry tier. Contact us to discuss the right station and tier for your team.</p>
         </details>
 
         <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
@@ -617,145 +730,72 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@0.344.0"></script>
-  <script src="js/translations.js"></script>
-  <script src="js/pricing-data.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/translations.js?v=20260508"></script>
+  <script src="js/pricing-data.js?v=20260508"></script>
+  <script src="js/roi-engine.js?v=20260508"></script>
+  <script src="js/main.js?v=20260508"></script>
   <script>lucide.createIcons();</script>
 
-  <!-- ROI Calculator - Uses SAME formulas as roi-calculator.js -->
+  <!-- ROI Calculator (mini) — engine-backed, station-based pricing.
+       Source of truth: js/roi-engine.js. Multipliers default to Moderate (Option A). -->
   <script>
-    (function() {
+    (function () {
       const slider = document.getElementById('roi-slider');
-      if (!slider) return;
+      if (!slider || !window.GenkiROI) return;
 
-      // CONFIG - Matches roi-calculator.js exactly
-      const CONFIG = {
-        workingDaysPerMonth: 22,
-        workingDaysPerYear: 220,
-        monthsPerYear: 12,
-        replacementCostMultiplier: 1.5,
-        healthcareCostPerEmployee: 500,
-        // Using MODERATE scenario (same as roi-calculator.js default)
-        turnoverReduction: 0.25,
-        absenteeismReduction: 0.20,
-        productivityGain: 0.05,
-        healthcareReduction: 0.10
-      };
-
-      // Bulgarian IT market defaults — retuned 2026-05 for station-based model.
-      // 1.5 products/day × €0.85 ≈ €1.275/employee/day, matching Hub Standard (€8,490/mo, 300 ppl).
-      const DEFAULTS = {
-        salary: 36000,
-        turnoverRate: 13,
-        sickDays: 8,
-        productsPerDay: 1.5,
-        productCost: 0.85
-      };
-
-      // Bulgarian prices for comparison
+      // Mini calc is locked to CONSERVATIVE scenario — closest match to the
+      // "defensible 80–150% ROI" target. Moderate (Option A) on the same headcount
+      // produces ROI in the 380–450% range with these formulas, which feels too
+      // bullish for a snack-station-only benefit. Full calc still exposes all 3.
+      const SCENARIO = 'conservative';
       const PRICES = { coffee: 1.50, sandwich: 1.30 };
 
-      function formatNumber(num) {
-        return Math.round(num).toLocaleString('en-US');
+      const baseInputs = { salary: 36000, turnoverRate: 13, sickDays: 8 };
+
+      function fmtInt(num) { return Math.round(num).toLocaleString('en-US'); }
+      function fmtDec1(num) {
+        const r = Math.round(num * 10) / 10;
+        return r === Math.floor(r) ? r.toString() : r.toFixed(1);
+      }
+      function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      }
+      function setupNameForResult(setup) {
+        if (!setup) return '—';
+        const tx = (window.translations && window.translations[setup.nameKey]) || null;
+        const lang = (document.documentElement.lang === 'en') ? 'en' : 'bg';
+        return tx ? tx[lang] : setup.name;
       }
 
-      function formatDecimal(num) {
-        const rounded = Math.round(num * 10) / 10;
-        return rounded === Math.floor(rounded) ? rounded.toString() : rounded.toFixed(1);
-      }
+      function update(animate) {
+        const teamSize = parseInt(slider.value, 10);
+        const result = window.GenkiROI.calculateROI(Object.assign({ teamSize }, baseInputs), SCENARIO);
+        setText('roi-team-size', teamSize);
 
-      function calculate(teamSize) {
-        // GENKI COST
-        const genkiCostAnnual = teamSize * DEFAULTS.productsPerDay * DEFAULTS.productCost * CONFIG.workingDaysPerMonth * CONFIG.monthsPerYear;
-        const genkiCostMonthly = genkiCostAnnual / CONFIG.monthsPerYear;
-        const genkiCostDaily = (genkiCostAnnual / CONFIG.monthsPerYear / teamSize) / CONFIG.workingDaysPerMonth;
+        const unsupportedWrap = document.getElementById('roi-mini-unsupported');
+        if (result.unsupported) {
+          if (unsupportedWrap) unsupportedWrap.classList.remove('hidden');
+          setText('roi-setup-name', '—');
+          setText('roi-daily-cost', '—');
+          ['roi-coffees','roi-sandwiches','roi-turnover','roi-productivity','roi-sick','roi-healthcare','roi-break-hours','roi-net','roi-percent','roi-payback'].forEach(id => setText(id, '—'));
+          return;
+        }
+        if (unsupportedWrap) unsupportedWrap.classList.add('hidden');
 
-        // TURNOVER SAVINGS
-        const replacementCost = DEFAULTS.salary * CONFIG.replacementCostMultiplier;
-        const currentTurnoverCost = teamSize * (DEFAULTS.turnoverRate / 100) * replacementCost;
-        const turnoverSavings = currentTurnoverCost * CONFIG.turnoverReduction;
+        setText('roi-setup-name', setupNameForResult(result.setup));
+        setText('roi-daily-cost', '€' + result.genkiCostDaily.toFixed(2));
+        setText('roi-coffees', fmtDec1(result.genkiCostDaily / PRICES.coffee));
+        setText('roi-sandwiches', fmtDec1(result.genkiCostDaily / PRICES.sandwich));
+        setText('roi-turnover', fmtInt(result.turnoverSavings));
+        setText('roi-productivity', fmtInt(result.productivityValue));
+        setText('roi-sick', fmtInt(result.absenteeismSavings));
+        setText('roi-healthcare', fmtInt(result.healthcareSavings));
+        setText('roi-break-hours', '~' + fmtInt(result.breakHoursSaved));
+        setText('roi-net', fmtInt(result.netBenefit));
+        setText('roi-percent', Math.round(result.roiPercent));
+        setText('roi-payback', result.paybackMonths.toFixed(1));
 
-        // ABSENTEEISM SAVINGS
-        const dailySalary = DEFAULTS.salary / CONFIG.workingDaysPerYear;
-        const currentAbsenteeismCost = teamSize * DEFAULTS.sickDays * dailySalary;
-        const absenteeismSavings = currentAbsenteeismCost * CONFIG.absenteeismReduction;
-
-        // PRODUCTIVITY GAINS
-        const productivityValue = teamSize * DEFAULTS.salary * CONFIG.productivityGain;
-
-        // HEALTHCARE SAVINGS
-        const healthcareSavings = teamSize * CONFIG.healthcareCostPerEmployee * CONFIG.healthcareReduction;
-
-        // BREAK TIME SAVED
-        const breakHoursSaved = teamSize * CONFIG.workingDaysPerYear * (30 / 60);
-
-        // TOTALS
-        const totalSavings = turnoverSavings + absenteeismSavings + productivityValue + healthcareSavings;
-        const netBenefit = totalSavings - genkiCostAnnual;
-        const roiPercent = (netBenefit / genkiCostAnnual) * 100;
-        const paybackMonths = (genkiCostAnnual / totalSavings) * CONFIG.monthsPerYear;
-
-        // Price comparisons
-        const coffees = genkiCostDaily / PRICES.coffee;
-        const sandwiches = genkiCostDaily / PRICES.sandwich;
-
-        return {
-          teamSize,
-          genkiCostAnnual,
-          genkiCostMonthly,
-          genkiCostDaily,
-          turnoverSavings,
-          absenteeismSavings,
-          breakHoursSaved,
-          productivityValue,
-          healthcareSavings,
-          totalSavings,
-          netBenefit,
-          roiPercent,
-          paybackMonths,
-          coffees,
-          sandwiches
-        };
-      }
-
-      function updateDisplay(data, animate) {
-        // Team size
-        const teamSizeEl = document.getElementById('roi-team-size');
-        if (teamSizeEl) teamSizeEl.textContent = data.teamSize;
-
-        // Daily cost (hero)
-        const dailyCostEl = document.getElementById('roi-daily-cost');
-        if (dailyCostEl) dailyCostEl.textContent = '€' + data.genkiCostDaily.toFixed(2);
-
-        // Price comparisons
-        const coffeesEl = document.getElementById('roi-coffees');
-        const sandwichesEl = document.getElementById('roi-sandwiches');
-        if (coffeesEl) coffeesEl.textContent = formatDecimal(data.coffees);
-        if (sandwichesEl) sandwichesEl.textContent = formatDecimal(data.sandwiches);
-
-        // Savings breakdown
-        const turnoverEl = document.getElementById('roi-turnover');
-        const productivityEl = document.getElementById('roi-productivity');
-        const sickEl = document.getElementById('roi-sick');
-        const healthcareEl = document.getElementById('roi-healthcare');
-        if (turnoverEl) turnoverEl.textContent = formatNumber(data.turnoverSavings);
-        if (productivityEl) productivityEl.textContent = formatNumber(data.productivityValue);
-        if (sickEl) sickEl.textContent = formatNumber(data.absenteeismSavings);
-        if (healthcareEl) healthcareEl.textContent = formatNumber(data.healthcareSavings);
-
-        // Break hours saved
-        const breakHoursEl = document.getElementById('roi-break-hours');
-        if (breakHoursEl) breakHoursEl.textContent = '~' + formatNumber(data.breakHoursSaved);
-
-        // Net benefit & ROI
-        const netEl = document.getElementById('roi-net');
-        const percentEl = document.getElementById('roi-percent');
-        const paybackEl = document.getElementById('roi-payback');
-        if (netEl) netEl.textContent = formatNumber(data.netBenefit);
-        if (percentEl) percentEl.textContent = Math.round(data.roiPercent);
-        if (paybackEl) paybackEl.textContent = data.paybackMonths.toFixed(1);
-
-        // Animate the per-day box
         if (animate) {
           const perDayBox = document.getElementById('per-day-box');
           if (perDayBox) {
@@ -765,13 +805,8 @@
         }
       }
 
-      slider.addEventListener('input', function() {
-        const data = calculate(parseInt(this.value));
-        updateDisplay(data, true);
-      });
-
-      // Initialize
-      updateDisplay(calculate(300), false);
+      slider.addEventListener('input', () => update(true));
+      update(false);
     })();
   </script>
 </body>

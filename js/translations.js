@@ -583,14 +583,32 @@ const translations = {
     bg: "Изберете ниво на обслужване"
   },
 
-  // NEW PRICING - Station names (kept as proper nouns)
-  station_counter_name: {
-    en: "Counter",
-    bg: "Counter"
+  // NEW PRICING - Station names (kept as proper nouns).
+  // 2026-05: smallest station renamed Counter → Desk for brand consistency
+  // alongside Tower / Hub. Spec, prices, and capacity unchanged.
+  station_desk_name: {
+    en: "Desk",
+    bg: "Desk"
   },
-  station_counter_descriptor: {
-    en: "Countertop wellness station",
-    bg: "Уелнес станция за плот"
+  station_desk_descriptor: {
+    en: "Compact office wellness station",
+    bg: "Компактна офис уелнес станция"
+  },
+  station_desk_alt: {
+    en: "Compact Genki Desk station for small offices",
+    bg: "Компактна Genki Desk станция за малки офиси"
+  },
+  station_tower_dry_alt: {
+    en: "Free-standing Genki Tower Dry station for dry products",
+    bg: "Свободно стояща Genki Tower Dry станция за сухи продукти"
+  },
+  station_tower_fridge_alt: {
+    en: "Free-standing Genki Tower Fridge station with built-in fridge",
+    bg: "Свободно стояща Genki Tower Fridge станция с вграден хладилник"
+  },
+  station_hub_alt: {
+    en: "Premium Genki Hub wall station for large offices",
+    bg: "Премиум Genki Hub стенна станция за големи офиси"
   },
   station_tower_dry_name: {
     en: "Tower Dry",
@@ -630,25 +648,32 @@ const translations = {
     en: "products per month",
     bg: "продукта на месец"
   },
-  pricing_best_for_prefix: {
-    en: "Best for",
-    bg: "Подходящ за"
-  },
-  pricing_best_for_suffix: {
+  // (pricing_best_for_prefix / pricing_best_for_suffix removed in 2026-05 polish pass —
+  //  the static "Best for X–Y employees" bullet was replaced by an interactive headcount
+  //  slider per card. See pricing_employees_label below.)
+  pricing_employees_label: {
     en: "employees",
     bg: "служители"
   },
+  pricing_per_employee_month: {
+    en: "/employee/month",
+    bg: "/служител/месец"
+  },
+  pricing_per_employee_day: {
+    en: "/employee/day",
+    bg: "/служител/ден"
+  },
   pricing_identical_hardware: {
-    en: "Identical hardware and 70/30 product mix across both tiers",
-    bg: "Идентичен хардуер и 70/30 продуктов микс и при двете нива"
+    en: "Identical hardware and product quality across Lite and Standard",
+    bg: "Идентичен хардуер и продуктово качество при Lite и Standard"
   },
   pricing_setup_fee_label: {
-    en: "One-time setup fee",
-    bg: "Еднократна стартова такса"
+    en: "One-time activation fee",
+    bg: "Еднократна такса за активиране"
   },
-  pricing_hub_anchor_pill: {
-    en: "Most Impact",
-    bg: "Най-голям ефект"
+  pricing_anchor_pill: {
+    en: "We recommend",
+    bg: "Препоръчваме"
   },
   pricing_vat_note: {
     en: "Prices are in EUR, VAT excluded. VAT applied per Bulgarian law where applicable. VAT is recoverable for B2B clients.",
@@ -671,8 +696,8 @@ const translations = {
     bg: "100% български продукти"
   },
   pricing_all_f2: {
-    en: "70/30 base/premium product mix (identical across Lite and Standard)",
-    bg: "70/30 базов/премиум продуктов микс (еднакъв при Lite и Standard)"
+    en: "Identical product quality across Lite and Standard — only visit cadence and reload size differ",
+    bg: "Еднакво продуктово качество при Lite и Standard — различават се само честотата и количеството на зарежданията"
   },
   pricing_all_f3: {
     en: "Equipment ownership stays with Genki — you never own depreciating hardware",
@@ -910,8 +935,76 @@ const translations = {
     bg: "📋 Базирано на българския IT пазар:"
   },
   roi_assumptions_compact: {
-    en: "Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, ~€1.20/employee/day Genki cost",
-    bg: "Базирано на българския IT пазар: €36k заплата, 13% текучество, 8 болнични/год., ~€1.20/служител/ден разход за Genki"
+    en: "Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/year",
+    bg: "Базирано на българския IT пазар: €36k заплата, 13% текучество, 8 болнични/год."
+  },
+
+  // === Station-based ROI (2026-05 rewrite) — recommended-setup labels ===
+  roi_recommended_setup_label: {
+    en: "Recommended setup",
+    bg: "Препоръчана конфигурация"
+  },
+  roi_under_min_title: {
+    en: "Genki isn't suited to teams under 25 employees",
+    bg: "Genki не е подходящ за екипи под 25 служители"
+  },
+  roi_under_min_desc: {
+    en: "Below 25 people, the Desk Lite station is over-specified. We recommend revisiting once your team grows, or reaching out to discuss a custom arrangement.",
+    bg: "Под 25 души Desk Lite е свръхкапацитет. Препоръчваме да се върнете при нас, когато екипът Ви нарасне, или да се свържете за индивидуално решение."
+  },
+
+  // Setup names — kept as proper nouns; "× N" composite labels are read out as-is.
+  roi_setup_desk_lite:      { en: "Desk Lite", bg: "Desk Lite" },
+  roi_setup_desk_std:       { en: "Desk Standard", bg: "Desk Standard" },
+  roi_setup_td_lite:        { en: "Tower Dry Lite", bg: "Tower Dry Lite" },
+  roi_setup_td_std:         { en: "Tower Dry Standard", bg: "Tower Dry Standard" },
+  roi_setup_tf_lite:        { en: "Tower Fridge Lite", bg: "Tower Fridge Lite" },
+  roi_setup_hub_lite:       { en: "Hub Lite", bg: "Hub Lite" },
+  roi_setup_hub_std:        { en: "Hub Standard", bg: "Hub Standard" },
+  roi_setup_200_250:        { en: "1× Tower Fridge Standard + 1× Tower Fridge Lite",        bg: "1× Tower Fridge Standard + 1× Tower Fridge Lite" },
+  roi_setup_400_500:        { en: "1× Hub Standard + 1× Tower Fridge Lite",                 bg: "1× Hub Standard + 1× Tower Fridge Lite" },
+  roi_setup_500_600:        { en: "1× Hub Standard + 1× Tower Fridge Standard",             bg: "1× Hub Standard + 1× Tower Fridge Standard" },
+  roi_setup_600_800:        { en: "2× Hub Standard",                                        bg: "2× Hub Standard" },
+  roi_setup_800_1000:       { en: "2× Hub Standard + 1× Tower Fridge Standard",             bg: "2× Hub Standard + 1× Tower Fridge Standard" },
+  roi_setup_1000_1500:      { en: "3× Hub Standard + 2× Tower Fridge Standard",             bg: "3× Hub Standard + 2× Tower Fridge Standard" },
+  roi_setup_1500_2000:      { en: "4× Hub Standard + 2× Tower Fridge Standard",             bg: "4× Hub Standard + 2× Tower Fridge Standard" },
+
+  // === Station-based ROI — "How is this calculated?" expandable ===
+  roi_explainer_title: {
+    en: "How is this calculated?",
+    bg: "Как се изчислява?"
+  },
+  roi_explainer_assumptions_title: {
+    en: "Assumptions",
+    bg: "Допускания"
+  },
+  roi_explainer_assumptions_body: {
+    en: "Average salary €36,000/year, 13% annual turnover, 8 sick days per employee per year. Cost is the live monthly price of the recommended Genki station configuration for your headcount.",
+    bg: "Средна заплата €36 000/год., 13% годишно текучество, 8 болнични дни на служител годишно. Разходът е реалната месечна цена на препоръчаната конфигурация Genki за Вашия екип."
+  },
+  roi_explainer_multipliers_title: {
+    en: "Conservative scenario multipliers (the default — most defensible read)",
+    bg: "Множители при Conservative сценарий (по подразбиране — най-защитимото четене)"
+  },
+  roi_explainer_mul_turnover: {
+    en: "Turnover reduction 5%: a daily, visible benefit shows up in retention surveys and exit-interview reasoning, but only one factor among many.",
+    bg: "Намаление на текучеството 5%: ежедневната, видима придобивка се отразява в проучванията за задържане, но е само един фактор сред много."
+  },
+  roi_explainer_mul_absenteeism: {
+    en: "Absenteeism reduction 10%: better daily nutrition modestly reduces sick days driven by energy crashes and poor diet.",
+    bg: "Намаление на болничните 10%: по-доброто ежедневно хранене умерено намалява болничните дни от енергийни спадове и нездравословна диета."
+  },
+  roi_explainer_mul_productivity: {
+    en: "Productivity gain 1%: fewer afternoon slumps and shorter coffee runs add up to about one extra focused hour per employee per week.",
+    bg: "Повишена продуктивност 1%: по-малко следобедни спадове и по-кратки излизания за кафе се натрупват до около един допълнителен фокусиран час на служител седмично."
+  },
+  roi_explainer_mul_healthcare: {
+    en: "Healthcare reduction 3%: better baseline nutrition modestly lowers preventable medical claims long-term.",
+    bg: "Намаление на здравните разходи 3%: по-добрата базова диета умерено понижава дългосрочните предотвратими медицински разходи."
+  },
+  roi_explainer_note: {
+    en: "These figures assume Genki contributes alongside other wellness initiatives (Multisport, healthcare, mental-health support), not in isolation. Allow a 4–6 week calibration period before evaluating actual outcomes.",
+    bg: "Числата приемат, че Genki допринася заедно с други уелнес инициативи (Multisport, здравно осигуряване, ментална подкрепа), а не самостоятелно. Дайте 4–6 седмици период на калибриране, преди да оценявате реалните резултати."
   },
   roi_research_note: {
     en: "Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.",
@@ -1042,8 +1135,8 @@ const translations = {
     bg: "С какъв размер екипи работите?"
   },
   companies_faq1_a: {
-    en: "Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Counter station as an entry tier. Contact us to discuss the right station and tier for your team.",
-    bg: "Идеално работим с екипи от 60 до 400 служители — там моделът със станции дава най-голяма стойност. По-малки екипи (25–60 души) пасват на Counter като входно ниво. Свържете се с нас, за да обсъдим коя станция и кое ниво на обслужване са подходящи за Вашия екип."
+    en: "Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Desk station as an entry tier. Contact us to discuss the right station and tier for your team.",
+    bg: "Идеално работим с екипи от 60 до 400 служители — там моделът със станции дава най-голяма стойност. По-малки екипи (25–60 души) пасват на Desk като входно ниво. Свържете се с нас, за да обсъдим коя станция и кое ниво на обслужване са подходящи за Вашия екип."
   },
   companies_faq2_q: {
     en: "How does delivery work?",
@@ -3229,6 +3322,14 @@ function updateContent() {
     }
   });
 
+  // Update alt-text translations (used by station card images)
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-alt');
+    if (translations[key] && translations[key][currentLang]) {
+      el.alt = translations[key][currentLang];
+    }
+  });
+
   // Update page title
   const titleKey = document.querySelector('title')?.getAttribute('data-i18n');
   if (titleKey && translations[titleKey]) {
@@ -3303,3 +3404,7 @@ if (document.readyState === 'loading') {
 } else {
   initLanguageSwitcher();
 }
+
+// Expose dictionary on window so the ROI engine + other scripts can pick the
+// active language for dynamically inserted strings (e.g. recommended setup name).
+window.translations = translations;

@@ -436,7 +436,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-/* Badge */
+/* Badge — pills/badges must never wrap to two lines (B2B copy is short on purpose) */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -446,6 +446,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Hard nowrap on every other pill-shaped element. Single source of truth so no
+   future label can break across lines. New pills should match these selectors. */
+.pricing-toggle-btn,
+.pricing-toggle .pricing-toggle-btn,
+.scenario-tab,
+.lang-option,
+[data-anchor-pill] {
+  white-space: nowrap;
 }
 
 .badge-green {
@@ -966,7 +977,7 @@ select:focus {
   outline-offset: 2px;
 }
 
-/* Tabular numerals so the price/visits/products numbers don't reflow on toggle. */
+/* Tabular numerals so the price/visits/products numbers don't reflow on toggle/slider drag. */
 .station-price,
 .station-num {
   font-variant-numeric: tabular-nums;
@@ -975,9 +986,63 @@ select:focus {
 .station-card [data-price],
 .station-card [data-visits],
 .station-card [data-products],
-.station-card [data-best-for] {
+.station-card [data-headcount],
+.station-card [data-per-month],
+.station-card [data-per-day] {
   transition: opacity 220ms ease-out;
 }
+
+/* Station card image slot — accepts the AI-generated 4:3 product render.
+   Source PNGs at assets/images/stations/{desk,tower-dry,tower-fridge,hub}.png. */
+.station-image {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Per-card headcount slider */
+.station-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #e5e7eb;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 200ms ease-out;
+}
+.station-slider:hover { background: #d1d5db; }
+.station-slider:focus-visible {
+  outline: 2px solid var(--color-primary, #2d8659);
+  outline-offset: 3px;
+}
+.station-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary, #2d8659);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  transition: transform 120ms ease-out;
+}
+.station-slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.1); }
+.station-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary, #2d8659);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+}
+.station-slider::-moz-range-thumb:active { cursor: grabbing; transform: scale(1.1); }
 
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
