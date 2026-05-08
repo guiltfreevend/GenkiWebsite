@@ -271,8 +271,8 @@ const translations = {
     bg: "Нулева административна тежест"
   },
   index_trust_flexible: {
-    en: "Flexible Plans",
-    bg: "Гъвкави планове"
+    en: "4 Station Tiers",
+    bg: "4 модула на избор"
   },
   index_trust_impact: {
     en: "Instant Social Impact",
@@ -335,8 +335,8 @@ const translations = {
     bg: "100% от нашите продукти идват от български производители. Вашият абонамент директно подкрепя местната икономика."
   },
   index_pillar2_item1: {
-    en: "10+ Bulgarian partners",
-    bg: "10+ български партньори"
+    en: "Curated Bulgarian supplier network",
+    bg: "Курирана мрежа от български доставчици"
   },
   index_pillar2_item2: {
     en: "Helping the local economy",
@@ -351,8 +351,8 @@ const translations = {
     bg: "Месечни дарения"
   },
   index_pillar3_desc: {
-    en: "10% of our profits go directly to Bulgarian charities. Your company becomes a force for good — automatically.",
-    bg: "10% от печалбата ни отива директно за български благотворителни организации. Вашата компания става двигател на положителна промяна — автоматично."
+    en: "10% of monthly profit goes directly to Bulgarian charities. Your company becomes a force for good — automatically.",
+    bg: "10% от месечната печалба отива директно за български благотворителни организации. Вашата компания става двигател на положителна промяна — автоматично."
   },
   index_pillar3_item1: {
     en: "Transparent donations",
@@ -423,8 +423,8 @@ const translations = {
     bg: "Без управление на доставчици"
   },
   index_hr_vendor_desc: {
-    en: "One subscription, 10+ product partners - handled by us.",
-    bg: "Един абонамент, 10+ продуктови партньори — управлявани от нас."
+    en: "One contact, one invoice — a curated Bulgarian supplier network handled by us.",
+    bg: "Един контакт, една фактура — курирана мрежа от български доставчици, управлявана от нас."
   },
   index_hr_esg_title: {
     en: "Instant ESG Impact",
@@ -443,12 +443,12 @@ const translations = {
     bg: "Осезаема ежедневна придобивка, която показва, че се грижите."
   },
   index_hr_card_title: {
-    en: "Like Sports Cards, But for Nutrition",
-    bg: "Като спортна карта, но за хранене"
+    en: "Alongside Multisport, never instead of it",
+    bg: "Допълва Multisport, никога не го заменя"
   },
   index_hr_card_desc: {
-    en: "Position your company as a wellness leader with a benefit employees use every day — not just when they make it to the gym.",
-    bg: "Позиционирайте компанията си като уелнес лидер с придобивка, която служителите използват всеки ден — не само когато успеят да стигнат до фитнеса."
+    en: "Genki sits next to your existing benefits — a daily, in-office wellness layer your team uses every day, not just when they make it to the gym.",
+    bg: "Genki стои до съществуващите Ви придобивки — ежедневен, на място в офиса уелнес слой, който екипът използва всеки ден, а не само когато стигне до фитнеса."
   },
   index_hr_stat_desc: {
     en: "of employees say food benefits improve their workday",
@@ -529,8 +529,8 @@ const translations = {
     bg: "Изградете екипна култура"
   },
   companies_benefit4_desc: {
-    en: "Create a social hub with 85-90% daily engagement. Turn healthy eating into team bonding moments.",
-    bg: "Създайте социално средище с 85–90% ежедневна ангажираност. Превърнете здравословното хранене в моменти за сплотяване на екипа."
+    en: "Daily touchpoints become culture moments. Healthy eating turns into team bonding without effort.",
+    bg: "Ежедневните допирни точки се превръщат в моменти за екипа. Здравословното хранене се превръща в сплотяване — без усилие."
   },
   companies_benefit5_title: {
     en: "Healthier Teams",
@@ -559,606 +559,136 @@ const translations = {
     bg: "Изберете плана, който отговаря на екипа и бюджета Ви. Всички планове включват доставка, настройка и благотворително дарение."
   },
 
-  // NEW PRICING PAGE - Hero Section
+  // NEW PRICING - Hero (station-based positioning)
   pricing_hero_title: {
-    en: "Built around Care",
-    bg: "Изградено около Care"
+    en: "Managed Wellness Infrastructure for the modern workplace",
+    bg: "Управлявана уелнес инфраструктура за модерния български офис"
   },
   pricing_hero_subtitle: {
-    en: "Genki is built on one simple belief: wellness works when the company takes care of it. Starter and Hybrid are how teams grow into Care.",
-    bg: "Genki се гради върху едно просто убеждение: уелнесът работи, когато компанията се грижи за него. Starter и Hybrid са начинът, по който екипите прерастват в Care."
+    en: "4 stations. 2 service tiers. 100% Bulgarian-made products. 10% of profit donated every month.",
+    bg: "4 модула. 2 нива на обслужване. 100% български продукти. 10% от печалбата всеки месец отива в дарения."
   },
 
-  // Care hero block
-  care_hero_headline: {
-    en: "Care — free wellness for your whole team",
-    bg: "Care — безплатен уелнес за целия Ви екип"
+  // NEW PRICING - Tier toggle
+  pricing_toggle_lite: {
+    en: "Lite",
+    bg: "Lite"
   },
-  care_hero_sub: {
-    en: "You cover everything. They just enjoy it. Daily.",
-    bg: "Вие покривате всичко. Те просто му се наслаждават. Всеки ден."
+  pricing_toggle_standard: {
+    en: "Standard",
+    bg: "Стандарт"
   },
-  care_hero_cta: {
-    en: "Book 30-minute consultation",
-    bg: "Запазете 30-минутна консултация"
-  },
-  care_hero_reassurance: {
-    en: "85–90% daily engagement · 3–5 visits per employee per day",
-    bg: "85–90% дневна ангажираност · 3–5 посещения на служител на ден"
+  pricing_tier_aria: {
+    en: "Choose service tier",
+    bg: "Изберете ниво на обслужване"
   },
 
-  // Stepping stones row
-  steppingstones_title: {
-    en: "Not ready for full coverage? Start small, grow into Care.",
-    bg: "Не сте готови за пълно покритие? Започнете малко и прераснете в Care."
+  // NEW PRICING - Station names (kept as proper nouns)
+  station_counter_name: {
+    en: "Counter",
+    bg: "Counter"
   },
-  steppingstones_sub: {
-    en: "These are stepping stones — for teams that want to measure impact first. Both plans are designed to lead into Care once you see the difference.",
-    bg: "Това са стъпки — за екипи, които искат първо да измерят ефекта. И двата плана са създадени, за да водят към Care, след като видите разликата."
+  station_counter_descriptor: {
+    en: "Countertop wellness station",
+    bg: "Уелнес станция за плот"
   },
-
-  // NEW PRICING - Starter Card
-  pricing_starter_tagline: {
-    en: "Wellness Access",
-    bg: "Уелнес достъп"
+  station_tower_dry_name: {
+    en: "Tower Dry",
+    bg: "Tower Dry"
   },
-  pricing_starter_desc: {
-    en: "Employees pay, company provides infrastructure",
-    bg: "Служителите плащат, компанията осигурява инфраструктурата"
+  station_tower_dry_descriptor: {
+    en: "Floor-standing dry-storage tower",
+    bg: "Подова кула за сухи продукти"
   },
-  pricing_starter_f1: {
-    en: "Snacks & drinks only",
-    bg: "Само снаксове и напитки"
+  station_tower_fridge_name: {
+    en: "Tower Fridge",
+    bg: "Tower Fridge"
   },
-  pricing_starter_f2: {
-    en: "Weekly deliveries",
-    bg: "Седмични доставки"
+  station_tower_fridge_descriptor: {
+    en: "Floor-standing chilled tower",
+    bg: "Подова охладена кула"
   },
-  pricing_starter_f3: {
-    en: "Monthly sales summary",
-    bg: "Месечно резюме на продажбите"
+  station_hub_name: {
+    en: "Hub",
+    bg: "Hub"
   },
-  pricing_starter_f4: {
-    en: "Email support (24-48h)",
-    bg: "Имейл поддръжка (24–48 ч)"
-  },
-  pricing_starter_reality: {
-    en: "Low engagement — employees treat it like any paid kiosk. Minimal culture impact.",
-    bg: "Ниска ангажираност — служителите го възприемат като просто платен киоск. Минимално въздействие върху екипната култура."
-  },
-  pricing_starter_best: {
-    en: "Best for: Budget-conscious companies wanting basic wellness option",
-    bg: "Подходящ за: Компании с ограничен бюджет, които търсят базова уелнес опция."
+  station_hub_descriptor: {
+    en: "Multi-station office wellness hub",
+    bg: "Мулти-станционен офис уелнес център"
   },
 
-  // NEW PRICING - Care Card
-  pricing_badge_popular: {
-    en: "Highest Impact",
+  // NEW PRICING - Card units & static labels
+  pricing_unit_per_month: {
+    en: "/mo",
+    bg: "/месец"
+  },
+  pricing_unit_visits: {
+    en: "visits per month",
+    bg: "посещения на месец"
+  },
+  pricing_unit_products: {
+    en: "products per month",
+    bg: "продукта на месец"
+  },
+  pricing_best_for_prefix: {
+    en: "Best for",
+    bg: "Подходящ за"
+  },
+  pricing_best_for_suffix: {
+    en: "employees",
+    bg: "служители"
+  },
+  pricing_identical_hardware: {
+    en: "Identical hardware and 70/30 product mix across both tiers",
+    bg: "Идентичен хардуер и 70/30 продуктов микс и при двете нива"
+  },
+  pricing_setup_fee_label: {
+    en: "One-time setup fee",
+    bg: "Еднократна стартова такса"
+  },
+  pricing_hub_anchor_pill: {
+    en: "Most Impact",
     bg: "Най-голям ефект"
   },
-  pricing_care_tagline: {
-    en: "Complete Culture Solution",
-    bg: "Пълно решение за екипната култура"
-  },
-  pricing_care_desc: {
-    en: "Full company coverage — FREE for all employees",
-    bg: "Изцяло покрито от компанията — БЕЗПЛАТНО за всички служители"
-  },
-  pricing_care_f1: {
-    en: "Full product range + seasonal specials",
-    bg: "Пълна продуктова гама + сезонни предложения"
-  },
-  pricing_care_f2: {
-    en: "Custom schedule + unlimited emergency restocking",
-    bg: "График по избор + неограничени спешни зареждания"
-  },
-  pricing_care_f3: {
-    en: "Named account manager + monthly strategy calls",
-    bg: "Личен мениджър + месечни стратегически разговори"
-  },
-  pricing_care_f4: {
-    en: "Detailed analytics & employee insights",
-    bg: "Детайлна аналитика и инсайти за екипа"
-  },
-  pricing_care_f5: {
-    en: "2-4 community events per year",
-    bg: "2–4 събития годишно"
-  },
-  pricing_care_f6: {
-    en: "Employees vote on charity + impact reports",
-    bg: "Служителите гласуват за каузата + отчети за въздействието"
-  },
-  pricing_care_f7: {
-    en: "Priority support 7 days/week (10-19h)",
-    bg: "Приоритетна поддръжка 7 дни/седмица (10–19 ч)"
-  },
-  pricing_care_impact: {
-    en: "HIGH ENGAGEMENT: 85-90% daily usage with 3-5 visits per day. This transforms your office into a culture hub, not just a workplace.",
-    bg: "ВИСОКА АНГАЖИРАНОСТ: 85–90% ежедневна употреба с 3–5 посещения на ден. Това превръща офиса Ви в социално средище — не просто работно място."
-  },
-  pricing_care_best: {
-    en: "Best for: Companies serious about retention, culture, and winning the talent war",
-    bg: "Подходящ за: Компании, които поставят фокус върху задържането, екипната култура и силното позициониране като работодател."
+  pricing_vat_note: {
+    en: "Prices are in EUR, VAT excluded. VAT applied per Bulgarian law where applicable. VAT is recoverable for B2B clients.",
+    bg: "Цените са в евро без ДДС. При приложимост ДДС се начислява съгласно действащото законодателство."
   },
 
-  // NEW PRICING - Hybrid Card
-  pricing_hybrid_tagline: {
-    en: "Enhanced Wellness",
-    bg: "Надграден уелнес"
-  },
-  pricing_hybrid_desc: {
-    en: "Shared investment — test impact before full commitment",
-    bg: "Споделена инвестиция — тествайте въздействието преди пълен ангажимент"
-  },
-  pricing_hybrid_f1: {
-    en: "Snacks, drinks + 2-3 meal options monthly",
-    bg: "Снаксове, напитки + 2-3 опции за храна месечно"
-  },
-  pricing_hybrid_f2: {
-    en: "Flexible schedule + 1 emergency restock/month",
-    bg: "Гъвкав график + 1 спешно зареждане/месец"
-  },
-  pricing_hybrid_f3: {
-    en: "Monthly detailed analytics",
-    bg: "Месечна детайлна аналитика"
-  },
-  pricing_hybrid_f4: {
-    en: "Dedicated contact + quarterly calls",
-    bg: "Лице за контакт + тримесечни разговори"
-  },
-  pricing_hybrid_f5: {
-    en: "Phone + email support (12-24h, Mon-Fri)",
-    bg: "Телефон + имейл поддръжка (12–24 ч, Пон–Пет)"
-  },
-  pricing_hybrid_reality: {
-    en: "Medium engagement — employees use it occasionally. Some culture building, but cost barrier limits daily usage.",
-    bg: "Средна ангажираност — служителите го използват от време на време. Има ефект върху екипната култура, но ценовата бариера ограничава ежедневната употреба."
-  },
-  pricing_hybrid_best: {
-    en: "Best for: Companies ready to invest but wanting to measure engagement first",
-    bg: "Подходящ за: Компании, готови да инвестират, но които искат първо да измерят ангажираността."
-  },
-
-  // NEW PRICING - CTAs
+  // NEW PRICING - CTA (kept stable for re-use across cards)
   pricing_cta_quote: {
     en: "Book consultation",
     bg: "Запазете консултация"
   },
-  pricing_cta_call: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
-  },
 
-  // NEW PRICING - Why Care Works Section
-  pricing_why_title: {
-    en: "Why Free Changes Everything",
-    bg: "Защо безплатното променя всичко"
-  },
-  pricing_why_subtitle: {
-    en: "It's not just about the food. It's about daily touchpoints that build culture, connection, and retention.",
-    bg: "Не е само храната. Важни са ежедневните моменти на контакт, които изграждат култура, свързаност и задържане на таланти."
-  },
-  pricing_why1_title: {
-    en: "The Engagement Gap",
-    bg: "Разликата в ангажираността"
-  },
-  pricing_why1_text: {
-    en: "Starter: ~15-20% regular usage | Hybrid: ~40-50% engagement | <strong>Care: 85-90% daily usage with 3-5 visits per day</strong>",
-    bg: "Starter: ~15–20% редовна употреба | Hybrid: ~40–50% ангажираност | <strong>Care: 85–90% ежедневна употреба с 3–5 посещения на ден</strong>"
-  },
-  pricing_why2_title: {
-    en: "The Social Hub Effect",
-    bg: "Ефектът на социалното средище"
-  },
-  pricing_why2_text: {
-    en: "When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections. Not a kiosk — a culture hub.",
-    bg: "Когато е безплатно, Genki кътът става естественото място за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истински връзки. Не киоск — място, което изгражда екипна култура."
-  },
-  pricing_why3_title: {
-    en: "The Retention Tool",
-    bg: "Инструментът за задържане"
-  },
-  pricing_why3_text: {
-    en: "Shows up in interviews. Employees mention it as why they stayed. Your competitors can't easily copy this.",
-    bg: "Споменава се в интервюта. Служителите го посочват като причина да останат. Конкурентите ви трудно могат да копират това."
-  },
-  pricing_why_badge: {
-    en: "The Care Difference",
-    bg: "Разликата на Care"
-  },
-  pricing_why1_note: {
-    en: "3-5 visits per employee per day",
-    bg: "3-5 посещения на служител дневно"
-  },
-  pricing_why2_text: {
-    en: "When it's free, the Genki corner becomes THE gathering spot. Organic conversations. Unexpected collaborations. Real connections.",
-    bg: "Когато е безплатно, Genki кътът става МЯСТОТО за събиране. Спонтанни разговори. Неочаквани сътрудничества. Истински връзки."
-  },
-  pricing_why2_tagline: {
-    en: "Not a kiosk — a culture hub.",
-    bg: "Не киоск — център на културата."
-  },
-  pricing_why3_quote: {
-    en: "\"We have free healthy food daily\"",
-    bg: "\"Имаме безплатна здравословна храна всеки ден\""
-  },
-
-  // NEW PRICING - All Plans Include
+  // NEW PRICING - All Plans Include (rewritten bullets)
   pricing_all_title: {
-    en: "All plans include:",
-    bg: "Всички планове включват:"
+    en: "Every station includes:",
+    bg: "Всеки модул включва:"
   },
   pricing_all_f1: {
-    en: "100% Bulgarian products",
+    en: "100% Bulgarian-made products",
     bg: "100% български продукти"
   },
   pricing_all_f2: {
-    en: "Zero admin burden for HR",
-    bg: "Нулева административна тежест за HR"
+    en: "70/30 base/premium product mix (identical across Lite and Standard)",
+    bg: "70/30 базов/премиум продуктов микс (еднакъв при Lite и Standard)"
   },
   pricing_all_f3: {
-    en: "Turnkey setup & installation (one-time setup investment)",
-    bg: "Цялостна настройка и инсталация (еднократна инвестиция за стартиране)"
+    en: "Equipment ownership stays with Genki — you never own depreciating hardware",
+    bg: "Оборудването остава собственост на Genki — не държите амортизиращ се хардуер"
   },
   pricing_all_f4: {
-    en: "Dedicated account support",
-    bg: "Персонална поддръжка"
+    en: "Full service: delivery, installation, restocking, brand maintenance, monthly impact report",
+    bg: "Пълно обслужване: доставка, монтаж, зареждане, поддръжка на брандирането, месечен отчет за въздействието"
   },
   pricing_all_f5: {
-    en: "10% donated to charity monthly",
-    bg: "10% от печалбата се дарява всеки месец"
+    en: "10% of monthly profit donated to Bulgarian charities — visible on every invoice",
+    bg: "10% от месечната печалба се дарява за български каузи — отразено във всяка фактура"
   },
   pricing_all_f6: {
-    en: "Customizable order sizes",
-    bg: "Персонализируеми количества"
-  },
-
-  // NEW PRICING - Comparison Section
-  pricing_compare_title: {
-    en: "Compare to Other Benefits",
-    bg: "Сравнете с други бенефити"
-  },
-  pricing_compare_ms1: {
-    en: "Usage: 1-2x per week by 20% of employees",
-    bg: "Употреба: 1–2 пъти седмично от ~20% от служителите"
-  },
-  pricing_compare_ms2: {
-    en: "Requires: Motivation + time after work",
-    bg: "Изисква: мотивация + време след работа"
-  },
-  pricing_compare_ms3: {
-    en: "Impact: Individual health (if they go)",
-    bg: "Ефект: индивидуално здраве (ако се използва)"
-  },
-  pricing_compare_gc1: {
-    en: "<strong>Usage: 3-5x per day by 90% of employees</strong>",
-    bg: "<strong>Употреба: 3–5 пъти на ден от ~90% от служителите</strong>"
-  },
-  pricing_compare_gc2: {
-    en: "Requires: Nothing — it's just there",
-    bg: "Изисква: нищо — просто е там"
-  },
-  pricing_compare_gc3: {
-    en: "<strong>Impact: Culture transformation + health + retention</strong>",
-    bg: "<strong>Ефект: по-силна екипна култура + здраве + задържане на таланти</strong>"
-  },
-
-  // Plan Names & Taglines
-  companies_plan_starter_name: {
-    en: "Starter",
-    bg: "Starter"
-  },
-  companies_plan_starter_tagline: {
-    en: "Wellness essentials",
-    bg: "Уелнес основи"
-  },
-  companies_plan_starter_desc: {
-    en: "Employees pay, company provides access",
-    bg: "Служителите плащат, компанията осигурява достъп"
-  },
-  companies_plan_hybrid_name: {
-    en: "Hybrid",
-    bg: "Hybrid"
-  },
-  companies_plan_hybrid_tagline: {
-    en: "Enhanced wellness",
-    bg: "Надграден уелнес"
-  },
-  companies_plan_hybrid_desc: {
-    en: "Shared costs between company and employees",
-    bg: "Споделени разходи между компанията и служителите"
-  },
-  companies_plan_care_name: {
-    en: "Care",
-    bg: "Care"
-  },
-  companies_plan_care_tagline: {
-    en: "Complete wellness solution",
-    bg: "Пълно уелнес решение"
-  },
-  companies_plan_care_desc: {
-    en: "Full company coverage — our premium plan",
-    bg: "Изцяло покрито от компанията — нашият премиум план"
-  },
-  companies_plan_badge_popular: {
-    en: "Highest Impact",
-    bg: "Най-голям ефект"
-  },
-
-  // Section Headers
-  plan_section_products: {
-    en: "Product Range",
-    bg: "Продуктова гама"
-  },
-  plan_section_delivery: {
-    en: "Delivery",
-    bg: "Доставка"
-  },
-  plan_section_setup: {
-    en: "Setup",
-    bg: "Настройка"
-  },
-  plan_section_reporting: {
-    en: "Reporting",
-    bg: "Отчетност"
-  },
-  plan_section_support: {
-    en: "Support",
-    bg: "Поддръжка"
-  },
-  plan_section_account: {
-    en: "Account Management",
-    bg: "Управление на акаунта"
-  },
-  plan_section_customization: {
-    en: "Customization",
-    bg: "Персонализация"
-  },
-  plan_section_events: {
-    en: "Community Events",
-    bg: "Общностни събития"
-  },
-  plan_section_charity: {
-    en: "Charity Impact",
-    bg: "Благотворително въздействие"
-  },
-  plan_section_included: {
-    en: "Also Included",
-    bg: "Също включено"
-  },
-
-  // Starter Plan Features
-  starter_products: {
-    en: "Snacks & drinks only (waffles, cookies, energy drinks, lemonades, bread sticks)",
-    bg: "Само снаксове и напитки (вафли, бисквити, енергийни напитки, лимонади, гризини)"
-  },
-  starter_delivery: {
-    en: "Weekly on fixed schedule",
-    bg: "Веднъж седмично по фиксиран график"
-  },
-  starter_setup: {
-    en: "Professional consultation, infrastructure sourcing & installation",
-    bg: "Професионална консултация, осигуряване и монтаж на необходимата инфраструктура"
-  },
-  starter_reporting: {
-    en: "Monthly summary email with sales totals",
-    bg: "Месечен обобщаващ имейл с общия обем продажби"
-  },
-  starter_support: {
-    en: "Email within 24-48 hours",
-    bg: "Отговор по имейл до 24–48 часа"
-  },
-  starter_account: {
-    en: "Order management via WhatsApp/email",
-    bg: "Управление на поръчките през WhatsApp/имейл"
-  },
-
-  // Care Plan Features
-  care_products: {
-    en: "FULL selection - all snacks, drinks, fresh juices, poke bowls, salads, premium burritos, kombucha + seasonal specials",
-    bg: "ПЪЛНА селекция — всички снаксове и напитки, пресни сокове, поке боул, салати, премиум бурито, комбуча + сезонни предложения"
-  },
-  care_delivery: {
-    en: "Custom schedule (daily/weekly/bi-weekly) + unlimited emergency restocking",
-    bg: "График по избор (ежедневно/седмично/на две седмици) + неограничени спешни зареждания"
-  },
-  care_setup: {
-    en: "Premium consultation, space planning, full infrastructure sourcing, installation & complete Genki branding (including kiosk system if needed)",
-    bg: "Премиум консултация, планиране на пространството, осигуряване на цялата инфраструктура, монтаж и пълно Genki брандиране (вкл. киоск система при нужда)"
-  },
-  care_reporting: {
-    en: "Detailed monthly analytics with consumption patterns, product recommendations & employee satisfaction insights",
-    bg: "Детайлна месечна аналитика с модели на консумация, продуктови препоръки и инсайти за удовлетвореността на служителите"
-  },
-  care_support: {
-    en: "Priority same-day response via phone/WhatsApp",
-    bg: "Приоритетен отговор в същия ден по телефон/WhatsApp"
-  },
-  care_account: {
-    en: "Named account manager + monthly strategy calls + proactive optimization",
-    bg: "Личен акаунт мениджър + месечни стратегически разговори + проактивна оптимизация"
-  },
-  care_customization: {
-    en: "Product rotation based on employee feedback + seasonal items + dietary preference accommodation",
-    bg: "Ротация на продуктите според обратната връзка + сезонни предложения + съобразяване с хранителни предпочитания"
-  },
-  care_events: {
-    en: "Organize 1-2 Genki community events per quarter (tree planting, shelter visits)",
-    bg: "Организация на 1–2 Genki общностни събития на тримесечие (залесяване, посещения на приюти и др.)"
-  },
-  care_charity: {
-    en: "10% donated + employees vote on monthly charity recipient + detailed impact reports with photos/stories",
-    bg: "10% дарение + служителите гласуват за месечната кауза + детайлни отчети за въздействие със снимки/истории"
-  },
-
-  // Hybrid Plan Features
-  hybrid_products: {
-    en: "Full snacks & drinks + rotating meal options (salads, burritos - 2-3 types monthly)",
-    bg: "Пълна селекция от снаксове и напитки + ротационни опции за храна (салати, бурито — 2–3 вида месечно)"
-  },
-  hybrid_delivery: {
-    en: "Bi-weekly with flexible timing + one emergency restock per month included",
-    bg: "На две седмици с гъвкаво време + едно спешно зареждане месечно (включено)"
-  },
-  hybrid_setup: {
-    en: "Full consultation, space planning, infrastructure sourcing, installation & basic Genki branding elements",
-    bg: "Пълна консултация, планиране на пространството, осигуряване на инфраструктура, монтаж + базови елементи от Genki брандирането"
-  },
-  hybrid_reporting: {
-    en: "Monthly detailed breakdown with popular items, consumption patterns & recommendations",
-    bg: "Месечна детайлна разбивка с най-предпочитани продукти, модели на консумация и препоръки"
-  },
-  hybrid_support: {
-    en: "Phone + email within 12-24 hours",
-    bg: "Телефон + имейл до 12–24 часа"
-  },
-  hybrid_account: {
-    en: "Dedicated contact person + quarterly check-in calls",
-    bg: "Конкретно лице за контакт + тримесечни разговори за преглед"
-  },
-  hybrid_customization: {
-    en: "Seasonal product updates based on availability",
-    bg: "Сезонни продуктови обновявания според наличностите"
-  },
-  hybrid_charity_feature: {
-    en: "10% of profits donated to charity + quarterly impact summary",
-    bg: "10% от печалбата се дарява за благотворителност + тримесечно обобщение за въздействието"
-  },
-
-  // Shared Features
-  feature_sizes: {
-    en: "Customizable order sizes",
-    bg: "Персонализируеми количества"
-  },
-  feature_bulgarian: {
-    en: "100% Bulgarian products",
-    bg: "100% български продукти"
-  },
-  feature_charity: {
-    en: "10% of profits donated to charity",
-    bg: "10% от печалбата се дарява за благотворителност"
-  },
-  feature_admin: {
-    en: "Zero admin burden for HR",
-    bg: "Нулева административна тежест за HR"
-  },
-
-  // Short Starter Features (for compact cards)
-  starter_short_products: {
-    en: "Snacks & drinks only",
-    bg: "Само снаксове и напитки"
-  },
-  starter_short_delivery: {
-    en: "Weekly deliveries",
-    bg: "Седмични доставки"
-  },
-  starter_short_support: {
-    en: "Email support (24-48h)",
-    bg: "Имейл поддръжка (24-48ч)"
-  },
-  starter_short_orders: {
-    en: "WhatsApp order management",
-    bg: "Управление на поръчки през WhatsApp"
-  },
-
-  // Short Care Features (for compact cards)
-  care_short_products: {
-    en: "Full product range + seasonal specials",
-    bg: "Пълна селекция + сезонни предложения"
-  },
-  care_short_delivery: {
-    en: "Custom schedule + unlimited restocking",
-    bg: "График по избор + неограничени зареждания"
-  },
-  care_short_setup: {
-    en: "Premium branded setup with kiosk",
-    bg: "Премиум брандирана настройка с kiosk"
-  },
-  care_short_manager: {
-    en: "Named account manager + monthly calls",
-    bg: "Личен мениджър + месечни разговори"
-  },
-  care_short_analytics: {
-    en: "Detailed analytics & employee insights",
-    bg: "Детайлна аналитика и инсайти"
-  },
-  care_short_events: {
-    en: "1-2 community events per quarter",
-    bg: "1-2 събития на тримесечие"
-  },
-  care_short_charity: {
-    en: "Employees vote on charity recipient",
-    bg: "Служителите гласуват за благотворителност"
-  },
-  care_short_support: {
-    en: "Priority same-day support",
-    bg: "Приоритетна поддръжка в същия ден"
-  },
-
-  // Short Hybrid Features (for compact cards)
-  hybrid_short_products: {
-    en: "Snacks, drinks + 2-3 meal options monthly",
-    bg: "Снаксове, напитки + 2-3 ястия месечно"
-  },
-  hybrid_short_delivery: {
-    en: "Bi-weekly + 1 emergency restock/month",
-    bg: "На две седмици + 1 спешно зареждане/месец"
-  },
-  hybrid_short_branding: {
-    en: "Basic Genki branding elements",
-    bg: "Основни Genki брандинг елементи"
-  },
-  hybrid_short_contact: {
-    en: "Dedicated contact + quarterly calls",
-    bg: "Лице за контакт + тримесечни разговори"
-  },
-  hybrid_short_reporting: {
-    en: "Monthly detailed breakdown",
-    bg: "Месечна детайлна разбивка"
-  },
-  hybrid_short_support: {
-    en: "Phone + email support (12-24h)",
-    bg: "Телефон + имейл (12-24ч)"
-  },
-
-  // All Plans Include Section
-  all_plans_include_title: {
-    en: "All plans include:",
-    bg: "Всички планове включват:"
-  },
-  all_plans_bulgarian: {
-    en: "100% Bulgarian products",
-    bg: "100% български продукти"
-  },
-  all_plans_admin: {
-    en: "Zero admin burden for HR",
-    bg: "Нулева административна тежест за HR"
-  },
-  all_plans_charity: {
-    en: "10% donated to charity",
-    bg: "10% дарение за благотворителност"
-  },
-  all_plans_setup: {
-    en: "Turnkey setup & installation (one-time setup investment)",
-    bg: "Цялостна настройка и инсталация (еднократна инвестиция за стартиране)"
-  },
-  all_plans_support: {
-    en: "Dedicated account support",
-    bg: "Персонална поддръжка на акаунта"
-  },
-  all_plans_sizes: {
-    en: "Customizable order sizes",
-    bg: "Персонализируеми количества"
-  },
-
-  // CTA Buttons
-  companies_plan_cta_quote: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
-  },
-  companies_plan_cta_featured: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "One contact, one invoice, zero HR admin",
+    bg: "Един контакт, една фактура, нулева HR тежест"
   },
 
   // COMPANIES PAGE - ROI
@@ -1360,22 +890,7 @@ const translations = {
     en: "The Secret: High Engagement",
     bg: "Тайната: Висока ангажираност"
   },
-  roi_care_plan: {
-    en: "Care plan",
-    bg: "Care план"
-  },
-  roi_care_desc: {
-    en: "(company sponsors): 85-90% daily engagement",
-    bg: "(компанията спонсорира): 85-90% ежедневна ангажираност"
-  },
-  roi_starter_plan: {
-    en: "Starter plan",
-    bg: "Starter план"
-  },
-  roi_starter_desc: {
-    en: "(employees pay): 15-25% typical engagement",
-    bg: "(служителите плащат): 15-25% типична ангажираност"
-  },
+  // (Old plan-aware ROI engagement labels removed in 2026-05 station-model rewrite.)
   roi_survey_source: {
     en: "💡 95% of companies measuring wellness ROI see positive returns — Wellhub 2024",
     bg: "💡 95% от компаниите, измерващи ROI от уелнес, виждат положителна възвръщаемост — Wellhub 2024"
@@ -1395,8 +910,8 @@ const translations = {
     bg: "📋 Базирано на българския IT пазар:"
   },
   roi_assumptions_compact: {
-    en: "Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, Genki Care plan",
-    bg: "Базирано на българския IT пазар: €36k заплата, 13% текучество, 8 болнични/год., план Care"
+    en: "Based on Bulgarian IT market: €36k salary, 13% turnover, 8 sick days/yr, ~€1.20/employee/day Genki cost",
+    bg: "Базирано на българския IT пазар: €36k заплата, 13% текучество, 8 болнични/год., ~€1.20/служител/ден разход за Genki"
   },
   roi_research_note: {
     en: "Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.",
@@ -1410,10 +925,7 @@ const translations = {
     en: "Sick days:",
     bg: "Болнични:"
   },
-  roi_care_plan_label: {
-    en: "Plan:",
-    bg: "План:"
-  },
+  // (roi_care_plan_label removed in 2026-05 station-model rewrite.)
   roi_daily_investment: {
     en: "Your Daily Investment",
     bg: "Вашата дневна инвестиция"
@@ -1514,22 +1026,7 @@ const translations = {
     en: "Research-Based Breakdown",
     bg: "Разбивка по изследвания"
   },
-  roi_engagement_note: {
-    en: "Care Plan Engagement",
-    bg: "Ангажираност Care план"
-  },
-  roi_care_engagement: {
-    en: "Care Plan engagement",
-    bg: "Ангажираност Care план"
-  },
-  roi_starter_engagement: {
-    en: "When employees pay",
-    bg: "Когато служителите плащат"
-  },
-  roi_fixed_cost_note: {
-    en: "Fixed rate: 2.5 products × €1.50 per employee",
-    bg: "Фиксирана цена: 2.5 продукта × €1.50 на служител"
-  },
+  // (roi_engagement_note / roi_care_engagement / roi_starter_engagement / roi_fixed_cost_note removed in 2026-05 station-model rewrite.)
   roi_advanced_note: {
     en: "Want more control? We have an advanced calculator with custom inputs for salary, turnover rates, and scenarios — available during your consultation.",
     bg: "Искате повече контрол? Имаме разширен калкулатор с персонализирани входни данни за заплата, текучество и сценарии — достъпен по време на консултацията."
@@ -1545,16 +1042,16 @@ const translations = {
     bg: "С какъв размер екипи работите?"
   },
   companies_faq1_a: {
-    en: "We work best with companies of 100+ employees, where we can deliver maximum value. We are open to smaller teams (70-99 employees) as well. For all, we recommend our Care plan for the most impactful experience. Contact us to discuss how Genki can work for your specific team size.",
-    bg: "Работим най-добре с компании от 100+ служители, където можем да осигурим максимална стойност. Работим и с по-малки екипи (70-99 служители) също така. За всички, препоръчваме нашия Care план за най-въздействащо преживяване. Свържете се с нас, за да обсъдим как Genki може да работи за Вашия конкретен размер екип."
+    en: "Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Counter station as an entry tier. Contact us to discuss the right station and tier for your team.",
+    bg: "Идеално работим с екипи от 60 до 400 служители — там моделът със станции дава най-голяма стойност. По-малки екипи (25–60 души) пасват на Counter като входно ниво. Свържете се с нас, за да обсъдим коя станция и кое ниво на обслужване са подходящи за Вашия екип."
   },
   companies_faq2_q: {
     en: "How does delivery work?",
     bg: "Как работи доставката?"
   },
   companies_faq2_a: {
-    en: "We deliver directly to your office on a customized schedule. Depending on your plan, this could be weekly, bi-weekly, twice a month, every 10 days, or monthly. Care plan offers maximum flexibility in scheduling, Hybrid offers less flexibility, and Starter has more structured options. During our initial call, we'll discuss your team's consumption patterns and find the delivery frequency that works best within your plan.",
-    bg: "Доставяме директно до Вашия офис по персонализиран график. В зависимост от плана, това може да бъде седмично, на две седмици, два пъти месечно, на всеки 10 дни или месечно. Care планът предлага максимална гъвкавост в графика, Hybrid предлага по-малка гъвкавост, а Starter има по-структурирани опции. По време на първоначалния ни разговор ще обсъдим моделите на консумация на Вашия екип и ще намерим честотата на доставка, която работи най-добре в рамките на Вашия план."
+    en: "Visits are baked into your monthly fee. Lite tiers receive 4 visits per month (6 for Hub Lite); Standard tiers receive 8 visits per month (12 for Hub Standard). We agree the cadence with you upfront based on team size and consumption patterns.",
+    bg: "Посещенията са включени в месечната такса. Lite предлага 4 посещения месечно (6 за Hub Lite); Standard предлага 8 посещения месечно (12 за Hub Standard). Графикът се договаря предварително според размера на екипа и моделите на консумация."
   },
   companies_faq3_q: {
     en: "Can employees with dietary restrictions participate?",
@@ -1569,8 +1066,8 @@ const translations = {
     bg: "Кои благотворителни организации получават даренията?"
   },
   companies_faq4_a: {
-    en: "We partner with vetted Bulgarian charities. Care plan clients can choose specific causes. All donations are documented for your CSR reporting.",
-    bg: "Партнираме с проверени български благотворителни организации. Клиентите на Care план могат да избират конкретни каузи. Всички дарения са документирани за Вашите КСО отчети."
+    en: "We partner with vetted Bulgarian charities. Clients can nominate specific causes that align with their values. All donations are itemised on every monthly invoice for your CSR reporting.",
+    bg: "Партнираме с проверени български благотворителни организации. Клиентите могат да предложат конкретни каузи, които съответстват на ценностите им. Всички дарения са отразени във всяка месечна фактура за Вашите КСО отчети."
   },
   companies_faq5_q: {
     en: "What's the contract length?",
@@ -1585,8 +1082,8 @@ const translations = {
     bg: "Какво става с оборудването и инсталацията?"
   },
   companies_faq_setup_a: {
-    en: "We are a true A to Z solution. If your office doesn't have the necessary equipment (refrigerators, shelving, dividers or kiosk systems (for Starter and Hybrid)), we provide it and install everything for you. There is a one-time startup investment that covers all equipment, professional installation and branding. The amount depends on what your space needs - we will assess it during our live meeting after our initial conversation and provide a clear quote when we choose everything together + the customized product catalog. Most companies appreciate having one partner who takes care of everything, instead of coordinating multiple suppliers.",
-    bg: "Ние сме истинско решение от А до Я. Ако Вашият офис няма необходимото оборудване (хладилници, рафтове, разделители или киоск системи (при Starter и Hybrid)), ние го осигуряваме и инсталираме всичко вместо Вас. Има еднократна инвестиция за стартиране, която покрива цялото оборудване, професионален монтаж и брандиране. Сумата зависи от това, от което се нуждае Вашето пространство - ще го оценим по време на срещата ни на живо след първоначалния ни разговор и ще предоставим ясна оферта когато изберем заедно всичко + персонализирания продуктов каталог. Повечето компании оценяват това да имат един партньор, който се грижи за всичко, вместо да координират множество доставчици."
+    en: "The one-time setup fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the setup fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed setup fee published on this page.",
+    bg: "Еднократната стартова такса покрива хардуер, доставка, монтаж, въвеждане в експлоатация и Genki брандиране — продукти НЕ са включени в стартовата такса. Оборудването остава собственост на Genki през целия период на работа; никога не държите амортизиращ се хардуер. Продуктите за първия месец се таксуват отделно като част от Launch Invoice. Всяка станция има фиксирана стартова такса, публикувана на тази страница."
   },
 
   // COMPANIES PAGE - CTA
@@ -1720,8 +1217,8 @@ const translations = {
     bg: "Ястия"
   },
   mission_offer_meals_desc: {
-    en: "Salads, balanced meals (Care plan, limited options for Hybrid)",
-    bg: "Салати, балансирани ястия (Care план, ограничени опции за Hybrid)"
+    en: "Salads and balanced meals (roadmap — coming in v2)",
+    bg: "Салати и балансирани ястия (roadmap — предстои във v2)"
   },
   mission_partners_title: {
     en: "Our Partners",
@@ -1796,8 +1293,8 @@ const translations = {
     bg: "Изберете вашите каузи"
   },
   mission_causes_desc: {
-    en: "Care plan clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Клиентите на Care план могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
+    en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
+    bg: "Клиентите могат да предложат конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
   },
   mission_support_title: {
     en: "Causes We Support",
@@ -1856,8 +1353,8 @@ const translations = {
     bg: "Ястия"
   },
   mission_pillar1_meals_desc: {
-    en: "Healthy lunches, wraps, soups (Care plan)",
-    bg: "Здравословни обеди, рапове, супи (Care план)"
+    en: "Healthy lunches, wraps, soups (roadmap — coming in v2)",
+    bg: "Здравословни обеди, рапове, супи (roadmap — предстои във v2)"
   },
   mission_pillar2_badge: {
     en: "Pillar 2",
@@ -1948,8 +1445,8 @@ const translations = {
     bg: "Изберете вашите каузи"
   },
   mission_pillar3_choose_desc: {
-    en: "Care plan clients can select specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Клиентите на Care план могат да избират конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
+    en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
+    bg: "Клиентите могат да предложат конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
   },
   mission_causes_title: {
     en: "Causes We Support",
@@ -2114,8 +1611,8 @@ const translations = {
     bg: "Пресни храни"
   },
   products_cat_meals: {
-    en: "Meals",
-    bg: "Ястия"
+    en: "Roadmap (v2)",
+    bg: "Roadmap (v2)"
   },
   products_snacks_title: {
     en: "Healthy Snacks",
@@ -2154,24 +1651,28 @@ const translations = {
     bg: "Ежедневни пресни доставки от местни ферми"
   },
   products_meals_title: {
-    en: "Fresh Meals (Customized Upon Request)",
-    bg: "Пресни ястия (по заявка)"
+    en: "Fresh meals — coming in v2",
+    bg: "Пресни ястия — предстои във v2"
   },
   products_meals_subtitle: {
-    en: "We partner with local Bulgarian kitchens to provide healthy meal options when your team needs them.",
-    bg: "Партнираме с местни български кухни, за да осигурим здравословни ястия, когато екипът Ви има нужда от тях."
+    en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap.",
+    bg: "Обеди, поке боул, салати, уражи и супи в партньорство с български кухни са в нашия v2 roadmap."
   },
   products_meals_desc: {
-    en: "We partner with local Bulgarian kitchens to provide healthy meal options when your team needs them.",
-    bg: "Партнираме с местни български кухни, за да осигурим здравословни ястия, когато екипът Ви има нужда от тях."
+    en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap. They are not part of the current launch and aren't priced into the station tiers on this site.",
+    bg: "Обеди, поке боул, салати, уражи и супи в партньорство с български кухни са в нашия v2 roadmap. Те не са част от настоящия старт и не са включени в цените на станциите на този сайт."
   },
   products_meals_note: {
-    en: "Available with Hybrid and Care plans",
-    bg: "Достъпно с Hybrid и Care планове"
+    en: "Roadmap — coming in v2 (not part of current launch)",
+    bg: "Roadmap — предстои във v2 (не е част от настоящия старт)"
   },
   products_meals_custom: {
-    en: "Meal options are customized based on your team's needs and preferences. During our consultation, we'll discuss what's possible and provide you with the best options.",
-    bg: "Опциите за ястия са персонализирани според нуждите и предпочитанията на Вашия екип. По време на консултацията ще обсъдим възможностите и ще Ви предложим най-добрите опции."
+    en: "When fresh food rolls out, it will be added as an optional layer to existing stations. We'll announce specifics in the monthly impact report.",
+    bg: "Когато пресните храни стартират, ще бъдат добавени като опционален слой към съществуващите станции. Ще обявим подробностите в месечния отчет за въздействието."
+  },
+  products_roadmap_pill: {
+    en: "Roadmap — v2",
+    bg: "Roadmap — v2"
   },
   products_badge_bio: {
     en: "Bio",
@@ -2862,46 +2363,7 @@ const translations = {
     en: "Other",
     bg: "Друго"
   },
-  contact_interests: {
-    en: "Which plan interests you?",
-    bg: "Кой план Ви интересува?"
-  },
-  contact_plan_starter: {
-    en: "Starter",
-    bg: "Starter"
-  },
-  contact_plan_starter_desc: {
-    en: "Basic wellness option with snacks and drinks only",
-    bg: "Базова уелнес опция само със снаксове и напитки"
-  },
-  contact_plan_care: {
-    en: "Care",
-    bg: "Care"
-  },
-  contact_plan_popular: {
-    en: "Highest Impact",
-    bg: "Най-голям ефект"
-  },
-  contact_plan_care_desc: {
-    en: "Full wellness with snacks, drinks & fresh food",
-    bg: "Пълен уелнес със снаксове, напитки и пресни храни"
-  },
-  contact_plan_hybrid: {
-    en: "Hybrid",
-    bg: "Hybrid"
-  },
-  contact_plan_hybrid_desc: {
-    en: "Enhanced wellness option with shared payment",
-    bg: "Разширена уелнес опция със споделено плащане"
-  },
-  contact_plan_help: {
-    en: "Help Me Decide",
-    bg: "Помогнете ми да избера"
-  },
-  contact_plan_help_desc: {
-    en: "Not sure yet? We'll recommend the best fit for your team",
-    bg: "Не сте сигурни? Ще Ви препоръчаме най-подходящия план за Вашия екип"
-  },
+  // (contact_interests / contact_plan_* removed in 2026-05 station-model rewrite — the plan-checkbox block on contact.html is gone.)
   contact_message: {
     en: "Anything else we should know?",
     bg: "Има ли нещо друго, което трябва да знаем?"
@@ -3023,8 +2485,8 @@ const translations = {
     bg: "10+ Партньори"
   },
   contact_badge_partners: {
-    en: "10+ Partners",
-    bg: "10+ Партньори"
+    en: "Curated Bulgarian suppliers",
+    bg: "Курирани български доставчици"
   },
   contact_faq_title: {
     en: "Quick Answers",
@@ -3479,12 +2941,12 @@ const translations = {
     bg: "продукти"
   },
   roi_products_hint: {
-    en: "Care plan average: 2.5-3.5 products/day with 85-90% engagement",
-    bg: "Care план средно: 2.5-3.5 продукти/ден с 85-90% ангажираност"
+    en: "Default assumes ~1.5 products per employee per day (typical Bulgarian office uptake)",
+    bg: "По подразбиране: ~1.5 продукта на служител на ден (типична консумация в български офиси)"
   },
   roi_warning_low_engagement: {
-    en: "Lower consumption may reduce health outcomes and ROI benefits. Genki Care works best with 85-90% employee engagement (2.5-3.5 products/day average).",
-    bg: "По-ниската консумация може да намали здравните резултати и ROI ползите. Genki Care работи най-добре с 85-90% ангажираност (2.5-3.5 продукти/ден средно)."
+    en: "Lower per-employee consumption reduces the productivity and health outcomes we model. Allow a calibration period of 4–6 weeks before evaluating.",
+    bg: "По-ниската консумация на служител намалява ефектите върху продуктивността и здравето в модела. Дайте период на калибриране от 4–6 седмици, преди да оценявате резултатите."
   },
   roi_per_month: {
     en: "/employee/month",
@@ -3543,16 +3005,16 @@ const translations = {
     bg: "Защо е важен безплатният достъп"
   },
   roi_engagement_care: {
-    en: "Care Plan (Company Pays)",
-    bg: "Care план (компанията плаща)"
+    en: "Company-funded (the Genki default)",
+    bg: "Финансирано от компанията (по подразбиране при Genki)"
   },
   roi_engagement_care_desc: {
     en: "Daily engagement rate",
     bg: "Дневен процент на ангажираност"
   },
   roi_engagement_starter: {
-    en: "Starter Plan (Employees Pay)",
-    bg: "Starter план (служителите плащат)"
+    en: "When employees pay out of pocket",
+    bg: "Когато служителите плащат сами"
   },
   roi_engagement_starter_desc: {
     en: "Typical engagement rate",

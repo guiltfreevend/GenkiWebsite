@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initHeaderScroll();
   initModal();
   initLangSwitcher();
+  initPricingToggle();
 });
 
 // Modal System
@@ -431,4 +432,57 @@ function initLangSwitcher() {
       toggle.setAttribute('aria-expanded', 'false');
     }
   });
+}
+
+// Pricing tier toggle (Lite ↔ Standard) — flips all station cards in lockstep.
+// Persists tier in sessionStorage so users keep their choice across in-page nav.
+function initPricingToggle() {
+  const toggle = document.querySelector('[data-pricing-toggle]');
+  if (!toggle || !window.PRICING) return;
+
+  const STORAGE_KEY = 'genki-pricing-tier';
+  const initialTier = sessionStorage.getItem(STORAGE_KEY) || 'standard';
+
+  function fmtNumber(n) {
+    return n.toLocaleString('bg-BG');
+  }
+
+  function applyTier(tier) {
+    document.querySelectorAll('[data-station-card]').forEach(card => {
+      const stationKey = card.dataset.stationCard;
+      const station = window.PRICING[stationKey];
+      if (!station) return;
+      const data = station[tier];
+      const sweet = station.sweetSpot[tier];
+
+      const priceEl = card.querySelector('[data-price]');
+      const visitsEl = card.querySelector('[data-visits]');
+      const productsEl = card.querySelector('[data-products]');
+      const bestForEl = card.querySelector('[data-best-for]');
+
+      if (priceEl) priceEl.textContent = fmtNumber(data.price);
+      if (visitsEl) visitsEl.textContent = data.visits;
+      if (productsEl) productsEl.textContent = fmtNumber(data.products);
+      if (bestForEl) bestForEl.textContent = sweet;
+
+      // Hub anchor pill ("Most Impact") only on Hub Standard.
+      const pill = card.querySelector('[data-anchor-pill]');
+      if (pill) pill.style.display = (stationKey === 'hub' && tier === 'standard') ? '' : 'none';
+    });
+
+    toggle.querySelectorAll('[data-tier]').forEach(btn => {
+      const isActive = btn.dataset.tier === tier;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+    });
+
+    sessionStorage.setItem(STORAGE_KEY, tier);
+  }
+
+  toggle.addEventListener('click', e => {
+    const btn = e.target.closest('[data-tier]');
+    if (btn) applyTier(btn.dataset.tier);
+  });
+
+  applyTier(initialTier);
 }

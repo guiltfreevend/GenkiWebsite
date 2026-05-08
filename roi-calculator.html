@@ -133,7 +133,7 @@
             <span data-i18n="roi_hero_title">Calculate Your</span> <span class="gradient-text" data-i18n="roi_hero_title_highlight">Wellness ROI</span>
           </h1>
           <p class="text-lg text-gray-600" data-i18n="roi_hero_subtitle">
-            See exactly how Genki Care transforms your employee benefits into measurable business returns.
+            See exactly how Genki transforms your employee benefits into measurable business returns.
           </p>
         </div>
       </div>
@@ -198,22 +198,22 @@
             <!-- Slider: Products per Day -->
             <div class="mb-6">
               <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_products">Products Consumed per Day</label>
-              <input type="range" id="slider-products" min="1" max="5" value="2.5" step="0.1" class="roi-slider w-full">
+              <input type="range" id="slider-products" min="1" max="5" value="1.5" step="0.1" class="roi-slider w-full">
               <div class="flex justify-between text-sm text-gray-500 mt-1">
                 <span>1.0</span>
-                <span class="font-semibold text-primary-600"><span id="display-products">2.5</span> <span data-i18n="roi_products">products</span></span>
+                <span class="font-semibold text-primary-600"><span id="display-products">1.5</span> <span data-i18n="roi_products">products</span></span>
                 <span>5.0</span>
               </div>
-              <p class="text-xs text-gray-400 mt-1" data-i18n="roi_products_hint">Care plan average: 2.5-3.5 products/day with 85-90% engagement</p>
+              <p class="text-xs text-gray-400 mt-1" data-i18n="roi_products_hint">Default assumes ~1.5 products per employee per day (typical Bulgarian office uptake)</p>
             </div>
 
             <!-- Slider: Product Cost -->
             <div class="mb-6">
               <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_cost">Average Product Cost (after markup)</label>
-              <input type="range" id="slider-cost" min="1" max="3.5" value="1.5" step="0.1" class="roi-slider w-full">
+              <input type="range" id="slider-cost" min="0.5" max="3.5" value="0.85" step="0.05" class="roi-slider w-full">
               <div class="flex justify-between text-sm text-gray-500 mt-1">
-                <span>€1.00</span>
-                <span class="font-semibold text-primary-600">€<span id="display-cost">1.50</span></span>
+                <span>€0.50</span>
+                <span class="font-semibold text-primary-600">€<span id="display-cost">0.85</span></span>
                 <span>€3.50</span>
               </div>
             </div>
@@ -222,7 +222,7 @@
             <div id="engagement-warning" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
               <p class="text-sm text-amber-800 flex items-start gap-2">
                 <i data-lucide="alert-triangle" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
-                <span data-i18n="roi_warning_low_engagement">Lower consumption may reduce health outcomes and ROI benefits. Genki Care works best with 85-90% employee engagement (2.5-3.5 products/day average).</span>
+                <span data-i18n="roi_warning_low_engagement">Lower per-employee consumption reduces the productivity and health outcomes we model. Allow a calibration period of 4–6 weeks before evaluating.</span>
               </p>
             </div>
           </div>
@@ -443,45 +443,6 @@
               <p class="text-sm font-semibold text-primary-600"><span id="scenario-optimistic-roi">562</span>% ROI</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Engagement Impact Section -->
-    <section class="py-12 bg-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-r from-amber-50 to-emerald-50 rounded-2xl p-4 sm:p-8 border border-amber-200">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 text-center" data-i18n="roi_engagement_title">Why Free Access Matters</h3>
-
-          <div class="grid md:grid-cols-2 gap-8 mt-6">
-            <div class="text-center">
-              <div class="w-12 h-12 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
-                <i data-lucide="gift" class="w-6 h-6 text-emerald-600"></i>
-              </div>
-              <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_care">Care Plan (Company Pays)</h4>
-              <div class="bg-emerald-100 rounded-full h-4 mb-2">
-                <div class="bg-emerald-500 h-full rounded-full" style="width: 87%"></div>
-              </div>
-              <p class="text-2xl font-bold text-emerald-600">85-90%</p>
-              <p class="text-sm text-gray-500" data-i18n="roi_engagement_care_desc">Daily engagement rate</p>
-            </div>
-
-            <div class="text-center">
-              <div class="w-12 h-12 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
-                <i data-lucide="credit-card" class="w-6 h-6 text-gray-600"></i>
-              </div>
-              <h4 class="font-semibold text-gray-900 mb-2" data-i18n="roi_engagement_starter">Starter Plan (Employees Pay)</h4>
-              <div class="bg-gray-100 rounded-full h-4 mb-2">
-                <div class="bg-gray-400 h-full rounded-full" style="width: 20%"></div>
-              </div>
-              <p class="text-2xl font-bold text-gray-600">15-20%</p>
-              <p class="text-sm text-gray-500" data-i18n="roi_engagement_starter_desc">Typical engagement rate</p>
-            </div>
-          </div>
-
-          <p class="text-center text-gray-600 mt-6 text-sm" data-i18n="roi_engagement_note">
-            Higher investment in the Care plan creates exponentially higher engagement, transforming the Genki corner into a social hub and culture builder.
-          </p>
         </div>
       </div>
     </section>

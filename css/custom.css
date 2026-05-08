@@ -947,6 +947,38 @@ select:focus {
 
 /* Stat numbers are always visible - animation enhances but doesn't hide */
 
+/* ===== Pricing tier toggle + station cards (station-based pricing model) ===== */
+.pricing-toggle .pricing-toggle-btn {
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  transition: background-color 200ms ease-out, color 200ms ease-out, box-shadow 200ms ease-out;
+}
+.pricing-toggle .pricing-toggle-btn.is-active {
+  background-color: var(--color-primary, #2d8659);
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.pricing-toggle .pricing-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-primary, #2d8659);
+  outline-offset: 2px;
+}
+
+/* Tabular numerals so the price/visits/products numbers don't reflow on toggle. */
+.station-price,
+.station-num {
+  font-variant-numeric: tabular-nums;
+  transition: color 200ms ease-out;
+}
+.station-card [data-price],
+.station-card [data-visits],
+.station-card [data-products],
+.station-card [data-best-for] {
+  transition: opacity 220ms ease-out;
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

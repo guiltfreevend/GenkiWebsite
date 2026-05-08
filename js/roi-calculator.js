@@ -50,15 +50,16 @@
     cinemaTicket: 6.10
   };
 
-  // Current state
+  // Current state — defaults retuned 2026-05 for station-based model
+  // (1.5 products/day × €0.85 ≈ €1.275/employee/day, matching Hub Standard at 300 ppl)
   let currentScenario = 'moderate';
   let currentInputs = {
     teamSize: 300,
     salary: 36000,
     turnoverRate: 13,
     sickDays: 8,
-    productsPerDay: 2.5,
-    productCost: 1.5
+    productsPerDay: 1.5,
+    productCost: 0.85
   };
 
   // DOM Elements
