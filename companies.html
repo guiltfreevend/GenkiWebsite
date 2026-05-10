@@ -116,6 +116,8 @@
 </head>
 <body class="font-sans antialiased">
 
+  <!-- Skip to main content (a11y) -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-primary-700 focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-primary-600">Skip to main content</a>
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,7 +140,7 @@
               <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg" role="menuitem">Български</a>
             </div>
           </div>
-          <a href="/contact" class="btn-primary" data-i18n="nav_book_call">Book a 20-min demo</a>
+          <a href="/contact" class="btn-primary" data-i18n="nav_book_call" data-umami-event="cta_book_demo">Book a 20-min demo</a>
         </div>
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu">
           <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -146,6 +148,7 @@
       </div>
     </nav>
   </header>
+  <a id="main-content" tabindex="-1" class="sr-only">Main content</a>
 
   <!-- Mobile Menu -->
   <div id="mobile-overlay" class="mobile-overlay"></div>
@@ -166,7 +169,7 @@
         <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="en">EN</button>
         <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
       </div>
-      <a href="/contact" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a 20-min demo</a>
+      <a href="/contact" class="btn-primary mt-4 text-center" data-i18n="nav_book_call" data-umami-event="cta_book_demo">Book a 20-min demo</a>
     </div>
   </div>
 
@@ -175,11 +178,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <span class="badge badge-green mb-4" data-i18n="companies_badge">Ideal for Growing IT Teams</span>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up">
-          <span data-i18n="companies_hero_title_1">The Employee Benefit That</span> <span class="gradient-text" data-i18n="companies_hero_title_2">Actually Gets Used</span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6 fade-up">
+          <span data-i18n="companies_hero_title_1">Wellness your team uses.</span> <span class="gradient-text" data-i18n="companies_hero_title_2">Every workday.</span>
         </h1>
         <p class="text-xl text-gray-600 fade-up" data-i18n="companies_hero_subtitle">
-          Gym memberships sit unused. Genki snacks get enjoyed every day. Give your team a tangible benefit they'll love — with zero admin burden.
+          Gym memberships sit unused. Genki snacks get eaten every day. Transparent pricing, full management, zero admin work for HR.
         </p>
       </div>
     </div>
@@ -704,7 +707,7 @@
         </details>
 
         <!-- CTA -->
-        <a href="/contact" class="btn-primary w-full justify-center text-lg">
+        <a href="/contact" class="btn-primary w-full justify-center text-lg" data-umami-event="cta_book_demo">
           <span data-i18n="roi_cta">Book a 20-min demo</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>

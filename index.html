@@ -103,6 +103,8 @@
 </head>
 <body class="font-sans antialiased">
 
+  <!-- Skip to main content (a11y) -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-primary-700 focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-primary-600">Skip to main content</a>
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +139,7 @@
             </div>
           </div>
 
-          <a href="/contact" class="btn-primary" data-i18n="nav_book_call">Book a 20-min demo</a>
+          <a href="/contact" class="btn-primary" data-i18n="nav_book_call" data-umami-event="cta_book_demo">Book a 20-min demo</a>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -149,6 +151,7 @@
       </div>
     </nav>
   </header>
+  <a id="main-content" tabindex="-1" class="sr-only">Main content</a>
 
   <!-- Mobile Menu -->
   <div id="mobile-overlay" class="mobile-overlay"></div>
@@ -174,7 +177,7 @@
         <button class="lang-option px-3 py-1 rounded-full text-sm font-medium bg-gray-100 hover:bg-primary-100" data-lang="bg">BG</button>
       </div>
 
-      <a href="/contact" class="btn-primary mt-4 text-center" data-i18n="nav_book_call">Book a 20-min demo</a>
+      <a href="/contact" class="btn-primary mt-4 text-center" data-i18n="nav_book_call" data-umami-event="cta_book_demo">Book a 20-min demo</a>
     </div>
   </div>
 
@@ -201,7 +204,7 @@
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-up">
-          <a href="/contact" class="btn-primary text-lg">
+          <a href="/contact" class="btn-primary text-lg" data-umami-event="cta_book_demo">
             <span data-i18n="index_cta_book">Book a 20-min demo</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -251,7 +254,7 @@
         </div>
         <div class="stat-item fade-up">
           <div class="stat-number" data-count="0" data-suffix="">0</div>
-          <div class="text-gray-600 font-medium" data-i18n="index_stat_admin">Admin Burden</div>
+          <div class="text-gray-600 font-medium" data-i18n="index_stat_admin">Hidden fees</div>
         </div>
         <div class="stat-item fade-up">
           <div class="stat-number" data-count="100" data-suffix="%">100%</div>
@@ -490,7 +493,7 @@
         Join forward-thinking companies that invest in their team's health while supporting local businesses and charity.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
-        <a href="/contact" class="btn-primary text-lg">
+        <a href="/contact" class="btn-primary text-lg" data-umami-event="cta_book_demo">
           <span data-i18n="index_cta_schedule">Book a 20-min demo</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

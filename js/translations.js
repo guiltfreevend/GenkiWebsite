@@ -297,8 +297,8 @@ const translations = {
     bg: "Здравословно и био"
   },
   index_stat_admin: {
-    en: "Admin Burden",
-    bg: "Административна тежест"
+    en: "Hidden fees",
+    bg: "Скрити такси"
   },
 
   // INDEX PAGE - THREE PILLARS
@@ -489,16 +489,16 @@ const translations = {
     bg: "Идеално за разрастващи се IT екипи"
   },
   companies_hero_title_1: {
-    en: "The Employee Benefit That",
-    bg: "Придобивката за служители, която"
+    en: "Wellness your team uses.",
+    bg: "Уелнес, който екипът използва."
   },
   companies_hero_title_2: {
-    en: "Actually Gets Used",
-    bg: "наистина се използва"
+    en: "Every workday.",
+    bg: "Всеки работен ден."
   },
   companies_hero_subtitle: {
-    en: "Gym memberships sit unused. Genki is used every working day. Managed wellness infrastructure for workplaces in Bulgaria — zero admin load for HR, fully serviced.",
-    bg: "Картите за фитнес често остават неизползвани. Genki се ползва всеки работен ден. Управлявана уелнес инфраструктура за работни места в България — нулева административна тежест за HR, напълно обслужвана."
+    en: "Gym memberships sit unused. Genki snacks get eaten every day. Transparent pricing, full management, zero admin work for HR.",
+    bg: "Картите за фитнес често остават неизползвани. Genki снаксовете се ядат всеки ден. Прозрачни цени, пълно управление, нулева работа за HR."
   },
   companies_why_title: {
     en: "Why HR Leaders Choose Genki",

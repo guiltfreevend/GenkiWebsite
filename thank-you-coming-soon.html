@@ -132,6 +132,8 @@
 </head>
 <body class="font-sans antialiased gradient-bg min-h-screen">
 
+  <!-- Skip to main content (a11y) -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-primary-700 focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-primary-600">Skip to main content</a>
   <div class="min-h-screen flex flex-col">
 
     <!-- Header -->
@@ -142,6 +144,7 @@
         </a>
       </div>
     </header>
+  <a id="main-content" tabindex="-1" class="sr-only">Main content</a>
 
     <!-- Main Content -->
     <main class="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">

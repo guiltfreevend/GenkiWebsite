@@ -213,8 +213,13 @@ function initMobileMenu() {
 // Scroll Animations (Intersection Observer)
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.fade-up');
-
   if (!elements.length) return;
+
+  // Respect users who prefer reduced motion — show content immediately, no animation.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    elements.forEach(el => el.classList.add('visible'));
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -348,6 +353,15 @@ function handleFormSubmit(form) {
       localStorage.setItem('genki_coming_soon_submitted', Date.now().toString());
     }
   }
+
+  // Track in Umami so we can measure conversions
+  try {
+    if (typeof window.umami !== 'undefined' && window.umami.track) {
+      const path = window.location.pathname;
+      const formName = path.includes('contact') ? 'contact' : path.includes('office') ? 'office' : 'coming-soon';
+      window.umami.track('form_submit', { form: formName });
+    }
+  } catch (e) { /* never block submit on analytics */ }
 
   // Native form submission - works with Formspree reCAPTCHA
   form.submit();
