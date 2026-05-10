@@ -2,97 +2,116 @@
 
 Master tracking doc for the full-site polish pass. Goal: Apple-premium aesthetic + max SEO score + tight performance.
 
-**Scope:** all changes possible without new photography. Real product/team photography is parked until first pilot client.
-
-**Status legend:** ⬜ pending · 🔄 in progress · ✅ done · 🅿️ parked (needs decision/asset)
+**Status legend:** ⬜ pending · ✅ done · 🅿️ parked
 
 ---
 
 ## A. Critical performance & technical
 
-| # | Item | Status |
-|---|---|---|
-| A1 | Add `&display=swap` to Google Fonts on every page | ⬜ |
-| A2 | Add full security header set to `_headers` (CSP, X-Frame-Options, Referrer-Policy, HSTS, Permissions-Policy) | ⬜ |
-| A3 | Split `translations.js` (144 KB) into `bg.js` + `en.js`, lazy-load only the active language | ⬜ |
-| A4 | Update `_headers` so `/js/*` uses `immutable` since filenames are versioned (or strip `?v=` query strings) | ⬜ |
-| A5 | Pre-compile Tailwind via Tailwind CLI binary (eliminates JIT runtime, cuts ~200KB blocking JS) | 🅿️ needs deploy-pipeline confirmation |
+| # | Item | Status | Notes |
+|---|---|---|---|
+| A1 | `&display=swap` on Google Fonts | ✅ | already present on every active page |
+| A2 | Full security header set in `_headers` | ✅ | CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy |
+| A4 | `/js/*` cache headers | ✅ | kept `no-cache` — pages don't all version their JS query strings, switching to immutable would risk stale code |
+| A3 | Split `translations.js` into bg.js + en.js | 🅿️ | wire size already only 36.6 KB (Brotli-compressed from 147 KB). Splitting saves ~15-18 KB at meaningful refactor cost; defer until live traffic justifies it |
+| A5 | Pre-compile Tailwind via CLI binary | 🅿️ | architectural deploy-pipeline change; needs owner approval |
 
 ## B. SEO
 
 | # | Item | Status |
 |---|---|---|
-| B1 | Add `hreflang` BG ↔ EN on `privacy.html` / `privacy-en.html` | ⬜ |
-| B2 | Refresh `sitemap.xml`: update `lastmod` to today, add missing pages, drop priority-leaks | ⬜ |
-| B3 | Trim 75-char homepage `<title>` to 50–60 chars | ⬜ |
-| B4 | Write unique meta descriptions for each top-level page (currently mostly identical) | ⬜ |
-| B5 | Add `og:image:alt` to every page (currently only on index.html) | ⬜ |
-| B6 | Add `LocalBusiness` schema (NAP) to every public page | ⬜ |
-| B7 | Add `FAQPage` schema to companies.html FAQ section | ⬜ |
-| B8 | Align `robots.txt` with `noindex` meta tags (privacy.html inconsistency) | ⬜ |
-| B9 | Audit `roi-calculator.html` for multiple H1s | ⬜ |
+| B1 | hreflang BG ↔ EN on privacy pair | ✅ |
+| B2 | Refresh sitemap.xml lastmod | ✅ |
+| B3 | Trim 75-char homepage title to 59 chars | ✅ |
+| B4 | Unique meta/OG/Twitter descriptions per page | ✅ |
+| B5 | og:image:alt on every page with OG tags | ✅ |
+| B6 | LocalBusiness JSON-LD on homepage | ✅ |
+| B7 | FAQPage schema on companies.html | ✅ |
+| B8 | robots.txt aligned with noindex tags (drop dead routes, add /office, /box/) | ✅ |
+| B9 | roi-calculator H1 uniqueness (demoted password gate to H2) | ✅ |
 
 ## C. Visual / Apple-premium polish
 
-| # | Item | Status |
-|---|---|---|
-| C1 | Desaturate green palette in `tailwind-config.js` + `custom.css` (~20% less saturated) | ⬜ |
-| C2 | Remove animated blob backgrounds (`custom.css:103-148`) | ⬜ |
-| C3 | Remove shimmer animation on `.btn-primary` (`custom.css:188-217`) | ⬜ |
-| C4 | Remove border-pulse animation on `.btn-secondary` (`custom.css:235-258`) | ⬜ |
-| C5 | Reduce card shadow opacity from `0.1` to `0.04` for premium subtlety | ⬜ |
-| C6 | Tighten button padding/proportion; remove `scale(1.02)` on hover | ⬜ |
-| C7 | Scale up homepage hero H1 (`text-7xl` + `tracking-tight`) | ⬜ |
-| C8 | Standardize border-radius token across cards / buttons / badges | ⬜ |
-| C9 | Replace flag emojis 🇧🇬 🇬🇧 with text labels (BG/EN) — consistent across all pages | ⬜ |
-| C10 | Audit and remove other emoji used as UI elements | ⬜ |
-| C11 | Reduce gradient usage — remove gradient-text where it competes; keep one hero gradient max | ⬜ |
-| C12 | Tighten heading line-height to `1.15` for confident hero feel | ⬜ |
-| C13 | Reduce card hover lift from `translateY(-4px/-8px)` to `translateY(-2px)` (subtler) | ⬜ |
+| # | Item | Status | Notes |
+|---|---|---|---|
+| C1 | Desaturate green palette | 🅿️ | brand-touching; logo uses forest #1e5128 — needs owner approval before shifting #2d8659 |
+| C2 | Remove blob animations | ✅ |
+| C3 | Remove btn-primary shimmer | ✅ |
+| C4 | Remove btn-secondary border-pulse | ✅ |
+| C5 | Soften card shadows (0.1 → 0.04 opacity) | ✅ |
+| C6 | Refine button proportions (tighter padding, no scale on hover) | ✅ |
+| C7 | Scale up hero H1 (text-7xl + tracking-tight + leading-[1.1]) | ✅ |
+| C8 | Standardize border-radius via CSS vars | ✅ |
+| C9 | Replace flag emojis with text labels | ✅ |
+| C10 | Replace emoji-as-icons in office.html with Lucide SVG | ✅ |
+| C11 | Reduce gradient usage (kept only hero highlight) | ✅ |
+| C12 | Tighten heading line-height (1.2 → 1.15) + tracking | ✅ |
+| C13 | Soften card hover lift (-8px → -2px) | ✅ |
 
 ## D. Copy
 
 | # | Item | Status |
 |---|---|---|
-| D1 | Homepage H1 — replace "Better energy. A stronger team." with concrete promise | ⬜ |
-| D2 | Homepage hero subhead — strip "premium wellness infrastructure" jargon | ⬜ |
-| D3 | Mission page H1 — replace "Triple Impact" with concrete outcomes | ⬜ |
-| D4 | Standardize all CTAs to one phrase ("Book a 20-min demo") | ⬜ |
-| D5 | Reword "0 X" stat phrasing (e.g. "0 Harmful Ingredients" → "No harmful ingredients") | ⬜ |
-| D6 | Companies page — replace "Managed Wellness Infrastructure" headline with action verb | ⬜ |
-| D7 | Bulgarian copy polish — flag and rewrite strings that read as translated | ⬜ |
+| D1 | Homepage H1 → "Healthier workdays for your team. / Delivered." | ✅ |
+| D2 | Homepage subhead — drop "premium wellness infrastructure" | ✅ |
+| D3 | Mission H1 → "Healthy people. Local producers. Real charity." | ✅ |
+| D4 | All CTAs → "Book a 20-min demo" / "Запази 20-мин демо" | ✅ |
+| D5 | "0 Admin Burden" → "0 Hidden fees" | ✅ |
+| D6 | Companies hero → "Wellness your team uses. Every workday." | ✅ |
+| D7 | Bulgarian copy native polish | 🅿️ | requires native speaker pass; flag for owner |
 
 ## E. Accessibility
 
 | # | Item | Status |
 |---|---|---|
-| E1 | Add skip-to-content link on every page | ⬜ |
-| E2 | Wrap scroll-animation observer in `prefers-reduced-motion` check (`main.js`) | ⬜ |
-| E3 | Verify body-text + CTA contrast meets WCAG AA after green desaturation | ⬜ |
+| E1 | Skip-to-content link on every page | ✅ |
+| E2 | Respect prefers-reduced-motion in JS scroll observer | ✅ |
+| E3 | WCAG AA contrast spot-check after green desaturation | 🅿️ | depends on C1 |
 
-## F. Analytics / measurement
+## F. Analytics
 
 | # | Item | Status |
 |---|---|---|
-| F1 | Add `umami.track()` calls on form submits | ⬜ |
-| F2 | Add `umami.track()` on primary CTA clicks ("Book demo") | ⬜ |
+| F1 | Umami `form_submit` event in `handleFormSubmit` | ✅ |
+| F2 | `data-umami-event="cta_book_demo"` on btn-primary CTAs | ✅ |
 
-## G. Parked (needs assets / external decision)
+## G. Parked (needs assets / owner decision)
 
-- Real OG share image (1200×630) — needs design pass in Figma/Canva
-- Real product / team / station photography — first pilot client
-- WebP/AVIF image delivery — depends on having real photography first
+- **C1** Green palette desaturation — needs alignment with logo brand
+- **A5** Tailwind pre-compilation — changes deploy pipeline; needs owner approval
+- **A3** Translations split — would only save 15-18 KB at real refactor cost
+- **D7** Bulgarian native-copywriter pass
+- **E3** WCAG AA contrast verification (depends on C1)
+- **OG image** real 1200×630 share image (currently the square logo)
+- **Real photography** — hero imagery, products, stations (parked at user request)
 
 ---
 
-## Execution order (one logical commit each)
+## Ship summary
 
-The list will be worked top-to-bottom roughly in this grouping:
-1. **A1, A2, A4** — pure-upside performance/security headers
-2. **B1–B9** — SEO completeness pass
-3. **C1–C13** — visual polish (each as a separate commit so they can be reviewed/rolled back independently)
-4. **D1–D7** — copy rewrites
-5. **E1–E3** — accessibility hardening
-6. **F1–F2** — analytics events
-7. **A3** — translations split (mechanical, larger diff)
-8. **A5** — Tailwind pre-compilation (architectural — pause for confirmation)
+**Commits made on `main` during this audit pass:**
+
+1. Security headers (CSP, HSTS, etc.)
+2. hreflang BG↔EN privacy
+3. Sitemap refresh
+4. Trim homepage title
+5. Unique per-page meta descriptions
+6. og:image:alt on all pages
+7. LocalBusiness schema
+8. FAQPage schema
+9. robots.txt cleanup
+10. Single-H1 fix on roi-calculator
+11. Remove blob animations
+12. Remove btn shimmer + border pulse + softer shadows + button refinement + radius standardization + heading tracking + softer card hover (one CSS sweep)
+13. Strip flag emojis
+14. Replace emoji icons in office.html with Lucide
+15. Homepage H1 + subhead rewrite
+16. Mission H1 rewrite
+17. Companies hero rewrite
+18. Standardize CTAs
+19. Skip-to-content links
+20. prefers-reduced-motion in JS
+21. Umami form + CTA tracking
+22. CSS cache-buster bump
+
+All deployed to GitHub `main` → Cloudflare Pages auto-deploys.
