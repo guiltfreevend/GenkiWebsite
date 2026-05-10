@@ -41,3 +41,6 @@ ehthumbs.db
 
 # Local Netlify folder
 .netlify
+
+# Source design files (large originals — deployable copies live in assets/images/)
+Genki Stations/

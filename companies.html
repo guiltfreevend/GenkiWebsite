@@ -218,11 +218,18 @@
 
         <!-- DESK -->
         <div data-station-card="desk" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <img src="assets/images/stations/desk.png"
-               alt="Compact Genki Desk station for small offices"
-               data-i18n-alt="station_desk_alt"
-               class="station-image mb-3"
-               width="240" height="180" loading="lazy">
+          <div class="station-image station-image-swap mb-3">
+            <img src="assets/images/stations/desk-frontal.png"
+                 alt="Compact Genki Desk station for small offices"
+                 data-i18n-alt="station_desk_alt"
+                 class="station-image-front"
+                 width="240" height="180" loading="lazy">
+            <img src="assets/images/stations/desk-side.png"
+                 alt=""
+                 aria-hidden="true"
+                 class="station-image-back"
+                 width="240" height="180" loading="lazy">
+          </div>
           <h3 class="text-xl font-bold text-gray-900" data-i18n="station_desk_name">Desk</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_desk_descriptor">Compact office wellness station</p>
 
@@ -281,11 +288,18 @@
 
         <!-- TOWER DRY -->
         <div data-station-card="towerDry" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <img src="assets/images/stations/tower-dry.png"
-               alt="Free-standing Genki Tower Dry station for dry products"
-               data-i18n-alt="station_tower_dry_alt"
-               class="station-image mb-3"
-               width="240" height="180" loading="lazy">
+          <div class="station-image station-image-swap mb-3">
+            <img src="assets/images/stations/tower-dry-frontal.png"
+                 alt="Free-standing Genki Tower Dry station for dry products"
+                 data-i18n-alt="station_tower_dry_alt"
+                 class="station-image-front"
+                 width="240" height="180" loading="lazy">
+            <img src="assets/images/stations/tower-dry-side.png"
+                 alt=""
+                 aria-hidden="true"
+                 class="station-image-back"
+                 width="240" height="180" loading="lazy">
+          </div>
           <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_dry_name">Tower Dry</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_tower_dry_descriptor">Floor-standing dry-storage tower</p>
 
@@ -347,11 +361,18 @@
              Reconsider moving to Hub Standard once 5+ enterprise contracts are closed. -->
         <div data-station-card="towerFridge" class="station-card station-card-anchor bg-white rounded-2xl p-6 border-2 border-amber-400 shadow-md flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative">
           <div data-anchor-pill class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap" data-i18n="pricing_anchor_pill">We recommend</div>
-          <img src="assets/images/stations/tower-fridge.png"
-               alt="Free-standing Genki Tower Fridge station with built-in fridge"
-               data-i18n-alt="station_tower_fridge_alt"
-               class="station-image mb-3"
-               width="240" height="180" loading="lazy">
+          <div class="station-image station-image-swap mb-3">
+            <img src="assets/images/stations/tower-fridge-frontal.png"
+                 alt="Free-standing Genki Tower Fridge station with built-in fridge"
+                 data-i18n-alt="station_tower_fridge_alt"
+                 class="station-image-front"
+                 width="240" height="180" loading="lazy">
+            <img src="assets/images/stations/tower-fridge-side.png"
+                 alt=""
+                 aria-hidden="true"
+                 class="station-image-back"
+                 width="240" height="180" loading="lazy">
+          </div>
           <h3 class="text-xl font-bold text-gray-900" data-i18n="station_tower_fridge_name">Tower Fridge</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_tower_fridge_descriptor">Floor-standing chilled tower</p>
 
@@ -410,11 +431,18 @@
 
         <!-- HUB -->
         <div data-station-card="hub" class="station-card bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-          <img src="assets/images/stations/hub.png"
-               alt="Premium Genki Hub wall station for large offices"
-               data-i18n-alt="station_hub_alt"
-               class="station-image mb-3"
-               width="240" height="180" loading="lazy">
+          <div class="station-image station-image-swap mb-3">
+            <img src="assets/images/stations/hub-frontal.png"
+                 alt="Premium Genki Hub wall station for large offices"
+                 data-i18n-alt="station_hub_alt"
+                 class="station-image-front"
+                 width="240" height="180" loading="lazy">
+            <img src="assets/images/stations/hub-side.png"
+                 alt=""
+                 aria-hidden="true"
+                 class="station-image-back"
+                 width="240" height="180" loading="lazy">
+          </div>
           <h3 class="text-xl font-bold text-gray-900" data-i18n="station_hub_name">Hub</h3>
           <p class="text-sm text-gray-500 mb-5" data-i18n="station_hub_descriptor">Multi-station office wellness hub</p>
 
@@ -555,7 +583,7 @@
           <p class="text-white/80 text-sm mb-1" data-i18n="roi_daily_investment">Your Daily Investment</p>
           <div class="flex items-baseline justify-center gap-2 mb-1">
             <span class="text-5xl sm:text-6xl font-extrabold" id="roi-daily-cost">€1.28</span>
-            <span class="text-lg opacity-90" data-i18n="roi_per_employee_day">/employee/day</span>
+            <span class="text-lg opacity-90" data-i18n="roi_unit_per_employee_day">/employee/day</span>
           </div>
           <p class="text-white/60 text-xs">
             (<span id="roi-coffees">2.5</span> <span data-i18n="roi_coffees">coffees</span> <span data-i18n="roi_or">or</span> <span id="roi-sandwiches">2.9</span> <span data-i18n="roi_sandwiches">sandwiches</span>)
@@ -594,7 +622,7 @@
           <p class="text-xs text-emerald-600/70 mb-2" data-i18n="roi_save_subtitle">from reduced turnover, productivity & health costs</p>
           <div class="flex justify-center gap-6 text-sm">
             <span class="text-emerald-700"><span data-i18n="roi_label">ROI:</span> <strong><span id="roi-percent">291</span>%</strong></span>
-            <span class="text-emerald-700"><span data-i18n="roi_payback_label">Payback:</span> <strong><span id="roi-payback">3.1</span> <span data-i18n="roi_months">mo</span></strong></span>
+            <span class="text-emerald-700"><span data-i18n="roi_payback_label">Payback:</span> <strong><span id="roi-payback">3.1</span> <span data-i18n="roi_months_short">mo</span></strong></span>
           </div>
         </div>
 

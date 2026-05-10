@@ -1004,6 +1004,28 @@ select:focus {
   display: block;
 }
 
+.station-image-swap {
+  position: relative;
+  max-width: 320px;
+}
+.station-image-swap > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 250ms ease;
+}
+.station-image-swap > .station-image-back {
+  opacity: 0;
+}
+.station-image-swap:hover > .station-image-front {
+  opacity: 0;
+}
+.station-image-swap:hover > .station-image-back {
+  opacity: 1;
+}
+
 /* Per-card headcount slider */
 .station-slider {
   -webkit-appearance: none;
