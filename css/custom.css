@@ -1012,6 +1012,10 @@ select:focus {
   aspect-ratio: auto;
   margin: 0 auto;
 }
+[data-station-card="hub"] .station-image-swap > img {
+  transform: scale(1.25);
+  transform-origin: center;
+}
 .station-image-swap > img {
   position: absolute;
   inset: 0;
