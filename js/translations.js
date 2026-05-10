@@ -175,12 +175,12 @@ const translations = {
     bg: "Контакти"
   },
   nav_book_call: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   nav_cta: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   mobile_language: {
     en: "Language",
@@ -251,20 +251,20 @@ const translations = {
     bg: "100% български продукти"
   },
   index_hero_title_1: {
-    en: "Better energy. A stronger team.",
-    bg: "По-добра енергия. По-силен екип."
+    en: "Healthier workdays for your team.",
+    bg: "По-здравословни дни за екипа Ви."
   },
   index_hero_title_2: {
-    en: "Every workday.",
-    bg: "Всеки работен ден."
+    en: "Delivered.",
+    bg: "Доставени."
   },
   index_hero_subtitle: {
-    en: "Premium wellness infrastructure for modern offices — 100% Bulgarian products, fully managed by Genki.",
-    bg: "Премиум wellness инфраструктура за модерни офиси — 100% български продукти, напълно обслужвана от Genki."
+    en: "Curated Bulgarian snacks, drinks and meals delivered to your office. Fully managed by Genki. About €1/day per person.",
+    bg: "Подбрани български снаксове, напитки и хранения, доставени директно в офиса. Напълно обслужвани от Genki. Около €1/ден на човек."
   },
   index_cta_book: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   index_cta_how: {
     en: "See How It Works",
@@ -381,8 +381,8 @@ const translations = {
     bg: "Ние се грижим за всичко. Вие просто одобрявате конфигурацията и наблюдавате как удовлетвореността на служителите расте."
   },
   index_step1_title: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   index_step1_desc: {
     en: "30-minute call to understand your team's needs and preferences.",
@@ -469,8 +469,8 @@ const translations = {
     bg: "Присъединете се към прогресивните работни места в България, които инвестират в здравето на екипа си, подкрепят българските производители и прозрачно даряват всеки месец."
   },
   index_cta_schedule: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   index_cta_pricing: {
     en: "View Pricing",
@@ -686,8 +686,8 @@ const translations = {
 
   // NEW PRICING - CTA (kept stable for re-use across cards)
   pricing_cta_quote: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
 
   // NEW PRICING - All Plans Include (rewritten bullets)
@@ -925,8 +925,8 @@ const translations = {
     bg: "📝 Примерно изчисление за илюстрация. Запазете консултация за персонална оферта."
   },
   roi_cta: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
 
   // Simplified Public ROI Calculator (companies.html)
@@ -1189,32 +1189,32 @@ const translations = {
     bg: "Запазете безплатна консултация и вижте как Genki може да трансформира работното Ви място."
   },
   companies_cta_schedule: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
 
   // ===================
   // MISSION PAGE
   // ===================
   mission_hero_title_1: {
-    en: "Our Mission:",
-    bg: "Нашата мисия:"
+    en: "Healthy people. Local producers.",
+    bg: "Здрави хора. Местни производители."
   },
   mission_hero_title: {
-    en: "Our Mission:",
-    bg: "Нашата мисия:"
+    en: "Healthy people. Local producers.",
+    bg: "Здрави хора. Местни производители."
   },
   mission_hero_title_2: {
-    en: "Triple Impact",
-    bg: "Тройно въздействие"
+    en: "Real charity.",
+    bg: "Реални дарения."
   },
   mission_hero_highlight: {
-    en: "Triple Impact",
-    bg: "Тройно въздействие"
+    en: "Real charity.",
+    bg: "Реални дарения."
   },
   mission_hero_subtitle: {
-    en: "Every Genki engagement creates positive change in three directions — for teams in Bulgaria, for Bulgarian producers, and for those in need.",
-    bg: "Всеки ангажимент с Genki създава положителна промяна в три направления — за екипите в България, за българските производители и за нуждаещите се."
+    en: "Three commitments built into every Genki order — to your team, to Bulgarian producers, and to causes that matter.",
+    bg: "Три ангажимента, заложени във всяка Genki поръчка — към вашия екип, към българските производители и към важните каузи."
   },
   mission_pillar1_badge: {
     en: "Pillar 1",
@@ -1626,8 +1626,8 @@ const translations = {
     bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
   },
   mission_cta_button: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
 
   // ===================
@@ -2113,8 +2113,8 @@ const translations = {
     bg: "30-минутна консултация. Подбираме асортимента според екипа ви."
   },
   products_cta_button: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
 
   // Products page — "Our standard" wellness filter (NEW v2 page)
@@ -2479,8 +2479,8 @@ const translations = {
     bg: "Запазете безплатна консултация и вижте как Genki може да трансформира придобивките на служителите Ви, като подкрепя българските производители и прозрачно дарява всеки месец."
   },
   contact_form_title: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   contact_first_name: {
     en: "First Name *",
@@ -2588,8 +2588,8 @@ const translations = {
     bg: "Разкажете ни за Вашия екип, хранителни изисквания или специфични нужди..."
   },
   contact_submit: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   contact_response_time: {
     en: "We'll get back to you within 24 hours.",
@@ -3086,8 +3086,8 @@ const translations = {
     bg: "Нека обсъдим как Genki може да постигне тези резултати за Вашата организация."
   },
   roi_cta_button: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    en: "Book a 20-min demo",
+    bg: "Запази 20-мин демо"
   },
   roi_cta_demo: {
     en: "Request Demo",
