@@ -1634,28 +1634,28 @@ const translations = {
   // PRODUCTS PAGE
   // ===================
   products_hero_eyebrow: {
-    en: "The Genki Experience",
-    bg: "Преживяването Genki"
+    en: "What's inside Genki",
+    bg: "Какво има във Genki"
   },
   products_hero_title_1: {
-    en: "Built for your team,",
-    bg: "Създадено за Вашия екип,"
+    en: "The snacks your team loves.",
+    bg: "Снаксовете, които екипът обича."
   },
   products_hero_title: {
-    en: "Built for your team,",
-    bg: "Създадено за Вашия екип,"
+    en: "The snacks your team loves.",
+    bg: "Снаксовете, които екипът обича."
   },
   products_hero_title_2: {
-    en: "not pulled from a catalog",
-    bg: "а не готово решение от каталог"
+    en: "Just done right.",
+    bg: "Просто направени както трябва."
   },
   products_hero_highlight: {
-    en: "not pulled from a catalog",
-    bg: "а не готово решение от каталог"
+    en: "Just done right.",
+    bg: "Просто направени както трябва."
   },
   products_hero_subtitle: {
-    en: "Your final assortment is curated per office during onboarding and rotates seasonally. The products below are illustrative examples of what your team could enjoy.",
-    bg: "Крайният асортимент се подбира персонално за всеки офис при стартиране и се обновява сезонно. Продуктите по-долу са пример за това, което екипът Ви може да получава."
+    en: "Bulgarian snacks and drinks — no palm oil, no high-fructose syrup, no junk. Curated for your team.",
+    bg: "Български снаксове и напитки — без палмово масло, без глюкозо-фруктозен сироп, без боклуци. Курирани за вашия екип."
   },
 
   // Products page — How your assortment comes together
@@ -1672,24 +1672,24 @@ const translations = {
     bg: "Разкажете ни за екипа си"
   },
   products_how_step1_desc: {
-    en: "Dietary needs, favourite snacks, allergies, the vegan colleague everyone forgets. We listen on a 30-minute consultation.",
-    bg: "Хранителни нужди, любими снаксове, алергии, вегански предпочитания и специфични изисквания, които често се пропускат. Изслушваме Ви в 30-минутна консултация."
+    en: "Dietary needs, favourites and dislikes, allergies, vegan / gluten-free / nut-free. A 30-minute consultation. We listen more than we talk.",
+    bg: "Хранителни нужди, любими и нелюбими, алергии, веган/безглутенов/без ядки. 30-минутна консултация. Слушаме повече, отколкото говорим."
   },
   products_how_step2_title: {
-    en: "We curate your assortment",
+    en: "We curate the assortment",
     bg: "Ние подбираме асортимента"
   },
   products_how_step2_desc: {
-    en: "A hand-picked selection from trusted Bulgarian producers, shaped around your team's preferences — never a one-size-fits-all catalog.",
-    bg: "Ръчно подбрана селекция от доверени български производители, оформена според предпочитанията на Вашия екип — никога универсален каталог."
+    en: "We curate from 30+ trusted Bulgarian producers. We balance familiar favourites (70%) with new discoveries (30%). Never a one-size-fits-all catalogue — every corner is different.",
+    bg: "Курираме от 30+ доверени български производители. Балансираме познати фаворити (70%) с открития (30%). Никога универсален каталог — всеки кът е различен."
   },
   products_how_step3_title: {
-    en: "Delivered fresh, rotated seasonally",
-    bg: "Доставено прясно, със сезонно обновяване"
+    en: "Fresh deliveries, seasonal rotation",
+    bg: "Свежи доставки, сезонна ротация"
   },
   products_how_step3_desc: {
-    en: "Fresh deliveries on your cadence. We rotate products each season so the team never gets bored — and you never stock what they don't eat.",
-    bg: "Пресни доставки според договорения график. Обновяваме продуктите всеки сезон, така че екипът никога да не се отегчава — и да не се доставят продукти, които не се консумират."
+    en: "An agreed schedule. Each season we refresh 10–15% of the mix with new products. Nothing sits, nothing gets boring.",
+    bg: "Договорен график. Всеки сезон обновяваме 10-15% от микса с нови продукти. Нищо не престоява, нищо не омръзва."
   },
   products_cat_snacks: {
     en: "Snacks",
@@ -2085,12 +2085,12 @@ const translations = {
     bg: "Пълноценни балансирани ястия"
   },
   products_diets_title: {
-    en: "We Accommodate All Diets",
-    bg: "Съобразяваме се с различни хранителни режими"
+    en: "For everyone on the team",
+    bg: "За всеки в екипа"
   },
   products_diets_desc: {
-    en: "Every team member can find something they love.",
-    bg: "Всеки човек от екипа може да намери нещо подходящо."
+    en: "We tag every product. Everyone will find theirs.",
+    bg: "Маркираме всеки продукт. Всеки човек ще намери своето."
   },
   products_diet_glutenfree: {
     en: "Gluten-Free",
@@ -2105,16 +2105,166 @@ const translations = {
     bg: "Без ядки"
   },
   products_cta_title: {
-    en: "See what Genki would look like in your office",
-    bg: "Вижте как Genki би изглеждал във Вашия офис"
+    en: "See what Genki will look like in your office",
+    bg: "Вижте как Genki ще изглежда във вашия офис"
   },
   products_cta_desc: {
-    en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
-    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция според Вашия екип."
+    en: "A 30-minute consultation. We shape the assortment around your team.",
+    bg: "30-минутна консултация. Подбираме асортимента според екипа ви."
   },
   products_cta_button: {
     en: "Book consultation",
     bg: "Запазете консултация"
+  },
+
+  // Products page — "Our standard" wellness filter (NEW v2 page)
+  products_standard_title: {
+    en: "Our standard",
+    bg: "Нашият стандарт"
+  },
+  products_standard_sub: {
+    en: "One rule, applied to every product in the catalogue.",
+    bg: "Едно правило, прилагано на всеки продукт в каталога."
+  },
+  products_standard_no_title: {
+    en: "❌ Doesn't make it into Genki",
+    bg: "❌ НЕ влиза в Genki"
+  },
+  products_standard_no_1: {
+    en: "Palm oil",
+    bg: "Палмово масло"
+  },
+  products_standard_no_2: {
+    en: "High-fructose corn syrup (HFCS)",
+    bg: "Глюкозо-фруктозен сироп (HFCS)"
+  },
+  products_standard_no_3: {
+    en: "Artificial sweeteners",
+    bg: "Изкуствени подсладители"
+  },
+  products_standard_no_4: {
+    en: "Artificial colourings",
+    bg: "Изкуствени оцветители"
+  },
+  products_standard_no_5: {
+    en: "Hydrogenated fats",
+    bg: "Хидрогенирани мазнини"
+  },
+  products_standard_no_6: {
+    en: "MSG / E621",
+    bg: "MSG / E621"
+  },
+  products_standard_yes_title: {
+    en: "✅ Makes it into Genki",
+    bg: "✅ ВЛИЗА в Genki"
+  },
+  products_standard_yes_1: {
+    en: "100% made in Bulgaria",
+    bg: "100% произведени в България"
+  },
+  products_standard_yes_2: {
+    en: "Clean, readable ingredients",
+    bg: "Чисти и четими съставки"
+  },
+  products_standard_yes_3: {
+    en: "Selected from 30+ trusted producers",
+    bg: "Подбрани от 30+ доверени производители"
+  },
+  products_standard_yes_4: {
+    en: "Seasonally refreshed mix",
+    bg: "Сезонно обновяван микс"
+  },
+  products_standard_yes_5: {
+    en: "Hand-curated for every client",
+    bg: "Ръчно курирано за всеки клиент"
+  },
+  products_standard_yes_6: {
+    en: "Never a one-size-fits-all catalogue",
+    bg: "Никога универсален каталог"
+  },
+  products_standard_outro: {
+    en: "If a product doesn't meet the standard, it doesn't go into the station. No exceptions.",
+    bg: "Ако даден продукт не отговаря на стандарта — не влиза в станцията. Без изключения."
+  },
+
+  // Products page — TREAT / CRUNCH / REFRESH (NEW v2 page)
+  products_cats_title: {
+    en: "The three categories",
+    bg: "Трите категории"
+  },
+  products_cats_sub: {
+    en: "Easy impulse. Easy choice.",
+    bg: "Лесен импулс. Лесен избор."
+  },
+  products_treat_tag: {
+    en: "SWEET",
+    bg: "СЛАДКО"
+  },
+  products_treat_sub: {
+    en: "When you want something sweet",
+    bg: "Когато искате нещо сладко"
+  },
+  products_treat_list: {
+    en: "Wafers · Cookies · Biscuits · Chocolate candies",
+    bg: "Вафли · Курабийки · Бисквити · Шоко бонбони"
+  },
+  products_treat_footer: {
+    en: "Bulgarian pastry masters and producers.",
+    bg: "Български сладкарски майстори и производители."
+  },
+  products_crunch_tag: {
+    en: "SAVOURY",
+    bg: "СОЛЕНО"
+  },
+  products_crunch_sub: {
+    en: "When you want to crunch",
+    bg: "Когато искате да хрускате"
+  },
+  products_crunch_list: {
+    en: "Pretzel sticks · Crackers · Crispy biscuits · Savoury snacks",
+    bg: "Солети · Крекери · Хрупкави бисквити · Солени снаксове"
+  },
+  products_crunch_footer: {
+    en: "Traditional Bulgarian bakeries.",
+    bg: "Традиционни български пекарни."
+  },
+  products_refresh_tag: {
+    en: "DRINKS",
+    bg: "НАПИТКИ"
+  },
+  products_refresh_sub: {
+    en: "When you're thirsty",
+    bg: "Когато сте жадни"
+  },
+  products_refresh_list: {
+    en: "Kombucha · Iced teas · Energy drinks · Sparkling drinks",
+    bg: "Комбуча · Студени чайове · Енергийни напитки · Газирани"
+  },
+  products_refresh_footer: {
+    en: "250ml cans, all from Bulgarian producers.",
+    bg: "250мл кенове, всички български производители."
+  },
+
+  // Products page — Genki Meals v2 teaser (NEW v2 page)
+  products_genkimeals_pill: {
+    en: "Planned for v2",
+    bg: "Планирано за v2"
+  },
+  products_genkimeals_title: {
+    en: "Coming soon: Genki Meals",
+    bg: "Скоро: Genki Meals"
+  },
+  products_genkimeals_body: {
+    en: "We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Order in the morning. We deliver at lunch. Straight to the office.",
+    bg: "Работим върху приложение, в което вашите служители ще поръчват прясно приготвени обяди — поке купи, салати, бурито, традиционни ястия — в партньорство с български кухни. Поръчват сутрин. Доставяме за обяд. Директно в офиса."
+  },
+  products_genkimeals_subbody: {
+    en: "Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration, no integration fee.",
+    bg: "Не е част от настоящия старт. Когато стартира, ще се добави като допълнителен слой към съществуващите ви Genki станции — без преконфигуриране, без допълнителна такса за интеграция."
+  },
+  products_genkimeals_cta: {
+    en: "Notify me at launch",
+    bg: "Уведомете ме когато стартира"
   },
   products_mixed_nuts: {
     en: "Mixed Nuts",
