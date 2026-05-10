@@ -23,11 +23,11 @@ const translations = {
   },
   coming_subheadline: {
     en: "A fresh approach to workplace wellness. Good for your team. Good for Bulgaria.",
-    bg: "Нов поглед към уелнеса на работното място. Добро за екипа. Добро за България."
+    bg: "Нов подход към уелнеса на работното място. Добър за екипа Ви. Добър за България."
   },
   coming_signup_title: {
     en: "Be the first to know when we launch",
-    bg: "Бъдете сред първите, които ще научат, когато стартираме"
+    bg: "Бъдете сред първите, които ще научат за старта ни"
   },
   coming_email_placeholder: {
     en: "Enter your work email",
@@ -120,7 +120,7 @@ const translations = {
 
   coming_pillar1_title: {
     en: "100% Healthy",
-    bg: "100% здравословно"
+    bg: "100% здравословни продукти"
   },
   coming_pillar1_desc: {
     en: "Bio & nutritious products only",
@@ -144,11 +144,11 @@ const translations = {
   },
   coming_pillar4_title: {
     en: "Zero Admin",
-    bg: "Нулева администрация"
+    bg: "Нулева административна работа"
   },
   coming_pillar4_desc: {
     en: "We handle everything for HR",
-    bg: "Ние поемаме всичко вместо HR екипа Ви"
+    bg: "Ние поемаме всичко вместо Вашия HR екип"
   },
 
   // ===================
@@ -192,7 +192,7 @@ const translations = {
   // ===================
   footer_description: {
     en: "Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.",
-    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители, месечни дарения."
+    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители и месечни дарения."
   },
   footer_quick_links: {
     en: "Quick Links",
@@ -216,11 +216,15 @@ const translations = {
   },
   footer_desc: {
     en: "Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.",
-    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители, месечни дарения."
+    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители и месечни дарения."
   },
   footer_badge: {
     en: "🇧🇬 Made in Bulgaria",
     bg: "🇧🇬 Произведено в България"
+  },
+  footer_badge_text: {
+    en: "Made in Bulgaria",
+    bg: "Произведено в България"
   },
   footer_links_title: {
     en: "Quick Links",
@@ -248,7 +252,7 @@ const translations = {
   },
   index_hero_title_1: {
     en: "Healthy Teams,",
-    bg: "Здрави екипи,"
+    bg: "По-здрави екипи,"
   },
   index_hero_title_2: {
     en: "Thriving Business",
@@ -256,7 +260,7 @@ const translations = {
   },
   index_hero_subtitle: {
     en: "Premium wellness benefits that employees actually love. Healthy snacks, drinks & meals delivered to your office — while supporting Bulgarian businesses and charity.",
-    bg: "Премиум уелнес бенефит, който служителите наистина харесват. Здравословни снаксове, напитки и храна, доставени до Вашия офис — с подкрепа за български производители и каузи."
+    bg: "Премиум уелнес бенефит, който служителите наистина харесват. Здравословни продукти, напитки и леки храни, доставени до Вашия офис — с подкрепа за български производители и каузи."
   },
   index_cta_book: {
     en: "Book consultation",
@@ -300,7 +304,7 @@ const translations = {
   // INDEX PAGE - THREE PILLARS
   index_pillars_title: {
     en: "More Than Just a Benefit",
-    bg: "Повече от просто придобивка"
+    bg: "Повече от обикновена придобивка"
   },
   index_pillars_subtitle: {
     en: "Every Genki subscription creates a triple impact — for your team, for Bulgarian businesses, and for those in need.",
@@ -316,19 +320,19 @@ const translations = {
   },
   index_pillar1_item1: {
     en: "Bio-certified options",
-    bg: "Био-сертифицирани опции"
+    bg: "Биосертифицирани продукти"
   },
   index_pillar1_item2: {
     en: "Nutritionist approved",
-    bg: "Одобрено от нутриционист"
+    bg: "Подбрано с фокус върху хранителната стойност"
   },
   index_pillar1_item3: {
     en: "Dietary accommodations",
-    bg: "Опции за различни режими"
+    bg: "Подходящо за различни хранителни режими"
   },
   index_pillar2_title: {
     en: "Supporting Bulgarian Businesses",
-    bg: "Подкрепа за българските бизнеси"
+    bg: "Подкрепа за българските производители"
   },
   index_pillar2_desc: {
     en: "100% of our products come from local Bulgarian producers. Your benefit subscription directly supports the domestic economy.",
@@ -340,7 +344,7 @@ const translations = {
   },
   index_pillar2_item2: {
     en: "Helping the local economy",
-    bg: "Подпомагане на локалната икономика"
+    bg: "Подпомагане на местната икономика"
   },
   index_pillar2_item3: {
     en: "Sustainable sourcing",
@@ -364,7 +368,7 @@ const translations = {
   },
   index_pillar3_item3: {
     en: "Choose your causes",
-    bg: "Изберете вашите каузи"
+    bg: "Изберете Вашите каузи"
   },
 
   // INDEX PAGE - HOW IT WORKS
@@ -374,7 +378,7 @@ const translations = {
   },
   index_how_subtitle: {
     en: "We handle everything. You just approve the setup and watch employee satisfaction soar.",
-    bg: "Ние се грижим за всичко. Вие просто одобрявате настройката и наблюдавате как удовлетвореността на служителите расте."
+    bg: "Ние се грижим за всичко. Вие просто одобрявате конфигурацията и наблюдавате как удовлетвореността на служителите расте."
   },
   index_step1_title: {
     en: "Book consultation",
@@ -382,11 +386,11 @@ const translations = {
   },
   index_step1_desc: {
     en: "30-minute call to understand your team's needs and preferences.",
-    bg: "30-минутен разговор, за да разберем нуждите и предпочитанията на вашия екип."
+    bg: "30-минутен разговор, за да разберем нуждите и предпочитанията на Вашия екип."
   },
   index_step2_title: {
     en: "Customize Plan",
-    bg: "Персонализирайте плана"
+    bg: "Персонализираме плана"
   },
   index_step2_desc: {
     en: "We create a tailored product mix based on your team size and preferences.",
@@ -402,17 +406,17 @@ const translations = {
   },
   index_step4_title: {
     en: "Team Enjoys",
-    bg: "Екипът се наслаждава"
+    bg: "Екипът използва Genki"
   },
   index_step4_desc: {
     en: "Your employees get great food. You get happier, healthier teams.",
-    bg: "Вашите служители получават страхотна храна. Вие получавате по-щастливи и здрави екипи."
+    bg: "Вашите служители получават качествени продукти всеки ден. Вие получавате по-доволен и по-ангажиран екип."
   },
 
   // INDEX PAGE - HR VALUE PROP
   index_hr_title: {
     en: "The Benefit Your HR Team Will Love",
-    bg: "Придобивката, която вашият HR екип ще обикне"
+    bg: "Придобивката, която Вашият HR екип ще обикне"
   },
   index_hr_subtitle: {
     en: "Unlike complex benefit programs, Genki requires zero administration. We handle everything — from sourcing to delivery to impact reporting.",
@@ -448,7 +452,7 @@ const translations = {
   },
   index_hr_card_desc: {
     en: "Genki sits next to your existing benefits — a daily, in-office wellness layer your team uses every day, not just when they make it to the gym.",
-    bg: "Genki стои до съществуващите Ви придобивки — ежедневен, на място в офиса уелнес слой, който екипът използва всеки ден, а не само когато стигне до фитнеса."
+    bg: "Genki стои до съществуващите Ви придобивки — ежедневен, допълнителен уелнес елемент в офиса, който екипът използва всеки ден, а не само когато стигне до фитнеса."
   },
   index_hr_stat_desc: {
     en: "of employees say food benefits improve their workday",
@@ -462,7 +466,7 @@ const translations = {
   },
   index_cta_subtitle: {
     en: "Join forward-thinking companies that invest in their team's health while supporting local businesses and charity.",
-    bg: "Присъединете се към прогресивните компании, които инвестират в здравето на екипа си, докато подкрепят местни бизнеси и благотворителност."
+    bg: "Присъединете се към прогресивните компании, които инвестират в здравето на екипа си и едновременно с това подкрепят местни бизнеси и благотворителност."
   },
   index_cta_schedule: {
     en: "Book consultation",
@@ -530,7 +534,7 @@ const translations = {
   },
   companies_benefit4_desc: {
     en: "Daily touchpoints become culture moments. Healthy eating turns into team bonding without effort.",
-    bg: "Ежедневните допирни точки се превръщат в моменти за екипа. Здравословното хранене се превръща в сплотяване — без усилие."
+    bg: "Ежедневните моменти около Genki се превръщат в поводи за общуване. Здравословното хранене започва да сближава екипа — без допълнителни усилия."
   },
   companies_benefit5_title: {
     en: "Healthier Teams",
@@ -538,11 +542,11 @@ const translations = {
   },
   companies_benefit5_desc: {
     en: "Replace vending machine junk with nutritious options. Better focus, fewer sick days.",
-    bg: "Заменете вредните опции от автоматите със здравословни алтернативи. По-добър фокус, по-малко болнични."
+    bg: "Заменете стандартните вендинг избори със здравословни алтернативи. Повече фокус, по-малко енергийни спадове."
   },
   companies_benefit6_title: {
     en: "Support Local",
-    bg: "Подкрепете местното"
+    bg: "Подкрепете българското"
   },
   companies_benefit6_desc: {
     en: "100% Bulgarian products. Your benefit spending stays in the local economy.",
@@ -556,17 +560,17 @@ const translations = {
   },
   companies_pricing_subtitle: {
     en: "Choose the plan that fits your team and budget. All plans include delivery, setup, and charity donation.",
-    bg: "Изберете плана, който отговаря на екипа и бюджета Ви. Всички планове включват доставка, настройка и благотворително дарение."
+    bg: "Изберете плана, който отговаря на екипа и бюджета Ви. Всички планове включват доставка, монтаж и благотворителен компонент."
   },
 
   // NEW PRICING - Hero (station-based positioning)
   pricing_hero_title: {
     en: "Managed Wellness Infrastructure for the modern workplace",
-    bg: "Управлявана уелнес инфраструктура за модерния български офис"
+    bg: "Управлявана уелнес инфраструктура за съвременния български офис"
   },
   pricing_hero_subtitle: {
     en: "4 stations. 2 service tiers. 100% Bulgarian-made products. 10% of profit donated every month.",
-    bg: "4 модула. 2 нива на обслужване. 100% български продукти. 10% от печалбата всеки месец отива в дарения."
+    bg: "4 модула. 2 нива на обслужване. 100% български продукти. 10% от печалбата се дарява всеки месец."
   },
 
   // NEW PRICING - Tier toggle
@@ -600,11 +604,11 @@ const translations = {
   },
   station_tower_dry_alt: {
     en: "Free-standing Genki Tower Dry station for dry products",
-    bg: "Свободно стояща Genki Tower Dry станция за сухи продукти"
+    bg: "Свободностояща Genki Tower Dry станция за сухи продукти"
   },
   station_tower_fridge_alt: {
     en: "Free-standing Genki Tower Fridge station with built-in fridge",
-    bg: "Свободно стояща Genki Tower Fridge станция с вграден хладилник"
+    bg: "Свободностояща Genki Tower Fridge станция с вграден хладилник"
   },
   station_hub_alt: {
     en: "Premium Genki Hub wall station for large offices",
@@ -632,7 +636,7 @@ const translations = {
   },
   station_hub_descriptor: {
     en: "Multi-station office wellness hub",
-    bg: "Мулти-станционен офис уелнес център"
+    bg: "Офис уелнес център с няколко модула"
   },
 
   // NEW PRICING - Card units & static labels
@@ -665,11 +669,11 @@ const translations = {
   },
   pricing_identical_hardware: {
     en: "Identical hardware and product quality across Lite and Standard",
-    bg: "Идентичен хардуер и продуктово качество при Lite и Standard"
+    bg: "Идентичен хардуер и качество на продуктите при Lite и Standard"
   },
   pricing_setup_fee_label: {
     en: "One-time activation fee",
-    bg: "Еднократна такса за активиране"
+    bg: "Еднократна стартова такса"
   },
   pricing_anchor_pill: {
     en: "We recommend",
@@ -677,7 +681,7 @@ const translations = {
   },
   pricing_vat_note: {
     en: "Prices are in EUR, VAT excluded. VAT applied per Bulgarian law where applicable. VAT is recoverable for B2B clients.",
-    bg: "Цените са в евро без ДДС. При приложимост ДДС се начислява съгласно действащото законодателство."
+    bg: "Цените са в евро без ДДС. При приложимост ДДС се начислява съгласно действащото законодателство. ДДС може да бъде възстановим разход за регистрирани по ДДС B2B клиенти."
   },
 
   // NEW PRICING - CTA (kept stable for re-use across cards)
@@ -697,11 +701,11 @@ const translations = {
   },
   pricing_all_f2: {
     en: "Identical product quality across Lite and Standard — only visit cadence and reload size differ",
-    bg: "Еднакво продуктово качество при Lite и Standard — различават се само честотата и количеството на зарежданията"
+    bg: "Еднакво качество на продуктите при Lite и Standard — различават се само честотата и количеството на зарежданията"
   },
   pricing_all_f3: {
     en: "Equipment ownership stays with Genki — you never own depreciating hardware",
-    bg: "Оборудването остава собственост на Genki — не държите амортизиращ се хардуер"
+    bg: "Оборудването остава собственост на Genki — не купувате и не амортизирате оборудване"
   },
   pricing_all_f4: {
     en: "Full service: delivery, installation, restocking, brand maintenance, monthly impact report",
@@ -713,7 +717,7 @@ const translations = {
   },
   pricing_all_f6: {
     en: "One contact, one invoice, zero HR admin",
-    bg: "Един контакт, една фактура, нулева HR тежест"
+    bg: "Един контакт, една фактура, нулева административна тежест за HR"
   },
 
   // COMPANIES PAGE - ROI
@@ -723,7 +727,7 @@ const translations = {
   },
   companies_roi_subtitle: {
     en: "Investing in employee health isn't just the right thing to do — it's smart business.",
-    bg: "Инвестирането в здравето на служителите не е просто правилното нещо — това е умен бизнес."
+    bg: "Инвестирането в здравето на служителите не е просто правилното нещо — това е разумно бизнес решение."
   },
   companies_roi_turnover_title: {
     en: "Reduced Turnover",
@@ -731,7 +735,7 @@ const translations = {
   },
   companies_roi_turnover_desc: {
     en: "Companies with strong benefits see 31% lower voluntary turnover. Replacing one employee costs 50-200% of their salary.",
-    bg: "Компаниите със силни придобивки виждат 31% по-ниско доброволно текучество. Замяната на един служител струва 50-200% от заплатата му."
+    bg: "Компаниите със силни придобивки често отчитат по-ниско доброволно текучество. Замяната на един служител може да струва 50–200% от годишната му заплата."
   },
   companies_roi_productivity_title: {
     en: "Higher Productivity",
@@ -739,7 +743,7 @@ const translations = {
   },
   companies_roi_productivity_desc: {
     en: "Healthy snacking improves focus and energy levels. No more post-lunch sugar crashes.",
-    bg: "Здравословното хранене подобрява фокуса и енергийните нива. Край на следобедния енергиен спад."
+    bg: "Здравословното хранене подобрява фокуса и енергийните нива. По-малко следобедни енергийни спадове."
   },
   companies_roi_recruiting_title: {
     en: "Easier Recruiting",
@@ -823,10 +827,6 @@ const translations = {
     en: "🎯 That's just",
     bg: "🎯 Това е само"
   },
-  roi_per_day: {
-    en: "per day per employee",
-    bg: "на ден на служител"
-  },
   roi_calculation: {
     en: "(€30/month ÷ 30 days)",
     bg: "(€30/месец ÷ 30 дни)"
@@ -853,7 +853,7 @@ const translations = {
   },
   roi_with_genki: {
     en: "✨ Genki: €1/day = Unlimited healthy food all day",
-    bg: "✨ Genki: €1/ден = Неограничена здравословна храна през целия ден"
+    bg: "✨ Genki: €1/ден = достъп до подбрани здравословни продукти през работния ден"
   },
   roi_annual_returns: {
     en: "📈 Your Annual Returns",
@@ -893,7 +893,7 @@ const translations = {
   },
   roi_bottom_line: {
     en: "Bottom Line",
-    bg: "Крайна сметка"
+    bg: "Крайният резултат"
   },
   roi_annual_investment: {
     en: "Annual Genki Investment:",
@@ -907,7 +907,7 @@ const translations = {
     en: "Total Annual Benefits:",
     bg: "Общи годишни ползи:"
   },
-  roi_net_benefit: {
+  roi_bottom_net_benefit: {
     en: "Net Annual Benefit:",
     bg: "Нетна годишна полза:"
   },
@@ -1023,7 +1023,7 @@ const translations = {
     en: "Your Daily Investment",
     bg: "Вашата дневна инвестиция"
   },
-  roi_per_employee_day: {
+  roi_unit_per_employee_day: {
     en: "/employee/day",
     bg: "/служител/ден"
   },
@@ -1063,9 +1063,9 @@ const translations = {
     en: "Payback:",
     bg: "Възвръщаемост:"
   },
-  roi_months: {
+  roi_months_short: {
     en: "mo",
-    bg: "мес"
+    bg: "мес."
   },
   roi_turnover_formula: {
     en: "25% reduction × 1.5× salary replacement cost",
@@ -1111,7 +1111,7 @@ const translations = {
     en: "Total Annual Savings",
     bg: "Общи годишни спестявания"
   },
-  roi_net_benefit: {
+  roi_net_benefit_after_investment: {
     en: "Net benefit after Genki investment",
     bg: "Нетна полза след инвестицията в Genki"
   },
@@ -1136,7 +1136,7 @@ const translations = {
   },
   companies_faq1_a: {
     en: "Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Desk station as an entry tier. Contact us to discuss the right station and tier for your team.",
-    bg: "Идеално работим с екипи от 60 до 400 служители — там моделът със станции дава най-голяма стойност. По-малки екипи (25–60 души) пасват на Desk като входно ниво. Свържете се с нас, за да обсъдим коя станция и кое ниво на обслужване са подходящи за Вашия екип."
+    bg: "Най-подходящи сме за екипи от 60 до 400 служители — там моделът със станции дава най-голяма стойност. По-малките екипи от 25 до 60 души са подходящи за Desk като входно ниво. Свържете се с нас, за да обсъдим коя станция и кое ниво на обслужване са подходящи за Вашия екип."
   },
   companies_faq2_q: {
     en: "How does delivery work?",
@@ -1144,7 +1144,7 @@ const translations = {
   },
   companies_faq2_a: {
     en: "Visits are baked into your monthly fee. Lite tiers receive 4 visits per month (6 for Hub Lite); Standard tiers receive 8 visits per month (12 for Hub Standard). We agree the cadence with you upfront based on team size and consumption patterns.",
-    bg: "Посещенията са включени в месечната такса. Lite предлага 4 посещения месечно (6 за Hub Lite); Standard предлага 8 посещения месечно (12 за Hub Standard). Графикът се договаря предварително според размера на екипа и моделите на консумация."
+    bg: "Посещенията са включени в месечната такса. Lite включва 4 посещения месечно (6 за Hub Lite); Standard включва 8 посещения месечно (12 за Hub Standard). Графикът се договаря предварително според размера на екипа и моделите на консумация."
   },
   companies_faq3_q: {
     en: "Can employees with dietary restrictions participate?",
@@ -1152,7 +1152,7 @@ const translations = {
   },
   companies_faq3_a: {
     en: "Absolutely. We accommodate vegetarian, vegan, gluten-free, and other dietary needs. Just let us know your team's requirements.",
-    bg: "Разбира се. Разполагаме с вегетариански, веган, безглутенови и други диетични опции. Просто ни съобщете изискванията на Вашия екип."
+    bg: "Разбира се. Разполагаме с вегетариански, вегански, безглутенови и други диетични опции. Просто ни съобщете изискванията на Вашия екип."
   },
   companies_faq4_q: {
     en: "Which charities receive the donations?",
@@ -1176,7 +1176,7 @@ const translations = {
   },
   companies_faq_setup_a: {
     en: "The one-time setup fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the setup fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed setup fee published on this page.",
-    bg: "Еднократната стартова такса покрива хардуер, доставка, монтаж, въвеждане в експлоатация и Genki брандиране — продукти НЕ са включени в стартовата такса. Оборудването остава собственост на Genki през целия период на работа; никога не държите амортизиращ се хардуер. Продуктите за първия месец се таксуват отделно като част от Launch Invoice. Всяка станция има фиксирана стартова такса, публикувана на тази страница."
+    bg: "Еднократната стартова такса покрива хардуер, доставка, монтаж, въвеждане в експлоатация и Genki брандиране — продуктите не са включени в стартовата такса. Оборудването остава собственост на Genki през целия период на работа; не купувате и не амортизирате оборудване. Продуктите за първия месец се таксуват отделно като част от стартовата фактура. Всяка станция има фиксирана стартова такса, публикувана на тази страница."
   },
 
   // COMPANIES PAGE - CTA
@@ -1214,7 +1214,7 @@ const translations = {
   },
   mission_hero_subtitle: {
     en: "Every Genki subscription creates positive change in three directions — for your team's health, for Bulgarian businesses, and for those in need.",
-    bg: "Всеки абонамент за Genki създава позитивна промяна в три направления — за здравето на екипа Ви, за българските бизнеси и за нуждаещите се."
+    bg: "Всеки абонамент за Genki създава положителна промяна в три направления — за здравето на екипа Ви, за българските бизнеси и за нуждаещите се."
   },
   mission_pillar1_badge: {
     en: "Pillar 1",
@@ -1226,23 +1226,23 @@ const translations = {
   },
   mission_pillar1_desc: {
     en: "We believe that what you eat directly impacts how you feel, think, and perform. That's why we've built a curated selection of nutritious options that fuel productivity without compromising on taste.",
-    bg: "Вярваме, че това, което ядете, директно влияе на това как се чувствате, мислите и работите. Затова създадохме подбрана селекция от хранителни опции, които подхранват продуктивността без компромис с вкуса."
+    bg: "Вярваме, че начинът, по който хората се хранят, влияе на това как се чувстват, мислят и работят. Затова създадохме подбрана селекция от хранителни опции, които подкрепят продуктивността без компромис с вкуса."
   },
   mission_pillar1_bio_title: {
     en: "Bio-Certified Options",
-    bg: "Био-сертифицирани опции"
+    bg: "Биосертифицирани продукти"
   },
   mission_pillar1_bio_desc: {
     en: "Many of our products carry organic certifications, ensuring they're free from harmful pesticides and additives.",
-    bg: "Много от нашите продукти имат органични сертификати, гарантиращи, че са без вредни пестициди и добавки."
+    bg: "Много от нашите продукти имат биосертификати, които гарантират високи стандарти за качество и състав."
   },
   mission_pillar1_nutritionist_title: {
     en: "Nutritionist Approved",
-    bg: "Одобрено от нутриционист"
+    bg: "Подбрано с фокус върху хранителната стойност"
   },
   mission_pillar1_nutritionist_desc: {
     en: "Every product in our catalog is reviewed for nutritional value. We focus on balanced macros, natural ingredients, and sustained energy.",
-    bg: "Всеки продукт в нашия каталог е прегледан за хранителна стойност. Фокусираме се върху балансирани макроси, естествени съставки и устойчива енергия."
+    bg: "Всеки продукт в нашия каталог се преглежда според хранителната си стойност. Фокусираме се върху балансиран хранителен профил, естествени съставки и устойчива енергия."
   },
   mission_pillar1_nojunk_title: {
     en: "No Junk Food",
@@ -1250,7 +1250,7 @@ const translations = {
   },
   mission_pillar1_nojunk_desc: {
     en: "You won't find chips, candy, or sugary drinks in our selection. We're here to fuel performance, not sugar crashes.",
-    bg: "Няма да намерите чипс, бонбони или сладки напитки в нашата селекция. Тук сме, за да подхранваме производителността, не захарните сривове."
+    bg: "Няма да намерите чипс, бонбони или сладки напитки в нашата селекция. Тук сме, за да подкрепяме продуктивността — а не кратки захарни пикове и спадове."
   },
   // Mission page aliases (matching data-i18n keys used in HTML)
   mission_bio_title: {
@@ -1259,7 +1259,7 @@ const translations = {
   },
   mission_bio_desc: {
     en: "We stock the healthy versions of what people actually want - protein bars instead of candy, kombucha instead of soda, nutritious cookies instead of sugar bombs.",
-    bg: "Предлагаме здравословните версии на това, което хората наистина искат - протеинови барове вместо бонбони, комбуча вместо газирано, здравословни бисквити вместо захарни бомби."
+    bg: "Предлагаме здравословните версии на това, което хората наистина искат — протеинови барове вместо бонбони, комбуча вместо газирано, здравословни бисквити вместо захарни бомби."
   },
   mission_nutritionist_title: {
     en: "No Harmful Ingredients",
@@ -1267,7 +1267,7 @@ const translations = {
   },
   mission_nutritionist_desc: {
     en: "Every product meets our quality standards - no artificial additives, no excessive sugar, no empty calories. Just real ingredients that fuel your team.",
-    bg: "Всеки продукт отговаря на нашите стандарти за качество - без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа Ви."
+    bg: "Всеки продукт отговаря на нашите стандарти за качество — без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа Ви."
   },
   mission_nojunk_title: {
     en: "Energy & Performance",
@@ -1275,7 +1275,7 @@ const translations = {
   },
   mission_nojunk_desc: {
     en: "Designed for sustained energy throughout the workday. No sugar crashes, no afternoon slumps - just consistent fuel for focus and productivity.",
-    bg: "Създадено за устойчива енергия през целия работен ден. Без захарни сривове, без следобеден спад - само постоянно гориво за фокус и продуктивност."
+    bg: "Създадено за устойчива енергия през целия работен ден. Без захарни сривове, без следобеден спад — само стабилен източник на енергия за фокус и продуктивност."
   },
   mission_offer_title: {
     en: "What We Offer",
@@ -1311,7 +1311,7 @@ const translations = {
   },
   mission_offer_meals_desc: {
     en: "Salads and balanced meals (roadmap — coming in v2)",
-    bg: "Салати и балансирани ястия (roadmap — предстои във v2)"
+    bg: "Салати и балансирани ястия — в план за v2"
   },
   mission_partners_title: {
     en: "Our Partners",
@@ -1319,7 +1319,7 @@ const translations = {
   },
   mission_stat_producers: {
     en: "Imported Products",
-    bg: "Внесени продукти"
+    bg: "Вносни продукти"
   },
   mission_stat_regions: {
     en: "Product Categories",
@@ -1381,9 +1381,9 @@ const translations = {
     en: "Receive regular updates showing the cumulative impact of your company's contribution to society.",
     bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на Вашата компания към обществото."
   },
-  mission_causes_title: {
+  mission_choose_causes_title: {
     en: "Choose Your Causes",
-    bg: "Изберете вашите каузи"
+    bg: "Изберете Вашите каузи"
   },
   mission_causes_desc: {
     en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
@@ -1447,7 +1447,7 @@ const translations = {
   },
   mission_pillar1_meals_desc: {
     en: "Healthy lunches, wraps, soups (roadmap — coming in v2)",
-    bg: "Здравословни обеди, рапове, супи (roadmap — предстои във v2)"
+    bg: "Здравословни обеди, рапове, супи — в план за v2"
   },
   mission_pillar2_badge: {
     en: "Pillar 2",
@@ -1479,7 +1479,7 @@ const translations = {
   },
   mission_pillar2_imported: {
     en: "Imported products",
-    bg: "Внесени продукти"
+    bg: "Вносни продукти"
   },
   mission_pillar2_farm_title: {
     en: "Farm-to-Office Freshness",
@@ -1523,7 +1523,7 @@ const translations = {
   },
   mission_pillar3_transparent_desc: {
     en: "We document every donation. You'll know exactly where your contribution goes and the impact it makes.",
-    bg: "Документираме всяко дарение. Ще знаете точно къде отива вашият принос и какво въздействие има."
+    bg: "Документираме всяко дарение. Ще знаете точно къде отива Вашият принос и какво въздействие има."
   },
   mission_pillar3_reports_title: {
     en: "Monthly Impact Reports",
@@ -1531,27 +1531,27 @@ const translations = {
   },
   mission_pillar3_reports_desc: {
     en: "Receive regular updates showing the cumulative impact of your company's contribution to society.",
-    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на вашата компания към обществото."
+    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на Вашата компания към обществото."
   },
   mission_pillar3_choose_title: {
     en: "Choose Your Causes",
-    bg: "Изберете вашите каузи"
+    bg: "Изберете Вашите каузи"
   },
   mission_pillar3_choose_desc: {
     en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
     bg: "Клиентите могат да предложат конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
   },
-  mission_causes_title: {
+  mission_supported_causes_title: {
     en: "Causes We Support",
     bg: "Каузи, които подкрепяме"
   },
   mission_cause_children: {
     en: "Children's Welfare",
-    bg: "Детско здраве"
+    bg: "Благополучие на децата"
   },
   mission_cause_children_desc: {
     en: "Supporting orphanages and child development programs",
-    bg: "Подкрепа за сиропиталища и програми за детско развитие"
+    bg: "Подкрепа за центрове за грижа за деца и програми за детско развитие"
   },
   mission_cause_education: {
     en: "Education",
@@ -1583,7 +1583,7 @@ const translations = {
   },
   mission_impact_subtitle: {
     en: "Built on principles that matter from day one.",
-    bg: "Изградено върху принципи, които имат значение от първия ден."
+    bg: "Изградено върху принципи, които имат значение още от първия ден."
   },
   mission_impact_donated: {
     en: "To Charity Monthly",
@@ -1647,15 +1647,15 @@ const translations = {
   },
   products_hero_title_2: {
     en: "not pulled from a catalog",
-    bg: "не извадено от каталог"
+    bg: "а не готово решение от каталог"
   },
   products_hero_highlight: {
     en: "not pulled from a catalog",
-    bg: "не извадено от каталог"
+    bg: "а не готово решение от каталог"
   },
   products_hero_subtitle: {
     en: "Your final assortment is curated per office during onboarding and rotates seasonally. The products below are illustrative examples of what your team could enjoy.",
-    bg: "Вашият финален асортимент се подбира персонално за всеки офис при стартирането и се обновява сезонно. Продуктите по-долу са илюстративни примери за това, на което екипът Ви би могъл да се наслаждава."
+    bg: "Крайният асортимент се подбира персонално за всеки офис при стартиране и се обновява сезонно. Продуктите по-долу са пример за това, което екипът Ви може да получава."
   },
 
   // Products page — How your assortment comes together
@@ -1673,7 +1673,7 @@ const translations = {
   },
   products_how_step1_desc: {
     en: "Dietary needs, favourite snacks, allergies, the vegan colleague everyone forgets. We listen on a 30-minute consultation.",
-    bg: "Хранителни нужди, любими снаксове, алергии, веганският колега, когото всички забравят. Изслушваме Ви в 30-минутна консултация."
+    bg: "Хранителни нужди, любими снаксове, алергии, вегански предпочитания и специфични изисквания, които често се пропускат. Изслушваме Ви в 30-минутна консултация."
   },
   products_how_step2_title: {
     en: "We curate your assortment",
@@ -1685,11 +1685,11 @@ const translations = {
   },
   products_how_step3_title: {
     en: "Delivered fresh, rotated seasonally",
-    bg: "Доставено прясно, с сезонно обновяване"
+    bg: "Доставено прясно, със сезонно обновяване"
   },
   products_how_step3_desc: {
     en: "Fresh deliveries on your cadence. We rotate products each season so the team never gets bored — and you never stock what they don't eat.",
-    bg: "Пресни доставки с Вашата честота. Обновяваме продуктите всеки сезон, така че екипът никога да не се отегчава — а Вие никога да не зареждате това, което не ядат."
+    bg: "Пресни доставки според договорения график. Обновяваме продуктите всеки сезон, така че екипът никога да не се отегчава — и да не се доставят продукти, които не се консумират."
   },
   products_cat_snacks: {
     en: "Snacks",
@@ -1705,7 +1705,7 @@ const translations = {
   },
   products_cat_meals: {
     en: "Roadmap (v2)",
-    bg: "Roadmap (v2)"
+    bg: "В план за v2"
   },
   products_snacks_title: {
     en: "Healthy Snacks",
@@ -1749,23 +1749,23 @@ const translations = {
   },
   products_meals_subtitle: {
     en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap.",
-    bg: "Обеди, поке боул, салати, уражи и супи в партньорство с български кухни са в нашия v2 roadmap."
+    bg: "Обеди, поке купи, салати, рапове и супи в партньорство с български кухни са в плана ни за v2."
   },
   products_meals_desc: {
     en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap. They are not part of the current launch and aren't priced into the station tiers on this site.",
-    bg: "Обеди, поке боул, салати, уражи и супи в партньорство с български кухни са в нашия v2 roadmap. Те не са част от настоящия старт и не са включени в цените на станциите на този сайт."
+    bg: "Обеди, поке купи, салати, рапове и супи в партньорство с български кухни са в плана ни за v2. Те не са част от настоящия старт и не са включени в цените на станциите на този сайт."
   },
   products_meals_note: {
     en: "Roadmap — coming in v2 (not part of current launch)",
-    bg: "Roadmap — предстои във v2 (не е част от настоящия старт)"
+    bg: "В план за v2 — не е част от настоящия старт"
   },
   products_meals_custom: {
     en: "When fresh food rolls out, it will be added as an optional layer to existing stations. We'll announce specifics in the monthly impact report.",
-    bg: "Когато пресните храни стартират, ще бъдат добавени като опционален слой към съществуващите станции. Ще обявим подробностите в месечния отчет за въздействието."
+    bg: "Когато пресните храни стартират, ще бъдат добавени като допълнителен слой към съществуващите станции. Ще обявим подробностите в месечния отчет за въздействието."
   },
   products_roadmap_pill: {
     en: "Roadmap — v2",
-    bg: "Roadmap — v2"
+    bg: "В план за v2"
   },
   products_badge_bio: {
     en: "Bio",
@@ -1777,7 +1777,7 @@ const translations = {
   },
   products_badge_protein: {
     en: "High Protein",
-    bg: "Високо протеиново"
+    bg: "Високопротеиново"
   },
   products_badge_wholegrain: {
     en: "Whole Grain",
@@ -1906,11 +1906,11 @@ const translations = {
   },
   products_poke_title: {
     en: "Poke Bowls",
-    bg: "Поке боули"
+    bg: "Поке купи"
   },
   products_poke_desc: {
     en: "Fresh and healthy bowl options",
-    bg: "Пресни и здравословни опции за боули"
+    bg: "Пресни и здравословни поке опции"
   },
   products_salads_desc: {
     en: "Various healthy salad options available",
@@ -1946,7 +1946,7 @@ const translations = {
   },
   products_apple_desc: {
     en: "Crunchy, no added sugar, just apples",
-    bg: "Хрупкав, без добавена захар, само ябълки"
+    bg: "Хрупкав, без добавена захар — само ябълки"
   },
   products_rice_title: {
     en: "Rice Cakes",
@@ -1966,7 +1966,7 @@ const translations = {
   },
   products_berry_title: {
     en: "Berry Mix",
-    bg: "Горски плодове микс"
+    bg: "Микс от горски плодове"
   },
   products_berry_desc: {
     en: "Freeze-dried Bulgarian berries",
@@ -1978,7 +1978,7 @@ const translations = {
   },
   products_juice_desc: {
     en: "Orange, apple, carrot & mixed",
-    bg: "Портокал, ябълка, морков и смесени"
+    bg: "Портокал, ябълка, морков и микс"
   },
   products_tea_title: {
     en: "Herbal Teas",
@@ -2086,11 +2086,11 @@ const translations = {
   },
   products_diets_title: {
     en: "We Accommodate All Diets",
-    bg: "Съобразяваме се с всички диети"
+    bg: "Съобразяваме се с различни хранителни режими"
   },
   products_diets_desc: {
     en: "Every team member can find something they love.",
-    bg: "Всеки член на екипа може да открие нещо, което му харесва."
+    bg: "Всеки човек от екипа може да намери нещо подходящо."
   },
   products_diet_glutenfree: {
     en: "Gluten-Free",
@@ -2110,7 +2110,7 @@ const translations = {
   },
   products_cta_desc: {
     en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
-    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция около Вашия екип."
+    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция според Вашия екип."
   },
   products_cta_button: {
     en: "Book consultation",
@@ -2138,15 +2138,11 @@ const translations = {
   },
   products_protein_bars_desc: {
     en: "No added sugar, 20g protein per bar",
-    bg: "Без добавена захар, 20г протеин на бар"
+    bg: "Без добавена захар, 20 г протеин на бар"
   },
   products_granola: {
     en: "Granola Mix",
     bg: "Гранола микс"
-  },
-  products_granola_desc: {
-    en: "Oats, honey & Bulgarian honey",
-    bg: "Овесени ядки и български мед"
   },
   products_apple_chips: {
     en: "Apple Chips",
@@ -2154,7 +2150,7 @@ const translations = {
   },
   products_apple_chips_desc: {
     en: "Crunchy, no added sugar, just apples",
-    bg: "Хрупкав, без добавена захар, само ябълки"
+    bg: "Хрупкав, без добавена захар — само ябълки"
   },
   products_rice_cakes: {
     en: "Rice Cakes",
@@ -2174,7 +2170,7 @@ const translations = {
   },
   products_berry_mix: {
     en: "Berry Mix",
-    bg: "Горски плодове микс"
+    bg: "Микс от горски плодове"
   },
   products_berry_mix_desc: {
     en: "Freeze-dried Bulgarian berries",
@@ -2186,7 +2182,7 @@ const translations = {
   },
   products_fresh_juices_desc: {
     en: "Orange, apple, carrot & mixed",
-    bg: "Портокал, ябълка, морков и смесени"
+    bg: "Портокал, ябълка, морков и микс"
   },
   products_herbal_teas: {
     en: "Herbal Teas",
@@ -2199,10 +2195,6 @@ const translations = {
   products_kombucha: {
     en: "Kombucha",
     bg: "Комбуча"
-  },
-  products_kombucha_desc: {
-    en: "Locally brewed, multiple flavors",
-    bg: "Местно произведена, различни вкусове"
   },
   products_mineral_water: {
     en: "Mineral Water",
@@ -2272,17 +2264,9 @@ const translations = {
     en: "Wraps & Sandwiches",
     bg: "Рапове и сандвичи"
   },
-  products_wraps_desc: {
-    en: "Whole grain, fresh ingredients",
-    bg: "Пълнозърнести, пресни съставки"
-  },
   products_soups: {
     en: "Soups",
     bg: "Супи"
-  },
-  products_soups_desc: {
-    en: "Homemade Bulgarian recipes",
-    bg: "Домашни български рецепти"
   },
   products_lunch_boxes: {
     en: "Lunch Boxes",
@@ -2292,13 +2276,9 @@ const translations = {
     en: "Complete balanced meals",
     bg: "Пълноценни балансирани ястия"
   },
-  products_diets_title: {
-    en: "We Accommodate All Diets",
-    bg: "Съобразяваме се с всички диети"
-  },
   products_diets_subtitle: {
     en: "Every team member can find something they love.",
-    bg: "Всеки член на екипа може да намери нещо, което му харесва."
+    bg: "Всеки човек от екипа може да намери нещо подходящо."
   },
   products_diet_vegan: {
     en: "Vegan",
@@ -2320,17 +2300,9 @@ const translations = {
     en: "Nut-Free",
     bg: "Без ядки"
   },
-  products_cta_title: {
-    en: "See what Genki would look like in your office",
-    bg: "Вижте как Genki би изглеждал във Вашия офис"
-  },
   products_cta_subtitle: {
     en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
-    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция около Вашия екип."
-  },
-  products_cta_button: {
-    en: "Book consultation",
-    bg: "Запазете консултация"
+    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция според Вашия екип."
   },
 
   // ===================
@@ -2430,15 +2402,15 @@ const translations = {
   },
   contact_select_role: {
     en: "Select your role",
-    bg: "Изберете вашата роля"
+    bg: "Изберете Вашата роля"
   },
   contact_role_select: {
     en: "Select your role",
-    bg: "Изберете вашата роля"
+    bg: "Изберете Вашата роля"
   },
   contact_role_hr: {
     en: "HR Manager / Director",
-    bg: "HR Мениджър / Директор"
+    bg: "HR мениджър / директор"
   },
   contact_role_office: {
     en: "Office Manager",
@@ -2446,11 +2418,11 @@ const translations = {
   },
   contact_role_ceo: {
     en: "CEO / Founder",
-    bg: "Изпълнителен директор / Основател"
+    bg: "Изпълнителен директор / основател"
   },
   contact_role_coo: {
     en: "COO / Operations",
-    bg: "COO / Операции"
+    bg: "COO / оперативен директор"
   },
   contact_role_other: {
     en: "Other",
@@ -2463,7 +2435,7 @@ const translations = {
   },
   contact_message_placeholder: {
     en: "Tell us about your team, any dietary requirements, or specific needs...",
-    bg: "Разкажете ни за Вашия екип, диетични изисквания или специфични нужди..."
+    bg: "Разкажете ни за Вашия екип, хранителни изисквания или специфични нужди..."
   },
   contact_submit: {
     en: "Book consultation",
@@ -2559,11 +2531,11 @@ const translations = {
   },
   contact_trust_bulgarian: {
     en: "100% Bulgarian",
-    bg: "100% Българско"
+    bg: "100% българско"
   },
   contact_badge_bulgarian: {
     en: "100% Bulgarian",
-    bg: "100% Българско"
+    bg: "100% българско"
   },
   contact_trust_charity: {
     en: "10% to Charity",
@@ -2575,7 +2547,7 @@ const translations = {
   },
   contact_trust_partners: {
     en: "10+ Partners",
-    bg: "10+ Партньори"
+    bg: "10+ партньори"
   },
   contact_badge_partners: {
     en: "Curated Bulgarian suppliers",
@@ -2591,7 +2563,7 @@ const translations = {
   },
   contact_faq1_a: {
     en: "The minimum term of the contracts we conclude is 1 year. We are open to discussing different options, but the most sought-after effects of Genki do not appear in just 2-3 months.",
-    bg: "Минималният срок на договорите, които сключваме, е 1 година. Отворени сме към това да обсъдим и различни варианти, но най-търсените ефекти от Genki не се появяват само за 2-3 месеца."
+    bg: "Минималният срок на договорите, които сключваме, е 1 година. Отворени сме да обсъдим и различни варианти, но най-търсените ефекти от Genki не се проявяват за 2–3 месеца."
   },
   contact_faq2_q: {
     en: "How quickly can we get started?",
@@ -2599,7 +2571,7 @@ const translations = {
   },
   contact_faq2_a: {
     en: "Once you approve the offer, we sign the contract, and the initial fee is paid, we can make the first delivery within 1 week to 1 month (depending on what type of equipment you will need, your branding requirements, etc.). Delivery, installation, and setup are completely free for your team.",
-    bg: "След като одобрите офертата, сключим договора и се заплати първоначалната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще трябва, изискванията Ви за брандиране и тн.). Доставката, монтажът и настройката са напълно безплатни за Вашия екип."
+    bg: "След като одобрите офертата, сключим договора и се заплати първоначалната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще Ви е необходимо, изискванията Ви за брандиране и др.). Доставката, монтажът и настройката са включени в стартовата такса."
   },
   contact_faq3_q: {
     en: "Do you deliver outside Sofia?",
@@ -2607,7 +2579,7 @@ const translations = {
   },
   contact_faq3_a: {
     en: "At this stage, we do not deliver outside of Sofia. However - do not hesitate to contact us, because it is your inquiry that can change this!",
-    bg: "На този етап не правим доставки извън София. Въпреки това - не се колебайте да се свържете с нас, защото именно Вашето запитване може да промени това!"
+    bg: "На този етап не правим доставки извън София. Въпреки това — не се колебайте да се свържете с нас, защото именно Вашето запитване може да промени това!"
   },
   contact_faq4_q: {
     en: "Can we customize the product selection?",
@@ -2615,11 +2587,7 @@ const translations = {
   },
   contact_faq4_a: {
     en: "Absolutely. We'll work with you to create a mix that matches your team's preferences, dietary needs, and budget.",
-    bg: "Разбира се. Ще работим с Вас, за да създадем микс, който отговаря на предпочитанията на екипа Ви, диетичните нужди и бюджета."
-  },
-  contact_message_placeholder: {
-    en: "Tell us about your team, any dietary requirements, or specific needs...",
-    bg: "Разкажете ни за Вашия екип, диетични изисквания или специфични нужди..."
+    bg: "Разбира се. Ще работим с Вас, за да създадем продуктова комбинация, която отговаря на предпочитанията на екипа Ви, хранителните нужди и бюджета."
   },
 
   // Form validation messages
@@ -2651,17 +2619,17 @@ const translations = {
   // Page Title
   roi_page_title: {
     en: "ROI Calculator | Genki",
-    bg: "ROI Калкулатор | Genki"
+    bg: "ROI калкулатор | Genki"
   },
 
   // Password Gate
   roi_password_title: {
     en: "ROI Calculator",
-    bg: "ROI Калкулатор"
+    bg: "ROI калкулатор"
   },
   roi_password_subtitle: {
     en: "This tool is exclusively for HR decision-makers evaluating Genki for their organization.",
-    bg: "Този инструмент е изключително за HR специалисти, които оценяват Genki за тяхната организация."
+    bg: "Този инструмент е само за HR специалисти, които оценяват Genki за своята организация."
   },
   roi_password_label: {
     en: "Access Password",
@@ -2683,19 +2651,19 @@ const translations = {
     en: "Need access?",
     bg: "Нуждаете се от достъп?"
   },
-  roi_password_contact: {
+  roi_password_contact_plain: {
     en: "Contact us",
     bg: "Свържете се с нас"
   },
 
   // Hero Section
-  roi_hero_title: {
+  roi_page_hero_full_title: {
     en: "Calculate Your ROI",
-    bg: "Изчислете Вашата ROI"
+    bg: "Изчислете възвръщаемостта си"
   },
   roi_hero_subtitle: {
     en: "See how investing in employee nutrition drives measurable financial returns through reduced turnover, fewer sick days, and increased productivity.",
-    bg: "Вижте как инвестицията в храненето на служителите води до измерими финансови резултати чрез намалено текучество, по-малко болнични и повишена продуктивност."
+    bg: "Вижте как инвестицията в храненето на служителите може да доведе до измерими финансови резултати чрез намалено текучество, по-малко болнични и по-висока продуктивност."
   },
 
   // Input Labels
@@ -2745,7 +2713,7 @@ const translations = {
   // Investment Section
   roi_investment_title: {
     en: "Your Genki Investment",
-    bg: "Вашата Genki инвестиция"
+    bg: "Вашата инвестиция в Genki"
   },
   roi_investment_annual: {
     en: "Annual Investment",
@@ -2765,11 +2733,7 @@ const translations = {
     en: "Your Return on Investment",
     bg: "Вашата възвръщаемост"
   },
-  roi_total_savings: {
-    en: "Total Annual Savings",
-    bg: "Общи годишни спестявания"
-  },
-  roi_net_benefit: {
+  roi_summary_net_benefit: {
     en: "Net Annual Benefit",
     bg: "Нетна годишна полза"
   },
@@ -2797,7 +2761,7 @@ const translations = {
   },
   roi_pure_profit: {
     en: "Pure profit in your pocket",
-    bg: "Чиста печалба за вас"
+    bg: "Нетна полза за компанията"
   },
   roi_investment_breakdown: {
     en: "Investment Breakdown",
@@ -2807,21 +2771,9 @@ const translations = {
     en: "Only",
     bg: "Само"
   },
-  roi_per_employee_day: {
+  roi_phrase_per_employee_day: {
     en: "per employee per day",
     bg: "на служител на ден"
-  },
-  roi_coffees: {
-    en: "coffees",
-    bg: "кафета"
-  },
-  roi_or: {
-    en: "or",
-    bg: "или"
-  },
-  roi_sandwiches: {
-    en: "sandwiches",
-    bg: "сандвича"
   },
   roi_annual_total: {
     en: "Annual Total",
@@ -2829,7 +2781,7 @@ const translations = {
   },
   roi_monthly_employee: {
     en: "Monthly/Employee",
-    bg: "Месечно/Служител"
+    bg: "Месечно/служител"
   },
 
   // Savings Breakdown
@@ -2855,7 +2807,7 @@ const translations = {
   },
   roi_break_time_saved: {
     en: "hours/year saved from shorter breaks with Genki in-office",
-    bg: "часа/годишно спестени от по-кратки почивки с Genki в офиса"
+    bg: "часа годишно, спестени чрез по-кратки почивки с Genki в офиса"
   },
 
   // Scenario Section
@@ -2925,7 +2877,7 @@ const translations = {
   },
   roi_research_view: {
     en: "View Research",
-    bg: "Виж проучването"
+    bg: "Вижте проучването"
   },
   roi_research_studies: {
     en: "studies",
@@ -2997,7 +2949,7 @@ const translations = {
     en: "Access Calculator",
     bg: "Достъп до калкулатора"
   },
-  roi_password_contact: {
+  roi_password_contact_html: {
     en: "Need access? Contact <a href=\"mailto:hello@genki.bg\" class=\"text-primary-600 hover:underline\">hello@genki.bg</a>",
     bg: "Нуждаете се от достъп? Свържете се с <a href=\"mailto:hello@genki.bg\" class=\"text-primary-600 hover:underline\">hello@genki.bg</a>"
   },
@@ -3015,15 +2967,11 @@ const translations = {
   },
   roi_hero_title_highlight: {
     en: "Wellness ROI",
-    bg: "ROI на уелнес"
+    bg: "възвръщаемост от уелнес"
   },
   roi_inputs_title: {
     en: "Your Company Profile",
     bg: "Профил на Вашата компания"
-  },
-  roi_employees: {
-    en: "employees",
-    bg: "служители"
   },
   roi_days: {
     en: "days",
@@ -3045,11 +2993,7 @@ const translations = {
     en: "/employee/month",
     bg: "/служител/месец"
   },
-  roi_per_day: {
-    en: "/employee/day",
-    bg: "/служител/ден"
-  },
-  roi_months: {
+  roi_months_full: {
     en: "months",
     bg: "месеца"
   },
@@ -3071,15 +3015,15 @@ const translations = {
   },
   roi_sc_turnover: {
     en: "Turnover reduction:",
-    bg: "Намаление на текучество:"
+    bg: "Намаление на текучеството:"
   },
   roi_sc_absenteeism: {
     en: "Absenteeism reduction:",
-    bg: "Намаление на отсъствия:"
+    bg: "Намаление на отсъствията:"
   },
   roi_sc_productivity: {
     en: "Productivity gain:",
-    bg: "Ръст на продуктивност:"
+    bg: "Ръст на продуктивността:"
   },
   roi_sc_healthcare: {
     en: "Healthcare savings:",
@@ -3095,7 +3039,7 @@ const translations = {
   },
   roi_engagement_title: {
     en: "Why Free Access Matters",
-    bg: "Защо е важен безплатният достъп"
+    bg: "Защо е важно служителите да не доплащат"
   },
   roi_engagement_care: {
     en: "Company-funded (the Genki default)",
@@ -3115,11 +3059,11 @@ const translations = {
   },
   roi_engagement_note: {
     en: "When employees have free access, engagement rates increase dramatically, maximizing health benefits and ROI.",
-    bg: "Когато служителите имат безплатен достъп, нивата на ангажираност се увеличават драматично, максимизирайки ползите за здравето и ROI."
+    bg: "Когато служителите имат достъп без доплащане, нивата на ангажираност се увеличават значително, което усилва ефекта върху здравето и възвръщаемостта."
   },
   roi_footer_note: {
     en: "Internal Consultation tool. Data for illustrative purposes only.",
-    bg: "Вътрешен инструмент за консултации. Данните са само за илюстративни цели."
+    bg: "Вътрешен инструмент за консултации. Данните са само с илюстративна цел."
   },
 
   // ==========================================
@@ -3135,11 +3079,11 @@ const translations = {
   // Testimonials Section (Homepage)
   index_testimonials_title: {
     en: "Loved by HR Teams",
-    bg: "Обичани от HR екипите"
+    bg: "Как Genki може да се усеща в екипа"
   },
   index_testimonials_subtitle: {
     en: "See what companies are saying about Genki",
-    bg: "Вижте какво казват компаниите за Genki"
+    bg: "Примерни сценарии за ефекта от ежедневен офис benefit"
   },
   index_testimonial1_text: {
     en: "\"Our team absolutely loves the Genki snacks. It's become a daily ritual and really brings people together in the kitchen. The fact that it supports local businesses is a huge bonus.\"",
@@ -3147,7 +3091,7 @@ const translations = {
   },
   index_testimonial1_role: {
     en: "HR Director, TechCorp Bulgaria",
-    bg: "HR Директор, TechCorp България"
+    bg: "Примерен HR директор, технологична компания"
   },
   index_testimonial2_text: {
     en: "\"Best decision we made this year. Zero admin work for us, employees are happier, and we're supporting charity every month. It's a win-win-win.\"",
@@ -3155,7 +3099,7 @@ const translations = {
   },
   index_testimonial2_role: {
     en: "CEO, Digital Solutions Ltd",
-    bg: "Изпълнителен директор, Digital Solutions Ltd"
+    bg: "Примерен изпълнителен директор"
   },
   index_testimonial3_text: {
     en: "\"We switched from another provider to Genki and the difference is night and day. Quality products, responsive team, and our employees actually use this benefit.\"",
@@ -3163,7 +3107,7 @@ const translations = {
   },
   index_testimonial3_role: {
     en: "Office Manager, StartupHub Sofia",
-    bg: "Офис мениджър, StartupHub Sofia"
+    bg: "Примерен офис мениджър"
   },
 
   // Companies Page Testimonial
@@ -3173,13 +3117,13 @@ const translations = {
   },
   companies_testimonial_source: {
     en: "— CFO, Tech company with 180 employees",
-    bg: "— Финансов директор, IT компания със 180 служители"
+    bg: "— Примерен финансов директор, IT компания със 180 служители"
   },
 
   // Contact Page Urgency Badge
   contact_urgency_badge: {
     en: "Q1 onboarding now open — Limited spots available",
-    bg: "Q1 onboarding е отворен — Ограничен брой места"
+    bg: "Летният onboarding е отворен — ограничен брой стартови места"
   },
 
   // ===================
@@ -3207,7 +3151,7 @@ const translations = {
   },
   box_submit: {
     en: "Open my page",
-    bg: "Отвори моята страница"
+    bg: "Отворете моята страница"
   },
   box_lost_code: {
     en: "Lost your code?",
@@ -3231,7 +3175,7 @@ const translations = {
   },
   box_personal_subline: {
     en: "A Genki Box is our way of saying: let's talk about your team's wellness.",
-    bg: "Genki кутията е нашият начин да кажем: нека поговорим за благополучието на Вашия екип."
+    bg: "Genki кутията е нашият начин да кажем: нека поговорим за ежедневното благополучие на Вашия екип."
   },
   box_personal_scroll_cta: {
     en: "Pick a time below",
@@ -3267,7 +3211,7 @@ const translations = {
   },
   box_cal_lang: {
     en: "Bulgarian or English",
-    bg: "Български или English"
+    bg: "Български или английски"
   },
   box_cal_lang_sub: {
     en: "Whichever you prefer",
@@ -3275,7 +3219,7 @@ const translations = {
   },
   box_cal_closing: {
     en: "We'll discuss your team's needs and what we can build together. No pressure, no long presentations — just a conversation.",
-    bg: "Ще обсъдим нуждите на Вашия екип и какво можем да изградим заедно. Без натиск, без дълги презентации — просто разговор."
+    bg: "Ще обсъдим нуждите на Вашия екип и какво решение можем да изградим за Вашия офис. Без натиск, без дълги презентации — просто разговор."
   }
 };
 
