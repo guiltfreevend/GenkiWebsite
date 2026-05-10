@@ -1006,15 +1006,11 @@ select:focus {
 
 .station-image-swap {
   position: relative;
-  max-width: 320px;
-}
-[data-station-card="towerDry"] .station-image-swap,
-[data-station-card="towerFridge"] .station-image-swap {
-  aspect-ratio: 3 / 4;
-  max-width: 260px;
-}
-[data-station-card="hub"] .station-image-swap {
-  max-width: 360px;
+  width: 100%;
+  height: 300px;
+  max-width: none;
+  aspect-ratio: auto;
+  margin: 0 auto;
 }
 .station-image-swap > img {
   position: absolute;
