@@ -1680,8 +1680,8 @@ const translations = {
     bg: "Ние подбираме асортимента"
   },
   products_how_step2_desc: {
-    en: "We curate from 30+ trusted Bulgarian producers. We balance familiar favourites (70%) with new discoveries (30%). Never a one-size-fits-all catalogue — every corner is different.",
-    bg: "Курираме от 30+ доверени български производители. Балансираме познати фаворити (70%) с открития (30%). Никога универсален каталог — всеки кът е различен."
+    en: "We curate from 30+ trusted Bulgarian producers. We strike a balance between familiar favourites and new discoveries. Never a one-size-fits-all catalogue — every corner is different.",
+    bg: "Курираме от 30+ доверени български производители. Подбираме баланс между познати фаворити и нови открития. Никога универсален каталог — всеки кът е различен."
   },
   products_how_step3_title: {
     en: "Fresh deliveries, seasonal rotation",
@@ -2085,11 +2085,11 @@ const translations = {
     bg: "Пълноценни балансирани ястия"
   },
   products_diets_title: {
-    en: "For everyone on the team",
-    bg: "За всеки в екипа"
+    en: "For everyone on the team.",
+    bg: "За всеки в екипа."
   },
   products_diets_desc: {
-    en: "We tag every product. Everyone will find theirs.",
+    en: "We label every product. Everyone will find theirs.",
     bg: "Маркираме всеки продукт. Всеки човек ще намери своето."
   },
   products_diet_glutenfree: {
@@ -2105,8 +2105,8 @@ const translations = {
     bg: "Без ядки"
   },
   products_cta_title: {
-    en: "See what Genki will look like in your office",
-    bg: "Вижте как Genki ще изглежда във вашия офис"
+    en: "See how Genki would look in your office.",
+    bg: "Вижте как Genki ще изглежда във вашия офис."
   },
   products_cta_desc: {
     en: "A 30-minute consultation. We shape the assortment around your team.",
@@ -2119,24 +2119,24 @@ const translations = {
 
   // Products page — "Our standard" wellness filter (NEW v2 page)
   products_standard_title: {
-    en: "Our standard",
-    bg: "Нашият стандарт"
+    en: "One rule.",
+    bg: "Едно правило."
   },
   products_standard_sub: {
-    en: "One rule, applied to every product in the catalogue.",
-    bg: "Едно правило, прилагано на всеки продукт в каталога."
+    en: "Applied to every product. No exceptions.",
+    bg: "Прилага се на всеки продукт. Без изключения."
   },
   products_standard_no_title: {
-    en: "❌ Doesn't make it into Genki",
-    bg: "❌ НЕ влиза в Genki"
+    en: "NOT ALLOWED",
+    bg: "НЕ ВЛИЗА"
   },
   products_standard_no_1: {
     en: "Palm oil",
     bg: "Палмово масло"
   },
   products_standard_no_2: {
-    en: "High-fructose corn syrup (HFCS)",
-    bg: "Глюкозо-фруктозен сироп (HFCS)"
+    en: "High-fructose corn syrup",
+    bg: "Глюкозо-фруктозен сироп"
   },
   products_standard_no_3: {
     en: "Artificial sweeteners",
@@ -2155,8 +2155,8 @@ const translations = {
     bg: "MSG / E621"
   },
   products_standard_yes_title: {
-    en: "✅ Makes it into Genki",
-    bg: "✅ ВЛИЗА в Genki"
+    en: "ALLOWED",
+    bg: "ВЛИЗА"
   },
   products_standard_yes_1: {
     en: "100% made in Bulgaria",
@@ -2164,11 +2164,11 @@ const translations = {
   },
   products_standard_yes_2: {
     en: "Clean, readable ingredients",
-    bg: "Чисти и четими съставки"
+    bg: "Чисти, четими съставки"
   },
   products_standard_yes_3: {
-    en: "Selected from 30+ trusted producers",
-    bg: "Подбрани от 30+ доверени производители"
+    en: "Selected from 30+ producers",
+    bg: "Подбрани от 30+ производители"
   },
   products_standard_yes_4: {
     en: "Seasonally refreshed mix",
@@ -2183,17 +2183,17 @@ const translations = {
     bg: "Никога универсален каталог"
   },
   products_standard_outro: {
-    en: "If a product doesn't meet the standard, it doesn't go into the station. No exceptions.",
-    bg: "Ако даден продукт не отговаря на стандарта — не влиза в станцията. Без изключения."
+    en: "If a product doesn't meet the standard, it doesn't go into the station.",
+    bg: "Ако даден продукт не отговаря на стандарта — не влиза в станцията."
   },
 
   // Products page — TREAT / CRUNCH / REFRESH (NEW v2 page)
   products_cats_title: {
-    en: "The three categories",
-    bg: "Трите категории"
+    en: "The three categories.",
+    bg: "Трите категории."
   },
   products_cats_sub: {
-    en: "Easy impulse. Easy choice.",
+    en: "One impulse. One choice.",
     bg: "Лесен импулс. Лесен избор."
   },
   products_treat_tag: {
@@ -2209,15 +2209,15 @@ const translations = {
     bg: "Вафли · Курабийки · Бисквити · Шоко бонбони"
   },
   products_treat_footer: {
-    en: "Bulgarian pastry masters and producers.",
-    bg: "Български сладкарски майстори и производители."
+    en: "Bulgarian pastry masters",
+    bg: "Български сладкарски майстори"
   },
   products_crunch_tag: {
     en: "SAVOURY",
     bg: "СОЛЕНО"
   },
   products_crunch_sub: {
-    en: "When you want to crunch",
+    en: "When you want something crunchy",
     bg: "Когато искате да хрускате"
   },
   products_crunch_list: {
@@ -2225,8 +2225,8 @@ const translations = {
     bg: "Солети · Крекери · Хрупкави бисквити · Солени снаксове"
   },
   products_crunch_footer: {
-    en: "Traditional Bulgarian bakeries.",
-    bg: "Традиционни български пекарни."
+    en: "Traditional Bulgarian bakeries",
+    bg: "Традиционни български пекарни"
   },
   products_refresh_tag: {
     en: "DRINKS",
@@ -2241,30 +2241,30 @@ const translations = {
     bg: "Комбуча · Студени чайове · Енергийни напитки · Газирани"
   },
   products_refresh_footer: {
-    en: "250ml cans, all from Bulgarian producers.",
-    bg: "250мл кенове, всички български производители."
+    en: "250ml cans · Bulgarian producers",
+    bg: "250мл кенове · български производители"
   },
 
   // Products page — Genki Meals v2 teaser (NEW v2 page)
   products_genkimeals_pill: {
-    en: "Planned for v2",
-    bg: "Планирано за v2"
+    en: "PLANNED FOR V2",
+    bg: "ПЛАНИРАНО ЗА V2"
   },
   products_genkimeals_title: {
-    en: "Coming soon: Genki Meals",
-    bg: "Скоро: Genki Meals"
+    en: "Coming soon: Genki Meals.",
+    bg: "Скоро: Genki Meals."
   },
   products_genkimeals_body: {
-    en: "We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Order in the morning. We deliver at lunch. Straight to the office.",
-    bg: "Работим върху приложение, в което вашите служители ще поръчват прясно приготвени обяди — поке купи, салати, бурито, традиционни ястия — в партньорство с български кухни. Поръчват сутрин. Доставяме за обяд. Директно в офиса."
+    en: "We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Weekly or monthly delivery schedules, straight to the office.",
+    bg: "Работим върху приложение, в което вашите служители ще поръчват прясно приготвени обяди — поке купи, салати, бурито, традиционни ястия — в партньорство с български кухни. Седмични или месечни графици на доставка, директно в офиса."
   },
   products_genkimeals_subbody: {
-    en: "Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration, no integration fee.",
-    bg: "Не е част от настоящия старт. Когато стартира, ще се добави като допълнителен слой към съществуващите ви Genki станции — без преконфигуриране, без допълнителна такса за интеграция."
+    en: "Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration.",
+    bg: "Не е част от настоящия старт. Когато стартира, ще се добави като допълнителен слой към съществуващите ви Genki станции — без преконфигуриране."
   },
   products_genkimeals_cta: {
-    en: "Notify me at launch",
-    bg: "Уведомете ме когато стартира"
+    en: "Notify me when it launches →",
+    bg: "Уведомете ме когато стартира →"
   },
   products_mixed_nuts: {
     en: "Mixed Nuts",

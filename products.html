@@ -36,6 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Umami Analytics -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
@@ -43,6 +44,149 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="js/tailwind-config.js"></script>
   <link rel="stylesheet" href="css/custom.css?v=20260510-4">
+
+  <!-- Products page editorial styles (scoped to .products-page) -->
+  <style>
+    .products-page main, .products-page section, .products-page h1, .products-page h2,
+    .products-page h3, .products-page h4, .products-page p, .products-page span:not([class*="lucide"]),
+    .products-page a, .products-page li, .products-page button {
+      font-family: 'Montserrat', system-ui, sans-serif;
+    }
+    .products-page .pp-h1 {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(44px, 6.5vw, 88px);
+    }
+    .products-page .pp-h2 {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      font-size: clamp(32px, 4.5vw, 56px);
+    }
+    .products-page .pp-h3 {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      font-size: clamp(24px, 2vw, 28px);
+    }
+    .products-page .pp-h3-large {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.05;
+      font-size: clamp(36px, 3.6vw, 48px);
+    }
+    .products-page .pp-body {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .products-page .pp-body-lg {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .products-page .pp-sub {
+      font-size: 20px;
+      line-height: 1.5;
+      font-style: italic;
+      opacity: 0.6;
+    }
+    .products-page .pp-sub-lg {
+      font-size: 22px;
+      line-height: 1.4;
+      font-style: italic;
+      opacity: 0.6;
+    }
+    .products-page .pp-hero-sub {
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.55;
+      opacity: 0.6;
+    }
+    .products-page .pp-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .products-page .pp-numeral {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 200;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(45, 134, 89, 0.3); /* deep green 30% */
+    }
+    .products-page .pp-numeral-xl { font-size: clamp(72px, 8vw, 96px); }
+    .products-page .pp-numeral-md { font-size: clamp(48px, 5vw, 64px); }
+    .products-page .pp-list-item {
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .products-page .pp-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      border: 1px solid rgba(45, 134, 89, 0.2);
+      color: #1e5128;
+      background: transparent;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+      white-space: nowrap;
+    }
+    .products-page .pp-chip:hover {
+      background-color: rgba(45, 134, 89, 0.05);
+    }
+    .products-page .pp-divider {
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .products-page .pp-divider:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -1rem;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(45, 134, 89, 0.15);
+      }
+    }
+    .products-page .pp-text-link {
+      color: #1e5128;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .products-page .pp-text-link:hover { color: #2d8659; }
+    .products-page .pp-bg-cream { background-color: #faf6ec; }
+    .products-page .pp-bg-lavender { background-color: #f7f4fb; }
+    .products-page .pp-cta-button {
+      height: 56px;
+      padding: 0 32px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      background: white;
+      color: #1e5128;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: 2px solid white;
+    }
+    .products-page .pp-cta-button:hover {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+  </style>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -66,7 +210,7 @@
   }
   </script>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased products-page">
 
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
@@ -140,249 +284,194 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="pt-40 pb-24 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
+  <!-- HERO -->
+  <section class="pt-40 pb-20 md:pb-40 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 fade-up">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span data-i18n="products_hero_eyebrow">What's inside Genki</span>
-        </span>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-up leading-tight">
+      <div class="text-center mx-auto">
+        <h1 class="pp-h1 text-gray-900 mx-auto fade-up" style="max-width: 22ch;">
           <span data-i18n="products_hero_title">The snacks your team loves.</span><br>
           <span class="gradient-text" data-i18n="products_hero_highlight">Just done right.</span>
         </h1>
-        <p class="text-xl text-gray-600 fade-up" data-i18n="products_hero_subtitle">
+        <p class="pp-hero-sub text-gray-900 mx-auto fade-up mt-10" style="max-width: 60ch;" data-i18n="products_hero_subtitle">
           Bulgarian snacks and drinks — no palm oil, no high-fructose syrup, no junk. Curated for your team.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Our Standard (the wellness filter) -->
-  <section class="py-20 bg-white">
+  <!-- НАШИЯТ СТАНДАРТ — One rule -->
+  <section class="py-20 md:py-[200px] pp-bg-cream">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_standard_title">Our standard</h2>
-        <p class="text-lg text-gray-600 fade-up" data-i18n="products_standard_sub">One rule, applied to every product in the catalogue.</p>
+      <div class="text-center mx-auto" style="max-width: 22ch;">
+        <h2 class="pp-h2 text-gray-900 fade-up" data-i18n="products_standard_title">One rule.</h2>
       </div>
-      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-        <!-- NO column -->
-        <div class="rounded-2xl bg-red-50 border border-red-100 p-8 sm:p-10 fade-up">
-          <h3 class="flex items-center gap-2 text-xl font-bold text-red-700 mb-6" data-i18n="products_standard_no_title">❌ Doesn't make it into Genki</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_1">Palm oil</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_2">High-fructose corn syrup (HFCS)</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_3">Artificial sweeteners</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_4">Artificial colourings</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_5">Hydrogenated fats</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_no_6">MSG / E621</span>
-            </li>
+      <p class="pp-sub text-gray-900 text-center mx-auto fade-up mt-10" style="max-width: 50ch;" data-i18n="products_standard_sub">Applied to every product. No exceptions.</p>
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 mt-24 md:mt-[120px]">
+        <!-- NOT ALLOWED -->
+        <div class="fade-up">
+          <div class="pp-label text-gray-900">
+            <span data-i18n="products_standard_no_title">NOT ALLOWED</span>
+          </div>
+          <ul class="mt-10 space-y-3">
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_1">Palm oil</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_2">High-fructose corn syrup</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_3">Artificial sweeteners</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_4">Artificial colourings</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_5">Hydrogenated fats</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_no_6">MSG / E621</li>
           </ul>
         </div>
-        <!-- YES column -->
-        <div class="rounded-2xl bg-primary-50 border border-primary-100 p-8 sm:p-10 fade-up">
-          <h3 class="flex items-center gap-2 text-xl font-bold text-primary-700 mb-6" data-i18n="products_standard_yes_title">✅ Makes it into Genki</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_1">100% made in Bulgaria</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_2">Clean, readable ingredients</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_3">Selected from 30+ trusted producers</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_4">Seasonally refreshed mix</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_5">Hand-curated for every client</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-800">
-              <i data-lucide="check" class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0"></i>
-              <span data-i18n="products_standard_yes_6">Never a one-size-fits-all catalogue</span>
-            </li>
+        <!-- ALLOWED -->
+        <div class="fade-up">
+          <div class="pp-label" style="color: #1e5128;">
+            <span data-i18n="products_standard_yes_title">ALLOWED</span>
+          </div>
+          <ul class="mt-10 space-y-3">
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_1">100% made in Bulgaria</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_2">Clean, readable ingredients</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_3">Selected from 30+ producers</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_4">Seasonally refreshed mix</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_5">Hand-curated for every client</li>
+            <li class="pp-list-item text-gray-900" data-i18n="products_standard_yes_6">Never a one-size-fits-all catalogue</li>
           </ul>
         </div>
       </div>
-      <p class="text-center text-gray-600 italic mt-10 max-w-3xl mx-auto fade-up" data-i18n="products_standard_outro">If a product doesn't meet the standard, it doesn't go into the station. No exceptions.</p>
+
+      <p class="text-center text-gray-900 italic mt-20 mx-auto fade-up" style="max-width: 50ch; font-size: 18px; line-height: 1.55; opacity: 0.6;" data-i18n="products_standard_outro">If a product doesn't meet the standard, it doesn't go into the station.</p>
     </div>
   </section>
 
-  <!-- The three categories -->
-  <section class="py-20 bg-gray-50">
+  <!-- ТРИТЕ КАТЕГОРИИ — editorial vertical sequence -->
+  <section class="py-20 md:py-40 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_cats_title">The three categories</h2>
-        <p class="text-lg text-gray-600 fade-up" data-i18n="products_cats_sub">Easy impulse. Easy choice.</p>
+      <div class="text-center mx-auto" style="max-width: 22ch;">
+        <h2 class="pp-h2 text-gray-900 fade-up" data-i18n="products_cats_title">The three categories.</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- TREAT -->
-        <div class="rounded-2xl bg-amber-50 border border-amber-100 p-8 fade-up flex flex-col">
-          <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="cookie" class="w-7 h-7 text-amber-700"></i>
+      <p class="pp-sub text-gray-900 text-center mx-auto fade-up mt-10" style="max-width: 50ch;" data-i18n="products_cats_sub">One impulse. One choice.</p>
+
+      <div class="mt-24 md:mt-[120px] space-y-20 md:space-y-[100px]">
+
+        <!-- Row 1 — TREAT (text left, pastel right) -->
+        <div class="grid md:grid-cols-5 gap-10 md:gap-16 items-center fade-up">
+          <div class="md:col-span-3 order-2 md:order-1">
+            <div class="pp-numeral pp-numeral-xl">01</div>
+            <div class="pp-label text-gray-900 mt-2"><span data-i18n="products_treat_tag">SWEET</span></div>
+            <h3 class="pp-h3-large text-gray-900 mt-4">TREAT</h3>
+            <p class="pp-sub-lg text-gray-900 mt-4" data-i18n="products_treat_sub">When you want something sweet</p>
+            <p class="pp-body-lg text-gray-900 mt-8" style="max-width: 50ch;" data-i18n="products_treat_list">Wafers · Cookies · Biscuits · Chocolate candies</p>
           </div>
-          <span class="badge badge-green mb-3 self-start" data-i18n="products_treat_tag">SWEET</span>
-          <h3 class="text-2xl font-extrabold text-gray-900 mb-1 tracking-tight">TREAT</h3>
-          <p class="text-gray-600 italic mb-5" data-i18n="products_treat_sub">When you want something sweet</p>
-          <p class="text-gray-800 font-medium mb-6 flex-grow" data-i18n="products_treat_list">Wafers · Cookies · Biscuits · Chocolate candies</p>
-          <p class="text-sm text-gray-500" data-i18n="products_treat_footer">Bulgarian pastry masters and producers.</p>
-        </div>
-        <!-- CRUNCH -->
-        <div class="rounded-2xl bg-yellow-50 border border-yellow-100 p-8 fade-up flex flex-col">
-          <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="wheat" class="w-7 h-7 text-yellow-700"></i>
+          <div class="md:col-span-2 order-1 md:order-2">
+            <div class="rounded-2xl bg-amber-50 aspect-[4/5] flex items-end justify-center p-8">
+              <p class="text-center text-gray-800" style="font-size: 16px;" data-i18n="products_treat_footer">Bulgarian pastry masters</p>
+            </div>
           </div>
-          <span class="badge badge-amber mb-3 self-start" data-i18n="products_crunch_tag">SAVOURY</span>
-          <h3 class="text-2xl font-extrabold text-gray-900 mb-1 tracking-tight">CRUNCH</h3>
-          <p class="text-gray-600 italic mb-5" data-i18n="products_crunch_sub">When you want to crunch</p>
-          <p class="text-gray-800 font-medium mb-6 flex-grow" data-i18n="products_crunch_list">Pretzel sticks · Crackers · Crispy biscuits · Savoury snacks</p>
-          <p class="text-sm text-gray-500" data-i18n="products_crunch_footer">Traditional Bulgarian bakeries.</p>
         </div>
-        <!-- REFRESH -->
-        <div class="rounded-2xl bg-blue-50 border border-blue-100 p-8 fade-up flex flex-col">
-          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="cup-soda" class="w-7 h-7 text-blue-700"></i>
+
+        <!-- Row 2 — CRUNCH (pastel left, text right — REVERSED) -->
+        <div class="grid md:grid-cols-5 gap-10 md:gap-16 items-center fade-up">
+          <div class="md:col-span-2 order-1">
+            <div class="rounded-2xl bg-yellow-50 aspect-[4/5] flex items-end justify-center p-8">
+              <p class="text-center text-gray-800" style="font-size: 16px;" data-i18n="products_crunch_footer">Traditional Bulgarian bakeries</p>
+            </div>
           </div>
-          <span class="badge badge-blue mb-3 self-start" data-i18n="products_refresh_tag">DRINKS</span>
-          <h3 class="text-2xl font-extrabold text-gray-900 mb-1 tracking-tight">REFRESH</h3>
-          <p class="text-gray-600 italic mb-5" data-i18n="products_refresh_sub">When you're thirsty</p>
-          <p class="text-gray-800 font-medium mb-6 flex-grow" data-i18n="products_refresh_list">Kombucha · Iced teas · Energy drinks · Sparkling drinks</p>
-          <p class="text-sm text-gray-500" data-i18n="products_refresh_footer">250ml cans, all from Bulgarian producers.</p>
+          <div class="md:col-span-3 order-2">
+            <div class="pp-numeral pp-numeral-xl">02</div>
+            <div class="pp-label text-gray-900 mt-2"><span data-i18n="products_crunch_tag">SAVOURY</span></div>
+            <h3 class="pp-h3-large text-gray-900 mt-4">CRUNCH</h3>
+            <p class="pp-sub-lg text-gray-900 mt-4" data-i18n="products_crunch_sub">When you want something crunchy</p>
+            <p class="pp-body-lg text-gray-900 mt-8" style="max-width: 50ch;" data-i18n="products_crunch_list">Pretzel sticks · Crackers · Crispy biscuits · Savoury snacks</p>
+          </div>
         </div>
+
+        <!-- Row 3 — REFRESH (text left, pastel right) -->
+        <div class="grid md:grid-cols-5 gap-10 md:gap-16 items-center fade-up">
+          <div class="md:col-span-3 order-2 md:order-1">
+            <div class="pp-numeral pp-numeral-xl">03</div>
+            <div class="pp-label text-gray-900 mt-2"><span data-i18n="products_refresh_tag">DRINKS</span></div>
+            <h3 class="pp-h3-large text-gray-900 mt-4">REFRESH</h3>
+            <p class="pp-sub-lg text-gray-900 mt-4" data-i18n="products_refresh_sub">When you're thirsty</p>
+            <p class="pp-body-lg text-gray-900 mt-8" style="max-width: 50ch;" data-i18n="products_refresh_list">Kombucha · Iced teas · Energy drinks · Sparkling drinks</p>
+          </div>
+          <div class="md:col-span-2 order-1 md:order-2">
+            <div class="rounded-2xl bg-blue-50 aspect-[4/5] flex items-end justify-center p-8">
+              <p class="text-center text-gray-800" style="font-size: 16px;" data-i18n="products_refresh_footer">250ml cans · Bulgarian producers</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- How your assortment comes together -->
-  <section class="py-20 bg-white">
+  <!-- КАК СЕ СЪЗДАВА — typography-only 3-step with hairline dividers -->
+  <section class="py-20 md:py-40 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_how_title">How your assortment comes together</h2>
-        <p class="text-lg text-gray-600 fade-up" data-i18n="products_how_sub">No generic stocking. Every Genki corner is shaped around your team and kept fresh.</p>
+      <div class="text-center mx-auto" style="max-width: 22ch;">
+        <h2 class="pp-h2 text-gray-900 fade-up" data-i18n="products_how_title">How your assortment comes together</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Step 1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="users" class="w-7 h-7 text-primary-600"></i>
-          </div>
-          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">01</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step1_title">Tell us about your team</h3>
-          <p class="text-gray-600" data-i18n="products_how_step1_desc">Dietary needs, favourites and dislikes, allergies, vegan / gluten-free / nut-free. A 30-minute consultation. We listen more than we talk.</p>
+      <p class="pp-sub text-gray-900 text-center mx-auto fade-up mt-10" style="max-width: 60ch;" data-i18n="products_how_sub">No generic stocking. Every Genki corner is shaped around your team and kept fresh.</p>
+
+      <div class="grid md:grid-cols-3 gap-12 md:gap-8 max-w-6xl mx-auto mt-24 md:mt-[120px]">
+        <div class="pp-divider px-2 md:px-6 fade-up">
+          <div class="pp-numeral pp-numeral-md">01</div>
+          <div class="pp-label text-gray-900 mt-3">STEP</div>
+          <h3 class="pp-h3 text-gray-900 mt-4" data-i18n="products_how_step1_title">Tell us about your team</h3>
+          <p class="pp-body text-gray-900 mt-4" style="max-width: 35ch; opacity: 0.8;" data-i18n="products_how_step1_desc">Dietary needs, favourites and dislikes, allergies, vegan / gluten-free / nut-free. A 30-minute consultation. We listen more than we talk.</p>
         </div>
-        <!-- Step 2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="sparkles" class="w-7 h-7 text-primary-600"></i>
-          </div>
-          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">02</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step2_title">We curate the assortment</h3>
-          <p class="text-gray-600" data-i18n="products_how_step2_desc">We curate from 30+ trusted Bulgarian producers. We balance familiar favourites (70%) with new discoveries (30%). Never a one-size-fits-all catalogue — every corner is different.</p>
+        <div class="pp-divider px-2 md:px-6 fade-up">
+          <div class="pp-numeral pp-numeral-md">02</div>
+          <div class="pp-label text-gray-900 mt-3">STEP</div>
+          <h3 class="pp-h3 text-gray-900 mt-4" data-i18n="products_how_step2_title">We curate the assortment</h3>
+          <p class="pp-body text-gray-900 mt-4" style="max-width: 35ch; opacity: 0.8;" data-i18n="products_how_step2_desc">We curate from 30+ trusted Bulgarian producers. We strike a balance between familiar favourites and new discoveries. Never a one-size-fits-all catalogue — every corner is different.</p>
         </div>
-        <!-- Step 3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-up hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
-            <i data-lucide="calendar-clock" class="w-7 h-7 text-primary-600"></i>
-          </div>
-          <div class="text-xs font-bold text-primary-600 mb-2 tracking-widest">03</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="products_how_step3_title">Fresh deliveries, seasonal rotation</h3>
-          <p class="text-gray-600" data-i18n="products_how_step3_desc">An agreed schedule. Each season we refresh 10–15% of the mix with new products. Nothing sits, nothing gets boring.</p>
+        <div class="pp-divider px-2 md:px-6 fade-up">
+          <div class="pp-numeral pp-numeral-md">03</div>
+          <div class="pp-label text-gray-900 mt-3">STEP</div>
+          <h3 class="pp-h3 text-gray-900 mt-4" data-i18n="products_how_step3_title">Fresh deliveries, seasonal rotation</h3>
+          <p class="pp-body text-gray-900 mt-4" style="max-width: 35ch; opacity: 0.8;" data-i18n="products_how_step3_desc">An agreed schedule. Each season we refresh 10–15% of the mix with new products. Nothing sits, nothing gets boring.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Dietary Options -->
-  <section class="py-16 bg-gray-50">
+  <!-- ЗА ВСЕКИ В ЕКИПА — text-only diet chips -->
+  <section class="py-20 md:py-40 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up" data-i18n="products_diets_title">For everyone on the team</h2>
-        <p class="text-gray-600 fade-up" data-i18n="products_diets_desc">We tag every product. Everyone will find theirs.</p>
+      <div class="text-center mx-auto" style="max-width: 22ch;">
+        <h2 class="pp-h2 text-gray-900 fade-up" data-i18n="products_diets_title">For everyone on the team.</h2>
       </div>
+      <p class="pp-sub text-gray-900 text-center mx-auto fade-up mt-10" style="max-width: 60ch;" data-i18n="products_diets_desc">We label every product. Everyone will find theirs.</p>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
-        <div class="text-center p-6 bg-green-50 rounded-xl fade-up">
-          <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
-            <i data-lucide="sprout" class="w-6 h-6 text-green-600"></i>
-          </div>
-          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegan">Vegan</h3>
-        </div>
-        <div class="text-center p-6 bg-emerald-50 rounded-xl fade-up">
-          <div class="w-12 h-12 mx-auto mb-3 bg-emerald-100 rounded-full flex items-center justify-center">
-            <i data-lucide="leaf" class="w-6 h-6 text-emerald-600"></i>
-          </div>
-          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_vegetarian">Vegetarian</h3>
-        </div>
-        <div class="text-center p-6 bg-amber-50 rounded-xl fade-up">
-          <div class="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
-            <i data-lucide="wheat-off" class="w-6 h-6 text-amber-600"></i>
-          </div>
-          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_glutenfree">Gluten-Free</h3>
-        </div>
-        <div class="text-center p-6 bg-blue-50 rounded-xl fade-up">
-          <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center">
-            <i data-lucide="milk-off" class="w-6 h-6 text-blue-600"></i>
-          </div>
-          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_lactosefree">Lactose-Free</h3>
-        </div>
-        <div class="text-center p-6 bg-purple-50 rounded-xl fade-up">
-          <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
-            <i data-lucide="ban" class="w-6 h-6 text-purple-600"></i>
-          </div>
-          <h3 class="font-semibold text-gray-900" data-i18n="products_diet_nutfree">Nut-Free</h3>
-        </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 max-w-4xl mx-auto mt-24 md:mt-[120px] fade-up">
+        <span class="pp-chip" data-i18n="products_diet_vegan">Vegan</span>
+        <span class="pp-chip" data-i18n="products_diet_vegetarian">Vegetarian</span>
+        <span class="pp-chip" data-i18n="products_diet_glutenfree">Gluten-Free</span>
+        <span class="pp-chip" data-i18n="products_diet_lactosefree">Lactose-Free</span>
+        <span class="pp-chip" data-i18n="products_diet_nutfree">Nut-Free</span>
       </div>
     </div>
   </section>
 
-  <!-- Genki Meals — v2 teaser -->
-  <section id="meals" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl border-2 border-dashed border-purple-300 bg-purple-50/40 p-8 sm:p-12 fade-up">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wider mb-5" data-i18n="products_genkimeals_pill">Planned for v2</span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5" data-i18n="products_genkimeals_title">Coming soon: Genki Meals</h2>
-        <p class="text-lg text-gray-700 mb-5" data-i18n="products_genkimeals_body">We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Order in the morning. We deliver at lunch. Straight to the office.</p>
-        <p class="text-base text-gray-500 italic mb-7" data-i18n="products_genkimeals_subbody">Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration, no integration fee.</p>
-        <a href="mailto:hello@genki.bg?subject=Genki%20Meals%20—%20Notify%20me%20at%20launch" class="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all" data-i18n="products_genkimeals_cta">
-          Notify me at launch
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
+  <!-- GENKI MEALS — v2, editorial centered -->
+  <section id="meals" class="py-20 md:py-40 pp-bg-lavender">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="pp-label fade-up" style="color: #6b21a8;">
+        <span data-i18n="products_genkimeals_pill">PLANNED FOR V2</span>
       </div>
+      <h2 class="pp-h2 text-gray-900 fade-up mt-10 mx-auto" style="max-width: 22ch;" data-i18n="products_genkimeals_title">Coming soon: Genki Meals.</h2>
+      <p class="pp-body-lg text-gray-900 fade-up mt-10 mx-auto" style="max-width: 60ch;" data-i18n="products_genkimeals_body">We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Weekly or monthly delivery schedules, straight to the office.</p>
+      <p class="text-gray-900 italic fade-up mt-10 mx-auto" style="max-width: 50ch; font-size: 16px; line-height: 1.55; opacity: 0.6;" data-i18n="products_genkimeals_subbody">Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration.</p>
+      <a href="mailto:hello@genki.bg?subject=Genki%20Meals%20%E2%80%94%20%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%20%D1%81%D1%82%D0%B0%D1%80%D1%82" class="pp-text-link fade-up inline-block mt-10" data-i18n="products_genkimeals_cta">Notify me when it launches →</a>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft">
+  <!-- BOTTOM CTA -->
+  <section class="py-20 md:py-40 bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="products_cta_title">See what Genki will look like in your office</h2>
-      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="products_cta_desc">A 30-minute consultation. We shape the assortment around your team.</p>
-      <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up" data-i18n="products_cta_button">
+      <h2 class="pp-h2 heading-on-green fade-up mx-auto" style="max-width: 22ch;" data-i18n="products_cta_title">See how Genki would look in your office.</h2>
+      <p class="text-white fade-up mt-10 mx-auto" style="max-width: 60ch; font-size: 20px; line-height: 1.5; opacity: 0.8;" data-i18n="products_cta_desc">A 30-minute consultation. We shape the assortment around your team.</p>
+      <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener noreferrer" class="pp-cta-button fade-up mt-12" data-i18n="products_cta_button">
         Book consultation
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
