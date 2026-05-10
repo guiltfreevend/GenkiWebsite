@@ -251,16 +251,16 @@ const translations = {
     bg: "100% български продукти"
   },
   index_hero_title_1: {
-    en: "Under 1% of compensation.",
-    bg: "Под 1% от възнаграждението."
+    en: "Better energy. A stronger team.",
+    bg: "По-добра енергия. По-силен екип."
   },
   index_hero_title_2: {
-    en: "Every working day.",
+    en: "Every workday.",
     bg: "Всеки работен ден."
   },
   index_hero_subtitle: {
-    en: "Managed wellness infrastructure for teams and workplaces in Bulgaria. 100% Bulgarian-made products, fully serviced, with 10% of real profit donated monthly.",
-    bg: "Управлявана уелнес инфраструктура за екипи и работни места в България. 100% български продукти, напълно обслужвана, с 10% от реалната печалба дарени всеки месец."
+    en: "Premium wellness infrastructure for modern offices — 100% Bulgarian products, fully managed by Genki.",
+    bg: "Премиум wellness инфраструктура за модерни офиси — 100% български продукти, напълно обслужвана от Genki."
   },
   index_cta_book: {
     en: "Book consultation",
@@ -271,16 +271,16 @@ const translations = {
     bg: "Вижте как работи"
   },
   index_trust_admin: {
-    en: "Not vending",
-    bg: "Не вендинг"
+    en: "Not vending machine culture",
+    bg: "Не vending machine culture"
   },
   index_trust_flexible: {
-    en: "Not box delivery",
-    bg: "Не доставка на кутии"
+    en: "Premium office wellness",
+    bg: "Premium office wellness"
   },
   index_trust_impact: {
-    en: "Managed infrastructure",
-    bg: "Управлявана инфраструктура"
+    en: "Fully managed",
+    bg: "Напълно обслужвано"
   },
 
   // INDEX PAGE - STATS
