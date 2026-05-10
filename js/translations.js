@@ -131,8 +131,8 @@ const translations = {
     bg: "Българско производство"
   },
   coming_pillar2_desc: {
-    en: "Supporting local businesses",
-    bg: "Подкрепа за местния бизнес"
+    en: "Backing Bulgarian producers",
+    bg: "Подкрепа за българските производители"
   },
   coming_pillar3_title: {
     en: "10%+ to Charity",
@@ -191,8 +191,8 @@ const translations = {
   // FOOTER
   // ===================
   footer_description: {
-    en: "Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.",
-    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители и месечни дарения."
+    en: "Managed wellness infrastructure for workplaces in Bulgaria. 100% Bulgarian-made products. 10% of real profit donated monthly.",
+    bg: "Управлявана уелнес инфраструктура за работни места в България. 100% български продукти. 10% от реалната печалба дарени всеки месец."
   },
   footer_quick_links: {
     en: "Quick Links",
@@ -215,8 +215,8 @@ const translations = {
     bg: "Условия за ползване"
   },
   footer_desc: {
-    en: "Premium wellness benefits for modern companies. Healthy products, local sourcing, monthly charity donations.",
-    bg: "Премиум уелнес бенефит за съвременни компании. Здравословни продукти, български производители и месечни дарения."
+    en: "Managed wellness infrastructure for workplaces in Bulgaria. 100% Bulgarian-made products. 10% of real profit donated monthly.",
+    bg: "Управлявана уелнес инфраструктура за работни места в България. 100% български продукти. 10% от реалната печалба дарени всеки месец."
   },
   footer_badge: {
     en: "🇧🇬 Made in Bulgaria",
@@ -251,16 +251,16 @@ const translations = {
     bg: "100% български продукти"
   },
   index_hero_title_1: {
-    en: "Healthy Teams,",
-    bg: "По-здрави екипи,"
+    en: "Under 1% of compensation.",
+    bg: "Под 1% от възнаграждението."
   },
   index_hero_title_2: {
-    en: "Thriving Business",
-    bg: "процъфтяващ бизнес"
+    en: "Every working day.",
+    bg: "Всеки работен ден."
   },
   index_hero_subtitle: {
-    en: "Premium wellness benefits that employees actually love. Healthy snacks, drinks & meals delivered to your office — while supporting Bulgarian businesses and charity.",
-    bg: "Премиум уелнес бенефит, който служителите наистина харесват. Здравословни продукти, напитки и леки храни, доставени до Вашия офис — с подкрепа за български производители и каузи."
+    en: "Managed wellness infrastructure for teams and workplaces in Bulgaria. 100% Bulgarian-made products, fully serviced, with 10% of real profit donated monthly.",
+    bg: "Управлявана уелнес инфраструктура за екипи и работни места в България. 100% български продукти, напълно обслужвана, с 10% от реалната печалба дарени всеки месец."
   },
   index_cta_book: {
     en: "Book consultation",
@@ -271,16 +271,16 @@ const translations = {
     bg: "Вижте как работи"
   },
   index_trust_admin: {
-    en: "Zero Admin Burden",
-    bg: "Нулева административна тежест"
+    en: "Not vending",
+    bg: "Не вендинг"
   },
   index_trust_flexible: {
-    en: "4 Station Tiers",
-    bg: "4 модула на избор"
+    en: "Not box delivery",
+    bg: "Не доставка на кутии"
   },
   index_trust_impact: {
-    en: "Instant Social Impact",
-    bg: "Незабавно социално въздействие"
+    en: "Managed infrastructure",
+    bg: "Управлявана инфраструктура"
   },
 
   // INDEX PAGE - STATS
@@ -307,68 +307,68 @@ const translations = {
     bg: "Повече от обикновена придобивка"
   },
   index_pillars_subtitle: {
-    en: "Every Genki subscription creates a triple impact — for your team, for Bulgarian businesses, and for those in need.",
-    bg: "Всеки абонамент за Genki създава тройно въздействие — за Вашия екип, за българските бизнеси и за хората в нужда."
+    en: "Three pillars that turn an everyday workplace benefit into a long-term advantage — for teams in Bulgaria, for Bulgarian producers, and for the causes your team cares about.",
+    bg: "Три стълба, които превръщат ежедневната офис придобивка в дългосрочно предимство — за екипите в България, за българските производители и за каузите, които Вашият екип подкрепя."
   },
   index_pillar1_title: {
-    en: "Healthy & Bio Products",
-    bg: "Здравословни и био продукти"
+    en: "100% Bulgarian Sourcing",
+    bg: "100% български произход"
   },
   index_pillar1_desc: {
-    en: "Carefully curated selection of nutritious snacks, organic drinks, and balanced meals. No processed junk — only food that fuels performance.",
-    bg: "Внимателно подбрана селекция от здравословни снаксове, био напитки и балансирани ястия. Без силно преработени продукти — само храна, която поддържа фокуса и енергията."
+    en: "Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers.",
+    bg: "Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители."
   },
   index_pillar1_item1: {
-    en: "Bio-certified options",
-    bg: "Биосертифицирани продукти"
+    en: "30+ Bulgarian producers",
+    bg: "30+ български производители"
   },
   index_pillar1_item2: {
-    en: "Nutritionist approved",
-    bg: "Подбрано с фокус върху хранителната стойност"
+    en: "International-quality standards",
+    bg: "Международни стандарти за качество"
   },
   index_pillar1_item3: {
-    en: "Dietary accommodations",
-    bg: "Подходящо за различни хранителни режими"
+    en: "Curated for nutritional value",
+    bg: "Подбрано с фокус върху хранителната стойност"
   },
   index_pillar2_title: {
-    en: "Supporting Bulgarian Businesses",
-    bg: "Подкрепа за българските производители"
+    en: "Transparent Donation Model",
+    bg: "Дарителски модел с пълна прозрачност"
   },
   index_pillar2_desc: {
-    en: "100% of our products come from local Bulgarian producers. Your benefit subscription directly supports the domestic economy.",
-    bg: "100% от нашите продукти идват от български производители. Вашият абонамент директно подкрепя местната икономика."
+    en: "10% of real profit donated monthly to Bulgarian charities. Measurable social impact, documented every month.",
+    bg: "10% от реалната печалба, дарени всеки месец на български благотворителни организации. Социално въздействие с реална проследимост, документирано всеки месец."
   },
   index_pillar2_item1: {
-    en: "Curated Bulgarian supplier network",
-    bg: "Курирана мрежа от български доставчици"
+    en: "Measurable social impact",
+    bg: "Социално въздействие с реална проследимост"
   },
   index_pillar2_item2: {
-    en: "Helping the local economy",
-    bg: "Подпомагане на местната икономика"
+    en: "A visible cause for your team",
+    bg: "Видима кауза за Вашия екип"
   },
   index_pillar2_item3: {
-    en: "Sustainable sourcing",
-    bg: "Устойчиво снабдяване"
+    en: "Monthly transparency report",
+    bg: "Месечен отчет за прозрачност"
   },
   index_pillar3_title: {
-    en: "Giving Back Monthly",
-    bg: "Месечни дарения"
+    en: "Managed Infrastructure",
+    bg: "Управлявана инфраструктура"
   },
   index_pillar3_desc: {
-    en: "10% of monthly profit goes directly to Bulgarian charities. Your company becomes a force for good — automatically.",
-    bg: "10% от месечната печалба отива директно за български благотворителни организации. Вашата компания става двигател на положителна промяна — автоматично."
+    en: "Stations, restocking, servicing and reporting — fully handled. HR does nothing; the workplace just works.",
+    bg: "Станции, презареждане, обслужване и отчетност — напълно поети от нас. HR не прави нищо; работното място просто работи."
   },
   index_pillar3_item1: {
-    en: "Transparent donations",
-    bg: "Прозрачни дарения"
+    en: "Stations, not deliveries",
+    bg: "Станции, не доставки"
   },
   index_pillar3_item2: {
-    en: "Monthly impact reports",
-    bg: "Месечни отчети за въздействието"
+    en: "Servicing and reporting included",
+    bg: "Обслужване и отчетност включени"
   },
   index_pillar3_item3: {
-    en: "Choose your causes",
-    bg: "Изберете Вашите каузи"
+    en: "Zero administrative load for HR",
+    bg: "Нулева административна тежест за HR"
   },
 
   // INDEX PAGE - HOW IT WORKS
@@ -431,12 +431,12 @@ const translations = {
     bg: "Един контакт, една фактура — курирана мрежа от български доставчици, управлявана от нас."
   },
   index_hr_esg_title: {
-    en: "Instant ESG Impact",
-    bg: "Незабавно ESG въздействие"
+    en: "Measurable Social Impact",
+    bg: "Социално въздействие с реална проследимост"
   },
   index_hr_esg_desc: {
-    en: "Built-in charity component boosts your CSR reporting.",
-    bg: "Вграденият благотворителен компонент подпомага КСО/ESG отчетите Ви."
+    en: "10% of real profit donated monthly. A documented, visible cause for your team and a credible line in your CSR report.",
+    bg: "10% от реалната печалба, дарени всеки месец. Документирана, видима кауза за Вашия екип и достоверен ред в КСО отчета."
   },
   index_hr_retention_title: {
     en: "Employee Retention Boost",
@@ -465,8 +465,8 @@ const translations = {
     bg: "Готови ли сте да трансформирате придобивките на служителите?"
   },
   index_cta_subtitle: {
-    en: "Join forward-thinking companies that invest in their team's health while supporting local businesses and charity.",
-    bg: "Присъединете се към прогресивните компании, които инвестират в здравето на екипа си и едновременно с това подкрепят местни бизнеси и благотворителност."
+    en: "Join forward-thinking workplaces in Bulgaria investing in their team's health while backing Bulgarian producers and a transparent monthly donation.",
+    bg: "Присъединете се към прогресивните работни места в България, които инвестират в здравето на екипа си, подкрепят българските производители и прозрачно даряват всеки месец."
   },
   index_cta_schedule: {
     en: "Book consultation",
@@ -497,8 +497,8 @@ const translations = {
     bg: "наистина се използва"
   },
   companies_hero_subtitle: {
-    en: "Gym memberships sit unused. Genki snacks get enjoyed every day. Give your team a tangible benefit they'll love — with zero admin burden.",
-    bg: "Абонаментите за фитнес често остават неизползвани. Genki се ползва и се харесва всеки ден. Дайте на екипа си осезаема придобивка, която ще обикнат — без административна тежест."
+    en: "Gym memberships sit unused. Genki is used every working day. Managed wellness infrastructure for workplaces in Bulgaria — zero admin load for HR, fully serviced.",
+    bg: "Картите за фитнес често остават неизползвани. Genki се ползва всеки работен ден. Управлявана уелнес инфраструктура за работни места в България — нулева административна тежест за HR, напълно обслужвана."
   },
   companies_why_title: {
     en: "Why HR Leaders Choose Genki",
@@ -517,8 +517,8 @@ const translations = {
     bg: "Вградена КСО"
   },
   companies_benefit2_desc: {
-    en: "10% of profits donated to charity included. Get automatic ESG impact for your sustainability reports.",
-    bg: "10% от печалбата ни се дарява за благотворителност. Получавате автоматичен ESG ефект за отчетите Ви за устойчивост."
+    en: "10% of real profit donated monthly to Bulgarian charities. Documented social impact you can put in front of your team and your CSR report.",
+    bg: "10% от реалната печалба, дарени всеки месец на български благотворителни организации. Документирано социално въздействие, което можете да представите пред екипа си и в КСО отчета."
   },
   companies_benefit3_title: {
     en: "Boost Retention",
@@ -549,8 +549,8 @@ const translations = {
     bg: "Подкрепете българското"
   },
   companies_benefit6_desc: {
-    en: "100% Bulgarian products. Your benefit spending stays in the local economy.",
-    bg: "100% български продукти. Вашите разходи за придобивки остават в местната икономика."
+    en: "100% Bulgarian sourcing — Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers.",
+    bg: "100% български произход — Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители."
   },
 
   // COMPANIES PAGE - PRICING
@@ -566,7 +566,7 @@ const translations = {
   // NEW PRICING - Hero (station-based positioning)
   pricing_hero_title: {
     en: "Managed Wellness Infrastructure for the modern workplace",
-    bg: "Управлявана уелнес инфраструктура за съвременния български офис"
+    bg: "Управлявана уелнес инфраструктура за съвременните работни места в България"
   },
   pricing_hero_subtitle: {
     en: "4 stations. 2 service tiers. 100% Bulgarian-made products. 10% of profit donated every month.",
@@ -1213,8 +1213,8 @@ const translations = {
     bg: "Тройно въздействие"
   },
   mission_hero_subtitle: {
-    en: "Every Genki subscription creates positive change in three directions — for your team's health, for Bulgarian businesses, and for those in need.",
-    bg: "Всеки абонамент за Genki създава положителна промяна в три направления — за здравето на екипа Ви, за българските бизнеси и за нуждаещите се."
+    en: "Every Genki engagement creates positive change in three directions — for teams in Bulgaria, for Bulgarian producers, and for those in need.",
+    bg: "Всеки ангажимент с Genki създава положителна промяна в три направления — за екипите в България, за българските производители и за нуждаещите се."
   },
   mission_pillar1_badge: {
     en: "Pillar 1",
@@ -1342,28 +1342,28 @@ const translations = {
     bg: "Доставчици"
   },
   mission_farm_title: {
-    en: "Fresh & Local",
-    bg: "Прясно и местно"
+    en: "Fresh from Bulgarian Producers",
+    bg: "Прясно от български производители"
   },
   mission_farm_desc: {
-    en: "Working with Bulgarian suppliers means fresher products for your team and support for local businesses and families.",
-    bg: "Работата с български доставчици означава по-пресни продукти за Вашия екип и подкрепа за местни бизнеси и семейства."
+    en: "Working with Bulgarian producers means fresher products for your team and durable support for the producers, their families and the communities behind them.",
+    bg: "Работата с български производители означава по-пресни продукти за Вашия екип и устойчива подкрепа за производителите, техните семейства и общностите зад тях."
   },
   mission_economy_title: {
-    en: "Strengthening Local Economy",
-    bg: "Укрепване на местната икономика"
+    en: "Strengthening the Bulgarian Economy",
+    bg: "Укрепване на българската икономика"
   },
   mission_economy_desc: {
-    en: "Your subscription money stays in Bulgaria, supporting families and communities across the country.",
-    bg: "Парите от Вашия абонамент остават в България, подкрепяйки семейства и общности в цялата страна."
+    en: "Your wellness spend stays in Bulgaria, supporting Bulgarian producers, families and communities across the country.",
+    bg: "Разходът Ви за уелнес остава в България, подкрепяйки българските производители, семейства и общности в цялата страна."
   },
   mission_carbon_title: {
-    en: "Lower Carbon Footprint",
-    bg: "По-нисък въглероден отпечатък"
+    en: "Shorter Supply Chains",
+    bg: "По-къси вериги на доставка"
   },
   mission_carbon_desc: {
-    en: "Local sourcing means less transportation, less packaging waste, and a smaller environmental impact.",
-    bg: "Местното снабдяване означава по-малко транспорт, по-малко опаковъчни отпадъци и по-малко въздействие върху околната среда."
+    en: "Bulgarian sourcing means shorter supply chains, less packaging waste and a smaller environmental footprint than imported equivalents.",
+    bg: "Българският произход означава по-къси вериги за доставка, по-малко опаковъчни отпадъци и по-малък отпечатък върху околната среда в сравнение с вносните алтернативи."
   },
   mission_transparent_title: {
     en: "Transparent Donations",
@@ -1410,8 +1410,8 @@ const translations = {
     bg: "Точно това искаме за Вашия екип: да бъде genki — здрав, енергичен и процъфтяващ."
   },
   mission_cta_desc: {
-    en: "When you choose Genki, you're not just getting a benefit — you're becoming part of a movement for healthier workplaces, stronger local businesses, and meaningful social impact.",
-    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места, по-силни местни бизнеси и значимо социално въздействие."
+    en: "When you choose Genki, you're not just getting a benefit — you're joining a movement for healthier workplaces in Bulgaria, stronger Bulgarian producers, and meaningful, transparent social impact.",
+    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
   },
   mission_pillar1_offer_title: {
     en: "What We Offer",
@@ -1454,20 +1454,20 @@ const translations = {
     bg: "Стълб 2"
   },
   mission_pillar2_title: {
-    en: "Supporting Bulgarian Businesses",
-    bg: "Подкрепа за българските бизнеси"
+    en: "100% Bulgarian Sourcing",
+    bg: "100% български произход"
   },
   mission_pillar2_desc: {
-    en: "Every product we deliver comes from a Bulgarian producer. We're not just a delivery service — we're a bridge connecting your company to the best of local craftsmanship.",
-    bg: "Всеки продукт, който доставяме, идва от български производител. Ние не сме просто услуга за доставка — ние сме мост, свързващ Вашата компания с най-доброто от местното производство."
+    en: "Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers — placed inside the workplace as managed infrastructure, not flown in as a delivery.",
+    bg: "Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители — поставени в работното място като управлявана инфраструктура, а не доставка."
   },
   mission_pillar2_partners: {
     en: "Our Partners",
     bg: "Нашите партньори"
   },
   mission_pillar2_local_producers: {
-    en: "Local producers",
-    bg: "Местни производители"
+    en: "Bulgarian producers",
+    bg: "Български производители"
   },
   mission_pillar2_regions: {
     en: "Regions represented",
@@ -1490,12 +1490,12 @@ const translations = {
     bg: "По-късите вериги за доставки означават по-пресни продукти. Много артикули достигат офиса Ви в рамките на дни от производството."
   },
   mission_pillar2_economy_title: {
-    en: "Strengthening Local Economy",
-    bg: "Укрепване на местната икономика"
+    en: "Strengthening the Bulgarian Economy",
+    bg: "Укрепване на българската икономика"
   },
   mission_pillar2_economy_desc: {
-    en: "Your subscription money stays in Bulgaria, supporting families and communities across the country.",
-    bg: "Парите от Вашия абонамент остават в България, подкрепяйки семейства и общности в цялата страна."
+    en: "Your wellness spend stays in Bulgaria, supporting Bulgarian producers, families and communities across the country.",
+    bg: "Разходът Ви за уелнес остава в България, подкрепяйки българските производители, семейства и общности в цялата страна."
   },
   mission_pillar2_carbon_title: {
     en: "Lower Carbon Footprint",
@@ -1622,8 +1622,8 @@ const translations = {
     bg: "Присъединете се към нашата мисия"
   },
   mission_cta_subtitle: {
-    en: "When you choose Genki, you're not just getting a benefit — you're becoming part of a movement for healthier workplaces, stronger local businesses, and meaningful social impact.",
-    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места, по-силни местни бизнеси и значимо социално въздействие."
+    en: "When you choose Genki, you're not just getting a benefit — you're joining a movement for healthier workplaces in Bulgaria, stronger Bulgarian producers, and meaningful, transparent social impact.",
+    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
   },
   mission_cta_button: {
     en: "Book consultation",
@@ -1736,12 +1736,12 @@ const translations = {
     bg: "Пресни храни"
   },
   products_fresh_subtitle: {
-    en: "Daily fresh deliveries from local farms",
-    bg: "Ежедневни пресни доставки от местни ферми"
+    en: "Restocked daily with fresh items from Bulgarian producers",
+    bg: "Ежедневно зареждане с пресни продукти от български производители"
   },
   products_fresh_desc: {
-    en: "Daily fresh deliveries from local farms",
-    bg: "Ежедневни пресни доставки от местни ферми"
+    en: "Restocked daily with fresh items from Bulgarian producers",
+    bg: "Ежедневно зареждане с пресни продукти от български производители"
   },
   products_meals_title: {
     en: "Fresh meals — coming in v2",
@@ -2325,8 +2325,8 @@ const translations = {
     bg: "Вашия екип"
   },
   contact_hero_subtitle: {
-    en: "Book a free call and discover how Genki can transform your employee benefits while supporting local businesses and charity.",
-    bg: "Запазете безплатна консултация и открийте как Genki може да трансформира придобивките на служителите Ви, като същевременно подкрепя местни бизнеси и благотворителност."
+    en: "Book a free call and see how Genki can transform your employee benefits while backing Bulgarian producers and a transparent monthly donation.",
+    bg: "Запазете безплатна консултация и вижте как Genki може да трансформира придобивките на служителите Ви, като подкрепя българските производители и прозрачно дарява всеки месец."
   },
   contact_form_title: {
     en: "Book consultation",
@@ -2983,7 +2983,7 @@ const translations = {
   },
   roi_products_hint: {
     en: "Default assumes ~1.5 products per employee per day (typical Bulgarian office uptake)",
-    bg: "По подразбиране: ~1.5 продукта на служител на ден (типична консумация в български офиси)"
+    bg: "По подразбиране: ~1.5 продукта на служител на ден (типична консумация в офиси в България)"
   },
   roi_warning_low_engagement: {
     en: "Lower per-employee consumption reduces the productivity and health outcomes we model. Allow a calibration period of 4–6 weeks before evaluating.",
@@ -3072,8 +3072,8 @@ const translations = {
 
   // Trust Section (Homepage)
   index_trusted_by: {
-    en: "Trusted by forward-thinking Bulgarian companies",
-    bg: "Избрани от прогресивни български компании"
+    en: "Chosen by forward-thinking workplaces in Bulgaria",
+    bg: "Избрани от прогресивни работни места в България"
   },
 
   // Testimonials Section (Homepage)
@@ -3086,8 +3086,8 @@ const translations = {
     bg: "Примерни сценарии за ефекта от ежедневен офис benefit"
   },
   index_testimonial1_text: {
-    en: "\"Our team absolutely loves the Genki snacks. It's become a daily ritual and really brings people together in the kitchen. The fact that it supports local businesses is a huge bonus.\"",
-    bg: "\"Екипът ни обожава снаксовете на Genki. Това се превърна в ежедневен ритуал и наистина сближава хората в кухнята. Фактът, че подкрепяме местни бизнеси, е огромен бонус.\""
+    en: "\"Our team really takes to the Genki station. It's become a daily moment around the kitchen, and the fact that everything comes from Bulgarian producers makes it an easy story to tell internally.\"",
+    bg: "\"Екипът ни бързо прие Genki станцията. Превърна се в ежедневен момент около кухнята, а фактът, че всичко идва от български производители, прави историята лесна за разказване вътре в компанията.\""
   },
   index_testimonial1_role: {
     en: "HR Director, TechCorp Bulgaria",
