@@ -1342,8 +1342,8 @@ const translations = {
     bg: "Доставчици"
   },
   mission_farm_title: {
-    en: "Fresh from Bulgarian Producers",
-    bg: "Прясно от български производители"
+    en: "Curated Bulgarian brands",
+    bg: "Подбрани български брандове"
   },
   mission_farm_desc: {
     en: "Working with Bulgarian producers means fresher products for your team and durable support for the producers, their families and the communities behind them.",
