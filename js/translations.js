@@ -1668,28 +1668,28 @@ const translations = {
     bg: "Без стандартно зареждане. Всеки Genki кът е оформен около Вашия екип и се поддържа свеж."
   },
   products_how_step1_title: {
-    en: "Tell us about your team",
-    bg: "Разкажете ни за екипа си"
+    en: "We choose the right setup",
+    bg: "Избираме правилния формат"
   },
   products_how_step1_desc: {
-    en: "Dietary needs, favourites and dislikes, allergies, vegan / gluten-free / nut-free. A 30-minute consultation. We listen more than we talk.",
-    bg: "Хранителни нужди, любими и нелюбими, алергии, веган/безглутенов/без ядки. 30-минутна консултация. Слушаме повече, отколкото говорим."
+    en: "Counter, Tower or Hub — based on your team size and office space.",
+    bg: "Counter, Tower или Hub — според размера на екипа и пространството в офиса."
   },
   products_how_step2_title: {
     en: "We curate the assortment",
-    bg: "Ние подбираме асортимента"
+    bg: "Подбираме асортимента"
   },
   products_how_step2_desc: {
-    en: "We curate from 30+ trusted Bulgarian producers. We strike a balance between familiar favourites and new discoveries. Never a one-size-fits-all catalogue — every corner is different.",
-    bg: "Курираме от 30+ доверени български производители. Подбираме баланс между познати фаворити и нови открития. Никога универсален каталог — всеки кът е различен."
+    en: "We work with 30+ Bulgarian producers. A balance between familiar favorites and new discoveries.",
+    bg: "Работим с 30+ български производителя. Баланс между познати фаворити и нови открития."
   },
   products_how_step3_title: {
-    en: "Fresh deliveries, seasonal rotation",
-    bg: "Свежи доставки, сезонна ротация"
+    en: "We restock and maintain",
+    bg: "Зареждаме и поддържаме"
   },
   products_how_step3_desc: {
-    en: "An agreed schedule. Each season we refresh 10–15% of the mix with new products. Nothing sits, nothing gets boring.",
-    bg: "Договорен график. Всеки сезон обновяваме 10-15% от микса с нови продукти. Нищо не престоява, нищо не омръзва."
+    en: "Regular deliveries, seasonal rotation and always fresh products. Zero extra work for your team.",
+    bg: "Редовни доставки, сезонна ротация и винаги свежи продукти. Без ангажимент за Вашия екип."
   },
   products_cat_snacks: {
     en: "Snacks",
