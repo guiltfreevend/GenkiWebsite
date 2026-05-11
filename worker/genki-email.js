@@ -97,11 +97,11 @@ export default {
 
         <tr><td style="padding:6px 4px 0 4px; font-size:15px; line-height:1.65; color:#1f2937;">
           <p style="margin:0 0 10px 0;">Финансовата страна също се подрежда добре: <strong>${eur(netBenefit)}</strong> нетна годишна полза, ROI от ${roiPercent}%, възвръщаемост за ${payback} месеца. Числата идват от 43 рецензирани изследвания за уелнес на работното място — ако искате да видите методологията, имаме я разгърната на страницата.</p>
-          <p style="margin:0 0 10px 0;">Ако това звучи като нещо, което би подхождало на Вашия екип, най-бързият начин да го обсъдим е един кратък разговор. 30 минути — ще ви покажа какво точно бихме направили в офиса Ви, какви продукти влизат в кухнята, как се грижим за логистиката.</p>
+          <p style="margin:0 0 10px 0;">Ако това звучи като нещо, което би подхождало на Вашия екип, най-бързият начин да го обсъдим е един кратък разговор — ще Ви покажа какво точно бихме направили в офиса Ви, какви продукти влизат в кухнята, как се грижим за логистиката.</p>
         </td></tr>
 
         <tr><td style="padding:18px 4px 8px 4px;">
-          <a href="https://calendly.com/hello-genki/30min" style="color:#1e5128; font-weight:700; text-decoration:underline; font-size:15px;">Резервирайте 30-минутен разговор →</a>
+          <a href="https://calendly.com/hello-genki/30min" style="color:#1e5128; font-weight:700; text-decoration:underline; font-size:15px;">Запазете консултация →</a>
         </td></tr>
 
         <tr><td style="padding:18px 4px 0 4px; font-size:15px; line-height:1.65; color:#1f2937;">

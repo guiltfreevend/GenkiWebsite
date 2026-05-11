@@ -381,8 +381,8 @@ const translations = {
     bg: "Запазете консултация"
   },
   index_step1_desc: {
-    en: "30-minute call to understand your team's needs and preferences.",
-    bg: "30-минутен разговор, за да разберем нуждите и предпочитанията на Вашия екип."
+    en: "A short conversation about your team's needs and preferences.",
+    bg: "Кратък разговор за нуждите и предпочитанията на екипа Ви."
   },
   index_step2_title: {
     en: "Customize Plan",
@@ -738,8 +738,8 @@ const translations = {
     bg: "По-висока продуктивност"
   },
   companies_roi_productivity_desc: {
-    en: "Healthy snacking improves focus and energy levels. No more post-lunch sugar crashes.",
-    bg: "Здравословното хранене подобрява фокуса и енергийните нива. По-малко следобедни енергийни спадове."
+    en: "Healthy snacking improves focus and energy. Fewer afternoon energy dips.",
+    bg: "Здравословното похапване подобрява фокуса и енергията. По-малко следобедни спадове."
   },
   companies_roi_recruiting_title: {
     en: "Easier Recruiting",
@@ -843,9 +843,9 @@ const translations = {
     en: "Takeout:",
     bg: "Храна за вкъщи:"
   },
-  roi_team_lunch: {
-    en: "Team lunch:",
-    bg: "Екипен обяд:"
+  roi_team_food_spend: {
+    en: "Current team food spend:",
+    bg: "Текущи разходи за храна за екипа:"
   },
   roi_with_genki: {
     en: "✨ Genki: €1/day = Unlimited healthy food all day",
@@ -1181,8 +1181,8 @@ const translations = {
     bg: "Готови ли сте да надградите пакета си с придобивки?"
   },
   companies_cta_subtitle: {
-    en: "A short conversation about your team's needs and the right configuration.",
-    bg: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
+    en: "Book a consultation and see how Genki can transform your workplace.",
+    bg: "Запазете консултация и вижте как Genki може да трансформира работното Ви място."
   },
   companies_cta_schedule: {
     en: "Book a consultation",
@@ -1434,8 +1434,8 @@ const translations = {
     bg: "Напитки"
   },
   mission_pillar1_drinks_desc: {
-    en: "Fresh juices, herbal teas, kombucha, natural waters",
-    bg: "Пресни сокове, билкови чайове, комбуча, натурални води"
+    en: "Kombucha, iced teas, sodas, energy drinks (250ml).",
+    bg: "Комбуча, студени чайове, газирани и енергийни напитки (250 мл)."
   },
   mission_pillar2_badge: {
     en: "Pillar 2",
@@ -1900,14 +1900,6 @@ const translations = {
     en: "Freeze-dried Bulgarian berries",
     bg: "Лиофилизирани български горски плодове"
   },
-  products_juice_title: {
-    en: "Fresh Juices",
-    bg: "Пресни сокове"
-  },
-  products_juice_desc: {
-    en: "Orange, apple, carrot & mixed",
-    bg: "Портокал, ябълка, морков и микс"
-  },
   products_tea_title: {
     en: "Herbal Teas",
     bg: "Билкови чайове"
@@ -1993,8 +1985,8 @@ const translations = {
     bg: "Вижте как Genki ще изглежда във вашия офис."
   },
   products_cta_desc: {
-    en: "A short conversation. We shape the assortment around your team.",
-    bg: "Кратък разговор. Подбираме асортимента според екипа Ви."
+    en: "A short conversation. We'll shape the assortment around your team.",
+    bg: "Кратък разговор. Ще оформим селекцията според екипа Ви."
   },
   products_cta_button: {
     en: "Book a consultation",
@@ -2129,27 +2121,6 @@ const translations = {
     bg: "250мл кенове · български производители"
   },
 
-  // Products page — Genki Meals v2 teaser (NEW v2 page)
-  products_genkimeals_pill: {
-    en: "PLANNED FOR V2",
-    bg: "ПЛАНИРАНО ЗА V2"
-  },
-  products_genkimeals_title: {
-    en: "Coming soon: Genki Meals.",
-    bg: "Скоро: Genki Meals."
-  },
-  products_genkimeals_body: {
-    en: "We're building an app where your employees order freshly prepared lunches — poke bowls, salads, burritos, traditional dishes — in partnership with Bulgarian kitchens. Weekly or monthly delivery schedules, straight to the office.",
-    bg: "Работим върху приложение, в което вашите служители ще поръчват прясно приготвени обяди — поке купи, салати, бурито, традиционни ястия — в партньорство с български кухни. Седмични или месечни графици на доставка, директно в офиса."
-  },
-  products_genkimeals_subbody: {
-    en: "Not part of the current launch. When it goes live, it will be added as an additional layer to your existing Genki stations — no reconfiguration.",
-    bg: "Не е част от настоящия старт. Когато стартира, ще се добави като допълнителен слой към съществуващите ви Genki станции — без преконфигуриране."
-  },
-  products_genkimeals_cta: {
-    en: "Notify me when it launches →",
-    bg: "Уведомете ме когато стартира →"
-  },
   products_mixed_nuts: {
     en: "Mixed Nuts",
     bg: "Смесени ядки"
@@ -2209,14 +2180,6 @@ const translations = {
   products_berry_mix_desc: {
     en: "Freeze-dried Bulgarian berries",
     bg: "Лиофилизирани български горски плодове"
-  },
-  products_fresh_juices: {
-    en: "Fresh Juices",
-    bg: "Пресни сокове"
-  },
-  products_fresh_juices_desc: {
-    en: "Orange, apple, carrot & mixed",
-    bg: "Портокал, ябълка, морков и микс"
   },
   products_herbal_teas: {
     en: "Herbal Teas",
@@ -2315,8 +2278,8 @@ const translations = {
     bg: "Вашия екип"
   },
   contact_hero_subtitle: {
-    en: "A short conversation about your team's needs and the right configuration.",
-    bg: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
+    en: "Book a consultation and discover how Genki can transform your employee benefits.",
+    bg: "Запазете консултация и открийте как Genki може да трансформира придобивките на служителите Ви."
   },
   contact_form_title: {
     en: "Book a consultation",
@@ -2452,12 +2415,12 @@ const translations = {
     bg: "Кратък опознавателен разговор"
   },
   contact_expect1_desc: {
-    en: "30 minutes to understand your team's needs and preferences.",
-    bg: "30 минути, за да разберем нуждите и предпочитанията на Вашия екип."
+    en: "A short conversation about your team's needs and preferences.",
+    bg: "Кратък разговор за нуждите и предпочитанията на екипа Ви."
   },
   contact_step1_desc: {
-    en: "30 minutes to understand your team's needs and preferences.",
-    bg: "30 минути, за да разберем нуждите и предпочитанията на Вашия екип."
+    en: "A short conversation about your team's needs and preferences.",
+    bg: "Кратък разговор за нуждите и предпочитанията на екипа Ви."
   },
   contact_expect2_title: {
     en: "Custom Proposal",
@@ -2922,8 +2885,8 @@ const translations = {
     bg: "Готови ли сте да трансформирате работното си място?"
   },
   roi_cta_subtitle: {
-    en: "Let's discuss how Genki can deliver these results for your organization.",
-    bg: "Нека обсъдим как Genki може да постигне тези резултати за Вашата организация."
+    en: "Book a consultation and we'll shape a custom proposal for your team.",
+    bg: "Запазете консултация и ще оформим персонална оферта за Вашия екип."
   },
   roi_cta_button: {
     en: "Book a consultation",
@@ -3172,8 +3135,8 @@ const translations = {
     bg: "Изберете час по-долу"
   },
   box_personal_calendly_heading: {
-    en: "Pick a 30-minute slot that works for you",
-    bg: "Изберете 30-минутен слот, който Ви устройва"
+    en: "Pick a time that works for you.",
+    bg: "Изберете час, който Ви устройва."
   },
   box_personal_footer_questions: {
     en: "Any questions?",
@@ -3184,8 +3147,8 @@ const translations = {
     bg: "Нека поговорим"
   },
   box_cal_subheading: {
-    en: "30-minute intro call",
-    bg: "30-минутен въвеждащ разговор"
+    en: "Short intro conversation",
+    bg: "Кратък въвеждащ разговор"
   },
   box_cal_duration: {
     en: "30 minutes",
