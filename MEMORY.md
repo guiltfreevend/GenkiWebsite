@@ -75,3 +75,4 @@
 - ROI calculator savings range: €280K–5.7M, employee range: 100-2000, default salary: €36K
 - Exit-intent detection uses multi-signal triggers
 - JS caching was a gotcha — needed cache-busting for ROI calculator scripts
+- 2026-05-11: Site-wide audit + remediation. The earlier 2026-01-30 entry "Updated CTAs from 'Book a Demo' to 'Book a Call'" is SUPERSEDED. Current standard is "Book a consultation" / "Запазете консултация" (no durations). Dietary track promises (vegan/gluten-free/etc.) are also REMOVED — only the wellness filter (no palm oil/HFCS/artificial sweeteners/colors/hydrogenated fats/MSG) is guaranteed. Meals/Fresh/Genki Meals copy is REMOVED — v1 ships snacks + drinks only (TREAT/CRUNCH/REFRESH). Authoritative copy rules now live in `CLAUDE.md` → "Locked Copy Rules — 2026-05-11". Audit findings: `Backups/2026-05-11-website-audit.md`.

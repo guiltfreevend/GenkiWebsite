@@ -115,3 +115,14 @@ Master tracking doc for the full-site polish pass. Goal: Apple-premium aesthetic
 22. CSS cache-buster bump
 
 All deployed to GitHub `main` → Cloudflare Pages auto-deploys.
+
+---
+
+## SUPERSEDED — 2026-05-11
+
+The CTA + dietary + meals decisions previously recorded in this file (rows B9, D4, F2 above, plus any other historical mention of "demo" wording) are **SUPERSEDED** by the 2026-05-11 site-wide audit and remediation. See `Backups/2026-05-11-website-audit.md` for the audit findings and `CLAUDE.md` → "Locked Copy Rules — 2026-05-11" for the new authoritative copy guidance.
+
+Specifically:
+- "All CTAs → Book a 20-min demo / Запази 20-мин демо" (D4 above) is REVERSED. Current standard is "Book a consultation" / "Запазете консултация" — no durations anywhere.
+- The dietary-accommodation FAQ answer is REPLACED with the wellness-filter canonical (no vegan/gluten-free guarantees).
+- Meals / Fresh / Genki Meals copy is REMOVED from current pages — v1 ships snacks + drinks only.

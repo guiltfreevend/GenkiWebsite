@@ -1,6 +1,6 @@
 # Genki - Wellness Benefits for Modern Companies
 
-A premium employee wellness benefit platform providing healthy snacks, drinks, and meals to IT companies in Bulgaria.
+A premium employee wellness benefit platform providing healthy snacks and drinks to IT companies in Bulgaria.
 
 ## About Genki
 

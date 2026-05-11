@@ -5,7 +5,7 @@
 2. **After EVERY completed task** — update both the project-specific files (`HANDOFF.md`, `MEMORY.md`) AND the master files at `/mnt/c/projects/HANDOFF.md` and `/mnt/c/projects/MEMORY.md`. MEMORY.md is append-only — never delete or summarize old entries.
 
 ## What is Genki?
-B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks, drinks & meals to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
+B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks & drinks to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
 
 ## Tech Stack
 - **Static HTML** site (12 active pages) hosted on **Cloudflare Pages** (project: `genkiwebsite`)
@@ -120,3 +120,22 @@ Future (post-launch):
 - **Secondary (teal)**: #14b8a6 (500) - secondary accents
 - **Accent (cream)**: #f5f5dc (200) - warm backgrounds
 - **Amber**: #f59e0b (500) - highlights, badges
+
+## Locked Copy Rules — 2026-05-11
+
+These rules supersede all earlier copy guidance in HANDOFF.md, MEMORY.md, and AUDIT_FIXES.md. Apply consistently across every page, every translation key, every email template, and every internal doc.
+
+**RULE 1 — De-doubling.** No claim appears in more than one of {heading, subhead, bullet list} within the same component. Keep the brand-name version of any claim; delete the count-version and the generic-quality version when they coexist with brand names.
+
+**RULE 2 — CTA unification.** Every CTA button on the site reads exactly "Запазете консултация" (BG) / "Book a consultation" (EN). No durations anywhere — not in buttons, not in subtext, not in form headings, not in step labels, not in email body. Subtext describes what the conversation is about, not how long it takes.
+- Default BG subtext template: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
+- Default EN subtext template: "A short conversation about your team's needs and the right configuration."
+
+**RULE 3 — Dietary.** Genki guarantees exactly one nutritional promise: the wellness filter (no palm oil, HFCS, artificial sweeteners, artificial colors, hydrogenated fats, MSG). Specific dietary tracks (vegan, vegetarian, gluten-free, lactose-free, nut-free, keto) are NEVER promised. Replace, don't soften.
+- BG canonical answer: "Всички продукти преминават през единен wellness филтър — без палмово масло, царевичен сироп, изкуствени подсладители, оцветители или хидрогенирани мазнини. Специфични диети (веган, без глутен, кето и т.н.) не са гарантирани в текущата ни селекция."
+- EN canonical answer: "All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection."
+
+**RULE 4 — Meals / fresh food.** v1 has no fresh food. Snacks and drinks only. Categories are TREAT / CRUNCH / REFRESH. No "coming soon" placeholders — promising future capability creates the same trust risk we're eliminating. Strip clean. Add it back when it ships, not before.
+- TREAT — вафли, курабийки, шоколадови бонбони / waffles, cookies, chocolate
+- CRUNCH — солети, крекери / pretzels, crackers
+- REFRESH — комбуча, студени чайове, газирани, енергийни напитки (250ml) / kombucha, iced teas, sodas, energy drinks (250ml)
