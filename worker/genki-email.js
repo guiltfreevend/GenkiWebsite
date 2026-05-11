@@ -90,7 +90,7 @@ export default {
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px;">
             <tr><td style="padding:16px 18px;">
               <div style="font-size:26px; font-weight:700; color:#1e5128; line-height:1.1;">${fmt(focusHoursRecovered)} <span style="font-size:14px; font-weight:500; color:#1e5128;">часа възстановен фокус</span></div>
-              <div style="font-size:13px; color:#4b5563; margin-top:6px; line-height:1.5;">По-кратки обедни паузи, когато храната е в кухнята. Следобедите стават различни.</div>
+              <div style="font-size:13px; color:#4b5563; margin-top:6px; line-height:1.5;">По-малко прекъсвания за бързо хапване. По-малко спадове в енергията. Следобедите се усещат различно.</div>
             </td></tr>
           </table>
         </td></tr>

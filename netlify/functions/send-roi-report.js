@@ -167,10 +167,10 @@ exports.handler = async (event, context) => {
       
       <p><strong>Готови да стартирате?</strong></p>
       
-      <p>Резервирайте 30-минутна demo среща, за да обсъдим как Genki може да трансформира вашия офис:</p>
-      
+      <p>Запазете консултация и ще обсъдим как Genki може да трансформира вашия офис:</p>
+
       <div class="cta-container">
-        <a href="https://calendly.com/hello-genki/30min" class="cta">Резервирайте Demo Среща →</a>
+        <a href="https://calendly.com/hello-genki/30min" class="cta">Запазете консултация →</a>
       </div>
       
       <div class="divider">
@@ -275,7 +275,7 @@ exports.handler = async (event, context) => {
       <p>✅ Full ROI report sent to user at <strong>${email}</strong></p>
       
       <p>
-        <a href="https://calendly.com/hello-genki/30min" class="cta">Schedule Follow-up Call →</a>
+        <a href="https://calendly.com/hello-genki/30min" class="cta">Book a consultation →</a>
       </p>
     </div>
   </div>
