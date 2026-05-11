@@ -175,11 +175,11 @@ const translations = {
     bg: "Контакти"
   },
   nav_book_call: {
-    en: "Book consultation",
+    en: "Book a consultation",
     bg: "Запазете консултация"
   },
   nav_cta: {
-    en: "Book consultation",
+    en: "Book a consultation",
     bg: "Запазете консултация"
   },
   mobile_language: {
@@ -263,7 +263,7 @@ const translations = {
     bg: "Подбрани български продукти, premium snack stations и напълно обслужено wellness решение за модерни офиси."
   },
   index_cta_book: {
-    en: "Book consultation",
+    en: "Book a consultation",
     bg: "Запазете консултация"
   },
   index_cta_how: {
@@ -315,16 +315,12 @@ const translations = {
     bg: "100% български произход"
   },
   index_pillar1_desc: {
-    en: "Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers.",
-    bg: "Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители."
+    en: "We support the Bulgarian economy and bring internationally-recognized Bulgarian producers into the workplace.",
+    bg: "Подкрепяме българската икономика и поставяме български производители на международно ниво на работното място."
   },
   index_pillar1_item1: {
-    en: "30+ Bulgarian producers",
-    bg: "30+ български производители"
-  },
-  index_pillar1_item2: {
-    en: "International-quality standards",
-    bg: "Международни стандарти за качество"
+    en: "Smart Organic, Roobar, VIDAS, Frudada and more",
+    bg: "Smart Organic, Roobar, VIDAS, Frudada и още"
   },
   index_pillar1_item3: {
     en: "Curated for nutritional value",
@@ -381,8 +377,8 @@ const translations = {
     bg: "Ние се грижим за всичко. Вие просто одобрявате конфигурацията и наблюдавате как удовлетвореността на служителите расте."
   },
   index_step1_title: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
   index_step1_desc: {
     en: "30-minute call to understand your team's needs and preferences.",
@@ -469,8 +465,8 @@ const translations = {
     bg: "Присъединете се към прогресивните работни места в България, които инвестират в здравето на екипа си, подкрепят българските производители и прозрачно даряват всеки месец."
   },
   index_cta_schedule: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
   index_cta_pricing: {
     en: "View Pricing",
@@ -549,8 +545,8 @@ const translations = {
     bg: "Подкрепете българското"
   },
   companies_benefit6_desc: {
-    en: "100% Bulgarian sourcing — Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers.",
-    bg: "100% български произход — Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители."
+    en: "100% Bulgarian sourcing — Smart Organic, Roobar, VIDAS, Frudada and more. Your benefit budget stays in the local economy.",
+    bg: "100% български произход — Smart Organic, Roobar, VIDAS, Frudada и още. Бюджетът Ви за придобивки остава в местната икономика."
   },
 
   // COMPANIES PAGE - PRICING
@@ -686,8 +682,8 @@ const translations = {
 
   // NEW PRICING - CTA (kept stable for re-use across cards)
   pricing_cta_quote: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // NEW PRICING - All Plans Include (rewritten bullets)
@@ -921,12 +917,12 @@ const translations = {
     bg: "💡 95% от компаниите, измерващи ROI от уелнес, виждат положителна възвръщаемост — Wellhub 2024"
   },
   roi_disclaimer: {
-    en: "📝 Example calculation for illustration. Book a call for your custom quote.",
+    en: "📝 Example calculation for illustration. Book a consultation for your custom quote.",
     bg: "📝 Примерно изчисление за илюстрация. Запазете консултация за персонална оферта."
   },
   roi_cta: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // Simplified Public ROI Calculator (companies.html)
@@ -1151,8 +1147,8 @@ const translations = {
     bg: "Могат ли да участват служители с диетични ограничения?"
   },
   companies_faq3_a: {
-    en: "Absolutely. We accommodate vegetarian, vegan, gluten-free, and other dietary needs. Just let us know your team's requirements.",
-    bg: "Разбира се. Разполагаме с вегетариански, вегански, безглутенови и други диетични опции. Просто ни съобщете изискванията на Вашия екип."
+    en: "All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection.",
+    bg: "Всички продукти преминават през единен wellness филтър — без палмово масло, царевичен сироп, изкуствени подсладители, оцветители или хидрогенирани мазнини. Специфични диети (веган, без глутен, кето и т.н.) не са гарантирани в текущата ни селекция."
   },
   companies_faq4_q: {
     en: "Which charities receive the donations?",
@@ -1185,12 +1181,12 @@ const translations = {
     bg: "Готови ли сте да надградите пакета си с придобивки?"
   },
   companies_cta_subtitle: {
-    en: "Book a free call and see how Genki can transform your workplace.",
-    bg: "Запазете безплатна консултация и вижте как Genki може да трансформира работното Ви място."
+    en: "A short conversation about your team's needs and the right configuration.",
+    bg: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
   },
   companies_cta_schedule: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // ===================
@@ -1294,24 +1290,32 @@ const translations = {
     bg: "Напитки"
   },
   mission_offer_drinks_desc: {
-    en: "Ice teas, energy drinks, fresh juices, sparkling water, kombucha",
-    bg: "Студени чайове, енергийни напитки, пресни сокове, газирана вода, комбуча"
+    en: "Kombucha, iced teas, sodas, energy drinks (250ml)",
+    bg: "Комбуча, студени чайове, газирани, енергийни напитки (250 мл)"
   },
-  mission_offer_fresh: {
-    en: "Fresh Options",
-    bg: "Пресни опции"
+  mission_offer_treat: {
+    en: "TREAT",
+    bg: "TREAT"
   },
-  mission_offer_fresh_desc: {
-    en: "Yogurt, granola, healthy breakfast items",
-    bg: "Кисело мляко, гранола, здравословни закуски"
+  mission_offer_treat_desc: {
+    en: "Waffles, cookies, chocolate",
+    bg: "Вафли, курабийки, шоколадови бонбони"
   },
-  mission_offer_meals: {
-    en: "Meals",
-    bg: "Ястия"
+  mission_offer_crunch: {
+    en: "CRUNCH",
+    bg: "CRUNCH"
   },
-  mission_offer_meals_desc: {
-    en: "Salads and balanced meals (roadmap — coming in v2)",
-    bg: "Салати и балансирани ястия — в план за v2"
+  mission_offer_crunch_desc: {
+    en: "Pretzels, crackers",
+    bg: "Солети, крекери"
+  },
+  mission_offer_refresh: {
+    en: "REFRESH",
+    bg: "REFRESH"
+  },
+  mission_offer_refresh_desc: {
+    en: "Kombucha, iced teas, sodas, energy drinks (250ml)",
+    bg: "Комбуча, студени чайове, газирани, енергийни напитки (250 мл)"
   },
   mission_partners_title: {
     en: "Our Partners",
@@ -1433,22 +1437,6 @@ const translations = {
     en: "Fresh juices, herbal teas, kombucha, natural waters",
     bg: "Пресни сокове, билкови чайове, комбуча, натурални води"
   },
-  mission_pillar1_fresh: {
-    en: "Fresh Foods",
-    bg: "Пресни храни"
-  },
-  mission_pillar1_fresh_desc: {
-    en: "Yogurt, cheese, seasonal fruits, salads",
-    bg: "Кисело мляко, сирене, сезонни плодове, салати"
-  },
-  mission_pillar1_meals: {
-    en: "Meals",
-    bg: "Ястия"
-  },
-  mission_pillar1_meals_desc: {
-    en: "Healthy lunches, wraps, soups (roadmap — coming in v2)",
-    bg: "Здравословни обеди, рапове, супи — в план за v2"
-  },
   mission_pillar2_badge: {
     en: "Pillar 2",
     bg: "Стълб 2"
@@ -1458,8 +1446,8 @@ const translations = {
     bg: "100% български произход"
   },
   mission_pillar2_desc: {
-    en: "Smart Organic, Roobar, VIDAS, Frudada and 30+ Bulgarian producers. International-quality products from Bulgarian producers — placed inside the workplace as managed infrastructure, not flown in as a delivery.",
-    bg: "Smart Organic, Roobar, VIDAS, Frudada и още 30+ български производители. Международно качество от български производители — поставени в работното място като управлявана инфраструктура, а не доставка."
+    en: "Smart Organic, Roobar, VIDAS, Frudada and more — Bulgarian producers placed inside the workplace as managed infrastructure, not flown in as a delivery.",
+    bg: "Smart Organic, Roobar, VIDAS, Frudada и още — български производители, поставени в работното място като управлявана инфраструктура, а не доставка."
   },
   mission_pillar2_partners: {
     en: "Our Partners",
@@ -1626,8 +1614,8 @@ const translations = {
     bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
   },
   mission_cta_button: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // ===================
@@ -1699,14 +1687,6 @@ const translations = {
     en: "Drinks",
     bg: "Напитки"
   },
-  products_cat_fresh: {
-    en: "Fresh Foods",
-    bg: "Пресни храни"
-  },
-  products_cat_meals: {
-    en: "Roadmap (v2)",
-    bg: "В план за v2"
-  },
   products_snacks_title: {
     en: "Healthy Snacks",
     bg: "Здравословни снаксове"
@@ -1730,38 +1710,6 @@ const translations = {
   products_drinks_desc: {
     en: "Refreshing drinks without the sugar crash",
     bg: "Освежаващи напитки без захарен срив"
-  },
-  products_fresh_title: {
-    en: "Fresh Foods",
-    bg: "Пресни храни"
-  },
-  products_fresh_subtitle: {
-    en: "Restocked daily with fresh items from Bulgarian producers",
-    bg: "Ежедневно зареждане с пресни продукти от български производители"
-  },
-  products_fresh_desc: {
-    en: "Restocked daily with fresh items from Bulgarian producers",
-    bg: "Ежедневно зареждане с пресни продукти от български производители"
-  },
-  products_meals_title: {
-    en: "Fresh meals — coming in v2",
-    bg: "Пресни ястия — предстои във v2"
-  },
-  products_meals_subtitle: {
-    en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap.",
-    bg: "Обеди, поке купи, салати, рапове и супи в партньорство с български кухни са в плана ни за v2."
-  },
-  products_meals_desc: {
-    en: "Lunches, poke bowls, salads, wraps and soups partnered with Bulgarian kitchens are on our v2 roadmap. They are not part of the current launch and aren't priced into the station tiers on this site.",
-    bg: "Обеди, поке купи, салати, рапове и супи в партньорство с български кухни са в плана ни за v2. Те не са част от настоящия старт и не са включени в цените на станциите на този сайт."
-  },
-  products_meals_note: {
-    en: "Roadmap — coming in v2 (not part of current launch)",
-    bg: "В план за v2 — не е част от настоящия старт"
-  },
-  products_meals_custom: {
-    en: "When fresh food rolls out, it will be added as an optional layer to existing stations. We'll announce specifics in the monthly impact report.",
-    bg: "Когато пресните храни стартират, ще бъдат добавени като допълнителен слой към съществуващите станции. Ще обявим подробностите в месечния отчет за въздействието."
   },
   products_roadmap_pill: {
     en: "Roadmap — v2",
@@ -1895,26 +1843,6 @@ const translations = {
   products_sparkling_desc: {
     en: "Refreshing sparkling options",
     bg: "Освежаваща газирана вода"
-  },
-  products_balanced_title: {
-    en: "Balanced Meals",
-    bg: "Балансирани ястия"
-  },
-  products_balanced_desc: {
-    en: "Lunch boxes & more",
-    bg: "Кутии за обяд и още"
-  },
-  products_poke_title: {
-    en: "Poke Bowls",
-    bg: "Поке купи"
-  },
-  products_poke_desc: {
-    en: "Fresh and healthy bowl options",
-    bg: "Пресни и здравословни поке опции"
-  },
-  products_salads_desc: {
-    en: "Various healthy salad options available",
-    bg: "Различни здравословни опции за салати"
   },
   products_badge_tasty: {
     en: "Tasty",
@@ -2052,38 +1980,6 @@ const translations = {
     en: "Carrots, cucumbers & peppers with hummus",
     bg: "Моркови, краставици и чушки с хумус"
   },
-  products_salads_title: {
-    en: "Fresh Salads",
-    bg: "Пресни салати"
-  },
-  products_salads_desc_old: {
-    en: "Shopska, Greek, Caesar & more",
-    bg: "Шопска, гръцка, Цезар и други"
-  },
-  products_wraps_title: {
-    en: "Wraps & Sandwiches",
-    bg: "Рапове и сандвичи"
-  },
-  products_wraps_desc: {
-    en: "Whole grain, fresh ingredients",
-    bg: "Пълнозърнести, пресни съставки"
-  },
-  products_soups_title: {
-    en: "Soups",
-    bg: "Супи"
-  },
-  products_soups_desc: {
-    en: "Homemade Bulgarian recipes",
-    bg: "Домашни български рецепти"
-  },
-  products_lunch_title: {
-    en: "Lunch Boxes",
-    bg: "Обедни кутии"
-  },
-  products_lunch_desc: {
-    en: "Complete balanced meals",
-    bg: "Пълноценни балансирани ястия"
-  },
   products_diets_title: {
     en: "For everyone on the team.",
     bg: "За всеки в екипа."
@@ -2092,29 +1988,17 @@ const translations = {
     en: "We label every product. Everyone will find theirs.",
     bg: "Маркираме всеки продукт. Всеки човек ще намери своето."
   },
-  products_diet_glutenfree: {
-    en: "Gluten-Free",
-    bg: "Безглутеново"
-  },
-  products_diet_lactosefree: {
-    en: "Lactose-Free",
-    bg: "Безлактозно"
-  },
-  products_diet_nutfree: {
-    en: "Nut-Free",
-    bg: "Без ядки"
-  },
   products_cta_title: {
     en: "See how Genki would look in your office.",
     bg: "Вижте как Genki ще изглежда във вашия офис."
   },
   products_cta_desc: {
-    en: "A 30-minute consultation. We shape the assortment around your team.",
-    bg: "30-минутна консултация. Подбираме асортимента според екипа ви."
+    en: "A short conversation. We shape the assortment around your team.",
+    bg: "Кратък разговор. Подбираме асортимента според екипа Ви."
   },
   products_cta_button: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // Products page — "Our standard" wellness filter (NEW v2 page)
@@ -2402,57 +2286,13 @@ const translations = {
     en: "Carrots, cucumbers & peppers with hummus",
     bg: "Моркови, краставици и чушки с хумус"
   },
-  products_fresh_salads: {
-    en: "Fresh Salads",
-    bg: "Пресни салати"
-  },
-  products_fresh_salads_desc: {
-    en: "Shopska, Greek, Caesar & more",
-    bg: "Шопска, гръцка, Цезар и други"
-  },
-  products_wraps: {
-    en: "Wraps & Sandwiches",
-    bg: "Рапове и сандвичи"
-  },
-  products_soups: {
-    en: "Soups",
-    bg: "Супи"
-  },
-  products_lunch_boxes: {
-    en: "Lunch Boxes",
-    bg: "Обедни кутии"
-  },
-  products_lunch_boxes_desc: {
-    en: "Complete balanced meals",
-    bg: "Пълноценни балансирани ястия"
-  },
   products_diets_subtitle: {
     en: "Every team member can find something they love.",
     bg: "Всеки човек от екипа може да намери нещо подходящо."
   },
-  products_diet_vegan: {
-    en: "Vegan",
-    bg: "Веган"
-  },
-  products_diet_vegetarian: {
-    en: "Vegetarian",
-    bg: "Вегетарианско"
-  },
-  products_diet_gluten: {
-    en: "Gluten-Free",
-    bg: "Безглутеново"
-  },
-  products_diet_lactose: {
-    en: "Lactose-Free",
-    bg: "Безлактозно"
-  },
-  products_diet_nut: {
-    en: "Nut-Free",
-    bg: "Без ядки"
-  },
   products_cta_subtitle: {
-    en: "Book a 30-minute consultation and we'll shape a product selection around your team.",
-    bg: "Запазете 30-минутна консултация и ще оформим продуктовата селекция според Вашия екип."
+    en: "A short conversation about your team's needs and the right configuration.",
+    bg: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
   },
 
   // ===================
@@ -2475,12 +2315,12 @@ const translations = {
     bg: "Вашия екип"
   },
   contact_hero_subtitle: {
-    en: "Book a free call and see how Genki can transform your employee benefits while backing Bulgarian producers and a transparent monthly donation.",
-    bg: "Запазете безплатна консултация и вижте как Genki може да трансформира придобивките на служителите Ви, като подкрепя българските производители и прозрачно дарява всеки месец."
+    en: "A short conversation about your team's needs and the right configuration.",
+    bg: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
   },
   contact_form_title: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
   contact_first_name: {
     en: "First Name *",
@@ -2588,8 +2428,8 @@ const translations = {
     bg: "Разкажете ни за Вашия екип, хранителни изисквания или специфични нужди..."
   },
   contact_submit: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
   contact_response_time: {
     en: "We'll get back to you within 24 hours.",
@@ -2736,8 +2576,8 @@ const translations = {
     bg: "Можем ли да персонализираме продуктовата селекция?"
   },
   contact_faq4_a: {
-    en: "Absolutely. We'll work with you to create a mix that matches your team's preferences, dietary needs, and budget.",
-    bg: "Разбира се. Ще работим с Вас, за да създадем продуктова комбинация, която отговаря на предпочитанията на екипа Ви, хранителните нужди и бюджета."
+    en: "All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection.",
+    bg: "Всички продукти преминават през единен wellness филтър — без палмово масло, царевичен сироп, изкуствени подсладители, оцветители или хидрогенирани мазнини. Специфични диети (веган, без глутен, кето и т.н.) не са гарантирани в текущата ни селекция."
   },
 
   // Form validation messages
@@ -3086,12 +2926,12 @@ const translations = {
     bg: "Нека обсъдим как Genki може да постигне тези резултати за Вашата организация."
   },
   roi_cta_button: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
   roi_cta_demo: {
-    en: "Request Demo",
-    bg: "Заяви демо"
+    en: "Book a consultation",
+    bg: "Запазете консултация"
   },
 
   // Additional ROI Keys
