@@ -175,12 +175,12 @@ const translations = {
     bg: "Контакти"
   },
   nav_book_call: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book consultation",
+    bg: "Запазете консултация"
   },
   nav_cta: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book consultation",
+    bg: "Запазете консултация"
   },
   mobile_language: {
     en: "Language",
@@ -251,20 +251,20 @@ const translations = {
     bg: "100% български продукти"
   },
   index_hero_title_1: {
-    en: "Healthier workdays for your team.",
-    bg: "По-здравословни дни за екипа Ви."
+    en: "Better energy for your team.",
+    bg: "По-добра енергия за екипа Ви."
   },
   index_hero_title_2: {
-    en: "Delivered.",
-    bg: "Доставени."
+    en: "Every day.",
+    bg: "Всеки ден."
   },
   index_hero_subtitle: {
-    en: "Curated Bulgarian snacks, drinks and meals delivered to your office. Fully managed by Genki. About €1/day per person.",
-    bg: "Подбрани български снаксове, напитки и хранения, доставени директно в офиса. Напълно обслужвани от Genki. Около €1/ден на човек."
+    en: "Curated Bulgarian products, premium snack stations and a fully managed wellness solution for modern offices.",
+    bg: "Подбрани български продукти, premium snack stations и напълно обслужено wellness решение за модерни офиси."
   },
   index_cta_book: {
-    en: "Book a 20-min demo",
-    bg: "Запази 20-мин демо"
+    en: "Book consultation",
+    bg: "Запазете консултация"
   },
   index_cta_how: {
     en: "See How It Works",
