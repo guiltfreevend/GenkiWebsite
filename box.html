@@ -166,10 +166,9 @@
       // ────────────────────────────────────────────────────────────
 
       var API_BASE = 'https://app.winpathcrm.com';
-      // TODO(founder): replace with Tsvetelin's Calendly URL once confirmed.
-      // The page works without it — secondary "Send a note" CTA covers
-      // the fallback path until then.
-      var CALENDLY_URL = 'https://calendly.com/genki-pilot/15min';
+      // Matches the Calendly URL used on office.html / products.html.
+      // 30min slot — same length as the rest of the site's CTAs.
+      var CALENDLY_URL = 'https://calendly.com/hello-genki/30min';
 
       function readCode() {
         // /box/ABC123 or /box/ABC123/ — strip the prefix + any trailing slash.
