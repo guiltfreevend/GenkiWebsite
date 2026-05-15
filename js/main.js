@@ -261,22 +261,15 @@ function initHeaderScroll() {
   if (!header) return;
 
   let ticking = false;
+  const apply = () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+    ticking = false;
+  };
+  apply();
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
-      requestAnimationFrame(() => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 50) {
-          header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-          header.classList.remove('bg-transparent');
-        } else {
-          header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-          header.classList.add('bg-transparent');
-        }
-
-        ticking = false;
-      });
+      requestAnimationFrame(apply);
       ticking = true;
     }
   }, { passive: true });
