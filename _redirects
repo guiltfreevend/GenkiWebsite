@@ -2,12 +2,15 @@
 # Coming Soon mode disabled on 2026-04-23. All routes publicly accessible.
 # Cloudflare Pages handles clean-URL .html routing automatically — no rewrites needed here.
 
-# Genki QR box landing (2026-05-15) — /box/[CODE] is handled by the Pages
-# Function at functions/box/[[code]].js, which serves box-landing.html for
-# every path under /box/ while keeping the original URL (so the page JS can
-# read the CODE from location.pathname).
+# Genki QR box landing (2026-05-15) — the QR-printable URL is
+# https://www.genki.bg/box/[CODE]. Cloudflare Pages Functions are not
+# enabled for this project (verified via a temporary probe), so the
+# functions/ approach was abandoned and `_redirects` 200-rewrites get
+# overridden by Pages' auto clean-URL normalisation.
 #
-# Only /box (no trailing path) needs a rule — the Function doesn't catch it
-# (Pages catch-alls require at least one segment). Send /box to /box-landing
-# so a code-less visit still lands on the page.
-/box   /box-landing   301
+# Workaround: 301-redirect /box/:code → /box-landing?code=:code. The QR
+# stays short and pretty; after the redirect the browser bar shows
+# /box-landing?code=… (the page JS reads ?code= from window.location.search).
+# A code-less /box visit still lands on the same page.
+/box/:code   /box-landing?code=:code   301
+/box         /box-landing              301

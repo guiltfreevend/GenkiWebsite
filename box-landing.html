@@ -171,9 +171,17 @@
       var CALENDLY_URL = 'https://calendly.com/hello-genki/30min';
 
       function readCode() {
-        // /box/ABC123 or /box/ABC123/ — strip the prefix + any trailing slash.
+        // Two valid sources, in order of preference:
+        //  1. /box/[CODE] in the URL path (the QR-printable form). Works
+        //     only when Cloudflare Pages serves this file at /box/[CODE]
+        //     directly — today it 301-redirects through to (2).
+        //  2. ?code=CODE in the query string after Cloudflare's _redirects
+        //     rewrite (`/box/:code → /box-landing?code=:code 301`). This
+        //     is the path the QR actually flows through.
         var m = location.pathname.match(/^\/box\/([^\/?#]+)/);
-        return m ? decodeURIComponent(m[1]) : null;
+        if (m) return decodeURIComponent(m[1]);
+        var q = new URLSearchParams(location.search).get("code");
+        return q ? q : null;
       }
 
       function firePixel(code) {
