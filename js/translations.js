@@ -271,16 +271,16 @@ const translations = {
     bg: "Вижте как работи"
   },
   index_trust_admin: {
-    en: "Not vending machine culture",
-    bg: "Не vending machine culture"
+    en: "100% Bulgarian products",
+    bg: "100% български продукти"
   },
   index_trust_flexible: {
-    en: "Premium office wellness",
-    bg: "Premium office wellness"
+    en: "10% donated monthly",
+    bg: "10% даряваме всеки месец"
   },
   index_trust_impact: {
-    en: "Fully managed",
-    bg: "Напълно обслужвано"
+    en: "Premium quality & service",
+    bg: "Премиум качество и обслужване"
   },
 
   // INDEX PAGE - STATS

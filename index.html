@@ -48,7 +48,7 @@
   <script src="js/tailwind-config.js"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/custom.css?v=20260510-5">
+  <link rel="stylesheet" href="css/custom.css?v=20260515-6">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -101,7 +101,7 @@
   }
   </script>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased has-hero-dark">
 
   <!-- Skip to main content (a11y) -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-primary-700 focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-primary-600">Skip to main content</a>
@@ -111,7 +111,8 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="/" class="flex items-center">
-          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24 logo-dark">
+          <img src="assets/images/genki_logo_light.png" alt="" class="h-24 logo-light" aria-hidden="true">
         </a>
 
         <!-- Desktop Navigation -->
@@ -182,59 +183,63 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero-gradient relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-4xl mx-auto">
-        <!-- Badge -->
-        <div class="inline-flex items-center bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 fade-up">
-          <i data-lucide="flag" class="w-4 h-4 mr-2"></i>
-          <span data-i18n="index_badge">100% Bulgarian Products</span>
-        </div>
+  <section class="hero-premium">
+    <div class="hero-premium__bg">
+      <picture>
+        <source type="image/webp" media="(max-width: 768px)" srcset="assets/images/hero-mobile.webp">
+        <source type="image/webp" srcset="assets/images/hero-desktop.webp">
+        <source media="(max-width: 768px)" srcset="assets/images/hero-mobile.png">
+        <img src="assets/images/hero-desktop.png"
+             alt="Genki wellness station в модерен офис"
+             loading="eager" fetchpriority="high" decoding="async"
+             width="1536" height="1024">
+      </picture>
+    </div>
+    <div class="hero-premium__overlay"></div>
 
-        <!-- Main Heading -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6 fade-up">
+    <div class="hero-premium__content">
+      <div class="hero-premium__inner">
+        <span class="hero-premium__badge">
+          <span class="badge-dot" aria-hidden="true">🍃</span>
+          <span data-i18n="index_badge">100% Bulgarian Products</span>
+        </span>
+
+        <h1 class="hero-premium__title">
           <span data-i18n="index_hero_title_1">Better energy for your team.</span>
-          <span class="gradient-text" data-i18n="index_hero_title_2">Every day.</span>
+          <span class="hero-premium__title-accent" data-i18n="index_hero_title_2">Every day.</span>
         </h1>
 
-        <!-- Subheading -->
-        <p class="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto fade-up" data-i18n="index_hero_subtitle">
+        <p class="hero-premium__subtitle" data-i18n="index_hero_subtitle">
           Curated Bulgarian products, premium snack stations and a fully managed wellness solution for modern offices.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-up">
-          <a href="/contact" class="btn-primary text-lg" data-umami-event="cta_book_demo">
+        <div class="hero-premium__ctas">
+          <a href="/contact" class="btn-hero-primary" data-umami-event="cta_book_demo">
             <span data-i18n="index_cta_book">Book a consultation</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
-          <a href="/companies" class="btn-secondary text-lg" data-i18n="index_cta_how">
+          <a href="#how-it-works" class="btn-hero-secondary" data-i18n="index_cta_how">
             See How It Works
           </a>
         </div>
+      </div>
+    </div>
 
-        <!-- Trust Badges -->
-        <div class="flex flex-wrap items-center justify-center gap-6 text-gray-500 fade-up">
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span data-i18n="index_trust_admin">Not vending machine culture</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span data-i18n="index_trust_flexible">Premium office wellness</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span data-i18n="index_trust_impact">Fully managed</span>
-          </div>
+    <div class="hero-premium__trust">
+      <div class="hero-premium__trust-inner">
+        <div class="hero-premium__trust-item">
+          <span class="trust-icon" aria-hidden="true">🍃</span>
+          <span data-i18n="index_trust_admin">100% Bulgarian products</span>
+        </div>
+        <div class="hero-premium__trust-item">
+          <span class="trust-icon" aria-hidden="true">❤️</span>
+          <span data-i18n="index_trust_flexible">10% donated monthly</span>
+        </div>
+        <div class="hero-premium__trust-item">
+          <span class="trust-icon" aria-hidden="true">🛡️</span>
+          <span data-i18n="index_trust_impact">Premium quality &amp; service</span>
         </div>
       </div>
     </div>
@@ -347,7 +352,7 @@
   </section>
 
   <!-- How It Works Section -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section id="how-it-works" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="text-center mb-16">
