@@ -1,3 +1,8 @@
 # ===== LIVE SITE =====
 # Coming Soon mode disabled on 2026-04-23. All routes publicly accessible.
 # Cloudflare Pages handles clean-URL .html routing automatically — no rewrites needed here.
+
+# Genki QR box landing (2026-05-15) — every /box/[CODE] URL serves the same
+# box.html; the page reads CODE from location.pathname client-side and
+# personalises itself by calling the WinPath API at app.winpathcrm.com.
+/box/* /box.html 200

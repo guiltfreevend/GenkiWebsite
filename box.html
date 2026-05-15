@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Genki wellness box has arrived. Take a look inside.">
+  <title>Welcome — Genki</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.genki.bg/box/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Genki">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:title" content="Your Genki box — welcome">
+  <meta property="og:description" content="Welcome to Genki — a wellness benefit your team can actually feel.">
+  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
+  <meta property="og:image:alt" content="Genki logo">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="js/tailwind-config.js"></script>
+
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .opacity-0 { opacity: 0; }
+    .gradient-text {
+      background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #f0fdf4, #dcfce7, #f0fdfa, #ffffff);
+      background-size: 400% 400%;
+      animation: gradient-shift 18s ease infinite;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .btn-premium {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: #fff;
+      padding: 0.875rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-premium:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: #166534;
+      padding: 0.875rem 1.75rem;
+      border-radius: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-secondary:hover { background: #fff; }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen font-['Inter']">
+  <main class="max-w-2xl mx-auto px-6 py-16 md:py-24">
+
+    <!-- Genki wordmark -->
+    <div class="text-center mb-8 animate-fade-in-up opacity-0">
+      <a href="/" class="inline-block">
+        <img src="assets/images/genki_logo.png" alt="Genki" class="h-14 mx-auto">
+      </a>
+    </div>
+
+    <!-- Welcome card -->
+    <div class="glass-card rounded-3xl p-8 md:p-12 shadow-lg animate-fade-in-up opacity-0 delay-100">
+      <p class="text-sm font-medium text-emerald-700 uppercase tracking-wider mb-2">
+        Your Genki box
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 text-slate-900">
+        <span id="welcome-greeting" class="gradient-text">Welcome.</span>
+      </h1>
+      <p id="welcome-intro" class="text-lg text-slate-700 leading-relaxed mb-6">
+        Thanks for taking a moment. The box is a small gesture &mdash; locally
+        sourced from Bulgarian producers, monthly, delivered to a named desk.
+        No platform to log into, no admin for your team.
+      </p>
+      <p class="text-slate-600 mb-8">
+        If it lands with you, fifteen minutes is enough to see whether the
+        math works for your team.
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <a id="cta-primary" href="#" target="_blank" rel="noopener" class="btn-premium" data-umami-event="box-landing-book-call">
+          Book 15 minutes
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        <a href="/contact.html" class="btn-secondary" data-umami-event="box-landing-contact">
+          Or send a note
+        </a>
+      </div>
+    </div>
+
+    <!-- Tiny footer -->
+    <p class="text-center text-sm text-slate-500 mt-10 animate-fade-in-up opacity-0 delay-300">
+      <a href="/" class="hover:text-emerald-700 underline-offset-2 hover:underline">genki.bg</a>
+      &nbsp;&middot;&nbsp;
+      Sofia, Bulgaria
+    </p>
+
+    <noscript>
+      <p class="text-center text-sm text-slate-500 mt-4">
+        JavaScript is disabled — you'll see the generic welcome above. To
+        book a meeting, use the buttons or email
+        <a href="mailto:hello@genki.bg" class="underline">hello@genki.bg</a>.
+      </p>
+    </noscript>
+  </main>
+
+  <script>
+    (function () {
+      // ────────────────────────────────────────────────────────────
+      // genki.bg/box/[CODE] — landing page for the Genki QR box drop.
+      //
+      // On load this page does two things:
+      //   (1) Fires the QR-scan pixel to WinPath so the engine records the
+      //       hit and bumps AAS for the matched company. Fire-and-forget;
+      //       we don't block the render on it.
+      //   (2) Fetches /api/genki/landing/{code} for personalised content
+      //       (recipient first name, company name) and updates the page.
+      //       Fails open: if the code is unknown or the network fails the
+      //       generic welcome above stays put.
+      //
+      // The code comes from the URL path (Cloudflare Pages rewrite serves
+      // this file for /box/anything via the _redirects rule).
+      // ────────────────────────────────────────────────────────────
+
+      var API_BASE = 'https://app.winpathcrm.com';
+      // TODO(founder): replace with Tsvetelin's Calendly URL once confirmed.
+      // The page works without it — secondary "Send a note" CTA covers
+      // the fallback path until then.
+      var CALENDLY_URL = 'https://calendly.com/genki-pilot/15min';
+
+      function readCode() {
+        // /box/ABC123 or /box/ABC123/ — strip the prefix + any trailing slash.
+        var m = location.pathname.match(/^\/box\/([^\/?#]+)/);
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+
+      function firePixel(code) {
+        if (!code) return;
+        try {
+          // keepalive: true so the request completes even if the user
+          // navigates away within milliseconds.
+          fetch(API_BASE + '/api/genki/signals/qr', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ landing_page_code: code }),
+            keepalive: true,
+            mode: 'cors',
+          }).catch(function () { /* silent */ });
+        } catch (e) { /* silent */ }
+      }
+
+      function fetchLanding(code) {
+        if (!code) return Promise.resolve(null);
+        return fetch(API_BASE + '/api/genki/landing/' + encodeURIComponent(code), {
+          method: 'GET',
+          mode: 'cors',
+        })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; });
+      }
+
+      function renderPersonalisation(data) {
+        if (!data) return;
+        var greeting = document.getElementById('welcome-greeting');
+        var intro = document.getElementById('welcome-intro');
+        if (data.recipient_first_name && greeting) {
+          // Just the first name; full sentence rendered around it.
+          greeting.textContent = 'Welcome, ' + data.recipient_first_name + '.';
+        }
+        if (data.company_name && intro) {
+          intro.innerHTML =
+            'Thanks for taking a moment. The box you just opened was made ' +
+            'for <strong>' + escapeHtml(data.company_name) + '</strong> — ' +
+            'locally sourced from Bulgarian producers, monthly, delivered ' +
+            'to a named desk. No platform to log into, no admin for your team.';
+        }
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (c) {
+          return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+        });
+      }
+
+      function wireCta(code) {
+        var btn = document.getElementById('cta-primary');
+        if (!btn) return;
+        // Best-effort prefill of the Calendly URL with the code so the
+        // founder can identify which scan booked the call.
+        var url = CALENDLY_URL;
+        if (code) {
+          var sep = url.indexOf('?') === -1 ? '?' : '&';
+          url = url + sep + 'utm_source=genki_box&utm_content=' + encodeURIComponent(code);
+        }
+        btn.setAttribute('href', url);
+      }
+
+      // ── Boot ──
+      var code = readCode();
+      firePixel(code);
+      wireCta(code);
+      fetchLanding(code).then(renderPersonalisation);
+    })();
+  </script>
+</body>
+</html>
