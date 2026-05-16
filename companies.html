@@ -42,7 +42,7 @@
 
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="css/custom.css?v=20260510-5">
+  <link rel="stylesheet" href="css/custom.css?v=20260516-1">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -114,16 +114,17 @@
   }
   </script>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased has-hero-dark">
 
   <!-- Skip to main content (a11y) -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-primary-700 focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-primary-600">Skip to main content</a>
   <!-- Header -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-transparent">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <a href="/" class="flex items-center">
-          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24">
+          <img src="assets/images/genki_logo.png" alt="Genki" class="h-24 logo-dark">
+          <img src="assets/images/genki_logo_light.png" alt="" class="h-24 logo-light" aria-hidden="true">
         </a>
         <div class="hidden md:flex items-center space-x-8">
           <a href="/" class="nav-link text-gray-700 hover:text-primary-600 font-medium" data-i18n="nav_home">Home</a>
@@ -174,14 +175,33 @@
   </div>
 
   <!-- 1. HERO SECTION -->
-  <section class="pt-32 pb-12 sm:pt-36 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="badge badge-green mb-4" data-i18n="companies_badge">Ideal for Growing IT Teams</span>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6 fade-up">
-          <span data-i18n="companies_hero_title_1">Wellness your team uses.</span> <span class="gradient-text" data-i18n="companies_hero_title_2">Every workday.</span>
+  <section class="hero-premium">
+    <div class="hero-premium__bg">
+      <picture>
+        <source type="image/webp" media="(max-width: 768px)" srcset="assets/images/hero-companies-mobile.webp">
+        <source type="image/webp" srcset="assets/images/hero-companies-desktop.webp">
+        <source media="(max-width: 768px)" srcset="assets/images/hero-companies-mobile.png">
+        <img src="assets/images/hero-companies-desktop.png"
+             alt="Genki Tower station с напитки в модерен офис"
+             loading="eager" fetchpriority="high" decoding="async"
+             width="1536" height="1024">
+      </picture>
+    </div>
+    <div class="hero-premium__overlay"></div>
+
+    <div class="hero-premium__content">
+      <div class="hero-premium__inner">
+        <span class="hero-premium__badge">
+          <span class="badge-dot" aria-hidden="true">🍃</span>
+          <span data-i18n="companies_badge">Ideal for Growing IT Teams</span>
+        </span>
+
+        <h1 class="hero-premium__title">
+          <span data-i18n="companies_hero_title_1">Wellness your team uses.</span>
+          <span class="hero-premium__title-accent" data-i18n="companies_hero_title_2">Every workday.</span>
         </h1>
-        <p class="text-xl text-gray-600 fade-up" data-i18n="companies_hero_subtitle">
+
+        <p class="hero-premium__subtitle" data-i18n="companies_hero_subtitle">
           Gym memberships sit unused. Genki snacks get eaten every day. Transparent pricing, full management, zero admin work for HR.
         </p>
       </div>
