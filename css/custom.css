@@ -394,17 +394,12 @@ h1, .text-7xl, .text-6xl, .text-5xl {
 
 .hero-premium--narrow .hero-premium__inner {
   width: auto;
-  max-width: 24rem;
+  max-width: 36rem;
   align-self: flex-end;
 }
 
-.hero-premium--narrow .hero-premium__title {
-  font-size: clamp(1.875rem, 3.4vw, 3.25rem);
-}
-
 .hero-premium--narrow .hero-premium__subtitle {
-  max-width: 24rem;
-  font-size: clamp(0.9375rem, 1.1vw, 1rem);
+  max-width: 36rem;
 }
 
 .hero-premium--narrow .hero-premium__overlay {
@@ -434,9 +429,6 @@ h1, .text-7xl, .text-6xl, .text-5xl {
       rgba(0, 0, 0, 0.80) 100%);
   }
 
-  .hero-premium--narrow .hero-premium__title {
-    font-size: clamp(1.625rem, 6vw, 2.125rem);
-  }
 }
 
 /* ==========================================
