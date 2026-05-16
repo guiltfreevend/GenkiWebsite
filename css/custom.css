@@ -393,7 +393,9 @@ h1, .text-7xl, .text-6xl, .text-5xl {
 }
 
 .hero-premium--narrow .hero-premium__inner {
+  width: auto;
   max-width: 24rem;
+  align-self: flex-end;
 }
 
 .hero-premium--narrow .hero-premium__title {
@@ -406,7 +408,7 @@ h1, .text-7xl, .text-6xl, .text-5xl {
 }
 
 .hero-premium--narrow .hero-premium__overlay {
-  background: linear-gradient(90deg,
+  background: linear-gradient(270deg,
     rgba(0, 0, 0, 0.78) 0%,
     rgba(0, 0, 0, 0.62) 18%,
     rgba(0, 0, 0, 0.18) 32%,
@@ -419,7 +421,9 @@ h1, .text-7xl, .text-6xl, .text-5xl {
   }
 
   .hero-premium--narrow .hero-premium__inner {
+    width: 100%;
     max-width: 100%;
+    align-self: stretch;
   }
 
   .hero-premium--narrow .hero-premium__overlay {
