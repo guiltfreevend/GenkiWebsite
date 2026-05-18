@@ -1,183 +1,116 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>Genki × Nexo</title>
-  <meta name="description" content="Вашата персонална Genki Box страница.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://www.genki.bg/box/GK-282320">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Genki × Nexo">
-  <meta property="og:description" content="Вашата персонална Genki Box страница.">
-  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
-  <meta property="og:url" content="https://www.genki.bg/box/GK-282320">
-  <meta property="og:type" content="website">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Umami Analytics -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../../js/tailwind-config.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../css/custom.css?v=20260510-4">
-
-  <style>
-    html:not(.i18n-ready) [data-i18n] { visibility: hidden; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-    .animate-bounce-arrow { animation: bounce-arrow 1.8s ease-in-out infinite; }
-
-    /* Mesh gradient — Nexo navy + cyan accents. */
-    .hero-mesh {
-      background-color: #fffef8;
-      background-image:
-        radial-gradient(ellipse 65% 55% at 12% 18%, rgba(45, 134, 89, 0.50), transparent 70%),
-        radial-gradient(ellipse 40% 45% at 22% 52%, rgba(45, 134, 89, 0.18), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 88% 18%, rgba(27, 79, 112, 0.40), transparent 68%),
-        radial-gradient(ellipse 40% 40% at 76% 50%, rgba(27, 79, 112, 0.16), transparent 68%),
-        radial-gradient(ellipse 55% 38% at 50% 75%, rgba(11, 182, 254, 0.20), transparent 65%),
-        radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 254, 248, 0.55), transparent 70%);
-    }
-
-    .hero-noise::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px 256px;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Nexo wordmark colour — brand navy. */
-    .nexo-mark { color: #1B4F70; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="/box/_shared/box.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 </head>
-<body class="font-sans antialiased bg-[#fffef8]">
+<body>
 
-  <section class="relative w-full h-screen hero-mesh hero-noise overflow-hidden">
+  <section class="hero">
+    <button class="hero-lang" aria-label="Toggle language">BG ▾</button>
 
-    <!-- Header: balanced logo row + centered language switcher -->
-    <header class="absolute top-0 left-0 right-0 z-20">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-6 sm:pt-8 lg:pt-10 flex items-center justify-between gap-4">
-        <a href="/" class="block flex-shrink-0">
-          <img src="../../assets/images/genki_logo.png" alt="Genki" class="h-20 sm:h-24 lg:h-28 w-auto">
-        </a>
-        <div class="flex-shrink-0 flex items-center">
-          <!-- Inline Nexo wordmark — coloured via .nexo-mark class -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="nexo-mark h-10 sm:h-12 lg:h-14 w-auto" viewBox="0 0 220 44" fill="none" aria-label="Nexo">
-            <path d="M117.333 8.85452V35.1433C117.333 35.4054 117.129 35.6169 116.876 35.6169H114.316C113.659 35.6169 113.029 35.3482 112.563 34.868L92.4236 14.1405V35.1455C92.4236 35.4076 92.2194 35.6191 91.9661 35.6191H88.4575C88.2043 35.6191 88 35.4076 88 35.1455V8.85452C88 8.59242 88.2043 8.38098 88.4575 8.38098H91.8534C92.5109 8.38098 93.1428 8.65189 93.6088 9.13423L112.869 29.0425V8.85452C112.869 8.59242 113.074 8.38098 113.327 8.38098H116.874C117.127 8.38098 117.331 8.59242 117.331 8.85452H117.333Z" fill="currentColor"/>
-            <path d="M151.905 32.0089V35.1455C151.905 35.4076 151.696 35.6191 151.437 35.6191H126.012C125.27 35.6191 124.667 35.0089 124.667 34.2578V9.74223C124.667 8.99112 125.27 8.38098 126.012 8.38098H151.051C151.31 8.38098 151.519 8.59244 151.519 8.85455V11.9911C151.519 12.2533 151.31 12.4647 151.051 12.4647H129.242V19.7423H147.59C147.849 19.7423 148.058 19.9538 148.058 20.2159V23.3525C148.058 23.6146 147.849 23.826 147.59 23.826H129.242V31.5309H151.437C151.696 31.5309 151.905 31.7424 151.905 32.0045V32.0089Z" fill="currentColor"/>
-            <path d="M172.508 21.8448L184.291 35.0376C184.49 35.2601 184.336 35.6191 184.044 35.6191H179.485C179.248 35.6191 179.021 35.5178 178.859 35.3372L169.6 25.0361L160.792 34.7998C160.32 35.3239 159.658 35.6191 158.965 35.6191H155.385C155.092 35.6191 154.938 35.2601 155.137 35.0376L166.883 21.8844L155.255 8.96684C155.054 8.74439 155.208 8.38318 155.502 8.38318H160.059C160.296 8.38318 160.523 8.4845 160.683 8.6629L169.829 18.8097L178.449 9.20691C178.921 8.68052 179.585 8.38098 180.279 8.38098H183.888C184.182 8.38098 184.334 8.74219 184.133 8.96464L172.508 21.8448Z" fill="currentColor"/>
-            <path d="M186.41 22C186.41 12.8676 192.803 7.33334 203.165 7.33334C213.527 7.33334 219.918 12.8676 219.918 22C219.918 31.1325 213.525 36.6667 203.165 36.6667C192.806 36.6667 186.41 31.1325 186.41 22ZM215.181 22C215.181 15.2804 210.482 11.5232 203.165 11.5232C195.848 11.5232 191.111 15.2782 191.111 22C191.111 28.7219 195.809 32.4768 203.165 32.4768C210.521 32.4768 215.181 28.7219 215.181 22Z" fill="currentColor"/>
-            <path d="M65.8812 1.2012C65.7841 1.0516 65.6386 0.950401 65.4709 0.915201L63.8652 0.571995C63.552 0.571995 63.305 0.783194 63.2653 1.07359L59.1186 22.8492C59.0392 23.1264 58.5936 23.0736 58.6157 22.77V22.7612L59.8906 0.620395C59.8906 0.303595 59.6568 0.0483946 59.3568 0.0219946C59.22 0.00439463 59.0657 0 58.8936 0C58.5936 0 58.351 0.228799 58.3245 0.527999L56.1189 26.1096C56.1012 26.4308 55.6645 26.4132 55.6336 26.1228L54.2396 0.857999C54.2176 0.589599 54.0014 0.387195 53.6485 0.387195C53.6397 0.387195 53.3088 0.44 53.3088 0.44C53.0618 0.4664 52.8721 0.686395 52.8721 0.950395L53.2868 27.9752C53.278 28.2744 52.8501 28.3096 52.7971 28.0016L48.3108 2.5212C48.2711 2.2352 48.0329 2.0284 47.7461 2.0284C47.6755 2.0284 47.605 2.0416 47.4594 2.1032C47.1859 2.2132 47.0403 2.46399 47.0888 2.71039L50.512 29.282C50.5341 29.5812 50.1106 29.6648 50.0224 29.3788L42.3202 5.6364C42.2319 5.412 42.029 5.2712 41.7952 5.2712C41.6805 5.2712 41.5702 5.3064 41.482 5.3724C41.3232 5.478 41.2394 5.6408 41.2614 5.9664L47.5432 29.7484C47.605 30.03 47.2168 30.1708 47.0712 29.9024L47.058 29.876L37.1545 10.1068C37.0751 9.9484 36.9207 9.8516 36.7486 9.8516C36.6163 9.8516 36.4884 9.9088 36.4089 10.0012C36.3251 10.0804 36.281 10.1948 36.281 10.3136C36.281 10.34 36.3031 10.472 36.3119 10.494L44.6273 29.5196C44.7552 29.7924 44.3714 30.008 44.1906 29.7572L44.1641 29.7176L33.5945 15.0304C33.5107 14.9292 33.3916 14.872 33.2681 14.872C33.2328 14.872 33.0563 14.9424 33.0254 14.96C32.9284 15.026 32.8755 15.1316 32.8755 15.2548C32.8755 15.29 32.9196 15.4484 32.9416 15.4792L40.9482 27.6452C41.1114 27.9004 40.7674 28.1732 40.5468 27.9532C40.5468 27.9532 15.4903 2.7368 15.4771 2.7368C15.4771 2.7368 15.4771 2.7368 15.4771 2.7412C14.5948 1.9008 13.4434 1.4388 12.2347 1.4388C10.1129 1.4388 8.30863 2.8952 7.84544 4.9808L0.0108815 42.306C-0.0244094 42.4776 0.00647011 42.6536 0.10352 42.7988C0.20057 42.9484 0.346144 43.0496 0.518187 43.0848L2.12392 43.428C2.43271 43.428 2.67975 43.2168 2.72386 42.9264L6.86612 21.1596C6.94112 20.8692 7.39548 20.922 7.37784 21.2344L6.10296 43.384C6.10296 43.7008 6.33676 43.956 6.64114 43.9824C6.75584 44 6.88818 44 7.00287 44C7.02052 44 7.09551 44 7.10434 44C7.3999 44 7.64693 43.7712 7.6734 43.472L9.87908 17.8948C9.89672 17.5648 10.3511 17.5824 10.3731 17.8948L11.7583 43.1464C11.7804 43.4148 11.9965 43.6172 12.3494 43.6172C12.3583 43.6172 12.6891 43.5644 12.6891 43.5644C12.9361 43.538 13.1258 43.318 13.1258 43.054L12.7068 16.038C12.7068 15.7256 13.1435 15.6904 13.2008 15.9984L17.6872 41.4788C17.7269 41.7648 17.9651 41.9716 18.2518 41.9716C18.3224 41.9716 18.393 41.9584 18.5386 41.8968C18.8077 41.7912 18.9576 41.5404 18.9091 41.2896L15.4815 14.7312C15.4462 14.4232 15.8829 14.3308 15.9756 14.6212V14.63L23.6778 38.3592C23.766 38.5836 23.9689 38.7288 24.2027 38.7288C24.3174 38.7288 24.4277 38.6936 24.5159 38.6276C24.6748 38.522 24.7586 38.3592 24.7365 38.0292L18.4547 14.256C18.3797 13.9612 18.7812 13.816 18.9268 14.0888L28.8391 33.8844C28.9185 34.0384 29.0729 34.1352 29.2449 34.1352C29.3773 34.1352 29.5052 34.078 29.5846 33.9856C29.664 33.9064 29.7125 33.792 29.7125 33.6732C29.7125 33.6468 29.6905 33.5148 29.6816 33.4928L21.3662 14.4672C21.2383 14.1944 21.6221 13.9788 21.803 14.2296L21.825 14.2604L32.399 28.9564C32.4828 29.0576 32.602 29.1148 32.7255 29.1148C32.7608 29.1148 32.9372 29.0444 32.9637 29.0268C33.0651 28.9608 33.1181 28.8552 33.1181 28.7276C33.1181 28.6924 33.074 28.534 33.0519 28.5032L25.0453 16.3372C24.8821 16.082 25.2262 15.8136 25.4423 16.0248C49.4268 39.9344 50.4944 41.2412 50.5164 41.2412C50.5164 41.2412 50.5164 41.2412 50.5164 41.2368C51.3987 42.0772 52.5501 42.5392 53.7588 42.5392C55.8762 42.5392 57.6805 41.0828 58.1481 38.9972L65.9827 1.6808C66.0179 1.5092 65.9871 1.3332 65.89 1.188L65.8812 1.2012Z" fill="currentColor"/>
-          </svg>
-        </div>
+    <div class="hero-nav">
+      <div class="hero-genki-logo">
+        <img src="/assets/images/genki_logo.png" alt="Genki" />
       </div>
-
-      <div class="absolute top-7 sm:top-9 lg:top-11 left-1/2 -translate-x-1/2 z-30">
-        <div class="relative">
-          <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors text-sm">
-            <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div id="lang-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
-          </div>
-        </div>
+      <div class="hero-company-logo">
+        <img src="/box/_shared/logos/nexo.svg" alt="Nexo" />
       </div>
-    </header>
+    </div>
 
-    <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 text-center">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-5 opacity-0 animate-fade-in-up max-w-3xl" style="line-height: 1.1; letter-spacing: -0.02em; text-shadow: 0 2px 16px rgba(30, 81, 40, 0.12);" data-i18n="box_p_greeting_nexo">
-        Добре дошли в Genki × Nexo
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="word">Genki</span><span class="word">×</span><span class="word">Nexo</span>
       </h1>
-      <p class="text-base sm:text-lg text-gray-600 mb-12 max-w-xl opacity-0 animate-fade-in-up delay-100" style="text-shadow: 0 1px 8px rgba(255, 254, 248, 0.5);" data-i18n="box_personal_subline">
-        Genki кутията е нашият начин да кажем: нека поговорим за благополучието на Вашия екип.
-      </p>
-      <a href="#book" class="opacity-0 animate-fade-in-up delay-200 inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white text-sm font-semibold transition-all hover:opacity-90 shadow-md" style="background: rgba(30, 81, 40, 0.88);">
-        <span data-i18n="box_personal_scroll_cta">Изберете час по-долу</span>
-        <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce-arrow"></i>
-      </a>
+      <p class="hero-sub"
+         data-i18n-bg="Вие движите цифровите активи. Ние движим енергията на хората, които ги изграждат."
+         data-i18n-en="You move digital assets. We move the energy of the people building them.">Вие движите цифровите активи. Ние движим енергията на хората, които ги изграждат.</p>
+      <a href="#book" class="hero-cta" data-scroll-to-book
+         data-i18n-bg="Запазете 30 минути"
+         data-i18n-en="Book 30 minutes">Запазете 30 минути →</a>
+    </div>
+
+    <div class="hero-cue"
+         data-i18n-bg="↓ продължете надолу"
+         data-i18n-en="↓ scroll down">↓ продължете надолу</div>
+  </section>
+
+  <section class="section fade-on-scroll">
+    <div class="section-inner">
+      <span class="pill"
+            data-i18n-bg="Лично за Nexo"
+            data-i18n-en="Personally for Nexo">Лично за Nexo</span>
+      <h2 data-i18n-bg="Nexo движи цифрови активи. Genki движи хората, които ги правят възможни."
+          data-i18n-en="Nexo moves digital assets. Genki moves the people who make them possible.">Nexo движи цифрови активи. Genki движи хората, които ги правят възможни.</h2>
+      <p class="body"
+         data-i18n-bg="Вашата платформа работи 24/7 за милиони потребители по целия свят. Хората, които я поддържат, имат нужда от енергия, която също работи 24/7 — без палмово масло, без боклук, без компромис. Помислихме си — би трябвало да изградим нещо заедно."
+         data-i18n-en="Your platform runs 24/7 for millions of users around the world. The people behind it need energy that runs 24/7 too — no palm oil, no junk, no compromise. We thought — we should build something together.">Вашата платформа работи 24/7 за милиони потребители по целия свят. Хората, които я поддържат, имат нужда от енергия, която също работи 24/7 — без палмово масло, без боклук, без компромис. Помислихме си — би трябвало да изградим нещо заедно.</p>
+      <p class="signature"
+         data-i18n-bg="— Цветелин, основател на Genki"
+         data-i18n-en="— Tsvetelin, founder of Genki">— Цветелин, основател на Genki</p>
     </div>
   </section>
 
-  <section style="background: #fffef8;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-        <div class="w-full lg:w-[360px] lg:flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
-          <p class="text-sm font-semibold text-primary-600 mb-3 tracking-wide uppercase opacity-0 animate-fade-in-up">Genki × Nexo</p>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2 opacity-0 animate-fade-in-up delay-100" data-i18n="box_cal_heading">Нека поговорим</h2>
-          <p class="text-lg text-gray-500 mb-8 opacity-0 animate-fade-in-up delay-100" data-i18n="box_cal_subheading">Кратък въвеждащ разговор</p>
-          <ul class="space-y-5 mb-8 opacity-0 animate-fade-in-up delay-200">
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="clock" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900" data-i18n="box_cal_duration">30 минути</p><p class="text-sm text-gray-500" data-i18n="box_cal_duration_sub">Кратък и ефективен</p></div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="video" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900">Google Meet</p><p class="text-sm text-gray-500" data-i18n="box_cal_meet_sub">Линкът се изпраща след резервацията</p></div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="globe" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900" data-i18n="box_cal_lang">Български или English</p><p class="text-sm text-gray-500" data-i18n="box_cal_lang_sub">Както Ви е удобно</p></div>
-            </li>
-          </ul>
-          <p class="text-gray-600 leading-relaxed opacity-0 animate-fade-in-up delay-300" data-i18n="box_cal_closing">Ще обсъдим нуждите на Вашия екип и какво можем да изградим заедно. Без натиск, без дълги презентации — просто разговор.</p>
+  <section class="section quiet fade-on-scroll">
+    <div class="section-inner">
+      <p class="eye"
+         data-i18n-bg="Какво ни прави различни"
+         data-i18n-en="What makes us different">Какво ни прави различни</p>
+      <h2 data-i18n-bg="Три неща, по които не правим компромис."
+          data-i18n-en="Three things we don't compromise on.">Три неща, по които не правим компромис.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.6 15.84-8.2 17.04Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          </div>
+          <h3 data-i18n-bg="Само здравословно"
+              data-i18n-en="Only the healthy stuff">Само здравословно</h3>
+          <p data-i18n-bg="Без палмово масло. Без E-числа. Без боклук за пълнеж."
+             data-i18n-en="No palm oil. No artificial colors. No filler junk.">Без палмово масло. Без E-числа. Без боклук за пълнеж.</p>
         </div>
-        <div class="w-full lg:flex-1 min-w-0" id="book" style="scroll-margin-top: 32px;">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/hello-genki/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=fffef8&text_color=1e5128&primary_color=2d8659" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 data-i18n-bg="100% от България"
+              data-i18n-en="100% Bulgarian">100% от България</h3>
+          <p data-i18n-bg="Smart Organic, VIDAS, Roobar, Frudada. Местни. Признати."
+             data-i18n-en="Smart Organic, VIDAS, Roobar, Frudada. Local. Recognized.">Smart Organic, VIDAS, Roobar, Frudada. Местни. Признати.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n-bg="10% от печалбата"
+              data-i18n-en="10% of profit">10% от печалбата</h3>
+          <p data-i18n-bg="Дарени всеки месец. Видимо. Отчетено. Без катче."
+             data-i18n-en="Donated every month. Visible. Reported. No catch.">Дарени всеки месец. Видимо. Отчетено. Без катче.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-6 text-center" style="background: #fffef8;">
-    <p class="text-sm text-gray-400">
-      <span data-i18n="box_personal_footer_questions">Въпроси?</span>
-      <a href="mailto:hello@genki.bg" class="text-primary-600 hover:text-primary-700 font-medium ml-1">hello@genki.bg</a>
-    </p>
-  </footer>
+  <section class="final fade-on-scroll" id="book">
+    <h2 data-i18n-bg="Нека поговорим."
+        data-i18n-en="Let's talk.">Нека поговорим.<br><span class="accent">30 минути.</span></h2>
+    <p data-i18n-bg="Без презентация. Без натиск. Просто разговор за това какво бихме могли да изградим за вашия екип."
+       data-i18n-en="No presentation. No pressure. Just a conversation about what we could build for your team.">Без презентация. Без натиск. Просто разговор за това какво бихме могли да изградим за вашия екип.</p>
+    <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener" class="final-cta"
+       data-i18n-bg="Виж свободни часове →"
+       data-i18n-en="See available times →">Виж свободни часове →</a>
+  </section>
 
-  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-  <script src="../../js/translations.js"></script>
-  <script>
-    translations.box_p_greeting_nexo = { en: "Welcome to Genki × Nexo", bg: "Добре дошли в Genki × Nexo" };
-    lucide.createIcons();
-    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('opacity-0'); entry.target.classList.add('animate-fade-in-up'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-    document.querySelectorAll('section:nth-of-type(2) .opacity-0').forEach(el => { observer.observe(el); });
-  </script>
+  <footer class="footer">genki.bg · nexo</footer>
+
+  <script src="/box/_shared/box.js"></script>
 </body>
 </html>

@@ -1,173 +1,116 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>Genki × OfficeRnD</title>
-  <meta name="description" content="Вашата персонална Genki Box страница.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://www.genki.bg/box/GK-77D809">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Genki × OfficeRnD">
-  <meta property="og:description" content="Вашата персонална Genki Box страница.">
-  <meta property="og:image" content="https://www.genki.bg/assets/images/genki_logo.png">
-  <meta property="og:url" content="https://www.genki.bg/box/GK-77D809">
-  <meta property="og:type" content="website">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Umami Analytics -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="b83e1451-572d-4fb9-ae94-8a67551846b4"></script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../../js/tailwind-config.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../css/custom.css?v=20260510-4">
-
-  <style>
-    html:not(.i18n-ready) [data-i18n] { visibility: hidden; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-    .animate-bounce-arrow { animation: bounce-arrow 1.8s ease-in-out infinite; }
-
-    /* Mesh gradient — OfficeRnD brand deep-navy (#001B66) + cyan accent. */
-    .hero-mesh {
-      background-color: #fffef8;
-      background-image:
-        radial-gradient(ellipse 65% 55% at 12% 18%, rgba(45, 134, 89, 0.50), transparent 70%),
-        radial-gradient(ellipse 40% 45% at 22% 52%, rgba(45, 134, 89, 0.18), transparent 70%),
-        radial-gradient(ellipse 65% 55% at 88% 18%, rgba(0, 27, 102, 0.42), transparent 70%),
-        radial-gradient(ellipse 40% 45% at 78% 52%, rgba(0, 27, 102, 0.18), transparent 70%),
-        radial-gradient(ellipse 55% 38% at 50% 76%, rgba(20, 184, 166, 0.18), transparent 65%),
-        radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 254, 248, 0.55), transparent 70%);
-    }
-
-    .hero-noise::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px 256px;
-      pointer-events: none;
-      z-index: 1;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="/box/_shared/box.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 </head>
-<body class="font-sans antialiased bg-[#fffef8]">
+<body>
 
-  <section class="relative w-full h-screen hero-mesh hero-noise overflow-hidden">
+  <section class="hero">
+    <button class="hero-lang" aria-label="Toggle language">BG ▾</button>
 
-    <!-- Header: balanced logo row + centered language switcher -->
-    <header class="absolute top-0 left-0 right-0 z-20">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-6 sm:pt-8 lg:pt-10 flex items-center justify-between gap-4">
-        <a href="/" class="block flex-shrink-0">
-          <img src="../../assets/images/genki_logo.png" alt="Genki" class="h-20 sm:h-24 lg:h-28 w-auto">
-        </a>
-        <div class="flex-shrink-0 flex items-center">
-          <img src="../_assets/logos/OfficeRnD_logo.svg" alt="OfficeRnD" class="h-7 sm:h-8 lg:h-9 w-auto object-contain">
-        </div>
+    <div class="hero-nav">
+      <div class="hero-genki-logo">
+        <img src="/assets/images/genki_logo.png" alt="Genki" />
       </div>
-
-      <div class="absolute top-7 sm:top-9 lg:top-11 left-1/2 -translate-x-1/2 z-30">
-        <div class="relative">
-          <button id="lang-toggle" class="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-700 hover:bg-white/50 font-medium transition-colors text-sm">
-            <span id="lang-current"><span class="mr-1">🇬🇧</span> EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div id="lang-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50">
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="en"><span>🇬🇧</span> English</a>
-            <a href="#" class="lang-option flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors" data-lang="bg"><span>🇧🇬</span> Български</a>
-          </div>
-        </div>
+      <div class="hero-company-logo">
+        <img src="/box/_shared/logos/officernd.svg" alt="OfficeRnD" />
       </div>
-    </header>
+    </div>
 
-    <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 text-center">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-5 opacity-0 animate-fade-in-up max-w-3xl" style="line-height: 1.1; letter-spacing: -0.02em; text-shadow: 0 2px 16px rgba(30, 81, 40, 0.12);" data-i18n="box_p_greeting_officernd">
-        Добре дошли в Genki × OfficeRnD
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="word">Genki</span><span class="word">×</span><span class="word">OfficeRnD</span>
       </h1>
-      <p class="text-base sm:text-lg text-gray-600 mb-12 max-w-xl opacity-0 animate-fade-in-up delay-100" style="text-shadow: 0 1px 8px rgba(255, 254, 248, 0.5);" data-i18n="box_personal_subline">
-        Genki кутията е нашият начин да кажем: нека поговорим за благополучието на Вашия екип.
-      </p>
-      <a href="#book" class="opacity-0 animate-fade-in-up delay-200 inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white text-sm font-semibold transition-all hover:opacity-90 shadow-md" style="background: rgba(30, 81, 40, 0.88);">
-        <span data-i18n="box_personal_scroll_cta">Изберете час по-долу</span>
-        <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce-arrow"></i>
-      </a>
+      <p class="hero-sub"
+         data-i18n-bg="Вие управлявате работното пространство. Ние се грижим за хората в него."
+         data-i18n-en="You manage the workspace. We care for the people inside it.">Вие управлявате работното пространство. Ние се грижим за хората в него.</p>
+      <a href="#book" class="hero-cta" data-scroll-to-book
+         data-i18n-bg="Запазете 30 минути"
+         data-i18n-en="Book 30 minutes">Запазете 30 минути →</a>
+    </div>
+
+    <div class="hero-cue"
+         data-i18n-bg="↓ продължете надолу"
+         data-i18n-en="↓ scroll down">↓ продължете надолу</div>
+  </section>
+
+  <section class="section fade-on-scroll">
+    <div class="section-inner">
+      <span class="pill"
+            data-i18n-bg="Лично за OfficeRnD"
+            data-i18n-en="Personally for OfficeRnD">Лично за OfficeRnD</span>
+      <h2 data-i18n-bg="OfficeRnD управлява пространства. Genki ги превръща в места."
+          data-i18n-en="OfficeRnD manages spaces. Genki turns them into places.">OfficeRnD управлява пространства. Genki ги превръща в места.</h2>
+      <p class="body"
+         data-i18n-bg="Вашата платформа дава контрол върху работното пространство. Genki добавя това, което все още липсва вътре — ежедневна уелнес инфраструктура, която хората използват и помнят. Помислихме си — би трябвало да изградим нещо заедно."
+         data-i18n-en="Your platform gives control over the workspace. Genki adds what's still missing inside — daily wellness infrastructure people use and remember. We thought — we should build something together.">Вашата платформа дава контрол върху работното пространство. Genki добавя това, което все още липсва вътре — ежедневна уелнес инфраструктура, която хората използват и помнят. Помислихме си — би трябвало да изградим нещо заедно.</p>
+      <p class="signature"
+         data-i18n-bg="— Цветелин, основател на Genki"
+         data-i18n-en="— Tsvetelin, founder of Genki">— Цветелин, основател на Genki</p>
     </div>
   </section>
 
-  <section style="background: #fffef8;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-        <div class="w-full lg:w-[360px] lg:flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
-          <p class="text-sm font-semibold text-primary-600 mb-3 tracking-wide uppercase opacity-0 animate-fade-in-up">Genki × OfficeRnD</p>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2 opacity-0 animate-fade-in-up delay-100" data-i18n="box_cal_heading">Нека поговорим</h2>
-          <p class="text-lg text-gray-500 mb-8 opacity-0 animate-fade-in-up delay-100" data-i18n="box_cal_subheading">Кратък въвеждащ разговор</p>
-          <ul class="space-y-5 mb-8 opacity-0 animate-fade-in-up delay-200">
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="clock" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900" data-i18n="box_cal_duration">30 минути</p><p class="text-sm text-gray-500" data-i18n="box_cal_duration_sub">Кратък и ефективен</p></div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="video" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900">Google Meet</p><p class="text-sm text-gray-500" data-i18n="box_cal_meet_sub">Линкът се изпраща след резервацията</p></div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center mt-0.5"><i data-lucide="globe" class="w-4 h-4 text-primary-600"></i></div>
-              <div><p class="font-semibold text-gray-900" data-i18n="box_cal_lang">Български или English</p><p class="text-sm text-gray-500" data-i18n="box_cal_lang_sub">Както Ви е удобно</p></div>
-            </li>
-          </ul>
-          <p class="text-gray-600 leading-relaxed opacity-0 animate-fade-in-up delay-300" data-i18n="box_cal_closing">Ще обсъдим нуждите на Вашия екип и какво можем да изградим заедно. Без натиск, без дълги презентации — просто разговор.</p>
+  <section class="section quiet fade-on-scroll">
+    <div class="section-inner">
+      <p class="eye"
+         data-i18n-bg="Какво ни прави различни"
+         data-i18n-en="What makes us different">Какво ни прави различни</p>
+      <h2 data-i18n-bg="Три неща, по които не правим компромис."
+          data-i18n-en="Three things we don't compromise on.">Три неща, по които не правим компромис.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.6 15.84-8.2 17.04Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          </div>
+          <h3 data-i18n-bg="Само здравословно"
+              data-i18n-en="Only the healthy stuff">Само здравословно</h3>
+          <p data-i18n-bg="Без палмово масло. Без E-числа. Без боклук за пълнеж."
+             data-i18n-en="No palm oil. No artificial colors. No filler junk.">Без палмово масло. Без E-числа. Без боклук за пълнеж.</p>
         </div>
-        <div class="w-full lg:flex-1 min-w-0" id="book" style="scroll-margin-top: 32px;">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/hello-genki/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=fffef8&text_color=1e5128&primary_color=2d8659" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 data-i18n-bg="100% от България"
+              data-i18n-en="100% Bulgarian">100% от България</h3>
+          <p data-i18n-bg="Smart Organic, VIDAS, Roobar, Frudada. Местни. Признати."
+             data-i18n-en="Smart Organic, VIDAS, Roobar, Frudada. Local. Recognized.">Smart Organic, VIDAS, Roobar, Frudada. Местни. Признати.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n-bg="10% от печалбата"
+              data-i18n-en="10% of profit">10% от печалбата</h3>
+          <p data-i18n-bg="Дарени всеки месец. Видимо. Отчетено. Без катче."
+             data-i18n-en="Donated every month. Visible. Reported. No catch.">Дарени всеки месец. Видимо. Отчетено. Без катче.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-6 text-center" style="background: #fffef8;">
-    <p class="text-sm text-gray-400">
-      <span data-i18n="box_personal_footer_questions">Въпроси?</span>
-      <a href="mailto:hello@genki.bg" class="text-primary-600 hover:text-primary-700 font-medium ml-1">hello@genki.bg</a>
-    </p>
-  </footer>
+  <section class="final fade-on-scroll" id="book">
+    <h2 data-i18n-bg="Нека поговорим."
+        data-i18n-en="Let's talk.">Нека поговорим.<br><span class="accent">30 минути.</span></h2>
+    <p data-i18n-bg="Без презентация. Без натиск. Просто разговор за това какво бихме могли да изградим за вашия екип."
+       data-i18n-en="No presentation. No pressure. Just a conversation about what we could build for your team.">Без презентация. Без натиск. Просто разговор за това какво бихме могли да изградим за вашия екип.</p>
+    <a href="https://calendly.com/hello-genki/30min" target="_blank" rel="noopener" class="final-cta"
+       data-i18n-bg="Виж свободни часове →"
+       data-i18n-en="See available times →">Виж свободни часове →</a>
+  </section>
 
-  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-  <script src="../../js/translations.js"></script>
-  <script>
-    translations.box_p_greeting_officernd = { en: "Welcome to Genki × OfficeRnD", bg: "Добре дошли в Genki × OfficeRnD" };
-    lucide.createIcons();
-    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('opacity-0'); entry.target.classList.add('animate-fade-in-up'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-    document.querySelectorAll('section:nth-of-type(2) .opacity-0').forEach(el => { observer.observe(el); });
-  </script>
+  <footer class="footer">genki.bg · officernd</footer>
+
+  <script src="/box/_shared/box.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Genki × Chaos</title>
+  <title>Genki × {{COMPANY_NAME}}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
@@ -23,17 +23,17 @@
         <img src="/assets/images/genki_logo.png" alt="Genki" />
       </div>
       <div class="hero-company-logo">
-        <img src="/box/_shared/logos/chaos.svg" alt="Chaos" />
+        <img src="/box/_shared/logos/{{COMPANY_SLUG}}.svg" alt="{{COMPANY_NAME}}" />
       </div>
     </div>
 
     <div class="hero-content">
       <h1 class="hero-title">
-        <span class="word">Genki</span><span class="word">×</span><span class="word">Chaos</span>
+        <span class="word">Genki</span><span class="word">×</span><span class="word">{{COMPANY_NAME}}</span>
       </h1>
       <p class="hero-sub"
-         data-i18n-bg="Вие правите светове, които изглеждат истински. Ние правим грижата за хората, които ги създават, истинска."
-         data-i18n-en="You make worlds that look real. We make the care for the people creating them real.">Вие правите светове, които изглеждат истински. Ние правим грижата за хората, които ги създават, истинска.</p>
+         data-i18n-bg="{{HERO_SUB_BG}}"
+         data-i18n-en="{{HERO_SUB_EN}}">{{HERO_SUB_BG}}</p>
       <a href="#book" class="hero-cta" data-scroll-to-book
          data-i18n-bg="Запазете 30 минути"
          data-i18n-en="Book 30 minutes">Запазете 30 минути →</a>
@@ -47,13 +47,13 @@
   <section class="section fade-on-scroll">
     <div class="section-inner">
       <span class="pill"
-            data-i18n-bg="Лично за Chaos"
-            data-i18n-en="Personally for Chaos">Лично за Chaos</span>
-      <h2 data-i18n-bg="Chaos прави светове, които изглеждат истински. Genki прави грижата истинска."
-          data-i18n-en="Chaos makes worlds look real. Genki makes the care real.">Chaos прави светове, които изглеждат истински. Genki прави грижата истинска.</h2>
+            data-i18n-bg="Лично за {{COMPANY_NAME}}"
+            data-i18n-en="Personally for {{COMPANY_NAME}}">Лично за {{COMPANY_NAME}}</span>
+      <h2 data-i18n-bg="{{PERSONAL_HEADLINE_BG}}"
+          data-i18n-en="{{PERSONAL_HEADLINE_EN}}">{{PERSONAL_HEADLINE_BG}}</h2>
       <p class="body"
-         data-i18n-bg="Вашите инструменти осветяват сцени, които никой все още не е виждал. Genki осветява нещо по-малко зрелищно, но също толкова важно — ежедневното благополучие на екипа, който ги изгражда. Помислихме си — би трябвало да изградим нещо заедно."
-         data-i18n-en="Your tools light up scenes no one has seen before. Genki lights up something less spectacular but just as important — the daily wellbeing of the team building them. We thought — we should build something together.">Вашите инструменти осветяват сцени, които никой все още не е виждал. Genki осветява нещо по-малко зрелищно, но също толкова важно — ежедневното благополучие на екипа, който ги изгражда. Помислихме си — би трябвало да изградим нещо заедно.</p>
+         data-i18n-bg="{{PERSONAL_BODY_BG}}"
+         data-i18n-en="{{PERSONAL_BODY_EN}}">{{PERSONAL_BODY_BG}}</p>
       <p class="signature"
          data-i18n-bg="— Цветелин, основател на Genki"
          data-i18n-en="— Tsvetelin, founder of Genki">— Цветелин, основател на Genki</p>
@@ -109,7 +109,7 @@
        data-i18n-en="See available times →">Виж свободни часове →</a>
   </section>
 
-  <footer class="footer">genki.bg · chaos</footer>
+  <footer class="footer">genki.bg · {{COMPANY_SLUG}}</footer>
 
   <script src="/box/_shared/box.js"></script>
 </body>
