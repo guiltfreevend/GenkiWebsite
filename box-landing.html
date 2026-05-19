@@ -3,6 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Cached-redirect rescue: visitors whose browsers still hold the
+       2026-05-15 /box/:code → /box-landing?code=:code 301 in cache will
+       land here with ?code=GK-XXXXXX in the URL. Forward them to the
+       real partner page before any layout renders. -->
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var code = (params.get('code') || '').toUpperCase();
+        if (/^GK-[A-Z0-9]{6}$/.test(code)) {
+          window.location.replace('/box/' + code + '/');
+        }
+      } catch (e) { /* fall through to the static page */ }
+    })();
+  </script>
+
   <meta name="description" content="Your Genki wellness box has arrived. Take a look inside.">
   <title>Welcome — Genki</title>
   <meta name="robots" content="noindex, nofollow">
