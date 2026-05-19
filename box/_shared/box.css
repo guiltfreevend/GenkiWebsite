@@ -8,10 +8,19 @@
   --black-ink: #0e0e10;
   --black-foot: #0a0a0c;
   --cream: #fafaf8;
+  /* Hero gradient — left half (sage) belongs to Genki and is fixed.
+     The right half (mid-2 + end) takes the PARTNER's brand colour and
+     is overridden per page via an inline <style> after this file. */
   --gradient-start: #d6e6cb;
   --gradient-mid-1: #eef1ea;
   --gradient-mid-2: #ebe9f1;
   --gradient-end: #d4d3e6;
+  /* Drifting radial blobs — left is sage (Genki), right is partner-tinted */
+  --hero-blob-left: rgba(155, 197, 134, 0.5);
+  --hero-blob-right: rgba(166, 156, 196, 0.5);
+  /* Partner logo container height — overridden per page based on the
+     logo's aspect ratio and internal padding */
+  --partner-logo-h: clamp(34px, 3.5vw, 50px);
   /* Final section uses a deep matte forest — premium, restrained, on-brand */
   --final-bg: #3d5740;
   --final-foot: #1e5128;
@@ -50,8 +59,8 @@ body {
   position: absolute;
   inset: -25%;
   background:
-    radial-gradient(circle at 22% 28%, rgba(155,197,134,0.5), transparent 42%),
-    radial-gradient(circle at 78% 72%, rgba(166,156,196,0.5), transparent 42%);
+    radial-gradient(circle at 22% 28%, var(--hero-blob-left), transparent 42%),
+    radial-gradient(circle at 78% 38%, var(--hero-blob-right), transparent 42%);
   animation: drift 16s ease-in-out infinite;
   pointer-events: none;
   filter: blur(40px);
@@ -92,10 +101,12 @@ body {
 }
 
 .hero-company-logo {
-  /* Container for company logo image OR styled wordmark */
+  /* Container for company logo image OR styled wordmark.
+     Height comes from --partner-logo-h, overridden per page based on
+     each logo's aspect ratio and internal padding. */
   opacity: 0;
   animation: fade 0.7s 0.15s forwards;
-  height: clamp(34px, 3.5vw, 50px);
+  height: var(--partner-logo-h);
 }
 
 .hero-company-logo img {

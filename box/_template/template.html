@@ -9,6 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
   <link rel="stylesheet" href="/box/_shared/box.css" />
+  <style>
+    /* {{COMPANY_NAME}} — set the right half of the hero to a soft pastel
+       of the partner's brand colour, and the radial blob behind the
+       partner logo to a translucent saturated version. Pick a logo
+       height so the rendered logo reads as visually equal to Genki. */
+    :root {
+      --gradient-mid-2: {{PARTNER_TINT_LIGHT}};
+      --gradient-end: {{PARTNER_TINT_DEEP}};
+      --hero-blob-right: {{PARTNER_BLOB_RGBA}};
+      --partner-logo-h: {{PARTNER_LOGO_HEIGHT}};
+    }
+  </style>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
