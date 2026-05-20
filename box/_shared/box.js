@@ -1,5 +1,32 @@
 // Genki Box Landing — shared behavior
 
+// ── QR-scan signal ──────────────────────────────────────────────
+// Partner box pages live at /box/GK-XXXXXX/. On load, fire a
+// fire-and-forget pixel to WinPath so the engine records the scan —
+// mirrors the signal box-landing.html already sends. Skipped on
+// localhost and when ?notrack=1 is present, so test hits don't
+// pollute the data. Silent on network failure.
+(function () {
+  try {
+    if (location.hostname === 'localhost') return;
+    if (new URLSearchParams(location.search).get('notrack') === '1') return;
+
+    var match = location.pathname.match(/\/box\/(GK-[A-F0-9]+)/i);
+    if (!match) return;
+    var code = match[1].toUpperCase();
+
+    // keepalive: true so the request completes even if the visitor
+    // navigates away within milliseconds.
+    fetch('https://app.winpathcrm.com/api/genki/signals/qr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ landing_page_code: code }),
+      keepalive: true,
+      mode: 'cors',
+    }).catch(function () { /* silent */ });
+  } catch (e) { /* silent */ }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // Fade-on-scroll for sections 2, 3, 4
   const observer = new IntersectionObserver((entries) => {
