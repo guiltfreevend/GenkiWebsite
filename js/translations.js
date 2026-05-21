@@ -3147,8 +3147,8 @@ const translations = {
     bg: "Кратък въвеждащ разговор"
   },
   box_cal_duration: {
-    en: "30 minutes",
-    bg: "30 минути"
+    en: "15 minutes",
+    bg: "15 минути"
   },
   box_cal_duration_sub: {
     en: "Short and effective",

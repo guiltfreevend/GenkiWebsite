@@ -97,7 +97,7 @@ See `/box/_shared/box.css` for the full CSS spec and `/box/_shared/box.js` for t
 
 Saved as `/box/_template/template.html`. Every new company page is generated from this by replacing the `{{double-brace}}` placeholders.
 
-**Note on the final `<h2>`:** the Bulgarian and English `data-i18n` attributes only carry the first line. The `<br>` and `<span class="accent">30 минути.</span>` are static and stay rendered. When you wire the language toggle, only the first part swaps — translate the accent line by adding a separate `<span data-i18n-bg="30 минути." data-i18n-en="30 minutes.">` if you want a fully bilingual closing.
+**Note on the final `<h2>`:** the Bulgarian and English `data-i18n` attributes only carry the first line. The `<br>` and `<span class="accent">15 минути.</span>` are static and stay rendered. When you wire the language toggle, only the first part swaps — translate the accent line by adding a separate `<span data-i18n-bg="15 минути." data-i18n-en="15 minutes.">` if you want a fully bilingual closing.
 
 ---
 
