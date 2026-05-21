@@ -18,12 +18,6 @@
   force = true
 
 [[redirects]]
-  from = "/products"
-  to = "/"
-  status = 302
-  force = true
-
-[[redirects]]
   from = "/contact"
   to = "/"
   status = 302

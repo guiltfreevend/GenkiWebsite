@@ -8,7 +8,7 @@
 B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks & drinks to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
 
 ## Tech Stack
-- **Static HTML** site (12 active pages) hosted on **Cloudflare Pages** (project: `genkiwebsite`)
+- **Static HTML** site (11 active pages) hosted on **Cloudflare Pages** (project: `genkiwebsite`)
 - **Tailwind CSS** via CDN (pinned to v3.4.17) - config in `js/tailwind-config.js`
 - **Lucide icons** via CDN (pinned to v0.344.0)
 - **Custom CSS** in `css/custom.css` (CSS variables, component styles, animations)
@@ -24,7 +24,6 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks 
 / (root = Cloudflare Pages publish directory)
   index.html          - Homepage (main landing page)
   companies.html      - B2B sales page with pricing tiers
-  products.html       - Product catalog
   mission.html        - Three pillars + "Why Genki?" etymology
   contact.html        - Contact form (Formspree)
   office.html         - B2B ROI landing page with Cloudflare Worker form
@@ -84,23 +83,22 @@ The site deploys to **Cloudflare Pages** via **Wrangler CLI** for instant deploy
 - **Wrangler auth**: `CLOUDFLARE_API_TOKEN` is set in `~/.zshrc`. If it stops working, create a new token at https://dash.cloudflare.com/profile/api-tokens (use "Edit Cloudflare Workers" template).
 
 ## Known Architecture Decisions
-- **Header/footer is duplicated** across all HTML files (~170 lines each). This is intentional for now (no build step). When updating nav links or footer content, you MUST update ALL 10 active HTML files.
+- **Header/footer is duplicated** across all HTML files (~170 lines each). This is intentional for now (no build step). When updating nav links or footer content, you MUST update ALL 9 active HTML files.
 - **Tailwind config is externalized** to `js/tailwind-config.js` - single source of truth for the color palette.
 - **CDN versions are pinned** - do not use `@latest` for any CDN dependency.
 - **Orphan pages** (index-main.html, index-coming-soon.html) have been moved to `Backups/`.
 
 ## Header/Footer Update Checklist
-When changing the navigation, header, or footer, update these 10 files:
+When changing the navigation, header, or footer, update these 9 files:
 1. index.html
 2. companies.html
-3. products.html
-4. mission.html
-5. contact.html
-6. privacy.html
-7. privacy-en.html
-8. thank-you-contact.html
-9. thank-you-coming-soon.html
-10. roi-calculator.html
+3. mission.html
+4. contact.html
+5. privacy.html
+6. privacy-en.html
+7. thank-you-contact.html
+8. thank-you-coming-soon.html
+9. roi-calculator.html
 
 ## Improvement Roadmap
 Completed:

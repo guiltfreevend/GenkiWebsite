@@ -8,3 +8,7 @@
 # box-landing.html via a 301 below; the per-code rule was removed because
 # it was hijacking the partner pages.
 /box   /box-landing   301
+
+# Products page retired 2026-05-21 — may return rebranded later.
+# 302 (not 301) so the redirect is not permanently cached.
+/products   /   302

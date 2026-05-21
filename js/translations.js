@@ -166,10 +166,6 @@ const translations = {
     en: "Our Mission",
     bg: "Нашата мисия"
   },
-  nav_products: {
-    en: "Products",
-    bg: "Продукти"
-  },
   nav_contact: {
     en: "Contact",
     bg: "Контакти"
