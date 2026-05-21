@@ -214,10 +214,6 @@ const translations = {
     en: "Managed wellness infrastructure for workplaces in Bulgaria. 100% Bulgarian-made products. 10% of real profit donated monthly.",
     bg: "Управлявана уелнес инфраструктура за работни места в България. 100% български продукти. 10% от реалната печалба дарени всеки месец."
   },
-  footer_badge: {
-    en: "🇧🇬 Made in Bulgaria",
-    bg: "🇧🇬 Произведено в България"
-  },
   footer_badge_text: {
     en: "Made in Bulgaria",
     bg: "Произведено в България"
