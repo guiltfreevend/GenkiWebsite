@@ -49,6 +49,7 @@
 - 2026-02-18: Removed link to password-protected ROI calculator from office landing page
 - 2026-02-18: Added break hours saved display to companies.html and office.html calculators
 - 2026-03-19: Added persistent handoff system for cross-session continuity
+- 2026-05-21: Added test company box page at /box/GK-7E5700/ — internal sandbox for QR scan -> WinPath sync verification (real-scan mode, hex code, self-heal auto-registers)
 
 ## Permanent Rules & Decisions
 - Header/footer is duplicated across all HTML files (~170 lines each) — intentional, no build step. Must update ALL 10 active files when changing nav/footer

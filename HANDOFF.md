@@ -4,6 +4,7 @@
 Pre-launch B2B wellness website. Recent work on office landing page calculator improvements.
 
 ## Recently Completed
+- 2026-05-21: Added test company box page at /box/GK-7E5700/ ("Test Company") — internal sandbox to verify the QR scan -> WinPath sync end-to-end. Live, deployed via GitHub auto-deploy.
 - Synced all local changes to GitHub
 - Added break hours saved display to companies.html and office.html calculators
 - Removed link to password-protected ROI calculator from office landing page
