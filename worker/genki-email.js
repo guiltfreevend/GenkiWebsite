@@ -101,7 +101,7 @@ export default {
         </td></tr>
 
         <tr><td style="padding:18px 4px 8px 4px;">
-          <a href="https://calendly.com/hello-genki/30min" style="color:#1e5128; font-weight:700; text-decoration:underline; font-size:15px;">Запазете консултация →</a>
+          <a href="https://calendly.com/hello-genki/15min" style="color:#1e5128; font-weight:700; text-decoration:underline; font-size:15px;">Запазете консултация →</a>
         </td></tr>
 
         <tr><td style="padding:18px 4px 0 4px; font-size:15px; line-height:1.65; color:#1f2937;">
@@ -135,7 +135,7 @@ export default {
 Финансовата страна също се подрежда добре: ${eur(netBenefit)} нетна годишна полза, ROI от ${roiPercent}%, възвръщаемост за ${payback} месеца. Числата идват от 43 рецензирани изследвания за уелнес на работното място.
 
 Ако това звучи като нещо, което би подхождало на Вашия екип, 15 минути разговор ще ни стигнат да Ви покажем какво точно бихме направили:
-https://calendly.com/hello-genki/30min
+https://calendly.com/hello-genki/15min
 
 Ако имате въпроси преди това, просто отговорете на този имейл.
 
