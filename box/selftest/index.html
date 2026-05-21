@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Genki Box — Self-test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="/box/_shared/box.css" />
+  <style>
+    /* Self-test toggle — all-Genki sage hero (no partner colour) */
+    :root {
+      --gradient-mid-2: #e4ede0;
+      --gradient-end: #cfe0c4;
+      --hero-blob-right: rgba(155, 197, 134, 0.45);
+    }
+
+    .st-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: clamp(28px, 5vw, 44px);
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    .st-card h1 {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 500;
+      letter-spacing: -1px;
+      color: var(--black-ink);
+      margin: 0 0 14px;
+    }
+
+    .st-intro {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 26px;
+    }
+
+    .st-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .st-status.on {
+      background: rgba(45, 74, 35, 0.09);
+      color: var(--green-deep);
+    }
+
+    .st-status.off {
+      background: rgba(0, 0, 0, 0.05);
+      color: rgba(0, 0, 0, 0.62);
+    }
+
+    .st-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .st-status.on .st-dot { background: #2d8659; }
+    .st-status.off .st-dot { background: rgba(0, 0, 0, 0.3); }
+
+    .st-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 28px;
+      background: var(--green-deep);
+      color: #fff;
+      border: none;
+      border-radius: 99px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .st-btn:hover {
+      background: #1f3818;
+      transform: translateY(-1px);
+    }
+
+    .st-note {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 18px 0 0;
+    }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+</head>
+<body>
+
+  <section class="hero">
+    <button class="hero-lang" aria-label="Toggle language">BG ▾</button>
+
+    <div class="hero-nav">
+      <div class="hero-genki-logo">
+        <img src="/assets/images/genki_logo.png" alt="Genki" />
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="st-card">
+        <h1 id="st-title">Режим самотест</h1>
+        <p class="st-intro" id="st-intro">Когато е включен, сканиранията от Вашия телефон се изпращат към WinPath, но се отбелязват като тестови и не се отчитат като реални.</p>
+
+        <div class="st-status off" id="st-status" aria-live="polite">
+          <span class="st-dot" aria-hidden="true"></span>
+          <span id="st-msg">Самотестът е изключен — Вашите сканирания се отчитат като реални</span>
+        </div>
+
+        <button type="button" class="st-btn" id="st-btn">Включи самотеста</button>
+
+        <p class="st-note" id="st-note">Настройката се запазва само на този телефон и в този браузър.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">genki.bg · self-test</footer>
+
+  <script>
+    (function () {
+      var KEY = 'genki_selftest';
+      var lang = 'bg';
+
+      var T = {
+        bg: {
+          langLabel: 'BG ▾',
+          title: 'Режим самотест',
+          intro: 'Когато е включен, сканиранията от Вашия телефон се изпращат към WinPath, но се отбелязват като тестови и не се отчитат като реални.',
+          on: 'Самотестът е включен — Вашите сканирания няма да се отчитат',
+          off: 'Самотестът е изключен — Вашите сканирания се отчитат като реални',
+          turnOn: 'Включи самотеста',
+          turnOff: 'Изключи самотеста',
+          note: 'Настройката се запазва само на този телефон и в този браузър.'
+        },
+        en: {
+          langLabel: 'EN ▾',
+          title: 'Self-test mode',
+          intro: 'When on, scans from your phone are still sent to WinPath but flagged as test scans, so they do not count as real.',
+          on: "Self-test ON — your scans won't count",
+          off: 'Self-test OFF — your scans count as real',
+          turnOn: 'Turn on self-test',
+          turnOff: 'Turn off self-test',
+          note: 'This setting is saved only on this phone, in this browser.'
+        }
+      };
+
+      var statusEl = document.getElementById('st-status');
+      var msgEl = document.getElementById('st-msg');
+      var btnEl = document.getElementById('st-btn');
+      var langBtn = document.querySelector('.hero-lang');
+
+      function isOn() {
+        try {
+          return localStorage.getItem(KEY) === '1';
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function setOn(val) {
+        try {
+          if (val) localStorage.setItem(KEY, '1');
+          else localStorage.removeItem(KEY);
+        } catch (e) { /* localStorage unavailable — nothing to persist */ }
+      }
+
+      function render() {
+        var t = T[lang];
+        var on = isOn();
+
+        document.documentElement.setAttribute('lang', lang);
+        document.getElementById('st-title').textContent = t.title;
+        document.getElementById('st-intro').textContent = t.intro;
+        document.getElementById('st-note').textContent = t.note;
+        langBtn.textContent = t.langLabel;
+
+        statusEl.className = 'st-status ' + (on ? 'on' : 'off');
+        msgEl.textContent = on ? t.on : t.off;
+        btnEl.textContent = on ? t.turnOff : t.turnOn;
+      }
+
+      btnEl.addEventListener('click', function () {
+        setOn(!isOn());
+        render();
+      });
+
+      langBtn.addEventListener('click', function () {
+        lang = lang === 'bg' ? 'en' : 'bg';
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
+</body>
+</html>
