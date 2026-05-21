@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Genki × Test Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="/box/_shared/box.css" />
+  <style>
+    /* Test Company — neutral slate palette so the page reads visually as
+       an internal test, not a real partner box. */
+    :root {
+      --gradient-mid-2: #d6d9dd;
+      --gradient-end: #9aa0a8;
+      --hero-blob-right: rgba(71, 85, 105, 0.40);
+      --partner-logo-h: clamp(34px, 3.5vw, 50px);
+    }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+</head>
+<body>
+
+  <section class="hero">
+    <button class="hero-lang" aria-label="Toggle language">BG ▾</button>
+
+    <div class="hero-nav">
+      <div class="hero-genki-logo">
+        <img src="/assets/images/genki_logo.png" alt="Genki" />
+      </div>
+      <div class="hero-company-logo">
+        <img src="/box/_shared/logos/test.svg" alt="Test Company" />
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="word">Genki</span><span class="word">×</span><span class="word">Test Company</span>
+      </h1>
+      <p class="hero-sub"
+         data-i18n-bg="Това е тестова страница. Вие я сканирахте — ние я записахме."
+         data-i18n-en="This is a test page. You scanned it — we recorded it.">Това е тестова страница. Вие я сканирахте — ние я записахме.</p>
+      <a href="#book" class="hero-cta" data-scroll-to-book
+         data-i18n-bg="Запазете 15 минути"
+         data-i18n-en="Book 15 minutes">Запазете 15 минути →</a>
+    </div>
+
+    <div class="hero-cue"
+         data-i18n-bg="↓ продължете надолу"
+         data-i18n-en="↓ scroll down">↓ продължете надолу</div>
+  </section>
+
+  <section class="section fade-on-scroll">
+    <div class="section-inner">
+      <span class="pill"
+            data-i18n-bg="Лично за Test Company"
+            data-i18n-en="Personally for Test Company">Лично за Test Company</span>
+      <h2 data-i18n-bg="Тестова кутия за проверка на QR сканиранията."
+          data-i18n-en="A test box for verifying QR scans.">Тестова кутия за проверка на QR сканиранията.</h2>
+      <p class="body"
+         data-i18n-bg="Тази страница изпраща сигнал към WinPath при всяко зареждане — точно както истинска партньорска кутия. Ако я виждате на живо, сканирането е стигнало до сървъра. Проверете QR Scans таблото в WinPath, за да потвърдите."
+         data-i18n-en="This page sends a signal to WinPath on every load — exactly like a real partner box. If you're seeing it live, the scan reached the server. Check the QR Scans view in WinPath to confirm.">Тази страница изпраща сигнал към WinPath при всяко зареждане — точно както истинска партньорска кутия. Ако я виждате на живо, сканирането е стигнало до сървъра. Проверете QR Scans таблото в WinPath, за да потвърдите.</p>
+      <p class="signature"
+         data-i18n-bg="— Genki · вътрешна тестова страница"
+         data-i18n-en="— Genki · internal test page">— Genki · вътрешна тестова страница</p>
+    </div>
+  </section>
+
+  <section class="section quiet fade-on-scroll">
+    <div class="section-inner">
+      <h2 data-i18n-bg="Три принципа, върху които изградихме Genki."
+          data-i18n-en="Three principles we built Genki on.">Три принципа, върху които изградихме Genki.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.6 15.84-8.2 17.04Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          </div>
+          <h3 data-i18n-bg="Подбрано с грижа"
+              data-i18n-en="Curated with care">Подбрано с грижа</h3>
+          <p data-i18n-bg="Чист състав. Реални продукти. Без излишни компромиси."
+             data-i18n-en="Clean ingredients. Real products. No unnecessary compromises.">Чист състав. Реални продукти. Без излишни компромиси.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 data-i18n-bg="От български производители"
+              data-i18n-en="From Bulgarian producers">От български производители</h3>
+          <p data-i18n-bg="Работим с производители, които вече създават продукти на световно ниво."
+             data-i18n-en="We work with producers who already make world-class products.">Работим с производители, които вече създават продукти на световно ниво.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n-bg="10% от реалната печалба"
+              data-i18n-en="10% of real profit">10% от реалната печалба</h3>
+          <p data-i18n-bg="Всеки месец отделяме част от печалбата за каузи, зад които заставаме."
+             data-i18n-en="Each month we set aside part of our profit for causes we stand behind.">Всеки месец отделяме част от печалбата за каузи, зад които заставаме.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final fade-on-scroll" id="book">
+    <h2 data-i18n-bg="Да се запознаем."
+        data-i18n-en="Let's meet.">Да се запознаем.</h2>
+    <p data-i18n-bg="15 минути, в които ще Ви покажем как Genki може да се превърне в реална ежедневна придобивка за Вашия екип."
+       data-i18n-en="15 minutes to show you how Genki can become a real, everyday benefit for your team.">15 минути, в които ще Ви покажем как Genki може да се превърне в реална ежедневна придобивка за Вашия екип.</p>
+    <a href="https://calendly.com/hello-genki/15min" target="_blank" rel="noopener" class="final-cta"
+       data-i18n-bg="Избери удобен час"
+       data-i18n-en="Pick a time that works">Избери удобен час</a>
+    <div class="final-alt">
+      <a href="https://www.genki.bg" class="final-secondary"
+         data-i18n-bg="Разгледайте genki.bg →"
+         data-i18n-en="Explore genki.bg →">Разгледайте genki.bg →</a>
+    </div>
+  </section>
+
+  <footer class="footer">genki.bg · test</footer>
+
+  <script src="/box/_shared/box.js"></script>
+</body>
+</html>
