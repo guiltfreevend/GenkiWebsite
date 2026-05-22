@@ -275,32 +275,14 @@ const translations = {
     bg: "Премиум качество и обслужване"
   },
 
-  // INDEX PAGE - STATS
-  index_stat_partners: {
-    en: "Bulgarian Products",
-    bg: "Български продукти"
-  },
-  index_stat_donated: {
-    en: "Monthly Donations",
-    bg: "Месечни дарения"
-  },
-  index_stat_local: {
-    en: "Healthy & Bio",
-    bg: "Здравословно и био"
-  },
-  index_stat_admin: {
-    en: "Hidden fees",
-    bg: "Скрити такси"
-  },
-
   // INDEX PAGE - THREE PILLARS
   index_pillars_title: {
     en: "More Than Just a Benefit",
     bg: "Повече от обикновена придобивка"
   },
-  index_pillars_subtitle: {
-    en: "Three pillars that turn an everyday workplace benefit into a long-term advantage — for teams in Bulgaria, for Bulgarian producers, and for the causes your team cares about.",
-    bg: "Три стълба, които превръщат ежедневната офис придобивка в дългосрочно предимство — за екипите в България, за българските производители и за каузите, които Вашият екип подкрепя."
+  index_pillar1_eyebrow: {
+    en: "Sourcing",
+    bg: "Произход"
   },
   index_pillar1_title: {
     en: "100% Bulgarian Sourcing",
@@ -310,13 +292,9 @@ const translations = {
     en: "We support the Bulgarian economy and bring internationally-recognized Bulgarian producers into the workplace.",
     bg: "Подкрепяме българската икономика и поставяме български производители на международно ниво на работното място."
   },
-  index_pillar1_item1: {
-    en: "Smart Organic, Roobar, VIDAS, Frudada and more",
-    bg: "Smart Organic, Roobar, VIDAS, Frudada и още"
-  },
-  index_pillar1_item3: {
-    en: "Curated for nutritional value",
-    bg: "Подбрано с фокус върху хранителната стойност"
+  index_pillar2_eyebrow: {
+    en: "Giving back",
+    bg: "Дарителство"
   },
   index_pillar2_title: {
     en: "Transparent Donation Model",
@@ -326,17 +304,9 @@ const translations = {
     en: "10% of real profit donated monthly to Bulgarian charities. Measurable social impact, documented every month.",
     bg: "10% от реалната печалба, дарени всеки месец на български благотворителни организации. Социално въздействие с реална проследимост, документирано всеки месец."
   },
-  index_pillar2_item1: {
-    en: "Measurable social impact",
-    bg: "Социално въздействие с реална проследимост"
-  },
-  index_pillar2_item2: {
-    en: "A visible cause for your team",
-    bg: "Видима кауза за Вашия екип"
-  },
-  index_pillar2_item3: {
-    en: "Monthly transparency report",
-    bg: "Месечен отчет за прозрачност"
+  index_pillar3_eyebrow: {
+    en: "Service",
+    bg: "Обслужване"
   },
   index_pillar3_title: {
     en: "Managed Infrastructure",
@@ -345,18 +315,6 @@ const translations = {
   index_pillar3_desc: {
     en: "Stations, restocking, servicing and reporting — fully handled. HR does nothing; the workplace just works.",
     bg: "Станции, презареждане, обслужване и отчетност — напълно поети от нас. HR не прави нищо; работното място просто работи."
-  },
-  index_pillar3_item1: {
-    en: "Stations, not deliveries",
-    bg: "Станции, не доставки"
-  },
-  index_pillar3_item2: {
-    en: "Servicing and reporting included",
-    bg: "Обслужване и отчетност включени"
-  },
-  index_pillar3_item3: {
-    en: "Zero administrative load for HR",
-    bg: "Нулева административна тежест за HR"
   },
 
   // INDEX PAGE - HOW IT WORKS
@@ -401,60 +359,56 @@ const translations = {
     bg: "Вашите служители получават качествени продукти всеки ден. Вие получавате по-доволен и по-ангажиран екип."
   },
 
-  // INDEX PAGE - HR VALUE PROP
-  index_hr_title: {
-    en: "The Benefit Your HR Team Will Love",
-    bg: "Придобивката, която Вашият HR екип ще обикне"
+  // INDEX PAGE - ENVIRONMENT
+  index_hr_eyebrow: {
+    en: "DAILY CARE",
+    bg: "ЕЖЕДНЕВНА ГРИЖА"
   },
-  index_hr_subtitle: {
-    en: "Unlike complex benefit programs, Genki requires zero administration. We handle everything — from sourcing to delivery to impact reporting.",
-    bg: "За разлика от сложните програми за придобивки, Genki не изисква никаква администрация. Ние се грижим за всичко — от снабдяването до доставката и отчетите за въздействието."
+  index_hr_statement: {
+    en: "A benefit matters when people feel it every day.",
+    bg: "Една придобивка има стойност, когато хората я усещат всеки ден."
   },
-  index_hr_vendor_title: {
-    en: "No Vendor Management",
-    bg: "Без управление на доставчици"
+  index_hr_lead: {
+    en: "Genki is a quiet but visible gesture from the company to its people — carefully selected Bulgarian products, beautifully presented in the office, and fully managed by us.",
+    bg: "Genki е тих, но видим жест от компанията към хората — подбрани български продукти, красиво подредени в офиса и управлявани изцяло от нас."
   },
-  index_hr_vendor_desc: {
-    en: "One contact, one invoice — a curated Bulgarian supplier network handled by us.",
-    bg: "Един контакт, една фактура — курирана мрежа от български доставчици, управлявана от нас."
+  index_hr_obs1_label: {
+    en: "A natural part of the day",
+    bg: "Естествена част от деня"
   },
-  index_hr_esg_title: {
-    en: "Measurable Social Impact",
-    bg: "Социално въздействие с реална проследимост"
+  index_hr_obs1_text: {
+    en: "Something thoughtful nearby when someone needs a pause, energy, or a small moment for themselves.",
+    bg: "Нещо качествено наблизо, когато човек има нужда от пауза, енергия или малък момент за себе си."
   },
-  index_hr_esg_desc: {
-    en: "10% of real profit donated monthly. A documented, visible cause for your team and a credible line in your CSR report.",
-    bg: "10% от реалната печалба, дарени всеки месец. Документирана, видима кауза за Вашия екип и достоверен ред в КСО отчета."
+  index_hr_obs2_label: {
+    en: "Care people can see",
+    bg: "Грижа, която се вижда"
   },
-  index_hr_retention_title: {
-    en: "Employee Retention Boost",
-    bg: "Повишаване на задържането на служители"
+  index_hr_obs2_text: {
+    en: "A station that changes the feeling of the space before it is even used.",
+    bg: "Станция, която променя усещането за пространството още преди да бъде използвана."
   },
-  index_hr_retention_desc: {
-    en: "A tangible daily benefit that shows you care.",
-    bg: "Осезаема ежедневна придобивка, която показва, че се грижите."
+  index_hr_obs3_label: {
+    en: "Effortless to maintain",
+    bg: "Подредено без усилие"
   },
-  index_hr_card_title: {
-    en: "Alongside Multisport, never instead of it",
-    bg: "Допълва Multisport, никога не го заменя"
-  },
-  index_hr_card_desc: {
-    en: "Genki sits next to your existing benefits — a daily, in-office wellness layer your team uses every day, not just when they make it to the gym.",
-    bg: "Genki стои до съществуващите Ви придобивки — ежедневен, допълнителен уелнес елемент в офиса, който екипът използва всеки ден, а не само когато стигне до фитнеса."
-  },
-  index_hr_stat_desc: {
-    en: "of employees say food benefits improve their workday",
-    bg: "от служителите казват, че хранителните придобивки подобряват работния им ден"
+  index_hr_obs3_text: {
+    en: "Selection, restocking, maintenance, and reporting — handled by Genki, without adding work for HR.",
+    bg: "Подбор, зареждане, поддръжка и отчетност — поети от Genki, без нова задача за HR."
   },
 
   // INDEX PAGE - CTA
+  index_cta_eyebrow: {
+    en: "NEXT STEP",
+    bg: "СЛЕДВАЩА СТЪПКА"
+  },
   index_cta_title: {
-    en: "Ready to Transform Your Employee Benefits?",
-    bg: "Готови ли сте да трансформирате придобивките на служителите?"
+    en: "Let\u2019s see how Genki would look inside your office.",
+    bg: "Да видим как Genki би изглеждал във Вашия офис."
   },
   index_cta_subtitle: {
-    en: "Join forward-thinking workplaces in Bulgaria investing in their team's health while backing Bulgarian producers and a transparent monthly donation.",
-    bg: "Присъединете се към прогресивните работни места в България, които инвестират в здравето на екипа си, подкрепят българските производители и прозрачно даряват всеки месец."
+    en: "In a 15-minute conversation, we\u2019ll discuss your team size, available space, and the right format \u2014 Desk, Tower, or Hub.",
+    bg: "В 15-минутен разговор ще обсъдим броя хора, пространството и най-подходящия формат — Desk, Tower или Hub."
   },
   index_cta_schedule: {
     en: "Book a consultation",
@@ -463,10 +417,6 @@ const translations = {
   index_cta_pricing: {
     en: "View Pricing",
     bg: "Вижте цените"
-  },
-  index_cta_note: {
-    en: "No commitment required. See if Genki is right for your team.",
-    bg: "Без задължение. Вижте дали Genki е подходящ за Вашия екип."
   },
 
   // ===================
