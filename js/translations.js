@@ -1184,433 +1184,123 @@ const translations = {
   // ===================
   // MISSION PAGE
   // ===================
-  mission_hero_title_1: {
-    en: "Healthy people. Local producers.",
-    bg: "Здрави хора. Местни производители."
+  mission_hero_eyebrow: {
+    en: "OUR MISSION",
+    bg: "НАШАТА МИСИЯ"
   },
   mission_hero_title: {
-    en: "Healthy people. Local producers.",
-    bg: "Здрави хора. Местни производители."
-  },
-  mission_hero_title_2: {
-    en: "Real charity.",
-    bg: "Реални дарения."
-  },
-  mission_hero_highlight: {
-    en: "Real charity.",
-    bg: "Реални дарения."
+    en: "A healthier office environment. Built as infrastructure.",
+    bg: "По-здравословна офис среда. Изградена като инфраструктура."
   },
   mission_hero_subtitle: {
-    en: "Three commitments built into every Genki order — to your team, to Bulgarian producers, and to causes that matter.",
-    bg: "Три ангажимента, заложени във всяка Genki поръчка — към вашия екип, към българските производители и към важните каузи."
+    en: "Three principles that don't bend — regardless of client, scale, or profit.",
+    bg: "Три принципа, които не подлежат на компромис — независимо от клиента, мащаба или печалбата."
   },
-  mission_pillar1_badge: {
-    en: "Pillar 1",
-    bg: "Стълб 1"
+  mission_manifesto_body: {
+    en: "Genki is not product delivery. Not a vending machine. Not catering. Genki is managed wellness infrastructure — built with premium hardware, stocked with carefully selected Bulgarian products, and designed around long-term care for people in the office.",
+    bg: "Genki не е доставка на продукти. Не е вендинг автомат. Не е кетъринг. Genki е управлявана уелнес инфраструктура — създадена с премиум хардуер, заредена с подбрани български продукти и изградена с дългосрочна грижа за хората в офиса."
+  },
+  mission_pillar1_eyebrow: {
+    en: "FIRST PRINCIPLE",
+    bg: "ПЪРВИ ПРИНЦИП"
   },
   mission_pillar1_title: {
-    en: "Healthy & Bio Products",
-    bg: "Здравословни и био продукти"
+    en: "Only carefully selected products.",
+    bg: "Само внимателно подбрани продукти."
   },
-  mission_pillar1_desc: {
-    en: "We believe that what you eat directly impacts how you feel, think, and perform. That's why we've built a curated selection of nutritious options that fuel productivity without compromising on taste.",
-    bg: "Вярваме, че начинът, по който хората се хранят, влияе на това как се чувстват, мислят и работят. Затова създадохме подбрана селекция от хранителни опции, които подкрепят продуктивността без компромис с вкуса."
+  mission_pillar1_body1: {
+    en: "Every product goes through the same strict filter — it either meets the standard or it doesn't enter Genki. We limit products with artificial colors, aggressive sweeteners, hydrogenated fats, and heavily processed low-value ingredients.",
+    bg: "Всеки продукт преминава през един и същ строг филтър — или отговаря на стандарта, или не влиза в Genki. Ограничаваме продукти с изкуствени оцветители, агресивни подсладители, хидрогенирани мазнини и силно преработени съставки без хранителна стойност."
   },
-  mission_pillar1_bio_title: {
-    en: "Bio-Certified Options",
-    bg: "Биосертифицирани продукти"
+  mission_pillar1_body2: {
+    en: "Our catalog is built around cleaner ingredients, better nutritional profiles, and products people genuinely want to consume daily at work.",
+    bg: "Каталогът ни е изграден около по-чист състав, по-добър хранителен профил и продукти, които хората реално искат да консумират ежедневно в офиса."
   },
-  mission_pillar1_bio_desc: {
-    en: "Many of our products carry organic certifications, ensuring they're free from harmful pesticides and additives.",
-    bg: "Много от нашите продукти имат биосертификати, които гарантират високи стандарти за качество и състав."
+  mission_cat_treat_desc: {
+    en: "Waffles, cookies, chocolate treats",
+    bg: "Вафли, курабийки, шоколадови изделия"
   },
-  mission_pillar1_nutritionist_title: {
-    en: "Nutritionist Approved",
-    bg: "Подбрано с фокус върху хранителната стойност"
+  mission_cat_crunch_desc: {
+    en: "Breadsticks, crackers, baked snacks",
+    bg: "Солети, крекери, печива"
   },
-  mission_pillar1_nutritionist_desc: {
-    en: "Every product in our catalog is reviewed for nutritional value. We focus on balanced macros, natural ingredients, and sustained energy.",
-    bg: "Всеки продукт в нашия каталог се преглежда според хранителната си стойност. Фокусираме се върху балансиран хранителен профил, естествени съставки и устойчива енергия."
+  mission_cat_refresh_desc: {
+    en: "Kombucha, cold teas, functional and energy drinks",
+    bg: "Комбуча, студени чайове, функционални и енергийни напитки"
   },
-  mission_pillar1_nojunk_title: {
-    en: "No Junk Food",
-    bg: "Без вредна храна"
-  },
-  mission_pillar1_nojunk_desc: {
-    en: "You won't find chips, candy, or sugary drinks in our selection. We're here to fuel performance, not sugar crashes.",
-    bg: "Няма да намерите чипс, бонбони или сладки напитки в нашата селекция. Тук сме, за да подкрепяме продуктивността — а не кратки захарни пикове и спадове."
-  },
-  // Mission page aliases (matching data-i18n keys used in HTML)
-  mission_bio_title: {
-    en: "Healthier Alternatives",
-    bg: "По-здравословни алтернативи"
-  },
-  mission_bio_desc: {
-    en: "We stock the healthy versions of what people actually want - protein bars instead of candy, kombucha instead of soda, nutritious cookies instead of sugar bombs.",
-    bg: "Предлагаме здравословните версии на това, което хората наистина искат — протеинови барове вместо бонбони, комбуча вместо газирано, здравословни бисквити вместо захарни бомби."
-  },
-  mission_nutritionist_title: {
-    en: "No Harmful Ingredients",
-    bg: "Без вредни съставки"
-  },
-  mission_nutritionist_desc: {
-    en: "Every product meets our quality standards - no artificial additives, no excessive sugar, no empty calories. Just real ingredients that fuel your team.",
-    bg: "Всеки продукт отговаря на нашите стандарти за качество — без изкуствени добавки, без излишна захар, без празни калории. Само истински съставки, които зареждат екипа Ви."
-  },
-  mission_nojunk_title: {
-    en: "Energy & Performance",
-    bg: "Енергия и продуктивност"
-  },
-  mission_nojunk_desc: {
-    en: "Designed for sustained energy throughout the workday. No sugar crashes, no afternoon slumps - just consistent fuel for focus and productivity.",
-    bg: "Създадено за устойчива енергия през целия работен ден. Без захарни сривове, без следобеден спад — само стабилен източник на енергия за фокус и продуктивност."
-  },
-  mission_offer_title: {
-    en: "What We Offer",
-    bg: "Какво предлагаме"
-  },
-  mission_offer_snacks: {
-    en: "Snacks",
-    bg: "Снаксове"
-  },
-  mission_offer_snacks_desc: {
-    en: "Cookies, wafers, protein bars, rice cakes",
-    bg: "Бисквити, вафли, протеинови барове, оризовки"
-  },
-  mission_offer_drinks: {
-    en: "Drinks",
-    bg: "Напитки"
-  },
-  mission_offer_drinks_desc: {
-    en: "Kombucha, iced teas, sodas, energy drinks (250ml)",
-    bg: "Комбуча, студени чайове, газирани, енергийни напитки (250 мл)"
-  },
-  mission_offer_treat: {
-    en: "TREAT",
-    bg: "TREAT"
-  },
-  mission_offer_treat_desc: {
-    en: "Waffles, cookies, chocolate",
-    bg: "Вафли, курабийки, шоколадови бонбони"
-  },
-  mission_offer_crunch: {
-    en: "CRUNCH",
-    bg: "CRUNCH"
-  },
-  mission_offer_crunch_desc: {
-    en: "Pretzels, crackers",
-    bg: "Солети, крекери"
-  },
-  mission_offer_refresh: {
-    en: "REFRESH",
-    bg: "REFRESH"
-  },
-  mission_offer_refresh_desc: {
-    en: "Kombucha, iced teas, sodas, energy drinks (250ml)",
-    bg: "Комбуча, студени чайове, газирани, енергийни напитки (250 мл)"
-  },
-  mission_partners_title: {
-    en: "Our Partners",
-    bg: "Нашите партньори"
-  },
-  mission_stat_producers: {
-    en: "Imported Products",
-    bg: "Вносни продукти"
-  },
-  mission_stat_regions: {
-    en: "Product Categories",
-    bg: "Продуктови категории"
-  },
-  mission_stat_sourcing: {
-    en: "Revenue Stays in Bulgaria",
-    bg: "Приходите остават в България"
-  },
-  mission_stat_imported: {
-    en: "Supplier Relationships",
-    bg: "Връзки с доставчици"
-  },
-  mission_stat_direct_title: {
-    en: "Local",
-    bg: "Локални"
-  },
-  mission_stat_direct_subtitle: {
-    en: "Suppliers",
-    bg: "Доставчици"
-  },
-  mission_farm_title: {
-    en: "Curated Bulgarian brands",
-    bg: "Подбрани български брандове"
-  },
-  mission_farm_desc: {
-    en: "Working with Bulgarian producers means fresher products for your team and durable support for the producers, their families and the communities behind them.",
-    bg: "Работата с български производители означава по-пресни продукти за Вашия екип и устойчива подкрепа за производителите, техните семейства и общностите зад тях."
-  },
-  mission_economy_title: {
-    en: "Strengthening the Bulgarian Economy",
-    bg: "Укрепване на българската икономика"
-  },
-  mission_economy_desc: {
-    en: "Your wellness spend stays in Bulgaria, supporting Bulgarian producers, families and communities across the country.",
-    bg: "Разходът Ви за уелнес остава в България, подкрепяйки българските производители, семейства и общности в цялата страна."
-  },
-  mission_carbon_title: {
-    en: "Shorter Supply Chains",
-    bg: "По-къси вериги на доставка"
-  },
-  mission_carbon_desc: {
-    en: "Bulgarian sourcing means shorter supply chains, less packaging waste and a smaller environmental footprint than imported equivalents.",
-    bg: "Българският произход означава по-къси вериги за доставка, по-малко опаковъчни отпадъци и по-малък отпечатък върху околната среда в сравнение с вносните алтернативи."
-  },
-  mission_transparent_title: {
-    en: "Transparent Donations",
-    bg: "Прозрачни дарения"
-  },
-  mission_transparent_desc: {
-    en: "We document every donation. You'll know exactly where your contribution goes and the impact it makes.",
-    bg: "Документираме всяко дарение. Ще знаете точно къде отива Вашият принос и какво въздействие има."
-  },
-  mission_reports_title: {
-    en: "Monthly Impact Reports",
-    bg: "Месечни отчети за въздействието"
-  },
-  mission_reports_desc: {
-    en: "Receive regular updates showing the cumulative impact of your company's contribution to society.",
-    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на Вашата компания към обществото."
-  },
-  mission_choose_causes_title: {
-    en: "Choose Your Causes",
-    bg: "Изберете Вашите каузи"
-  },
-  mission_causes_desc: {
-    en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Клиентите могат да предложат конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
-  },
-  mission_support_title: {
-    en: "Causes We Support",
-    bg: "Каузи, които подкрепяме"
-  },
-  mission_name_title: {
-    en: 'Why "Genki"?',
-    bg: 'Защо "Genki"?'
-  },
-  mission_name_meaning: {
-    en: '<strong>Genki</strong> (元気) is a Japanese word meaning "healthy," "energetic," and "full of life."',
-    bg: '<strong>Genki</strong> (元気) е японска дума, означаваща "здрав", "енергичен" и "пълен с живот".'
-  },
-  mission_name_culture: {
-    en: 'In Japanese culture, asking "Genki desu ka?" (Are you genki?) is a way of asking "How are you?" — but it\'s deeper than that. It\'s asking about your overall vitality, your spirit, your wellness.',
-    bg: 'В японската култура въпросът "Genki desu ka?" (Genki ли си?) е начин да попиташ "Как си?" — но е по-дълбоко от това. Това е въпрос за цялостната ти жизненост, дух и благополучие.'
-  },
-  mission_name_wish: {
-    en: "That's exactly what we want for your team: to be genki — healthy, energized, and thriving.",
-    bg: "Точно това искаме за Вашия екип: да бъде genki — здрав, енергичен и процъфтяващ."
-  },
-  mission_cta_desc: {
-    en: "When you choose Genki, you're not just getting a benefit — you're joining a movement for healthier workplaces in Bulgaria, stronger Bulgarian producers, and meaningful, transparent social impact.",
-    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
-  },
-  mission_pillar1_offer_title: {
-    en: "What We Offer",
-    bg: "Какво предлагаме"
-  },
-  mission_pillar1_snacks: {
-    en: "Snacks",
-    bg: "Снаксове"
-  },
-  mission_pillar1_snacks_desc: {
-    en: "Nuts, dried fruits, protein bars, rice cakes, granola",
-    bg: "Ядки, сушени плодове, протеинови барове, оризовки, гранола"
-  },
-  mission_pillar1_drinks: {
-    en: "Drinks",
-    bg: "Напитки"
-  },
-  mission_pillar1_drinks_desc: {
-    en: "Kombucha, iced teas, sodas, energy drinks (250ml).",
-    bg: "Комбуча, студени чайове, газирани и енергийни напитки (250 мл)."
-  },
-  mission_pillar2_badge: {
-    en: "Pillar 2",
-    bg: "Стълб 2"
+  mission_pillar2_eyebrow: {
+    en: "SECOND PRINCIPLE",
+    bg: "ВТОРИ ПРИНЦИП"
   },
   mission_pillar2_title: {
-    en: "100% Bulgarian Sourcing",
-    bg: "100% български произход"
+    en: "100% made in Bulgaria.",
+    bg: "100% произведено в България."
   },
-  mission_pillar2_desc: {
-    en: "Smart Organic, Roobar, VIDAS, Frudada and more — Bulgarian producers placed inside the workplace as managed infrastructure, not flown in as a delivery.",
-    bg: "Smart Organic, Roobar, VIDAS, Frudada и още — български производители, поставени в работното място като управлявана инфраструктура, а не доставка."
+  mission_pillar2_body1: {
+    en: "Roobar is sold in more than 50 countries. Smart Organic is present in Whole Foods USA and Selfridges UK. Bulgaria already produces world-class products — Genki simply places them where people spend their day.",
+    bg: "Roobar се продава в над 50 държави. Smart Organic присъства в Whole Foods USA и Selfridges UK. България вече създава световен клас продукти — Genki просто ги поставя там, където хората прекарват деня си."
   },
-  mission_pillar2_partners: {
-    en: "Our Partners",
-    bg: "Нашите партньори"
+  mission_pillar2_body2: {
+    en: "We support local production, shorter supply chains, and Bulgarian businesses operating at international standards.",
+    bg: "Подкрепяме локално производство, по-кратки вериги и български бизнеси с международен стандарт."
   },
-  mission_pillar2_local_producers: {
-    en: "Bulgarian producers",
-    bg: "Български производители"
+  mission_pillar2_more: {
+    en: "and more",
+    bg: "и още"
   },
-  mission_pillar2_regions: {
-    en: "Regions represented",
-    bg: "Представени региони"
-  },
-  mission_pillar2_sourcing: {
-    en: "Bulgarian sourcing",
-    bg: "Българско снабдяване"
-  },
-  mission_pillar2_imported: {
-    en: "Imported products",
-    bg: "Вносни продукти"
-  },
-  mission_pillar2_farm_title: {
-    en: "Farm-to-Office Freshness",
-    bg: "Свежест от фермата до офиса"
-  },
-  mission_pillar2_farm_desc: {
-    en: "Shorter supply chains mean fresher products. Many items reach your office within days of production.",
-    bg: "По-късите вериги за доставки означават по-пресни продукти. Много артикули достигат офиса Ви в рамките на дни от производството."
-  },
-  mission_pillar2_economy_title: {
-    en: "Strengthening the Bulgarian Economy",
-    bg: "Укрепване на българската икономика"
-  },
-  mission_pillar2_economy_desc: {
-    en: "Your wellness spend stays in Bulgaria, supporting Bulgarian producers, families and communities across the country.",
-    bg: "Разходът Ви за уелнес остава в България, подкрепяйки българските производители, семейства и общности в цялата страна."
-  },
-  mission_pillar2_carbon_title: {
-    en: "Lower Carbon Footprint",
-    bg: "По-нисък въглероден отпечатък"
-  },
-  mission_pillar2_carbon_desc: {
-    en: "Local sourcing means less transportation, less packaging waste, and a smaller environmental impact.",
-    bg: "Местното снабдяване означава по-малко транспорт, по-малко опаковъчни отпадъци и по-малко въздействие върху околната среда."
-  },
-  mission_pillar3_badge: {
-    en: "Pillar 3",
-    bg: "Стълб 3"
+  mission_pillar3_eyebrow: {
+    en: "THIRD PRINCIPLE",
+    bg: "ТРЕТИ ПРИНЦИП"
   },
   mission_pillar3_title: {
-    en: "Giving Back Monthly",
-    bg: "Месечни дарения"
+    en: "10% of profit. Every month.",
+    bg: "10% от печалбата. Всеки месец."
   },
-  mission_pillar3_desc: {
-    en: "10% of our profits go directly to Bulgarian charities. It's not optional — it's built into our DNA. When you choose Genki, you automatically become a force for good.",
-    bg: "10% от печалбата ни отива директно за български благотворителни организации. Това не е по избор — заложено е в нашата ДНК. Когато изберете Genki, автоматично ставате част от положителната промяна."
-  },
-  mission_pillar3_transparent_title: {
-    en: "Transparent Donations",
-    bg: "Прозрачни дарения"
-  },
-  mission_pillar3_transparent_desc: {
-    en: "We document every donation. You'll know exactly where your contribution goes and the impact it makes.",
-    bg: "Документираме всяко дарение. Ще знаете точно къде отива Вашият принос и какво въздействие има."
-  },
-  mission_pillar3_reports_title: {
-    en: "Monthly Impact Reports",
-    bg: "Месечни отчети за въздействието"
-  },
-  mission_pillar3_reports_desc: {
-    en: "Receive regular updates showing the cumulative impact of your company's contribution to society.",
-    bg: "Получавайте редовни актуализации, показващи кумулативното въздействие на приноса на Вашата компания към обществото."
-  },
-  mission_pillar3_choose_title: {
-    en: "Choose Your Causes",
-    bg: "Изберете Вашите каузи"
-  },
-  mission_pillar3_choose_desc: {
-    en: "Clients can nominate specific causes that align with their values — education, healthcare, environment, or child welfare.",
-    bg: "Клиентите могат да предложат конкретни каузи, които съответстват на техните ценности — образование, здравеопазване, околна среда или детско здраве."
-  },
-  mission_supported_causes_title: {
-    en: "Causes We Support",
-    bg: "Каузи, които подкрепяме"
+  mission_pillar3_body: {
+    en: "Not a percentage of revenue. Not a marketing number. Ten percent of real profit — after costs, salaries, and taxes — goes toward Bulgarian causes. Every month. With transparency and accountability to every client. This isn't a campaign. It's part of how Genki exists.",
+    bg: "Не е процент от приходи. Не е маркетингова цифра. Десет процента от реалната печалба — след разходи, заплати и данъци — се насочват към български каузи. Всеки месец. С прозрачност и отчетност към всеки клиент. Това не е кампания. Част е от начина, по който Genki съществува."
   },
   mission_cause_children: {
-    en: "Children's Welfare",
-    bg: "Благополучие на децата"
-  },
-  mission_cause_children_desc: {
-    en: "Supporting orphanages and child development programs",
-    bg: "Подкрепа за центрове за грижа за деца и програми за детско развитие"
+    en: "Children's wellbeing",
+    bg: "Детско благополучие"
   },
   mission_cause_education: {
     en: "Education",
     bg: "Образование"
   },
-  mission_cause_education_desc: {
-    en: "Scholarships and educational resources for underprivileged students",
-    bg: "Стипендии и образователни ресурси за ученици в неравностойно положение"
-  },
   mission_cause_healthcare: {
     en: "Healthcare",
     bg: "Здравеопазване"
-  },
-  mission_cause_healthcare_desc: {
-    en: "Medical equipment and treatment support for those in need",
-    bg: "Медицинско оборудване и подкрепа за лечение на нуждаещите се"
   },
   mission_cause_environment: {
     en: "Environment",
     bg: "Околна среда"
   },
-  mission_cause_environment_desc: {
-    en: "Conservation and sustainability initiatives across Bulgaria",
-    bg: "Инициативи за опазване и устойчивост в цяла България"
+  mission_kanji_meaning: {
+    en: "Japanese for healthy, energetic, full of life.",
+    bg: "Японска дума за здрав, енергичен и пълен с живот."
   },
-  mission_impact_title: {
-    en: "Our Commitment",
-    bg: "Нашият ангажимент"
+  mission_kanji_closing: {
+    en: "Exactly what we want for every team that chooses Genki.",
+    bg: "Точно това искаме за всеки екип, който избере Genki."
   },
-  mission_impact_subtitle: {
-    en: "Built on principles that matter from day one.",
-    bg: "Изградено върху принципи, които имат значение още от първия ден."
-  },
-  mission_impact_donated: {
-    en: "To Charity Monthly",
-    bg: "За благотворителност месечно"
-  },
-  mission_impact_employees: {
-    en: "Harmful Ingredients",
-    bg: "Вредни съставки"
-  },
-  mission_impact_partners: {
-    en: "Local Sourcing",
-    bg: "Местни доставки"
-  },
-  mission_impact_charities: {
-    en: "Product Categories",
-    bg: "Продуктови категории"
-  },
-  mission_why_genki_title: {
-    en: 'Why "Genki"?',
-    bg: 'Защо "Genki"?'
-  },
-  mission_why_genki_meaning: {
-    en: '<strong>Genki</strong> (元気) is a Japanese word meaning "healthy," "energetic," and "full of life."',
-    bg: '<strong>Genki</strong> (元気) е японска дума, означаваща "здрав", "енергичен" и "пълен с живот".'
-  },
-  mission_why_genki_desc1: {
-    en: 'In Japanese culture, asking "Genki desu ka?" (Are you genki?) is a way of asking "How are you?" — but it\'s deeper than that. It\'s asking about your overall vitality, your spirit, your wellness.',
-    bg: 'В японската култура въпросът "Genki desu ka?" (Genki ли си?) е начин да попиташ "Как си?" — но е по-дълбоко от това. Това е въпрос за цялостната ти жизненост, дух и благополучие.'
-  },
-  mission_why_genki_desc2: {
-    en: "That's exactly what we want for your team: to be genki — healthy, energized, and thriving.",
-    bg: "Точно това искаме за Вашия екип: да бъде genki — здрав, енергичен и процъфтяващ."
+  mission_cta_eyebrow: {
+    en: "JOIN US",
+    bg: "ПРИСЪЕДИНЕТЕ СЕ"
   },
   mission_cta_title: {
-    en: "Join Our Mission",
-    bg: "Присъединете се към нашата мисия"
+    en: "Make your office somewhere people actually want to be.",
+    bg: "Създайте офис среда, към която хората искат да принадлежат."
   },
-  mission_cta_subtitle: {
-    en: "When you choose Genki, you're not just getting a benefit — you're joining a movement for healthier workplaces in Bulgaria, stronger Bulgarian producers, and meaningful, transparent social impact.",
-    bg: "Когато изберете Genki, не просто получавате придобивка — ставате част от движение за по-здравословни работни места в България, по-силни български производители и значимо, прозрачно социално въздействие."
+  mission_cta_desc: {
+    en: "15-minute online consultation. No deck. Just questions, answers, and an honest assessment of whether Genki is right for your team.",
+    bg: "15-минутна онлайн консултация. Без презентация. Само въпроси, отговори и честна оценка дали Genki е правилното решение за Вашия екип."
   },
   mission_cta_button: {
-    en: "Book a consultation",
+    en: "Book a Consultation",
     bg: "Запазете консултация"
   },
 
-  // ===================
   // PRODUCTS PAGE
   // ===================
   products_hero_eyebrow: {

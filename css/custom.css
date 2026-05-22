@@ -66,6 +66,19 @@
   --radius-lg: 1rem;       /* 16px — cards */
   --radius-xl: 1.25rem;    /* 20px — pricing cards, modals */
   --radius-full: 9999px;   /* pills, badges */
+
+  /* ========================================
+     EDITORIAL PALETTE — /mission redesign
+     ======================================== */
+  --genki-cream: #FAF6EE;
+  --genki-warm-white: #FCFAF5;
+  --genki-sage-bg: #F4F6F2;
+  --genki-matte: #1A1A1A;
+  --genki-body: #4A4A4A;
+  --genki-divider: #E5E2DA;
+  --genki-dark: #0F1A14;
+  --genki-sage: #566E4A;       /* sage on light backgrounds */
+  --genki-sage-soft: #9DB88C;  /* sage on dark backgrounds */
 }
 
 /* Base Styles */
@@ -1390,4 +1403,454 @@ select:focus {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================
+   /MISSION — EDITORIAL PREMIUM REDESIGN
+   Calm, architectural, restrained. Whitespace carries the page.
+   Scoped under .m-* so it never touches the rest of the site.
+   ============================================================ */
+
+.m-eyebrow {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--genki-sage);
+}
+
+/* ---- HERO ---- */
+.hero-premium--mission .hero-premium__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 26, 20, 0) 0%,
+    rgba(15, 26, 20, 0) 40%,
+    rgba(15, 26, 20, 0.32) 73%,
+    rgba(15, 26, 20, 0.64) 100%);
+}
+
+.hero-premium--mission .hero-premium__content {
+  justify-content: flex-end;
+  padding-top: 9rem;
+  padding-bottom: 5.5rem;
+}
+
+.hero-premium--mission .hero-premium__inner {
+  max-width: 42rem;
+  gap: 1.6rem;
+}
+
+.m-hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--genki-sage-soft);
+}
+
+.m-hero-title {
+  margin: 0;
+  color: var(--genki-warm-white);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5.2vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.34);
+}
+
+.m-hero-sub {
+  margin: 0;
+  max-width: 35rem;
+  color: rgba(252, 250, 245, 0.88);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .hero-premium--mission .hero-premium__content {
+    text-align: center;
+    padding-bottom: 4.5rem;
+  }
+  .hero-premium--mission .hero-premium__inner {
+    align-items: center;
+    max-width: 32rem;
+  }
+  .m-hero-title { font-size: clamp(2.5rem, 9vw, 3rem); }
+  .m-hero-sub { margin-left: auto; margin-right: auto; }
+}
+
+/* ---- MANIFESTO ---- */
+.m-manifesto {
+  background: var(--genki-cream);
+  padding: 7.5rem 1.5rem;
+}
+
+.m-manifesto__inner {
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.m-manifesto__text {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  color: var(--genki-matte);
+}
+
+@media (max-width: 768px) {
+  .m-manifesto { padding: 4rem 1.5rem; }
+}
+
+/* ---- PILLARS I & II ---- */
+.m-pillar {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 8.75rem 0;
+  background: #ffffff;
+}
+
+.m-pillar--sage { background: var(--genki-sage-bg); }
+
+.m-pillar__grid {
+  position: relative;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.25rem;
+  align-items: center;
+}
+
+.m-pillar__num {
+  position: absolute;
+  z-index: -1;
+  top: -3.25rem;
+  left: 0.25rem;
+  margin: 0;
+  font-size: clamp(7rem, 13vw, 13rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--genki-matte);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+}
+
+.m-pillar__text { min-width: 0; }
+
+.m-pillar__heading {
+  margin: 1.15rem 0 0;
+  font-size: clamp(2.1rem, 3.6vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--genki-matte);
+}
+
+.m-pillar__body {
+  margin: 1.75rem 0 0;
+  max-width: 30rem;
+}
+
+.m-pillar__body p {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--genki-body);
+}
+
+.m-pillar__body p + p { margin-top: 1.15rem; }
+
+@media (min-width: 900px) {
+  .m-pillar__grid { grid-template-columns: 3fr 2fr; gap: 5.5rem; }
+  .m-pillar--reverse .m-pillar__grid { grid-template-columns: 2fr 3fr; }
+  .m-pillar--reverse .m-pillar__visual { order: -1; }
+  .m-pillar--reverse .m-pillar__num { left: auto; right: 0.25rem; }
+}
+
+@media (max-width: 768px) {
+  .m-pillar { padding: 5rem 0; }
+  .m-pillar__num { font-size: clamp(6rem, 22vw, 9rem); top: -2.25rem; }
+  .m-visual-ph { aspect-ratio: 3 / 2; }
+}
+
+/* product categories — typographic row, not cards */
+.m-cats {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.m-cat {
+  flex: 1 1 8rem;
+  min-width: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-left: 1.6rem;
+  border-left: 1px solid var(--genki-divider);
+}
+
+.m-cat__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--genki-sage);
+}
+
+.m-cat__desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--genki-body);
+}
+
+@media (max-width: 600px) {
+  .m-cats { flex-direction: column; gap: 1.5rem; }
+}
+
+/* pillar I visual placeholder — calm empty frame, no fake mockup */
+.m-visual-ph {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--genki-sage-bg);
+  border: 1px solid var(--genki-divider);
+}
+
+.m-pillar--sage .m-visual-ph { background: #ffffff; }
+
+/* pillar II — producer composition */
+.m-producers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.85rem;
+}
+
+.m-producers__pin {
+  width: 28px;
+  height: 28px;
+  color: var(--genki-sage);
+  stroke-width: 1.5;
+}
+
+.m-producers__roll {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.m-producers__roll p {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  color: var(--genki-matte);
+}
+
+.m-producers__more {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--genki-sage);
+}
+
+/* ---- PILLAR III — 10% of profit ---- */
+.m-pillar3 {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--genki-cream);
+  padding: 8.75rem 1.5rem;
+  text-align: center;
+}
+
+.m-pillar3__num {
+  position: absolute;
+  z-index: -1;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: clamp(10rem, 25vw, 21rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--genki-matte);
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+}
+
+.m-pillar3__inner {
+  position: relative;
+  max-width: 47.5rem;
+  margin: 0 auto;
+}
+
+.m-pillar3__heading {
+  margin: 1.4rem 0 0;
+  font-size: clamp(2.1rem, 3.6vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--genki-matte);
+}
+
+.m-pillar3__body {
+  margin: 1.85rem auto 0;
+  max-width: 38rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--genki-body);
+}
+
+@media (max-width: 768px) {
+  .m-pillar3 { padding: 5rem 1.5rem; }
+}
+
+/* causes — minimal typographic row */
+.m-causes {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-cause {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 1.75rem;
+  color: var(--genki-sage);
+  border-left: 1px solid var(--genki-divider);
+}
+
+.m-cause:first-child { border-left: none; }
+
+.m-cause svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.6;
+  flex-shrink: 0;
+}
+
+.m-cause span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .m-causes { flex-direction: column; gap: 1.25rem; margin-top: 2.75rem; }
+  .m-cause { border-left: none; padding: 0; }
+}
+
+/* ---- KANJI MOMENT ---- */
+.m-kanji {
+  background: var(--genki-dark);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem;
+}
+
+.m-kanji__inner {
+  max-width: 34rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.6rem;
+}
+
+.m-kanji__glyph {
+  font-size: clamp(7rem, 17vw, 16rem);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--genki-cream);
+  text-shadow: 0 0 60px rgba(250, 246, 238, 0.08);
+}
+
+.m-kanji__eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--genki-sage-soft);
+}
+
+.m-kanji__meaning {
+  margin: 0;
+  max-width: 32.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.375rem);
+  line-height: 1.6;
+  color: rgba(250, 246, 238, 0.82);
+}
+
+.m-kanji__closing {
+  margin: 0.4rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--genki-sage-soft);
+}
+
+@media (max-width: 768px) {
+  .m-kanji { min-height: 50vh; padding: 4.5rem 1.5rem; }
+}
+
+/* ---- CLOSING CTA ---- */
+.m-cta {
+  background: #ffffff;
+  padding: 7rem 1.5rem;
+  text-align: center;
+}
+
+.m-cta__inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.m-cta__heading {
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.95rem, 2.6vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  color: var(--genki-matte);
+}
+
+.m-cta__body {
+  margin: 1.5rem 0 0;
+  max-width: 32.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--genki-body);
+}
+
+.m-cta .btn-primary {
+  margin-top: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .m-cta { padding: 4.5rem 1.5rem; }
 }
