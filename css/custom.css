@@ -1513,6 +1513,7 @@ select:focus {
   .m-pillar--reverse .m-pillar__grid { grid-template-columns: 2fr 3fr; }
   .m-pillar--reverse .m-pillar__visual { order: -1; }
   .m-pillar--reverse .m-pillar__num { left: auto; right: 0.25rem; }
+  .m-pillar--solo .m-pillar__grid { grid-template-columns: 1fr; max-width: 52rem; }
 }
 
 @media (max-width: 768px) {
