@@ -42,7 +42,7 @@
 
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="css/custom.css?v=20260522-1">
+  <link rel="stylesheet" href="css/custom.css?v=20260522-2">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -140,8 +140,8 @@
     </div>
   </div>
 
-  <!-- 1 — Hero -->
-  <section class="hero-premium hero-premium--mission">
+  <!-- Hero Section -->
+  <section class="hero-premium">
     <div class="hero-premium__bg">
       <picture>
         <source type="image/webp" media="(max-width: 768px)" srcset="assets/images/hero-mission-mobile.webp">
@@ -157,9 +157,14 @@
 
     <div class="hero-premium__content">
       <div class="hero-premium__inner">
-        <span class="m-hero-eyebrow" data-i18n="mission_hero_eyebrow">OUR MISSION</span>
-        <h1 class="m-hero-title" data-i18n="mission_hero_title">A healthier office environment. Built as infrastructure.</h1>
-        <p class="m-hero-sub" data-i18n="mission_hero_subtitle">Three principles that don't bend — regardless of client, scale, or profit.</p>
+        <h1 class="hero-premium__title">
+          <span data-i18n="mission_hero_title">Healthy people. Local producers.</span>
+          <span class="hero-premium__title-accent" data-i18n="mission_hero_highlight">Real charity.</span>
+        </h1>
+
+        <p class="hero-premium__subtitle" data-i18n="mission_hero_subtitle">
+          Three commitments built into every Genki order — to your team, to Bulgarian producers, and to causes that matter.
+        </p>
       </div>
     </div>
   </section>

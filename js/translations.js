@@ -1184,17 +1184,17 @@ const translations = {
   // ===================
   // MISSION PAGE
   // ===================
-  mission_hero_eyebrow: {
-    en: "OUR MISSION",
-    bg: "НАШАТА МИСИЯ"
-  },
   mission_hero_title: {
-    en: "A healthier office environment. Built as infrastructure.",
-    bg: "По-здравословна офис среда. Изградена като инфраструктура."
+    en: "Healthy people. Local producers.",
+    bg: "Здрави хора. Местни производители."
+  },
+  mission_hero_highlight: {
+    en: "Real charity.",
+    bg: "Реални дарения."
   },
   mission_hero_subtitle: {
-    en: "Three principles that don't bend — regardless of client, scale, or profit.",
-    bg: "Три принципа, които не подлежат на компромис — независимо от клиента, мащаба или печалбата."
+    en: "Three commitments built into every Genki order — to your team, to Bulgarian producers, and to causes that matter.",
+    bg: "Три ангажимента, заложени във всяка Genki поръчка — към вашия екип, към българските производители и към важните каузи."
   },
   mission_manifesto_body: {
     en: "Genki is not product delivery. Not a vending machine. Not catering. Genki is managed wellness infrastructure — built with premium hardware, stocked with carefully selected Bulgarian products, and designed around long-term care for people in the office.",

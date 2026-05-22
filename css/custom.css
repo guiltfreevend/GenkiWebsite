@@ -1421,67 +1421,6 @@ select:focus {
   color: var(--genki-sage);
 }
 
-/* ---- HERO ---- */
-.hero-premium--mission .hero-premium__overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(15, 26, 20, 0) 0%,
-    rgba(15, 26, 20, 0) 40%,
-    rgba(15, 26, 20, 0.32) 73%,
-    rgba(15, 26, 20, 0.64) 100%);
-}
-
-.hero-premium--mission .hero-premium__content {
-  justify-content: flex-end;
-  padding-top: 9rem;
-  padding-bottom: 5.5rem;
-}
-
-.hero-premium--mission .hero-premium__inner {
-  max-width: 42rem;
-  gap: 1.6rem;
-}
-
-.m-hero-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--genki-sage-soft);
-}
-
-.m-hero-title {
-  margin: 0;
-  color: var(--genki-warm-white);
-  font-weight: 500;
-  font-size: clamp(2.6rem, 5.2vw, 5rem);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.34);
-}
-
-.m-hero-sub {
-  margin: 0;
-  max-width: 35rem;
-  color: rgba(252, 250, 245, 0.88);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  .hero-premium--mission .hero-premium__content {
-    text-align: center;
-    padding-bottom: 4.5rem;
-  }
-  .hero-premium--mission .hero-premium__inner {
-    align-items: center;
-    max-width: 32rem;
-  }
-  .m-hero-title { font-size: clamp(2.5rem, 9vw, 3rem); }
-  .m-hero-sub { margin-left: auto; margin-right: auto; }
-}
-
 /* ---- MANIFESTO ---- */
 .m-manifesto {
   background: var(--genki-cream);
