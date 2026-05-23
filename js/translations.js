@@ -1194,6 +1194,10 @@ const translations = {
     en: "We support local production, shorter supply chains, and Bulgarian businesses operating at international standards.",
     bg: "Подкрепяме локално производство, по-кратки вериги и български бизнеси с международен стандарт."
   },
+  mission_producers_label: {
+    en: "Partners",
+    bg: "Партньори"
+  },
   mission_pillar2_more: {
     en: "and more",
     bg: "и още"
