@@ -42,7 +42,7 @@
 
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="css/custom.css?v=20260516-5">
+  <link rel="stylesheet" href="css/custom.css?v=20260523-11">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -190,8 +190,7 @@
     <div class="hero-premium__content">
       <div class="hero-premium__inner">
         <span class="hero-premium__badge">
-          <span class="badge-dot" aria-hidden="true">🍃</span>
-          <span data-i18n="companies_badge">Ideal for Growing IT Teams</span>
+          <span data-i18n="companies_badge">FOR COMPANIES WITH HIGH STANDARDS</span>
         </span>
 
         <h1 class="hero-premium__title">
@@ -206,56 +205,36 @@
     </div>
   </section>
 
-  <!-- 2. WHY HR LEADERS CHOOSE GENKI (4 cards) -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_why_title">Why HR Leaders Choose Genki</h2>
-        <div class="section-divider mt-4"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Zero Time Investment -->
-        <div class="card fade-up">
-          <div class="card-icon bg-green-100">
-            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit1_title">Zero Time Investment</h3>
-          <p class="text-gray-600" data-i18n="companies_benefit1_desc">No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.</p>
-        </div>
-
-        <!-- Built-in CSR -->
-        <div class="card fade-up">
-          <div class="card-icon bg-blue-100">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit2_title">Built-in CSR</h3>
-          <p class="text-gray-600" data-i18n="companies_benefit2_desc">10% charity donation included. Get automatic ESG impact for your sustainability reports.</p>
-        </div>
-
-        <!-- Build Culture -->
-        <div class="card fade-up">
-          <div class="card-icon bg-orange-100">
-            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit4_title">Build Culture</h3>
-          <p class="text-gray-600" data-i18n="companies_benefit4_desc">Daily touchpoints become culture moments. Healthy eating turns into team bonding without effort.</p>
-        </div>
-
-        <!-- Support Local -->
-        <div class="card fade-up">
-          <div class="card-icon bg-teal-100">
-            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="companies_benefit6_title">Support Local</h3>
-          <p class="text-gray-600" data-i18n="companies_benefit6_desc">100% Bulgarian products. Your benefit spending stays in the local economy.</p>
-        </div>
+  <!-- 2. WHY COMPANIES CHOOSE GENKI — editorial 4-column -->
+  <section class="cp-why">
+    <div class="cp-why__inner">
+      <header class="cp-why__head fade-up">
+        <h2 class="cp-why__title" data-i18n="companies_why_title">Why companies choose Genki</h2>
+        <p class="cp-why__lead" data-i18n="companies_why_subtitle">Because a good benefit does not sit in a list. It is seen, used, and felt every day.</p>
+      </header>
+      <div class="cp-why__grid">
+        <article class="cp-why__item fade-up">
+          <h3 class="cp-why__item-title" data-i18n="companies_benefit1_title">No operational burden</h3>
+          <p class="cp-why__item-text" data-i18n="companies_benefit1_desc">One partner for selection, restocking, maintenance, and reporting.</p>
+        </article>
+        <article class="cp-why__item fade-up">
+          <h3 class="cp-why__item-title" data-i18n="companies_benefit2_title">Visible care</h3>
+          <p class="cp-why__item-text" data-i18n="companies_benefit2_desc">A station people see, use, and associate with the company&rsquo;s attention.</p>
+        </article>
+        <article class="cp-why__item fade-up">
+          <h3 class="cp-why__item-title" data-i18n="companies_benefit4_title">Bulgarian producers</h3>
+          <p class="cp-why__item-text" data-i18n="companies_benefit4_desc">Selected Bulgarian brands presented with a premium standard inside the workplace.</p>
+        </article>
+        <article class="cp-why__item fade-up">
+          <h3 class="cp-why__item-title" data-i18n="companies_benefit6_title">Monthly contribution</h3>
+          <p class="cp-why__item-text" data-i18n="companies_benefit6_desc">10% of real profit is donated every month to Bulgarian causes.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- 3. PRICING (Station-based grid + Lite/Standard toggle + All-include) -->
-  <section id="pricing" class="py-16 bg-gray-50">
+  <section id="pricing" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Section Header -->
@@ -428,8 +407,8 @@
         <!-- TOWER FRIDGE (anchored — "Most Popular" pill) -->
         <!-- Pricing anchor: currently on Tower Fridge (Sweet Spot — fastest pipeline).
              Reconsider moving to Hub Standard once 5+ enterprise contracts are closed. -->
-        <div data-station-card="towerFridge" class="station-card station-card-anchor bg-white rounded-2xl p-6 border-2 border-amber-400 shadow-md flex flex-col fade-up hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative">
-          <div data-anchor-pill class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap" data-i18n="pricing_anchor_pill">We recommend</div>
+        <div data-station-card="towerFridge" class="station-card station-card-anchor bg-white rounded-2xl p-6 border border-[#1A1A1A] shadow-sm flex flex-col fade-up hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 relative">
+          <div data-anchor-pill class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-[#FAF6EE] text-[0.65rem] font-semibold px-3 py-1 rounded-full uppercase tracking-[0.14em] whitespace-nowrap" data-i18n="pricing_anchor_pill">We recommend</div>
           <div class="station-image station-image-swap mb-3">
             <img src="assets/images/stations/tower-fridge-frontal.png"
                  alt="Free-standing Genki Tower Fridge station with built-in fridge"
@@ -573,43 +552,23 @@
       <!-- VAT footer note -->
       <p class="text-xs text-gray-500 text-center max-w-3xl mx-auto mb-12 fade-up" data-i18n="pricing_vat_note">Prices are in EUR, VAT excluded. VAT applied per Bulgarian law where applicable. VAT is recoverable for B2B clients.</p>
 
-      <!-- Every station includes -->
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-gray-200 fade-up">
-          <h3 class="text-2xl font-bold text-gray-900 text-center mb-8" data-i18n="pricing_all_title">Every station includes:</h3>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f1">100% Bulgarian-made products</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f2">Identical product quality across Lite and Standard — only visit cadence and reload size differ</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f3">Equipment ownership stays with Genki — you never own depreciating hardware</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f4">Full service: delivery, installation, restocking, brand maintenance, monthly impact report</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f5">10% of monthly profit donated to Bulgarian charities — visible on every invoice</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span class="text-gray-700" data-i18n="pricing_all_f6">One contact, one invoice, zero HR admin</span>
-            </div>
-          </div>
-        </div>
+      <!-- Every configuration includes — editorial 2-column list -->
+      <div class="cp-includes fade-up">
+        <h3 class="cp-includes__title" data-i18n="pricing_all_title">Every configuration includes the full system.</h3>
+        <ul class="cp-includes__grid">
+          <li class="cp-includes__item" data-i18n="pricing_all_f1">100% made in Bulgaria</li>
+          <li class="cp-includes__item" data-i18n="pricing_all_f2">Equipment owned and maintained by Genki</li>
+          <li class="cp-includes__item" data-i18n="pricing_all_f3">Same product standard across Lite and Standard</li>
+          <li class="cp-includes__item" data-i18n="pricing_all_f4">Selection, restocking, service, and monthly reporting</li>
+          <li class="cp-includes__item" data-i18n="pricing_all_f5">10% of real profit donated to Bulgarian causes</li>
+          <li class="cp-includes__item" data-i18n="pricing_all_f6">One partner, one invoice, no extra coordination</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- 4. ROI CALCULATOR (simplified single-column) -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-[#F4F6F2]">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 fade-up">
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-i18n="companies_roi_title">The ROI of Wellness Benefits</h2>
@@ -618,7 +577,7 @@
         </p>
       </div>
 
-      <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 lg:p-8 fade-up border border-gray-200 shadow-lg">
+      <div class="bg-white rounded-2xl p-6 lg:p-8 fade-up border border-[#E5E2DA] shadow-sm">
 
         <!-- Team Size Slider -->
         <div class="mb-4">
@@ -648,50 +607,51 @@
         </div>
 
         <!-- Daily Cost Hero Box -->
-        <div id="per-day-box" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl p-6 mb-6 text-center transform transition-all duration-300 shadow-lg">
-          <p class="text-white/80 text-sm mb-1" data-i18n="roi_daily_investment">Your Daily Investment</p>
+        <div id="per-day-box" class="bg-gradient-to-br from-primary-600 to-forest-700 text-white rounded-xl p-7 mb-6 text-center transform transition-all duration-300">
+          <p class="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#B5D1A2] mb-2" data-i18n="roi_daily_investment">Your Daily Investment</p>
           <div class="flex items-baseline justify-center gap-2 mb-1">
             <span class="text-5xl sm:text-6xl font-extrabold" id="roi-daily-cost">€1.28</span>
             <span class="text-lg opacity-90" data-i18n="roi_unit_per_employee_day">/employee/day</span>
           </div>
-          <p class="text-white/60 text-xs">
+          <p class="text-white/65 text-xs">
             (<span id="roi-coffees">2.5</span> <span data-i18n="roi_coffees">coffees</span> <span data-i18n="roi_or">or</span> <span id="roi-sandwiches">2.9</span> <span data-i18n="roi_sandwiches">sandwiches</span>)
           </p>
         </div>
 
-        <!-- 4 Savings Mini-Cards in Grid -->
+        <!-- Indicative savings strip -->
+        <p class="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#566E4A] mb-3 text-center">Indicative annual estimate</p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <i data-lucide="piggy-bank" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+          <div class="bg-white rounded-lg p-4 text-center border border-[#E5E2DA]">
+            <i data-lucide="piggy-bank" class="w-5 h-5 text-[#566E4A] mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_turnover_title">Reduced Turnover</p>
-            <p class="text-lg font-bold text-emerald-600">€<span id="roi-turnover">263,250</span></p>
+            <p class="text-lg font-semibold text-[#1A1A1A]">€<span id="roi-turnover">263,250</span></p>
           </div>
-          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <i data-lucide="trending-up" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+          <div class="bg-white rounded-lg p-4 text-center border border-[#E5E2DA]">
+            <i data-lucide="trending-up" class="w-5 h-5 text-[#566E4A] mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_productivity_title">Productivity Gains</p>
-            <p class="text-lg font-bold text-emerald-600">€<span id="roi-productivity">270,000</span></p>
+            <p class="text-lg font-semibold text-[#1A1A1A]">€<span id="roi-productivity">270,000</span></p>
           </div>
-          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+          <div class="bg-white rounded-lg p-4 text-center border border-[#E5E2DA]">
+            <i data-lucide="heart-pulse" class="w-5 h-5 text-[#566E4A] mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_sick_title">Fewer Sick Days</p>
-            <p class="text-lg font-bold text-emerald-600">€<span id="roi-sick">39,273</span></p>
+            <p class="text-lg font-semibold text-[#1A1A1A]">€<span id="roi-sick">39,273</span></p>
             <p class="text-[10px] text-gray-400 mt-1">⏱️ <span id="roi-break-hours" class="font-semibold text-amber-600">~33,000</span> <span data-i18n="roi_hours_saved_short">hrs/yr saved</span></p>
           </div>
-          <div class="bg-white rounded-lg p-4 text-center border border-gray-100">
-            <i data-lucide="pill" class="w-6 h-6 text-emerald-500 mx-auto"></i>
+          <div class="bg-white rounded-lg p-4 text-center border border-[#E5E2DA]">
+            <i data-lucide="pill" class="w-5 h-5 text-[#566E4A] mx-auto"></i>
             <p class="text-xs text-gray-500 mt-1" data-i18n="roi_healthcare_title">Healthcare Savings</p>
-            <p class="text-lg font-bold text-emerald-600">€<span id="roi-healthcare">7,500</span></p>
+            <p class="text-lg font-semibold text-[#1A1A1A]">€<span id="roi-healthcare">7,500</span></p>
           </div>
         </div>
 
         <!-- Net Benefit Hero -->
-        <div class="bg-emerald-50 rounded-xl p-5 mb-5 border-2 border-emerald-200 text-center">
-          <p class="text-sm text-emerald-700 mb-1" data-i18n="roi_what_you_save">What You Save Annually</p>
-          <p class="text-4xl sm:text-5xl font-extrabold text-emerald-600 mb-1">€<span id="roi-net">431,523</span></p>
-          <p class="text-xs text-emerald-600/70 mb-2" data-i18n="roi_save_subtitle">from reduced turnover, productivity & health costs</p>
+        <div class="bg-[#F4F6F2] rounded-xl p-5 mb-5 border border-[#D8DED2] text-center">
+          <p class="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#566E4A] mb-2" data-i18n="roi_what_you_save">What You Save Annually</p>
+          <p class="text-4xl sm:text-5xl font-semibold text-[#1A1A1A] mb-1">€<span id="roi-net">431,523</span></p>
+          <p class="text-xs text-[#4A4A4A] opacity-75 mb-3" data-i18n="roi_save_subtitle">from reduced turnover, productivity & health costs</p>
           <div class="flex justify-center gap-6 text-sm">
-            <span class="text-emerald-700"><span data-i18n="roi_label">ROI:</span> <strong><span id="roi-percent">291</span>%</strong></span>
-            <span class="text-emerald-700"><span data-i18n="roi_payback_label">Payback:</span> <strong><span id="roi-payback">3.1</span> <span data-i18n="roi_months_short">mo</span></strong></span>
+            <span class="text-[#4A4A4A]"><span data-i18n="roi_label">ROI:</span> <strong class="text-[#1A1A1A]"><span id="roi-percent">291</span>%</strong></span>
+            <span class="text-[#4A4A4A]"><span data-i18n="roi_payback_label">Payback:</span> <strong class="text-[#1A1A1A]"><span id="roi-payback">3.1</span> <span data-i18n="roi_months_short">mo</span></strong></span>
           </div>
         </div>
 
@@ -737,52 +697,42 @@
     </div>
   </section>
 
-  <!-- 5. FAQ SECTION -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-up" data-i18n="companies_faq_title">Frequently Asked Questions</h2>
-      </div>
-
-      <div class="space-y-4">
-        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq1_q">What team sizes do you work with?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq1_a">Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Desk station as an entry tier. Contact us to discuss the right station and tier for your team.</p>
+  <!-- 5. FAQ — editorial accordions -->
+  <section class="cp-faq">
+    <div class="cp-faq__inner">
+      <h2 class="cp-faq__title fade-up" data-i18n="companies_faq_title">Frequently Asked Questions</h2>
+      <div class="cp-faq__list">
+        <details class="cp-faq__item fade-up">
+          <summary class="cp-faq__q" data-i18n="companies_faq1_q">What team sizes do you work with?</summary>
+          <p class="cp-faq__a" data-i18n="companies_faq1_a">Our sweet spot is 60–400 employees, where the station model delivers maximum value. Smaller teams (25–60) are a fit for our Desk station as an entry tier. Contact us to discuss the right station and tier for your team.</p>
         </details>
-
-        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq2_q">How does delivery work?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq2_a">Visits are baked into your monthly fee. Lite tiers receive 4 visits per month (6 for Hub Lite); Standard tiers receive 8 visits per month (12 for Hub Standard). We agree the cadence with you upfront based on team size and consumption patterns.</p>
+        <details class="cp-faq__item fade-up">
+          <summary class="cp-faq__q" data-i18n="companies_faq2_q">How does delivery work?</summary>
+          <p class="cp-faq__a" data-i18n="companies_faq2_a">Visits are baked into your monthly fee. Lite tiers receive 4 visits per month (6 for Hub Lite); Standard tiers receive 8 visits per month (12 for Hub Standard). We agree the cadence with you upfront based on team size and consumption patterns.</p>
         </details>
-
-        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq3_q">Can employees with dietary restrictions participate?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq3_a">All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection.</p>
+        <details class="cp-faq__item fade-up">
+          <summary class="cp-faq__q" data-i18n="companies_faq3_q">Can employees with dietary restrictions participate?</summary>
+          <p class="cp-faq__a" data-i18n="companies_faq3_a">All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection.</p>
         </details>
-
-        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq4_q">Which charities receive the donations?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq4_a">We partner with vetted Bulgarian charities. Clients can nominate specific causes that align with their values. All donations are itemised on every monthly invoice for your CSR reporting.</p>
+        <details class="cp-faq__item fade-up">
+          <summary class="cp-faq__q" data-i18n="companies_faq4_q">Which charities receive the donations?</summary>
+          <p class="cp-faq__a" data-i18n="companies_faq4_a">We partner with vetted Bulgarian charities. Clients can nominate specific causes that align with their values. All donations are itemised on every monthly invoice for your CSR reporting.</p>
         </details>
-
-        <details class="bg-white rounded-xl p-6 shadow-sm fade-up">
-          <summary class="font-semibold text-gray-900 cursor-pointer" data-i18n="companies_faq_setup_q">What about equipment and installation?</summary>
-          <p class="text-gray-600 mt-4" data-i18n="companies_faq_setup_a">The one-time setup fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the setup fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed setup fee published on this page.</p>
+        <details class="cp-faq__item fade-up">
+          <summary class="cp-faq__q" data-i18n="companies_faq_setup_q">What about equipment and installation?</summary>
+          <p class="cp-faq__a" data-i18n="companies_faq_setup_a">The one-time setup fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the setup fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed setup fee published on this page.</p>
         </details>
-
       </div>
     </div>
   </section>
 
-  <!-- 6. CTA SECTION -->
-  <section class="py-20 bg-gradient-to-br from-forest-500 to-forest-700 green-section-soft">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold heading-on-green mb-6 fade-up" data-i18n="companies_cta_title">Ready to Upgrade Your Benefits Package?</h2>
-      <p class="text-xl text-on-green mb-8 fade-up" data-i18n="companies_cta_subtitle">Book a consultation and see how Genki can transform your workplace.</p>
-      <a href="/contact" class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all fade-up">
-        <span data-i18n="companies_cta_schedule">Book a consultation</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-      </a>
+  <!-- 6. CLOSING CTA — editorial calm -->
+  <section class="cp-cta">
+    <div class="cp-cta__inner fade-up">
+      <span class="cp-cta__eyebrow" data-i18n="companies_cta_eyebrow">NEXT STEP</span>
+      <h2 class="cp-cta__title" data-i18n="companies_cta_title">Let&rsquo;s find the right Genki format for your office.</h2>
+      <p class="cp-cta__text" data-i18n="companies_cta_subtitle">In a 15-minute conversation, we&rsquo;ll discuss your team, your space, and how Genki can fit into your workplace.</p>
+      <a href="/contact" class="cp-cta__btn" data-i18n="companies_cta_schedule" data-umami-event="cta_book_demo">Book a Consultation</a>
     </div>
   </section>
 

@@ -423,8 +423,8 @@ const translations = {
   // COMPANIES PAGE
   // ===================
   companies_badge: {
-    en: "Ideal for Growing IT Teams",
-    bg: "Идеално за разрастващи се IT екипи"
+    en: "FOR COMPANIES WITH HIGH STANDARDS",
+    bg: "ЗА КОМПАНИИ С ВИСОК СТАНДАРТ"
   },
   companies_hero_title_1: {
     en: "Wellness your team uses.",
@@ -439,24 +439,28 @@ const translations = {
     bg: "Картите за фитнес често остават неизползвани. Genki снаксовете се ядат всеки ден. Прозрачни цени, пълно управление, нулева работа за HR."
   },
   companies_why_title: {
-    en: "Why HR Leaders Choose Genki",
-    bg: "Защо HR лидерите избират Genki"
+    en: "Why companies choose Genki",
+    bg: "Защо компаниите избират Genki"
+  },
+  companies_why_subtitle: {
+    en: "Because a good benefit does not sit in a list. It is seen, used, and felt every day.",
+    bg: "Защото добрата придобивка не стои в списък. Тя се вижда, използва и усеща всеки ден."
   },
   companies_benefit1_title: {
-    en: "Zero Time Investment",
-    bg: "Без загуба на време"
+    en: "No operational burden",
+    bg: "Без оперативна тежест"
   },
   companies_benefit1_desc: {
-    en: "No vendor management, no ordering, no tracking. We handle everything from sourcing to restocking.",
-    bg: "Без управление на доставчици, без поръчки, без проследяване. Ние се грижим за всичко от снабдяването до зареждането."
+    en: "One partner for selection, restocking, maintenance, and reporting.",
+    bg: "Един партньор за подбор, зареждане, поддръжка и отчетност."
   },
   companies_benefit2_title: {
-    en: "Built-in CSR",
-    bg: "Вградена КСО"
+    en: "Visible care",
+    bg: "Видима грижа"
   },
   companies_benefit2_desc: {
-    en: "10% of real profit donated monthly to Bulgarian charities. Documented social impact you can put in front of your team and your CSR report.",
-    bg: "10% от реалната печалба, дарени всеки месец на български благотворителни организации. Документирано социално въздействие, което можете да представите пред екипа си и в КСО отчета."
+    en: "A station people see, use, and associate with the company's attention.",
+    bg: "Станция, която хората виждат, използват и свързват с вниманието на компанията."
   },
   companies_benefit3_title: {
     en: "Boost Retention",
@@ -467,12 +471,12 @@ const translations = {
     bg: "Ежедневна видима придобивка, която служителите ценят. Показва, че се грижите за тяхното благополучие."
   },
   companies_benefit4_title: {
-    en: "Build Culture",
-    bg: "Изградете екипна култура"
+    en: "Bulgarian producers",
+    bg: "Български производители"
   },
   companies_benefit4_desc: {
-    en: "Daily touchpoints become culture moments. Healthy eating turns into team bonding without effort.",
-    bg: "Ежедневните моменти около Genki се превръщат в поводи за общуване. Здравословното хранене започва да сближава екипа — без допълнителни усилия."
+    en: "Selected Bulgarian brands presented with a premium standard inside the workplace.",
+    bg: "Подбрани български марки, представени с премиум стандарт в работната среда."
   },
   companies_benefit5_title: {
     en: "Healthier Teams",
@@ -483,12 +487,12 @@ const translations = {
     bg: "Заменете стандартните вендинг избори със здравословни алтернативи. Повече фокус, по-малко енергийни спадове."
   },
   companies_benefit6_title: {
-    en: "Support Local",
-    bg: "Подкрепете българското"
+    en: "Monthly contribution",
+    bg: "Месечен принос"
   },
   companies_benefit6_desc: {
-    en: "100% Bulgarian sourcing — Smart Organic, Roobar, VIDAS, Frudada and more. Your benefit budget stays in the local economy.",
-    bg: "100% български произход — Smart Organic, Roobar, VIDAS, Frudada и още. Бюджетът Ви за придобивки остава в местната икономика."
+    en: "10% of real profit is donated every month to Bulgarian causes.",
+    bg: "10% от реалната печалба се дарява всеки месец към български каузи."
   },
 
   // COMPANIES PAGE - PRICING
@@ -503,12 +507,12 @@ const translations = {
 
   // NEW PRICING - Hero (station-based positioning)
   pricing_hero_title: {
-    en: "Managed Wellness Infrastructure for the modern workplace",
-    bg: "Управлявана уелнес инфраструктура за съвременните работни места в България"
+    en: "Choose the format that fits your office, team, and daily rhythm.",
+    bg: "Изберете формат според офиса, екипа и ритъма на работа."
   },
   pricing_hero_subtitle: {
-    en: "4 stations. 2 service tiers. 100% Bulgarian-made products. 10% of profit donated every month.",
-    bg: "4 модула. 2 нива на обслужване. 100% български продукти. 10% от печалбата се дарява всеки месец."
+    en: "Desk, Tower, and Hub are different scales of one managed service — station, products, restocking, maintenance, and reporting.",
+    bg: "Desk, Tower и Hub са различни мащаби на една и съща услуга — станция, продукти, зареждане, поддръжка и отчетност."
   },
 
   // NEW PRICING - Tier toggle
@@ -630,42 +634,42 @@ const translations = {
 
   // NEW PRICING - All Plans Include (rewritten bullets)
   pricing_all_title: {
-    en: "Every station includes:",
-    bg: "Всеки модул включва:"
+    en: "Every configuration includes the full system.",
+    bg: "Всяка конфигурация включва цялата система."
   },
   pricing_all_f1: {
     en: "100% Bulgarian-made products",
     bg: "100% български продукти"
   },
   pricing_all_f2: {
-    en: "Identical product quality across Lite and Standard — only visit cadence and reload size differ",
-    bg: "Еднакво качество на продуктите при Lite и Standard — различават се само честотата и количеството на зарежданията"
+    en: "Equipment owned and maintained by Genki",
+    bg: "Оборудване, собственост и поддръжка от Genki"
   },
   pricing_all_f3: {
-    en: "Equipment ownership stays with Genki — you never own depreciating hardware",
-    bg: "Оборудването остава собственост на Genki — не купувате и не амортизирате оборудване"
+    en: "Same product standard across Lite and Standard",
+    bg: "Еднакъв стандарт на продуктите при Lite и Standard"
   },
   pricing_all_f4: {
-    en: "Full service: delivery, installation, restocking, brand maintenance, monthly impact report",
-    bg: "Пълно обслужване: доставка, монтаж, зареждане, поддръжка на брандирането, месечен отчет за въздействието"
+    en: "Selection, restocking, service, and monthly reporting",
+    bg: "Подбор, зареждане, обслужване и месечен отчет"
   },
   pricing_all_f5: {
-    en: "10% of monthly profit donated to Bulgarian charities — visible on every invoice",
-    bg: "10% от месечната печалба се дарява за български каузи — отразено във всяка фактура"
+    en: "10% of real profit donated to Bulgarian causes",
+    bg: "10% от реалната печалба към български каузи"
   },
   pricing_all_f6: {
-    en: "One contact, one invoice, zero HR admin",
-    bg: "Един контакт, една фактура, нулева административна тежест за HR"
+    en: "One partner, one invoice, no extra coordination",
+    bg: "Един партньор, една фактура, без допълнителна координация"
   },
 
   // COMPANIES PAGE - ROI
   companies_roi_title: {
-    en: "The ROI of Wellness Benefits",
-    bg: "Възвръщаемостта на уелнес придобивките"
+    en: "What Genki looks like as a daily investment",
+    bg: "Как изглежда Genki като дневна инвестиция"
   },
   companies_roi_subtitle: {
-    en: "Investing in employee health isn't just the right thing to do — it's smart business.",
-    bg: "Инвестирането в здравето на служителите не е просто правилното нещо — това е разумно бизнес решение."
+    en: "Adjust the team size and see the approximate per-person value based on the recommended format.",
+    bg: "Променете размера на екипа и вижте ориентировъчната стойност на човек според подходящия формат."
   },
   companies_roi_turnover_title: {
     en: "Reduced Turnover",
@@ -859,8 +863,8 @@ const translations = {
     bg: "💡 95% от компаниите, измерващи ROI от уелнес, виждат положителна възвръщаемост — Wellhub 2024"
   },
   roi_disclaimer: {
-    en: "📝 Example calculation for illustration. Book a consultation for your custom quote.",
-    bg: "📝 Примерно изчисление за илюстрация. Запазете консултация за персонална оферта."
+    en: "Indicative figures only.",
+    bg: "Ориентировъчни стойности."
   },
   roi_cta: {
     en: "Book a consultation",
@@ -945,8 +949,8 @@ const translations = {
     bg: "Числата приемат, че Genki допринася заедно с други уелнес инициативи (Multisport, здравно осигуряване, ментална подкрепа), а не самостоятелно. Дайте 4–6 седмици период на калибриране, преди да оценявате реалните резултати."
   },
   roi_research_note: {
-    en: "Based on peer-reviewed research from Harvard, SHRM, EU-OSHA and more.",
-    bg: "Базирано на рецензирани изследвания от Harvard, SHRM, EU-OSHA и други."
+    en: "Indicative model based on selected assumptions. Actual value depends on the team, configuration, and usage pattern.",
+    bg: "Ориентировъчен модел, базиран на избрани допускания. Реалната стойност зависи от екипа, конфигурацията и начина на използване."
   },
   roi_turnover_rate: {
     en: "Turnover:",
@@ -1118,16 +1122,20 @@ const translations = {
   },
 
   // COMPANIES PAGE - CTA
+  companies_cta_eyebrow: {
+    en: "NEXT STEP",
+    bg: "СЛЕДВАЩА СТЪПКА"
+  },
   companies_cta_title: {
-    en: "Ready to Upgrade Your Benefits Package?",
-    bg: "Готови ли сте да надградите пакета си с придобивки?"
+    en: "Let\u2019s find the right Genki format for your office.",
+    bg: "Нека намерим правилния Genki формат за Вашия офис."
   },
   companies_cta_subtitle: {
-    en: "Book a consultation and see how Genki can transform your workplace.",
-    bg: "Запазете консултация и вижте как Genki може да трансформира работното Ви място."
+    en: "In a 15-minute conversation, we\u2019ll discuss your team, your space, and how Genki can fit into your workplace.",
+    bg: "В 15-минутен разговор ще обсъдим екипа, пространството и начина, по който Genki може да се впише в работната Ви среда."
   },
   companies_cta_schedule: {
-    en: "Book a consultation",
+    en: "Book a Consultation",
     bg: "Запазете консултация"
   },
 
