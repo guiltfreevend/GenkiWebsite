@@ -365,36 +365,36 @@ const translations = {
     bg: "ЕЖЕДНЕВНА ГРИЖА"
   },
   index_hr_statement: {
-    en: "A benefit matters when people feel it every day.",
-    bg: "Една придобивка има стойност, когато хората я усещат всеки ден."
+    en: "Care that becomes part of the day.",
+    bg: "Грижа, която влиза в ритъма на деня."
   },
   index_hr_lead: {
-    en: "Genki is a quiet but visible gesture from the company to its people — carefully selected Bulgarian products, beautifully presented in the office, and fully managed by us.",
-    bg: "Genki е тих, но видим жест от компанията към хората — подбрани български продукти, красиво подредени в офиса и управлявани изцяло от нас."
+    en: "Genki is a small but visible gesture from the company to its people — carefully selected Bulgarian products, beautifully presented in the office, and fully managed by us.",
+    bg: "Genki е малък, но видим жест от компанията към хората — подбрани български продукти, красиво подредени в офиса и управлявани изцяло от нас."
   },
   index_hr_obs1_label: {
-    en: "A natural part of the day",
-    bg: "Естествена част от деня"
+    en: "A natural moment",
+    bg: "Естествен момент"
   },
   index_hr_obs1_text: {
     en: "Something thoughtful nearby when someone needs a pause, energy, or a small moment for themselves.",
-    bg: "Нещо качествено наблизо, когато човек има нужда от пауза, енергия или малък момент за себе си."
+    bg: "Нещо качествено наблизо, когато човек има нужда от пауза, енергия или малко време за себе си."
   },
   index_hr_obs2_label: {
-    en: "Care people can see",
-    bg: "Грижа, която се вижда"
+    en: "The space feels different",
+    bg: "Пространството се усеща различно"
   },
   index_hr_obs2_text: {
-    en: "A station that changes the feeling of the space before it is even used.",
-    bg: "Станция, която променя усещането за пространството още преди да бъде използвана."
+    en: "A station that adds warmth, order, and attention to the everyday office experience.",
+    bg: "Станция, която добавя топлина, ред и внимание към ежедневието в офиса."
   },
   index_hr_obs3_label: {
-    en: "Effortless to maintain",
-    bg: "Подредено без усилие"
+    en: "Fully handled",
+    bg: "Всичко е поето"
   },
   index_hr_obs3_text: {
-    en: "Selection, restocking, maintenance, and reporting — handled by Genki, without adding work for HR.",
-    bg: "Подбор, зареждане, поддръжка и отчетност — поети от Genki, без нова задача за HR."
+    en: "Selection, restocking, maintenance, and reporting — managed by Genki, without adding work for HR.",
+    bg: "Подбор, зареждане, поддръжка и отчетност — управлявани от Genki, без нова задача за HR."
   },
 
   // INDEX PAGE - CTA
