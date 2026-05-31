@@ -206,6 +206,10 @@ const translations = {
     en: "Privacy Policy",
     bg: "Политика за поверителност"
   },
+  footer_social_cta: {
+    en: "Follow us",
+    bg: "Последвайте ни"
+  },
   footer_terms: {
     en: "Terms of Service",
     bg: "Условия за ползване"

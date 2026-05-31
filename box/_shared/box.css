@@ -436,6 +436,46 @@ body {
   text-align: center;
 }
 
+/* Social band — its own standalone section directly above the credit footer */
+.social-band {
+  background: var(--black-ink);
+  padding: 36px 5vw;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.social-cta {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+
+.social-links {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.social-band a {
+  display: inline-flex;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-band a:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.social-band svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ============================================
    ANIMATIONS
    ============================================ */
