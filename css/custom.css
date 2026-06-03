@@ -2459,6 +2459,357 @@ select:focus {
   background-size: 100% 1px;
 }
 
+/* ============================================================
+   CONTACT PAGE — editorial premium redesign (.ct-*)
+   Mirrors the /mission + /companies editorial system: light
+   weights, generous whitespace, sage eyebrows, thin dividers.
+   ============================================================ */
+
+/* ---- hero (light, fresh mint tint — no photo) ---- */
+.ct-hero {
+  background: linear-gradient(168deg, #E4F1E8 0%, #EDF4ED 52%, var(--genki-sage-bg) 100%);
+  padding: 11rem 1.5rem 5rem;
+}
+
+.ct-hero__inner {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.ct-hero__eyebrow {
+  display: inline-block;
+  margin: 0 0 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--genki-sage);
+}
+
+.ct-hero__title {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--genki-matte);
+}
+
+.ct-hero__lead {
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--genki-body);
+}
+
+@media (max-width: 768px) {
+  .ct-hero { padding: 8.5rem 1.5rem 3.5rem; }
+}
+
+/* ---- main: form + info rail ---- */
+.ct-main {
+  background: var(--genki-sage-bg);
+  padding: 5.5rem 1.5rem 7rem;
+}
+
+.ct-main__inner {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+/* form lives in a crisp white floating card */
+.ct-form-card {
+  background: #ffffff;
+  border: 1px solid #E8EDE8;
+  border-radius: 1.5rem;
+  padding: 3rem 2.75rem;
+  box-shadow: 0 18px 50px rgba(20, 50, 35, 0.07), 0 3px 10px rgba(20, 50, 35, 0.04);
+}
+
+@media (max-width: 768px) {
+  .ct-form-card { padding: 1.75rem 1.5rem; border-radius: 1.25rem; }
+}
+
+@media (min-width: 960px) {
+  .ct-main__inner {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .ct-main { padding: 3.5rem 1.5rem 5rem; }
+}
+
+/* ---- form ---- */
+.ct-form__eyebrow {
+  display: inline-block;
+  margin: 0 0 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--genki-sage);
+}
+
+.ct-form__title {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--genki-matte);
+}
+
+.ct-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ct-field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 560px) {
+  .ct-field-row { grid-template-columns: 1fr 1fr; }
+}
+
+.ct-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--genki-sage);
+}
+
+.ct-input,
+.ct-select,
+.ct-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--genki-matte);
+  background: #ffffff;
+  border: 1.5px solid #E2E8E3;
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.ct-input:hover:not(:focus),
+.ct-select:hover:not(:focus),
+.ct-textarea:hover:not(:focus) {
+  border-color: #cfd8d0;
+}
+
+.ct-textarea { resize: vertical; min-height: 7rem; line-height: 1.6; }
+
+.ct-input::placeholder,
+.ct-textarea::placeholder { color: #a8a29e; }
+
+.ct-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23566E4A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+.ct-input:focus,
+.ct-select:focus,
+.ct-textarea:focus {
+  background: #ffffff;
+  /* focus ring color comes from the global input:focus rule (brand green) */
+}
+
+.ct-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--gradient-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 18px rgba(45, 134, 89, 0.25);
+}
+
+.ct-submit:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(45, 134, 89, 0.32);
+}
+
+.ct-submit svg { width: 1.1rem; height: 1.1rem; transition: transform 0.2s ease; }
+.ct-submit:hover svg { transform: translateX(3px); }
+
+.ct-form__note {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--genki-body);
+}
+
+/* ---- info rail — rich forest-green panel ---- */
+.ct-aside {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: linear-gradient(158deg, #2f6b46 0%, #1e5128 100%);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+}
+
+.ct-aside > * { position: relative; z-index: 1; }
+
+.ct-aside__watermark {
+  position: absolute;
+  right: -6rem;
+  bottom: -4.5rem;
+  width: clamp(20rem, 42vw, 32rem);
+  height: auto;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .ct-aside { padding: 2.5rem 1.75rem; border-radius: 1.25rem; }
+}
+
+.ct-aside__title {
+  margin: 0 0 1.75rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #fffef8;
+}
+
+/* what to expect — numbered editorial steps */
+.ct-steps { margin: 0; padding: 0; list-style: none; }
+
+.ct-step {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 1.4rem 0;
+}
+.ct-step:last-child { padding-bottom: 0; }
+
+.ct-step__num {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--genki-sage-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.ct-step__title {
+  margin: 0.7rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fffef8;
+}
+
+.ct-step__text {
+  margin: 0.45rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 254, 248, 0.76);
+}
+
+/* direct line — quiet contact list */
+.ct-direct__eyebrow {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--genki-sage-soft);
+}
+
+.ct-contact-list { margin: 0; padding: 0; list-style: none; }
+
+.ct-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 1.25rem 0;
+}
+.ct-contact:last-child { padding-bottom: 0; }
+
+.ct-contact__icon {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--genki-sage-soft);
+}
+.ct-contact__icon svg { width: 1.15rem; height: 1.15rem; stroke-width: 1.6; }
+
+.ct-contact__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--genki-sage-soft);
+}
+
+.ct-contact__value {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fffef8;
+  transition: color 0.2s ease;
+}
+a.ct-contact__value:hover { color: #ffffff; }
+
+/* trust strip — quiet typographic close */
+.ct-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ct-trust__item {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 254, 248, 0.7);
+}
+
 /* Page-foot sign-off — a small editorial brand close above the footer */
 .page-signoff {
   background: var(--color-dark);

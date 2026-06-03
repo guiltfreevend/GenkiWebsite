@@ -1929,6 +1929,18 @@ const translations = {
     en: "Book a consultation and discover how Genki can transform your employee benefits.",
     bg: "Запазете консултация и открийте как Genki може да трансформира придобивките на служителите Ви."
   },
+  contact_hero_eyebrow: {
+    en: "Get in touch",
+    bg: "Свържете се"
+  },
+  contact_form_eyebrow: {
+    en: "Consultation request",
+    bg: "Заявка за консултация"
+  },
+  contact_direct_eyebrow: {
+    en: "Direct line",
+    bg: "Директен контакт"
+  },
   contact_form_title: {
     en: "Book a consultation",
     bg: "Запазете консултация"
