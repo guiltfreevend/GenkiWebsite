@@ -180,19 +180,18 @@
       // genki.bg/box/[CODE] — landing page for the Genki QR box drop.
       //
       // On load this page does two things:
-      //   (1) Fires the QR-scan pixel to WinPath so the engine records the
-      //       hit and bumps AAS for the matched company. Fire-and-forget;
-      //       we don't block the render on it.
-      //   (2) Fetches /api/genki/landing/{code} for personalised content
-      //       (recipient first name, company name) and updates the page.
-      //       Fails open: if the code is unknown or the network fails the
-      //       generic welcome above stays put.
+      //   (1) Fires the QR-scan pixel to the same-origin /api/qr Pages
+      //       Function so the scan is recorded (emails hello@genki.bg via
+      //       Resend). Fire-and-forget; we don't block the render on it.
+      //   (2) Personalised content (recipient first name, company name)
+      //       used to come from WinPath's /api/genki/landing/{code}. That
+      //       CRM is retired, so the fetch is now a no-op and the generic
+      //       welcome above always stays put. Fails open by design.
       //
       // The code comes from the URL path (Cloudflare Pages rewrite serves
       // this file for /box/anything via the _redirects rule).
       // ────────────────────────────────────────────────────────────
 
-      var API_BASE = 'https://app.winpathcrm.com';
       // Matches the Calendly URL used on office.html.
       // Calendly booking link — kept in sync with the rest of the site's CTAs.
       var CALENDLY_URL = 'https://calendly.com/hello-genki/15min';
@@ -215,25 +214,21 @@
         if (!code) return;
         try {
           // keepalive: true so the request completes even if the user
-          // navigates away within milliseconds.
-          fetch(API_BASE + '/api/genki/signals/qr', {
+          // navigates away within milliseconds. Same-origin — no CORS.
+          fetch('/api/qr', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ landing_page_code: code }),
             keepalive: true,
-            mode: 'cors',
           }).catch(function () { /* silent */ });
         } catch (e) { /* silent */ }
       }
 
       function fetchLanding(code) {
-        if (!code) return Promise.resolve(null);
-        return fetch(API_BASE + '/api/genki/landing/' + encodeURIComponent(code), {
-          method: 'GET',
-          mode: 'cors',
-        })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .catch(function () { return null; });
+        // WinPath personalisation endpoint is retired — no same-origin
+        // replacement exists, so this is a no-op. Resolves null so the
+        // generic welcome copy stays put (fails open by design).
+        return Promise.resolve(null);
       }
 
       function renderPersonalisation(data) {

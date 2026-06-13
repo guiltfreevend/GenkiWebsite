@@ -2,12 +2,12 @@
 
 // ── QR-scan signal ──────────────────────────────────────────────
 // Partner box pages live at /box/GK-XXXXXX/. On load, fire a
-// fire-and-forget pixel to WinPath so the engine records the scan —
-// mirrors the signal box-landing.html already sends. Skipped on
-// localhost and when ?notrack=1 is present, so test hits don't
-// pollute the data. In self-test mode the signal still fires but is
-// flagged is_test: true so WinPath can exclude it. Silent on
-// network failure.
+// fire-and-forget POST to the same-origin /api/qr Pages Function so the
+// scan is recorded (it emails hello@genki.bg via Resend) — mirrors the
+// signal box-landing.html already sends. Skipped on localhost and when
+// ?notrack=1 is present, so test hits don't pollute the data. In
+// self-test mode the signal still fires but is flagged is_test: true so
+// it can be excluded. Silent on network failure.
 (function () {
   try {
     if (location.hostname === 'localhost') return;
@@ -19,8 +19,8 @@
     var code = match[1].toUpperCase();
 
     // Self-test mode: scans from the team's own phones still fire the
-    // signal, but are flagged is_test: true so WinPath can exclude
-    // them from real QR-scan data. Toggled at /box/selftest/ (stored
+    // signal, but are flagged is_test: true so they can be excluded
+    // from real QR-scan data. Toggled at /box/selftest/ (stored
     // in localStorage) or with a one-off ?selftest=1 query param.
     var isSelfTest = false;
     try {
@@ -32,13 +32,12 @@
     if (isSelfTest) payload.is_test = true;
 
     // keepalive: true so the request completes even if the visitor
-    // navigates away within milliseconds.
-    fetch('https://app.winpathcrm.com/api/genki/signals/qr', {
+    // navigates away within milliseconds. Same-origin — no CORS.
+    fetch('/api/qr', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       keepalive: true,
-      mode: 'cors',
     }).catch(function () { /* silent */ });
   } catch (e) { /* silent */ }
 })();
