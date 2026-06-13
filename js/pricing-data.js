@@ -1,7 +1,7 @@
 // Genki station pricing — locked source of truth.
 // Lite vs Standard differ ONLY in visit cadence and reload quantity;
 // hardware and product quality are identical across tiers.
-// Setup fee is one-time at activation and excludes products.
+// The activation fee (field: setupFee) is one-time and excludes products.
 // sweetSpot.{lite,standard}.{min,max,default} drive the per-card headcount slider.
 
 (function () {

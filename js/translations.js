@@ -206,6 +206,10 @@ const translations = {
     en: "Privacy Policy",
     bg: "Политика за поверителност"
   },
+  footer_activation_note: {
+    en: "Monthly prices exclude VAT. A one-time activation fee applies.",
+    bg: "Месечните цени са без ДДС. Прилага се еднократна активационна такса."
+  },
   footer_social_cta: {
     en: "Follow us",
     bg: "Последвайте ни"
@@ -619,7 +623,7 @@ const translations = {
   },
   pricing_setup_fee_label: {
     en: "One-time activation fee",
-    bg: "Еднократна стартова такса"
+    bg: "Еднократна активационна такса"
   },
   pricing_anchor_pill: {
     en: "We recommend",
@@ -1121,8 +1125,8 @@ const translations = {
     bg: "Какво става с оборудването и инсталацията?"
   },
   companies_faq_setup_a: {
-    en: "The one-time setup fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the setup fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed setup fee published on this page.",
-    bg: "Еднократната стартова такса покрива хардуер, доставка, монтаж, въвеждане в експлоатация и Genki брандиране — продуктите не са включени в стартовата такса. Оборудването остава собственост на Genki през целия период на работа; не купувате и не амортизирате оборудване. Продуктите за първия месец се таксуват отделно като част от стартовата фактура. Всяка станция има фиксирана стартова такса, публикувана на тази страница."
+    en: "The one-time activation fee covers hardware, delivery, installation, onboarding and Genki branding — products are NOT included in the activation fee. Equipment ownership stays with Genki throughout the engagement; you never own depreciating hardware. First-month products are billed separately as part of your Launch Invoice. Each station has a fixed activation fee published on this page.",
+    bg: "Еднократната активационна такса покрива хардуер, доставка, монтаж, въвеждане в експлоатация и Genki брандиране — продуктите не са включени в активационната такса. Оборудването остава собственост на Genki през целия период на работа; не купувате и не амортизирате оборудване. Продуктите за първия месец се таксуват отделно като част от стартовата фактура. Всяка станция има фиксирана активационна такса, публикувана на тази страница."
   },
 
   // COMPANIES PAGE - CTA
@@ -2183,8 +2187,8 @@ const translations = {
     bg: "Колко бързо можем да започнем?"
   },
   contact_faq2_a: {
-    en: "Once you approve the offer, we sign the contract, and the initial fee is paid, we can make the first delivery within 1 week to 1 month (depending on what type of equipment you will need, your branding requirements, etc.). Delivery, installation, and setup are completely free for your team.",
-    bg: "След като одобрите офертата, сключим договора и се заплати първоначалната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще Ви е необходимо, изискванията Ви за брандиране и др.). Доставката, монтажът и настройката са включени в стартовата такса."
+    en: "Once you approve the offer, we sign the contract, and the activation fee is paid, we can make the first delivery within 1 week to 1 month (depending on what type of equipment you will need, your branding requirements, etc.). Delivery, installation, and setup are completely free for your team.",
+    bg: "След като одобрите офертата, сключим договора и се заплати активационната такса, можем да направим първата доставка в период от 1 седмица до 1 месец (в зависимост от това какъв вид оборудване ще Ви е необходимо, изискванията Ви за брандиране и др.). Доставката, монтажът и настройката са включени в активационната такса."
   },
   contact_faq3_q: {
     en: "Do you deliver outside Sofia?",
