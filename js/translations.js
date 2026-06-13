@@ -894,13 +894,42 @@ const translations = {
     en: "Recommended setup",
     bg: "Препоръчана конфигурация"
   },
+  // === Capacity calculator (2026-06) — two inputs, no savings model ===
+  roi_input_per_day: {
+    en: "People in the office per day",
+    bg: "Души на ден в офиса"
+  },
+  roi_input_total_employees: {
+    en: "Total employees",
+    bg: "Общо служители"
+  },
+  roi_result_title: {
+    en: "Your Genki configuration",
+    bg: "Вашата Genki конфигурация"
+  },
+  roi_result_monthly_label: {
+    en: "Monthly price (excl. VAT)",
+    bg: "Месечна цена (без ДДС)"
+  },
+  roi_result_per_covered_label: {
+    en: "Per covered employee / month",
+    bg: "На покрит служител / месец"
+  },
+  roi_result_sizing_hint: {
+    en: "Sized by the people physically in the office on a typical day; cost spread across your whole headcount.",
+    bg: "Оразмерено според хората, физически в офиса в типичен ден; цената се разпределя върху целия екип."
+  },
+  roi_multisport_compare: {
+    en: "For reference, Multisport runs €20–51 per employee/month. Genki covers the whole team — every desk, every day.",
+    bg: "За сравнение, Multisport е €20–51 на служител/месец. Genki покрива целия екип — всяко бюро, всеки ден."
+  },
   roi_under_min_title: {
-    en: "Genki isn't suited to teams under 25 employees",
-    bg: "Genki не е подходящ за екипи под 25 служители"
+    en: "Genki isn't suited to fewer than 5 people a day on-site",
+    bg: "Genki не е подходящ при под 5 души на ден в офиса"
   },
   roi_under_min_desc: {
-    en: "Below 25 people, the Desk Lite station is over-specified. We recommend revisiting once your team grows, or reaching out to discuss a custom arrangement.",
-    bg: "Под 25 души Desk Lite е свръхкапацитет. Препоръчваме да се върнете при нас, когато екипът Ви нарасне, или да се свържете за индивидуално решение."
+    en: "Below five people on-site daily, even the Desk Lite station is over-specified. We recommend revisiting once more of the team is in the office, or reaching out to discuss a custom arrangement.",
+    bg: "Под пет души на ден в офиса дори Desk Lite е свръхкапацитет. Препоръчваме да се върнете при нас, когато повече от екипа е в офиса, или да се свържете за индивидуално решение."
   },
 
   // Setup names — kept as proper nouns; "× N" composite labels are read out as-is.
@@ -909,6 +938,7 @@ const translations = {
   roi_setup_td_lite:        { en: "Tower Dry Lite", bg: "Tower Dry Lite" },
   roi_setup_td_std:         { en: "Tower Dry Standard", bg: "Tower Dry Standard" },
   roi_setup_tf_lite:        { en: "Tower Fridge Lite", bg: "Tower Fridge Lite" },
+  roi_setup_tf_std:         { en: "Tower Fridge Standard", bg: "Tower Fridge Standard" },
   roi_setup_hub_lite:       { en: "Hub Lite", bg: "Hub Lite" },
   roi_setup_hub_std:        { en: "Hub Standard", bg: "Hub Standard" },
   roi_setup_200_250:        { en: "1× Tower Fridge Standard + 1× Tower Fridge Lite",        bg: "1× Tower Fridge Standard + 1× Tower Fridge Lite" },
@@ -923,6 +953,22 @@ const translations = {
   roi_explainer_title: {
     en: "How is this calculated?",
     bg: "Как се изчислява?"
+  },
+  roi_explainer_sizing_title: {
+    en: "Sizing the station",
+    bg: "Оразмеряване на станцията"
+  },
+  roi_explainer_sizing_body: {
+    en: "The station is sized by how many people are physically in the office on a typical day — not by total headcount. Hybrid and remote patterns mean a 265-person company often has far fewer people on-site at once.",
+    bg: "Станцията се оразмерява според това колко души са физически в офиса в типичен ден — а не според общия брой служители. Хибридната и дистанционната работа означават, че компания от 265 души често има много по-малко хора на място едновременно."
+  },
+  roi_explainer_cost_title: {
+    en: "Per covered employee",
+    bg: "На покрит служител"
+  },
+  roi_explainer_cost_body: {
+    en: "The monthly price (excl. VAT) is the live price of the recommended station. Per covered employee spreads that price across your whole headcount — everyone benefits from the station, whichever day they come in.",
+    bg: "Месечната цена (без ДДС) е реалната цена на препоръчаната станция. На покрит служител разпределя тази цена върху целия Ви екип — всеки се възползва от станцията, в който и ден да дойде."
   },
   roi_explainer_assumptions_title: {
     en: "Assumptions",
@@ -953,8 +999,8 @@ const translations = {
     bg: "Намаление на здравните разходи 3%: по-добрата базова диета умерено понижава дългосрочните предотвратими медицински разходи."
   },
   roi_explainer_note: {
-    en: "These figures assume Genki contributes alongside other wellness initiatives (Multisport, healthcare, mental-health support), not in isolation. Allow a 4–6 week calibration period before evaluating actual outcomes.",
-    bg: "Числата приемат, че Genki допринася заедно с други уелнес инициативи (Multisport, здравно осигуряване, ментална подкрепа), а не самостоятелно. Дайте 4–6 седмици период на калибриране, преди да оценявате реалните резултати."
+    en: "This is a capacity and pricing tool — no savings or ROI projections. For reference, Multisport runs €20–51 per employee per month.",
+    bg: "Това е инструмент за капацитет и ценообразуване — без прогнози за спестявания или ROI. За сравнение, Multisport е €20–51 на служител на месец."
   },
   roi_research_note: {
     en: "Indicative model based on selected assumptions. Actual value depends on the team, configuration, and usage pattern.",
@@ -2279,8 +2325,8 @@ const translations = {
     bg: "Изчислете възвръщаемостта си"
   },
   roi_hero_subtitle: {
-    en: "See how investing in employee nutrition drives measurable financial returns through reduced turnover, fewer sick days, and increased productivity.",
-    bg: "Вижте как инвестицията в храненето на служителите може да доведе до измерими финансови резултати чрез намалено текучество, по-малко болнични и по-висока продуктивност."
+    en: "See which Genki station fits your office and what it costs per covered employee — sized by how many people are actually in on a typical day.",
+    bg: "Вижте коя Genki станция пасва на офиса Ви и колко струва на покрит служител — оразмерено според това колко души реално са в офиса в типичен ден."
   },
 
   // Input Labels
@@ -2575,16 +2621,16 @@ const translations = {
     bg: "Вътрешен инструмент за консултации"
   },
   roi_hero_badge: {
-    en: "ROI Calculator",
-    bg: "ROI Калкулатор"
+    en: "Capacity Calculator",
+    bg: "Калкулатор за капацитет"
   },
   roi_hero_title: {
-    en: "Calculate Your",
-    bg: "Изчислете Вашата"
+    en: "Size Your",
+    bg: "Оразмерете Вашата"
   },
   roi_hero_title_highlight: {
-    en: "Wellness ROI",
-    bg: "възвръщаемост от уелнес"
+    en: "Genki Setup",
+    bg: "Genki конфигурация"
   },
   roi_inputs_title: {
     en: "Your Company Profile",

@@ -153,54 +153,22 @@
               <span data-i18n="roi_inputs_title">Your Company Profile</span>
             </h2>
 
-            <!-- Slider: Team Size -->
+            <!-- Slider: People in the office per day (sizes the station) -->
             <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_team_size">Team Size</label>
-              <input type="range" id="slider-team-size" min="25" max="2000" value="300" step="25" class="roi-slider w-full">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_per_day">People in the office per day</label>
+              <input type="range" id="slider-per-day" min="5" max="300" value="62" step="1" class="roi-slider w-full">
               <div class="flex justify-between text-sm text-gray-500 mt-1">
-                <span>25</span>
-                <span class="font-semibold text-primary-600"><span id="display-team-size">300</span> <span data-i18n="roi_employees">employees</span></span>
-                <span>2000</span>
+                <span>5</span>
+                <span class="font-semibold text-primary-600"><span id="display-per-day">62</span></span>
+                <span>300</span>
               </div>
-              <!-- Recommended setup line — derived from headcount via roi-engine -->
+              <!-- Recommended station — derived from people/day via roi-engine -->
               <p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
                 <span data-i18n="roi_recommended_setup_label">Recommended setup</span>:
-                <span id="display-setup-name" class="font-semibold text-gray-700">Hub Standard</span>
+                <span id="display-setup-name" class="font-semibold text-gray-700">Tower Fridge Standard</span>
               </p>
             </div>
 
-            <!-- Slider: Average Salary -->
-            <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_salary">Average Annual Salary</label>
-              <input type="range" id="slider-salary" min="30000" max="80000" value="36000" step="1000" class="roi-slider w-full">
-              <div class="flex justify-between text-sm text-gray-500 mt-1">
-                <span>€30k</span>
-                <span class="font-semibold text-primary-600">€<span id="display-salary">36,000</span></span>
-                <span>€80k</span>
-              </div>
-            </div>
-
-            <!-- Slider: Turnover Rate -->
-            <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_turnover">Current Annual Turnover Rate</label>
-              <input type="range" id="slider-turnover" min="5" max="25" value="13" step="1" class="roi-slider w-full">
-              <div class="flex justify-between text-sm text-gray-500 mt-1">
-                <span>5%</span>
-                <span class="font-semibold text-primary-600"><span id="display-turnover">13</span>%</span>
-                <span>25%</span>
-              </div>
-            </div>
-
-            <!-- Slider: Sick Days -->
-            <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_sick_days">Current Sick Days (per employee/year)</label>
-              <input type="range" id="slider-sick-days" min="2" max="15" value="8" step="1" class="roi-slider w-full">
-              <div class="flex justify-between text-sm text-gray-500 mt-1">
-                <span>2</span>
-                <span class="font-semibold text-primary-600"><span id="display-sick-days">8</span> <span data-i18n="roi_days">days</span></span>
-                <span>15</span>
-              </div>
-            </div>
 
             <!-- Under-25 disabled state — only visible when team < MIN_HEADCOUNT -->
             <div id="roi-unsupported" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
@@ -212,218 +180,39 @@
           <!-- Right Column: Results -->
           <div class="space-y-6">
 
-            <!-- HERO: Savings Card (Lead with Value!) -->
-            <div class="bg-gradient-to-br from-forest-500 to-forest-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl">
-              <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
-                <i data-lucide="piggy-bank" class="w-6 h-6"></i>
-                <span data-i18n="roi_savings_hero_title">Your Annual Savings with Genki</span>
+            <!-- RESULT: Capacity configuration -->
+            <div id="roi-result" class="bg-gradient-to-br from-forest-500 to-forest-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl">
+              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                <i data-lucide="package" class="w-6 h-6"></i>
+                <span data-i18n="roi_result_title">Your Genki configuration</span>
               </h3>
 
-              <!-- Scenario Tabs (default = Conservative — most defensible) -->
-              <div class="flex gap-1.5 sm:gap-2 mb-6">
-                <button class="scenario-tab flex-1 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all bg-white text-primary-700" data-scenario="conservative" data-i18n="roi_scenario_conservative">Conservative</button>
-                <button class="scenario-tab flex-1 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all bg-white/20 hover:bg-white/30" data-scenario="moderate" data-i18n="roi_scenario_moderate">Moderate</button>
-                <button class="scenario-tab flex-1 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all bg-white/20 hover:bg-white/30" data-scenario="optimistic" data-i18n="roi_scenario_optimistic">Optimistic</button>
-              </div>
-
-              <!-- HERO NUMBER: Total Savings -->
+              <!-- Recommended station -->
               <div class="text-center mb-6">
-                <p class="text-white/80 text-sm mb-1" data-i18n="roi_total_savings">Total Annual Savings</p>
-                <p class="text-5xl sm:text-6xl font-extrabold text-white drop-shadow-lg">€<span id="result-savings">872,000</span></p>
+                <p class="text-white/80 text-sm mb-1" data-i18n="roi_recommended_setup_label">Recommended setup</p>
+                <p class="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-lg" id="result-tier-name">Tower Fridge Standard</p>
               </div>
 
-              <!-- SECONDARY: Net Benefit -->
-              <div class="bg-white/15 rounded-xl p-4 text-center mb-6">
-                <p class="text-white/80 text-sm" data-i18n="roi_net_benefit_after">Net Benefit After Investment</p>
-                <p class="text-3xl sm:text-4xl font-bold text-green-300">€<span id="result-net">674,000</span></p>
-                <p class="text-xs text-white/60 mt-1" data-i18n="roi_pure_profit">Pure profit in your pocket</p>
+              <!-- Monthly price + per-covered employee -->
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="bg-white/15 rounded-xl p-4 text-center">
+                  <p class="text-white/80 text-xs mb-1" data-i18n="roi_result_monthly_label">Monthly price (excl. VAT)</p>
+                  <p class="text-2xl sm:text-3xl font-bold text-white">€<span id="result-monthly">2,790</span></p>
+                </div>
+                <div class="bg-white/15 rounded-xl p-4 text-center">
+                  <p class="text-white/80 text-xs mb-1" data-i18n="roi_result_per_covered_label">Per covered employee / month</p>
+                  <p class="text-2xl sm:text-3xl font-bold text-green-300">€<span id="result-per-covered">45.00</span></p>
+                </div>
               </div>
 
-              <!-- PROMINENT: Daily Cost Hero -->
+              <p class="text-xs text-white/60 text-center mb-5" data-i18n="roi_result_sizing_hint">Sized by the people physically in the office on a typical day; cost spread across your whole headcount.</p>
+
+              <!-- Multisport comparison -->
               <div class="border-t border-white/20 pt-5">
-                <p class="text-white/70 text-sm mb-3 flex items-center justify-center gap-2">
-                  <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
-                  <span data-i18n="roi_investment_breakdown">Investment Breakdown</span>
-                </p>
-
-                <!-- Daily Cost - THE HERO -->
-                <div class="text-center mb-4">
-                  <div class="inline-flex items-baseline gap-1.5 sm:gap-2 flex-wrap justify-center">
-                    <span class="text-white/80 text-base sm:text-lg" data-i18n="roi_only">Only</span>
-                    <span class="text-3xl sm:text-5xl font-extrabold text-white">€<span id="result-daily">3.75</span></span>
-                    <span class="text-white/80 text-base sm:text-lg" data-i18n="roi_phrase_per_employee_day">per employee per day</span>
-                  </div>
-                </div>
-
-                <!-- Bulgarian Price Comparison -->
-                <div id="cost-comparison" class="bg-white/15 rounded-lg px-4 py-3 text-center mb-4">
-                  <p class="text-white/90 text-sm" id="comparison-text">
-                    (<span id="comparison-coffees">2.5</span> <span data-i18n="roi_coffees">coffees</span> <span data-i18n="roi_or">or</span> <span id="comparison-sandwiches">2.9</span> <span data-i18n="roi_sandwiches">sandwiches</span>)
-                  </p>
-                </div>
-
-                <!-- Annual & Monthly - More Visible -->
-                <div class="flex justify-center gap-6 sm:gap-10 mt-2">
-                  <div class="text-center">
-                    <p class="text-white/70 text-sm mb-1" data-i18n="roi_annual_total">Annual Total</p>
-                    <p class="text-white text-xl font-semibold">€<span id="result-investment">198,000</span></p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-white/70 text-sm mb-1" data-i18n="roi_monthly_employee">Monthly/Employee</p>
-                    <p class="text-white text-xl font-semibold">€<span id="result-monthly">82.50</span></p>
-                  </div>
-                </div>
+                <p class="text-white/85 text-sm text-center" data-i18n="roi_multisport_compare">For reference, Multisport runs €20–51 per employee/month. Genki covers the whole team — every desk, every day.</p>
               </div>
             </div>
 
-            <!-- ROI Metrics Row -->
-            <div class="grid grid-cols-2 gap-3 sm:gap-4">
-              <div class="bg-white border-2 border-primary-200 rounded-xl p-3 sm:p-4 text-center">
-                <p class="text-xs sm:text-sm text-gray-500" data-i18n="roi_percentage">ROI Percentage</p>
-                <p class="text-2xl sm:text-3xl font-extrabold text-primary-600"><span id="result-roi">340</span>%</p>
-              </div>
-              <div class="bg-white border-2 border-primary-200 rounded-xl p-3 sm:p-4 text-center">
-                <p class="text-xs sm:text-sm text-gray-500" data-i18n="roi_payback">Payback Period</p>
-                <p class="text-2xl sm:text-3xl font-extrabold text-primary-600"><span id="result-payback">2.7</span> <span class="text-base sm:text-lg" data-i18n="roi_months_full">months</span></p>
-              </div>
-            </div>
-
-            <!-- Savings Breakdown -->
-            <div class="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-6">
-              <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <i data-lucide="bar-chart-3" class="w-5 h-5 text-gray-600"></i>
-                <span data-i18n="roi_breakdown_title">Savings Breakdown</span>
-              </h3>
-
-              <div class="space-y-5">
-                <!-- Turnover Savings -->
-                <div>
-                  <div class="flex justify-between mb-1.5 text-xs sm:text-sm gap-2">
-                    <span class="text-gray-700 min-w-0 truncate" data-i18n="roi_breakdown_turnover">Turnover Savings</span>
-                    <span class="font-semibold text-gray-900 whitespace-nowrap">€<span id="bar-turnover-value">325,000</span></span>
-                  </div>
-                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="bar-turnover" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 37%"></div>
-                  </div>
-                </div>
-
-                <!-- Productivity Gains -->
-                <div>
-                  <div class="flex justify-between mb-1.5 text-xs sm:text-sm gap-2">
-                    <span class="text-gray-700 min-w-0 truncate" data-i18n="roi_breakdown_productivity">Productivity Gains</span>
-                    <span class="font-semibold text-gray-900 whitespace-nowrap">€<span id="bar-productivity-value">400,000</span></span>
-                  </div>
-                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="bar-productivity" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 46%"></div>
-                  </div>
-                </div>
-
-                <!-- Healthcare Savings -->
-                <div>
-                  <div class="flex justify-between mb-1.5 text-xs sm:text-sm gap-2">
-                    <span class="text-gray-700 min-w-0 truncate" data-i18n="roi_breakdown_healthcare">Healthcare Savings</span>
-                    <span class="font-semibold text-gray-900 whitespace-nowrap">€<span id="bar-healthcare-value">92,000</span></span>
-                  </div>
-                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="bar-healthcare" class="h-full bg-purple-500 rounded-full transition-all duration-500" style="width: 11%"></div>
-                  </div>
-                </div>
-
-                <!-- Absenteeism Savings -->
-                <div>
-                  <div class="flex justify-between mb-1.5 text-xs sm:text-sm gap-2">
-                    <span class="text-gray-700 min-w-0 truncate" data-i18n="roi_breakdown_absenteeism">Absenteeism Savings</span>
-                    <span class="font-semibold text-gray-900 whitespace-nowrap">€<span id="bar-absenteeism-value">55,000</span></span>
-                  </div>
-                  <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="bar-absenteeism" class="h-full bg-amber-500 rounded-full transition-all duration-500" style="width: 6%"></div>
-                  </div>
-                  <p class="text-xs text-gray-500 mt-1.5 flex items-center gap-1">
-                    <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i>
-                    <span id="break-hours-saved" class="font-semibold text-amber-600">~33,000</span> <span data-i18n="roi_break_time_saved">hours/year saved from shorter breaks with Genki in-office</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scenario Comparison Section -->
-    <section class="py-12 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8" data-i18n="roi_scenarios_title">Scenario Comparison</h2>
-
-        <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
-          <!-- Conservative (Featured — defensible default) -->
-          <div class="scenario-card relative bg-white rounded-2xl p-4 sm:p-6 border-2 border-primary-500 shadow-lg transform md:-translate-y-2 cursor-pointer" data-scenario="conservative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="roi_scenario_recommended">Recommended</span>
-            </div>
-            <div class="text-center mb-4 pt-2">
-              <div class="w-12 h-12 mx-auto bg-primary-100 rounded-full flex items-center justify-center">
-                <i data-lucide="shield" class="w-6 h-6 text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_conservative_title">Conservative</h3>
-              <p class="text-sm text-gray-500" data-i18n="roi_scenario_conservative_desc">Defensible default — Genki as one wellness layer among others</p>
-            </div>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">5%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">10%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">1%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">3%</span></div>
-            </div>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
-              <p class="text-2xl font-bold text-primary-600">€<span id="scenario-conservative-net">155,000</span></p>
-              <p class="text-sm font-semibold text-primary-600"><span id="scenario-conservative-roi">152</span>% ROI</p>
-            </div>
-          </div>
-
-          <!-- Moderate -->
-          <div class="scenario-card bg-white rounded-2xl p-4 sm:p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="moderate">
-            <div class="text-center mb-4">
-              <div class="w-12 h-12 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
-                <i data-lucide="scale" class="w-6 h-6 text-gray-600"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_moderate_title">Moderate</h3>
-              <p class="text-sm text-gray-500" data-i18n="roi_scenario_moderate_desc">Higher engagement, full literature attribution</p>
-            </div>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">10%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">15%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">2%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">5%</span></div>
-            </div>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
-              <p class="text-2xl font-bold text-gray-900">€<span id="scenario-moderate-net">391,000</span></p>
-              <p class="text-sm font-semibold text-primary-600"><span id="scenario-moderate-roi">384</span>% ROI</p>
-            </div>
-          </div>
-
-          <!-- Optimistic -->
-          <div class="scenario-card bg-white rounded-2xl p-4 sm:p-6 border-2 border-gray-200 hover:border-primary-300 transition-all cursor-pointer" data-scenario="optimistic">
-            <div class="text-center mb-4">
-              <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center">
-                <i data-lucide="rocket" class="w-6 h-6 text-blue-600"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mt-2" data-i18n="roi_scenario_optimistic_title">Optimistic</h3>
-              <p class="text-sm text-gray-500" data-i18n="roi_scenario_optimistic_desc">Best-case with very high engagement and full benefits stack</p>
-            </div>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_turnover">Turnover reduction:</span><span class="font-semibold">15%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_absenteeism">Absenteeism reduction:</span><span class="font-semibold">20%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_productivity">Productivity gain:</span><span class="font-semibold">3%</span></div>
-              <div class="flex justify-between"><span class="text-gray-600" data-i18n="roi_sc_healthcare">Healthcare savings:</span><span class="font-semibold">7%</span></div>
-            </div>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-              <p class="text-sm text-gray-500" data-i18n="roi_sc_net">Net Benefit</p>
-              <p class="text-2xl font-bold text-gray-900">€<span id="scenario-optimistic-net">600,000</span></p>
-              <p class="text-sm font-semibold text-primary-600"><span id="scenario-optimistic-roi">588</span>% ROI</p>
-            </div>
           </div>
         </div>
       </div>
@@ -439,35 +228,16 @@
           </summary>
           <div class="px-6 pb-6 space-y-4 text-sm text-gray-700">
             <div>
-              <h4 class="font-semibold text-gray-900 mb-1" data-i18n="roi_explainer_assumptions_title">Assumptions</h4>
-              <p data-i18n="roi_explainer_assumptions_body">Average salary €36,000/year, 13% annual turnover, 8 sick days per employee per year. Cost is the live monthly price of the recommended Genki station configuration for your headcount.</p>
+              <h4 class="font-semibold text-gray-900 mb-1" data-i18n="roi_explainer_sizing_title">Sizing the station</h4>
+              <p data-i18n="roi_explainer_sizing_body">The station is sized by how many people are physically in the office on a typical day — not by total headcount. Hybrid and remote patterns mean a 265-person company often has far fewer people on-site at once.</p>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-900 mb-1" data-i18n="roi_explainer_multipliers_title">Conservative scenario multipliers (the default — most defensible read)</h4>
-              <ul class="list-disc list-outside pl-5 space-y-1.5">
-                <li data-i18n="roi_explainer_mul_turnover">Turnover reduction 5%: a daily, visible benefit shows up in retention surveys and exit-interview reasoning, but only one factor among many.</li>
-                <li data-i18n="roi_explainer_mul_absenteeism">Absenteeism reduction 10%: better daily nutrition modestly reduces sick days driven by energy crashes and poor diet.</li>
-                <li data-i18n="roi_explainer_mul_productivity">Productivity gain 1%: fewer afternoon slumps and shorter coffee runs add up to about one extra focused hour per employee per week.</li>
-                <li data-i18n="roi_explainer_mul_healthcare">Healthcare reduction 3%: better baseline nutrition modestly lowers preventable medical claims long-term.</li>
-              </ul>
+              <h4 class="font-semibold text-gray-900 mb-1" data-i18n="roi_explainer_cost_title">Per covered employee</h4>
+              <p data-i18n="roi_explainer_cost_body">The monthly price (excl. VAT) is the live price of the recommended station. Per covered employee spreads that price across your whole headcount — everyone benefits from the station, whichever day they come in.</p>
             </div>
-            <p class="text-xs text-gray-500 italic border-t border-gray-200 pt-3" data-i18n="roi_explainer_note">These figures assume Genki contributes alongside other wellness initiatives (Multisport, healthcare, mental-health support), not in isolation. Allow a 4–6 week calibration period before evaluating actual outcomes.</p>
+            <p class="text-xs text-gray-500 italic border-t border-gray-200 pt-3" data-i18n="roi_explainer_note">This is a capacity and pricing tool — no savings or ROI projections. For reference, Multisport runs €20–51 per employee per month.</p>
           </div>
         </details>
-      </div>
-    </section>
-
-    <!-- Research Database Section -->
-    <section class="py-12 bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="roi_research_title">Research Foundation</h2>
-          <p class="text-gray-600" data-i18n="roi_research_subtitle">Our calculations are backed by peer-reviewed research and industry studies</p>
-        </div>
-
-        <div id="research-accordion" class="space-y-4">
-          <!-- Research categories will be rendered by JavaScript -->
-        </div>
       </div>
     </section>
 
@@ -512,7 +282,6 @@
 
   <script src="https://unpkg.com/lucide@0.344.0"></script>
   <script src="js/translations.js?v=20260508"></script>
-  <script src="js/research-data.js?v=20260218"></script>
   <script src="js/roi-engine.js?v=20260508"></script>
   <script src="js/roi-calculator.js?v=20260508"></script>
   <script>lucide.createIcons();</script>
