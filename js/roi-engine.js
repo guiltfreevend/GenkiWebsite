@@ -7,9 +7,12 @@
 // defensible to a Finance stakeholder and undercut trust. Productivity
 // claims in particular are banned in the current framework.
 //
-// What it does, end to end:
-//   people in the office per day  →  recommended station (tier) + monthly price
-//                                 →  €/covered employee per month
+// Two inputs, two DIFFERENT denominators (Numbers Bible §3):
+//   • people in the office per day  →  SIZES the station (which tier). The slider.
+//   • total headcount               →  the denominator for €/covered employee —
+//                                       the number HR/Finance actually pitch on.
+// €/covered employee = monthly price ÷ total headcount (NOT ÷ daily attendance).
+// e.g. 62/day → Tower Fridge Standard (€2,790); at 265 employees that's €10.53.
 //
 // Pure pricing. No assumptions about salary, turnover, or behaviour change.
 
@@ -40,10 +43,11 @@
     return                    { name: 'Hub Standard',          nameKey: 'roi_setup_hub_std',   monthly: 8490 };
   }
 
-  // inputs: { peoplePerDay }
-  //   peoplePerDay — daily on-site attendance; SIZES the station (which tier).
-  // perCoveredEmployee here divides by peoplePerDay; Task 2 corrects the
-  // denominator to total headcount.
+  // inputs: { peoplePerDay, totalEmployees }
+  //   peoplePerDay   — daily on-site attendance; SIZES the station (which tier).
+  //   totalEmployees — full headcount; the denominator for €/covered employee.
+  // If totalEmployees is missing it falls back to peoplePerDay (single-input
+  // callers), but the pitch number is always price ÷ whole headcount.
   function calculateCapacity(inputs) {
     const peoplePerDay = inputs.peoplePerDay | 0;
     const setup = recommendedSetup(peoplePerDay);
@@ -53,12 +57,14 @@
     }
 
     const monthly = setup.monthly;
-    const denominator = Math.max(1, peoplePerDay);
+    const totalEmployees = (inputs.totalEmployees | 0) || peoplePerDay;
+    const denominator = Math.max(1, totalEmployees);
     const perCoveredEmployee = monthly / denominator;
 
     return {
       unsupported: false,
       peoplePerDay,
+      totalEmployees,
       setup,
       monthly,
       perCoveredEmployee,

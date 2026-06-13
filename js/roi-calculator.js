@@ -38,7 +38,7 @@
     });
   }
 
-  let currentInputs = { peoplePerDay: 62 };
+  let currentInputs = { peoplePerDay: 62, totalEmployees: 265 };
 
   const elements = {};
 
@@ -55,6 +55,8 @@
   function cacheElements() {
     elements.sliderPerDay = document.getElementById('slider-per-day');
     elements.displayPerDay = document.getElementById('display-per-day');
+    elements.sliderEmployees = document.getElementById('slider-employees');
+    elements.displayEmployees = document.getElementById('display-employees');
 
     elements.displaySetupName = document.getElementById('display-setup-name');
     elements.resultTierName = document.getElementById('result-tier-name');
@@ -72,6 +74,13 @@
       if (elements.displayPerDay) elements.displayPerDay.textContent = currentInputs.peoplePerDay;
       updateCalculations();
     });
+    if (elements.sliderEmployees) {
+      elements.sliderEmployees.addEventListener('input', function () {
+        currentInputs.totalEmployees = parseInt(this.value, 10);
+        if (elements.displayEmployees) elements.displayEmployees.textContent = fmtInt(currentInputs.totalEmployees);
+        updateCalculations();
+      });
+    }
   }
 
   function setupNameFor(setup) {

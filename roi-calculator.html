@@ -169,11 +169,21 @@
               </p>
             </div>
 
+            <!-- Slider: Total employees (denominator for €/covered employee) -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="roi_input_total_employees">Total employees</label>
+              <input type="range" id="slider-employees" min="10" max="3000" value="265" step="5" class="roi-slider w-full">
+              <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>10</span>
+                <span class="font-semibold text-primary-600"><span id="display-employees">265</span></span>
+                <span>3000</span>
+              </div>
+            </div>
 
-            <!-- Under-25 disabled state — only visible when team < MIN_HEADCOUNT -->
+            <!-- Below-minimum state — only visible when daily attendance < MIN_PER_DAY -->
             <div id="roi-unsupported" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
-              <p class="text-sm text-amber-900 font-semibold mb-1" data-i18n="roi_under_min_title">Genki isn't suited to teams under 25 employees</p>
-              <p class="text-xs text-amber-800" data-i18n="roi_under_min_desc">Below 25 people, the Desk Lite station is over-specified. We recommend revisiting once your team grows, or reaching out to discuss a custom arrangement.</p>
+              <p class="text-sm text-amber-900 font-semibold mb-1" data-i18n="roi_under_min_title">Genki isn't suited to fewer than 5 people a day on-site</p>
+              <p class="text-xs text-amber-800" data-i18n="roi_under_min_desc">Below five people on-site daily, even the Desk Lite station is over-specified. We recommend revisiting once more of the team is in the office, or reaching out to discuss a custom arrangement.</p>
             </div>
           </div>
 
@@ -201,7 +211,7 @@
                 </div>
                 <div class="bg-white/15 rounded-xl p-4 text-center">
                   <p class="text-white/80 text-xs mb-1" data-i18n="roi_result_per_covered_label">Per covered employee / month</p>
-                  <p class="text-2xl sm:text-3xl font-bold text-green-300">€<span id="result-per-covered">45.00</span></p>
+                  <p class="text-2xl sm:text-3xl font-bold text-green-300">€<span id="result-per-covered">10.53</span></p>
                 </div>
               </div>
 
