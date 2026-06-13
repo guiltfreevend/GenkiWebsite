@@ -442,8 +442,8 @@ function initLangSwitcher() {
 }
 
 // Pricing tier toggle (Lite ↔ Standard) — flips all station cards in lockstep
-// AND drives the per-card headcount slider. Tier choice + per-card headcount
-// both persist in sessionStorage so the user's setup survives in-page nav.
+// AND drives the per-card "people in the office per day" slider. Tier choice +
+// per-card value both persist in sessionStorage so the setup survives in-page nav.
 function initPricingToggle() {
   const toggle = document.querySelector('[data-pricing-toggle]');
   if (!toggle || !window.PRICING) return;
@@ -462,11 +462,8 @@ function initPricingToggle() {
     if (!headcount) return;
     const monthly = window.PRICING[stationKey][tier].price;
     const perMonth = monthly / headcount;
-    const perDay = perMonth / 22;
     const perMonthEl = card.querySelector('[data-per-month]');
-    const perDayEl = card.querySelector('[data-per-day]');
     if (perMonthEl) perMonthEl.textContent = fmtMoney(perMonth);
-    if (perDayEl) perDayEl.textContent = fmtMoney(perDay);
   }
 
   function applyTier(tier) {

@@ -606,8 +606,8 @@ const translations = {
   //  the static "Best for X–Y employees" bullet was replaced by an interactive headcount
   //  slider per card. See pricing_employees_label below.)
   pricing_employees_label: {
-    en: "employees",
-    bg: "служители"
+    en: "people in the office per day",
+    bg: "души на ден в офиса"
   },
   pricing_per_employee_month: {
     en: "/employee/month",
@@ -1227,8 +1227,8 @@ const translations = {
     bg: "10% от печалбата. Всеки месец."
   },
   mission_pillar3_body: {
-    en: "Not a percentage of revenue. Not a marketing number. Ten percent of real profit — after costs, salaries, and taxes — goes toward Bulgarian causes. Every month. With transparency and accountability to every client. This isn't a campaign. It's part of how Genki exists.",
-    bg: "Не е процент от приходи. Не е маркетингова цифра. Десет процента от реалната печалба — след разходи, заплати и данъци — се насочват към български каузи. Всеки месец. С прозрачност и отчетност към всеки клиент. Това не е кампания. Част е от начина, по който Genki съществува."
+    en: "Not a percentage of revenue. Not a marketing number. Ten percent of real profit — after costs, salaries, and taxes — goes back to Bulgaria every month, taking different forms: trees planted, causes funded, communities supported. With transparency and accountability to every client. This isn't a campaign. It's part of how Genki exists.",
+    bg: "Не е процент от приходи. Не е маркетингова цифра. Десет процента от реалната печалба — след разходи, заплати и данъци — се връщат в България всеки месец, под различни форми: засадени дървета, подкрепени каузи, общности. С прозрачност и отчетност към всеки клиент. Това не е кампания. Част е от начина, по който Genki съществува."
   },
   mission_cause_children: {
     en: "Children's wellbeing",
