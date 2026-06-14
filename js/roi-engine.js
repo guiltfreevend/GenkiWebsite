@@ -1,5 +1,5 @@
-// Genki capacity engine — single source of truth for the full calculator
-// (roi-calculator.html) and the mini calculator on companies.html.
+// Genki capacity engine — single source of truth for the capacity
+// calculator on companies.html.
 //
 // This is a CAPACITY calculator, not an ROI calculator. The savings side
 // (turnover / absenteeism / productivity / healthcare multipliers, ROI %,
