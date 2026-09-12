@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Genki 2.0 — Homepage Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #173f2f;
+      --forest-2: #245f46;
+      --green: #2d8659;
+      --mint: #dff3e9;
+      --cream: #f7f4ea;
+      --paper: #fffdf8;
+      --ink: #17231d;
+      --muted: #637168;
+      --line: rgba(23, 63, 47, .12);
+      --amber: #e5a52f;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(23,63,47,.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+      color: var(--green);
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; border-radius: 999px; }
+    h1,h2,h3,p { margin-top: 0; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255,253,248,.88);
+      border-bottom: 1px solid rgba(23,63,47,.07);
+    }
+    .nav { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand img { height: 68px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 600; color: #435148; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .lang-switch { display: flex; padding: 4px; background: #eef3ef; border-radius: 999px; }
+    .lang-switch button { border: 0; background: transparent; padding: 7px 10px; border-radius: 999px; cursor: pointer; color: #617067; font-size: 12px; font-weight: 800; }
+    .lang-switch button.active { background: white; color: var(--forest); box-shadow: 0 2px 8px rgba(23,63,47,.10); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; padding: 13px 19px; font-weight: 700; font-size: 14px; transition: .2s ease; }
+    .btn-primary { background: var(--forest); color: white; box-shadow: 0 10px 24px rgba(23,63,47,.18); }
+    .btn-primary:hover { transform: translateY(-2px); background: #0f3325; }
+    .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.62); }
+    .btn-secondary:hover { background: white; transform: translateY(-2px); }
+
+    .hero { min-height: 690px; display: flex; align-items: center; padding: 72px 0 66px; overflow: hidden; position: relative; }
+    .hero::before { content: ""; position: absolute; width: 580px; height: 580px; border-radius: 50%; background: #e8f4ed; right: -180px; top: 32px; filter: blur(4px); }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
+    .hero-copy { max-width: 590px; }
+    .hero h1 { font-size: clamp(48px, 6vw, 78px); line-height: .98; letter-spacing: -.055em; margin: 24px 0 24px; max-width: 640px; }
+    .hero-sub { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 530px; margin-bottom: 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px 18px; color: #66736b; font-size: 13px; font-weight: 600; }
+    .trust-row span { display: inline-flex; align-items: center; gap: 7px; }
+    .trust-row span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
+
+    .device-wrap { position: relative; min-height: 560px; display: grid; place-items: center; }
+    .device-glow { position: absolute; width: 440px; height: 440px; border-radius: 50%; background: radial-gradient(circle, rgba(45,134,89,.16), rgba(45,134,89,0) 68%); }
+    .cooler {
+      position: relative; width: 360px; height: 530px; padding: 18px; border-radius: 34px;
+      background: linear-gradient(145deg, #1a4635, #0d2d21);
+      box-shadow: 0 38px 90px rgba(12,42,30,.28);
+      transform: rotate(2deg);
+    }
+    .cooler-top { height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 10px; color: white; }
+    .cooler-logo { font-size: 23px; font-weight: 800; letter-spacing: -.04em; }
+    .cooler-status { font-size: 10px; text-transform: uppercase; letter-spacing: .13em; opacity: .7; }
+    .cooler-window { height: 433px; border-radius: 22px; padding: 18px 16px; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(239,247,241,.94)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.48); }
+    .shelf { height: 89px; border-bottom: 1px solid #cfdcd4; display: flex; align-items: flex-end; gap: 12px; padding: 0 8px 13px; }
+    .product { flex: 1; max-width: 58px; border-radius: 10px 10px 7px 7px; box-shadow: 0 8px 16px rgba(23,63,47,.10); }
+    .p1 { height: 54px; background: #e9c365; }
+    .p2 { height: 66px; background: #7bad78; }
+    .p3 { height: 48px; background: #d88262; }
+    .p4 { height: 62px; background: #d7b7df; }
+    .p5 { height: 57px; background: #81b8c6; }
+    .p6 { height: 50px; background: #ed9f62; }
+    .float-card { position: absolute; z-index: 4; padding: 15px 18px; background: rgba(255,255,255,.94); border: 1px solid rgba(23,63,47,.08); border-radius: 18px; box-shadow: var(--shadow); min-width: 165px; }
+    .float-card strong { display: block; font-size: 13px; margin-bottom: 3px; }
+    .float-card span { display: block; color: var(--muted); font-size: 11px; }
+    .card-a { top: 105px; left: 0; transform: rotate(-4deg); }
+    .card-b { right: -4px; bottom: 110px; transform: rotate(3deg); }
+
+    section { padding: 104px 0; }
+    .section-head { max-width: 760px; margin-bottom: 52px; }
+    .section-head h2 { font-size: clamp(38px, 5vw, 62px); line-height: 1.04; letter-spacing: -.045em; margin: 18px 0 18px; }
+    .section-head p { color: var(--muted); font-size: 18px; max-width: 650px; }
+
+    .how { background: var(--forest); color: white; }
+    .how .eyebrow { color: #8cd0ad; }
+    .how .section-head p { color: #c8d8cf; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step { min-height: 240px; padding: 26px; border-radius: 24px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.09); position: relative; overflow: hidden; }
+    .step::after { content: attr(data-num); position: absolute; right: 18px; bottom: -20px; font-size: 90px; line-height: 1; font-weight: 800; color: rgba(255,255,255,.045); }
+    .step-num { color: #8cd0ad; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+    .step h3 { font-size: 24px; letter-spacing: -.035em; margin: 58px 0 8px; }
+    .step p { color: #bed0c6; font-size: 14px; margin: 0; }
+    .managed-strip { margin-top: 20px; padding: 28px 30px; border-radius: 24px; background: #f3efe1; color: var(--forest); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .managed-strip strong { font-size: 20px; letter-spacing: -.025em; }
+    .managed-strip span { color: #68746c; font-size: 14px; }
+
+    .your-genki { background: var(--cream); }
+    .architecture { display: grid; grid-template-columns: 1.15fr .925fr .925fr; gap: 16px; align-items: stretch; }
+    .plan { padding: 32px; border-radius: var(--radius); background: white; border: 1px solid var(--line); min-height: 340px; display: flex; flex-direction: column; }
+    .plan.base { background: var(--forest); color: white; border-color: transparent; transform: translateY(-8px); box-shadow: 0 24px 70px rgba(23,63,47,.16); }
+    .plan-kicker { font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; color: var(--green); }
+    .base .plan-kicker { color: #8cd0ad; }
+    .plan h3 { font-size: 29px; letter-spacing: -.04em; margin: 18px 0 9px; }
+    .plan strong { font-size: 17px; line-height: 1.35; margin-bottom: 18px; }
+    .plan p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+    .base p { color: #c7d8ce; }
+    .plus { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--mint); color: var(--forest); font-weight: 800; margin-bottom: 10px; }
+    .architecture-cta { margin-top: 30px; }
+
+    .difference { background: var(--paper); }
+    .difference-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .difference-card { padding: 34px; border-radius: var(--radius); border: 1px solid var(--line); background: white; min-height: 275px; }
+    .difference-icon { width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; background: var(--mint); color: var(--forest); font-size: 20px; margin-bottom: 38px; }
+    .difference-card h3 { font-size: 24px; letter-spacing: -.035em; margin-bottom: 11px; }
+    .difference-card p { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .pilot { padding: 112px 0; background: #e4f0e8; }
+    .pilot-card { border-radius: 34px; padding: 58px; background: var(--forest); color: white; display: grid; grid-template-columns: 1.08fr .92fr; gap: 62px; align-items: center; box-shadow: 0 28px 80px rgba(23,63,47,.18); }
+    .pilot .eyebrow { color: #8cd0ad; }
+    .pilot h2 { font-size: clamp(42px, 5vw, 64px); line-height: 1; letter-spacing: -.05em; margin: 20px 0; }
+    .pilot-copy { color: #c7d8cf; font-size: 17px; max-width: 570px; }
+    .pilot-proof { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0; }
+    .proof { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.085); font-size: 13px; font-weight: 700; color: #edf6f0; }
+    .pilot-note { font-size: 13px; color: #a9c0b3; margin: 0 0 26px; }
+    .pilot .btn-primary { background: white; color: var(--forest); box-shadow: none; }
+    .pilot .btn-primary:hover { background: #f5f1e7; }
+    .pilot-visual { background: #f6f1e4; color: var(--forest); border-radius: 26px; padding: 28px; }
+    .pilot-days { font-size: 80px; line-height: .85; font-weight: 800; letter-spacing: -.07em; }
+    .pilot-days-label { font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin: 10px 0 34px; color: #6c796f; }
+    .pilot-line { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; }
+    .pilot-line div { height: 9px; border-radius: 999px; background: #d2ddd5; }
+    .pilot-line div:nth-child(-n+3) { background: var(--green); }
+    .pilot-small { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #79857d; }
+
+    footer { padding: 46px 0 56px; background: #0f2c21; color: white; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-row img { height: 64px; }
+    .footer-copy { color: #91aa9c; font-size: 12px; text-align: right; }
+
+    .mobile-cta { display: none; }
+
+    @media (max-width: 940px) {
+      .nav-links { display: none; }
+      .hero-grid, .pilot-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 52px; }
+      .device-wrap { min-height: 510px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .architecture { grid-template-columns: 1fr; }
+      .plan.base { transform: none; }
+      .difference-grid { grid-template-columns: 1fr; }
+      .pilot-card { padding: 42px; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      header .btn-primary { display: none; }
+      .nav { height: 70px; }
+      .brand img { height: 58px; }
+      .hero { min-height: auto; padding: 52px 0 54px; }
+      .hero h1 { font-size: 50px; }
+      .hero-sub { font-size: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .device-wrap { min-height: 440px; }
+      .cooler { width: 280px; height: 420px; border-radius: 28px; }
+      .cooler-window { height: 330px; }
+      .shelf { height: 68px; }
+      .card-a { left: -2px; top: 65px; }
+      .card-b { right: -2px; bottom: 72px; }
+      section { padding: 76px 0; }
+      .section-head { margin-bottom: 34px; }
+      .section-head h2 { font-size: 42px; }
+      .section-head p { font-size: 16px; }
+      .steps { grid-template-columns: 1fr; }
+      .step { min-height: 190px; }
+      .step h3 { margin-top: 38px; }
+      .managed-strip { flex-direction: column; align-items: flex-start; }
+      .architecture { gap: 12px; }
+      .plan { min-height: auto; }
+      .difference-card { min-height: auto; }
+      .pilot-card { padding: 30px 22px; gap: 38px; }
+      .pilot h2 { font-size: 45px; }
+      .pilot-proof { grid-template-columns: 1fr 1fr; }
+      .pilot-days { font-size: 66px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .footer-copy { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="shell nav">
+    <a class="brand" href="#top" aria-label="Genki home">
+      <img src="https://raw.githubusercontent.com/guiltfreevend/GenkiWebsite/main/assets/images/genki_logo.png" alt="Genki">
+    </a>
+    <nav class="nav-links">
+      <a href="#your-genki" data-i18n="navCompanies">За компании</a>
+      <a href="#how-it-works" data-i18n="navHow">Как работи</a>
+      <a href="#difference" data-i18n="navImpact">Impact</a>
+      <a href="#pilot" data-i18n="navFit">Genki Fit</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" aria-label="Language">
+        <button id="bgBtn" class="active" type="button">BG</button>
+        <button id="enBtn" type="button">EN</button>
+      </div>
+      <a class="btn btn-primary" href="#pilot" data-i18n="navCta">Виж Genki за твоя офис →</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="heroEyebrow">ЗАПОЗНАЙ СЕ С GENKI</span>
+        <h1 data-i18n="heroTitle">По-добрата храна има място в офиса.</h1>
+        <p class="hero-sub" data-i18n="heroSub">Умно и напълно обслужвано food experience решение, създадено за модерни офиси.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pilot" data-i18n="heroCta">Виж Genki за твоя офис →</a>
+          <a class="btn btn-secondary" href="#how-it-works" data-i18n="heroHow">Виж как работи ↓</a>
+        </div>
+        <div class="trust-row">
+          <span data-i18n="trust1">Напълно обслужвано</span>
+          <span data-i18n="trust2">Български продукти</span>
+          <span data-i18n="trust3">Гъвкаво за компанията</span>
+        </div>
+      </div>
+
+      <div class="device-wrap" aria-label="Genki smart cooler concept preview">
+        <div class="device-glow"></div>
+        <div class="cooler">
+          <div class="cooler-top"><span class="cooler-logo">genki</span><span class="cooler-status">smart cooler</span></div>
+          <div class="cooler-window">
+            <div class="shelf"><span class="product p1"></span><span class="product p2"></span><span class="product p3"></span><span class="product p4"></span></div>
+            <div class="shelf"><span class="product p5"></span><span class="product p3"></span><span class="product p2"></span><span class="product p1"></span></div>
+            <div class="shelf"><span class="product p4"></span><span class="product p6"></span><span class="product p5"></span><span class="product p2"></span></div>
+            <div class="shelf"><span class="product p2"></span><span class="product p1"></span><span class="product p6"></span><span class="product p3"></span></div>
+          </div>
+        </div>
+        <div class="float-card card-a"><strong data-i18n="float1a">Отвори. Вземи. Затвори.</strong><span data-i18n="float1b">Толкова е просто.</span></div>
+        <div class="float-card card-b"><strong data-i18n="float2a">Genki се грижи за останалото.</strong><span data-i18n="float2b">Зареждане · service · optimization</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how-it-works">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="howEyebrow">КАК РАБОТИ</span>
+        <h2 data-i18n="howTitle">Отвори. Вземи каквото искаш. Затвори. Готово.</h2>
+        <p data-i18n="howSub">Покупката се отчита автоматично. Genki се грижи за всичко останало.</p>
+      </div>
+      <div class="steps">
+        <article class="step" data-num="01"><span class="step-num">01</span><h3 data-i18n="step1Title">Отвори</h3><p data-i18n="step1Text">Отключи Genki и разгледай какво има вътре.</p></article>
+        <article class="step" data-num="02"><span class="step-num">02</span><h3 data-i18n="step2Title">Вземи</h3><p data-i18n="step2Text">Избери каквото искаш.</p></article>
+        <article class="step" data-num="03"><span class="step-num">03</span><h3 data-i18n="step3Title">Затвори</h3><p data-i18n="step3Text">Затвори вратата, когато си готов.</p></article>
+        <article class="step" data-num="04"><span class="step-num">04</span><h3 data-i18n="step4Title">Готово</h3><p data-i18n="step4Text">Покупката се отчита автоматично.</p></article>
+      </div>
+      <div class="managed-strip">
+        <strong data-i18n="managedTitle">Ние зареждаме. Обслужваме. Следим. Подобряваме.</strong>
+        <span data-i18n="managedText">Така твоят екип не трябва да мисли за нищо от това.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="your-genki" id="your-genki">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="yourEyebrow">ВАШИЯТ GENKI</span>
+        <h2 data-i18n="yourTitle">Един Genki. Настроен според вашата компания.</h2>
+        <p data-i18n="yourSub">Няма един-единствен начин да използвате Genki. Избирате това, което има смисъл за вашия офис — Standard, Benefit, по-ниски цени за служителите или комбинация от тях.</p>
+      </div>
+      <div class="architecture">
+        <article class="plan base">
+          <span class="plan-kicker">Genki Standard</span>
+          <h3>Genki Standard</h3>
+          <strong data-i18n="standardStrong">Пълният Genki, без месечен абонамент за работодателя.</strong>
+          <p data-i18n="standardText">Ние поставяме smart cooler-а, зареждаме го, обслужваме го и с времето нагласяме продуктите според това какво реално се купува. Служителите просто плащат за това, което вземат.</p>
+        </article>
+        <article class="plan">
+          <div class="plus">+</div>
+          <span class="plan-kicker">Genki Benefit</span>
+          <h3>Genki Benefit</h3>
+          <strong data-i18n="benefitStrong">Направете Genki част от employee experience-а.</strong>
+          <p data-i18n="benefitText">Добавяте персонализация, дегустации и продуктови изненади, обратна връзка от екипа, социални инициативи, dedicated support и останалите Genki Benefit perks.</p>
+        </article>
+        <article class="plan">
+          <div class="plus">+</div>
+          <span class="plan-kicker">Product Price Support</span>
+          <h3>Price Support</h3>
+          <strong data-i18n="supportStrong">Искате по-добри цени за екипа? Насочете бюджета си точно там.</strong>
+          <p data-i18n="supportText">Подкрепата от работодателя отива директно в по-ниски цени за служителите. Може да я използвате със Standard или Benefit — още от първия ден или да я добавите по-късно.</p>
+        </article>
+      </div>
+      <div class="architecture-cta"><a href="#pilot" class="btn btn-primary" data-i18n="companiesCta">Разгледайте Genki за компании →</a></div>
+    </div>
+  </section>
+
+  <section class="difference" id="difference">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="diffEyebrow">РАЗЛИКАТА GENKI</span>
+        <h2 data-i18n="diffTitle">Добрата храна може да прави повече.</h2>
+        <p data-i18n="diffSub">Genki не е просто още едно място за нещо набързо. Има няколко неща, за които не правим компромис.</p>
+      </div>
+      <div class="difference-grid">
+        <article class="difference-card">
+          <div class="difference-icon">✓</div>
+          <h3 data-i18n="diff1Title">Подбираме, не просто зареждаме.</h3>
+          <p data-i18n="diff1Text">Всеки продукт трябва да покрива Genki Product Standard. Не пълним машината с каквото и да е само защото се продава.</p>
+        </article>
+        <article class="difference-card">
+          <div class="difference-icon">BG</div>
+          <h3 data-i18n="diff2Title">Българско, защото така сме избрали.</h3>
+          <p data-i18n="diff2Text">Работим с български производители и искаме повече добри местни продукти да стигат до повече хора.</p>
+        </article>
+        <article class="difference-card">
+          <div class="difference-icon">10%</div>
+          <h3 data-i18n="diff3Title">10% се връщат обратно.</h3>
+          <p data-i18n="diff3Text">Всеки месец даряваме 10% от реалната печалба на Genki след всички разходи — за каузи, които имат значение.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pilot" id="pilot">
+    <div class="shell">
+      <div class="pilot-card">
+        <div>
+          <span class="eyebrow" data-i18n="pilotEyebrow">ЗАПОЧНЕТЕ С PILOT</span>
+          <h2 data-i18n="pilotTitle">90 дни. Истинският ви Genki.</h2>
+          <p class="pilot-copy" data-i18n="pilotText">Не demo. Поставяме реален Genki в офиса ви и използваме първите 90 дни, за да видим какво действително работи — продукти, цени, използване, обратна връзка и икономиката на локацията.</p>
+          <div class="pilot-proof">
+            <div class="proof" data-i18n="proof1">Реална машина</div>
+            <div class="proof" data-i18n="proof2">Реални служители</div>
+            <div class="proof" data-i18n="proof3">Реални данни</div>
+            <div class="proof" data-i18n="proof4">Реално решение</div>
+          </div>
+          <p class="pilot-note" data-i18n="pilotNote">Ако нещо не работи, първо разбираме защо. Ако локацията просто не е добра за Genki — не я насилваме.</p>
+          <a class="btn btn-primary" href="#" data-i18n="pilotCta">Виж Genki за твоя офис →</a>
+        </div>
+        <div class="pilot-visual" aria-hidden="true">
+          <div class="pilot-days">90</div>
+          <div class="pilot-days-label" data-i18n="daysLabel">дни в реалния офис</div>
+          <div class="pilot-line"><div></div><div></div><div></div><div></div></div>
+          <div class="pilot-small"><span data-i18n="launch">Launch</span><span data-i18n="learn">Learn</span><span data-i18n="adjust">Adjust</span><span data-i18n="decide">Decide</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell footer-row">
+    <img src="https://raw.githubusercontent.com/guiltfreevend/GenkiWebsite/main/assets/images/genki_logo_light.png" alt="Genki">
+    <div class="footer-copy">Genki · Sofia · Homepage 2.0 preview<br><span data-i18n="footerNote">Preview branch — production сайтът не е променян.</span></div>
+  </div>
+</footer>
+
+<script>
+  const copy = {
+    bg: {
+      navCompanies:'За компании', navHow:'Как работи', navImpact:'Impact', navFit:'Genki Fit', navCta:'Виж Genki за твоя офис →',
+      heroEyebrow:'ЗАПОЗНАЙ СЕ С GENKI', heroTitle:'По-добрата храна има място в офиса.', heroSub:'Умно и напълно обслужвано food experience решение, създадено за модерни офиси.', heroCta:'Виж Genki за твоя офис →', heroHow:'Виж как работи ↓',
+      trust1:'Напълно обслужвано', trust2:'Български продукти', trust3:'Гъвкаво за компанията',
+      float1a:'Отвори. Вземи. Затвори.', float1b:'Толкова е просто.', float2a:'Genki се грижи за останалото.', float2b:'Зареждане · service · optimization',
+      howEyebrow:'КАК РАБОТИ', howTitle:'Отвори. Вземи каквото искаш. Затвори. Готово.', howSub:'Покупката се отчита автоматично. Genki се грижи за всичко останало.',
+      step1Title:'Отвори', step1Text:'Отключи Genki и разгледай какво има вътре.', step2Title:'Вземи', step2Text:'Избери каквото искаш.', step3Title:'Затвори', step3Text:'Затвори вратата, когато си готов.', step4Title:'Готово', step4Text:'Покупката се отчита автоматично.', managedTitle:'Ние зареждаме. Обслужваме. Следим. Подобряваме.', managedText:'Така твоят екип не трябва да мисли за нищо от това.',
+      yourEyebrow:'ВАШИЯТ GENKI', yourTitle:'Един Genki. Настроен според вашата компания.', yourSub:'Няма един-единствен начин да използвате Genki. Избирате това, което има смисъл за вашия офис — Standard, Benefit, по-ниски цени за служителите или комбинация от тях.',
+      standardStrong:'Пълният Genki, без месечен абонамент за работодателя.', standardText:'Ние поставяме smart cooler-а, зареждаме го, обслужваме го и с времето нагласяме продуктите според това какво реално се купува. Служителите просто плащат за това, което вземат.',
+      benefitStrong:'Направете Genki част от employee experience-а.', benefitText:'Добавяте персонализация, дегустации и продуктови изненади, обратна връзка от екипа, социални инициативи, dedicated support и останалите Genki Benefit perks.',
+      supportStrong:'Искате по-добри цени за екипа? Насочете бюджета си точно там.', supportText:'Подкрепата от работодателя отива директно в по-ниски цени за служителите. Може да я използвате със Standard или Benefit — още от първия ден или да я добавите по-късно.', companiesCta:'Разгледайте Genki за компании →',
+      diffEyebrow:'РАЗЛИКАТА GENKI', diffTitle:'Добрата храна може да прави повече.', diffSub:'Genki не е просто още едно място за нещо набързо. Има няколко неща, за които не правим компромис.',
+      diff1Title:'Подбираме, не просто зареждаме.', diff1Text:'Всеки продукт трябва да покрива Genki Product Standard. Не пълним машината с каквото и да е само защото се продава.',
+      diff2Title:'Българско, защото така сме избрали.', diff2Text:'Работим с български производители и искаме повече добри местни продукти да стигат до повече хора.',
+      diff3Title:'10% се връщат обратно.', diff3Text:'Всеки месец даряваме 10% от реалната печалба на Genki след всички разходи — за каузи, които имат значение.',
+      pilotEyebrow:'ЗАПОЧНЕТЕ С PILOT', pilotTitle:'90 дни. Истинският ви Genki.', pilotText:'Не demo. Поставяме реален Genki в офиса ви и използваме първите 90 дни, за да видим какво действително работи — продукти, цени, използване, обратна връзка и икономиката на локацията.', proof1:'Реална машина', proof2:'Реални служители', proof3:'Реални данни', proof4:'Реално решение', pilotNote:'Ако нещо не работи, първо разбираме защо. Ако локацията просто не е добра за Genki — не я насилваме.', pilotCta:'Виж Genki за твоя офис →', daysLabel:'дни в реалния офис', launch:'Launch', learn:'Learn', adjust:'Adjust', decide:'Decide', footerNote:'Preview branch — production сайтът не е променян.'
+    },
+    en: {
+      navCompanies:'For Companies', navHow:'How Genki Works', navImpact:'Impact', navFit:'Genki Fit', navCta:'See Genki for your workplace →',
+      heroEyebrow:'MEET GENKI', heroTitle:'Better food belongs at work.', heroSub:'A smart, fully managed food experience built for modern offices.', heroCta:'See Genki for your workplace →', heroHow:'See how it works ↓',
+      trust1:'Fully managed', trust2:'Bulgarian products', trust3:'Flexible for your company',
+      float1a:'Open. Take. Close.', float1b:'That simple.', float2a:'Genki handles the rest.', float2b:'Stocking · service · optimization',
+      howEyebrow:'HOW IT WORKS', howTitle:'Open. Take what you want. Close. Done.', howSub:'Your purchase is handled automatically. Genki takes care of everything behind the scenes.',
+      step1Title:'Open', step1Text:'Unlock Genki and take a look inside.', step2Title:'Take', step2Text:'Choose whatever you want.', step3Title:'Close', step3Text:"Close the door when you're done.", step4Title:'Done', step4Text:'Your purchase is handled automatically.', managedTitle:'We stock it. Service it. Monitor it. Improve it.', managedText:"So your team doesn't have to think about it.",
+      yourEyebrow:'YOUR GENKI', yourTitle:'One Genki. Set up around your company.', yourSub:"There’s no single way to use Genki. Choose the setup that makes sense for your office — Standard, Benefit, lower employee prices, or a combination of them.",
+      standardStrong:'The full Genki setup, with no employer subscription.', standardText:'We bring the smart cooler, keep it stocked, service it and adjust the product mix over time. Employees simply pay for what they take.',
+      benefitStrong:'Make Genki part of the employee experience.', benefitText:'Add personalization, tastings and product drops, employee feedback, social impact activities, dedicated support and the rest of the Genki Benefit perks.',
+      supportStrong:'Want better prices for your team? Put your budget there.', supportText:'Employer support goes directly towards lower employee prices. Use it with Standard or Benefit, from day one or add it later.', companiesCta:'Explore Genki for companies →',
+      diffEyebrow:'THE GENKI DIFFERENCE', diffTitle:'Good food can do more.', diffSub:"Genki isn't just another place to grab something quickly. There are a few things we simply don't compromise on.",
+      diff1Title:'We choose, not just stock.', diff1Text:"Every product has to meet the Genki Product Standard. We don't fill the cooler with whatever sells just because it sells.",
+      diff2Title:'Bulgarian, by choice.', diff2Text:'We work with Bulgarian producers because we want more great local products to reach more people.',
+      diff3Title:'10% goes back.', diff3Text:'Every month, we donate 10% of Genki’s real profit after all costs to causes that matter.',
+      pilotEyebrow:'START WITH A PILOT', pilotTitle:'90 days. Your real Genki.', pilotText:'Not a demo. We install a real Genki in your office and use the first 90 days to learn what actually works — products, prices, usage, feedback and the economics of the location.', proof1:'Real machine', proof2:'Real employees', proof3:'Real data', proof4:'Real decision', pilotNote:"If something isn't working, we first figure out why. And if the location simply isn't a good fit for Genki, we don't force it.", pilotCta:'See Genki for your workplace →', daysLabel:'days in the real office', launch:'Launch', learn:'Learn', adjust:'Adjust', decide:'Decide', footerNote:'Preview branch — the production site has not been changed.'
+    }
+  };
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (copy[lang][key]) el.textContent = copy[lang][key];
+    });
+    document.getElementById('bgBtn').classList.toggle('active', lang === 'bg');
+    document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+  }
+  document.getElementById('bgBtn').addEventListener('click', () => setLanguage('bg'));
+  document.getElementById('enBtn').addEventListener('click', () => setLanguage('en'));
+</script>
+</body>
+</html>
