@@ -277,8 +277,14 @@
             <p class="t-label" data-i18n="companies.easy.label">ЛЕСНО Е ДА ДОБАВИТЕ GENKI</p>
             <h2 class="t-headline split-row__title" data-i18n="companies.easy.title">Не е нужно да променяте всичко.</h2>
             <p class="t-body t-muted measure" data-i18n="companies.easy.p1">Genki е създаден да бъде по-пълното решение за офиса — храна, по-добро ежедневие, социален принос и грижа за екипа на едно място.</p>
-            <p class="t-body t-muted measure" data-i18n="companies.easy.p2">Ако вече имате catering, столова, vending, плодове или друг benefit, не е нужно да ги махате.</p>
-            <p class="t-subhead promise" data-i18n="companies.easy.p3">Genki може спокойно да работи редом с тях и да добави още стойност за екипа ви.</p>
+            <!-- Каноничният текст е ЕДИН параграф. Тук е един <p>, за да
+                 остане една мисъл и за екранния четец. Втората част носи
+                 визуална емфаза, но не е цитат и не е ново твърдение —
+                 затова е <span>, не <blockquote> и не отделен параграф. -->
+            <p class="t-body t-muted measure coexist">
+              <span data-i18n="companies.easy.p2">Ако вече имате catering, столова, vending, плодове или друг benefit, не е нужно да ги махате.</span>
+              <span class="coexist__lead" data-i18n="companies.easy.p3">Genki може спокойно да работи редом с тях и да добави още стойност за екипа ви.</span>
+            </p>
           </div>
 
           <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:5; --ds:8">

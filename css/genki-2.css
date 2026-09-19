@@ -917,6 +917,18 @@ genki-slot { display: block; }
 }
 .two-ways__foot .link-arrow { margin-top: var(--space-4); }
 
+/* Съжителството: едно изречение и неговото продължение. Второто получава
+   тежест и цвят, но остава в същия параграф — не е цитат и не е ново
+   твърдение. */
+.coexist__lead {
+  display: block;
+  margin-top: var(--space-3);
+  color: var(--color-text);
+  font-size: var(--text-subhead);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
 /* --- Секция 4: Изявление ------------------------------------------------- */
 
 .statement__title { margin-block: var(--space-5) var(--space-6); }

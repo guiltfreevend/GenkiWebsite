@@ -343,7 +343,7 @@ window.genkiTranslations = {
   'companies.budget.label': { bg: 'GENKI, КОЙТО ИМА СМИСЪЛ', en: 'GENKI THAT MAKES SENSE' },
   'companies.budget.title': { bg: 'Всяко евро трябва да се усеща.', en: 'Every euro should be felt.' },
   'companies.budget.lead': {
-    bg: 'Настройваме Genki така, че бюджетът ви да се усеща от хората.',
+    bg: 'Настройваме Genki така, че бюджетът ви да се усеща от хората — всеки ден.',
     en: 'We configure Genki so your budget creates value your people can actually feel — every day.',
   },
   'companies.budget.split': {
@@ -570,7 +570,9 @@ window.genkiTranslations = {
     bg: 'Ръка затваря вратата на машината, държейки взетия продукт',
     en: 'A hand closing the cooler door while holding the product taken',
   },
-  'alt.W06': {
+  /* W05 в каноничната карта = „Зад кулисите". Виж бележката за съгласуване
+     на ID-тата в docs/GENKI-2.0-VISUAL-ASSET-PRODUCTION-PLAN.md. */
+  'alt.W05': {
     bg: 'Щайги с продукти, подготвени за зареждане',
     en: 'Crates of products prepared for restocking',
   },
