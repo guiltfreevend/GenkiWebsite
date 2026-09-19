@@ -397,6 +397,136 @@ window.genkiTranslations = {
     en: 'A few details about your team and workplace are enough for us to see what kind of Genki makes sense for your company.',
   },
 
+  /* ==========================================================================
+     КАК РАБОТИ GENKI
+
+     BG и EN са ДОСЛОВНО от „GENKI 2.0 — WEBSITE COPY & HANDOFF"
+     (LOCKED 16.09.2026). Нищо не е превеждано на ръка.
+
+     Редът IMPLEMENTATION CHECK от документа е ВЪТРЕШНА бележка и НЕ се
+     публикува — стои само като коментар в разметката.
+     ========================================================================== */
+
+  /* --- Hero --- */
+  'how.hero.label': { bg: 'КАК РАБОТИ GENKI', en: 'HOW GENKI WORKS' },
+  'how.hero.title': {
+    bg: 'Лесно за хората. Всичко останало е наша работа.',
+    en: 'Easy for your people. The rest is on us.',
+  },
+  'how.hero.lead': {
+    bg: 'Отваряте. Вземате каквото искате. Затваряте. Genki се грижи за останалото.',
+    en: 'Open. Take what you want. Close. Genki takes care of the rest.',
+  },
+  'how.hero.cta': {
+    bg: 'Вижте го стъпка по стъпка',
+    en: 'See it step by step',
+  },
+
+  /* --- Покупката --- */
+  'how.flow.label': { bg: 'ТОЛКОВА Е ЛЕСНО', en: 'IT’S THAT SIMPLE' },
+  'how.flow.title': {
+    bg: 'Карта. Отворете. Вземете. Затворете. Готово.',
+    en: 'Card. Open. Take. Close. Done.',
+  },
+  'how.flow.s1_title': { bg: 'Карта', en: 'Card' },
+  'how.flow.s1_text': {
+    bg: 'Доближавате или поставяте дебитната/кредитната си карта. Genki прави временна предварителна авторизация и отключва.',
+    en: 'Tap or insert your debit or credit card. Genki places a temporary pre-authorization and unlocks.',
+  },
+  'how.flow.s2_title': { bg: 'Вземете', en: 'Take' },
+  'how.flow.s2_text': {
+    bg: 'Избирате каквото искате — един продукт или няколко.',
+    en: 'Choose whatever you want — one product or several.',
+  },
+  'how.flow.s3_title': { bg: 'Затворете', en: 'Close' },
+  'how.flow.s3_text': {
+    bg: 'Затваряте вратата и продължавате с деня си.',
+    en: 'Close the door and carry on with your day.',
+  },
+  'how.flow.s4_title': { bg: 'Готово', en: 'Done' },
+  'how.flow.s4_text': {
+    bg: 'Genki отчита какво сте взели и таксува реалната стойност на покупката.',
+    en: 'Genki detects what you took and charges the actual value of your purchase.',
+  },
+  /* PUBLISH GATE: този текст трябва да съвпада 1:1 с реалното поведение на
+     платежния доставчик, преди страницата да се публикува. */
+  'how.flow.preauth': {
+    bg: 'Предварителната авторизация е временна. След покупката се начислява само стойността на взетите продукти, а останалата блокирана сума се освобождава. Времето за освобождаване може да зависи от вашата банка.',
+    en: 'The pre-authorization is temporary. After the purchase, you are charged only for the products you took and the remaining held amount is released. The release time may depend on your bank.',
+  },
+
+  /* --- Без излишни стъпки --- */
+  'how.noscan.label': { bg: 'БЕЗ ИЗЛИШНИ СТЪПКИ', en: 'NO EXTRA STEPS' },
+  'how.noscan.title': {
+    bg: 'Няма какво да сканирате на излизане.',
+    en: 'Nothing to scan on the way out.',
+  },
+  'how.noscan.lead': {
+    bg: 'Genki следи какво се взима от рафтовете и автоматично свързва покупката с плащането.',
+    en: 'Genki tracks what is taken from the shelves and automatically connects the purchase to the payment.',
+  },
+  'how.noscan.multi': {
+    bg: 'Вземате няколко неща наведнъж? Няма проблем.',
+    en: 'Taking several things at once? No problem.',
+  },
+  'how.noscan.close': {
+    bg: 'Просто затваряте вратата.',
+    en: 'Just close the door.',
+  },
+
+  /* --- Зад кулисите --- */
+  'how.behind.label': { bg: 'ЗАД КУЛИСИТЕ', en: 'BEHIND THE SCENES' },
+  'how.behind.title': {
+    bg: 'Докато хората просто си взимат нещо, ние се грижим Genki да работи.',
+    en: 'While people simply grab what they want, we keep Genki running.',
+  },
+  'how.behind.lead': {
+    bg: 'Следим наличностите, зареждаме, обслужваме машината и гледаме кои продукти се харесват и кои не.',
+    en: 'We monitor stock, restock, service the machine and learn which products people like and which they don’t.',
+  },
+  'how.behind.none': {
+    bg: 'Няма заявки за зареждане. Няма следене на наличности. Няма още една задача за компанията.',
+    en: 'No restocking requests. No stock tracking. No extra task for your company.',
+  },
+
+  /* --- Price Support --- */
+  'how.ps.label': { bg: 'И PRICE SUPPORT Е ЛЕСЕН', en: 'PRICE SUPPORT IS SIMPLE TOO' },
+  'how.ps.title': {
+    bg: 'Компанията дава повече. Без повече администрация.',
+    en: 'The company gives more. Without adding more admin.',
+  },
+  'how.ps.lead': {
+    bg: 'Ако използвате Product Price Support, по-добрата цена се прилага директно в Genki.',
+    en: 'If you use Product Price Support, the better employee price is applied directly in Genki.',
+  },
+  'how.ps.employee': {
+    bg: 'Служителят вижда цената, плаща своята част и това е.',
+    en: 'The employee sees the price, pays their share and that’s it.',
+  },
+  'how.ps.none': {
+    bg: 'Без възстановяване на разходи. Без касови бележки. Без допълнителна работа за HR.',
+    en: 'No reimbursements. No receipts. No extra work for HR.',
+  },
+
+  /* --- Genki се учи --- */
+  'how.learn.label': { bg: 'GENKI СЕ УЧИ ОТ ВАШИЯ ОФИС', en: 'GENKI LEARNS YOUR WORKPLACE' },
+  'how.learn.title': {
+    bg: 'С времето Genki става все по-ваш.',
+    en: 'Over time, Genki becomes more and more yours.',
+  },
+  'how.learn.lead': {
+    bg: 'Следим какво хората реално избират и използваме това, за да подобряваме продуктовия микс.',
+    en: 'We follow what people actually choose and use that to improve the product mix.',
+  },
+  'how.learn.mix': {
+    bg: 'Повече от това, което се харесва. По-малко от това, което не се търси. И място за нещо ново.',
+    en: 'More of what people love. Less of what they don’t. And room for something new.',
+  },
+  'how.learn.adapt': {
+    bg: 'Вашият Genki не остава същият. Той се наглася към хората, които го използват.',
+    en: 'Your Genki doesn’t stay the same. It adapts to the people who use it.',
+  },
+
   /* ------------------------------------------------- alt на IMAGE слотовете
      Написани предварително, за да не се добавят на бегом при подмяната на
      placeholder-ите. Alt описва какво се вижда — не повтаря заглавието. */

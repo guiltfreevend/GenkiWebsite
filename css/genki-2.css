@@ -1198,3 +1198,141 @@ genki-slot { display: block; }
 
   .split-row__copy .link-arrow { margin-top: var(--space-6); }
 }
+
+/* ==========================================================================
+   16. КАК РАБОТИ GENKI
+
+   Страницата е демонстрация на продукт. Трета структура на сайта: Home е
+   split, За компании е широка лента, тук е продуктов портрет с въздух
+   около себе си.
+   ========================================================================== */
+
+/* --- Hero: продуктов портрет -------------------------------------------- */
+
+.hero--portrait { padding-block: var(--section-y-md); }
+.hero--portrait .t-label { margin-bottom: var(--space-3); }
+.hero--portrait__title { margin-bottom: var(--space-6); max-width: 20ch; }
+.hero--portrait__head { align-items: end; margin-bottom: var(--space-12); }
+.hero--portrait__head .link-arrow { margin-top: var(--space-4); }
+
+/* Машината стои сама и центрирана. Тясно поле, много въздух. */
+.hero--portrait__visual { margin-inline: auto; max-width: 22rem; }
+
+/* Стрелката надолу се движи надолу, не настрани */
+.link-arrow:hover .btn__arrow--down,
+.btn:hover .btn__arrow--down {
+  transform: translateY(var(--hover-arrow-shift));
+}
+
+/* --- Покупката ----------------------------------------------------------
+   Четири стъпки с реални кадри. На Home същият процес е чисто типографски;
+   тук медията носи демонстрацията. */
+
+.flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-10);
+}
+
+.flow__step { position: relative; }
+
+.flow__num {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-accent);
+}
+
+.flow__media { margin-bottom: var(--space-5); }
+
+/* Стъпка 04 е компонент, не снимка: отметка на плътен фон, без суми и без
+   фалшива касова бележка. */
+.flow__media--done {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-tint);
+  color: var(--color-brand);
+}
+
+.flow__title { margin-bottom: var(--space-2); }
+
+/* --- Publish gate: предварителна авторизация ---------------------------- */
+
+.preauth {
+  margin-top: var(--space-12);
+  padding: var(--space-5) var(--space-6);
+  border-left: 2px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  max-width: var(--measure-wide);
+}
+
+/* --- Без излишни стъпки -------------------------------------------------- */
+
+.noscan__title { margin-bottom: var(--space-5); }
+.noscan__multi { margin-top: var(--space-10); max-width: 18ch; }
+.noscan__close {
+  margin-top: var(--space-3);
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
+}
+
+/* --- Price Support ------------------------------------------------------- */
+
+.ps-none {
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: var(--border-hairline);
+}
+
+/* --- Genki се учи -------------------------------------------------------- */
+
+.learn { background: var(--color-bg-tint); }
+.learn__mix { margin-top: var(--space-6); margin-bottom: var(--space-5); max-width: 26ch; }
+.learn__cta { margin-top: var(--space-8); }
+
+/* Три колони с различна височина. Ритъм, не данни: нямат стойности, нямат
+   ос и не се четат като диаграма. */
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  height: 12rem;
+  margin-top: var(--space-8);
+}
+
+.bars__bar {
+  flex: 1;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.bars__bar--more { height: 100%; background: var(--color-brand); }
+.bars__bar--less { height: 45%;  background: var(--green-300); }
+.bars__bar--new  { height: 70%;  background: var(--cream-300); }
+
+/* --- Таблет -------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-10) var(--space-8); }
+  .hero--portrait__visual { max-width: 26rem; }
+  .bars { height: 14rem; }
+}
+
+/* --- Desktop ------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .hero--portrait { padding-block: var(--section-y-lg) var(--section-y-md); }
+  .hero--portrait__visual { max-width: 26rem; }
+
+  .flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8); }
+
+  .preauth { margin-top: var(--space-16); }
+
+  .bars { height: 18rem; }
+}
