@@ -47,8 +47,9 @@
       <!-- Основната конверсия на сайта. Нарочно не изглежда като nav елемент.
            На мобилно носи краткия етикет — пълното изречение изяжда хедъра. -->
       <a class="btn btn--fit site-header__cta" href="genki-fit.html" data-nav-link>
-        <span class="btn__label-short" data-i18n="nav.fit_cta_short">Genki Fit →</span>
-        <span class="btn__label-full" data-i18n="nav.fit_cta">Проверете вашия Genki Fit →</span>
+        <span class="btn__label-short" data-i18n="nav.fit_cta_short">Genki Fit</span>
+        <span class="btn__label-full" data-i18n="nav.fit_cta">Проверете вашия Genki Fit</span>
+        <span class="btn__arrow" aria-hidden="true">→</span>
       </a>
 
       <div class="lang-switch" role="group" aria-label="Език" data-i18n-aria-label="lang.label">
@@ -82,8 +83,10 @@
     <a class="mobile-menu__link" href="contact.html"      data-nav-link data-i18n="nav.contact">Контакт</a>
 
     <div class="mobile-menu__footer">
-      <a class="btn btn--fit" href="genki-fit.html" data-nav-link
-         data-i18n="nav.fit_cta">Проверете вашия Genki Fit →</a>
+      <a class="btn btn--fit" href="genki-fit.html" data-nav-link>
+        <span data-i18n="nav.fit_cta">Проверете вашия Genki Fit</span>
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
 
       <div class="lang-switch" role="group" aria-label="Език" data-i18n-aria-label="lang.label">
         <button type="button" class="lang-switch__btn" data-lang-option="bg"
@@ -97,7 +100,7 @@
 
   <main id="main">
     <section class="section container">
-      <h1>Genki Fit</h1>
+      <h1 class="t-display">Genki Fit</h1>
       <p class="skeleton-notice measure" data-i18n="skeleton.notice">
         Скелет. Съдържанието на тази страница влиза в следващ етап.
       </p>

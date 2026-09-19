@@ -1,92 +1,171 @@
 /* ==========================================================================
-   Genki 2.0 — поведение на скелета
-   Съдържа: регистър на визуалните слотове, placeholder компонента,
-   мобилното меню, активното състояние в навигацията.
+   Genki 2.0 — поведение на обвивката
 
-   Зарежда се СЛЕД js/genki-i18n.js — компонентът вика GenkiI18n.apply()
-   върху собствения си markup след рендиране.
+   Съдържа: регистър на визуалните слотове, <genki-slot> компонента,
+   примитива за поява при скрол, мобилното меню, активната навигация.
+
+   Зарежда се СЛЕД js/genki-i18n.js — слотът вика GenkiI18n.apply() върху
+   собствения си markup след рендиране.
    ========================================================================== */
 
 (function (global) {
   'use strict';
 
   /* ======================================================================
-     1. Регистър на IMAGE слотовете
+     1. РЕГИСТЪР НА ВИЗУАЛНИТЕ СЛОТОВЕ
 
-     Числата идват дословно от docs/GENKI-2.0-ASSETS.md. Това е единственото
-     място в кода, което ги знае — страниците пишат само <genki-slot id="H01">.
+     Единственото място в кода, което знае размерите. Страниците пишат само
+     <genki-slot slot-id="H01">.
 
-     desktop / mobile са СЪОТНОШЕНИЯ (CSS aspect-ratio). px е препоръчаният
-     изходен размер, показван върху placeholder-а, за да си личи какъв файл
-     се чака.
+     d / m    съотношение за desktop и за mobile (CSS aspect-ratio)
+     dpx/mpx  препоръчан изходен размер — показва се на placeholder-а, за да
+              се вижда какъв файл се чака
+     role     каква работа върши кадърът; изписва се върху placeholder-а,
+              за да казва сам какво изображение трябва да влезе тук
+     tone     цвят на placeholder-а
+     shape    'media' = едър радиус, 'flush' = без радиус
+
+     Съотношенията идват от docs/GENKI-2.0-ASSETS.md. Където
+     DESIGN-DIRECTION налага друга композиция, стойността се подава на
+     самия елемент (ratio / mobile-ratio) и надделява над регистъра —
+     решението от 2026-09-19: ASSETS отстъпва на DESIGN-DIRECTION по
+     композиция.
      ====================================================================== */
   var SLOTS = {
     /* Глобални */
-    G04: { d: '1.91/1', m: '1.91/1', dpx: '1200×630',  mpx: '1200×630',  tone: 'brand' },
+    G04: { d: '1.91/1', m: '1.91/1', dpx: '1200×630',  mpx: '1200×630',
+           tone: 'brand', role: 'OG изображение за споделяне' },
 
     /* Начало */
-    H01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350', tone: 'brand' },
-    H06: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350', tone: 'cream' },
+    H01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350',
+           tone: 'brand', role: 'Genki машината в офис кухня, заредена' },
+    H06: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350',
+           tone: 'cream', role: 'Български продукти на светла повърхност' },
 
     /* За компании */
-    C01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350', tone: 'brand' },
-    C02: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350', tone: 'brand' },
-    C06: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350', tone: 'cream' },
+    C01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350',
+           tone: 'brand', role: 'Машината в ежедневието на офиса' },
+    C02: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350',
+           tone: 'brand', role: 'Зареждане на рафт — операцията' },
+    C06: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350',
+           tone: 'cream', role: 'Genki до кафемашина и купа с плодове' },
 
     /* Как работи */
-    W01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350', tone: 'brand' },
-    W02: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200', tone: 'brand' },
-    W03: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200', tone: 'brand' },
-    W04: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200', tone: 'cream' },
-    W06: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350', tone: 'brand' },
+    W01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350',
+           tone: 'brand', role: 'Портрет на машината, фронтално' },
+    W02: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200',
+           tone: 'brand', role: 'Карта до четеца NEXGO UN20' },
+    W03: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200',
+           tone: 'brand', role: 'Ръка взема продукт от рафта' },
+    W04: { d: '1/1',    m: '1/1',    dpx: '1200×1200', mpx: '1200×1200',
+           tone: 'cream', role: 'Затваряне на вратата' },
+    W06: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350',
+           tone: 'brand', role: 'Зад кулисите — подготовка за зареждане' },
 
     /* Мисия */
-    M01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350', tone: 'brand' },
-    M02: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350', tone: 'cream' },
-    M03: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350', tone: 'cream' },
+    M01: { d: '16/9',   m: '4/5',    dpx: '2560×1440', mpx: '1080×1350',
+           tone: 'brand', role: 'Обикновен момент в офиса' },
+    M02: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350',
+           tone: 'cream', role: 'Близък кадър — Genki Product Standard' },
+    M03: { d: '4/3',    m: '4/5',    dpx: '1600×1200', mpx: '1080×1350',
+           tone: 'cream', role: 'Български производител' },
 
     /* Genki Fit */
-    F04: { d: '3/2',    m: '3/2',    dpx: '1200×800',  mpx: '1200×800',  tone: 'cream' },
+    F04: { d: '3/2',    m: '3/2',    dpx: '1200×800',  mpx: '1200×800',
+           tone: 'cream', role: 'Препоръчаната конфигурация в резултата' },
   };
 
   /* ======================================================================
-     2. <genki-slot id="H01">
+     2. <genki-slot>
 
-     Рендира контейнер с точното съотношение за desktop и за mobile, плътен
-     фон и видимо ID. Alt текстът се взима от ключ alt.<ID> и стои в
-     figcaption само за екранни четци — така още сега се вижда, че е написан
-     и на двата езика.
+     Атрибути:
+       slot-id       ID от регистъра (задължителен)
+       ratio         desktop съотношение — надделява над регистъра
+       mobile-ratio  mobile съотношение — надделява над регистъра
+       role          описание — надделява над регистъра
+       src           desktop изображение
+       src-mobile    mobile изображение (ако липсва, ползва се src)
+       focal         object-position, напр. "70% 40%"
+       tone          'brand' | 'cream'
+       shape         'media' | 'flush'
+       priority      'high' зарежда веднага (само за hero над сгъвката)
 
-     Смяната с реален файл е подмяна на този елемент с <picture>, без пипане
-     на секцията наоколо — размерите вече са същите.
+     Без src рендира placeholder с точното съотношение, ID-то и ролята.
+     Със src рендира <picture> с отделен кадър за mobile и за desktop.
+     Подмяната е добавяне на два атрибута, не преработка на секцията.
      ====================================================================== */
   function renderSlot(el) {
     var id = (el.getAttribute('slot-id') || '').toUpperCase();
     var spec = SLOTS[id];
 
     if (!spec) {
-      el.innerHTML = '<div class="slot slot--unknown">Непознат слот: ' + id + '</div>';
+      el.innerHTML = '<div class="slot slot--unknown">Непознат слот: ' +
+                     (id || '(празно)') + '</div>';
       return;
     }
 
-    el.style.setProperty('--slot-d', spec.d);
-    el.style.setProperty('--slot-m', spec.m);
-    el.classList.add('slot', 'slot--' + spec.tone);
+    var ratioAttrD = el.getAttribute('ratio');
+    var ratioAttrM = el.getAttribute('mobile-ratio');
+    var ratioD = ratioAttrD || spec.d;
+    var ratioM = ratioAttrM || spec.m;
 
-    /* Съотношението, което реално е в сила, се изписва на самия placeholder,
-       за да се чете при преоразмеряване на прозореца, а не на око. */
-    el.innerHTML =
-      '<div class="slot__frame">' +
-        '<span class="slot__id">' + id + '</span>' +
-        '<span class="slot__meta">' +
-          '<span class="slot__meta-d">' + spec.d.replace('/', ':') + ' · ' + spec.dpx + '</span>' +
-          '<span class="slot__meta-m">' + spec.m.replace('/', ':') + ' · ' + spec.mpx + '</span>' +
-        '</span>' +
-        '<span class="slot__note" data-i18n="ph.waiting"></span>' +
-      '</div>' +
-      '<span class="sr-only" data-i18n="alt.' + id + '"></span>';
+    /* Препоръчаните пиксели важат за съотношението от регистъра. Ако
+       композицията го е сменила, не се измисля нов размер — казва се, че
+       идва от композицията. */
+    var pxD = ratioAttrD ? 'по композиция' : spec.dpx;
+    var pxM = ratioAttrM ? 'по композиция' : spec.mpx;
+    var role = el.getAttribute('role') || spec.role || '';
+    var tone = el.getAttribute('tone') || spec.tone || 'brand';
+    var shape = el.getAttribute('shape') || spec.shape || '';
+    var focal = el.getAttribute('focal');
+    var src = el.getAttribute('src');
+    var srcMobile = el.getAttribute('src-mobile') || src;
+
+    el.style.setProperty('--slot-d', ratioD);
+    el.style.setProperty('--slot-m', ratioM);
+    if (focal) el.style.setProperty('--slot-focal', focal);
+
+    el.classList.add('slot', 'slot--' + tone);
+    if (shape) el.classList.add('slot--' + shape);
+
+    /* Ролята на елемента е презентационна — ARIA ролята му е ненужна и
+       атрибутът role служи само като вход към компонента. Махаме го, за да
+       не се чете като ARIA. */
+    el.removeAttribute('role');
+
+    if (src) {
+      var eager = el.getAttribute('priority') === 'high';
+      el.innerHTML =
+        '<picture>' +
+          '<source media="(min-width: 768px)" srcset="' + esc(src) + '">' +
+          '<img src="' + esc(srcMobile) + '" alt="" ' +
+               'loading="' + (eager ? 'eager' : 'lazy') + '" ' +
+               'decoding="async" ' +
+               (eager ? 'fetchpriority="high" ' : '') +
+               'data-i18n-alt="alt.' + id + '">' +
+        '</picture>';
+    } else {
+      el.innerHTML =
+        '<div class="slot__frame">' +
+          '<span class="slot__id">' + id + '</span>' +
+          (role ? '<span class="slot__role">' + esc(role) + '</span>' : '') +
+          '<span class="slot__meta">' +
+            '<span class="slot__meta-d">' + fmt(ratioD) + ' · ' + pxD + '</span>' +
+            '<span class="slot__meta-m">' + fmt(ratioM) + ' · ' + pxM + '</span>' +
+          '</span>' +
+          '<span class="slot__note" data-i18n="ph.waiting"></span>' +
+        '</div>' +
+        '<span class="sr-only" data-i18n="alt.' + id + '"></span>';
+    }
 
     if (global.GenkiI18n) global.GenkiI18n.apply(el);
+  }
+
+  function fmt(ratio) { return String(ratio).replace('/', ':'); }
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+                    .replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   if ('customElements' in global) {
@@ -101,11 +180,72 @@
   }
 
   /* ======================================================================
-     3. Мобилно меню
+     3. ПОЯВА ПРИ СКРОЛ
 
-     Изисквания от плана: достъпно от палец, затваря се при избор, езиковият
-     превключвател остава вътре, таргетите са минимум 44 px, клавиатурата
-     минава през целия хедър с видим focus.
+     Съдържанието е видимо по подразбиране. Скриптът поема едва когато е
+     сигурно, че може да го покаже обратно — затова класът js-reveal се
+     слага на <html> чак тук. Без JS, без IntersectionObserver или при
+     "намалено движение" нищо не се крие.
+
+     Всеки елемент се появява веднъж и се отписва от наблюдателя.
+     Групите получават стъпка през --reveal-index; самата стъпка е токен.
+     ====================================================================== */
+  function initReveal() {
+    var reduced = global.matchMedia &&
+                  global.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduced || !('IntersectionObserver' in global)) return;
+
+    var targets = document.querySelectorAll('.reveal');
+    if (!targets.length) return;
+
+    document.documentElement.classList.add('js-reveal');
+
+    /* Индекс вътре в групата -> стъпаловидно закъснение */
+    var groups = document.querySelectorAll('.reveal-group');
+    for (var g = 0; g < groups.length; g++) {
+      var kids = groups[g].querySelectorAll('.reveal');
+      for (var k = 0; k < kids.length; k++) {
+        kids[k].style.setProperty('--reveal-index', k);
+      }
+    }
+
+    var revealedAny = false;
+
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.classList.add('is-revealed');
+        io.unobserve(entries[i].target);
+        revealedAny = true;
+      }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+
+    for (var t = 0; t < targets.length; t++) io.observe(targets[t]);
+
+    /* Предпазител. Ако нещо се обърка в наблюдателя, съдържанието остава
+       невидимо завинаги — това е най-лошото, което може да се случи на
+       сайт с текст. Затова: ако след 2,5 s нищо не се е появило, ВЪПРЕКИ
+       че има блок в екрана, скриването отпада изцяло.
+
+       Проверката "има блок в екрана" пази ефекта на страници, чиито
+       .reveal елементи са само под сгъвката — там нулата е нормална. */
+    global.setTimeout(function () {
+      if (revealedAny) return;
+
+      var vh = global.innerHeight || document.documentElement.clientHeight;
+      for (var i = 0; i < targets.length; i++) {
+        var r = targets[i].getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) {
+          document.documentElement.classList.remove('js-reveal');
+          return;
+        }
+      }
+    }, 2500);
+  }
+
+  /* ======================================================================
+     4. МОБИЛНО МЕНЮ
      ====================================================================== */
   function initMenu() {
     var toggle = document.querySelector('[data-menu-toggle]');
@@ -143,21 +283,15 @@
     /* Избор на линк затваря менюто. Езиковите бутони НЕ го затварят —
        човекът може да иска да превключи и после да избере страница. */
     panel.addEventListener('click', function (e) {
-      var link = e.target.closest('a[href]');
-      if (link) setOpen(false);
+      if (e.target.closest('a[href]')) setOpen(false);
     });
 
     document.addEventListener('keydown', function (e) {
       if (!open) return;
 
-      if (e.key === 'Escape') {
-        setOpen(false);
-        return;
-      }
-
+      if (e.key === 'Escape') { setOpen(false); return; }
       if (e.key !== 'Tab') return;
 
-      /* Задържане на фокуса вътре в менюто, докато е отворено. */
       var f = focusables();
       if (!f.length) return;
       var first = f[0];
@@ -172,8 +306,8 @@
       }
     });
 
-    /* Ако прозорецът се разшири до desktop, менюто няма смисъл да остава
-       отворено — иначе остава невидим focus trap. */
+    /* При разширяване до desktop менюто няма смисъл да остава отворено —
+       иначе остава невидим focus trap. */
     var desktop = global.matchMedia('(min-width: 1024px)');
     var onChange = function (e) { if (e.matches) setOpen(false); };
     if (desktop.addEventListener) desktop.addEventListener('change', onChange);
@@ -181,8 +315,7 @@
   }
 
   /* ======================================================================
-     4. Активна страница в навигацията
-
+     5. АКТИВНА СТРАНИЦА В НАВИГАЦИЯТА
      Сравнява се само името на файла, за да работи еднакво при /companies,
      /companies.html и при локалния http.server.
      ====================================================================== */
@@ -203,9 +336,8 @@
   }
 
   /* ======================================================================
-     5. Сянка на хедъра при скрол
-     Throttle през requestAnimationFrame — без слушател, който смята на
-     всеки пиксел.
+     6. СЯНКА НА ХЕДЪРА ПРИ СКРОЛ
+     Throttle през requestAnimationFrame.
      ====================================================================== */
   function initHeaderScroll() {
     var header = document.querySelector('[data-site-header]');
@@ -228,6 +360,7 @@
     initMenu();
     initActiveNav();
     initHeaderScroll();
+    initReveal();
   }
 
   if (document.readyState === 'loading') {

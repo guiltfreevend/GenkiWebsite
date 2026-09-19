@@ -38,14 +38,14 @@ window.genkiTranslations = {
 
   /* Основният CTA. Точната формулировка е заключена в бриф раздел 4. */
   'nav.fit_cta': {
-    bg: 'Проверете вашия Genki Fit →',
-    en: 'Check your Genki Fit →',
+    bg: 'Проверете вашия Genki Fit',
+    en: 'Check your Genki Fit',
   },
   /* Кратък етикет за мобилния хедър, където пълното изречение не се събира.
      Еднакъв на двата езика — това е име на продукт, не превеждан текст. */
   'nav.fit_cta_short': {
-    bg: 'Genki Fit →',
-    en: 'Genki Fit →',
+    bg: 'Genki Fit',
+    en: 'Genki Fit',
   },
 
   'nav.menu_open':  { bg: 'Отворете менюто',  en: 'Open menu' },
