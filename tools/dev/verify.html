@@ -80,7 +80,9 @@ async function check(page, w) {
     row.slotId = slot.getAttribute('slot-id');
     row.slotRatio = +(r.width / r.height).toFixed(3);
     const spec = win.GenkiSlots[row.slotId];
-    const want = (w >= 768 ? spec.d : spec.m).split('/').map(Number);
+    /* Композицията може да надделее над регистъра — четем първо атрибута. */
+    const attrD = slot.getAttribute('ratio'), attrM = slot.getAttribute('mobile-ratio');
+    const want = (w >= 768 ? (attrD || spec.d) : (attrM || spec.m)).split('/').map(Number);
     row.ratioOK = Math.abs(row.slotRatio - want[0]/want[1]) < 0.02;
     row.slotRole = !!doc.querySelector('.slot__role');
     row.slotRadius = cs(doc.querySelector('.slot'), 'borderRadius');
