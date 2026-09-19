@@ -753,3 +753,306 @@ genki-slot { display: block; }
 
   .js-reveal .reveal { opacity: 1; transform: none; }
 }
+
+/* ==========================================================================
+   14. HOME
+
+   Всяка секция получава различно третиране нарочно: hero split, свързана
+   поредица, два различни по тежест панела, тъмно типографско изявление,
+   редакционни редове. Никъде мрежа от еднакви карти.
+   ========================================================================== */
+
+/* --- Обща глава на секция ------------------------------------------------ */
+
+.section-head { margin-bottom: var(--space-12); }
+.section-head .t-label { margin-bottom: var(--space-3); }
+.section-head h2 { margin-bottom: var(--space-5); }
+
+/* --- Секция 1: Hero ------------------------------------------------------
+   Mobile: label -> заглавие -> текст -> CTA -> едър визуал.
+   Desktop: copy вляво, визуал вдясно, който излиза извън content grid-а. */
+
+.hero { padding-block: var(--section-y-md) var(--section-y-lg); }
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.hero__title {
+  margin-block: var(--space-4) var(--space-5);
+  /* Българските думи в това заглавие са дълги. Пълният display размер го
+     разбива на четири реда в split колоната, а DESIGN-DIRECTION иска
+     най-много три-четири. Таванът пада до 80 px — още в целта 72-104. */
+  font-size: clamp(2.625rem, 1.60rem + 4.2vw, 5rem);
+}
+.hero__lead { max-width: 30ch; }
+.hero__actions { margin-top: var(--space-8); }
+
+.hero__visual { position: relative; }
+.hero__frame { position: relative; }
+
+/* 元気 — тих подпис в ъгъла на визуала. Награждава внимание, не е тема. */
+.hero__mark {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-4);
+  font-size: var(--text-subhead);
+  color: var(--cream-200);
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+/* --- Секция 2: Как работи ------------------------------------------------
+   Един свързан процес. Тънка линия минава през четирите номера; на mobile
+   слиза вертикално. Без икони, без кутии. */
+
+.steps {
+  position: relative;
+  list-style: none;
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.step {
+  position: relative;
+  padding-left: var(--space-10);
+}
+
+/* Вертикалната линия на mobile */
+.step::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 1.9rem;
+  bottom: calc(-1 * var(--space-8));
+  width: 1px;
+  background: var(--color-border-strong);
+}
+.step:last-child::before { display: none; }
+
+.step__num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-wide);
+}
+
+.step__title { margin-bottom: var(--space-1); }
+
+.ops { border-top: var(--border-hairline); padding-top: var(--space-8); }
+.ops__line { margin-bottom: var(--space-3); max-width: 24ch; }
+.ops .link-arrow { margin-top: var(--space-5); }
+
+/* --- Секция 3: Два начина ------------------------------------------------ */
+
+.two-ways { align-items: start; }
+
+.way {
+  padding: var(--space-8);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  border: var(--border-hairline);
+}
+
+/* Преживяването е по-топло и по-тежко от механиката — двете не бива да се
+   четат като две еднакви ценови карти. */
+.way--experience {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.way--mechanic { background: transparent; }
+
+.way__name { margin-bottom: var(--space-4); color: var(--color-accent); }
+.way__title { margin-bottom: var(--space-4); }
+
+/* Разделяне на цената — без числа */
+.split { margin: var(--space-8) 0 0; }
+.split__caption { margin-bottom: var(--space-3); }
+
+.split__bar {
+  display: flex;
+  height: 0.75rem;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--color-border);
+}
+.split__part--employer { flex: 3; background: var(--color-brand); }
+.split__part--employee { flex: 2; background: var(--green-300); }
+
+.split__keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+.split__key { display: inline-flex; align-items: center; gap: var(--space-2); }
+.split__dot { width: 0.6rem; height: 0.6rem; border-radius: var(--radius-pill); }
+.split__dot--employer { background: var(--color-brand); }
+.split__dot--employee { background: var(--green-300); }
+
+.split__note { margin-top: var(--space-2); }
+
+.two-ways__foot {
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: var(--border-hairline);
+}
+.two-ways__foot .link-arrow { margin-top: var(--space-4); }
+
+/* --- Секция 4: Изявление ------------------------------------------------- */
+
+.statement__title { margin-block: var(--space-5) var(--space-6); }
+.statement__lead {
+  color: var(--color-text-inverse-muted);
+  margin-bottom: var(--space-10);
+  max-width: 34ch;
+}
+
+/* --- Секция 5: Защо Genki ----------------------------------------------- */
+
+.why-row { align-items: center; margin-bottom: var(--section-y-sm); }
+.why-row:last-of-type { margin-bottom: 0; }
+
+.why-row__copy h3 { margin-bottom: var(--space-3); }
+
+/* Лента с производителите — празни места с точната височина от G05.
+   Без измислени имена и без бели правоъгълници върху цветен фон. */
+.producers {
+  padding: var(--space-8);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--cream-100);
+}
+
+.producers__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6) var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.producers__slot {
+  width: 4.5rem;
+  height: 24px;
+  border-radius: var(--radius-xs);
+  background: rgb(var(--ink-900-rgb) / 0.07);
+}
+
+.producers__note {
+  margin-top: var(--space-6);
+  color: var(--color-text-muted);
+}
+
+/* 10% — типографски момент. Числото е декоративно едро; изречението до него
+   носи юридически точната формулировка и то се чете от екранния четец. */
+.donation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-12) 0;
+  border-top: var(--border-hairline);
+  border-bottom: var(--border-hairline);
+}
+
+.donation__title { color: var(--color-accent); }
+
+.why-foot { margin-top: var(--space-12); }
+
+/* --- Home на tablet ------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-10) var(--space-8);
+  }
+
+  .producers__slot { width: 5.5rem; height: 32px; }
+
+
+}
+
+/* --- Home на таблет ------------------------------------------------------
+   Между 768 и 1023 лайаутът още е на един стълб, но слотът вече е минал на
+   desktop кадъра. Портретен визуал на цялата ширина става 871 px висок и
+   изяжда екрана. Затова тук hero-то получава собствена композиция: по-тясно
+   поле, изместено надясно. */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__frame {
+    max-width: 62%;
+    margin-inline-start: auto;
+  }
+}
+
+/* --- Home на desktop ----------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  /* Hero: copy вляво, визуал вдясно. Визуалът излиза извън content grid-а —
+     заема и отстъпа на контейнера. */
+  .hero { padding-block: var(--section-y-lg); }
+
+  .hero__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+  }
+
+  /* min-width: 0 е задължително. По подразбиране flex елементът е
+     min-width: auto и отказва да се свие под съдържанието си — а рамката
+     нарочно стърчи навън, което го надуваше и той изместваше лайаута. */
+  .hero__copy,
+  .hero__visual { flex: 1 1 50%; min-width: 0; }
+  .hero__frame { margin-inline-end: calc(-1 * var(--gutter)); }
+
+  /* Четирите стъпки в един ред, със свързваща хоризонтална линия */
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  .step { padding-left: 0; padding-top: var(--space-10); }
+
+  .step::before {
+    left: 0;
+    right: calc(-1 * var(--space-6));
+    top: 0.45rem;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .step__num { top: 0; }
+
+  .ops {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space-8);
+  }
+  .ops__copy { display: grid; gap: var(--space-3); }
+  .ops__line { max-width: 20ch; }
+  .ops .link-arrow { margin-top: 0; justify-self: end; }
+
+  .two-ways__foot {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-8);
+  }
+  .two-ways__foot .link-arrow { margin-top: 0; }
+
+  .way { padding: var(--space-10); }
+
+}
