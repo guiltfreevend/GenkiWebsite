@@ -527,6 +527,111 @@ window.genkiTranslations = {
     en: 'Your Genki doesn’t stay the same. It adapts to the people who use it.',
   },
 
+  /* ==========================================================================
+     МИСИЯ И ВЪЗДЕЙСТВИЕ
+
+     BG и EN са ДОСЛОВНО от „GENKI 2.0 — WEBSITE COPY & HANDOFF"
+     (LOCKED 16.09.2026).
+
+     Формулировката на дарението е юридически точна и НЕ се съкращава
+     никъде: „10% от реалната си печалба след всички разходи".
+     ========================================================================== */
+
+  /* --- Hero --- */
+  'mission.hero.label': { bg: 'МИСИЯ И ВЪЗДЕЙСТВИЕ', en: 'MISSION & IMPACT' },
+  'mission.hero.title': {
+    bg: 'Доброто не трябва да е нещо извън ежедневието.',
+    en: 'Doing good should be part of everyday life.',
+  },
+  'mission.hero.lead': {
+    bg: 'Genki е създаден така, че всеки ден да прави малко повече — за хората в офиса, за българските производители и за каузи, които имат значение.',
+    en: 'Genki is built to do a little more every day — for the people at work, for Bulgarian producers and for causes that matter.',
+  },
+
+  /* --- Genki Product Standard --- */
+  'mission.standard.label': { bg: 'GENKI PRODUCT STANDARD', en: 'GENKI PRODUCT STANDARD' },
+  'mission.standard.title': {
+    bg: 'Не слагаме нещо вътре само защото се продава.',
+    en: 'Something doesn’t belong in Genki just because it sells.',
+  },
+  'mission.standard.lead': {
+    bg: 'Всеки продукт трябва да заслужи мястото си в Genki — със състав, качество и формат, които имат смисъл за ежедневието в офиса.',
+    en: 'Every product has to earn its place in Genki — through ingredients, quality and a format that makes sense for everyday life at work.',
+  },
+  'mission.standard.close': {
+    bg: 'Затова в Genki няма случайни продукти.',
+    en: 'That’s why nothing in Genki is there by accident.',
+  },
+
+  /* --- Българско по избор --- */
+  'mission.local.label': { bg: 'БЪЛГАРСКО ПО ИЗБОР', en: 'BULGARIAN BY CHOICE' },
+  'mission.local.title': {
+    bg: 'Добрите местни продукти заслужават повече място.',
+    en: 'Great local products deserve more room to grow.',
+  },
+  'mission.local.lead': {
+    bg: 'Затова работим с български производители и искаме Genki да бъде още един начин техните продукти да стигат до повече хора.',
+    en: 'That’s why we work with Bulgarian producers and want Genki to become another way for their products to reach more people.',
+  },
+  'mission.local.close': {
+    bg: 'Когато Genki расте, искаме те да растат с нас.',
+    en: 'As Genki grows, we want them to grow with us.',
+  },
+
+  /* --- 10% --- */
+  'mission.ten.label': { bg: '10% СЕ ВРЪЩАТ ОБРАТНО', en: '10% GOES BACK' },
+  'mission.ten.title': {
+    bg: 'Не обещание някой ден. Част от начина, по който работим.',
+    en: 'Not a promise for someday. Part of how we work.',
+  },
+  /* Пълната формулировка. Не се съкращава и не се преформулира. */
+  'mission.ten.lead': {
+    bg: 'Всеки месец Genki дарява 10% от реалната си печалба след всички разходи.',
+    en: 'Every month, Genki donates 10% of its real profit after all costs.',
+  },
+  'mission.ten.close': {
+    bg: 'И когато една компания работи с Genki, част от стойността, която създаваме заедно, продължава и извън офиса.',
+    en: 'And when a company works with Genki, part of the value we create together continues beyond the workplace.',
+  },
+
+  /* --- Заедно зад каузите --- */
+  'mission.causes.label': { bg: 'ЗАЕДНО ЗАД КАУЗИТЕ', en: 'BE PART OF THE GOOD' },
+  'mission.causes.title': {
+    bg: 'Не просто даряваме. Даваме възможност и на екипа да участва.',
+    en: 'We don’t just donate. We give your team a way to take part.',
+  },
+  'mission.causes.lead': {
+    bg: 'С Genki Benefit хората могат да участват в избора на каузи, да виждат какво сме постигнали заедно и да се включат в годишна доброволческа инициатива.',
+    en: 'With Genki Benefit, your people can help choose causes, see what we’ve achieved together and join one annual volunteering initiative.',
+  },
+  'mission.causes.close': {
+    bg: 'Защото е по-смислено, когато не просто гледате отстрани, а участвате.',
+    en: 'Because it means more when you’re part of it.',
+  },
+  'mission.causes.cta': {
+    bg: 'Вижте Genki за компании',
+    en: 'Explore Genki for companies',
+  },
+
+  /* --- Защо Genki --- */
+  'mission.why.label': { bg: 'ЗАЩО GENKI', en: 'WHY GENKI' },
+  'mission.why.title': { bg: 'Името казва доста.', en: 'The name says a lot.' },
+  'mission.why.lead': {
+    bg: 'Genki — 元気 е японска дума, свързана с енергия, жизненост, здраве и добро състояние.',
+    en: 'Genki — 元気 is a Japanese word associated with energy, vitality, health and feeling well.',
+  },
+  'mission.why.close': {
+    bg: 'Точно това искаме да носи Genki — повече енергия, повече грижа и малко повече добро в ежедневието.',
+    en: 'That’s what we want Genki to bring — more energy, more care and a little more good into everyday life.',
+  },
+
+  /* Слотът M05 чака реална снимка от реална инициатива. До тогава не се
+     показва нищо, което да се чете като документ за минало събитие. */
+  'mission.causes.pending': {
+    bg: 'Визуален слот — чака реална снимка от инициатива, която вече се е случила',
+    en: 'Visual slot — awaiting real photography from an initiative that has actually happened',
+  },
+
   /* ------------------------------------------------- alt на IMAGE слотовете
      Написани предварително, за да не се добавят на бегом при подмяната на
      placeholder-ите. Alt описва какво се вижда — не повтаря заглавието. */
@@ -583,6 +688,10 @@ window.genkiTranslations = {
   'alt.M02': {
     bg: 'Близък кадър на български продукт от селекцията на Genki',
     en: 'A close-up of a Bulgarian product from the Genki selection',
+  },
+  'alt.M05': {
+    bg: 'Доброволческа инициатива на Genki',
+    en: 'A Genki volunteering initiative',
   },
   'alt.M03': {
     bg: 'Български производител и неговите продукти',

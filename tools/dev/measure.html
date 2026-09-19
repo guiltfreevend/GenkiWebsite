@@ -5,7 +5,10 @@ const PAGE = new URLSearchParams(location.search).get('page') || 'index.html';
 function load(w,h,src){return new Promise(r=>{const f=document.createElement('iframe');f.style.width=w+'px';f.style.height=h+'px';f.src=src;f.onload=()=>setTimeout(()=>r(f),400);document.getElementById('s').appendChild(f);});}
 (async()=>{const out=[];
 for (const w of [390, 768, 1440, 1728]) {
-  const f=await load(w,6500,'/v2/'+PAGE+'?t='+Date.now()),d=f.contentDocument;
+  /* Височината е нарочно малка: iframe, по-висок от страницата, няма
+     скролбар и дава 15 px по-широка колона от реалния browser. Всички
+     страници се мерят при еднакви условия. */
+  const f=await load(w,900,'/v2/'+PAGE+'?t='+Date.now()),d=f.contentDocument;
   const slots=[...d.querySelectorAll('genki-slot')].map(el=>{
     const r=el.getBoundingClientRect();
     return {id:el.getAttribute('slot-id'), w:Math.round(r.width), h:Math.round(r.height),

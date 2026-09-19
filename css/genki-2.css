@@ -1348,3 +1348,93 @@ genki-slot { display: block; }
 
   .bars { height: 18rem; }
 }
+
+/* ==========================================================================
+   17. МИСИЯ И ВЪЗДЕЙСТВИЕ
+
+   По-топла и по-редакционна страница. НЕ рустик и НЕ NGO: без кафяво-бежова
+   гама, без фиданки, без изгреви, без доброволци с жилетки. Топлината идва
+   от кремавото, от въздуха и от типографията, не от стокови снимки.
+   ========================================================================== */
+
+/* --- Hero: визуалът е вляво, текстът вдясно ------------------------------
+   Четвърта структура на сайта. Home е split с портрет вдясно, За компании е
+   лента под заглавието, Как работи е центриран портрет — тук е обратното
+   на Home и с пейзажно съотношение. */
+
+.hero--editorial { padding-block: var(--section-y-md); }
+.hero--editorial__row { align-items: center; }
+.hero--editorial .t-label { margin-bottom: var(--space-3); }
+.hero--editorial__title { margin-bottom: var(--space-5); }
+
+/* --- Лентата с производителите на цяла ширина ---------------------------- */
+
+.producers--wide {
+  margin-top: var(--section-y-sm);
+  background: var(--color-bg);
+}
+.producers--wide .producers__row { justify-content: space-between; }
+
+/* --- 10% ----------------------------------------------------------------
+   Тъмнозеленият момент. Числото е декоративно едро; пълната юридическа
+   формулировка стои до него като текст и се чете от екранния четец. */
+
+.ten__row { align-items: start; }
+
+.ten__figure {
+  font-size: clamp(4.5rem, 2.5rem + 9vw, 11rem);
+  line-height: 0.82;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.04em;
+  color: var(--green-300);
+}
+
+.ten__title { margin-block: var(--space-4) var(--space-6); }
+
+/* Юридически точната формулировка не бива да се разпада на три къси
+   реда — чете се като цяло изречение. */
+.ten__lead {
+  margin-bottom: var(--space-5);
+  color: var(--cream-100);
+  font-weight: var(--weight-medium);
+  max-width: 42ch;
+}
+
+.ten__copy .t-body { color: var(--color-text-inverse-muted); max-width: var(--measure); }
+
+/* --- Каузите ------------------------------------------------------------- */
+
+.causes__note {
+  margin-top: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-border-strong);
+}
+
+/* --- Защо Genki ----------------------------------------------------------
+   元気 е истински текст: селектира се и се чете от екранен четец. Никакъв
+   японски декор освен самото име. */
+
+.why-genki { background: var(--color-bg-soft); }
+.why-genki__row { align-items: start; }
+
+.why-genki__mark {
+  font-size: clamp(3.5rem, 2rem + 7vw, 8rem);
+  line-height: 1;
+  color: var(--color-brand);
+  letter-spacing: 0.04em;
+}
+
+.why-genki__close { margin-block: var(--space-5) var(--space-8); max-width: 34ch; }
+
+/* --- Таблет -------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .ten__row, .why-genki__row { align-items: center; }
+}
+
+/* --- Desktop ------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .hero--editorial { padding-block: var(--section-y-lg) var(--section-y-md); }
+  .producers--wide { padding: var(--space-10) var(--space-12); }
+}
