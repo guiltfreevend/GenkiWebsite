@@ -81,7 +81,9 @@ Repository:
 guiltfreevend/GenkiWebsite
 
 Work only in:
-genki-2.0-redesign
+genki-2.0-build
+
+[Поправено 2026-09-19: оригиналът казваше `genki-2.0-redesign`. Каноничният работен клон е `genki-2.0-build` — цялата работа е там. Това е единствената редакция в иначе дословно записания документ.]
 
 Do not modify main/production unless explicitly instructed.
 
