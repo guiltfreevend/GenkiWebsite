@@ -1,21 +1,19 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><title>m</title>
 <style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style></head>
 <body><pre id="out">…</pre><div id="s"></div><script>
+const PAGE = new URLSearchParams(location.search).get('page') || 'index.html';
 function load(w,h,src){return new Promise(r=>{const f=document.createElement('iframe');f.style.width=w+'px';f.style.height=h+'px';f.src=src;f.onload=()=>setTimeout(()=>r(f),400);document.getElementById('s').appendChild(f);});}
 (async()=>{const out=[];
 for (const w of [390, 768, 1440, 1728]) {
-  const f=await load(w,6000,'/v2/index.html?t='+Date.now()),d=f.contentDocument,v=f.contentWindow;
+  const f=await load(w,6500,'/v2/'+PAGE+'?t='+Date.now()),d=f.contentDocument;
   const slots=[...d.querySelectorAll('genki-slot')].map(el=>{
     const r=el.getBoundingClientRect();
-    return {id:el.getAttribute('slot-id'),
-            w:Math.round(r.width), h:Math.round(r.height),
+    return {id:el.getAttribute('slot-id'), w:Math.round(r.width), h:Math.round(r.height),
             ratio:+(r.width/r.height).toFixed(3),
-            attrD:el.getAttribute('ratio')||null, attrM:el.getAttribute('mobile-ratio')||null};
-  });
-  const prod=d.querySelector('.producers');
-  const pr=prod?prod.getBoundingClientRect():null;
-  out.push({w, vw:d.documentElement.clientWidth, slots,
-    producers: pr?{w:Math.round(pr.width),h:Math.round(pr.height)}:null,
+            attrD:el.getAttribute('ratio')||null, attrM:el.getAttribute('mobile-ratio')||null};});
+  const hero=d.querySelector('.hero, .hero--wide');
+  out.push({page:PAGE, w, vw:d.documentElement.clientWidth, slots,
+    heroHeight: hero?Math.round(hero.getBoundingClientRect().height):null,
     pageHeight: Math.round(d.body.scrollHeight)});
   f.remove();}
 document.getElementById('out').textContent=JSON.stringify(out,null,1);document.title='DONE';})();

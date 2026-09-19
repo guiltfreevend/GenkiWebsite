@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>one</title>
+<style>body{margin:0;background:#9aa09d;padding:10px}.f{background:#fff}iframe{border:0;display:block}</style></head><body>
+<script>
+const q=new URLSearchParams(location.search);
+const page=q.get('page')||'index.html', lang=q.get('lang')?('?lang='+q.get('lang')):'';
+const w=q.get('w')||1440, h=q.get('h')||2300;
+document.write(`<div class="f"><iframe src="/v2/${page}${lang}" style="width:${w}px;height:${h}px"></iframe></div>`);
+</script></body></html>

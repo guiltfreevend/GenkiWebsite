@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>a11y</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style></head>
+<body><pre id="out">…</pre><div id="s"></div><script>
+const PAGES=['index.html','companies.html','how-it-works.html','mission.html','genki-fit.html','contact.html'];
+function load(w,h,src){return new Promise(r=>{const f=document.createElement('iframe');f.style.width=w+'px';f.style.height=h+'px';f.src=src;f.onload=()=>setTimeout(()=>r(f),400);document.getElementById('s').appendChild(f);});}
+(async()=>{const out=[];
+for (const p of PAGES) {
+  const f=await load(1440,6500,'/v2/'+p+'?t='+Date.now()),d=f.contentDocument;
+  const hs=[...d.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(h=>({lvl:+h.tagName[1],txt:h.textContent.trim().slice(0,34)}));
+  const skips=[];
+  for(let i=1;i<hs.length;i++) if(hs[i].lvl - hs[i-1].lvl > 1) skips.push(hs[i-1].lvl+'→'+hs[i].lvl+' @ "'+hs[i].txt+'"');
+  const imgs=[...d.querySelectorAll('img')].map(i=>({src:(i.getAttribute('src')||'').split('/').pop(),alt:i.getAttribute('alt')}));
+  const links=[...d.querySelectorAll('a')].filter(a=>!a.textContent.trim() && !a.getAttribute('aria-label')).length;
+  const btns=[...d.querySelectorAll('button')].filter(b=>!b.textContent.trim() && !b.getAttribute('aria-label')).length;
+  const landmarks={main:d.querySelectorAll('main').length,header:d.querySelectorAll('header').length,footer:d.querySelectorAll('footer').length,nav:d.querySelectorAll('nav').length};
+  out.push({page:p, h1:hs.filter(h=>h.lvl===1).length, headings:hs.length, skips,
+            imgsMissingAlt: imgs.filter(i=>i.alt===null).length, imgs,
+            emptyLinks:links, emptyButtons:btns, landmarks,
+            lang:d.documentElement.lang});
+  f.remove();}
+document.getElementById('out').textContent=JSON.stringify(out,null,1);document.title='DONE';})();
+</script></body></html>

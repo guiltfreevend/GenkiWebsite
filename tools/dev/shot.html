@@ -1,11 +1,12 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><title>Genki 2.0 — кадри за преглед</title>
-<!-- Помощна страница: показва една и съща страница на точни ширини едновременно.
-     Chrome на Windows има минимална ширина на прозореца, затова --window-size
-     не може да даде 390 px; iframe може. Снима се с
-     --force-prefers-reduced-motion, за да не остане скрито съдържание. -->
+<!-- ?page=companies.html сменя страницата; ?lang=en сменя езика. -->
 <style>body{margin:0;background:#9aa09d;display:flex;gap:12px;padding:12px;font:11px monospace;color:#fff;align-items:flex-start}
 .f{background:#fff}iframe{border:0;display:block}</style></head><body>
-<div><div>390 · mobile</div><div class="f"><iframe src="/v2/index.html" style="width:390px;height:2600px"></iframe></div></div>
-<div><div>768 · tablet</div><div class="f"><iframe src="/v2/index.html" style="width:768px;height:2600px"></iframe></div></div>
-<div><div>1440 · desktop</div><div class="f"><iframe src="/v2/index.html" style="width:1440px;height:2600px"></iframe></div></div>
+<script>
+const q=new URLSearchParams(location.search);
+const page=q.get('page')||'index.html', lang=q.get('lang')?('?lang='+q.get('lang')):'';
+const h=q.get('h')||2600;
+document.write([390,768,1440].map(w=>
+ `<div><div>${w} · ${page} ${lang}</div><div class="f"><iframe src="/v2/${page}${lang}" style="width:${w}px;height:${h}px"></iframe></div></div>`).join(''));
+</script>
 </body></html>
