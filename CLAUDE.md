@@ -8,10 +8,13 @@
 
 Прочети в този ред:
 
-1. `docs/GENKI-2.0-BRIEF.md` — **източникът на истината** за продукта, страниците, copy-то, Genki Fit логиката, claims границите и Definition of Done.
-2. `docs/GENKI-2.0-ASSETS.md` — спецификация на всички 46 визуални слота: тип, размери, safe area, какво е забранено.
-3. `docs/BUILD-PLAN.md` — етапите и полето **„Текущ етап"**. Оттам разбираш докъде сме стигнали.
-4. `HANDOFF.md` и `MEMORY.md` в root на проекта.
+1. `docs/GENKI-2.0-BRIEF.md` — **източникът на истината за ПРОДУКТА**: страниците, copy-то, Genki Fit логиката, claims границите и Definition of Done.
+2. `docs/DESIGN-DIRECTION.md` — **източникът на истината за ВИЗИЯТА**: как сайтът трябва да изглежда, да се усеща и да се държи. Типография, grid, spacing, цвят, motion, микровзаимодействия, качествена летва по секция.
+3. `docs/GENKI-2.0-ASSETS.md` — спецификация на всички 46 визуални слота: тип, размери, safe area, какво е забранено.
+4. `docs/BUILD-PLAN.md` — етапите и полето **„Текущ етап"**. Оттам разбираш докъде сме стигнали.
+5. `HANDOFF.md` и `MEMORY.md` в root на проекта.
+
+**Кой документ решава при спор.** Брифът решава какво се казва и какво се предлага. DESIGN-DIRECTION решава как изглежда. ASSETS решава какъв файл влиза в кой слот. Ако визуалната посока противоречи на заключеното в брифа (раздел 38 — архитектура, навигация, CTA йерархия, позициониране), брифът има предимство и се докладва, не се решава самò. Ако DESIGN-DIRECTION противоречи на ASSETS по размер или композиция на конкретен слот — това е отворен въпрос към собственика, не свободен избор.
 
 След това обобщи състоянието накратко и чак тогава започвай работа.
 
@@ -109,10 +112,10 @@ V1 е снаксове и напитки. Няма салати, сандвич�
 ## 7. Tech stack
 
 - **Статичен HTML**, hostван на **Cloudflare Pages** (project: `genkiwebsite`)
-- **Tailwind CSS** през CDN (пинато на v3.4.17) — конфигурация в `js/tailwind-config.js`
+- **Без Tailwind в 2.0.** Play CDN-ът е премахнат на 2026-09-19 — 407 KB JS, който компилира в браузъра, е несъвместим с целта LCP < 2,5 s (DESIGN-DIRECTION раздел 33). Стиловете на 2.0 са чист CSS върху токени: `css/genki-tokens.css` + `css/genki-2.css`. Legacy страниците в root още ползват Tailwind през `js/tailwind-config.js` — тях не ги пипаме.
 - **Lucide icons** през CDN (пинато на v0.344.0)
-- **Custom CSS** в `css/custom.css`
-- **i18n**: собствена система с `data-i18n` атрибути + `js/translations.js` (BG по подразбиране, EN алтернатива)
+- **Custom CSS** — 2.0: `css/genki-tokens.css` (единствен източник на токени) и `css/genki-2.css`. Legacy: `css/custom.css`
+- **i18n**: собствена система с `data-i18n` атрибути. 2.0: `js/genki-i18n.js` + `js/genki-translations.js`. Legacy: `js/translations.js` (BG по подразбиране, EN алтернатива)
 - **Email**: Resend API от `hello@genki.bg`, през Cloudflare Worker (`worker/genki-email.js`, deployнат на `https://genki-email.tsvetelin-sotirov.workers.dev`, API ключ в Worker secret `RESEND_API_KEY`)
 - **Домейн**: `www.genki.bg` · **Repo**: GitHub `guiltfreevend/GenkiWebsite`
 - CDN версиите са **пинати** — никога `@latest`
