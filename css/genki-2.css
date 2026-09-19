@@ -160,6 +160,15 @@ a:hover { color: var(--color-accent-hover); }
 
 .section--soft { background: var(--color-bg-soft); }
 
+/* Брандовото зелено, не най-тъмното. Ползва се за финален CTA блок, за да
+   не се слее с футъра, който е green-900. */
+.section--brand {
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+}
+.section--brand .t-label,
+.section--brand .t-muted { color: var(--color-text-inverse-muted); }
+
 .grid {
   display: grid;
   gap: var(--grid-gap);
@@ -1055,4 +1064,137 @@ genki-slot { display: block; }
 
   .way { padding: var(--space-10); }
 
+}
+
+/* ==========================================================================
+   15. ЗА КОМПАНИИ
+
+   Страницата трябва да звучи по-търговски от Home, без да става корпоративна.
+   Разликите са структурни, не само в текста: огледален hero, по-широк кадър,
+   Benefit-ът разгърнат в типографска мрежа вместо в панел, Price Support
+   като отделна лента, светла бюджетна секция вместо тъмна.
+   ========================================================================== */
+
+/* --- Широк редакционен hero ----------------------------------------------
+   Различна СТРУКТУРА от Home, не само различен текст: заглавието на цялата
+   ширина, под него широк кадър на работното място. Дългото заглавие получава
+   място и не пада на четири реда. */
+
+.hero--wide { padding-block: var(--section-y-md); }
+.hero--wide .t-label { margin-bottom: var(--space-3); }
+.hero--wide__title { margin-bottom: var(--space-8); max-width: 18ch; }
+.hero--wide__row { align-items: start; margin-bottom: var(--space-10); }
+.hero--wide__actions { margin: 0; }
+.hero--wide__visual { margin: 0; }
+
+/* --- Split ред ----------------------------------------------------------- */
+
+.split-row { align-items: center; margin-bottom: 0; }
+.split-row__copy .t-label { margin-bottom: var(--space-3); }
+.split-row__title { margin-bottom: var(--space-5); }
+.split-row__copy > p + p { margin-top: var(--space-4); }
+.split-row__copy .link-arrow { margin-top: var(--space-5); }
+
+/* Изречението, което носи обещанието. По-тежко от тялото, по-тихо от
+   заглавието — не се нуждае от кутия, за да се отдели. */
+.promise {
+  margin-top: var(--space-6);
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text);
+}
+
+/* --- Четирите Benefit групи ---------------------------------------------
+   Типографска мрежа, не карти. Разделят се с косъмна линия, не с рамки —
+   така четирите се четат като една система, а не като четири обекта. */
+
+.way-block { margin-bottom: var(--space-12); }
+.way-block .way__title { margin-block: var(--space-3); }
+
+.groups { margin-bottom: var(--space-16); row-gap: var(--space-10); }
+
+.group {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.group__title { margin-bottom: var(--space-2); }
+
+/* --- Price Support като отделна лента ------------------------------------ */
+
+.price-band {
+  align-items: center;
+  padding: var(--space-10);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  row-gap: var(--space-8);
+}
+
+.price-band .way__title { margin-block: var(--space-3); }
+
+.ways-foot {
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: var(--border-hairline);
+}
+
+/* --- Бюджет --------------------------------------------------------------
+   Същото заглавие като на Home, но светло и типографско. Тъмният вариант
+   остава запазен за Home, за да не се повтаря един и същи момент. */
+
+.budget__title { margin-block: var(--space-4) var(--space-5); }
+.budget__split { margin-top: var(--space-6); }
+
+.budget__zero {
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-tint);
+  color: var(--green-800);
+}
+.budget__zero strong { font-weight: var(--weight-semibold); }
+
+.budget .btn { margin-top: var(--space-8); }
+
+/* --- Pilot ---------------------------------------------------------------
+   Нарочно най-тихият блок на страницата: тясна колона, тънка рамка, без
+   бутон. Pilot не е основният път за покупка. */
+
+.pilot {
+  margin-top: var(--section-y-sm);
+  padding: var(--space-6);
+  max-width: 34rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+
+.pilot__title { margin-bottom: var(--space-2); }
+.pilot strong { font-weight: var(--weight-semibold); color: var(--color-text); }
+
+/* --- Финален CTA --------------------------------------------------------- */
+
+.final-cta__title { margin-block: var(--space-5) var(--space-5); }
+.final-cta__lead {
+  color: var(--color-text-inverse-muted);
+  margin-bottom: var(--space-10);
+}
+
+/* --- Таблет -------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Широкият hero кадър няма нужда от стесняването, което портретният на
+     Home получава — 16:9 на цялата ширина е 392 px висок, не 871. */
+  .hero--wide__visual .slot { aspect-ratio: 2 / 1; }
+}
+
+/* --- Desktop ------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .hero--wide { padding-block: var(--section-y-md) var(--section-y-lg); }
+  .hero--wide__actions { justify-self: end; align-self: start; }
+
+  .price-band { padding: var(--space-12); }
+
+  .split-row__copy .link-arrow { margin-top: var(--space-6); }
 }
