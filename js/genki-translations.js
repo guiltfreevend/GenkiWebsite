@@ -635,7 +635,7 @@ window.genkiTranslations = {
   /* ------------------------------------------------- alt на IMAGE слотовете
      Написани предварително, за да не се добавят на бегом при подмяната на
      placeholder-ите. Alt описва какво се вижда — не повтаря заглавието. */
-  'alt.G04': {
+  'alt.G05': {
     bg: 'Genki машината в офис среда, с логото на Genki',
     en: 'The Genki cooler in an office, with the Genki logo',
   },
@@ -643,7 +643,7 @@ window.genkiTranslations = {
     bg: 'Genki машината в кухненския бокс на офис, заредена с български продукти',
     en: 'The Genki cooler in an office kitchen, stocked with Bulgarian products',
   },
-  'alt.H06': {
+  'alt.H05': {
     bg: 'Български снаксове и напитки, подредени на светла повърхност',
     en: 'Bulgarian snacks and drinks arranged on a light surface',
   },
@@ -655,7 +655,7 @@ window.genkiTranslations = {
     bg: 'Ръце зареждат рафт на Genki машината с продукти',
     en: 'Hands restocking a shelf of the Genki cooler',
   },
-  'alt.C06': {
+  'alt.C05': {
     bg: 'Офис кухня, в която Genki машината стои до кафемашината и купата с плодове',
     en: 'An office kitchen where the Genki cooler stands beside the coffee machine and the fruit bowl',
   },
@@ -697,7 +697,7 @@ window.genkiTranslations = {
     bg: 'Български производител и неговите продукти',
     en: 'A Bulgarian producer and their products',
   },
-  'alt.F04': {
+  'alt.F08': {
     bg: 'Конфигурацията на Genki машината, препоръчана за вашия офис',
     en: 'The Genki cooler configuration recommended for your office',
   },
