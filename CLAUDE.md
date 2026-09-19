@@ -1,139 +1,155 @@
-# Genki Website - Project Context
+# Genki 2.0 — Project Context
 
-## Master Memory System (MANDATORY)
-1. **At the START of every session** — read `/mnt/c/projects/HANDOFF.md` and `/mnt/c/projects/MEMORY.md`. Also read `HANDOFF.md` in the project root. Summarize the current state before doing anything else.
-2. **After EVERY completed task** — update both the project-specific files (`HANDOFF.md`, `MEMORY.md`) AND the master files at `/mnt/c/projects/HANDOFF.md` and `/mnt/c/projects/MEMORY.md`. MEMORY.md is append-only — never delete or summarize old entries.
+**Езикът на работа е български.** Отговаряй на български във всички съобщения към собственика. Код, имена на файлове, технически термини и copy-то на сайта остават на съответния им език.
 
-## What is Genki?
-B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks & drinks to offices. Three pillars: Health, Local sourcing, monthly Charity donations. Pre-launch phase - no customers yet.
+---
 
-## Tech Stack
-- **Static HTML** site (11 active pages) hosted on **Cloudflare Pages** (project: `genkiwebsite`)
-- **Tailwind CSS** via CDN (pinned to v3.4.17) - config in `js/tailwind-config.js`
-- **Lucide icons** via CDN (pinned to v0.344.0)
-- **Custom CSS** in `css/custom.css` (CSS variables, component styles, animations)
-- **i18n**: Custom system using `data-i18n` attributes + `js/translations.js` (BG default, EN alternate)
-- **Forms**: Cloudflare Worker (`https://genki-email.tsvetelin-sotirov.workers.dev`) on office.html; Formspree on contact.html
-- **Email**: Resend API (from `hello@genki.bg`, domain verified, API key in Worker secret `RESEND_API_KEY`)
-- **Clean URLs**: Cloudflare Pages + `_headers` for cache control
-- **Domain**: `www.genki.bg`
-- **Repo**: GitHub `guiltfreevend/GenkiWebsite`, auto-deploys on push to `main`
+## 0. Начало на всяка сесия (ЗАДЪЛЖИТЕЛНО, преди каквото и да било друго)
 
-## File Structure
-```
-/ (root = Cloudflare Pages publish directory)
-  index.html          - Homepage (main landing page)
-  companies.html      - B2B sales page with pricing tiers
-  mission.html        - Three pillars + "Why Genki?" etymology
-  contact.html        - Contact form (Formspree)
-  office.html         - B2B ROI landing page with Cloudflare Worker form
-  privacy.html        - Privacy policy (Bulgarian)
-  privacy-en.html     - Privacy policy (English)
-  thank-you-contact.html      - Post-contact thank you (noindex)
-  thank-you-coming-soon.html  - Post-signup thank you (noindex)
-  roi-calculator.html         - Internal ROI tool (noindex)
-  404.html            - Branded 404 error page (noindex)
-  sitemap.xml         - 5 indexable pages
-  robots.txt          - Allows all, disallows utility pages
-  _headers            - Cloudflare Pages cache control headers
-  netlify.toml        - Legacy redirects (may be unused)
-  CNAME               - www.genki.bg
-  css/custom.css      - Custom styles, CSS variables
-  js/main.js          - Navigation, animations, form validation
-  js/translations.js  - All BG/EN translation strings (~43K tokens)
-  js/tailwind-config.js - Shared Tailwind theme config
-  assets/images/      - Logos (genki_logo.png, genki_logo_light.png)
-  assets/icons/       - Favicons
-  Backups/            - Old/orphan files (not deployed)
-```
+Прочети в този ред:
 
-## SEO Setup (completed)
-- All pages have `<link rel="canonical">` with clean URLs
-- Open Graph + Twitter Card meta tags on all pages
-- JSON-LD structured data: Organization + WebSite on index.html, BreadcrumbList on 4 other pages
-- `<html lang="bg">` on all pages except privacy-en.html (lang="en")
-- `<meta name="robots" content="noindex, nofollow">` on utility/thank-you pages
-- sitemap.xml with 5 indexable pages
-- robots.txt with proper disallow rules
+1. `docs/GENKI-2.0-BRIEF.md` — **източникът на истината** за продукта, страниците, copy-то, Genki Fit логиката, claims границите и Definition of Done.
+2. `docs/GENKI-2.0-ASSETS.md` — спецификация на всички 46 визуални слота: тип, размери, safe area, какво е забранено.
+3. `docs/BUILD-PLAN.md` — етапите и полето **„Текущ етап"**. Оттам разбираш докъде сме стигнали.
+4. `HANDOFF.md` и `MEMORY.md` в root на проекта.
 
-## Deploy Workflow (CRITICAL — follow exactly)
-The site deploys to **Cloudflare Pages** via **Wrangler CLI** for instant deploys (~2 seconds).
+След това обобщи състоянието накратко и чак тогава започвай работа.
 
-### Standard deploy steps:
-1. **Edit code**
-2. **Test locally**: `python3 -m http.server 8765` then open `http://localhost:8765`
-3. **Owner approval**: The owner tests locally too. Only deploy when they confirm it's ready.
-4. **Commit**: `git add <files> && git commit -m "message"`
-5. **Deploy instantly via Wrangler**:
-   ```
-   npx wrangler pages deploy . --project-name=genkiwebsite --branch=main --commit-dirty=true
-   ```
-   This uploads files directly to Cloudflare Pages in ~2 seconds. Live immediately.
-6. **Push to GitHub** (keeps repo in sync):
-   ```
-   git push origin main
-   ```
+> Няма master memory файлове. Пътят `/mnt/c/projects/` е от стара WSL машина и **не съществува** тук. Единствените handoff/memory файлове са в root на този проект.
 
-### Key rules:
-- **Wrangler for speed**: Always use Wrangler CLI to deploy. Do NOT rely on GitHub auto-deploy for quick iterations.
-- **Git push for sync**: Always push to GitHub after deploying so the repo stays in sync.
-- **Rollbackable commits**: Every logical change gets its own commit. Never bundle unrelated changes.
-- **Never auto-push**: Do NOT push/deploy unless the owner explicitly says to.
-- **Cache headers**: `_headers` file ensures HTML is never cached — deploys are instantly visible to visitors.
-- **Wrangler auth**: `CLOUDFLARE_API_TOKEN` is set in `~/.zshrc`. If it stops working, create a new token at https://dash.cloudflare.com/profile/api-tokens (use "Edit Cloudflare Workers" template).
+## Работно правило
 
-## Known Architecture Decisions
-- **Header/footer is duplicated** across all HTML files (~170 lines each). This is intentional for now (no build step). When updating nav links or footer content, you MUST update ALL 9 active HTML files.
-- **Tailwind config is externalized** to `js/tailwind-config.js` - single source of truth for the color palette.
-- **CDN versions are pinned** - do not use `@latest` for any CDN dependency.
-- **Orphan pages** (index-main.html, index-coming-soon.html) have been moved to `Backups/`.
+**Един етап наведнъж.** След всеки завършен етап:
 
-## Header/Footer Update Checklist
-When changing the navigation, header, or footer, update these 9 files:
-1. index.html
-2. companies.html
-3. mission.html
-4. contact.html
-5. privacy.html
-6. privacy-en.html
-7. thank-you-contact.html
-8. thank-you-coming-soon.html
-9. roi-calculator.html
+1. Проверка срещу `GENKI-2.0-BRIEF.md` и `GENKI-2.0-ASSETS.md`.
+2. Отчет какво съвпада и какво не съвпада — честно, включително пропуснатото.
+3. Обнови „Текущ етап" в `docs/BUILD-PLAN.md`, плюс `HANDOFF.md` и `MEMORY.md`.
+4. **Чакай потвърждение от собственика, преди да започнеш следващия етап.**
 
-## Improvement Roadmap
-Completed:
-- [x] SEO Readiness (D -> B+): OG tags, canonical URLs, JSON-LD, sitemap, robots.txt
-- [x] Technical Foundation - Minimalist pass (C -> B-): Pinned CDNs, extracted config, fixed Formspree bug, cleaned orphans
-- [x] Technical Hardening (pending local test): Security headers, ARIA accessibility, scroll throttling, CSS cleanup, 404 page, prefers-reduced-motion
+`MEMORY.md` е append-only — стари записи не се трият и не се съкращават.
 
-Future (post-launch):
-- [ ] Technical Foundation - Pragmatist upgrade: PostHTML includes for shared partials, Tailwind CLI build, src/dist separation (~4-6 hours)
-- [ ] Social Proof / Trust: Add testimonials, case studies, partner logos (needs real customers first)
-- [ ] Production Readiness: Create 1200x630 OG share image, add analytics, add social media links to Organization schema
-- [ ] Consider Astro SSG migration if site grows beyond 10-15 pages
+---
 
-## Color Palette
-- **Primary (green)**: #2d8659 (500) - main brand color
-- **Forest (dark green)**: #1e5128 (700) - dark accents
-- **Secondary (teal)**: #14b8a6 (500) - secondary accents
-- **Accent (cream)**: #f5f5dc (200) - warm backgrounds
-- **Amber**: #f59e0b (500) - highlights, badges
+## 1. Какво е Genki
 
-## Locked Copy Rules — 2026-05-11
+Българска управлявана услуга за храна и wellness на работното място. **Не е vending компания** — умният хладилник е инфраструктура, Genki е услугата.
 
-These rules supersede all earlier copy guidance in HANDOFF.md, MEMORY.md, and AUDIT_FIXES.md. Apply consistently across every page, every translation key, every email template, and every internal doc.
+Пълната дефиниция, търговската архитектура (Core Genki / Genki Benefit / Product Price Support / Pilot) и цените са в раздели 1–3 на брифа. Не ги преразказвай по памет — чети ги.
 
-**RULE 1 — De-doubling.** No claim appears in more than one of {heading, subhead, bullet list} within the same component. Keep the brand-name version of any claim; delete the count-version and the generic-quality version when they coexist with brand names.
+## 2. Сайтът има точно 6 страници
 
-**RULE 2 — CTA unification.** Every CTA button on the site reads exactly "Запазете консултация" (BG) / "Book a consultation" (EN). No durations anywhere — not in buttons, not in subtext, not in form headings, not in step labels, not in email body. Subtext describes what the conversation is about, not how long it takes.
-- Default BG subtext template: "Кратък разговор, в който разглеждаме нуждите на екипа Ви и подходящата конфигурация."
-- Default EN subtext template: "A short conversation about your team's needs and the right configuration."
+1. Начало (Home)
+2. За компании (For Companies)
+3. Как работи (How Genki Works)
+4. Мисия и въздействие (Mission & Impact)
+5. Genki Fit
+6. Контакт (Contact)
 
-**RULE 3 — Dietary.** Genki guarantees exactly one nutritional promise: the wellness filter (no palm oil, HFCS, artificial sweeteners, artificial colors, hydrogenated fats, MSG). Specific dietary tracks (vegan, vegetarian, gluten-free, lactose-free, nut-free, keto) are NEVER promised. Replace, don't soften.
-- BG canonical answer: "Всички продукти преминават през единен wellness филтър — без палмово масло, царевичен сироп, изкуствени подсладители, оцветители или хидрогенирани мазнини. Специфични диети (веган, без глутен, кето и т.н.) не са гарантирани в текущата ни селекция."
-- EN canonical answer: "All products pass a single wellness filter — no palm oil, HFCS, artificial sweeteners, artificial colors, or hydrogenated fats. Specific dietary tracks (vegan, gluten-free, keto, etc.) are not guaranteed in the current selection."
+Плюс правните страници, които вече съществуват (Privacy) и 404.
 
-**RULE 4 — Meals / fresh food.** v1 has no fresh food. Snacks and drinks only. Categories are TREAT / CRUNCH / REFRESH. No "coming soon" placeholders — promising future capability creates the same trust risk we're eliminating. Strip clean. Add it back when it ships, not before.
-- TREAT — вафли, курабийки, шоколадови бонбони / waffles, cookies, chocolate
-- CRUNCH — солети, крекери / pretzels, crackers
-- REFRESH — комбуча, студени чайове, газирани, енергийни напитки (250ml) / kombucha, iced teas, sodas, energy drinks (250ml)
+**Нищо друго.** Не се създават: отделна Pricing страница, отделна Products страница, отделна Pilot страница, About страница, blog, case studies.
+
+Навигация BG: **Начало · За компании · Как работи · Мисия и въздействие · Genki Fit · Контакт**
+Навигация EN: **Home · For Companies · How It Works · Mission & Impact · Genki Fit · Contact**
+Плюс BG/EN превключвател.
+
+## 3. CTA йерархия
+
+- **Основна конверсия: Genki Fit.** CTA в навигацията: „Проверете вашия Genki Fit →" / „Check your Genki Fit →". Визуално различен от обикновените nav елементи.
+- **Вторични CTA:** водят по-навътре в сайта (виж Genki за офиса ви, виж как работи, виж мисията).
+- **Резервна конверсия: Контакт.** Не бива да се бори визуално с Genki Fit.
+
+CTA-то „Запазете консултация", което беше стандарт в стария сайт, е **отменено**. Единственото място с „разговор" е CTA-то след резултата от Genki Fit: „Запазете кратък Genki разговор →".
+
+## 4. Нищо структурно не се преизмисля
+
+Не сме в режим на стратегия или brainstorming. Забранено е да се измислят: нови страници, нови оферти, нови ценови нива, ново позициониране, нови nav елементи, фалшиви лога на клиенти, фалшиви отзиви, фалшива статистика, ROI / productivity / retention твърдения.
+
+Структурна промяна е допустима **само** ако нов потвърден правен, технически или бизнес факт прави заключеното решение фактически невярно или невъзможно за изпълнение. В такъв случай — казваш го и чакаш решение, не го поправяш сам.
+
+Замразено за целия build (раздел 38 на брифа): архитектура на страниците, навигация, позициониране, Benefit vs Price Support моделът, CTA йерархията, броят въпроси в Genki Fit, публичната философия на резултата, структурата на Мисия.
+
+Свободно за подобрение: визуален дизайн, spacing, анимация, компонентна архитектура, технически детайли на взаимодействието.
+
+## 5. IMAGE слотовете се строят като placeholder-и
+
+Докато няма реални снимки, **всеки IMAGE слот се строи като placeholder с точните размери от `docs/GENKI-2.0-ASSETS.md`**:
+
+- контейнер с правилното съотношение (desktop и mobile са различни кадри, не едно разтеглено изображение);
+- плътен фон в Genki зелено или кремаво;
+- ID-то на слота като етикет в средата (напр. `H01`);
+- alt текстът вече написан на български и английски, свързан с translations.js.
+
+Така layout-ът е завършен, нищо не скача при подмяната и всеки placeholder казва сам кой файл чака. Подмяната после е смяна на път до файл, не преработка на секция.
+
+Стандартни съотношения: full-bleed hero 16:9 / 4:5 · split section 4:3 / 4:5 · карта 3:2 · детайл 1:1 · packshot 1:1 · OG 1.91:1. Точните пиксели, safe area-та и забраните са по слот в asset документа.
+
+**COMPONENT слотовете никога не се правят като картинки** — текстът вътре е двуезичен и идва от `translations.js`.
+
+**Хардуерът никога не се генерира.** Само Instant Systems 600/700 Single/Duo и NEXGO UN20. Няма реална снимка → остава placeholder.
+
+**Опаковките никога не се генерират.** Само реални файлове от реални български производители.
+
+## 6. Claims граници
+
+Виж раздел 36 на брифа. Накратко — безопасно е: напълно обслужвано, български производители, Genki Product Standard, Price Support, smart cooler изживяване, зареждане и сервиз, оптимизация на асортимента, дарение, персонализация.
+
+Забранено е всичко от рода на „повишава продуктивността с X%", „намалява болничните", „подобрява задържането", „№1 в България".
+
+Дарението се формулира **винаги точно така**: „10% от реалната печалба след всички разходи." Никога „от оборота", „от приходите", „от продажбите".
+
+Валута: **€ / евро**. Никакви BGN / лв. по сайта.
+
+Български език: **Вие последователно**. Без смесване на „Провери" с „вашия".
+
+V1 е снаксове и напитки. Няма салати, сандвичи, поке, бурито, прясна приготвена храна — и няма „очаквайте скоро" плейсхолдъри за тях.
+
+---
+
+## 7. Tech stack
+
+- **Статичен HTML**, hostван на **Cloudflare Pages** (project: `genkiwebsite`)
+- **Tailwind CSS** през CDN (пинато на v3.4.17) — конфигурация в `js/tailwind-config.js`
+- **Lucide icons** през CDN (пинато на v0.344.0)
+- **Custom CSS** в `css/custom.css`
+- **i18n**: собствена система с `data-i18n` атрибути + `js/translations.js` (BG по подразбиране, EN алтернатива)
+- **Email**: Resend API от `hello@genki.bg`, през Cloudflare Worker (`worker/genki-email.js`, deployнат на `https://genki-email.tsvetelin-sotirov.workers.dev`, API ключ в Worker secret `RESEND_API_KEY`)
+- **Домейн**: `www.genki.bg` · **Repo**: GitHub `guiltfreevend/GenkiWebsite`
+- CDN версиите са **пинати** — никога `@latest`
+
+## 8. Deploy workflow (следвай точно)
+
+1. Пиши кода.
+2. Тествай локално: `python3 -m http.server 8765` → `http://localhost:8765`
+3. **Одобрение от собственика.** Той тества локално. Deploy само след потвърждение.
+4. Commit: `git add <файлове> && git commit -m "съобщение"`
+5. Deploy: `npx wrangler pages deploy . --project-name=genkiwebsite --branch=main --commit-dirty=true` (~2 секунди)
+6. Push: `git push origin main`
+
+Правила:
+- **Никога не push-вай и не deploy-вай без изрично разрешение.**
+- Всяка логическа промяна — отделен commit. Не се смесват несвързани промени.
+- `_headers` гарантира, че HTML не се кешира — deploy-ът се вижда веднага.
+- Wrangler auth: `CLOUDFLARE_API_TOKEN` в `~/.zshrc`. Ако спре да работи — нов токен от dash.cloudflare.com/profile/api-tokens (template „Edit Cloudflare Workers").
+
+## 9. Клон за работа
+
+Genki 2.0 се строи в клон **`genki-2.0-build`**. `main` остава непокътнат и продължава да обслужва живия сайт, докато 2.0 не е готов за cut-over.
+
+---
+
+## 10. Какво има в репото сега (legacy)
+
+Текущият сайт **не е** Genki 2.0. Всичко по-долу е заварено и се пипа само когато явно се вземе решение за него:
+
+**Стари страници на сайта** — `index.html`, `companies.html`, `mission.html`, `contact.html`, `office.html`, `privacy.html`, `privacy-en.html`, `thank-you-contact.html`, `thank-you-coming-soon.html`, `roi-calculator.html`, `404.html`, `box-landing.html`.
+
+**Стар JS** — `js/roi-engine.js`, `js/pricing-data.js`, `js/formspree-integration.js`, `js/main.js`, `js/translations.js` (старите ключове).
+
+**Box система (ЖИВА, не се чупи)** — `box/<GK-КОД>/` landing страници, `functions/api/qr.js` (Cloudflare Function за QR сканирания), registry CSV-та в `box/`. Това е отделна система за QR кодове по партньорски кутии и няма нищо общо с 6-те страници на Genki 2.0. Работи на живо — не я премахвай и не я рефакторирай в рамките на този build.
+
+**Архив** — `Backups/` (стари версии, не се deploy-ва), `Genki Logo Files/` (оригинали на логото).
+
+**Стара документация** — `AUDIT_FIXES.md`, `formspree-setup-guide.md`, `README.md`. Заключените copy правила от 2026-05-11 (в стария CLAUDE.md, `HANDOFF.md`, `MEMORY.md`, `AUDIT_FIXES.md`) са **отменени навсякъде, където противоречат** на `docs/GENKI-2.0-BRIEF.md`. Брифът има предимство винаги.
+
+**Дублиран header/footer** — старите страници носят по ~170 реда дублиран header/footer. В Genki 2.0 това се решава наново в етап 1; не хаби време да кърпиш старото.
