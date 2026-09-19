@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Скелет. Етап 8 прави финалния SEO проход и маха noindex при cut-over. -->
+  <!-- Етап 8 прави финалния SEO проход и маха noindex при cut-over. -->
   <meta name="robots" content="noindex, nofollow">
 
   <title data-i18n="meta.contact.title">Контакт — Genki</title>
@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Токените се зареждат ПРЕДИ компонентния CSS. -->
   <link rel="stylesheet" href="/css/genki-tokens.css">
   <link rel="stylesheet" href="/css/genki-2.css">
 </head>
@@ -99,12 +98,129 @@
   <!-- /genki:header -->
 
   <main id="main">
-    <section class="section container">
-      <h1 class="t-display">Контакт</h1>
-      <p class="skeleton-notice measure" data-i18n="skeleton.notice">
-        Скелет. Съдържанието на тази страница влиза в следващ етап.
-      </p>
+
+    <!-- ====================================================================
+         КОНТАКТ
+
+         Страницата е нарочно най-тихата на сайта. Няма hero визуал и няма
+         голям corporate блок: формата е главният обект.
+
+         K01 (мини бранд визуал) е P2 и НЕ е използван — композицията е
+         по-добра без него, а спецификацията казва да не се насилва.
+         ==================================================================== -->
+    <section class="section section--lg contact">
+      <div class="container">
+        <div class="grid contact__row">
+
+          <!-- Кратко редакционно въведение -->
+          <div class="contact__intro" style="--m:4; --t:8; --d:5">
+            <p class="t-label reveal" data-i18n="contact.label">КОНТАКТ</p>
+            <h1 class="t-headline contact__title reveal" data-i18n="contact.title">Нека поговорим.</h1>
+            <p class="t-subhead t-muted measure reveal" data-i18n="contact.lead">Имате въпрос за Genki или искате да обсъдим вашия офис? Пишете ни и ще се свържем с вас в рамките на 24 часа.</p>
+
+            <!-- Препратката към Genki Fit. Genki Fit остава основната
+                 конверсия на сайта, но за човек, който вече е тук, формата
+                 е действието — затова това е тиха връзка, не бутон. -->
+            <aside class="fit-aside reveal">
+              <p class="t-body-sm t-muted" data-i18n="contact.fit.lead">Искате да видите какъв Genki би работил при вас?</p>
+              <a class="link-arrow" href="genki-fit.html">
+                <span data-i18n="nav.fit_cta">Проверете вашия Genki Fit</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </aside>
+          </div>
+
+          <!-- ============================================================
+               ФОРМАТА
+
+               Една колона на всички ширини. Видими етикети, не само
+               placeholder-и. Грешките са програмно свързани с полето си.
+               ============================================================ -->
+          <div class="contact__form-wrap" style="--m:4; --t:8; --d:6; --ds:7">
+
+            <form class="cform" id="contact-form" novalidate
+                  action="/api/contact" method="post">
+
+              <!-- Обобщение на грешките. Пълни се само при неуспешен опит и
+                   се обявява от екранния четец. -->
+              <p class="cform__summary" id="cform-summary" role="alert" hidden></p>
+
+              <div class="cform__field">
+                <label class="cform__label" for="cf-name" data-i18n="contact.f.name">Име</label>
+                <input class="cform__input" id="cf-name" name="name" type="text"
+                       autocomplete="name" required maxlength="120"
+                       aria-describedby="cf-name-err">
+                <p class="cform__error" id="cf-name-err" hidden></p>
+              </div>
+
+              <div class="cform__field">
+                <label class="cform__label" for="cf-company" data-i18n="contact.f.company">Компания</label>
+                <input class="cform__input" id="cf-company" name="company" type="text"
+                       autocomplete="organization" required maxlength="160"
+                       aria-describedby="cf-company-err">
+                <p class="cform__error" id="cf-company-err" hidden></p>
+              </div>
+
+              <div class="cform__field">
+                <label class="cform__label" for="cf-email" data-i18n="contact.f.email">Email</label>
+                <input class="cform__input" id="cf-email" name="email" type="email"
+                       autocomplete="email" inputmode="email" required maxlength="200"
+                       aria-describedby="cf-email-err">
+                <p class="cform__error" id="cf-email-err" hidden></p>
+              </div>
+
+              <div class="cform__field">
+                <label class="cform__label" for="cf-phone">
+                  <span data-i18n="contact.f.phone">Телефон</span>
+                  <!-- „по желание" стои в етикета, за да го чуе и екранният
+                       четец, а не само да се вижда. -->
+                  <span class="cform__optional">— <span data-i18n="contact.f.optional">по желание</span></span>
+                </label>
+                <!-- Никакъв pattern: полето е по желание и трябва да приема
+                     международни формати без да се заяжда. -->
+                <input class="cform__input" id="cf-phone" name="phone" type="tel"
+                       autocomplete="tel" inputmode="tel" maxlength="40"
+                       aria-describedby="cf-phone-err">
+                <p class="cform__error" id="cf-phone-err" hidden></p>
+              </div>
+
+              <div class="cform__field">
+                <label class="cform__label" for="cf-message" data-i18n="contact.f.message">Съобщение</label>
+                <textarea class="cform__input cform__textarea" id="cf-message" name="message"
+                          rows="6" required maxlength="4000"
+                          aria-describedby="cf-message-err"></textarea>
+                <p class="cform__error" id="cf-message-err" hidden></p>
+              </div>
+
+              <!-- Honeypot. Скрит от хора и от екранни четци; ботовете го
+                   попълват. Сървърът приема заявката, но не праща нищо. -->
+              <div class="cform__hp" aria-hidden="true">
+                <label for="cf-website">Website</label>
+                <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <!-- Езикът на страницата пътува със заявката, за да знаем на
+                   какъв език е писал човекът. -->
+              <input type="hidden" name="lang" id="cf-lang" value="bg">
+
+              <button class="btn btn--fit cform__submit" type="submit" id="cf-submit">
+                <span class="cform__submit-label" data-i18n="contact.submit">Изпратете съобщение</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </form>
+
+            <!-- Показва се САМО след реален успешен отговор от сървъра. -->
+            <div class="cform__success" id="cform-success" role="status" tabindex="-1" hidden>
+              <h2 class="t-heading cform__success-title" data-i18n="contact.success.title">Благодарим!</h2>
+              <p class="t-body" data-i18n="contact.success.text">Получихме съобщението ви и ще се свържем с вас в рамките на 24 часа.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
     </section>
+
   </main>
 
   <!-- genki:footer -->
@@ -167,9 +283,9 @@
   </footer>
   <!-- /genki:footer -->
 
-  <!-- Редът е задължителен: низове -> i18n -> поведение. -->
   <script src="/js/genki-translations.js"></script>
   <script src="/js/genki-i18n.js"></script>
   <script src="/js/genki-site.js"></script>
+  <script src="/js/genki-contact.js"></script>
 </body>
 </html>

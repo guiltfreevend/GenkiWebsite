@@ -632,6 +632,66 @@ window.genkiTranslations = {
     en: 'Visual slot — awaiting real photography from an initiative that has actually happened',
   },
 
+  /* ==========================================================================
+     КОНТАКТ
+
+     BG и EN са ДОСЛОВНО от „GENKI 2.0 — WEBSITE COPY & HANDOFF"
+     (LOCKED 16.09.2026), включително имената на полетата и 24-часовото
+     обещание.
+
+     Съобщението за успех не е в каноничния документ — ползва се
+     формулировката, одобрена за етап 6, и ПАЗИ 24-часовото обещание.
+     ========================================================================== */
+
+  'contact.label': { bg: 'КОНТАКТ', en: 'CONTACT' },
+  'contact.title': { bg: 'Нека поговорим.', en: 'Let’s talk.' },
+  'contact.lead': {
+    bg: 'Имате въпрос за Genki или искате да обсъдим вашия офис? Пишете ни и ще се свържем с вас в рамките на 24 часа.',
+    en: 'Have a question about Genki or want to discuss your workplace? Send us a message and we’ll get back to you within 24 hours.',
+  },
+
+  /* --- Полетата. Имената са заключени. --- */
+  'contact.f.name':    { bg: 'Име',       en: 'Name' },
+  'contact.f.company': { bg: 'Компания',  en: 'Company' },
+  'contact.f.email':   { bg: 'Email',     en: 'Work email' },
+  'contact.f.phone':   { bg: 'Телефон',   en: 'Phone' },
+  'contact.f.optional':{ bg: 'по желание', en: 'optional' },
+  'contact.f.message': { bg: 'Съобщение', en: 'Message' },
+  'contact.submit':    { bg: 'Изпратете съобщение', en: 'Send message' },
+  'contact.sending':   { bg: 'Изпращане…',          en: 'Sending…' },
+
+  /* --- Грешки по поле. Човешки, не агресивни. --- */
+  'contact.err.name':    { bg: 'Моля, въведете името си.',        en: 'Please enter your name.' },
+  'contact.err.company': { bg: 'Моля, въведете компанията си.',   en: 'Please enter your company.' },
+  'contact.err.email':   { bg: 'Моля, въведете валиден email адрес.', en: 'Please enter a valid email address.' },
+  'contact.err.message': { bg: 'Моля, напишете съобщението си.',  en: 'Please write your message.' },
+  'contact.err.long':    { bg: 'Този текст е твърде дълъг.',      en: 'This text is too long.' },
+
+  /* --- Състояния на формата --- */
+  'contact.err.summary': {
+    bg: 'Проверете полетата, отбелязани по-долу.',
+    en: 'Please check the fields marked below.',
+  },
+  'contact.err.server': {
+    bg: 'Съобщението не можа да бъде изпратено. Опитайте отново след малко или ни пишете на hello@genki.bg.',
+    en: 'Your message could not be sent. Please try again in a moment, or write to us at hello@genki.bg.',
+  },
+  'contact.err.network': {
+    bg: 'Изглежда връзката прекъсна. Опитайте отново.',
+    en: 'The connection seems to have dropped. Please try again.',
+  },
+  'contact.success.title': { bg: 'Благодарим!', en: 'Thank you!' },
+  'contact.success.text': {
+    bg: 'Получихме съобщението ви и ще се свържем с вас в рамките на 24 часа.',
+    en: 'We’ve received your message and we’ll get back to you within 24 hours.',
+  },
+
+  /* --- Препратката към Genki Fit. Нарочно по-тиха от формата. --- */
+  'contact.fit.lead': {
+    bg: 'Искате да видите какъв Genki би работил при вас?',
+    en: 'Want to see what kind of Genki could work for your workplace?',
+  },
+
   /* ------------------------------------------------- alt на IMAGE слотовете
      Написани предварително, за да не се добавят на бегом при подмяната на
      placeholder-ите. Alt описва какво се вижда — не повтаря заглавието. */
