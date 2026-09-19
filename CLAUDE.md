@@ -142,9 +142,11 @@ Genki 2.0 се строи в клон **`genki-2.0-build`**. `main` остава
 
 Текущият сайт **не е** Genki 2.0. Всичко по-долу е заварено и се пипа само когато явно се вземе решение за него:
 
-**Стари страници на сайта** — `index.html`, `companies.html`, `mission.html`, `contact.html`, `office.html`, `privacy.html`, `privacy-en.html`, `thank-you-contact.html`, `thank-you-coming-soon.html`, `roi-calculator.html`, `404.html`, `box-landing.html`.
+**Стари страници на сайта** — `index.html`, `companies.html`, `mission.html`, `contact.html`, `office.html`, `privacy.html`, `privacy-en.html`, `thank-you-contact.html`, `thank-you-coming-soon.html`, `404.html`, `box-landing.html`.
 
-**Стар JS** — `js/roi-engine.js`, `js/pricing-data.js`, `js/formspree-integration.js`, `js/main.js`, `js/translations.js` (старите ключове).
+**Стар JS** — `js/roi-engine.js` и `js/pricing-data.js` (ползват се само от `companies.html`), `js/formspree-integration.js` (**мъртъв файл — не се реферира от нито една страница**), `js/main.js`, `js/translations.js` (старите ключове).
+
+**Стари изображения** — `assets/images/hero-*.png|webp` и `assets/images/stations/*.png`. Station рендерите показват хардуер, който не съществува; брифът заключва хардуера на Instant Systems 600/700 и NEXGO UN20. **Не се преизползват в 2.0.**
 
 **Box система (ЖИВА, не се чупи)** — `box/<GK-КОД>/` landing страници, `functions/api/qr.js` (Cloudflare Function за QR сканирания), registry CSV-та в `box/`. Това е отделна система за QR кодове по партньорски кутии и няма нищо общо с 6-те страници на Genki 2.0. Работи на живо — не я премахвай и не я рефакторирай в рамките на този build.
 
