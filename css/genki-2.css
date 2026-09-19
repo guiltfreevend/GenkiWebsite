@@ -1,12 +1,13 @@
 /* ==========================================================================
-   Genki 2.0 — основа и компоненти на скелета
+   Genki 2.0 — base слой, grid, компоненти, движение
 
    Зарежда се СЛЕД css/genki-tokens.css. Тук няма нито една сурова стойност
-   за цвят, размер или отстъп — всичко минава през токен. Ако нещо трябва да
-   се промени визуално, промяната е в токените.
+   за цвят, размер, отстъп или продължителност — всичко минава през токен.
    ========================================================================== */
 
-/* ------------------------------------------------------------------ base */
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
 
 *,
 *::before,
@@ -14,7 +15,6 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  /* Котвите не бива да се скриват под лепкавия хедър */
   scroll-padding-top: calc(var(--header-h) + var(--space-4));
 }
 
@@ -23,25 +23,20 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-size: var(--text-base);
+  font-size: var(--text-body);
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
-  /* Мобилното не бива да скролва хоризонтално при никакви обстоятелства */
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: var(--weight-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
-
-h1 { font-size: var(--text-5xl); }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
 
 p { margin: 0; text-wrap: pretty; }
 
@@ -50,11 +45,11 @@ img, picture, svg, video { display: block; max-width: 100%; height: auto; }
 a { color: var(--color-accent); }
 a:hover { color: var(--color-accent-hover); }
 
-/* Един видим фокус за целия сайт. Не се маха никъде. */
+/* Един видим фокус за целия сайт. Не се маха никъде без заместител. */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
 }
 
 .sr-only {
@@ -62,13 +57,84 @@ a:hover { color: var(--color-accent-hover); }
   width: 1px; height: 1px;
   padding: 0; margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
 
-/* --------------------------------------------------------------- layout */
+/* ==========================================================================
+   2. ТИПОГРАФСКИ РОЛИ
+
+   Класовете носят РОЛЯТА, не размера. Така h2 може да е statement, а h1 в
+   подстраница — headline, без да се бият семантика и мащаб.
+   ========================================================================== */
+
+.t-display {
+  font-size: var(--text-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-bold);
+}
+
+.t-headline {
+  font-size: var(--text-headline);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-bold);
+}
+
+.t-heading {
+  font-size: var(--text-heading);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+}
+
+.t-subhead {
+  font-size: var(--text-subhead);
+  line-height: var(--leading-snug);
+  font-weight: var(--weight-medium);
+}
+
+.t-body    { font-size: var(--text-body);    line-height: var(--leading-normal); }
+.t-body-sm { font-size: var(--text-body-sm); line-height: var(--leading-normal); }
+
+/* Малък надпис над заглавие. Не е "pill label" — просто текст. */
+.t-label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.t-muted { color: var(--color-text-muted); }
+
+/* 元気 — остава текст, за да се селектира и чете от екранен четец */
+.t-jp { font-family: var(--font-jp); font-weight: var(--weight-medium); }
+
+.measure           { max-width: var(--measure); }
+.measure-wide      { max-width: var(--measure-wide); }
+.measure-statement { max-width: var(--measure-statement); }
+
+/* ==========================================================================
+   3. LAYOUT И GRID
+
+   12 колони desktop · 8 tablet · 4 mobile.
+
+   Дете на .grid задава ширината си през custom property, не през отделен
+   клас за всяка комбинация:
+
+       <div class="grid">
+         <div style="--d:7">…</div>            7 от 12 на desktop
+         <div style="--d:4; --ds:9">…</div>    4 колони, започващи от 9-а
+       </div>
+
+   --m  / --t  / --d   брой колони на mobile / tablet / desktop
+   --ms / --ts / --ds  начална колона — оттук идва нарочната асиметрия
+
+   Липсваща стойност значи "цялата редица", тоест никога не чупи лайаута.
+   ========================================================================== */
 
 .container {
   width: 100%;
@@ -77,17 +143,152 @@ a:hover { color: var(--color-accent-hover); }
   padding-inline: var(--gutter);
 }
 
+.container--wide   { max-width: var(--container-wide); }
 .container--narrow { max-width: var(--container-narrow); }
 
-/* Три височини на секция — бриф раздел 30 иска променлив ритъм */
-.section    { padding-block: var(--section-y-md); }
+.section     { padding-block: var(--section-y-md); }
 .section--sm { padding-block: var(--section-y-sm); }
 .section--lg { padding-block: var(--section-y-lg); }
 
-.measure { max-width: var(--measure); }
-.measure-wide { max-width: var(--measure-wide); }
+/* Тъмен блок. Пестеливо — зеленото е пунктуация, не фон. */
+.section--inverse {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+.section--inverse .t-label,
+.section--inverse .t-muted { color: var(--color-text-inverse-muted); }
 
-/* ------------------------------------------------------------ skip link */
+.section--soft { background: var(--color-bg-soft); }
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--grid-cols-mobile), minmax(0, 1fr));
+}
+
+.grid > * {
+  grid-column: var(--ms, auto) / span min(var(--m, 4), var(--grid-cols-mobile));
+}
+
+/* ==========================================================================
+   4. ДВИЖЕНИЕ — примитиви
+
+   Един речник за целия сайт. Само opacity и transform, за да не се стига
+   до преизчисляване на лайаута.
+
+     .reveal         появява се веднъж при влизане в екрана
+     .reveal--media  същото, но започва с едва доловимо уголемяване
+     .hover-media    деликатна реакция на изображение при hover
+
+   JS-ът само добавя .is-revealed. Ако JS не се изпълни, съдържанието
+   остава видимо — затова скриването е под .js-reveal, който скриптът сам
+   поставя на <html>.
+   ========================================================================== */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-shift));
+}
+
+.js-reveal .reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--duration-reveal) var(--ease-out),
+              transform var(--duration-reveal) var(--ease-out);
+  /* Стъпката е токен; JS подава само индекса вътре в групата. */
+  transition-delay: calc(var(--reveal-index, 0) * var(--stagger-step));
+}
+
+.js-reveal .reveal--media { transform: scale(var(--reveal-media-scale)); }
+.js-reveal .reveal--media.is-revealed { transform: none; }
+
+.hover-media { overflow: hidden; }
+.hover-media img { transition: transform var(--duration-media) var(--ease-out); }
+.hover-media:hover img { transform: scale(var(--hover-media-scale)); }
+
+/* ==========================================================================
+   5. БУТОНИ
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--duration-quick) var(--ease-out),
+              color var(--duration-quick) var(--ease-out),
+              border-color var(--duration-quick) var(--ease-out),
+              transform var(--duration-quick) var(--ease-out);
+}
+
+/* Стрелката реагира — микровзаимодействие, не декорация */
+.btn__arrow {
+  display: inline-block;
+  transition: transform var(--duration-quick) var(--ease-out);
+}
+.btn:hover .btn__arrow { transform: translateX(var(--hover-arrow-shift)); }
+
+.btn:active { transform: translateY(1px); }
+
+/* Първичен: Genki Fit — основната конверсия на сайта */
+.btn--fit { background: var(--color-accent); color: #fff; }
+.btn--fit:hover { background: var(--color-accent-hover); color: #fff; }
+
+/* Върху тъмен фон акцентът губи тежест — там бутонът светва */
+.section--inverse .btn--fit,
+.btn--on-dark { background: var(--cream-100); color: var(--green-800); }
+.section--inverse .btn--fit:hover,
+.btn--on-dark:hover { background: #fff; color: var(--green-900); }
+
+/* Вторичен: води по-навътре в сайта */
+.btn--secondary {
+  background: transparent;
+  color: var(--color-brand);
+  border-color: var(--color-border-strong);
+}
+.btn--secondary:hover {
+  color: var(--color-brand);
+  border-color: var(--color-brand);
+  background: var(--color-bg-tint);
+}
+
+/* Резервен: най-тихият. Не се бори с Genki Fit. */
+.btn--quiet {
+  background: transparent;
+  color: var(--color-text-muted);
+  padding-inline: var(--space-3);
+}
+.btn--quiet:hover { color: var(--color-text); }
+
+/* Текстова връзка със стрелка — вторичните CTA-та по страниците */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  color: var(--color-brand);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+.link-arrow:hover { color: var(--color-accent-hover); }
+.link-arrow .btn__arrow { transition: transform var(--duration-quick) var(--ease-out); }
+.link-arrow:hover .btn__arrow { transform: translateX(var(--hover-arrow-shift)); }
+
+/* ==========================================================================
+   6. SKIP LINK
+   ========================================================================== */
 
 .skip-link {
   position: absolute;
@@ -95,17 +296,16 @@ a:hover { color: var(--color-accent-hover); }
   top: var(--space-4);
   z-index: var(--z-skip);
   transform: translateY(-200%);
+  opacity: 0;
+  pointer-events: none;
   background: var(--color-bg);
   color: var(--color-brand);
   font-weight: var(--weight-semibold);
   padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  /* Без opacity сянката на скрития линк се подава над хедъра. */
-  opacity: 0;
-  pointer-events: none;
   transition: transform var(--duration-base) var(--ease-out),
-              opacity var(--duration-fast) var(--ease-out);
+              opacity var(--duration-instant) var(--ease-out);
 }
 
 .skip-link:focus {
@@ -115,14 +315,16 @@ a:hover { color: var(--color-accent-hover); }
   box-shadow: var(--shadow-lg);
 }
 
-/* --------------------------------------------------------------- header */
+/* ==========================================================================
+   7. ХЕДЪР И НАВИГАЦИЯ
+   ========================================================================== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background: rgb(255 255 255 / 0.92);
-  backdrop-filter: blur(10px);
+  background: rgb(255 255 255 / 0.9);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
   transition: box-shadow var(--duration-base) var(--ease-out),
               border-color var(--duration-base) var(--ease-out);
@@ -143,15 +345,11 @@ a:hover { color: var(--color-accent-hover); }
 .site-header__brand {
   display: inline-flex;
   align-items: center;
-  margin-right: auto;
   flex: 0 0 auto;
-  /* Логото е PNG на 1563 px — свива се до 24/28 px с огромен запас.
-     Височината се задава, ширината следва пропорцията. */
+  margin-right: auto;
 }
 
 .site-header__logo { height: 24px; width: auto; }
-
-/* ------------------------------------------------------------------ nav */
 
 .site-nav { display: none; }
 
@@ -160,102 +358,54 @@ a:hover { color: var(--color-accent-hover); }
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-min);
-  padding-inline: var(--space-2);
+  padding-inline: var(--space-3);
   color: var(--color-text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
   text-decoration: none;
   white-space: nowrap;
-  transition: color var(--duration-fast) var(--ease-out);
+  transition: color var(--duration-instant) var(--ease-out);
 }
 
 .nav-link:hover { color: var(--color-text); }
-
 .nav-link.is-active { color: var(--color-brand); font-weight: var(--weight-semibold); }
 
-.nav-link.is-active::after {
+/* Индикаторът израства хоризонтално — дискретна микроанимация */
+.nav-link::after {
   content: '';
   position: absolute;
-  left: var(--space-2);
-  right: var(--space-2);
-  bottom: calc(50% - 0.9em);
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: calc(50% - 0.95em);
   height: 2px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform var(--duration-quick) var(--ease-out);
 }
+.nav-link.is-active::after,
+.nav-link:hover::after { transform: scaleX(1); }
 
-/* --------------------------------------------------------- Genki Fit CTA
-   Основната конверсия на целия сайт. Нарочно не изглежда като останалите
-   nav елементи: плътен акцент, различна форма, собствено тегло. */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  min-height: var(--tap-min);
-  padding: var(--space-3) var(--space-5);
-  border: 1px solid transparent;
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  line-height: 1.2;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out),
-              transform var(--duration-fast) var(--ease-out);
-}
-
-.btn:active { transform: translateY(1px); }
-
-/* Първичен: Genki Fit */
-.btn--fit {
-  background: var(--color-accent);
-  color: #fff;
-  box-shadow: var(--shadow-sm);
-}
-.btn--fit:hover { background: var(--color-accent-hover); color: #fff; }
-
-/* Вторичен: води по-навътре в сайта */
-.btn--secondary {
-  background: transparent;
-  color: var(--color-brand);
-  border-color: var(--color-border-strong);
-}
-.btn--secondary:hover {
-  color: var(--color-brand);
-  border-color: var(--color-brand);
-  background: var(--color-bg-tint);
-}
-
-/* Резервен: Контакт. Нарочно най-тихият — не се бори с Genki Fit. */
-.btn--quiet {
-  background: transparent;
-  color: var(--color-text-muted);
-  padding-inline: var(--space-3);
-}
-.btn--quiet:hover { color: var(--color-text); }
-
-/* До lg хедърът носи само лого, кратък CTA и бургер. Всичко друго се свива
-   на 320 px и изяжда таргета на бургера — проверено в браузър. */
-.site-header__cta { flex: 0 1 auto; padding-inline: var(--space-4); }
+/* До lg хедърът носи само лого, кратък CTA и бургер. Пълният етикет и
+   езиковият превключвател живеят в менюто — иначе на 320 px таргетът на
+   бургера се свива под 44 px (проверено в браузър). */
+.site-header__cta { flex: 0 1 auto; padding-inline: var(--space-5); }
 .site-header__inner .lang-switch { display: none; }
 .btn__label-full { display: none; }
 .btn__label-short { display: inline; }
 .mobile-menu .btn__label-full { display: inline; }
 .mobile-menu .btn__label-short { display: none; }
 
-/* ------------------------------------------------------ езиков превключвател */
+/* ==========================================================================
+   8. ЕЗИКОВ ПРЕВКЛЮЧВАТЕЛ
+   ========================================================================== */
 
 .lang-switch {
   display: inline-flex;
   align-items: center;
   padding: 2px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border: var(--border-hairline);
+  border-radius: var(--radius-pill);
   background: var(--color-bg);
 }
 
@@ -264,7 +414,7 @@ a:hover { color: var(--color-accent-hover); }
   min-height: 2rem;
   padding-inline: var(--space-2);
   border: 0;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--color-text-muted);
   font: inherit;
@@ -272,33 +422,29 @@ a:hover { color: var(--color-accent-hover); }
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-wide);
   cursor: pointer;
-  transition: background-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out);
+  transition: background-color var(--duration-instant) var(--ease-out),
+              color var(--duration-instant) var(--ease-out);
 }
 
 .lang-switch__btn:hover { color: var(--color-text); }
+.lang-switch__btn.is-active { background: var(--color-brand); color: var(--cream-100); }
 
-.lang-switch__btn.is-active {
-  background: var(--color-brand);
-  color: var(--cream-100);
-}
-
-/* В мобилното меню превключвателят е с пълноразмерни таргети и не се разтяга
-   по цялата ширина на колоната */
 .mobile-menu .lang-switch { align-self: flex-start; }
 .mobile-menu .lang-switch__btn { min-height: var(--tap-min); min-width: 3.5rem; }
 
-/* ------------------------------------------------------- бутон за менюто */
+/* ==========================================================================
+   9. БУТОН ЗА МЕНЮТО
+   ========================================================================== */
 
 .menu-toggle {
   display: inline-flex;
-  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   width: var(--tap-min);
   height: var(--tap-min);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: var(--border-hairline);
+  border-radius: var(--radius-sm);
   background: var(--color-bg);
   color: var(--color-text);
   cursor: pointer;
@@ -310,10 +456,10 @@ a:hover { color: var(--color-accent-hover); }
   display: block;
   width: 18px;
   height: 2px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   background: currentColor;
   transition: transform var(--duration-base) var(--ease-out),
-              opacity var(--duration-fast) var(--ease-out);
+              opacity var(--duration-instant) var(--ease-out);
 }
 
 .menu-toggle__bars { position: relative; }
@@ -324,9 +470,12 @@ a:hover { color: var(--color-accent-hover); }
 .menu-toggle[aria-expanded='true'] .menu-toggle__bars::before { top: 0; transform: rotate(45deg); }
 .menu-toggle[aria-expanded='true'] .menu-toggle__bars::after  { top: 0; transform: rotate(-45deg); }
 
-/* ---------------------------------------------------------- мобилно меню
-   Подредено така, че навигацията и CTA-то да падат в долната половина на
-   екрана — там, където палецът стига без да се мести ръката. */
+/* ==========================================================================
+   10. МОБИЛНО МЕНЮ
+
+   Съдържанието пада в долната половина — там, където палецът стига без
+   да се мести ръката.
+   ========================================================================== */
 
 .mobile-menu {
   position: fixed;
@@ -349,9 +498,9 @@ a:hover { color: var(--color-accent-hover); }
   align-items: center;
   min-height: var(--tap-min);
   padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--border-hairline);
   color: var(--color-text);
-  font-size: var(--text-xl);
+  font-size: var(--text-subhead);
   font-weight: var(--weight-medium);
   text-decoration: none;
 }
@@ -365,10 +514,11 @@ a:hover { color: var(--color-accent-hover); }
   margin-top: var(--space-6);
 }
 
-/* Докато менюто е отворено, страницата отдолу не скролва */
 .menu-open, .menu-open body { overflow: hidden; }
 
-/* ---------------------------------------------------------------- footer */
+/* ==========================================================================
+   11. ФУТЪР
+   ========================================================================== */
 
 .site-footer {
   background: var(--color-bg-inverse);
@@ -391,13 +541,13 @@ a:hover { color: var(--color-accent-hover); }
   margin-top: var(--space-4);
   max-width: 22rem;
   color: var(--color-text-inverse-muted);
-  font-size: var(--text-lg);
+  font-size: var(--text-subhead);
 }
 
 .site-footer__col-title {
   margin: 0 0 var(--space-4);
   color: var(--color-text-inverse);
-  font-size: var(--text-xs);
+  font-size: var(--text-label);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
@@ -409,7 +559,7 @@ a:hover { color: var(--color-accent-hover); }
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-min);
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
 }
 
 .site-footer__bottom {
@@ -417,13 +567,19 @@ a:hover { color: var(--color-accent-hover); }
   padding-top: var(--space-6);
   border-top: 1px solid rgb(var(--green-700-rgb) / 0.6);
   color: var(--color-text-inverse-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
 }
 
-/* ------------------------------------------------- placeholder за слотове
+/* ==========================================================================
+   12. VISUAL SLOT
+
    Контейнерът държи точното съотношение ОЩЕ СЕГА, за да не скача нищо,
-   когато placeholder-ът се смени с реален файл. Desktop и mobile са две
-   различни съотношения, не едно разтеглено. */
+   когато placeholder-ът стане реален файл. Desktop и mobile са две
+   различни съотношения, не едно разтеглено.
+
+   Радиусът е умерен и се маха с .slot--flush — не всяка повърхност на
+   сайта трябва да е заоблена.
+   ========================================================================== */
 
 genki-slot { display: block; }
 
@@ -431,8 +587,20 @@ genki-slot { display: block; }
   position: relative;
   width: 100%;
   aspect-ratio: var(--slot-m);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
+}
+
+.slot--flush { border-radius: var(--radius-none); }
+.slot--media { border-radius: var(--radius-lg); }
+
+.slot > img,
+.slot > picture,
+.slot > picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--slot-focal, 50% 50%);
 }
 
 .slot--brand { background: var(--color-brand); color: var(--cream-100); }
@@ -460,45 +628,58 @@ genki-slot { display: block; }
 }
 
 .slot__id {
-  font-size: var(--text-4xl);
+  font-size: var(--text-heading);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-tight);
   line-height: 1;
   opacity: 0.9;
 }
 
-.slot__meta {
-  font-size: var(--text-sm);
-  font-variant-numeric: tabular-nums;
-  opacity: 0.75;
+.slot__role {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  opacity: 0.85;
+  max-width: 28ch;
 }
 
-.slot__note { font-size: var(--text-xs); opacity: 0.6; }
+.slot__meta {
+  font-size: var(--text-label);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
 
-/* Показва се само метаданните на съотношението, което е В СИЛА в момента */
+.slot__note { font-size: var(--text-xs); opacity: 0.55; }
+
+/* Показват се само метаданните на съотношението, което е В СИЛА */
 .slot__meta-d { display: none; }
 .slot__meta-m { display: inline; }
 
-/* ----------------------------------------------- скелет: временна лента */
+/* ==========================================================================
+   13. СКЕЛЕТ — временна лента
+   ========================================================================== */
 
 .skeleton-notice {
   margin-block: var(--space-6);
   padding: var(--space-4) var(--space-5);
   border: 1px dashed var(--color-border-strong);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: var(--color-bg-soft);
   color: var(--color-text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
 }
 
 /* ==========================================================================
-   Breakpoints
-   Стойностите съвпадат със записа в css/genki-tokens.css. Сменят се на
-   двете места едновременно.
+   BREAKPOINTS
+   Съвпадат със записа в css/genki-tokens.css. Сменят се на двете места.
    ========================================================================== */
 
-/* md — 768px: оттук нататък слотовете минават на desktop кадъра */
+/* md — 768px: tablet. 8 колони, слотовете минават на desktop кадъра. */
 @media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(var(--grid-cols-tablet), minmax(0, 1fr)); }
+  .grid > * {
+    grid-column: var(--ts, auto) / span min(var(--t, 8), var(--grid-cols-tablet));
+  }
+
   .slot { aspect-ratio: var(--slot-d); }
   .slot__meta-d { display: inline; }
   .slot__meta-m { display: none; }
@@ -507,10 +688,33 @@ genki-slot { display: block; }
   .site-footer__brand { grid-column: 1 / -1; }
 }
 
-/* lg — 1024px: хоризонталната навигация замества мобилното меню */
+/* lg — 1024px: desktop лайаут. 12 колони, по-едри бутони. */
 @media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(var(--grid-cols-desktop), minmax(0, 1fr)); }
+  .grid > * {
+    grid-column: var(--ds, auto) / span min(var(--d, 12), var(--grid-cols-desktop));
+  }
+
+  .btn { min-height: var(--btn-h-desktop); padding-inline: var(--space-8); }
+
+  /* Бутонът в хедъра НЕ расте — лентата е 64/72 px и 52 px бутон в нея
+     изглежда натъпкан. Остава на минималния таргет. */
+  .site-header__cta { min-height: var(--tap-min); padding-inline: var(--space-5); }
+
+  .site-footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
+  .site-footer__brand { grid-column: auto; }
+}
+
+/* 1152px — хоризонталната навигация замества мобилното меню.
+
+   Не на 1024: петте заключени етикета (най-дългият е „Мисия и въздействие")
+   заемат 619 px, плюс лого, CTA и езиков превключвател — хедърът иска над
+   1050 px съдържание. На 1024 това прелива. Измерено, не предположено.
+   По-добре бургер на таблет, отколкото смачкана лента. */
+@media (min-width: 1152px) {
   .site-header__inner { height: var(--header-h); gap: var(--space-6); }
   .site-header__logo { height: 28px; }
+  .site-header__brand { margin-right: var(--space-8); }
 
   .site-nav {
     display: flex;
@@ -519,21 +723,23 @@ genki-slot { display: block; }
     margin-right: auto;
   }
 
-  .site-header__brand { margin-right: var(--space-8); }
-
   .menu-toggle { display: none; }
   .mobile-menu { display: none !important; }
 
   .site-header__inner .lang-switch { display: inline-flex; }
-  .site-header__cta { padding-inline: var(--space-5); }
-  .btn__label-full { display: inline; }
-  .btn__label-short { display: none; }
 
-  .site-footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
-  .site-footer__brand { grid-column: auto; }
 }
 
-/* --------------------------------------------------- намалено движение */
+/* xl — 1280px: има място за пълния етикет на основния CTA. */
+@media (min-width: 1280px) {
+  .btn__label-full { display: inline; }
+  .btn__label-short { display: none; }
+}
+
+/* ==========================================================================
+   НАМАЛЕНО ДВИЖЕНИЕ
+   Токените вече нулират продължителностите; тук се спира и всичко останало.
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -544,4 +750,6 @@ genki-slot { display: block; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  .js-reveal .reveal { opacity: 1; transform: none; }
 }
