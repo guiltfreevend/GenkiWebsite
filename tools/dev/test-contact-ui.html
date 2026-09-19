@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head><meta charset="UTF-8"><title>contact UI tests</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style>
+</head>
+<body><pre id="out">…</pre><div id="s"></div>
+<script>
+/* Тестове на формата в браузър. fetch в iframe-а е подменен — НИКАКВИ
+   реални заявки и нито един реален имейл. */
+
+const out = [];
+let pass = 0, fail = 0;
+function check(n, c, d) {
+  if (c) { pass++; out.push('  OK   ' + n); }
+  else { fail++; out.push('  FAIL ' + n + (d ? ' — ' + d : '')); }
+}
+
+function load(w, h) {
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px';
+    f.src = '/v2/contact.html?t=' + Date.now() + Math.random();
+    f.onload = () => setTimeout(() => r(f), 300);
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+/* Подменя fetch в iframe-а. mode: ok | error | throw | slow */
+function patchFetch(win, mode) {
+  const calls = [];
+  win.fetch = function (url, opts) {
+    calls.push({ url, body: JSON.parse(opts.body) });
+    if (mode === 'throw') return Promise.reject(new Error('offline'));
+    const status = mode === 'error' ? 502 : 200;
+    const payload = mode === 'error' ? { ok: false, error: 'send_failed' } : { ok: true };
+    const res = { ok: mode !== 'error', status, json: () => Promise.resolve(payload) };
+    if (mode === 'slow') return new Promise(r => setTimeout(() => r(res), 400));
+    return Promise.resolve(res);
+  };
+  return calls;
+}
+
+function fill(d, vals) {
+  for (const [id, v] of Object.entries(vals)) {
+    const el = d.getElementById(id);
+    el.value = v;
+    el.dispatchEvent(new d.defaultView.Event('input', { bubbles: true }));
+  }
+}
+
+const VALID = {
+  'cf-name': 'Иван Петров', 'cf-company': 'Примерна ЕООД',
+  'cf-email': 'ivan@primerna.bg', 'cf-message': 'Здравейте, имам въпрос.',
+};
+
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+(async () => {
+
+  /* ---------- 1. празна форма ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    d.getElementById('cf-submit').click();
+    await wait(120);
+    const summary = d.getElementById('cform-summary');
+    check('празна форма: показва обобщение', !summary.hidden && summary.textContent.length > 0);
+    check('празна форма: нищо не се изпраща', calls.length === 0);
+    const invalid = [...d.querySelectorAll('[aria-invalid="true"]')];
+    check('празна форма: 4 задължителни полета са отбелязани', invalid.length === 4, 'намерени ' + invalid.length);
+    check('празна форма: фокусът отива на първото', d.activeElement === d.getElementById('cf-name'));
+    const err = d.getElementById('cf-name-err');
+    check('грешката е свързана с полето',
+      d.getElementById('cf-name').getAttribute('aria-describedby') === 'cf-name-err' && !err.hidden);
+    f.remove();
+  }
+
+  /* ---------- 2. невалиден email ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    fill(d, { ...VALID, 'cf-email': 'not-an-email' });
+    d.getElementById('cf-submit').click();
+    await wait(120);
+    check('невалиден email спира изпращането', calls.length === 0);
+    check('невалиден email: само това поле е отбелязано',
+      d.querySelectorAll('[aria-invalid="true"]').length === 1);
+    check('невалиден email: фокусът е на email полето', d.activeElement === d.getElementById('cf-email'));
+    /* поправяме — грешката трябва да изчезне още при писане */
+    fill(d, { 'cf-email': 'ivan@primerna.bg' });
+    await wait(50);
+    check('грешката изчезва при поправка', !d.getElementById('cf-email').classList.contains('is-invalid'));
+    f.remove();
+  }
+
+  /* ---------- 3. валиден BG submit + успех ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    fill(d, VALID);
+    d.getElementById('cf-submit').click();
+    await wait(250);
+    check('A. валиден BG submit праща една заявка', calls.length === 1);
+    check('A. заявката отива на /api/contact', calls[0] && calls[0].url === '/api/contact');
+    check('A. payload носи всички полета',
+      calls[0] && calls[0].body.name && calls[0].body.company && calls[0].body.email && calls[0].body.message);
+    check('A. езикът пътува', calls[0] && calls[0].body.lang === 'bg');
+    check('A. honeypot е празен', calls[0] && calls[0].body.website === '');
+    const succ = d.getElementById('cform-success');
+    check('O. успехът се показва', !succ.hidden);
+    check('O. формата се скрива', d.getElementById('contact-form').hidden);
+    check('O. фокусът отива на съобщението', d.activeElement === succ);
+    check('O. успехът пази 24-часовото обещание', succ.textContent.includes('24'));
+    f.remove();
+  }
+
+  /* ---------- 4. валиден EN submit ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    w.GenkiI18n.set('en');
+    await wait(80);
+    const calls = patchFetch(w, 'ok');
+    check('B. етикетите са на английски', d.querySelector('label[for="cf-email"]').textContent.trim() === 'Work email');
+    fill(d, { ...VALID, 'cf-name': 'Jane Doe' });
+    d.getElementById('cf-submit').click();
+    await wait(250);
+    check('B. валиден EN submit минава', calls.length === 1 && calls[0].body.lang === 'en');
+    check('B. успехът е на английски',
+      d.getElementById('cform-success').textContent.includes('24 hours'));
+    f.remove();
+  }
+
+  /* ---------- 5. двоен клик ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'slow');
+    fill(d, VALID);
+    const btn = d.getElementById('cf-submit');
+    btn.click(); btn.click(); btn.click();
+    await wait(80);
+    check('I. двоен клик праща само веднъж', calls.length === 1, 'заявки: ' + calls.length);
+    check('I. бутонът е заключен по време на изпращане', btn.disabled === true);
+    check('I. бутонът показва прогрес', btn.getAttribute('aria-busy') === 'true');
+    check('I. формата не се изчиства предварително', d.getElementById('cf-name').value === VALID['cf-name']);
+    await wait(500);
+    check('I. след успеха се показва успех', !d.getElementById('cform-success').hidden);
+    f.remove();
+  }
+
+  /* ---------- 6. сървърна грешка + повторен опит ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    let calls = patchFetch(w, 'error');
+    fill(d, VALID);
+    d.getElementById('cf-submit').click();
+    await wait(250);
+    const summary = d.getElementById('cform-summary');
+    check('J. сървърна грешка: показва се човешко съобщение', !summary.hidden && summary.textContent.length > 10);
+    check('J. не се показва фалшив успех', d.getElementById('cform-success').hidden);
+    check('J. данните остават в полетата', d.getElementById('cf-message').value === VALID['cf-message']);
+    check('J. бутонът се отключва', d.getElementById('cf-submit').disabled === false);
+    check('J. няма вътрешни детайли в текста',
+      !/502|stack|Error:|api\.resend/i.test(summary.textContent));
+    /* P. повторен опит, този път успешен */
+    calls = patchFetch(w, 'ok');
+    d.getElementById('cf-submit').click();
+    await wait(250);
+    check('P. повторният опит успява', calls.length === 1 && !d.getElementById('cform-success').hidden);
+    f.remove();
+  }
+
+  /* ---------- 7. мрежова грешка ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    patchFetch(w, 'throw');
+    fill(d, VALID);
+    d.getElementById('cf-submit').click();
+    await wait(250);
+    check('K. мрежова грешка: съобщение и без фалшив успех',
+      !d.getElementById('cform-summary').hidden && d.getElementById('cform-success').hidden);
+    check('K. бутонът се отключва', d.getElementById('cf-submit').disabled === false);
+    f.remove();
+  }
+
+  /* ---------- 8. достъпност и структура ---------- */
+  {
+    const f = await load(1440, 1400), d = f.contentDocument, w = f.contentWindow;
+    const ids = ['cf-name', 'cf-company', 'cf-email', 'cf-phone', 'cf-message'];
+    let labelled = 0, described = 0;
+    for (const id of ids) {
+      const el = d.getElementById(id);
+      if (d.querySelector('label[for="' + id + '"]')) labelled++;
+      if (el.getAttribute('aria-describedby') === id + '-err') described++;
+    }
+    check('всяко поле има видим етикет', labelled === 5, labelled + '/5');
+    check('всяко поле сочи към текста си за грешка', described === 5, described + '/5');
+    check('email полето е type=email', d.getElementById('cf-email').type === 'email');
+    check('телефонът е type=tel', d.getElementById('cf-phone').type === 'tel');
+    check('телефонът НЕ налага формат', !d.getElementById('cf-phone').hasAttribute('pattern'));
+    check('телефонът не е задължителен', !d.getElementById('cf-phone').hasAttribute('required'));
+    check('autocomplete е попълнен',
+      d.getElementById('cf-name').autocomplete === 'name' &&
+      d.getElementById('cf-company').autocomplete === 'organization' &&
+      d.getElementById('cf-email').autocomplete === 'email');
+    check('текстовото поле е удобно голямо', +d.getElementById('cf-message').rows >= 5);
+
+    const hp = d.getElementById('cf-website');
+    check('honeypot е извън tab реда', hp.tabIndex === -1);
+    check('honeypot е скрит от екранни четци', !!hp.closest('[aria-hidden="true"]'));
+    check('honeypot не е display:none', w.getComputedStyle(hp).display !== 'none');
+
+    /* M. само с клавиатура: редът на табване е логичен */
+    /* hidden полета не са във фокусния ред — изключваме ги изрично */
+    const focusables = [...d.querySelectorAll(
+      '#contact-form input:not([tabindex="-1"]):not([type="hidden"]), #contact-form textarea, #contact-form button')];
+    check('M. реда на табване е: име, компания, email, телефон, съобщение, бутон',
+      focusables.map(e => e.id).join(',') === 'cf-name,cf-company,cf-email,cf-phone,cf-message,cf-submit',
+      focusables.map(e => e.id).join(','));
+
+    check('обобщението е role=alert', d.getElementById('cform-summary').getAttribute('role') === 'alert');
+    check('успехът е role=status', d.getElementById('cform-success').getAttribute('role') === 'status');
+    check('формата работи и без JS (action/method)',
+      d.getElementById('contact-form').getAttribute('action') === '/api/contact' &&
+      d.getElementById('contact-form').getAttribute('method') === 'post');
+    f.remove();
+  }
+
+  /* ---------- 9. мобилно ---------- */
+  {
+    const f = await load(390, 1400), d = f.contentDocument, w = f.contentWindow;
+    const ids = ['cf-name', 'cf-company', 'cf-email', 'cf-phone'];
+    let tall = 0, sameLeft = 0;
+    const left = d.getElementById('cf-name').getBoundingClientRect().left;
+    for (const id of ids) {
+      const r = d.getElementById(id).getBoundingClientRect();
+      if (r.height >= 44) tall++;
+      if (Math.abs(r.left - left) < 1) sameLeft++;
+    }
+    check('N. мобилно: всички полета са ≥ 44 px', tall === 4, tall + '/4');
+    check('N. мобилно: една колона', sameLeft === 4);
+    check('N. мобилно: бутонът е ≥ 44 px',
+      d.getElementById('cf-submit').getBoundingClientRect().height >= 44);
+    d.body.style.overflowX = 'visible';
+    await wait(50);
+    check('N. мобилно: няма преливане',
+      d.documentElement.scrollWidth <= d.documentElement.clientWidth + 1);
+    f.remove();
+  }
+
+  document.getElementById('out').textContent =
+    out.join('\n') + '\n\n' + '-'.repeat(50) + '\nРЕЗУЛТАТ: ' + pass + ' минали, ' + fail + ' паднали';
+  document.title = 'DONE';
+})();
+</script>
+</body></html>
