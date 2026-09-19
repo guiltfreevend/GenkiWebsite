@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Genki 2.0 — основа (само за разработка)</title>
+
+  <link rel="stylesheet" href="/css/genki-tokens.css">
+  <link rel="stylesheet" href="/css/genki-2.css">
+
+  <style>
+    /* Стилове само за тази страница. Не влизат в сайта. */
+    .fx { border-top: 1px solid var(--color-border); }
+    .fx__title { margin-bottom: var(--space-6); }
+    .swatches { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .sw { width: 5.5rem; }
+    .sw__chip { height: 3.5rem; border-radius: var(--radius-xs); border: 1px solid rgb(20 28 23 / 0.08); }
+    .sw__name { font-size: var(--text-xs); margin-top: var(--space-1); color: var(--color-text-muted); }
+    .gridcell { background: var(--color-bg-tint); border: 1px dashed var(--green-300);
+                border-radius: var(--radius-xs); padding: var(--space-2);
+                font-size: var(--text-xs); text-align: center; color: var(--green-700); }
+    .radii { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-end; }
+    .radii > div { width: 6rem; }
+    .radii i { display: block; height: 4.5rem; background: var(--color-brand); }
+    .stack > * + * { margin-top: var(--space-4); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    table.spec { border-collapse: collapse; width: 100%; font-size: var(--text-body-sm); }
+    table.spec th, table.spec td { text-align: left; padding: var(--space-2) var(--space-3);
+                                    border-bottom: 1px solid var(--color-border); }
+    table.spec th { color: var(--color-text-muted); font-weight: var(--weight-semibold);
+                    font-size: var(--text-label); text-transform: uppercase;
+                    letter-spacing: var(--tracking-wide); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+  </style>
+</head>
+<body>
+
+<main id="main">
+
+  <section class="section container">
+    <p class="t-label">Genki 2.0 · само за разработка</p>
+    <h1 class="t-display">Основа</h1>
+    <p class="t-subhead t-muted measure" style="margin-top: var(--space-4)">
+      Тази страница показва токените в действие. Не е част от сайта и не се
+      публикува — служи да се провери, че основата е вярна, преди върху нея
+      да се строят страници.
+    </p>
+  </section>
+
+  <!-- ТИПОГРАФИЯ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Типографска скала</h2>
+    <div class="stack">
+      <div><p class="t-label">t-display · цел 42–58 / 56–76 / 72–104 px</p>
+           <p class="t-display">По-добрата храна</p></div>
+      <div><p class="t-label">t-headline · цел 34–48 / 48–72 px</p>
+           <p class="t-headline">Всяко евро трябва да се усеща</p></div>
+      <div><p class="t-label">t-heading · цел 28–40 px</p>
+           <p class="t-heading">Подбрано, не просто заредено</p></div>
+      <div><p class="t-label">t-subhead</p>
+           <p class="t-subhead">Умно и напълно обслужвано решение за модерния офис.</p></div>
+      <div><p class="t-label">t-body · цел 16–18 / 18–20 px · дължина 62ch</p>
+           <p class="t-body measure">Всеки продукт минава през Genki Product Standard. Работим с
+           български производители и помагаме на добрите местни продукти да стигат до повече хора.
+           Всеки месец даряваме 10% от реалната печалба след всички разходи.</p></div>
+      <div><p class="t-label">t-jp · 元気 остава текст, не изображение</p>
+           <p class="t-heading t-jp">元気</p></div>
+    </div>
+  </section>
+
+  <!-- ЦВЯТ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Цвят</h2>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <!-- GRID -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Grid — 12 / 8 / 4</h2>
+    <p class="t-body-sm t-muted measure" style="margin-bottom: var(--space-6)">
+      Стеснете прозореца: 12 колони над 1024 px, 8 над 768 px, 4 под това.
+    </p>
+
+    <div class="grid" style="margin-bottom: var(--space-6)">
+      <div class="gridcell" style="--m:4; --t:8; --d:12">цяла редица</div>
+    </div>
+
+    <div class="grid" style="margin-bottom: var(--space-6)">
+      <div class="gridcell" style="--m:4; --t:4; --d:7">--d:7</div>
+      <div class="gridcell" style="--m:4; --t:4; --d:5">--d:5</div>
+    </div>
+
+    <div class="grid">
+      <div class="gridcell" style="--m:4; --t:5; --d:6; --ds:2">--d:6 от колона 2 — нарочна асиметрия</div>
+      <div class="gridcell" style="--m:4; --t:3; --d:3; --ds:9">--d:3 от колона 9</div>
+    </div>
+  </section>
+
+  <!-- РАДИУСИ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Радиуси</h2>
+    <p class="t-body-sm t-muted measure" style="margin-bottom: var(--space-6)">
+      По-остра, редакционна система. Pill само там, където има функционален
+      смисъл. Не всяка повърхност се заобля.
+    </p>
+    <div class="radii">
+      <div><i style="border-radius: var(--radius-none)"></i><p class="sw__name">none · 0</p></div>
+      <div><i style="border-radius: var(--radius-xs)"></i><p class="sw__name">xs · 8</p></div>
+      <div><i style="border-radius: var(--radius-sm)"></i><p class="sw__name">sm · 10</p></div>
+      <div><i style="border-radius: var(--radius-md)"></i><p class="sw__name">md · 14</p></div>
+      <div><i style="border-radius: var(--radius-lg)"></i><p class="sw__name">lg · 22</p></div>
+      <div><i style="border-radius: var(--radius-pill)"></i><p class="sw__name">pill · бутони</p></div>
+    </div>
+  </section>
+
+  <!-- БУТОНИ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Бутони и връзки</h2>
+    <div class="row">
+      <a class="btn btn--fit" href="#main">Проверете вашия Genki Fit
+        <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--secondary" href="#main">Вижте как работи
+        <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--quiet" href="#main">Контакт</a>
+      <a class="link-arrow" href="#main">Вижте мисията на Genki
+        <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <p class="t-body-sm t-muted" style="margin-top: var(--space-4)">
+      Стрелката се измества с 4 px при hover. Продължителност 180 ms.
+    </p>
+  </section>
+
+  <!-- ТЪМЕН БЛОК -->
+  <section class="section section--inverse">
+    <div class="container">
+      <p class="t-label">Тъмен блок</p>
+      <p class="t-headline measure-statement" style="margin-block: var(--space-4)">Всяко евро трябва да се усеща.</p>
+      <a class="btn btn--fit" href="#main">Проверете вашия Genki Fit
+        <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ДВИЖЕНИЕ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Движение</h2>
+    <p class="t-body-sm t-muted measure" style="margin-bottom: var(--space-6)">
+      Всеки блок се появява веднъж при влизане в екрана. Групата получава
+      стъпка от 65 ms. При <code>prefers-reduced-motion: reduce</code> нищо не се крие.
+    </p>
+    <div class="grid reveal-group">
+      <div class="gridcell reveal" style="--m:4; --t:4; --d:4">1</div>
+      <div class="gridcell reveal" style="--m:4; --t:4; --d:4">2</div>
+      <div class="gridcell reveal" style="--m:4; --t:8; --d:4">3</div>
+    </div>
+  </section>
+
+  <!-- VISUAL SLOT -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">VisualSlot</h2>
+    <p class="t-body-sm t-muted measure" style="margin-bottom: var(--space-6)">
+      Без <code>src</code> слотът е placeholder с точното съотношение и казва
+      кой файл чака. Със <code>src</code> и <code>src-mobile</code> става
+      <code>&lt;picture&gt;</code> с отделен кадър за телефон — подмяната е
+      два атрибута, не преработка на секция.
+    </p>
+    <div class="grid">
+      <div style="--m:4; --t:4; --d:6">
+        <genki-slot slot-id="H01"></genki-slot>
+        <p class="t-body-sm t-muted" style="margin-top: var(--space-2)">
+          <code>&lt;genki-slot slot-id="H01"&gt;</code> — от регистъра
+        </p>
+      </div>
+      <div style="--m:4; --t:4; --d:6">
+        <genki-slot slot-id="H01" ratio="4/5" mobile-ratio="3/4"
+                    role="Hero в editorial split — по DESIGN-DIRECTION"
+                    shape="media"></genki-slot>
+        <p class="t-body-sm t-muted" style="margin-top: var(--space-2)">
+          същият слот с <code>ratio</code> / <code>mobile-ratio</code> override
+        </p>
+      </div>
+      <div style="--m:4; --t:4; --d:4">
+        <genki-slot slot-id="W02"></genki-slot>
+      </div>
+      <div style="--m:4; --t:4; --d:4">
+        <genki-slot slot-id="H06" shape="flush"></genki-slot>
+        <p class="t-body-sm t-muted" style="margin-top: var(--space-2)">
+          <code>shape="flush"</code> — без радиус
+        </p>
+      </div>
+      <div style="--m:4; --t:8; --d:4">
+        <genki-slot slot-id="F04"></genki-slot>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИЗМЕРЕНИ СТОЙНОСТИ -->
+  <section class="section container fx">
+    <h2 class="t-heading fx__title">Измерени стойности при текущата ширина</h2>
+    <table class="spec"><tbody id="live"></tbody></table>
+  </section>
+
+</main>
+
+<script src="/js/genki-translations.js"></script>
+<script src="/js/genki-i18n.js"></script>
+<script src="/js/genki-site.js"></script>
+<script>
+  /* Мострите и таблицата се генерират от реално изчислените стойности,
+     за да не се разминават с токените. */
+  var cs = getComputedStyle(document.documentElement);
+
+  var groups = [
+    ['--green-', [50,100,200,300,400,500,600,700,800,900]],
+    ['--cream-', [50,100,200,300]],
+    ['--ink-',   [50,100,200,300,400,500,600,700,800,900]]
+  ];
+  var html = '';
+  groups.forEach(function (g) {
+    g[1].forEach(function (step) {
+      var name = g[0] + step;
+      html += '<div class="sw"><div class="sw__chip" style="background: var(' + name + ')"></div>' +
+              '<p class="sw__name">' + name.replace('--', '') + '<br>' +
+              cs.getPropertyValue(name).trim() + '</p></div>';
+    });
+  });
+  document.getElementById('swatches').innerHTML = html;
+
+  function px(el, prop) { return Math.round(parseFloat(getComputedStyle(el)[prop]) * 10) / 10 + 'px'; }
+
+  function render() {
+    var probe = document.querySelector('.t-display');
+    var body = document.body;
+    var rows = [
+      ['ширина на прозореца', window.innerWidth + 'px'],
+      ['--text-display', px(probe, 'fontSize')],
+      ['--text-headline', px(document.querySelector('.t-headline'), 'fontSize')],
+      ['--text-heading', px(document.querySelector('.t-heading'), 'fontSize')],
+      ['--text-body', px(body, 'fontSize')],
+      ['--gutter', cs.getPropertyValue('--gutter').trim() + ' → ' +
+        px(document.querySelector('.container'), 'paddingLeft')],
+      ['--container-max', px(document.querySelector('.container'), 'maxWidth')],
+      ['--grid-gap', px(document.querySelector('.grid'), 'columnGap')],
+      ['колони в .grid', getComputedStyle(document.querySelector('.grid'))
+        .gridTemplateColumns.split(' ').length],
+      ['--section-y-md', px(document.querySelector('.section'), 'paddingTop')],
+      ['височина на бутон', Math.round(document.querySelector('.btn--fit').getBoundingClientRect().height) + 'px'],
+      ['--radius-md', cs.getPropertyValue('--radius-md').trim()],
+      ['--duration-reveal', cs.getPropertyValue('--duration-reveal').trim()],
+      ['--stagger-step', cs.getPropertyValue('--stagger-step').trim()],
+      ['намалено движение', window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'да' : 'не']
+    ];
+    document.getElementById('live').innerHTML = rows.map(function (r) {
+      return '<tr><th>' + r[0] + '</th><td><code>' + r[1] + '</code></td></tr>';
+    }).join('');
+  }
+
+  render();
+  window.addEventListener('resize', render);
+</script>
+</body>
+</html>

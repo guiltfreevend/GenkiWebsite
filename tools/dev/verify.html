@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head><meta charset="UTF-8"><title>verify</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px;top:0}iframe{border:0;display:block}</style>
+</head>
+<body><pre id="out">…</pre><div id="s"></div>
+<script>
+/* Проверка на основата след Етап 1.5.
+   Ширините са тези, които DESIGN-DIRECTION раздел 24 изисква. */
+const BASE = '/v2/';
+const PAGES = ['index.html','companies.html','how-it-works.html','mission.html','genki-fit.html','contact.html'];
+const WIDTHS = [390, 430, 768, 1024, 1152, 1280, 1440, 1728];
+const out = [];
+
+function load(url, w, h) {
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = (h || 900) + 'px'; f.src = url;
+    f.onload = () => setTimeout(() => r(f), 260);
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+function lum(rgb) {
+  const [r,g,b] = rgb.match(/\d+/g).slice(0,3).map(Number).map(c => {
+    c /= 255; return c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);
+  });
+  return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+function contrast(fg, bg) {
+  const a = lum(fg), b = lum(bg);
+  return +(((Math.max(a,b)+0.05)/(Math.min(a,b)+0.05))).toFixed(2);
+}
+
+async function check(page, w) {
+  const f = await load(BASE + page + '?t=' + Date.now(), w);
+  const doc = f.contentDocument, win = f.contentWindow;
+  const row = { page, w };
+  const cs = (el, p) => win.getComputedStyle(el)[p];
+  const num = (el, p) => Math.round(parseFloat(cs(el, p)) * 10) / 10;
+
+  /* преливане — без маскиране */
+  doc.body.style.overflowX = 'visible';
+  doc.documentElement.style.overflowX = 'visible';
+  await new Promise(r => setTimeout(r, 50));
+  const vw = doc.documentElement.clientWidth;
+  row.overflow = doc.documentElement.scrollWidth > vw;
+  row.offenders = [...doc.querySelectorAll('*')].filter(el => {
+    const r = el.getBoundingClientRect();
+    return (r.width || r.height) && (r.right > vw + 0.5 || r.left < -0.5);
+  }).length;
+  doc.body.style.overflowX = '';
+  doc.documentElement.style.overflowX = '';
+
+  /* типография */
+  const h1 = doc.querySelector('h1');
+  row.display = num(h1, 'fontSize');
+  row.displayLH = +(parseFloat(cs(h1,'lineHeight')) / parseFloat(cs(h1,'fontSize'))).toFixed(3);
+  row.body = num(doc.body, 'fontSize');
+  row.bodyLH = +(parseFloat(cs(doc.body,'lineHeight')) / parseFloat(cs(doc.body,'fontSize'))).toFixed(3);
+
+  /* лайаут */
+  const c = doc.querySelector('.container');
+  row.gutter = num(c, 'paddingLeft');
+  row.containerW = Math.round(c.getBoundingClientRect().width);
+  row.sectionY = num(doc.querySelector('.section'), 'paddingTop');
+
+  /* хедър и бутон */
+  row.headerH = Math.round(doc.querySelector('.site-header__inner').getBoundingClientRect().height);
+  const cta = doc.querySelector('.site-header__cta');
+  const ctaR = cta.getBoundingClientRect();
+  row.ctaH = Math.round(ctaR.height);
+  row.ctaWraps = ctaR.height > 56;
+  row.arrow = !!cta.querySelector('.btn__arrow');
+
+  /* слот */
+  const slot = doc.querySelector('genki-slot');
+  if (slot) {
+    const r = slot.getBoundingClientRect();
+    row.slotId = slot.getAttribute('slot-id');
+    row.slotRatio = +(r.width / r.height).toFixed(3);
+    const spec = win.GenkiSlots[row.slotId];
+    const want = (w >= 768 ? spec.d : spec.m).split('/').map(Number);
+    row.ratioOK = Math.abs(row.slotRatio - want[0]/want[1]) < 0.02;
+    row.slotRole = !!doc.querySelector('.slot__role');
+    row.slotRadius = cs(doc.querySelector('.slot'), 'borderRadius');
+  }
+
+  /* контраст върху реално изчислени цветове */
+  row.contrast = {
+    body: contrast(cs(doc.body,'color'), cs(doc.body,'backgroundColor')),
+    cta: contrast(cs(cta,'color'), cs(cta,'backgroundColor')),
+    footer: contrast(cs(doc.querySelector('.site-footer__bottom'),'color'),
+                     cs(doc.querySelector('.site-footer'),'backgroundColor'))
+  };
+
+  /* i18n */
+  const dict = win.genkiTranslations || {};
+  const attrs = ['data-i18n','data-i18n-html','data-i18n-placeholder','data-i18n-alt',
+                 'data-i18n-title','data-i18n-aria-label','data-i18n-content'];
+  const keys = new Set();
+  attrs.forEach(a => doc.querySelectorAll('['+a+']').forEach(e => keys.add(e.getAttribute(a))));
+  row.keys = keys.size;
+  row.missing = [...keys].filter(k => !dict[k] || typeof dict[k].bg !== 'string' || typeof dict[k].en !== 'string');
+  win.GenkiI18n.set('en');
+  await new Promise(r => setTimeout(r, 50));
+  row.langEn = doc.documentElement.lang === 'en';
+  win.GenkiI18n.set('bg');
+
+  /* меню / десктоп навигация */
+  if (w < 1152) {
+    const t = doc.querySelector('[data-menu-toggle]'), p = doc.getElementById('genki-mobile-menu');
+    const tr = t.getBoundingClientRect();
+    row.burgerTap = Math.round(Math.min(tr.width, tr.height));
+    t.click(); await new Promise(r => setTimeout(r, 60));
+    row.menuOpens = !p.hidden && p.getBoundingClientRect().height > 200;
+    row.menuTapMin = Math.min(...[...p.querySelectorAll('a,button')]
+      .map(e => Math.round(e.getBoundingClientRect().height)));
+    doc.dispatchEvent(new win.KeyboardEvent('keydown', {key:'Escape', bubbles:true}));
+    await new Promise(r => setTimeout(r, 60));
+    row.menuEsc = p.hidden === true;
+  } else {
+    row.navVisible = doc.querySelector('.site-nav').getBoundingClientRect().width > 0;
+    row.burgerHidden = doc.querySelector('.menu-toggle').getBoundingClientRect().width === 0;
+  }
+
+  f.remove();
+  return row;
+}
+
+/* grid и motion се проверяват на отделната foundation страница */
+async function checkFoundation(w) {
+  const f = await load('foundation.html?t=' + Date.now(), w, 4000);
+  const doc = f.contentDocument, win = f.contentWindow;
+  const g = doc.querySelector('.grid');
+  const cols = win.getComputedStyle(g).gridTemplateColumns.split(' ').length;
+  const expect = w >= 1024 ? 12 : (w >= 768 ? 8 : 4);
+  const asym = doc.querySelector('.gridcell[style*="--ds:9"]');
+  const asymStart = asym ? win.getComputedStyle(asym).gridColumnStart : null;
+  const revealed = doc.querySelectorAll('.reveal.is-revealed').length;
+  const total = doc.querySelectorAll('.reveal').length;
+  const jsReveal = doc.documentElement.classList.contains('js-reveal');
+  f.remove();
+  return { page: 'foundation', w, cols, colsOK: cols === expect, expect,
+           asymStart, revealed, total, jsReveal };
+}
+
+(async () => {
+  for (const p of PAGES) for (const w of WIDTHS) {
+    try { out.push(await check(p, w)); } catch (e) { out.push({page:p, w, error:String(e)}); }
+  }
+  for (const w of WIDTHS) {
+    try { out.push(await checkFoundation(w)); } catch (e) { out.push({page:'__foundation', w, error:String(e)}); }
+  }
+  document.getElementById('out').textContent = JSON.stringify(out, null, 1);
+  document.title = 'DONE';
+})();
+</script>
+</body></html>
