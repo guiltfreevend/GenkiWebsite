@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Скелет. Етап 8 прави финалния SEO проход и маха noindex при cut-over. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title data-i18n="meta.fit.title">Genki Fit — какъв Genki би работил при вас</title>
+  <meta name="description" data-i18n-content="meta.fit.description" content="Няколко въпроса за екипа и офиса ви, и виждате как би изглеждал Genki при вас.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Токените се зареждат ПРЕДИ компонентния CSS. -->
+  <link rel="stylesheet" href="/css/genki-tokens.css">
+  <link rel="stylesheet" href="/css/genki-2.css">
+
+  <!-- Tailwind чете същите токени (виж js/genki-2-tailwind.js). -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/js/genki-2-tailwind.js"></script>
+</head>
+<body>
+
+  <!-- genki:header -->
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Към основното съдържание</a>
+
+  <header class="site-header" data-site-header>
+    <div class="container site-header__inner">
+
+      <a class="site-header__brand" href="index.html"
+         aria-label="Genki — начална страница" data-i18n-aria-label="a11y.home">
+        <img class="site-header__logo" src="/assets/images/genki-logo-wordmark.png"
+             width="1156" height="519" alt="" fetchpriority="high">
+      </a>
+
+      <nav class="site-nav" aria-label="Основна навигация" data-i18n-aria-label="nav.menu_label">
+        <a class="nav-link" href="index.html"        data-nav-link data-i18n="nav.home">Начало</a>
+        <a class="nav-link" href="companies.html"    data-nav-link data-i18n="nav.companies">За компании</a>
+        <a class="nav-link" href="how-it-works.html" data-nav-link data-i18n="nav.how">Как работи</a>
+        <a class="nav-link" href="mission.html"      data-nav-link data-i18n="nav.mission">Мисия и въздействие</a>
+        <a class="nav-link" href="contact.html"      data-nav-link data-i18n="nav.contact">Контакт</a>
+      </nav>
+
+      <!-- Основната конверсия на сайта. Нарочно не изглежда като nav елемент.
+           На мобилно носи краткия етикет — пълното изречение изяжда хедъра. -->
+      <a class="btn btn--fit site-header__cta" href="genki-fit.html" data-nav-link>
+        <span class="btn__label-short" data-i18n="nav.fit_cta_short">Genki Fit →</span>
+        <span class="btn__label-full" data-i18n="nav.fit_cta">Проверете вашия Genki Fit →</span>
+      </a>
+
+      <div class="lang-switch" role="group" aria-label="Език" data-i18n-aria-label="lang.label">
+        <button type="button" class="lang-switch__btn" data-lang-option="bg"
+                aria-pressed="true" title="Превключете на български"
+                data-i18n="lang.bg" data-i18n-title="lang.to_bg">BG</button>
+        <button type="button" class="lang-switch__btn" data-lang-option="en"
+                aria-pressed="false" title="Превключете на английски"
+                data-i18n="lang.en" data-i18n-title="lang.to_en">EN</button>
+      </div>
+
+      <button type="button" class="menu-toggle" data-menu-toggle
+              aria-expanded="false" aria-controls="genki-mobile-menu"
+              aria-label="Отворете менюто" data-i18n-aria-label="nav.menu_open">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- Панелът стои ИЗВЪН <header> нарочно: хедърът има backdrop-filter,
+       а това го прави containing block за position: fixed и панелът се
+       свива до височината на лентата. -->
+  <nav class="mobile-menu" id="genki-mobile-menu" hidden
+       aria-label="Основна навигация" data-i18n-aria-label="nav.menu_label">
+    <a class="mobile-menu__link" href="index.html"        data-nav-link data-i18n="nav.home">Начало</a>
+    <a class="mobile-menu__link" href="companies.html"    data-nav-link data-i18n="nav.companies">За компании</a>
+    <a class="mobile-menu__link" href="how-it-works.html" data-nav-link data-i18n="nav.how">Как работи</a>
+    <a class="mobile-menu__link" href="mission.html"      data-nav-link data-i18n="nav.mission">Мисия и въздействие</a>
+    <a class="mobile-menu__link" href="contact.html"      data-nav-link data-i18n="nav.contact">Контакт</a>
+
+    <div class="mobile-menu__footer">
+      <a class="btn btn--fit" href="genki-fit.html" data-nav-link
+         data-i18n="nav.fit_cta">Проверете вашия Genki Fit →</a>
+
+      <div class="lang-switch" role="group" aria-label="Език" data-i18n-aria-label="lang.label">
+        <button type="button" class="lang-switch__btn" data-lang-option="bg"
+                aria-pressed="true" data-i18n="lang.bg" data-i18n-title="lang.to_bg">BG</button>
+        <button type="button" class="lang-switch__btn" data-lang-option="en"
+                aria-pressed="false" data-i18n="lang.en" data-i18n-title="lang.to_en">EN</button>
+      </div>
+    </div>
+  </nav>
+  <!-- /genki:header -->
+
+  <main id="main">
+    <section class="section container">
+      <h1>Genki Fit</h1>
+      <p class="skeleton-notice measure" data-i18n="skeleton.notice">
+        Скелет. Съдържанието на тази страница влиза в следващ етап.
+      </p>
+      <genki-slot slot-id="F04"></genki-slot>
+    </section>
+  </main>
+
+  <!-- genki:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand">
+          <img class="site-footer__logo" src="/assets/images/genki-logo-wordmark-light.png"
+               width="1096" height="493" alt="Genki" loading="lazy">
+          <p class="site-footer__tagline" data-i18n="footer.tagline">
+            По-добрата храна има място в офиса.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="site-footer__col-title" data-i18n="footer.nav_title">Сайт</h2>
+          <ul class="site-footer__list">
+            <li><a href="index.html"        data-i18n="nav.home">Начало</a></li>
+            <li><a href="companies.html"    data-i18n="nav.companies">За компании</a></li>
+            <li><a href="how-it-works.html" data-i18n="nav.how">Как работи</a></li>
+            <li><a href="mission.html"      data-i18n="nav.mission">Мисия и въздействие</a></li>
+            <li><a href="genki-fit.html"    data-i18n="nav.fit">Genki Fit</a></li>
+            <li><a href="contact.html"      data-i18n="nav.contact">Контакт</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="site-footer__col-title" data-i18n="footer.contact_title">Контакт</h2>
+          <ul class="site-footer__list">
+            <li><a href="mailto:hello@genki.bg">hello@genki.bg</a></li>
+            <li>
+              <a href="https://www.linkedin.com/company/genkibenefit/"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Genki в LinkedIn" data-i18n-aria-label="footer.linkedin_aria"
+                 data-i18n="footer.linkedin_label">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/genki.bg"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Genki в Instagram" data-i18n-aria-label="footer.instagram_aria"
+                 data-i18n="footer.instagram_label">Instagram</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="site-footer__col-title" data-i18n="footer.legal_title">Правно</h2>
+          <ul class="site-footer__list">
+            <li><a href="/privacy" data-i18n="footer.privacy">Политика за поверителност</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="site-footer__bottom" data-i18n="footer.legal_line">
+        © 2026 Genki · „Нортик Груп“ ЕООД · ЕИК 206451535
+      </p>
+    </div>
+  </footer>
+  <!-- /genki:footer -->
+
+  <!-- Редът е задължителен: низове -> i18n -> поведение. -->
+  <script src="/js/genki-translations.js"></script>
+  <script src="/js/genki-i18n.js"></script>
+  <script src="/js/genki-site.js"></script>
+</body>
+</html>
