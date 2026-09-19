@@ -11,8 +11,13 @@
      alt.*     alt текстове на IMAGE слотовете, по ID на слота
      home.*    начална страница
 
-   Copy-то на страниците е ДОСЛОВНО от docs/GENKI-2.0-BRIEF.md, раздел 7
-   (BG) и раздел 8 (EN). Нищо не е „подобрено".
+   Copy-то на страниците е ДОСЛОВНО от каноничните източници. Нищо не е
+   „подобрено", нищо не е превеждано на ръка.
+
+   Каноничен източник за текста на сайта:
+   „GENKI 2.0 — WEBSITE COPY & HANDOFF" (LOCKED 16.09.2026).
+   Брифът остава източник за продукта, структурата и границите на
+   твърденията.
 
    Всеки ключ трябва да има и bg, и en. Липсващ превод се съобщава в
    конзолата при работа на localhost.
@@ -250,23 +255,23 @@ window.genkiTranslations = {
   },
 
   /* ==========================================================================
-     ЗА КОМПАНИИ — BG дословно от бриф раздел 9.
+     ЗА КОМПАНИИ
 
-     ВНИМАНИЕ: брифът НЯМА английска версия на тази страница (раздел 8 дава
-     EN само за Home, раздел 12 за Мисия, раздел 24 за Контакт). Английските
-     низове тук са ПРЕВОД, не заключено copy. Смисълът е запазен дословно,
-     нови твърдения не са добавяни — но текстът чака одобрение от собственика.
+     BG и EN са ДОСЛОВНО от „GENKI 2.0 — WEBSITE COPY & HANDOFF"
+     (LOCKED — IMPLEMENTATION READY, 16.09.2026) — каноничният източник за
+     copy-то на сайта. Английският вече е минал native-language cleanup и
+     НЕ се „подобрява" допълнително.
      ========================================================================== */
 
   /* --- Hero --- */
   'companies.hero.label': { bg: 'GENKI ЗА КОМПАНИИ', en: 'GENKI FOR COMPANIES' },
   'companies.hero.title': {
     bg: 'Benefit, който става част от ежедневието в офиса.',
-    en: 'A benefit that becomes part of the office day.',
+    en: 'A benefit that becomes part of everyday life at work.',
   },
   'companies.hero.lead': {
     bg: 'По-добра храна в офиса, повече стойност за екипа и без да създаваме още една ежедневна задача за компанията.',
-    en: 'Better food at work, more value for your team, and without creating another daily task for the company.',
+    en: 'Better food at work, more value for your team — without creating another day-to-day task for the company.',
   },
 
   /* --- Genki се грижи за останалото --- */
@@ -277,11 +282,11 @@ window.genkiTranslations = {
   },
   'companies.ops.lead': {
     bg: 'Ние поставяме Genki, зареждаме го, обслужваме го и следим какво хората реално избират, за да го подобряваме с времето.',
-    en: 'We install Genki, stock it, service it and watch what people actually choose, so it keeps getting better over time.',
+    en: 'We install Genki, keep it stocked, take care of the service and follow what people actually choose, so we can keep making it better over time.',
   },
   'companies.ops.promise': {
     bg: 'От поставянето нататък — Genki е наша грижа.',
-    en: 'From installation onward — Genki is our job.',
+    en: 'From installation onwards, Genki is on us.',
   },
   'companies.ops.cta': { bg: 'Вижте как работи Genki', en: 'See how Genki works' },
 
@@ -289,12 +294,12 @@ window.genkiTranslations = {
   'companies.ways.label': { bg: 'ДВА НАЧИНА ДА ДАДЕТЕ ПОВЕЧЕ', en: 'TWO WAYS TO GIVE MORE' },
   'companies.ways.title': {
     bg: 'Направете Genki benefit, който хората наистина усещат.',
-    en: 'Make Genki a benefit people genuinely feel.',
+    en: 'Make Genki a benefit your people genuinely feel.',
   },
   'companies.ways.benefit_name': { bg: 'Genki Benefit', en: 'Genki Benefit' },
   'companies.ways.benefit_title': {
     bg: 'Направете Genki по-специален за вашия екип.',
-    en: 'Make Genki feel more like yours.',
+    en: 'Make Genki more special for your team.',
   },
   'companies.ways.benefit_lead': {
     bg: 'Повече изживяване, участие и стойност около самия Genki.',
@@ -303,22 +308,22 @@ window.genkiTranslations = {
   'companies.ways.g1_title': { bg: 'Вашият Genki', en: 'Your Genki' },
   'companies.ways.g1_text': {
     bg: 'Персонализация, предложения за продукти, гласуване и обратна връзка от служителите.',
-    en: 'Personalization, product suggestions, employee voting and feedback.',
+    en: 'Personalization, product suggestions, voting and employee feedback.',
   },
   'companies.ways.g2_title': { bg: 'Ново и интересно', en: 'Something new' },
   'companies.ways.g2_text': {
     bg: 'Launch Event, дегустации, сезонни продуктови премиери, ранен достъп и Genki exclusives.',
-    en: 'Launch Event, tastings, seasonal product premieres, early access and Genki exclusives.',
+    en: 'Launch events, tastings, seasonal drops, early access and Genki exclusives.',
   },
-  'companies.ways.g3_title': { bg: 'Каузи заедно', en: 'Causes together' },
+  'companies.ways.g3_title': { bg: 'Каузи заедно', en: 'Choose causes together' },
   'companies.ways.g3_text': {
     bg: 'Избор на каузи, ясен отчет за даренията и възможност за участие в годишна доброволческа инициатива.',
-    en: 'Choosing causes, clear reporting on donations, and the chance to take part in an annual volunteering initiative.',
+    en: 'Cause selection, clear donation reporting and the opportunity to join one annual volunteering initiative.',
   },
   'companies.ways.g4_title': { bg: 'По-лично обслужване', en: 'More personal support' },
   'companies.ways.g4_text': {
     bg: 'Личен Genki контакт, по-гъвкави условия и ранен достъп до нови Genki функции.',
-    en: 'A personal Genki contact, more flexible terms and early access to new Genki features.',
+    en: 'A dedicated Genki contact, more flexible terms and early access to new Genki features.',
   },
   'companies.ways.ps_name': { bg: 'Product Price Support', en: 'Product Price Support' },
   'companies.ways.ps_title': {
@@ -339,7 +344,7 @@ window.genkiTranslations = {
   'companies.budget.title': { bg: 'Всяко евро трябва да се усеща.', en: 'Every euro should be felt.' },
   'companies.budget.lead': {
     bg: 'Настройваме Genki така, че бюджетът ви да се усеща от хората.',
-    en: 'We set Genki up so your budget is felt by your people.',
+    en: 'We configure Genki so your budget creates value your people can actually feel — every day.',
   },
   'companies.budget.split': {
     bg: 'Benefit според екипа. Price Support според вас.',
@@ -349,47 +354,47 @@ window.genkiTranslations = {
      обещание към всички. */
   'companies.budget.zero': {
     bg: 'За избрани локации Genki може да работи и с <strong>€0 месечна такса за работодателя.</strong>',
-    en: 'For selected locations, Genki can also work with <strong>€0 monthly employer fee.</strong>',
+    en: 'For selected locations, Genki can also work with a <strong>€0 monthly employer fee.</strong>',
   },
 
   /* --- Лесно е да добавите Genki --- */
-  'companies.easy.label': { bg: 'ЛЕСНО Е ДА ДОБАВИТЕ GENKI', en: 'EASY TO ADD GENKI' },
+  'companies.easy.label': { bg: 'ЛЕСНО Е ДА ДОБАВИТЕ GENKI', en: 'EASY TO ADD' },
   'companies.easy.title': {
     bg: 'Не е нужно да променяте всичко.',
-    en: 'You don’t have to change everything.',
+    en: 'You don’t need to change everything.',
   },
   'companies.easy.p1': {
     bg: 'Genki е създаден да бъде по-пълното решение за офиса — храна, по-добро ежедневие, социален принос и грижа за екипа на едно място.',
-    en: 'Genki is built to be the fuller answer for the office — food, a better everyday, social impact and care for the team in one place.',
+    en: 'Genki is designed to be a more complete workplace solution — food, a better everyday experience, social contribution and care for your team in one place.',
   },
   'companies.easy.p2': {
     bg: 'Ако вече имате catering, столова, vending, плодове или друг benefit, не е нужно да ги махате.',
-    en: 'If you already have catering, a canteen, vending, fruit or another benefit, you don’t have to remove them.',
+    en: 'If you already have catering, a canteen, vending, fruit or another benefit, you don’t need to remove it.',
   },
   'companies.easy.p3': {
     bg: 'Genki може спокойно да работи редом с тях и да добави още стойност за екипа ви.',
-    en: 'Genki can comfortably work alongside them and add more value for your team.',
+    en: 'Genki can work alongside what you already have and add more value for your team.',
   },
 
   /* --- Pilot. Нарочно визуално подчинен: не е основният път за покупка. --- */
   'companies.pilot.title': {
     bg: 'А ако искате първо да го докажете?',
-    en: 'Would you rather prove it first?',
+    en: 'Want to prove it first?',
   },
   'companies.pilot.text': {
     bg: 'За подходящи компании можем да започнем с <strong>90-дневен Pilot</strong> — реален Genki, в реалния ви офис.',
-    en: 'For suitable companies we can start with a <strong>90-day Pilot</strong> — real Genki, in your real office.',
+    en: 'For the right companies, we can start with a <strong>90-day Pilot</strong> — real Genki, in your real workplace.',
   },
 
   /* --- Финален CTA --- */
   'companies.final.label': { bg: 'GENKI ЗА ВАШИЯ ОФИС', en: 'GENKI FOR YOUR WORKPLACE' },
   'companies.final.title': {
     bg: 'Как би изглеждал Genki при вас?',
-    en: 'What would Genki look like at your place?',
+    en: 'What would Genki look like at your company?',
   },
   'companies.final.lead': {
     bg: 'Няколко въпроса за екипа и офиса ви са достатъчни, за да видим какъв Genki има смисъл за вашата компания.',
-    en: 'A few questions about your team and your office are enough for us to see what kind of Genki makes sense for your company.',
+    en: 'A few details about your team and workplace are enough for us to see what kind of Genki makes sense for your company.',
   },
 
   /* ------------------------------------------------- alt на IMAGE слотовете
