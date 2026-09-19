@@ -1,29 +1,36 @@
-# Genki Website — Handoff
+# Genki 2.0 — Handoff
 
-## Current Focus
-Pre-launch B2B wellness website. Recent work on office landing page calculator improvements.
+## Къде сме
+**Етап 1 — Основа: ЗАВЪРШЕН (2026-09-19).** Следващ: Етап 2 — Начало (Home). Чака потвърждение от собственика.
 
-## Recently Completed
-- 2026-05-21: Added test company box page at /box/GK-7E5700/ ("Test Company") — internal sandbox to verify the QR scan -> WinPath sync end-to-end. Live, deployed via GitHub auto-deploy.
-- Synced all local changes to GitHub
-- Added break hours saved display to companies.html and office.html calculators
-- Removed link to password-protected ROI calculator from office landing page
-- Updated savings range to €280K–5.7M on office landing page
-- Aligned office.html calculator defaults with ROI calculator
+Целият план, чеклистите по етапи и подробният отчет за етап 1 са в `docs/BUILD-PLAN.md`. Това е файлът, от който се разбира докъде сме стигнали.
 
-## In Progress
-- No partially done work known at this time
+## Клон
+Работи се в `genki-2.0-build`. `main` остава непокътнат и обслужва живия сайт до cut-over.
 
-## Up Next
-- Technical Foundation — Pragmatist upgrade (PostHTML includes, Tailwind CLI build, src/dist separation)
-- Social Proof / Trust (needs real customers first — post-launch)
-- Production Readiness (OG share image, analytics, social media links)
-- Consider Astro SSG migration if site grows beyond 10-15 pages
+## Какво е готово
+- **Design tokens** — `css/genki-tokens.css`. Брандовото зелено е `#1d5329` (измерено от логото), акцентът `#218336`. `#2d8659` е отменено.
+- **Скелет на 6-те страници** в `v2/` — Начало, За компании, Как работи, Мисия и въздействие, Genki Fit, Контакт.
+- **Хедър, мобилно меню, BG/EN превключвател, футър** — един източник в `tools/partials/`, синхронизира се с `node tools/sync-partials.js`.
+- **Placeholder компонент** `<genki-slot slot-id="H01">` — точните съотношения от asset документа, alt текстове вече на двата езика.
 
-## Important Context
-- Pre-launch phase — no customers yet
-- 12 active HTML pages with duplicated header/footer (~170 lines each) — must update ALL pages when changing nav/footer
-- Deploys via Wrangler CLI to Cloudflare Pages (instant ~2s deploys)
-- SEO setup is complete (OG tags, canonical URLs, JSON-LD, sitemap, robots.txt)
-- CDN versions are pinned — never use @latest
-- i18n: BG default, EN alternate via data-i18n attributes
+## Как се тества локално
+```
+python -m http.server 8765
+```
+после `http://localhost:8765/v2/index.html`
+
+След промяна в хедъра или футъра:
+```
+node tools/sync-partials.js          # преписва партиалите в 6-те страници
+node tools/sync-partials.js --check  # проверява без да пише
+```
+
+## Отворени въпроси
+- Векторен файл на логото — няма и не се чака скоро. G01/G02/G03 стоят на PNG с максимална резолюция и са маркирани „чака векторен файл".
+- Липсва страница „Cookies", която бриф раздел 25 изброява във футъра. Не е сложен мъртъв линк.
+- Tailwind върви през Play CDN. Етап 8 решава дали остава.
+- Снимки на хардуера от MAIKOZ, разрешения от производителите за логата, спецификация на Genki Fit — виж таблицата със зависимости в `docs/BUILD-PLAN.md`.
+
+## Какво НЕ е пипано
+Legacy сайтът в root (`index.html`, `companies.html`, `mission.html`, `contact.html`, `office.html`, `privacy*.html`, `404.html`, `box-landing.html`), старите `js/main.js`, `js/translations.js`, `css/custom.css`, и цялата box/QR система (`box/`, `functions/api/qr.js`). Всичко това продължава да работи.
