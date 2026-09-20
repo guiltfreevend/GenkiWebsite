@@ -24,7 +24,7 @@ export async function onRequest({ env }) {
       const kv = typeof v.get === 'function' && typeof v.put === 'function';
       return kv ? 'KV binding' : 'обект';
     }
-    if (typeof v === 'string') return 'низ, дължина ' + v.length;
+    if (typeof v === 'string') return v.length > 0 ? 'зададен' : 'ПРАЗЕН';
     return typeof v;
   };
 
