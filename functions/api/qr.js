@@ -22,6 +22,8 @@
 //                      are counted per code; without it the count shows
 //                      "—" and everything else still works.
 
+import { SOFIA_TIME_ZONE, formatSofiaTime, formatSofiaDate, sofiaDayKey } from '../../lib/genki-time.js';
+
 const CODE_RE = /^GK-[A-F0-9]{6}$/i;
 
 // Partner code → display name. Mirror of the box registry.
@@ -93,6 +95,18 @@ function describeDevice(ua) {
   return { kind, icon, device, browser };
 }
 
+// „Sat, 20 September" — форматът, с който известията за сканиране вървят
+// от самото начало. Датата минава през същата зона като всичко останало.
+function qrDateLabel(date) {
+  try {
+    return new Intl.DateTimeFormat('en-GB', {
+      timeZone: SOFIA_TIME_ZONE, weekday: 'short', day: 'numeric', month: 'long',
+    }).format(date);
+  } catch (e) {
+    return formatSofiaDate(date, 'en');
+  }
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -113,23 +127,15 @@ export async function onRequestPost(context) {
     const company = COMPANIES[code] || 'Unknown partner';
 
     // ── Time (Europe/Sofia) ──
+    // Видимият формат е същият, какъвто беше — „Sat, 20 September" и
+    // „17:17". Разликата е, че правилото вече живее на едно място, а не се
+    // преписва във всеки endpoint. Предишният catch мълчаливо минаваше на
+    // UTC, включително за dayKey — тоест бизнес денят щеше да се сменя в
+    // грешния момент, без нищо да го покаже.
     const now = new Date();
-    let dateStr, timeStr, dayKey;
-    try {
-      dateStr = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Sofia', weekday: 'short', day: 'numeric', month: 'long',
-      }).format(now);
-      timeStr = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Sofia', hour: '2-digit', minute: '2-digit',
-      }).format(now);
-      dayKey = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Europe/Sofia', year: 'numeric', month: '2-digit', day: '2-digit',
-      }).format(now);
-    } catch (e) {
-      dateStr = now.toISOString().slice(0, 10);
-      timeStr = now.toISOString().slice(11, 16);
-      dayKey = now.toISOString().slice(0, 10);
-    }
+    const dateStr = qrDateLabel(now);
+    const timeStr = formatSofiaTime(now, 'en');
+    const dayKey = sofiaDayKey(now);
 
     // ── Device (plain language) ──
     const ua = request.headers.get('User-Agent') || '';
@@ -150,6 +156,8 @@ export async function onRequestPost(context) {
           rec.total = (rec.total || 0) + 1;
           rec.days = rec.days || {};
           rec.days[dayKey] = (rec.days[dayKey] || 0) + 1;
+          // Абсолютен момент за машинно четене. UTC е правилният избор тук:
+          // това поле не се показва на човек.
           rec.last = now.toISOString();
           await env.GENKI_SCANS.put(code, JSON.stringify(rec));
         }

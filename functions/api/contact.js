@@ -24,6 +24,8 @@
 //   • Honeypot: ако е попълнен, отговаря 200 и НЕ праща нищо.
 //   • Никога не връща вътрешни грешки или stack trace към браузъра.
 
+import { formatSofiaDateTime, machineTimestamp } from '../../lib/genki-time.js';
+
 const MAX = {
   name: 120,
   company: 160,
@@ -119,7 +121,9 @@ export function buildEmail(fields, meta) {
     ['Email', fields.email],
     ['Телефон', fields.phone || '—'],
     ['Език на страницата', fields.lang.toUpperCase()],
-    ['Получено', meta.timestamp],
+    // Часовата зона на Genki е Europe/Sofia. Суровият UTC момент остава в
+    // meta.timestamp за машинна употреба и НЕ влиза в имейла.
+    ['Получено', formatSofiaDateTime(meta.timestamp, 'bg', { suffix: true })],
   ];
 
   if (meta.referrer) rows.push(['Referrer', meta.referrer]);
@@ -173,7 +177,7 @@ export async function onRequestPost(context) {
   }
 
   const meta = {
-    timestamp: new Date().toISOString(),
+    timestamp: machineTimestamp(),   // абсолютен момент, UTC, само за машини
     // Referrer се взима само ако браузърът вече го е изпратил. Нищо
     // допълнително не се събира „за всеки случай".
     referrer: oneLine(request.headers.get('Referer') || '', 300),
