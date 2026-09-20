@@ -41,6 +41,18 @@ const translations = {
     en: "No spam. Just one email when we're ready.",
     bg: "Без спам. Само един имейл, когато сме готови."
   },
+  coming_error: {
+    en: "Something went wrong. Please try again, or email us at hello@genki.bg.",
+    bg: "Нещо се обърка. Опитайте пак или ни пишете на hello@genki.bg."
+  },
+  coming_error_email: {
+    en: "Please enter a valid email address.",
+    bg: "Моля, въведете валиден имейл адрес."
+  },
+  coming_error_network: {
+    en: "No connection. Check your internet and try again.",
+    bg: "Няма връзка. Проверете интернета и опитайте пак."
+  },
   coming_success_title: {
     en: "You're on the list!",
     bg: "Записахме Ви!"
