@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head><meta charset="UTF-8"><title>coming soon visibility tests</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style>
+</head>
+<body><pre id="out">…</pre><div id="s"></div>
+<script>
+/* Тестове за ВИДИМОСТ на Coming Soon страницата.
+
+   Заради истински production бъг: <style>body{opacity:0}</style> остана в
+   <head> без кода, който го връщаше обратно, и целият сайт беше бял екран.
+
+   Проверката на самия елемент НЕ хваща това — прозрачността не се
+   наследява като computed стойност, затова h1 рапортува opacity:1, докато
+   родителят му е напълно невидим. Затова тук се смята ЕФЕКТИВНАТА
+   прозрачност: произведението по цялата верига нагоре до <html>.
+
+   Страницата трябва да е видима и ако JavaScript е изключен, и ако
+   translations.js или Tailwind CDN не се заредят. */
+
+const out = [];
+let pass = 0, fail = 0;
+function check(n, c, d) {
+  if (c) { pass++; out.push('  OK   ' + n); }
+  else { fail++; out.push('  FAIL ' + n + (d ? ' — ' + d : '')); }
+}
+
+function load(src, w, h, sandbox) {
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px';
+    if (sandbox !== undefined) f.setAttribute('sandbox', sandbox);
+    f.src = src + (src.includes('?') ? '&' : '?') + 't=' + Date.now() + Math.random();
+    f.onload = () => setTimeout(() => r(f), 1600);   // след края на fade-in
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+/* Зарежда страницата със счупен подресурс, без да оставя файлове в репото.
+   <base href="/"> държи относителните пътища верни вътре в srcdoc. */
+async function loadBroken(replace, w, h) {
+  const html = await (await fetch('/coming-soon.html?t=' + Date.now())).text();
+  const doc = html
+    .replace('<head>', '<head><base href="/">')
+    .replace(replace[0], replace[1]);
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px';
+    f.onload = () => setTimeout(() => r(f), 1600);
+    f.srcdoc = doc;
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+/* Произведението на opacity по цялата верига до корена. */
+function effectiveOpacity(win, el) {
+  let o = 1, n = el;
+  while (n && n.nodeType === 1) {
+    const cs = win.getComputedStyle(n);
+    if (cs.display === 'none' || cs.visibility === 'hidden') return 0;
+    o *= parseFloat(cs.opacity);
+    n = n.parentElement;
+  }
+  return o;
+}
+
+function auditVisible(f, label) {
+  const d = f.contentDocument, w = f.contentWindow;
+
+  const bodyOp = parseFloat(w.getComputedStyle(d.body).opacity);
+  check(label + ': body не е прозрачен', bodyOp === 1, 'body opacity=' + bodyOp);
+
+  const htmlOp = parseFloat(w.getComputedStyle(d.documentElement).opacity);
+  check(label + ': <html> не е прозрачен', htmlOp === 1, 'html opacity=' + htmlOp);
+
+  const targets = [
+    ['заглавието', 'h1'],
+    ['подзаглавието', '#signup-container p'],
+    ['полето за имейл', '#email'],
+    ['бутонът', '#signup-submit'],
+    ['логото', 'header img'],
+    ['футърът', 'footer'],
+  ];
+  for (const [name, sel] of targets) {
+    const el = d.querySelector(sel);
+    if (!el) { check(label + ': ' + name + ' съществува', false); continue; }
+    const eo = effectiveOpacity(w, el);
+    const r = el.getBoundingClientRect();
+    check(label + ': ' + name + ' се вижда', eo > 0.95 && r.width > 0 && r.height > 0,
+      'ефективна прозрачност=' + eo.toFixed(2) + ' ' + Math.round(r.width) + 'x' + Math.round(r.height));
+  }
+
+  // Нищо не бива да остане закотвено на opacity:0 след края на анимациите.
+  const stuck = [...d.querySelectorAll('.opacity-0')].filter(el => effectiveOpacity(w, el) < 0.95);
+  check(label + ': нито един елемент не е заседнал невидим', stuck.length === 0,
+    stuck.length + ' заседнали');
+
+  // Текстът наистина е там.
+  const txt = d.body.innerText || '';
+  check(label + ': ключовият текст присъства',
+    /Genki/i.test(txt) && (/Здравословно/.test(txt) || /Healthy/i.test(txt)),
+    JSON.stringify(txt.slice(0, 60)));
+}
+
+(async () => {
+
+  /* ---------- 1. нормално, JS включен ---------- */
+  {
+    const f = await load('/coming-soon.html', 1280, 900);
+    auditVisible(f, 'JS включен');
+    f.remove();
+  }
+
+  /* ---------- 2. JS ИЗКЛЮЧЕН ----------
+     sandbox без allow-scripts спира целия JavaScript в рамката, но
+     allow-same-origin оставя DOM-а четим оттук. */
+  {
+    const f = await load('/coming-soon.html', 1280, 900, 'allow-same-origin');
+    check('JS изключен: скриптовете наистина не са се изпълнили',
+      typeof f.contentWindow.tailwind === 'undefined');
+    auditVisible(f, 'JS изключен');
+    f.remove();
+  }
+
+  /* ---------- 3. translations.js не се зарежда ---------- */
+  {
+    const f = await loadBroken(['js/translations.js', 'js/__nope.js'], 1280, 900);
+    check('счупен translations: файлът наистина липсва',
+      typeof f.contentWindow.translations === 'undefined');
+    auditVisible(f, 'без translations.js');
+    f.remove();
+  }
+
+  /* ---------- 4. Tailwind CDN не се зарежда ---------- */
+  {
+    const f = await loadBroken(['https://cdn.tailwindcss.com/3.4.17', 'https://cdn.tailwindcss.com/__nope.js'], 1280, 900);
+    check('счупен Tailwind: CDN-ът наистина липсва',
+      typeof f.contentWindow.tailwind === 'undefined');
+    auditVisible(f, 'без Tailwind');
+    f.remove();
+  }
+
+  /* ---------- 5. мобилно и desktop ---------- */
+  {
+    for (const [w, h] of [[320, 900], [390, 844], [768, 1024], [1440, 900]]) {
+      const f = await load('/coming-soon.html', w, h);
+      const d = f.contentDocument, win = f.contentWindow;
+      const bodyOp = parseFloat(win.getComputedStyle(d.body).opacity);
+      check('@' + w + ': body се вижда', bodyOp === 1, 'opacity=' + bodyOp);
+      const h1 = d.querySelector('h1');
+      check('@' + w + ': заглавието се вижда', effectiveOpacity(win, h1) > 0.95);
+      check('@' + w + ': няма хоризонтално преливане',
+        d.documentElement.scrollWidth <= w + 1, d.documentElement.scrollWidth + 'px');
+      f.remove();
+    }
+  }
+
+  document.getElementById('out').textContent =
+    out.join('\n') + '\n\n' + '-'.repeat(46) +
+    '\nРЕЗУЛТАТ: ' + pass + ' минали, ' + fail + ' паднали';
+})();
+</script>
+</body>
+</html>
