@@ -23,6 +23,8 @@
 //   • Honeypot: ако е попълнен, отговаря 200 и НЕ праща нищо.
 //   • Никога не връща вътрешни грешки или stack trace към браузъра.
 
+import { formatSofiaDateTime, machineTimestamp } from '../../lib/genki-time.js';
+
 const MAX_EMAIL = 200;
 
 // Същото меко правило като на клиента. По-строгото отхвърля реални адреси.
@@ -74,7 +76,9 @@ export function buildEmail(fields, meta) {
     '',
     'Имейл:   ' + fields.email,
     'Език:    ' + fields.lang.toUpperCase(),
-    'Час:     ' + meta.timestamp,
+    // Europe/Sofia. Суровият UTC момент остава в meta.timestamp за машинна
+    // употреба и НЕ влиза в имейла.
+    'Час:     ' + formatSofiaDateTime(meta.timestamp, 'bg', { suffix: true }),
     'Източник: ' + (meta.referrer || '—'),
   ].join('\n');
 
@@ -84,7 +88,7 @@ export function buildEmail(fields, meta) {
     '<table cellpadding="4" cellspacing="0" style="border-collapse:collapse">' +
     '<tr><td style="color:#6b7280">Имейл</td><td><strong><a href="mailto:' + esc(fields.email) + '" style="color:#218336">' + esc(fields.email) + '</a></strong></td></tr>' +
     '<tr><td style="color:#6b7280">Език</td><td>' + esc(fields.lang.toUpperCase()) + '</td></tr>' +
-    '<tr><td style="color:#6b7280">Час</td><td>' + esc(meta.timestamp) + '</td></tr>' +
+    '<tr><td style="color:#6b7280">Час</td><td>' + esc(formatSofiaDateTime(meta.timestamp, 'bg', { suffix: true })) + '</td></tr>' +
     '<tr><td style="color:#6b7280">Източник</td><td>' + esc(meta.referrer || '—') + '</td></tr>' +
     '</table>' +
     '<p style="margin:18px 0 0;color:#6b7280;font-size:12px">Изпратено от Coming Soon страницата на www.genki.bg</p>' +
@@ -146,7 +150,7 @@ export async function onRequestPost(context) {
   }
 
   const mail = buildEmail(v.fields, {
-    timestamp: new Date().toISOString(),
+    timestamp: machineTimestamp(),   // абсолютен момент, UTC, само за машини
     referrer: request.headers.get('Referer') || '',
   });
 

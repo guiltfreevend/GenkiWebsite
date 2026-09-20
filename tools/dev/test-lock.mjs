@@ -203,7 +203,12 @@ console.log('\n=== ЗАПИСВАНЕ: имейлът ===');
   const ok = buildEmail(validate({ email: 'ivan@primerna.bg', lang: 'en' }).fields, meta);
   check('адресът е в текста', ok.text.includes('ivan@primerna.bg'));
   check('езикът е в текста', ok.text.includes('EN'));
-  check('часът е в текста', ok.text.includes('2026-09-20T10:00:00.000Z'));
+  // Часът в имейла е софийски, не суров UTC. 10:00Z през септември е 13:00
+  // в София. Суровият момент остава в meta, но не се показва.
+  check('часът е софийски, не UTC', ok.text.includes('20.09.2026 г., 13:00 ч. (софийско време)'),
+    JSON.stringify((ok.text.match(/Час:.*/) || [])[0]));
+  check('суров ISO низ не изтича в имейла',
+    !/\d{4}-\d{2}-\d{2}T\d{2}:/.test(ok.text + ok.html));
 }
 
 console.log('\n=== ЗАПИСВАНЕ: handler ===');

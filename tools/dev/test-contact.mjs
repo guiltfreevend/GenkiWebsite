@@ -91,7 +91,11 @@ console.log('\n=== СЪДЪРЖАНИЕ НА ИМЕЙЛА ===');
   const noPhone = buildEmail(validate(VALID_BG).fields, meta);
   check('празният телефон се отбелязва с тире', noPhone.text.includes('Телефон: —'));
   check('езикът на страницата е в имейла', noPhone.text.includes('BG'));
-  check('има timestamp', noPhone.text.includes('2026-09-20T10:00:00.000Z'));
+  // Часът в имейла е софийски, не суров UTC. 10:00Z през септември е 13:00
+  // в София. Суровият момент остава в meta, но не се показва.
+  check('часът е софийски, не UTC', noPhone.text.includes('20.09.2026 г., 13:00 ч. (софийско време)'),
+    JSON.stringify(noPhone.text.match(/Получено:.*/)?.[0]));
+  check('суров ISO низ не изтича в имейла', !/\d{4}-\d{2}-\d{2}T\d{2}:/.test(noPhone.text + noPhone.html));
   check('съобщението е в текстовата версия', noPhone.text.includes('Здравейте, имам въпрос.'));
 }
 

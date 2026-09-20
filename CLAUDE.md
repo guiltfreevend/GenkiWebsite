@@ -56,6 +56,43 @@ B2B wellness benefits company based in Sofia, Bulgaria. Delivers healthy snacks 
 - sitemap.xml with 5 indexable pages
 - robots.txt with proper disallow rules
 
+## Genki Business Timezone — Europe/Sofia (ЗАКЛЮЧЕНО, 2026-09-20)
+
+**Бизнес часовата зона на целия Genki ecosystem е `Europe/Sofia`.** Това е глобално правило, не поправка на отделни файлове, и важи за всички бъдещи Genki функционалности.
+
+Каноничният модул е **`lib/genki-time.js`**. Всяко човешко време минава оттам:
+
+```js
+import { formatSofiaDateTime, formatSofiaDate, formatSofiaTime,
+         sofiaDayKey, machineTimestamp, SOFIA_TIME_ZONE } from '../../lib/genki-time.js';
+```
+
+### Правилото
+
+- **Съхранение:** абсолютни машинни моменти се пазят в UTC ISO, когато това е полезно — например `rec.last` в KV. Там UTC е правилният избор.
+- **Показване:** всичко, което човек вижда — имейл, UI, отчет — е в `Europe/Sofia`.
+- **Бизнес календар:** всяко групиране по ден, всяко „днес", всяка граница на ден е по софийски календар. Денят се сменя в **00:00 Europe/Sofia**, не в 00:00 UTC.
+- **Никога не показвай суров ISO низ** (`2026-09-20T14:17:36.242Z`) на човек.
+- **Никога не зашивай отместване.** Без `+2`, без `+3`, без ръчно добавяне на часове. `Europe/Sofia` сама се грижи за лятното часово време.
+- **Никога не ползвай часовата зона на устройството** като бизнес зона. Човек в Лондон трябва да вижда софийското оперативно време на Genki.
+- Без date библиотека. `Intl.DateTimeFormat` е достатъчен и е наличен и в Workers, и в браузъра.
+
+### Формат
+
+| | |
+| --- | --- |
+| BG | `20.09.2026 г., 17:17 ч.` · със секунди `20.09.2026 г., 17:17:36 ч.` |
+| EN | `20 Sep 2026, 17:17` · със секунди `20 Sep 2026, 17:17:36` |
+| Двусмислие | добавя се `(софийско време)` / `(Sofia time)` |
+
+24-часов формат навсякъде.
+
+### Обхват
+
+Правилото важи за Pages Functions, Worker код, frontend, email шаблони, Genki Fit (`started_at`, `completed_at`, час на получаване на заявка, час на известието, групиране по ден) и всяко бъдещо CRM или отчетно показване.
+
+Тестове: `node tools/dev/test-time.mjs` и `node tools/dev/test-qr-time.mjs` — включват зимен и летен случай и двата DST прехода, за да доказват, че отместването не е зашито.
+
 ## Deploy Workflow (CRITICAL — follow exactly)
 The site deploys to **Cloudflare Pages** via **Wrangler CLI** for instant deploys (~2 seconds).
 
