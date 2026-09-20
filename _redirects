@@ -1,5 +1,8 @@
-# ===== LIVE SITE =====
-# Coming Soon mode disabled on 2026-04-23. All routes publicly accessible.
+# ===== COMING SOON MODE =====
+# Re-enabled 2026-09-20 while Genki 2.0 is built. The gate itself is NOT here —
+# it lives in functions/_middleware.js, because a Pages Function runs before
+# static assets and can keep /box and /api untouched. Turn it off with the
+# COMING_SOON=0 environment variable on the Pages project, not by editing this file.
 # Cloudflare Pages handles clean-URL .html routing automatically — no rewrites needed here.
 
 # Genki QR box landing — per-code partner-branded pages live at
