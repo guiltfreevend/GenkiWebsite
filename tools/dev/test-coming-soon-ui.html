@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head><meta charset="UTF-8"><title>coming soon UI tests</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style>
+</head>
+<body><pre id="out">…</pre><div id="s"></div>
+<script>
+/* Тестове на формата за записване в браузър. fetch в iframe-а е подменен —
+   НИКАКВИ реални заявки и нито един реален имейл. */
+
+const out = [];
+let pass = 0, fail = 0;
+function check(n, c, d) {
+  if (c) { pass++; out.push('  OK   ' + n); }
+  else { fail++; out.push('  FAIL ' + n + (d ? ' — ' + d : '')); }
+}
+
+function load(w, h) {
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px';
+    f.src = '/coming-soon.html?t=' + Date.now() + Math.random();
+    f.onload = () => setTimeout(() => r(f), 400);
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+/* mode: ok | error | throw | slow | invalid */
+function patchFetch(win, mode) {
+  const calls = [];
+  win.fetch = function (url, opts) {
+    calls.push({ url, body: JSON.parse(opts.body) });
+    if (mode === 'throw') return Promise.reject(new Error('offline'));
+    const map = {
+      ok:      { status: 200, ok: true,  payload: { ok: true } },
+      error:   { status: 502, ok: false, payload: { ok: false, error: 'send_failed' } },
+      invalid: { status: 422, ok: false, payload: { ok: false, error: 'validation', fields: ['email'] } },
+      slow:    { status: 200, ok: true,  payload: { ok: true } },
+    };
+    const m = map[mode] || map.ok;
+    const res = { ok: m.ok, status: m.status, json: () => Promise.resolve(m.payload) };
+    if (mode === 'slow') return new Promise(r => setTimeout(() => r(res), 400));
+    return Promise.resolve(res);
+  };
+  return calls;
+}
+
+function type(d, val) {
+  const el = d.getElementById('email');
+  el.value = val;
+  el.dispatchEvent(new d.defaultView.Event('input', { bubbles: true }));
+}
+
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+const errShown = (d) => !d.getElementById('signup-error').classList.contains('hidden');
+
+(async () => {
+
+  /* ---------- 1. страницата се зарежда чиста ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    check('формата съществува', !!d.getElementById('signup-form'));
+    check('формата НЕ сочи Formspree',
+      !(d.getElementById('signup-form').getAttribute('action') || '').includes('formspree'));
+    check('формата сочи /api/subscribe',
+      d.getElementById('signup-form').getAttribute('action') === '/api/subscribe');
+    check('няма скрит _next към чужд сайт', !d.querySelector('input[name="_next"]'));
+    check('honeypot полето е налице', !!d.getElementById('website'));
+    check('honeypot е празен по подразбиране', d.getElementById('website').value === '');
+    check('honeypot не е в реда на табулация',
+      d.getElementById('website').getAttribute('tabindex') === '-1');
+    check('успехът е скрит в началото', d.getElementById('success-message').classList.contains('hidden'));
+    check('грешката е скрита в началото', !errShown(d));
+    check('преводите са заредени', typeof w.translations === 'object' && !!w.translations.coming_error);
+    check('логото е реален файл, не емоджи',
+      !!d.querySelector('img[src*="genki_logo"]'));
+    f.remove();
+  }
+
+  /* ---------- 2. празен / невалиден имейл ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    d.getElementById('signup-submit').click();
+    await wait(120);
+    check('празно поле: нищо не се изпраща', calls.length === 0);
+    check('празно поле: показва се грешка', errShown(d));
+    check('празно поле: фокусът се връща в полето', d.activeElement === d.getElementById('email'));
+
+    type(d, 'not-an-email');
+    d.getElementById('signup-submit').click();
+    await wait(120);
+    check('невалиден имейл: нищо не се изпраща', calls.length === 0);
+    check('невалиден имейл: показва се грешка', errShown(d));
+
+    type(d, 'ivan@primerna.bg');
+    await wait(50);
+    check('грешката изчезва при поправка', !errShown(d));
+    f.remove();
+  }
+
+  /* ---------- 3. успешно записване ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    type(d, 'ivan@primerna.bg');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('изпраща се точно една заявка', calls.length === 1);
+    check('заявката отива на /api/subscribe', calls[0] && calls[0].url === '/api/subscribe');
+    check('адресът пътува', calls[0] && calls[0].body.email === 'ivan@primerna.bg');
+    check('honeypot пътува празен', calls[0] && calls[0].body.website === '');
+    check('езикът пътува', calls[0] && !!calls[0].body.lang);
+    check('успехът се показва', !d.getElementById('success-message').classList.contains('hidden'));
+    check('формата се скрива', d.getElementById('signup-container').classList.contains('hidden'));
+    check('фокусът отива на съобщението', d.activeElement === d.getElementById('success-message'));
+    check('страницата НЕ е напуснала сайта', d.location.pathname === '/coming-soon.html');
+    f.remove();
+  }
+
+  /* ---------- 4. EN ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    w.setLanguage ? w.setLanguage('en') : (w.currentLang = 'en', w.updateContent());
+    await wait(120);
+    const calls = patchFetch(w, 'ok');
+    check('EN: бутонът е на английски',
+      d.getElementById('signup-btn-label').textContent.trim() === 'Get Early Access');
+    type(d, 'jane@example.com');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('EN: записването минава', calls.length === 1);
+    check('EN: езикът е отразен', calls[0] && calls[0].body.lang === 'en');
+    check('EN: успехът е на английски',
+      /on the list/i.test(d.getElementById('success-message').textContent));
+    f.remove();
+  }
+
+  /* ---------- 5. двоен клик ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'slow');
+    type(d, 'ivan@primerna.bg');
+    const btn = d.getElementById('signup-submit');
+    btn.click(); btn.click(); btn.click();
+    await wait(80);
+    check('двоен клик праща само веднъж', calls.length === 1, 'заявки: ' + calls.length);
+    check('бутонът е заключен по време на изпращане', btn.disabled === true);
+    check('бутонът показва прогрес', btn.getAttribute('aria-busy') === 'true');
+    await wait(500);
+    check('след успеха се показва успех', !d.getElementById('success-message').classList.contains('hidden'));
+    f.remove();
+  }
+
+  /* ---------- 6. сървърна грешка и повторен опит ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    let calls = patchFetch(w, 'error');
+    type(d, 'ivan@primerna.bg');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('сървърна грешка: показва се човешко съобщение', errShown(d));
+    check('сървърна грешка: НЕ се показва фалшив успех',
+      d.getElementById('success-message').classList.contains('hidden'));
+    check('сървърна грешка: адресът остава в полето', d.getElementById('email').value === 'ivan@primerna.bg');
+    check('сървърна грешка: бутонът се отключва', d.getElementById('signup-submit').disabled === false);
+    check('сървърна грешка: няма вътрешни детайли',
+      !/502|stack|Error:|api\.resend/i.test(d.getElementById('signup-error').textContent));
+
+    calls = patchFetch(w, 'ok');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('повторният опит успява',
+      calls.length === 1 && !d.getElementById('success-message').classList.contains('hidden'));
+    f.remove();
+  }
+
+  /* ---------- 7. мрежова грешка ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    patchFetch(w, 'throw');
+    type(d, 'ivan@primerna.bg');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('мрежова грешка: съобщение', errShown(d));
+    check('мрежова грешка: няма фалшив успех',
+      d.getElementById('success-message').classList.contains('hidden'));
+    check('мрежова грешка: бутонът се отключва', d.getElementById('signup-submit').disabled === false);
+    f.remove();
+  }
+
+  /* ---------- 8. сървърът отхвърля валидацията ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    patchFetch(w, 'invalid');
+    type(d, 'ivan@primerna.bg');
+    d.getElementById('signup-submit').click();
+    await wait(250);
+    check('422 от сървъра: няма фалшив успех',
+      d.getElementById('success-message').classList.contains('hidden'));
+    check('422 от сървъра: показва се грешка за адреса', errShown(d));
+    f.remove();
+  }
+
+  /* ---------- 9. само с клавиатура ---------- */
+  {
+    const f = await load(1280, 900), d = f.contentDocument, w = f.contentWindow;
+    const calls = patchFetch(w, 'ok');
+    const email = d.getElementById('email');
+    email.focus();
+    type(d, 'ivan@primerna.bg');
+    const form = d.getElementById('signup-form');
+    form.dispatchEvent(new d.defaultView.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(250);
+    check('Enter в полето изпраща формата', calls.length === 1);
+    check('Enter не презарежда страницата', d.location.pathname === '/coming-soon.html');
+    f.remove();
+  }
+
+  /* ---------- 10. мобилна ширина, без преливане ---------- */
+  {
+    for (const w of [320, 390, 768]) {
+      const f = await load(w, 900), d = f.contentDocument;
+      const doc = d.documentElement;
+      check('@' + w + ': няма хоризонтално преливане',
+        doc.scrollWidth <= w + 1, doc.scrollWidth + 'px при ' + w);
+      const btn = d.getElementById('signup-submit').getBoundingClientRect();
+      check('@' + w + ': бутонът е поне 44px висок', btn.height >= 44, Math.round(btn.height) + 'px');
+      const inp = d.getElementById('email').getBoundingClientRect();
+      check('@' + w + ': полето е поне 44px високо', inp.height >= 44, Math.round(inp.height) + 'px');
+      f.remove();
+    }
+  }
+
+  document.getElementById('out').textContent =
+    out.join('\n') + '\n\n' + '-'.repeat(46) +
+    '\nРЕЗУЛТАТ: ' + pass + ' минали, ' + fail + ' паднали' +
+    '\nНито един реален имейл не е изпратен.';
+})();
+</script>
+</body>
+</html>
