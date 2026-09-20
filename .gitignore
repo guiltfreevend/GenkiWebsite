@@ -44,3 +44,7 @@ ehthumbs.db
 
 # Source design files (large originals — deployable copies live in assets/images/)
 Genki Stations/
+
+# Cloudflare Pages local secrets — никога в репото
+.dev.vars
+.wrangler/
