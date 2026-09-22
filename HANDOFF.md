@@ -154,38 +154,123 @@ node tools/dev/fit-sessions.mjs --code GF-K7M4-P9Q2
 
 ---
 
-## ⚠ PRODUCTION SETUP, КОЙТО ОЩЕ НЕ Е НАПРАВЕН
+## Cloudflare — одит на реалната конфигурация (2026-09-22)
 
-Прогресивният запис няма да работи на production, докато това не се направи **ръчно и с разрешение**. Нищо от него не е изпълнено.
-
-**1. Създаване на D1 база**
-
-```
-npx wrangler d1 create genki-fit
-```
-
-**2. Прилагане на схемата**
-
-```
-npx wrangler d1 execute genki-fit --remote --file=migrations/0001_genki_fit_sessions.sql
-```
-
-**3. Binding на Pages проекта**
+Проверено директно през API, без да е променяно нищо.
 
 | | |
 | --- | --- |
-| Тип | D1 database |
-| Име на binding | **`GENKI_FIT_DB`** |
-| База | `genki-fit` |
-| Среда | Production (и Preview, ако се тества там) |
+| Pages проект | **`genkiwebsite`** |
+| Account ID | `402ee2678c83f34603d8ec0009127f34` (единствен акаунт) |
+| Production branch | **`main`** |
+| Домейни | `genkiwebsite.pages.dev`, `genki.bg`, `www.genki.bg` |
+| Preview режим | всички клонове (`*`) — push към `genki-2.0-build` автоматично строи preview |
+| Източник на истината | **Cloudflare dashboard.** В репото НЯМА `wrangler.toml` и нарочно не се добавя |
 
-**4. Нови променливи на средата** — **няма.** Ползват се вече съществуващите `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO`, `GENKI_RATE`.
+### Какво е свързано КЪДЕ
 
-**5. Deployment** — bindings влизат в сила при следващия deployment.
+| | Production | Preview |
+| --- | --- | --- |
+| `RESEND_API_KEY` | ✅ secret | ❌ **липсва** |
+| `GENKI_RATE` (KV) | ✅ | ❌ липсва |
+| `GENKI_SCANS` (KV) | ✅ | ❌ липсва |
+| `GENKI_FIT_DB` (D1) | ❌ (нарочно) | ❌ **липсва** |
+| `COMING_SOON` | не е зададена → гейтът е ВКЛЮЧЕН по подразбиране | — |
+| `PREVIEW_TOKEN` | не е зададена | — |
 
-Без `GENKI_FIT_DB` функцията връща `not_configured` и **НЕ твърди, че е записала**. Нарочно: по-добре явна грешка, отколкото тихо изгубени отговори.
+**Preview средата е напълно празна.** Това не е повреда — просто никога не е конфигурирана.
 
-### Отворено по Genki Fit
+### Защо НЕ се добавя `wrangler.toml`
+
+Pages чете `wrangler.toml` от репото, ако съществува, и той може да **замени** конфигурацията от dashboard-а — включително production bindings. Вкарването му сега би създало втори, конкуриращ се източник на истината и реален риск за production. Dashboard-ът остава каноничен.
+
+---
+
+## ⛔ PREVIEW АКТИВАЦИЯТА Е БЛОКИРАНА — какво остава ръчно
+
+Задачата за активиране на реалната preview среда **не можа да бъде изпълнена**. Нищо не е създадено и нищо не е конфигурирано. Две независими пречки:
+
+### 1. API токенът няма право за D1
+
+```
+GET /accounts/.../pages/projects        → HTTP 200
+GET /accounts/.../storage/kv/namespaces → HTTP 200
+GET /accounts/.../d1/database           → HTTP 401  Authentication error
+```
+
+Токенът в `CLOUDFLARE_API_TOKEN` е от шаблона „Edit Cloudflare Workers" и **не включва D1**. Затова `genki-fit-preview` не е създадена, миграцията не е прилагана и `GENKI_FIT_DB` не е свързан.
+
+**Решение:** нов токен с **`D1:Edit`** от dash.cloudflare.com/profile/api-tokens, или ръчно през dashboard-а.
+
+### 2. `RESEND_API_KEY` не може да се копира в Preview
+
+Ключът е `secret_text` на production. Cloudflare го връща празен — **стойността не може да се прочете обратно** от никого, включително от собственика. За preview трябва да се въведе наново, на ръка, със същия Resend ключ.
+
+### Точните стъпки, които остават
+
+```bash
+# 1. Отделна preview база — НЕ production базата
+npx wrangler d1 create genki-fit-preview
+
+# 2. Схемата, към ОТДАЛЕЧЕНАТА preview база
+npx wrangler d1 execute genki-fit-preview --remote \
+    --file=migrations/0001_genki_fit_sessions.sql
+
+# 3. Проверка
+npx wrangler d1 execute genki-fit-preview --remote \
+    --command="SELECT name FROM sqlite_master WHERE type='table'"
+```
+
+После в dashboard-а, **Pages → genkiwebsite → Settings → само раздел Preview**:
+
+| Какво | Стойност |
+| --- | --- |
+| D1 binding | `GENKI_FIT_DB` → `genki-fit-preview` |
+| Променлива | `RESEND_API_KEY` = същият Resend ключ (въвежда се наново) |
+| KV binding *(по желание)* | `GENKI_RATE` → `df6567948efb4fa6906f47e58de2a212` |
+
+**Нищо от това не се добавя в раздел Production.** Production D1 база НЕ се създава сега — тя ще е отделна и чиста при launch.
+
+Накрая: push към `genki-2.0-build` или redeploy на preview, за да влязат bindings-ите.
+
+### Поведение без конфигурация
+
+| Липсва | Какво става |
+| --- | --- |
+| `GENKI_FIT_DB` | стъпките връщат `not_configured` и **НЕ твърдят, че са записали** |
+| `RESEND_API_KEY` | стъпките се записват нормално, но **известия не тръгват**; изпращането към клиент връща `not_configured` |
+| `GENKI_RATE` | няма ограничение на честотата — кодът го третира като по желание |
+
+---
+
+## Защитената среда за преглед
+
+| | |
+| --- | --- |
+| **URL за преглед** | `https://genki-2-0-build.genkiwebsite.pages.dev` |
+| Текущ deployment | `8cb88c61` — съвпада с HEAD на клона |
+| Защита | **Cloudflare Access** — проверено: и страниците, и `/api/*` връщат sign-in |
+
+Собственикът влиза със своята Cloudflare Access самоличност (същата, с която ползва Zero Trust). Паролата и `PREVIEW_TOKEN` не се записват никъде в репото.
+
+Preview deployment-ите **не съдържат** `functions/_middleware.js` — той живее само на `main`. Затова на preview няма Coming Soon гейт и целият сайт се вижда. Защитата идва изцяло от Access.
+
+### Production остава непокътнат — проверено
+
+```
+genki.bg/              → 200  Coming Soon
+genki.bg/v2/index.html → 302  гейтът работи
+genki.bg/box           → 301  QR системата е жива
+последен production deploy: main c1847d24, 2026-09-22T09:08 — непроменен
+```
+
+Конфигурацията на проекта е сверена преди и след сесията: **production и preview са идентични, нищо не е пипано.**
+
+### Политика за данните в preview
+
+`genki-fit-preview` е **НЕ-production хранилище**. Тестовите Fit сесии остават там. При launch се създава **отделна чиста production база**; пренасяне на preview лийдове към production не се планира.
+
+### Отворено по Genki Fit### Отворено по Genki Fit
 
 - Няма система за запазване на разговор — вторичното действие води към `contact.html`.
 - **CRM интеграция още няма.** D1 е подготвен за износ, но самият износ не е построен.
