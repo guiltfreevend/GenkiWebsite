@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Скелет. Етап 8 прави финалния SEO проход и маха noindex при cut-over. -->
+  <!-- Етап 8 прави финалния SEO проход и маха noindex при cut-over. -->
   <meta name="robots" content="noindex, nofollow">
 
   <title data-i18n="meta.fit.title">Genki Fit — какъв Genki би работил при вас</title>
@@ -98,14 +98,109 @@
   </nav>
   <!-- /genki:header -->
 
-  <main id="main">
-    <section class="section container">
-      <h1 class="t-display">Genki Fit</h1>
-      <p class="skeleton-notice measure" data-i18n="skeleton.notice">
-        Скелет. Съдържанието на тази страница влиза в следващ етап.
-      </p>
-      <genki-slot slot-id="F08"></genki-slot>
+  <main id="main" class="fit" data-fit-root>
+
+    <!-- ====================================================================
+         GENKI FIT
+
+         Не е страница с форма. Малко приложение: един въпрос на екран,
+         голям типографски ритъм, видим напредък, „Назад" пази отговорите.
+         Цел — под минута.
+
+         Екраните се сменят чрез hidden, не чрез маршрути: инструментът
+         трябва да е мигновен и да не презарежда нищо.
+
+         Визуалните слотове: F01 е COMPONENT (нарочно без снимка — тук
+         човек решава дали да започне) и F02–F07 също. Единственият
+         IMAGE слот е F08 в резултата и се вмъква от JS.
+         ==================================================================== -->
+
+    <noscript>
+      <section class="section container">
+        <p class="t-label" data-i18n="fit.hero.label">GENKI FIT</p>
+        <h1 class="t-headline measure-statement" data-i18n="fit.hero.title">Какъв Genki би работил най-добре при вас?</h1>
+        <p class="t-body t-muted measure" data-i18n="fit.nojs">Genki Fit има нужда от JavaScript. Пишете ни и ще минем през въпросите заедно.</p>
+        <a class="btn btn--fit" href="contact.html">
+          <span data-i18n="fit.nojs.cta">Пишете ни</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+    </noscript>
+
+    <!-- --------------------------------------------------------------- F01
+         Стартов екран. COMPONENT, без снимка: единственото, което трябва
+         да се вижда, е заглавието, едно изречение и бутонът. -->
+    <section class="section section--lg fit-screen fit-hero" data-fit-screen="hero">
+      <div class="container">
+        <div class="fit-hero__inner">
+          <p class="t-label reveal" data-i18n="fit.hero.label">GENKI FIT</p>
+          <h1 class="t-display fit-hero__title reveal" data-i18n="fit.hero.title">Какъв Genki би работил най-добре при вас?</h1>
+          <p class="t-subhead t-muted measure reveal" data-i18n="fit.hero.lead">Разкажете ни накратко за екипа и офиса. Ние ще ви покажем как бихме изградили Genki за вашата компания.</p>
+          <div class="fit-hero__actions reveal">
+            <button class="btn btn--fit fit-hero__start" type="button" data-fit-start>
+              <span data-i18n="fit.hero.start">Започнете</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </button>
+            <p class="t-body-sm t-muted fit-hero__time" data-i18n="fit.hero.time">Шест въпроса, под минута.</p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- --------------------------------------------------------------- F02
+         Екран с въпрос. Съдържанието се рисува от js/genki-fit.js —
+         заглавието, помощният текст и изборите зависят от предишните
+         отговори и не могат да стоят статично в разметката. -->
+    <section class="section fit-screen fit-q" data-fit-screen="question" hidden>
+      <div class="container">
+
+        <div class="fit-q__bar">
+          <p class="t-label fit-q__progress" data-fit-progress>1 / 6</p>
+          <div class="fit-q__track" role="progressbar" aria-valuemin="0" aria-valuemax="6"
+               aria-valuenow="1" data-fit-bar
+               aria-label="Напредък в Genki Fit" data-i18n-aria-label="fit.a11y.progress">
+            <span class="fit-q__fill"></span>
+          </div>
+        </div>
+
+        <div class="fit-q__host" data-fit-question></div>
+
+        <p class="cform__summary fit-q__error" role="alert" data-fit-error hidden></p>
+
+        <div class="fit-q__nav">
+          <button class="btn btn--quiet fit-q__back" type="button" data-fit-back hidden>
+            <span class="btn__arrow btn__arrow--back" aria-hidden="true">←</span>
+            <span data-i18n="fit.back">Назад</span>
+          </button>
+          <button class="btn btn--fit fit-q__next" type="button" data-fit-next hidden>
+            <span data-i18n="fit.next">Напред</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------- F03
+         Кратка пауза преди резултата. Прави го премерен, а не автоматичен.
+         Никаква фалшива стъпка „анализираме вашите данни" — само чакане,
+         и то под 1,5 секунди. -->
+    <section class="section section--lg fit-screen fit-calc" data-fit-screen="calc" hidden>
+      <div class="container">
+        <p class="t-subhead t-muted fit-calc__text" role="status" data-i18n="fit.calc">Подготвяме вашия Genki Fit…</p>
+        <div class="fit-calc__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- F04–F08
+         Резултат и събиране на контакт. Резултатът се показва ПРЕДИ
+         контактните данни и остава видим и след изпращането. -->
+    <section class="section section--lg fit-screen" data-fit-screen="result" hidden>
+      <div class="container">
+        <div class="fit-result__host" data-fit-result></div>
+      </div>
+    </section>
+
   </main>
 
   <!-- genki:footer -->
@@ -172,5 +267,7 @@
   <script src="/js/genki-translations.js"></script>
   <script src="/js/genki-i18n.js"></script>
   <script src="/js/genki-site.js"></script>
+  <!-- ES модул: ползва същия lib/genki-fit-logic.js като сървъра. -->
+  <script type="module" src="/js/genki-fit.js"></script>
 </body>
 </html>

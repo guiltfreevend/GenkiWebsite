@@ -762,6 +762,228 @@ window.genkiTranslations = {
     en: 'The Genki cooler configuration recommended for your office',
   },
 
+
+  /* ====================================================================
+     GENKI FIT  (етап 7)
+
+     BG и EN са ДОСЛОВНО от каноничния „GENKI 2.0 — WEBSITE COPY &
+     HANDOFF" (LOCKED 16.09.2026). Нищо тук не е превеждано на ръка.
+
+     Единственото обявено отклонение: формулировката на Q3. Каноничният
+     документ пита „Колко души обикновено са там в един нормален ден?".
+     Спецификацията на етап 7 дава по-точна формулировка, защото Q3 вече
+     значи посещаемост в КОНКРЕТНИЯ офис, а не общ брой служители.
+
+     Низовете с {} се попълват в js/genki-fit.js. Никакъв текст не се
+     сглобява от парчета — всяко изречение е цяло на своя език.
+     ==================================================================== */
+
+  /* --- Hero --- */
+  'fit.hero.label':   { bg: 'GENKI FIT', en: 'GENKI FIT' },
+  'fit.hero.title':   { bg: 'Какъв Genki би работил най-добре при вас?',
+                        en: 'What kind of Genki would work best for your workplace?' },
+  'fit.hero.lead':    { bg: 'Разкажете ни накратко за екипа и офиса. Ние ще ви покажем как бихме изградили Genki за вашата компания.',
+                        en: 'Tell us a little about your team and workplace. We’ll show you how we would shape Genki for your company.' },
+  'fit.hero.start':   { bg: 'Започнете', en: 'Start' },
+  'fit.hero.time':    { bg: 'Шест въпроса, под минута.', en: 'Six questions, under a minute.' },
+
+  /* --- Навигация вътре в инструмента --- */
+  'fit.progress':     { bg: '{n} / 6', en: '{n} / 6' },
+  'fit.back':         { bg: 'Назад', en: 'Back' },
+  'fit.next':         { bg: 'Напред', en: 'Continue' },
+  'fit.multi':        { bg: 'Може да изберете повече от едно.', en: 'You can choose more than one.' },
+  'fit.a11y.step':    { bg: 'Стъпка {n} от 6', en: 'Step {n} of 6' },
+  'fit.a11y.progress':{ bg: 'Напредък в Genki Fit', en: 'Genki Fit progress' },
+  'fit.err.choose':   { bg: 'Изберете поне един отговор, за да продължите.',
+                        en: 'Choose at least one answer to continue.' },
+
+  /* --- Q1 --- */
+  'fit.q1.title':     { bg: 'Къде имате офиси?', en: 'Where do you have offices?' },
+  'fit.q1.sofia':     { bg: 'София', en: 'Sofia' },
+  'fit.q1.plovdiv':   { bg: 'Пловдив', en: 'Plovdiv' },
+  'fit.q1.varna':     { bg: 'Варна', en: 'Varna' },
+  'fit.q1.burgas':    { bg: 'Бургас', en: 'Burgas' },
+  'fit.q1.other':     { bg: 'Други градове', en: 'Other cities' },
+  'fit.q1.offices':   { bg: 'Колко офиса имате в София?', en: 'How many offices do you have in Sofia?' },
+  'fit.q1.offices.1':    { bg: '1', en: '1' },
+  'fit.q1.offices.2':    { bg: '2', en: '2' },
+  'fit.q1.offices.3plus':{ bg: '3+', en: '3+' },
+
+  /* --- Q2 (адаптивен) --- */
+  'fit.q2.one':       { bg: 'Колко души работят във вашия офис в София?',
+                        en: 'How many people work in your Sofia office?' },
+  'fit.q2.many':      { bg: 'Колко души работят общо в офисите ви в София?',
+                        en: 'How many people work across your Sofia offices?' },
+  'fit.q2.nosofia':   { bg: 'Колко души работят в най-големия ви офис?',
+                        en: 'How many people work in your largest office?' },
+  'fit.q2.largest':   { bg: 'А в най-големия от тях?', en: 'And in the largest one?' },
+  'fit.q2.lte50':     { bg: 'До 50', en: 'Up to 50' },
+  'fit.q2.51-100':    { bg: '51–100', en: '51–100' },
+  'fit.q2.101-150':   { bg: '101–150', en: '101–150' },
+  'fit.q2.151-300':   { bg: '151–300', en: '151–300' },
+  'fit.q2.301-500':   { bg: '301–500', en: '301–500' },
+  'fit.q2.501-999':   { bg: '501–999', en: '501–999' },
+  'fit.q2.1000+':     { bg: '1,000+', en: '1,000+' },
+
+  /* --- Q3 --- */
+  'fit.q3.title':     { bg: 'Колко души обикновено са в този офис в един нормален работен ден?',
+                        en: 'How many people are usually in this office on a normal working day?' },
+  'fit.q3.help':      { bg: 'Не общият брой служители — хората, които реално са на място.',
+                        en: 'Not total headcount — the people who are actually on site.' },
+  'fit.q3.lt25':      { bg: 'Под 25', en: 'Under 25' },
+  'fit.q3.lt50':      { bg: 'Под 50', en: 'Under 50' },
+  'fit.q3.25-49':     { bg: '25–49', en: '25–49' },
+  'fit.q3.50':        { bg: '50', en: '50' },
+  'fit.q3.50-74':     { bg: '50–74', en: '50–74' },
+  'fit.q3.75-99':     { bg: '75–99', en: '75–99' },
+  'fit.q3.75-100':    { bg: '75–100', en: '75–100' },
+  'fit.q3.75-149':    { bg: '75–149', en: '75–149' },
+  'fit.q3.75-199':    { bg: '75–199', en: '75–199' },
+  'fit.q3.100-150':   { bg: '100–150', en: '100–150' },
+  'fit.q3.150-199':   { bg: '150–199', en: '150–199' },
+  'fit.q3.200-300':   { bg: '200–300', en: '200–300' },
+  'fit.q3.200-349':   { bg: '200–349', en: '200–349' },
+  'fit.q3.200-399':   { bg: '200–399', en: '200–399' },
+  'fit.q3.200-499':   { bg: '200–499', en: '200–499' },
+  'fit.q3.350-500':   { bg: '350–500', en: '350–500' },
+  'fit.q3.400-699':   { bg: '400–699', en: '400–699' },
+  'fit.q3.500-999':   { bg: '500–999', en: '500–999' },
+  'fit.q3.700-999':   { bg: '700–999', en: '700–999' },
+  'fit.q3.1000+':     { bg: '1,000+', en: '1,000+' },
+
+  /* --- Q4 --- */
+  'fit.q4.title':     { bg: 'Какво имате в офиса в момента?', en: 'What do you currently have at the office?' },
+  'fit.q4.canteen':   { bg: 'Столова / catering', en: 'Canteen / catering' },
+  'fit.q4.vending':   { bg: 'Vending', en: 'Vending' },
+  'fit.q4.fruit':     { bg: 'Плодове / snacks', en: 'Fruit / snacks' },
+  'fit.q4.other':     { bg: 'Друго решение', en: 'Another solution' },
+  'fit.q4.none':      { bg: 'Нищо постоянно', en: 'Nothing permanent' },
+
+  /* --- Q5 --- */
+  'fit.q5.title':     { bg: 'Какво искате Genki да даде на екипа ви?',
+                        en: 'What do you want Genki to give your team?' },
+  'fit.q5.benefit':        { bg: 'По-силен ежедневен benefit', en: 'A stronger everyday benefit' },
+  'fit.q5.benefit.note':   { bg: 'Повече изживяване, активности и неща специално за екипа.',
+                             en: 'More experience, activities and things made specifically for the team.' },
+  'fit.q5.price-support':      { bg: 'По-добри цени', en: 'Better prices' },
+  'fit.q5.price-support.note': { bg: 'Компанията помага с цената на продуктите.',
+                                 en: 'The company helps cover part of the product price.' },
+  'fit.q5.both':      { bg: 'И двете', en: 'Both' },
+  'fit.q5.both.note': { bg: 'Най-пълното Genki experience.', en: 'The fullest Genki experience.' },
+  'fit.q5.unsure':      { bg: 'Още не сме сигурни', en: 'We’re not sure yet' },
+  'fit.q5.unsure.note': { bg: 'Ще ви препоръчаме ние.', en: 'We’ll recommend what makes sense.' },
+
+  /* --- Q6 --- */
+  'fit.q6.title':     { bg: 'Какъв месечен бюджет бихте отделили за Genki?',
+                        en: 'What monthly budget would you allocate to Genki?' },
+  'fit.q6.help':      { bg: 'Използваме го само за да ви покажем конфигурация, която има смисъл за вас.',
+                        en: 'We only use this to show you a setup that makes sense for your company.' },
+  'fit.q6.upto':      { bg: 'До {max}', en: 'Up to {max}' },
+  'fit.q6.range':     { bg: '{min}–{max}', en: '{min}–{max}' },
+  'fit.q6.open':      { bg: '{min}+', en: '{min}+' },
+  'fit.q6.exact':     { bg: '{min}', en: '{min}' },
+  'fit.q6.notsure':   { bg: 'Още не сме сигурни', en: 'Not sure yet' },
+
+  /* --- Пауза преди резултата --- */
+  'fit.calc':         { bg: 'Подготвяме вашия Genki Fit…', en: 'Preparing your Genki Fit…' },
+
+  /* --- Резултат --- */
+  'fit.result.done':  { bg: 'ГОТОВО.', en: 'DONE.' },
+  'fit.result.title': { bg: 'Ето как бихме направили Genki за вас.',
+                        en: 'Here’s how we would build Genki for you.' },
+  'fit.result.c1':    { bg: 'Вашият Genki', en: 'Your Genki' },
+  'fit.result.c2':    { bg: 'Нашата препоръка', en: 'Our recommendation' },
+  'fit.result.c3':    { bg: 'Защо това е подходящо за вас', en: 'Why this fits your team' },
+  'fit.result.cta':   { bg: 'Запазете кратък Genki разговор', en: 'Book a short Genki call' },
+  'fit.result.caveat':{ bg: 'Вероятна конфигурация. Точният вариант се потвърждава след кратък оглед на офиса.',
+                        en: 'A likely configuration. The exact setup is confirmed after a short look at your workplace.' },
+  'fit.result.budget':      { bg: 'Месечен бюджет на компанията', en: 'Monthly company budget' },
+  'fit.result.budget.approx':{ bg: 'около {amount}', en: 'around {amount}' },
+  'fit.result.budget.exact': { bg: '{amount}', en: '{amount}' },
+  'fit.result.ps':    { bg: 'Препоръчана подкрепа на цената: {pct}%',
+                        en: 'Recommended price support: {pct}%' },
+  'fit.result.restart':{ bg: 'Започнете отначало', en: 'Start over' },
+
+  /* Карта 1 — вероятният размер. Без вътрешните имена Single и Duo. */
+  'fit.hw.mini':      { bg: 'Компактен Genki за офиса ви', en: 'A compact Genki for your workplace' },
+  'fit.hw.single':    { bg: 'Един Genki smart cooler', en: 'One Genki smart cooler' },
+  'fit.hw.duo':       { bg: 'Genki setup за по-голям офис', en: 'A Genki setup for a larger workplace' },
+  'fit.hw.multi':     { bg: 'Genki на няколко точки в офиса', en: 'A multi-point Genki setup' },
+
+  /* Карта 2 — конфигурацията */
+  'fit.ap.core':          { bg: 'Genki', en: 'Genki' },
+  'fit.ap.benefit':       { bg: 'Genki + Benefit', en: 'Genki + Benefit' },
+  'fit.ap.price-support': { bg: 'Genki + Price Support', en: 'Genki + Price Support' },
+  'fit.ap.both':          { bg: 'Genki + Benefit + Price Support', en: 'Genki + Benefit + Price Support' },
+  'fit.ap.core.note':     { bg: 'Базовият Genki, без месечна такса за компанията. Price Support може да се добави по всяко време.',
+                            en: 'Core Genki, with no monthly company fee. Price Support can be added at any time.' },
+  'fit.ap.benefit.note':  { bg: 'Benefit слоят прави Genki по-личен за екипа — персонализация, участие и събития.',
+                            en: 'The Benefit layer makes Genki feel more personal — personalization, participation and events.' },
+  'fit.ap.price-support.note': { bg: 'Компанията поема част от цената на всеки продукт, а екипът плаща по-малко.',
+                                 en: 'The company covers part of the price of each product, so your team pays less.' },
+  'fit.ap.both.note':     { bg: 'Benefit слоят плюс подкрепа на цените — най-пълното Genki за екипа ви.',
+                            en: 'The Benefit layer plus price support — the fullest Genki for your team.' },
+
+  /* Карта 3 — причините. Сглобяват се от отговорите, по 2–3 на резултат. */
+  'fit.why.attendance':   { bg: 'При {range} души на място в нормален ден този размер Genki обикновено е правилният.',
+                            en: 'With {range} people on site on a normal day, this is usually the right size of Genki.' },
+  'fit.why.coexist':      { bg: 'Genki не замества това, което вече имате — работи заедно с него и добавя повече за екипа.',
+                            en: 'Genki doesn’t replace what you already have — it works alongside it and adds more for your team.' },
+  'fit.why.fresh':        { bg: 'В офиса няма нищо постоянно в момента, така че Genki започва от чисто и не измества нищо.',
+                            en: 'There’s nothing permanent at the office right now, so Genki starts fresh without displacing anything.' },
+  'fit.why.benefit':      { bg: 'Искате по-силен ежедневен benefit, а бюджетът ви покрива точно този слой.',
+                            en: 'You want a stronger everyday benefit, and your budget covers exactly that layer.' },
+  'fit.why.ps':           { bg: 'Искате по-добри цени за екипа и бюджетът ви позволява реална подкрепа на всяка покупка.',
+                            en: 'You want better prices for your team, and your budget supports a real contribution on every purchase.' },
+  'fit.why.both':         { bg: 'Бюджетът ви стига и за Benefit слоя, и за подкрепа на цените едновременно.',
+                            en: 'Your budget covers both the Benefit layer and price support at the same time.' },
+  'fit.why.pslater':      { bg: 'Започваме с Benefit слоя, а подкрепата на цените може да се добави по-късно.',
+                            en: 'We start with the Benefit layer, and price support can be added later.' },
+  'fit.why.core':         { bg: 'Genki може да работи и без месечна такса за компанията при подходящи локации.',
+                            en: 'For suitable locations, Genki can work with no monthly company fee.' },
+  'fit.why.unsure':       { bg: 'Още не сте решили каква форма искате — затова предлагаме тази, която пасва на бюджета ви.',
+                            en: 'You haven’t decided on a format yet, so we’re suggesting the one that fits your budget.' },
+
+  /* --- Мека консултация --- */
+  'fit.soft.title':   { bg: 'Нека намерим правилния Genki за вашия екип',
+                        en: 'Let’s find the right Genki for your team' },
+  'fit.soft.p1':      { bg: 'Вашият офис има малко по-различен профил и не искаме автоматично да ви препоръчаме конфигурация, която може да не е най-подходящата.',
+                        en: 'Your workplace has a slightly different profile, and we don’t want to automatically recommend a setup that may not be the right one.' },
+  'fit.soft.p2':      { bg: 'Нека разгледаме случая ви заедно и да намерим Genki вариант, който има смисъл за вашия екип и начина, по който работите.',
+                        en: 'Let’s look at it together and find a Genki setup that makes sense for your team and the way you work.' },
+
+  /* --- Събиране на контакт --- */
+  'fit.lead.title':   { bg: 'Къде да изпратим вашия Genki Fit?', en: 'Where should we send your Genki Fit?' },
+  'fit.lead.email':   { bg: 'Работен email', en: 'Work email' },
+  'fit.lead.send':    { bg: 'Изпратете ми моя Genki Fit', en: 'Send me my Genki Fit' },
+  'fit.lead.title2':  { bg: 'Само още две неща, за да знаем с кого говорим.',
+                        en: 'Just two more things so we know who we’re speaking with.' },
+  'fit.lead.name':    { bg: 'Име', en: 'Name' },
+  'fit.lead.company': { bg: 'Компания', en: 'Company' },
+  'fit.lead.phone':   { bg: 'Телефон', en: 'Phone' },
+  'fit.lead.phone.note': { bg: 'ако предпочитате да се чуем', en: 'if you’d rather talk' },
+  'fit.lead.submit':  { bg: 'Изпратете', en: 'Submit' },
+  'fit.lead.sending': { bg: 'Изпращаме…', en: 'Sending…' },
+
+  'fit.err.email':    { bg: 'Въведете валиден работен email.', en: 'Enter a valid work email.' },
+  'fit.err.name':     { bg: 'Въведете името си.', en: 'Enter your name.' },
+  'fit.err.company':  { bg: 'Въведете компанията си.', en: 'Enter your company.' },
+  'fit.err.summary':  { bg: 'Проверете отбелязаните полета.', en: 'Please check the highlighted fields.' },
+  'fit.err.server':   { bg: 'Нещо се обърка при изпращането. Опитайте отново след малко.',
+                        en: 'Something went wrong while sending. Please try again shortly.' },
+  'fit.err.network':  { bg: 'Няма връзка със сървъра. Проверете интернет връзката си.',
+                        en: 'No connection to the server. Please check your internet connection.' },
+
+  /* --- Потвърждение --- */
+  'fit.confirm.title':{ bg: 'Благодарим!', en: 'Thank you!' },
+  'fit.confirm.text': { bg: 'Ще прегледаме вашия Genki Fit и ще се свържем с вас в рамките на 24 часа.',
+                        en: 'We’ll review your Genki Fit and get back to you within 24 hours.' },
+
+  /* --- Без JavaScript --- */
+  'fit.nojs':         { bg: 'Genki Fit има нужда от JavaScript. Пишете ни и ще минем през въпросите заедно.',
+                        en: 'Genki Fit needs JavaScript. Send us a message and we’ll go through the questions together.' },
+  'fit.nojs.cta':     { bg: 'Пишете ни', en: 'Contact us' },
+
   /* --------------------------------------------- временни низове за скелета
      Съществуват само докато съответният етап напълни страницата. */
   'skeleton.notice': {

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head><meta charset="UTF-8"><title>genki fit UI tests</title>
+<style>body{font:12px monospace;margin:0;padding:8px}#s{position:absolute;left:-10000px}iframe{border:0}</style>
+</head>
+<body><pre id="out">…</pre><div id="s"></div>
+<script>
+/* Тестове на Genki Fit в браузър. fetch в iframe-а е подменен — НИКАКВИ
+   реални заявки и нито един реален имейл.
+
+   Пуска се през локален сървър:
+     python3 -m http.server 8765
+     http://localhost:8765/tools/dev/test-fit-ui.html
+*/
+
+const out = [];
+let pass = 0, fail = 0;
+function check(n, c, d) {
+  if (c) { pass++; out.push('  OK   ' + n); }
+  else { fail++; out.push('  FAIL ' + n + (d ? ' — ' + d : '')); }
+}
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+function load(w, h) {
+  return new Promise(r => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = h + 'px';
+    f.src = '/v2/genki-fit.html?t=' + Date.now() + Math.random();
+    f.onload = () => setTimeout(() => r(f), 400);
+    document.getElementById('s').appendChild(f);
+  });
+}
+
+function patchFetch(win, mode) {
+  const calls = [];
+  win.fetch = function (url, opts) {
+    calls.push({ url, body: JSON.parse(opts.body) });
+    if (mode === 'throw') return Promise.reject(new Error('offline'));
+    const status = mode === 'error' ? 502 : 200;
+    const payload = mode === 'error' ? { ok: false, error: 'send_failed' } : { ok: true };
+    return Promise.resolve({ ok: mode !== 'error', status, json: () => Promise.resolve(payload) });
+  };
+  return calls;
+}
+
+/* --- помощници за кликане по истински input-и ------------------------ */
+function optionValues(d) {
+  return [...d.querySelectorAll('[data-fit-question] .fit-options:not(.fit-sub .fit-options) .fit-option__input')]
+    .map(i => i.value);
+}
+function pick(d, value, scope) {
+  const sel = scope === 'sub' ? '.fit-sub .fit-option__input' : '.fit-option__input';
+  const nodes = [...d.querySelectorAll('[data-fit-question] ' + sel)];
+  const el = nodes.find(i => i.value === value);
+  if (!el) return false;
+  el.checked = el.type === 'checkbox' ? !el.checked : true;
+  el.dispatchEvent(new d.defaultView.Event('change', { bubbles: true }));
+  return true;
+}
+const q = (d, s) => d.querySelector(s);
+const visible = (el) => el && !el.hidden && el.offsetParent !== null;
+const progress = (d) => q(d, '[data-fit-progress]').textContent.trim();
+const title = (d) => (q(d, '#fit-q-title') || {}).textContent || '';
+
+/* Минава през 6-те въпроса с подадени отговори. */
+async function run(d, a) {
+  q(d, '[data-fit-start]').click();
+  await wait(60);
+
+  a.cities.forEach(c => pick(d, c));
+  await wait(60);
+  if (a.sofiaOffices) { pick(d, a.sofiaOffices, 'sub'); await wait(40); }
+  q(d, '[data-fit-next]').click(); await wait(80);
+
+  pick(d, a.q2); await wait(a.largestOffice ? 60 : 340);
+  if (a.largestOffice) { pick(d, a.largestOffice, 'sub'); await wait(40); q(d, '[data-fit-next]').click(); await wait(80); }
+
+  pick(d, a.q3); await wait(340);
+  a.q4.forEach(v => pick(d, v)); await wait(60);
+  q(d, '[data-fit-next]').click(); await wait(80);
+  pick(d, a.q5); await wait(340);
+  pick(d, a.q6); await wait(340);
+  await wait(1100);                 /* паузата преди резултата */
+}
+
+(async () => {
+
+  /* ================= 1. стартов екран ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    check('hero се вижда', visible(q(d, '[data-fit-screen="hero"]')));
+    check('екранът с въпрос е скрит', !visible(q(d, '[data-fit-screen="question"]')));
+    check('резултатът е скрит', !visible(q(d, '[data-fit-screen="result"]')));
+    check('има бутон за старт', !!q(d, '[data-fit-start]'));
+    check('заглавието е каноничното',
+      q(d, '.fit-hero__title').textContent.includes('Какъв Genki би работил'));
+    check('футърът се вижда преди старт', visible(q(d, '.site-footer')));
+
+    q(d, '[data-fit-start]').click();
+    await wait(80);
+    check('след старт се вижда въпрос', visible(q(d, '[data-fit-screen="question"]')));
+    check('напредъкът е 1 / 6', progress(d) === '1 / 6', progress(d));
+    check('футърът се скрива по време на въпросите', !visible(q(d, '.site-footer')));
+    f.remove();
+  }
+
+  /* ================= 2. Q1 и подвъпросът за София ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    q(d, '[data-fit-start]').click(); await wait(60);
+
+    check('Q1 има петте града', optionValues(d).join(',') === 'sofia,plovdiv,varna,burgas,other',
+      optionValues(d).join(','));
+    check('без избор няма подвъпрос', !q(d, '.fit-sub'));
+
+    q(d, '[data-fit-next]').click(); await wait(60);
+    check('без отговор не се продължава', progress(d) === '1 / 6');
+    check('показва се грешка', visible(q(d, '[data-fit-error]')));
+
+    pick(d, 'plovdiv'); await wait(60);
+    check('не-София НЕ отваря подвъпрос за офиси', !q(d, '.fit-sub'));
+    pick(d, 'sofia'); await wait(60);
+    check('София отваря подвъпроса на СЪЩИЯ екран', !!q(d, '.fit-sub'));
+    check('още сме на въпрос 1 (няма Q7)', progress(d) === '1 / 6');
+    check('подвъпросът има 1 / 2 / 3+',
+      [...d.querySelectorAll('.fit-sub .fit-option__input')].map(i => i.value).join(',') === '1,2,3plus');
+
+    pick(d, 'sofia'); await wait(60);      /* отчекване */
+    check('махането на София затваря подвъпроса', !q(d, '.fit-sub'));
+    f.remove();
+  }
+
+  /* ================= 3. Q2 адаптивен + Q3 зависи от Q2 ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    q(d, '[data-fit-start]').click(); await wait(60);
+    pick(d, 'sofia'); await wait(60);
+    pick(d, '1', 'sub'); await wait(40);
+    q(d, '[data-fit-next]').click(); await wait(80);
+
+    check('Q2 при един офис в София', title(d).includes('вашия офис в София'), title(d));
+    check('Q2 има седемте диапазона', optionValues(d).length === 7, String(optionValues(d).length));
+    check('Q2 е 501–999, не 501–1,000',
+      optionValues(d).includes('501-999') && !optionValues(d).includes('501-1000'));
+
+    pick(d, 'lte50'); await wait(340);
+    check('Q3 се показа', progress(d) === '3 / 6', progress(d));
+    check('Q3 при „до 50" дава точно три опции',
+      optionValues(d).join(',') === 'lt25,25-49,50', optionValues(d).join(','));
+    check('Q3 носи заключената формулировка',
+      title(d) === 'Колко души обикновено са в този офис в един нормален работен ден?', title(d));
+    check('Q3 има помощния текст',
+      q(d, '.fit-q__help').textContent.includes('Не общият брой служители'));
+
+    /* Назад пази отговорите и сменя Q3 при друг Q2. */
+    q(d, '[data-fit-back]').click(); await wait(80);
+    check('назад връща на Q2', progress(d) === '2 / 6');
+    check('назад пази избраното',
+      [...d.querySelectorAll('.fit-option__input')].find(i => i.value === 'lte50').checked);
+
+    pick(d, '1000+'); await wait(340);
+    check('Q3 при „1,000+" дава шест опции',
+      optionValues(d).join(',') === 'lt50,50-74,75-199,200-499,500-999,1000+', optionValues(d).join(','));
+    f.remove();
+  }
+
+  /* ================= 4. Q2 с няколко офиса → подвъпрос ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    q(d, '[data-fit-start]').click(); await wait(60);
+    pick(d, 'sofia'); await wait(60);
+    pick(d, '3plus', 'sub'); await wait(40);
+    q(d, '[data-fit-next]').click(); await wait(80);
+    check('Q2 при няколко офиса', title(d).includes('общо в офисите ви в София'), title(d));
+    pick(d, '301-500'); await wait(340);
+    check('„А в най-големия от тях?" е на същия екран',
+      !!q(d, '.fit-sub') && q(d, '.fit-sub__title').textContent.includes('най-големия'));
+    check('не се е прехвърлило напред автоматично', progress(d) === '2 / 6');
+    f.remove();
+  }
+
+  /* ================= 5. Q4, Q5, Q6 ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    q(d, '[data-fit-start]').click(); await wait(60);
+    pick(d, 'sofia'); await wait(60); pick(d, '1', 'sub'); await wait(40);
+    q(d, '[data-fit-next]').click(); await wait(80);
+    pick(d, '101-150'); await wait(340);
+    pick(d, '75-99'); await wait(340);
+
+    check('Q4 се показа', progress(d) === '4 / 6');
+    pick(d, 'vending'); pick(d, 'fruit'); await wait(60);
+    check('Q4 позволява няколко',
+      [...d.querySelectorAll('.fit-option__input')].filter(i => i.checked).length === 2);
+    pick(d, 'none'); await wait(60);
+    check('„нищо постоянно" изключва останалите',
+      [...d.querySelectorAll('.fit-option__input')].filter(i => i.checked).map(i => i.value).join(',') === 'none');
+
+    q(d, '[data-fit-next]').click(); await wait(80);
+    check('Q5 се показа', progress(d) === '5 / 6');
+    check('Q5 има четирите отговора', optionValues(d).length === 4);
+    check('Q5 НЯМА „Standard"', !optionValues(d).includes('standard'));
+    check('Q5 има пояснения под отговорите', !!q(d, '.fit-option__note'));
+
+    pick(d, 'both'); await wait(340);
+    check('Q6 се показа', progress(d) === '6 / 6');
+    const labels = [...d.querySelectorAll('.fit-option__label')].map(e => e.textContent.trim());
+    check('Q6 показва € ленти', labels[0].startsWith('€'), labels.join(' | '));
+    check('Q6 завършва с „още не сме сигурни"',
+      labels[labels.length - 1].toLowerCase().includes('не сме сигурни'), labels.join(' | '));
+    check('Q6 няма стойности с дробна част',
+      !labels.some(l => /€[\d,]*\.\d/.test(l)), labels.join(' | '));
+    check('Q6 има помощния текст',
+      q(d, '.fit-q__help').textContent.includes('конфигурация, която има смисъл'));
+    f.remove();
+  }
+
+  /* ================= 6. Резултат + събиране на контакт ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    const calls = patchFetch(f.contentWindow, 'ok');
+
+    await run(d, {
+      cities: ['sofia'], sofiaOffices: '1', q2: '101-150', q3: '75-99',
+      q4: ['vending'], q5: 'both', q6: 'b2',
+    });
+
+    check('резултатът се показа', visible(q(d, '[data-fit-screen="result"]')));
+    check('пише ГОТОВО.', q(d, '.fit-result__done').textContent === 'ГОТОВО.');
+    check('три карти', d.querySelectorAll('.fit-card').length === 3,
+      String(d.querySelectorAll('.fit-card').length));
+    check('карта 1 носи слота F08', !!q(d, 'genki-slot[slot-id="F08"]'));
+    check('карта 3 има 2–3 причини',
+      d.querySelectorAll('.fit-why__item').length >= 2 && d.querySelectorAll('.fit-why__item').length <= 3,
+      String(d.querySelectorAll('.fit-why__item').length));
+
+    const resultText = q(d, '[data-fit-result]').textContent;
+    check('няма вътрешни имена Single/Duo', !/\b(Single|Duo)\b/.test(resultText));
+    check('няма скор /100', !/\/\s*100/.test(resultText));
+    check('няма Ideal/Strong/Low Fit', !/Ideal|Strong Fit|Low Fit/i.test(resultText));
+    check('няма коефициент 9,90', !/9[.,]90/.test(resultText));
+    check('има закръглен бюджет', /€[\d,]+/.test(resultText));
+    check('има уговорка за оглед', resultText.includes('потвърждава след кратък оглед'));
+
+    /* Събиране на контакт — резултатът остава видим. */
+    check('има въпрос за email', !!q(d, '#fit-email'));
+    check('НЯМА веднага име и компания', !q(d, '#fit-name'));
+
+    q(d, '#fit-email').value = 'nonsense';
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(60);
+    check('невалиден email не минава', !!q(d, '#fit-email') && q(d, '#fit-email').classList.contains('is-invalid'));
+    check('грешката е до полето', visible(q(d, '#fit-email-err')));
+
+    q(d, '#fit-email').value = 'hr@primerna.bg';
+    q(d, '#fit-email').dispatchEvent(new f.contentWindow.Event('input', { bubbles: true }));
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(80);
+    check('стъпка 2 пита име и компания', !!q(d, '#fit-name') && !!q(d, '#fit-company'));
+    check('телефонът е по желание', !q(d, '#fit-phone').required);
+    check('резултатът още се вижда', d.querySelectorAll('.fit-card').length === 3);
+    check('нищо не е изпратено още', calls.length === 0);
+
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(60);
+    check('празни задължителни полета не минават', calls.length === 0);
+    check('има обобщение на грешката', visible(q(d, '.fit-lead .cform__summary')));
+
+    q(d, '#fit-name').value = 'Иван Петров';
+    q(d, '#fit-company').value = 'Примерна ЕООД';
+    q(d, '#fit-name').dispatchEvent(new f.contentWindow.Event('input', { bubbles: true }));
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(200);
+
+    check('изпратена е една заявка', calls.length === 1, String(calls.length));
+    if (calls.length) {
+      const b = calls[0].body;
+      check('адресът е /api/genki-fit', calls[0].url === '/api/genki-fit', calls[0].url);
+      check('пътуват всички отговори',
+        b.q2 === '101-150' && b.q3 === '75-99' && b.q5 === 'both' && b.q6 === 'b2');
+      check('пътува fit ID', typeof b.fitId === 'string' && b.fitId.startsWith('GF-'), b.fitId);
+      check('пътува езикът', b.lang === 'bg');
+      check('пътуват контактните данни', b.email === 'hr@primerna.bg' && b.company === 'Примерна ЕООД');
+      check('НЕ пътува препоръка от клиента', b.recommendation === undefined);
+    }
+
+    check('показано е потвърждение', !!q(d, '.fit-confirm'));
+    check('потвърждението е 24 часа',
+      q(d, '.fit-confirm').textContent.includes('24 часа'));
+    check('CTA за разговор е чак сега',
+      q(d, '.fit-confirm__cta').textContent.includes('Запазете кратък Genki разговор'));
+    check('резултатът остава видим след изпращане', d.querySelectorAll('.fit-card').length === 3);
+    f.remove();
+  }
+
+  /* ================= 7. мека консултация ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    patchFetch(f.contentWindow, 'ok');
+    /* €0 бюджет при малка посещаемост → разговор, не отказ. */
+    await run(d, {
+      cities: ['plovdiv'], sofiaOffices: null, q2: 'lte50', q3: 'lt25',
+      q4: ['none'], q5: 'price-support', q6: 'b0',
+    });
+
+    const text = q(d, '[data-fit-result]').textContent;
+    check('мек резултат се показа', !!q(d, '.fit-result--soft'));
+    check('заглавието е каноничното',
+      q(d, '.fit-result__title').textContent === 'Нека намерим правилния Genki за вашия екип');
+    check('няма дума за отказ', !/съжаление|не отговаряте|неподходящ|отказ/i.test(text));
+    check('има два абзаца', d.querySelectorAll('.fit-soft p').length === 2);
+    check('пак се събира контакт', !!q(d, '#fit-email'));
+    check('изглежда равностойно — същият контейнер', !!q(d, '.fit-result__head'));
+    f.remove();
+  }
+
+  /* ================= 8. грешка от сървъра ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    const calls = patchFetch(f.contentWindow, 'error');
+    await run(d, {
+      cities: ['sofia'], sofiaOffices: '1', q2: '151-300', q3: '150-199',
+      q4: ['canteen'], q5: 'benefit', q6: 'b1',
+    });
+    q(d, '#fit-email').value = 'a@b.bg';
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(80);
+    q(d, '#fit-name').value = 'А'; q(d, '#fit-company').value = 'Б';
+    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(200);
+    check('при грешка НЕ се твърди успех', !q(d, '.fit-confirm'));
+    check('показва се съобщение за грешка', visible(q(d, '.fit-lead .cform__summary')));
+    check('данните остават в полетата', q(d, '#fit-name').value === 'А');
+    check('може да се опита пак', !q(d, '.fit-lead .cform__submit').disabled);
+    f.remove();
+  }
+
+  /* ================= 9. BG / EN ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    check('по подразбиране е BG', d.documentElement.lang === 'bg');
+    d.querySelector('[data-lang-option="en"]').click();
+    await wait(80);
+    check('превключва на EN', d.documentElement.lang === 'en');
+    check('hero е на английски',
+      q(d, '.fit-hero__title').textContent.includes('What kind of Genki'));
+
+    q(d, '[data-fit-start]').click(); await wait(60);
+    check('Q1 е на английски', title(d) === 'Where do you have offices?', title(d));
+    pick(d, 'sofia'); await wait(60); pick(d, '1', 'sub'); await wait(40);
+    q(d, '[data-fit-next]').click(); await wait(80);
+    pick(d, '101-150'); await wait(340);
+    check('Q3 EN е заключеният',
+      title(d) === 'How many people are usually in this office on a normal working day?', title(d));
+    check('Q3 EN помощният текст',
+      q(d, '.fit-q__help').textContent === 'Not total headcount — the people who are actually on site.');
+
+    /* Смяна на езика по средата пречертава текущия въпрос. */
+    d.querySelector('[data-lang-option="bg"]').click();
+    await wait(120);
+    check('смяна по средата пречертава въпроса',
+      title(d).includes('Колко души обикновено са в този офис'), title(d));
+    check('отговорите не се губят при смяна на езика', progress(d) === '3 / 6');
+    f.remove();
+  }
+
+  /* ================= 10. мобилно и таблет ================= */
+  {
+    for (const [w, name] of [[390, 'мобилно 390'], [430, 'мобилно 430'], [768, 'таблет 768']]) {
+      const f = await load(w, 780);
+      const d = f.contentDocument;
+      patchFetch(f.contentWindow, 'ok');
+      const de = d.documentElement;
+
+      check(name + ': hero без хоризонтален скрол', de.scrollWidth <= w + 1,
+        de.scrollWidth + ' > ' + w);
+
+      /* Зоните за докосване се мерят, ДОКАТО въпросът се вижда. */
+      q(d, '[data-fit-start]').click(); await wait(80);
+      const opts = [...d.querySelectorAll('[data-fit-question] .fit-option')];
+      check(name + ': има нарисувани избори', opts.length > 0);
+      check(name + ': няма зони за докосване под 44px',
+        opts.length > 0 && opts.every(o => o.getBoundingClientRect().height >= 44),
+        Math.min(...opts.map(o => Math.round(o.getBoundingClientRect().height))) + 'px');
+      check(name + ': въпросът без хоризонтален скрол', de.scrollWidth <= w + 1,
+        de.scrollWidth + ' > ' + w);
+
+      pick(d, 'sofia'); await wait(60); pick(d, '1', 'sub'); await wait(40);
+      q(d, '[data-fit-next]').click(); await wait(80);
+      pick(d, '301-500'); await wait(340);
+      pick(d, '200-349'); await wait(340);
+      pick(d, 'canteen'); await wait(60);
+      q(d, '[data-fit-next]').click(); await wait(80);
+      pick(d, 'both'); await wait(340);
+      const budgetOpts = [...d.querySelectorAll('[data-fit-question] .fit-option')];
+      check(name + ': бюджетните ленти не се режат',
+        budgetOpts.every(o => o.scrollWidth <= o.clientWidth + 1));
+      pick(d, 'b3'); await wait(340);
+      await wait(1100);
+
+      check(name + ': резултатът се показа', d.querySelectorAll('.fit-card').length === 3);
+      check(name + ': резултатът без хоризонтален скрол', de.scrollWidth <= w + 1,
+        de.scrollWidth + ' > ' + w);
+      check(name + ': картите се редят една под друга',
+        w >= 900 || d.querySelectorAll('.fit-card').length === 3);
+      f.remove();
+    }
+  }
+
+  /* ================= 11. достъпност ================= */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    q(d, '[data-fit-start]').click(); await wait(60);
+
+    check('изборите са истински input-и',
+      [...d.querySelectorAll('.fit-option__input')].every(i => i.tagName === 'INPUT'));
+    check('Q1 е checkbox (многократен избор)',
+      q(d, '.fit-option__input').type === 'checkbox');
+    check('всеки input има <label for>',
+      [...d.querySelectorAll('.fit-option__input')]
+        .every(i => d.querySelector('label[for="' + i.id + '"]')));
+    check('има progressbar роля', !!q(d, '[role="progressbar"]'));
+    check('грешката е role="alert"', q(d, '[data-fit-error]').getAttribute('role') === 'alert');
+
+    pick(d, 'sofia'); await wait(60); pick(d, '1', 'sub'); await wait(40);
+    q(d, '[data-fit-next]').click(); await wait(80);
+    check('Q2 е radio (единичен избор)', q(d, '.fit-option__input').type === 'radio');
+    check('заглавието получава фокус при нов въпрос',
+      d.activeElement === q(d, '#fit-q-title') || d.activeElement === d.body);
+    check('има бутон Назад', visible(q(d, '[data-fit-back]')));
+    f.remove();
+  }
+
+  const head = 'Genki Fit UI — ' + pass + ' минали, ' + fail + ' паднали';
+  document.getElementById('out').textContent = head + '\n\n' + out.join('\n');
+  document.title = fail ? 'FAIL ' + fail : 'OK ' + pass;
+})();
+</script>
+</body>
+</html>

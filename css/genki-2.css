@@ -1566,3 +1566,321 @@ genki-slot { display: block; }
     background: var(--color-bg-soft);
   }
 }
+
+/* ==========================================================================
+   GENKI FIT  (етап 7)
+
+   Пета структура на сайта. Home е split, За компании е лента, Как работи
+   е центриран портрет, Мисия е визуал вляво — а Genki Fit не е страница
+   изобщо. Малко приложение: една мисъл на екран, едра типография, много
+   въздух, изборите са физически едри.
+
+   Нарочно НЕ прилича на анкета: без прогрес бар, който изглежда като
+   зареждане, без илюстрация към всеки въпрос, без дребни радио бутони.
+   ========================================================================== */
+
+/* Докато въпросите текат, сайтът наоколо се смълчава. Хедърът остава —
+   там са езикът и изходът, — но футърът не бива да дърпа погледа. */
+.fit-focus .site-footer { display: none; }
+
+.fit-screen[hidden] { display: none; }
+
+/* `.btn` носи собствен display: inline-flex, който бие UA правилото за
+   [hidden]. Без това бутонът „Напред" се вижда и на екраните, които
+   продължават сами. */
+.btn[hidden] { display: none; }
+
+/* --- Стартов екран -------------------------------------------------------- */
+
+.fit-hero__inner { max-width: 44rem; }
+.fit-hero__title { margin: var(--space-3) 0 var(--space-5); }
+.fit-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-8);
+}
+.fit-hero__start { padding-inline: var(--space-8); }
+.fit-hero__time { margin: 0; }
+
+/* --- Лентата с напредъка -------------------------------------------------- */
+
+/* Тънка линия, не дебел индикатор: това е ориентир, не главният обект. */
+.fit-q__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+.fit-q__progress {
+  margin: 0;
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
+.fit-q__track {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  max-width: 18rem;
+  border-radius: 2px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+.fit-q__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(var(--fit-progress, 0));
+  background: var(--color-accent);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+/* --- Въпросът ------------------------------------------------------------- */
+
+.fit-q__host { max-width: 46rem; }
+
+/* Въпросът е въпрос, а не hero заглавие. Собствен размер между heading и
+   headline: уверен и app-like, но без да се разлива на пет реда. Пълният
+   --text-headline стига 72 px и правеше всеки въпрос да изглежда като
+   манифест. */
+.fit-q__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.30rem + 2vw, 3rem);
+}
+/* Фокусира се програмно само за да обяви екранният четец новия въпрос.
+   Заглавието не е интерактивно, затова няма видим пръстен — иначе всяка
+   стъпка се обгражда с рамка без никаква причина. */
+.fit-q__title:focus { outline: none; }
+.fit-q__help { margin: var(--space-3) 0 0; }
+.fit-q__hint { margin: var(--space-3) 0 0; }
+.fit-q__head { margin-bottom: var(--space-8); }
+
+/* --- Изборите ------------------------------------------------------------- */
+
+/* Истински radio и checkbox отдолу: стрелките, Tab и екранните четци
+   работят без нито един ARIA трик, а целият етикет е кликаем. */
+.fit-options {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 46rem;
+}
+@media (min-width: 640px) {
+  .fit-options--dense { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.fit-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 64px;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  cursor: pointer;
+  transition: border-color var(--duration-quick) var(--ease-out),
+              background-color var(--duration-quick) var(--ease-out),
+              transform var(--duration-quick) var(--ease-out);
+}
+.fit-option:hover { border-color: var(--color-border-strong); }
+.fit-option:active { transform: translateY(1px); }
+
+/* Полето е невидимо, но НЕ display:none — иначе се губи от клавиатурата. */
+.fit-option__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+.fit-option:has(.fit-option__input:focus-visible) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.fit-option:has(.fit-option__input:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-bg-tint);
+}
+
+.fit-option__body { flex: 1; min-width: 0; }
+.fit-option__label {
+  display: block;
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+.fit-option__note {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* Знакът за избрано. Кръг за единичен избор, квадрат за многократен —
+   формата подсказва поведението, преди човек да е пробвал. */
+.fit-option__mark {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-quick) var(--ease-out),
+              background-color var(--duration-quick) var(--ease-out);
+}
+.fit-options--multi .fit-option__mark { border-radius: var(--radius-xs); }
+
+.fit-option:has(.fit-option__input:checked) .fit-option__mark {
+  border-color: var(--color-accent);
+  background: var(--color-accent) no-repeat center / 12px 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 6.5 4.8 9 10 3.5'/%3E%3C/svg%3E");
+}
+
+/* Подвъпросът на същия екран — отделен, но ясно подчинен. */
+.fit-sub {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+.fit-sub__title { margin: 0 0 var(--space-4); font-size: var(--text-subhead); }
+
+.fit-q__error { margin-top: var(--space-5); max-width: 46rem; }
+
+.fit-q__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+.fit-q__back { padding-inline: var(--space-2); }
+.btn__arrow--back { transition: transform var(--duration-quick) var(--ease-out); }
+.btn--quiet:hover .btn__arrow--back { transform: translateX(calc(-1 * var(--hover-arrow-shift))); }
+
+/* --- Паузата преди резултата ---------------------------------------------- */
+
+.fit-calc__text { margin: 0; }
+.fit-calc__dots { display: flex; gap: var(--space-2); margin-top: var(--space-5); }
+.fit-calc__dots span {
+  width: 6px; height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  opacity: .35;
+  animation: fit-pulse 1.1s var(--ease-in-out) infinite;
+}
+.fit-calc__dots span:nth-child(2) { animation-delay: .15s; }
+.fit-calc__dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes fit-pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+
+/* --- Резултат ------------------------------------------------------------- */
+
+.fit-result__head { max-width: 42rem; }
+.fit-result__head:focus { outline: none; }   /* виж бележката при .fit-q__title */
+.fit-result__done { color: var(--color-accent); margin: 0; }
+.fit-result__title { margin: var(--space-3) 0 0; }
+
+/* Тук картите са уместни: това са реални отделни обекти в резултата,
+   а не начин да се запълни секция. */
+.fit-cards {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-10);
+}
+@media (min-width: 900px) {
+  .fit-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+}
+
+.fit-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border: var(--border-hairline) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.fit-card__label { margin: 0 0 var(--space-4); color: var(--color-text-muted); }
+.fit-card__title { margin: 0; }
+.fit-card__note { margin: var(--space-3) 0 0; color: var(--color-text-muted); }
+.fit-card__caveat { margin: var(--space-4) 0 0; }
+.fit-card--setup genki-slot { display: block; margin-bottom: var(--space-5); }
+
+.fit-card--offer { background: var(--color-bg-tint); border-color: var(--green-200); }
+.fit-card__ps {
+  margin: var(--space-4) 0 0;
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand);
+}
+.fit-card__budget {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: var(--border-hairline) solid var(--green-200);
+}
+.fit-card__budget .fit-card__label { margin-bottom: var(--space-1); }
+.fit-card__amount {
+  margin: 0;
+  font-size: var(--text-heading);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-brand);
+}
+
+.fit-why { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-4); }
+.fit-why__item {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+.fit-why__item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .6em;
+  width: 6px; height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+/* Меката консултация НЕ бива да изглежда като по-лош резултат: същият
+   контейнер, същата тежест, никакво червено и никакъв тъжен знак. */
+.fit-result--soft .fit-soft { margin-top: var(--space-6); display: grid; gap: var(--space-4); }
+
+/* --- Събиране на контакт -------------------------------------------------- */
+
+/* Стои ПОД резултата и не го заменя: резултатът остава видим и след
+   изпращането. */
+.fit-lead {
+  max-width: 34rem;
+  margin-top: var(--space-16);
+  padding-top: var(--space-10);
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+.fit-lead__title { margin: 0 0 var(--space-6); }
+.fit-lead__title:focus { outline: none; }    /* виж бележката при .fit-q__title */
+.fit-lead__form { display: grid; gap: var(--space-5); }
+
+.fit-confirm { display: grid; gap: var(--space-4); justify-items: start; }
+.fit-confirm__cta { margin-top: var(--space-2); }
+
+/* --- Мобилно -------------------------------------------------------------- */
+
+@media (max-width: 639px) {
+  /* Мобилното е основната цел за Fit, не свит desktop. */
+  .fit-q__bar { margin-bottom: var(--space-8); }
+  .fit-q__head { margin-bottom: var(--space-6); }
+  .fit-option { min-height: 60px; padding: var(--space-4); border-radius: var(--radius-md); }
+  .fit-q__nav { margin-top: var(--space-8); }
+  /* Бутоните стигат лесно до палеца и не се смачкват на един ред. */
+  .fit-q__nav .btn--fit { flex: 1; }
+  .fit-card { padding: var(--space-5); }
+  .fit-lead { margin-top: var(--space-12); padding-top: var(--space-8); }
+}
+
+/* --- Намалено движение ---------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .fit-q__fill { transition: none; }
+  .fit-calc__dots span { animation: none; opacity: .6; }
+}
