@@ -186,62 +186,39 @@ Pages чете `wrangler.toml` от репото, ако съществува, �
 
 ---
 
-## ⛔ PREVIEW АКТИВАЦИЯТА Е БЛОКИРАНА — какво остава ръчно
+## ✅ PREVIEW СРЕДАТА Е АКТИВНА (2026-09-22)
 
-Задачата за активиране на реалната preview среда **не можа да бъде изпълнена**. Нищо не е създадено и нищо не е конфигурирано. Две независими пречки:
+Блокерите от по-ранния одит са отстранени: собственикът обнови API токена с права за D1 и добави **отделен Preview Resend ключ**. След това инфраструктурата е създадена.
 
-### 1. API токенът няма право за D1
+### Какво е създадено
 
-```
-GET /accounts/.../pages/projects        → HTTP 200
-GET /accounts/.../storage/kv/namespaces → HTTP 200
-GET /accounts/.../d1/database           → HTTP 401  Authentication error
-```
-
-Токенът в `CLOUDFLARE_API_TOKEN` е от шаблона „Edit Cloudflare Workers" и **не включва D1**. Затова `genki-fit-preview` не е създадена, миграцията не е прилагана и `GENKI_FIT_DB` не е свързан.
-
-**Решение:** нов токен с **`D1:Edit`** от dash.cloudflare.com/profile/api-tokens, или ръчно през dashboard-а.
-
-### 2. `RESEND_API_KEY` не може да се копира в Preview
-
-Ключът е `secret_text` на production. Cloudflare го връща празен — **стойността не може да се прочете обратно** от никого, включително от собственика. За preview трябва да се въведе наново, на ръка, със същия Resend ключ.
-
-### Точните стъпки, които остават
-
-```bash
-# 1. Отделна preview база — НЕ production базата
-npx wrangler d1 create genki-fit-preview
-
-# 2. Схемата, към ОТДАЛЕЧЕНАТА preview база
-npx wrangler d1 execute genki-fit-preview --remote \
-    --file=migrations/0001_genki_fit_sessions.sql
-
-# 3. Проверка
-npx wrangler d1 execute genki-fit-preview --remote \
-    --command="SELECT name FROM sqlite_master WHERE type='table'"
-```
-
-После в dashboard-а, **Pages → genkiwebsite → Settings → само раздел Preview**:
-
-| Какво | Стойност |
+| | |
 | --- | --- |
-| D1 binding | `GENKI_FIT_DB` → `genki-fit-preview` |
-| Променлива | `RESEND_API_KEY` = същият Resend ключ (въвежда се наново) |
-| KV binding *(по желание)* | `GENKI_RATE` → `df6567948efb4fa6906f47e58de2a212` |
+| D1 база | **`genki-fit-preview`** |
+| Database ID | `9e1b88b5-5ef2-4df4-b46a-97a0c630ee50` |
+| Миграция | `migrations/0001_genki_fit_sessions.sql` — приложена отдалечено, 4 заявки, всички успешни |
+| Схема | таблица `fit_sessions` с **34 колони** + 3 индекса |
+| Сверка | 34 локални = 34 отдалечени колони; всичките 34, които `lib/genki-fit-store.js` пипа, съществуват |
+| Начални редове | 0 — **не е seed-вана с фалшиви лийдове** |
 
-**Нищо от това не се добавя в раздел Production.** Production D1 база НЕ се създава сега — тя ще е отделна и чиста при launch.
+### Bindings — само в Preview
 
-Накрая: push към `genki-2.0-build` или redeploy на preview, за да влязат bindings-ите.
+| Binding | Preview | Production |
+| --- | --- | --- |
+| `GENKI_FIT_DB` → `genki-fit-preview` | ✅ | ❌ **нарочно няма** |
+| `GENKI_RATE` → `df6567948efb4fa6906f47e58de2a212` | ✅ | ✅ (беше си там) |
+| `RESEND_API_KEY` | ✅ отделен Preview ключ, добавен от собственика | ✅ отделен production ключ |
+| `GENKI_SCANS` | не е добавян — Genki Fit не го ползва | ✅ |
 
-### Поведение без конфигурация
+**Разделението е доказано чрез API:** конфигурацията на production е сверена преди и след промяната и е **байт по байт идентична**. Production няма и не е имал `GENKI_FIT_DB`.
 
-| Липсва | Какво става |
-| --- | --- |
-| `GENKI_FIT_DB` | стъпките връщат `not_configured` и **НЕ твърдят, че са записали** |
-| `RESEND_API_KEY` | стъпките се записват нормално, но **известия не тръгват**; изпращането към клиент връща `not_configured` |
-| `GENKI_RATE` | няма ограничение на честотата — кодът го третира като по желание |
+Ключовете са `secret_text` — стойностите им не се четат обратно от никого и не са записвани никъде в репото.
 
----
+### Политика за данните
+
+`genki-fit-preview` е **НЕ-production хранилище**. Тестовите Fit сесии остават там. При launch се създава **отделна чиста production база** — пренасяне на preview лийдове към production не се планира.
+
+**Production D1 база НЕ е създавана.** Това остава отделна бъдеща стъпка.
 
 ## Защитената среда за преглед
 
