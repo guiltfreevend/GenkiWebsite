@@ -1884,3 +1884,114 @@ genki-slot { display: block; }
   .fit-q__fill { transition: none; }
   .fit-calc__dots span { animation: none; opacity: .6; }
 }
+
+/* --- Вторични действия под резултата -------------------------------------- */
+
+/* Резултатът е героят. Тези действия стоят под него, по-тихи, и не се
+   борят с него за внимание. Няма голям primary бутон и няма форма,
+   която да изглежда като такса за вход. */
+.fit-actions {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: var(--border-hairline) solid var(--color-border);
+  max-width: 34rem;
+}
+.fit-actions__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+}
+.fit-actions__contact { font-size: var(--text-body-sm); }
+
+/* Панелът се разгръща на място — без модал, за да не изчезва резултатът. */
+.fit-send {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border: var(--border-hairline) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+}
+.fit-send[hidden] { display: none; }
+.fit-send__form { display: grid; gap: var(--space-4); }
+.fit-send__submit { justify-self: start; }
+
+.fit-send__to {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.fit-send__addr {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  word-break: break-all;
+}
+/* „Променете" е действие, не украса: бутон с вид на връзка, но с пълна
+   зона за докосване и видим фокус. */
+.fit-send__change {
+  border: 0;
+  padding: var(--space-1) var(--space-2);
+  margin-inline-start: calc(-1 * var(--space-2));
+  background: transparent;
+  font: inherit;
+  font-size: var(--text-body-sm);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+}
+.fit-send__change:hover { color: var(--color-brand); }
+.fit-send__change:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.fit-send__summary { margin-top: var(--space-2); }
+
+/* --- Изпратено ------------------------------------------------------------ */
+
+.fit-sent {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-tint);
+  border: 1px solid var(--green-200);
+}
+.fit-sent:focus { outline: none; }   /* фокусира се програмно, за да се обяви */
+/* Потвърждение, не заглавие: не бива да се бори с резултата над него. */
+.fit-sent__title {
+  margin: 0;
+  font-size: var(--text-subhead);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-brand);
+  overflow-wrap: anywhere;
+}
+.fit-sent__code {
+  margin: 0;
+  font-size: var(--text-body);
+  color: var(--color-text);
+}
+/* Кодът се преписва от екрана и се чете на глас по телефона: моноширинен
+   шрифт и разредка, за да не се слепят знаците. Моноширинно е САМО
+   кодът — цяло изречение в такъв шрифт изглежда като терминал и
+   кирилицата в него се чете зле. */
+.fit-sent__codeval {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--text-subhead);
+  font-weight: var(--weight-semibold);
+  letter-spacing: .06em;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+.fit-sent__keep { margin: 0; }
+.fit-sent__contact { margin-top: var(--space-2); font-size: var(--text-body-sm); }
+
+@media (max-width: 639px) {
+  .fit-actions { margin-top: var(--space-10); padding-top: var(--space-6); }
+  .fit-actions__row { gap: var(--space-4); }
+  .fit-actions__send { width: 100%; }
+  .fit-send { padding: var(--space-4); }
+  .fit-send__submit { justify-self: stretch; width: 100%; }
+}

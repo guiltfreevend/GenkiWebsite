@@ -10,10 +10,15 @@
      препоръката идват от lib/genki-fit-logic.js — същия модул, който
      ползва и сървърът. Този файл е само интерфейс.
 
+   СТОЙНОСТ ПЪРВО
+     Резултатът е героят на финалния екран и се вижда БЕЗ никакви
+     контактни данни. Изпращането по имейл е по желание и е вторично
+     действие. Няма отметка „свържете се с мен" — ако човек я остави
+     празна, тя става ограничение върху бъдещ разговор.
+
    ДОВЕРИЕ
-     Резултатът се показва веднага, на клиента, защото не бива да се
-     заключва зад контактни данни. Но сървърът пресмята всичко НАНОВО и
-     не вярва на нищо оттук.
+     Сървърът пресмята всичко НАНОВО и не вярва на нищо оттук. Genki Fit
+     кодът също се ражда на сървъра.
 
    ДОСТЪПНОСТ
      Изборите са истински <input type="radio"> и <input type="checkbox">.
@@ -30,7 +35,7 @@
 
 import {
   Q3_RANGES_BY_Q2, q3RangesFor, attendanceBounds, budgetBands,
-  recommend, newFitId,
+  recommend,
 } from '/lib/genki-fit-logic.js';
 
 (function () {
@@ -73,7 +78,6 @@ import {
   /* --- състояние -------------------------------------------------------- */
 
   var state = {
-    fitId: null,
     step: 0,                    // 0 = hero, 1..6 = въпроси
     cities: [],
     sofiaOffices: null,
@@ -464,11 +468,6 @@ import {
   }
 
   function start() {
-    state.fitId = newFitId(
-      window.crypto && window.crypto.randomUUID
-        ? window.crypto.randomUUID.bind(window.crypto)
-        : null
-    );
     state.step = 1;
     renderQuestion();
     track('genki_fit_started');
@@ -532,7 +531,7 @@ import {
       // Не бива да се случи — валидирано е на всяка стъпка. Ако все пак:
       // човекът получава разговор, не празен екран.
       resultHost.appendChild(buildSoftConsultation());
-      resultHost.appendChild(buildLeadCapture(null));
+      resultHost.appendChild(buildActions());
       show('result');
       return;
     }
@@ -540,7 +539,7 @@ import {
     resultHost.appendChild(
       rec.outcome === 'consultation' ? buildSoftConsultation() : buildNormalResult(rec)
     );
-    resultHost.appendChild(buildLeadCapture(rec));
+    resultHost.appendChild(buildActions());
 
     show('result');
     if (window.GenkiI18n) window.GenkiI18n.apply(resultHost);
@@ -624,256 +623,276 @@ import {
   }
 
   /* ======================================================================
-     СЪБИРАНЕ НА КОНТАКТ
+     ВТОРИЧНИ ДЕЙСТВИЯ
 
-     Резултатът остава видим над формата и след изпращане. Locked flow:
-     резултат → email → име/компания/телефон → потвърждение → CTA.
+     Резултатът е героят на екрана. Тези две действия стоят ПОД него и
+     нарочно не се борят с него:
+
+       • „Изпратете ми този Genki Fit" — по желание. Резултатът НЕ е
+         заключен зад имейл. Стойност първо, лийд после.
+       • „Свържете се с Genki" — води към реалната страница за контакт.
+         Няма система за резервация, затова няма и „Запазете среща".
+
+     Няма отметка „искам да се свържете с мен": ако човек я остави
+     празна, тя се превръща в ограничение върху бъдещ разговор и в
+     двусмислие. По-добре да я няма изобщо.
      ====================================================================== */
 
-  var lead = { email: '', name: '', company: '', phone: '' };
+  var destEmail = '';      // запомнен в паметта на страницата за тази сесия
+  var sentCode = null;     // кодът от сървъра, след успешно изпращане
   var sending = false;
-
-  function field(id, labelKey, type, opts) {
-    var wrap = el('div', 'cform__field');
-    var label = el('label', 'cform__label');
-    label.setAttribute('for', id);
-    label.appendChild(el('span', null, t(labelKey)));
-    if (opts && opts.optionalKey) {
-      var o = el('span', 'cform__optional');
-      o.textContent = '— ' + t(opts.optionalKey);
-      label.appendChild(o);
-    }
-    var input = document.createElement('input');
-    input.className = 'cform__input';
-    input.id = id;
-    input.type = type;
-    input.setAttribute('aria-describedby', id + '-err');
-    if (opts && opts.autocomplete) input.autocomplete = opts.autocomplete;
-    if (opts && opts.inputmode) input.inputMode = opts.inputmode;
-    if (opts && opts.maxlength) input.maxLength = opts.maxlength;
-    if (!(opts && opts.optionalKey)) input.required = true;
-
-    var err = el('p', 'cform__error');
-    err.id = id + '-err';
-    err.hidden = true;
-
-    wrap.appendChild(label);
-    wrap.appendChild(input);
-    wrap.appendChild(err);
-
-    input.addEventListener('input', function () {
-      if (input.classList.contains('is-invalid')) setFieldError(input, null);
-    });
-    return { wrap: wrap, input: input, err: err };
-  }
-
-  function setFieldError(input, messageKey) {
-    var err = document.getElementById(input.id + '-err');
-    if (messageKey) {
-      input.classList.add('is-invalid');
-      input.setAttribute('aria-invalid', 'true');
-      if (err) { err.textContent = t(messageKey); err.hidden = false; }
-    } else {
-      input.classList.remove('is-invalid');
-      input.removeAttribute('aria-invalid');
-      if (err) { err.hidden = true; err.textContent = ''; }
-    }
-  }
 
   function looksLikeEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
   }
 
-  function buildLeadCapture(rec) {
-    var wrap = el('section', 'fit-lead');
-    wrap.setAttribute('data-fit-lead', '');
-    renderLeadStep1(wrap, rec);
+  function buildActions() {
+    var wrap = el('section', 'fit-actions');
+    wrap.setAttribute('data-fit-actions', '');
+    renderActions(wrap);
     return wrap;
   }
 
-  function renderLeadStep1(wrap, rec) {
+  function renderActions(wrap) {
     wrap.innerHTML = '';
-    wrap.appendChild(el('h2', 't-heading fit-lead__title', t('fit.lead.title')));
 
-    var form = el('form', 'cform fit-lead__form');
-    form.noValidate = true;
+    if (sentCode) { renderSent(wrap); return; }
 
-    var email = field('fit-email', 'fit.lead.email', 'email', {
-      autocomplete: 'email', inputmode: 'email', maxlength: 200,
-    });
-    email.input.value = lead.email;
-    form.appendChild(email.wrap);
+    var row = el('div', 'fit-actions__row');
 
-    var btn = el('button', 'btn btn--fit cform__submit');
-    btn.type = 'submit';
-    btn.appendChild(el('span', null, t('fit.lead.send')));
+    var send = el('button', 'btn btn--secondary fit-actions__send');
+    send.type = 'button';
+    send.setAttribute('data-fit-send-open', '');
+    send.appendChild(el('span', null, t('fit.send.action')));
+    row.appendChild(send);
+
+    var contact = el('a', 'link-arrow fit-actions__contact');
+    contact.href = 'contact.html';
+    contact.appendChild(el('span', null, t('fit.contact.action')));
     var arrow = el('span', 'btn__arrow', '→');
     arrow.setAttribute('aria-hidden', 'true');
-    btn.appendChild(arrow);
-    form.appendChild(btn);
+    contact.appendChild(arrow);
+    row.appendChild(contact);
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var value = email.input.value.trim();
-      if (!looksLikeEmail(value)) {
-        setFieldError(email.input, 'fit.err.email');
-        email.input.focus();
-        return;
+    wrap.appendChild(row);
+
+    // Панелът се разгръща НА МЯСТО. Без модал и без навигация — човекът
+    // не бива да губи резултата от очи заради едно поле.
+    var panel = el('div', 'fit-send');
+    panel.setAttribute('data-fit-send-panel', '');
+    panel.hidden = true;
+    wrap.appendChild(panel);
+
+    send.addEventListener('click', function () {
+      var opening = panel.hidden;
+      panel.hidden = !opening;
+      send.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      if (opening) {
+        renderSendPanel(panel, wrap);
+        track('genki_fit_send_open');
       }
-      lead.email = value;
-      track('genki_fit_email');
-      renderLeadStep2(wrap, rec);
     });
-
-    wrap.appendChild(form);
+    send.setAttribute('aria-expanded', 'false');
   }
 
-  function renderLeadStep2(wrap, rec) {
-    wrap.innerHTML = '';
-    var title = el('h2', 't-heading fit-lead__title', t('fit.lead.title2'));
-    title.setAttribute('tabindex', '-1');
-    wrap.appendChild(title);
+  /** Едно поле, ако още няма адрес. Потвърждение, ако вече има. */
+  function renderSendPanel(panel, wrap) {
+    panel.innerHTML = '';
 
-    var form = el('form', 'cform fit-lead__form');
+    if (destEmail && looksLikeEmail(destEmail)) renderConfirmState(panel, wrap);
+    else renderEditState(panel, wrap);
+
+    if (window.GenkiI18n) window.GenkiI18n.apply(panel);
+  }
+
+  function renderConfirmState(panel, wrap) {
+    var line = el('div', 'fit-send__to');
+    line.appendChild(el('span', 't-body-sm t-muted', t('fit.send.to')));
+    line.appendChild(el('span', 'fit-send__addr', destEmail));
+
+    var change = el('button', 'fit-send__change');
+    change.type = 'button';
+    change.textContent = t('fit.send.change');
+    change.addEventListener('click', function () { renderEditState(panel, wrap, true); });
+    line.appendChild(change);
+
+    panel.appendChild(line);
+    panel.appendChild(sendButton(panel, wrap, t('fit.send.submit.to', { email: destEmail })));
+    panel.appendChild(summaryNode(panel));
+  }
+
+  function renderEditState(panel, wrap, focus) {
+    panel.innerHTML = '';
+
+    var form = el('form', 'cform fit-send__form');
     form.noValidate = true;
 
-    var summary = el('p', 'cform__summary');
-    summary.setAttribute('role', 'alert');
-    summary.hidden = true;
+    var field = el('div', 'cform__field');
+    var label = el('label', 'cform__label');
+    label.setAttribute('for', 'fit-email');
+    label.textContent = t('fit.send.email');
+
+    var input = document.createElement('input');
+    input.className = 'cform__input';
+    input.id = 'fit-email';
+    input.type = 'email';
+    input.autocomplete = 'email';
+    input.inputMode = 'email';
+    input.maxLength = 200;
+    input.required = true;
+    input.value = destEmail;
+    input.setAttribute('aria-describedby', 'fit-email-err');
+
+    var err = el('p', 'cform__error');
+    err.id = 'fit-email-err';
+    err.hidden = true;
+
+    field.appendChild(label);
+    field.appendChild(input);
+    field.appendChild(err);
+    form.appendChild(field);
+
+    input.addEventListener('input', function () {
+      if (input.classList.contains('is-invalid')) {
+        input.classList.remove('is-invalid');
+        input.removeAttribute('aria-invalid');
+        err.hidden = true;
+      }
+    });
+
+    var btn = el('button', 'btn btn--fit fit-send__submit');
+    btn.type = 'submit';
+    btn.appendChild(el('span', null, t('fit.send.submit')));
+    form.appendChild(btn);
+
+    var summary = summaryNode(panel);
     form.appendChild(summary);
 
-    var name = field('fit-name', 'fit.lead.name', 'text', { autocomplete: 'name', maxlength: 120 });
-    var company = field('fit-company', 'fit.lead.company', 'text', { autocomplete: 'organization', maxlength: 160 });
-    var phone = field('fit-phone', 'fit.lead.phone', 'tel', {
-      autocomplete: 'tel', inputmode: 'tel', maxlength: 40, optionalKey: 'fit.lead.phone.note',
-    });
-    name.input.value = lead.name;
-    company.input.value = lead.company;
-    phone.input.value = lead.phone;
-    form.appendChild(name.wrap);
-    form.appendChild(company.wrap);
-    form.appendChild(phone.wrap);
-
-    // Honeypot — същата техника като на формата за контакт.
-    var hp = el('div', 'cform__hp');
-    hp.setAttribute('aria-hidden', 'true');
-    var hpLabel = el('label', null, 'Website');
-    hpLabel.setAttribute('for', 'fit-website');
-    var hpInput = document.createElement('input');
-    hpInput.id = 'fit-website';
-    hpInput.type = 'text';
-    hpInput.tabIndex = -1;
-    hpInput.autocomplete = 'off';
-    hp.appendChild(hpLabel);
-    hp.appendChild(hpInput);
-    form.appendChild(hp);
-
-    var btn = el('button', 'btn btn--fit cform__submit');
-    btn.type = 'submit';
-    var btnLabel = el('span', null, t('fit.lead.submit'));
-    btn.appendChild(btnLabel);
-    var arrow = el('span', 'btn__arrow', '→');
-    arrow.setAttribute('aria-hidden', 'true');
-    btn.appendChild(arrow);
-    form.appendChild(btn);
-
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (sending) return;
-
-      summary.hidden = true;
-      var firstBad = null;
-      if (!name.input.value.trim()) { setFieldError(name.input, 'fit.err.name'); firstBad = firstBad || name.input; }
-      else setFieldError(name.input, null);
-      if (!company.input.value.trim()) { setFieldError(company.input, 'fit.err.company'); firstBad = firstBad || company.input; }
-      else setFieldError(company.input, null);
-
-      if (firstBad) {
-        summary.textContent = t('fit.err.summary');
-        summary.hidden = false;
-        firstBad.focus();
+      var value = input.value.trim();
+      if (!looksLikeEmail(value)) {
+        input.classList.add('is-invalid');
+        input.setAttribute('aria-invalid', 'true');
+        err.textContent = t('fit.err.email');
+        err.hidden = false;
+        input.focus();
         return;
       }
-
-      lead.name = name.input.value.trim();
-      lead.company = company.input.value.trim();
-      lead.phone = phone.input.value.trim();
-
-      sending = true;
-      btn.disabled = true;
-      btn.setAttribute('aria-busy', 'true');
-      btnLabel.textContent = t('fit.lead.sending');
-
-      var a = answers();
-      var payload = {
-        cities: a.q1.cities, sofiaOffices: a.q1.sofiaOffices,
-        q2: a.q2, q3: a.q3, q4: a.q4, q5: a.q5, q6: a.q6,
-        largestOffice: a.largestOffice,
-        email: lead.email, name: lead.name, company: lead.company, phone: lead.phone,
-        website: hpInput.value,
-        lang: lang(),
-        fitId: state.fitId,
-      };
-
-      window.fetch('/api/genki-fit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-        .then(function (res) {
-          return res.json().catch(function () { return {}; })
-            .then(function (body) { return { ok: res.ok, body: body }; });
-        })
-        .then(function (r) {
-          sending = false;
-          if (!r.ok || !r.body || r.body.ok !== true) {
-            btn.disabled = false;
-            btn.removeAttribute('aria-busy');
-            btnLabel.textContent = t('fit.lead.submit');
-            summary.textContent = t('fit.err.server');
-            summary.hidden = false;
-            track('genki_fit_error');
-            return;
-          }
-          renderConfirmation(wrap);
-          track('genki_fit_lead');
-        })
-        .catch(function () {
-          sending = false;
-          btn.disabled = false;
-          btn.removeAttribute('aria-busy');
-          btnLabel.textContent = t('fit.lead.submit');
-          summary.textContent = t('fit.err.network');
-          summary.hidden = false;
-          track('genki_fit_error');
-        });
+      destEmail = value;
+      submit(panel, wrap, btn, summary);
     });
 
-    wrap.appendChild(form);
-    if (window.GenkiI18n) window.GenkiI18n.apply(wrap);
-    title.focus({ preventScroll: true });
+    panel.appendChild(form);
+    if (window.GenkiI18n) window.GenkiI18n.apply(panel);
+    if (focus) input.focus();
   }
 
-  function renderConfirmation(wrap) {
-    wrap.innerHTML = '';
-    var box = el('div', 'cform__success fit-confirm');
+  function summaryNode(panel) {
+    var existing = panel.querySelector('.cform__summary');
+    if (existing) return existing;
+    var summary = el('p', 'cform__summary fit-send__summary');
+    summary.setAttribute('role', 'alert');
+    summary.hidden = true;
+    return summary;
+  }
+
+  function sendButton(panel, wrap, label) {
+    var btn = el('button', 'btn btn--fit fit-send__submit');
+    btn.type = 'button';
+    btn.appendChild(el('span', null, label));
+    btn.addEventListener('click', function () {
+      submit(panel, wrap, btn, panel.querySelector('.cform__summary'));
+    });
+    return btn;
+  }
+
+  function submit(panel, wrap, btn, summary) {
+    if (sending) return;
+    sending = true;
+
+    var labelNode = btn.querySelector('span');
+    var previous = labelNode.textContent;
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    labelNode.textContent = t('fit.send.sending');
+    if (summary) summary.hidden = true;
+
+    var a = answers();
+    var payload = {
+      cities: a.q1.cities, sofiaOffices: a.q1.sofiaOffices,
+      q2: a.q2, q3: a.q3, q4: a.q4, q5: a.q5, q6: a.q6,
+      largestOffice: a.largestOffice,
+      email: destEmail,
+      lang: lang(),
+    };
+
+    window.fetch('/api/genki-fit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; })
+          .then(function (body) { return { ok: res.ok, body: body }; });
+      })
+      .then(function (r) {
+        sending = false;
+        if (!r.ok || !r.body || r.body.ok !== true || !r.body.code) {
+          restore(btn, labelNode, previous);
+          if (summary) { summary.textContent = t('fit.err.server'); summary.hidden = false; }
+          track('genki_fit_send_error');
+          return;
+        }
+        // Кодът идва от сървъра. Клиентът не измисля идентификатори.
+        sentCode = r.body.code;
+        if (r.body.email) destEmail = r.body.email;
+        renderActions(wrap);
+        track('genki_fit_sent');
+      })
+      .catch(function () {
+        sending = false;
+        restore(btn, labelNode, previous);
+        if (summary) { summary.textContent = t('fit.err.network'); summary.hidden = false; }
+        track('genki_fit_send_error');
+      });
+  }
+
+  function restore(btn, labelNode, previous) {
+    btn.disabled = false;
+    btn.removeAttribute('aria-busy');
+    labelNode.textContent = previous;
+  }
+
+  /** Изпратено. Адресът и кодът стоят видими; резултатът остава над тях. */
+  function renderSent(wrap) {
+    var box = el('div', 'fit-sent');
     box.setAttribute('role', 'status');
     box.setAttribute('tabindex', '-1');
-    box.appendChild(el('h2', 't-heading cform__success-title', t('fit.confirm.title')));
-    box.appendChild(el('p', 't-body', t('fit.confirm.text')));
 
-    // Чак сега се показва CTA-то за разговор — така е заключен редът.
-    var cta = el('a', 'btn btn--fit fit-confirm__cta');
-    cta.href = 'contact.html';
-    cta.appendChild(el('span', null, t('fit.result.cta')));
+    box.appendChild(el('p', 'fit-sent__title', t('fit.send.done', { email: destEmail })));
+    // Само кодът е моноширинен. Цялото изречение в monospace изглежда
+    // като терминал, а кирилицата в такъв шрифт се чете зле.
+    var codeLine = el('p', 'fit-sent__code');
+    var parts = raw('fit.send.done.code').split('{code}');
+    codeLine.appendChild(document.createTextNode(parts[0] || ''));
+    codeLine.appendChild(el('span', 'fit-sent__codeval', sentCode));
+    codeLine.appendChild(document.createTextNode(parts[1] || ''));
+    box.appendChild(codeLine);
+    box.appendChild(el('p', 't-body-sm t-muted fit-sent__keep', t('fit.send.done.keep')));
+
+    var contact = el('a', 'link-arrow fit-sent__contact');
+    contact.href = 'contact.html';
+    contact.appendChild(el('span', null, t('fit.contact.action')));
     var arrow = el('span', 'btn__arrow', '→');
     arrow.setAttribute('aria-hidden', 'true');
-    cta.appendChild(arrow);
-    box.appendChild(cta);
+    contact.appendChild(arrow);
+    box.appendChild(contact);
 
     wrap.appendChild(box);
     box.focus({ preventScroll: true });
   }
+
 
   /* ======================================================================
      АНАЛИТИКА — само ако вече има платформа. Нито един отговор не пътува.
@@ -910,10 +929,10 @@ import {
     document.addEventListener('genki:langchange', function () {
       if (state.step >= 1 && screens.question && !screens.question.hidden) renderQuestion();
       else if (screens.result && !screens.result.hidden) {
-        var leadWrap = resultHost.querySelector('[data-fit-lead]');
-        var inLead = leadWrap && leadWrap.querySelector('form');
-        if (!inLead) renderResult();
-        else if (window.GenkiI18n) window.GenkiI18n.apply(resultHost);
+        // Изпратеното състояние не се пречертава: кодът и адресът вече са
+        // факт и не бива да изчезнат при смяна на езика.
+        if (sentCode) { if (window.GenkiI18n) window.GenkiI18n.apply(resultHost); }
+        else renderResult();
       }
       if (window.GenkiI18n) window.GenkiI18n.apply(root);
     });

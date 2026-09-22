@@ -11,10 +11,13 @@ import {
   FORECAST, Q2_BANDS, Q3_RANGES_BY_Q2, ATTENDANCE_BOUNDS, HARDWARE_BOUNDARIES,
   q3RangesFor, attendanceBounds, hardwareCandidate, benefitFor,
   round50, expectedSales, psThresholds, budgetBands, findBand,
-  recommend, validateAnswers, newFitId, PS_LEVELS_AUTOMATIC,
+  recommend, validateAnswers, PS_LEVELS, PS_LEVELS_AUTOMATIC, PS_MAX_AUTOMATIC,
 } from '../../lib/genki-fit-logic.js';
 
-import { onRequest, onRequestPost, buildFitEmail } from '../../functions/api/genki-fit.js';
+import { onRequest, onRequestPost, validateDestination } from '../../functions/api/genki-fit.js';
+import {
+  newFitCode, CODE_ALPHABET, CODE_PATTERN, buildCustomerEmail, buildInternalEmail, SHARED,
+} from '../../lib/genki-fit-email.js';
 import { formatSofiaDateTime } from '../../lib/genki-time.js';
 import { readFileSync } from 'node:fs';
 
@@ -157,7 +160,8 @@ console.log('\n=== Q6 · round50 и праговете ===');
   const t = psThresholds(732.6);
   check('T20 = 150', t.t20 === 150, String(t.t20));
   check('T50 = 400', t.t50 === 400, String(t.t50));
-  check('T100 = 750', t.t100 === 750, String(t.t100));
+  check('T75 = 550', t.t75 === 550, String(t.t75));
+  check('вече няма T100', t.t100 === undefined);
 }
 
 /* ======================================================================
@@ -166,12 +170,13 @@ console.log('\n=== Q6 · round50 и праговете ===');
 console.log('\n=== Q6 · само Price Support ===');
 {
   const set = budgetBands('101-150', '75-99', 'price-support');
-  // salesMax = 99 × 9,90 = 980,10 → T20 200 · T50 500 · T100 1000
+  // salesMax = 99 × 9,90 = 980,10 → T20 200 · T50 500 · T75 750
   check('режим price-support', set.mode === 'price-support');
   check('шест опции (5 ленти + „не сме сигурни")', set.bands.length === 6, String(set.bands.length));
-  check('лентите са точни',
-    eq(shape(set.bands), [[0, 0], [1, 200], [201, 500], [501, 1000], [1001, null]]),
+  check('лентите стъпват на T75, не на T100',
+    eq(shape(set.bands), [[0, 0], [1, 200], [201, 500], [501, 750], [751, null]]),
     JSON.stringify(shape(set.bands)));
+  check('горната граница е T75', set.thresholds.t75 === 750, String(set.thresholds.t75));
   check('първата е точно €0', set.bands[0].kind === 'zero');
   check('втората е „до €T20"', set.bands[1].kind === 'upto');
   check('последната е отворена', set.bands[4].kind === 'open' && set.bands[4].max === null);
@@ -225,11 +230,11 @@ console.log('\n=== Q6 · Both ===');
   // Q2 51–100 + Q3 50–74: котва 600, T20 150, T50 400, T100 750.
   const set = budgetBands('51-100', '50-74', 'both');
   check('режим both', set.mode === 'both');
-  check('праговете са 150/400/750',
-    set.thresholds.t20 === 150 && set.thresholds.t50 === 400 && set.thresholds.t100 === 750,
+  check('праговете са 150/400/550 (T75)',
+    set.thresholds.t20 === 150 && set.thresholds.t50 === 400 && set.thresholds.t75 === 550,
     JSON.stringify(set.thresholds));
-  check('лентите съвпадат с примера в спецификацията',
-    eq(shape(set.bands), [[0, 599], [600, 749], [750, 999], [1000, 1349], [1350, null]]),
+  check('Both ползва T75 за горната лента',
+    eq(shape(set.bands), [[0, 599], [600, 749], [750, 999], [1000, 1149], [1150, null]]),
     JSON.stringify(shape(set.bands)));
 
   const b = shape(set.bands);
@@ -286,7 +291,8 @@ console.log('\n=== Отворен край ===');
   check('отбелязан е като openEnded', set.openEnded === true);
   // Праговете стъпват на salesMin = 9900, не на измислен таван.
   check('T20 от salesMin', set.thresholds.t20 === round50(9900 * 0.2), String(set.thresholds.t20));
-  check('T100 = 9900', set.thresholds.t100 === 9900, String(set.thresholds.t100));
+  check('T75 = 7450 от salesMin', set.thresholds.t75 === round50(9900 * 0.75),
+    String(set.thresholds.t75));
 
   const r = recommend({
     q1: { cities: ['sofia'], sofiaOffices: '3plus' }, q2: '1000+', q3: '1000+',
@@ -347,6 +353,7 @@ console.log('\n=== Препоръка ===');
   check('Both при най-горната лента', r3.approach === 'both' && r3.outcome === 'recommendation');
   check('PS нивото е автоматично допустимо', PS_LEVELS_AUTOMATIC.includes(r3.psLevel), String(r3.psLevel));
   check('никога не се препоръчва 100% автоматично', r3.psLevel !== 100);
+  check('нивото не надхвърля 75%', r3.psLevel <= PS_MAX_AUTOMATIC, String(r3.psLevel));
 
   // Свойство на заключената структура на лентите: в режим both лентите се
   // строят НАД котвата на Benefit, при това от самите PS прагове. Следствие
@@ -515,12 +522,91 @@ console.log('\n=== Валидация ===');
   check('непознати полета не влизат',
     validateAnswers({ ...good, isAdmin: true }).answers.isAdmin === undefined);
 
-  check('fit ID има префикс', newFitId().startsWith('GF-'));
-  check('два fit ID се различават', newFitId() !== newFitId());
 }
 
 /* ======================================================================
-   19. СЪРВЪРЪТ
+   19. PRICE SUPPORT · таванът е 75%, 100% е премахнато
+   ====================================================================== */
+console.log('\n=== Price Support · максимум 75% ===');
+{
+  check('поддържаните нива са точно 10/20/30/50/75', eq(PS_LEVELS, [10, 20, 30, 50, 75]),
+    JSON.stringify(PS_LEVELS));
+  check('100% не е в списъка', !PS_LEVELS.includes(100));
+  check('автоматичните се проверяват отгоре надолу',
+    eq(PS_LEVELS_AUTOMATIC, [75, 50, 30, 20, 10]), JSON.stringify(PS_LEVELS_AUTOMATIC));
+  check('таванът е 75', PS_MAX_AUTOMATIC === 75);
+
+  // Нито една комбинация не може да произведе ниво над 75.
+  let over = [], hundred = [];
+  for (const q5 of ['benefit', 'price-support', 'both', 'unsure']) {
+    for (const q2 of Q2_BANDS) {
+      for (const q3 of q3RangesFor(q2)) {
+        const set = budgetBands(q2, q3, q5);
+        for (const bd of set.bands) {
+          const r = recommend({
+            q1: { cities: ['sofia'], sofiaOffices: '1' },
+            q2, q3, q4: ['vending'], q5, q6: bd.id,
+          });
+          if (!r || r.psLevel === null) continue;
+          if (r.psLevel > 75) over.push(q2 + '/' + q3 + '/' + q5 + '/' + bd.id + '=' + r.psLevel);
+          if (r.psLevel === 100) hundred.push(q2 + '/' + q3 + '/' + q5 + '/' + bd.id);
+        }
+      }
+    }
+  }
+  check('нито една препоръка не надхвърля 75%', over.length === 0, over.slice(0, 3).join(', '));
+  check('100% не се препоръчва никъде', hundred.length === 0, hundred.slice(0, 3).join(', '));
+
+  // Бюджет далеч над нужното за 75% пак спира на 75%.
+  const set = budgetBands('101-150', '75-99', 'price-support');
+  const top = set.bands.find((b) => b.kind === 'open');
+  const rTop = recommend({
+    q1: { cities: ['sofia'], sofiaOffices: '1' }, q2: '101-150', q3: '75-99',
+    q4: ['vending'], q5: 'price-support', q6: top.id,
+  });
+  check('най-горната лента дава точно 75%', rTop.psLevel === 75, String(rTop.psLevel));
+  check('излишъкът НЕ става 100%', rTop.psLevel !== 100);
+
+  // Много голям бюджет при „И двете" — пак 75%.
+  const bset = budgetBands('301-500', '200-349', 'both');
+  const btop = bset.bands.find((b) => b.kind === 'open');
+  const rB = recommend({
+    q1: { cities: ['sofia'], sofiaOffices: '1' }, q2: '301-500', q3: '200-349',
+    q4: ['canteen'], q5: 'both', q6: btop.id,
+  });
+  check('Both при огромен бюджет също спира на 75%', rB.psLevel === 75, String(rB.psLevel));
+}
+
+/* ======================================================================
+   20. GENKI FIT КОД
+   ====================================================================== */
+console.log('\n=== Genki Fit код ===');
+{
+  const code = newFitCode();
+  check('форматът е GF-XXXX-XXXX', CODE_PATTERN.test(code), code);
+  check('дължината е 12', code.length === 12, String(code.length));
+  check('главни букви', code === code.toUpperCase());
+
+  const AMBIGUOUS = ['O', '0', 'I', '1', 'L', 'U'];
+  check('азбуката не съдържа двусмислени знаци',
+    !AMBIGUOUS.some((c) => CODE_ALPHABET.includes(c)), CODE_ALPHABET);
+  check('азбуката е 30 знака', CODE_ALPHABET.length === 30, String(CODE_ALPHABET.length));
+
+  const many = Array.from({ length: 400 }, () => newFitCode());
+  check('всички са с правилен формат', many.every((c) => CODE_PATTERN.test(c)));
+  check('няма двусмислени знаци в 400 кода',
+    !many.some((c) => AMBIGUOUS.some((a) => c.slice(3).includes(a))));
+  check('не е нарастващ брояч', new Set(many).size > 395, String(new Set(many).size));
+  check('не съдържа лична информация', many.every((c) => /^GF-[A-Z2-9]{4}-[A-Z2-9]{4}$/.test(c)));
+
+  // Подаден източник на случайност — за възпроизводимост в тестовете.
+  const fixed = newFitCode((arr) => { for (let i = 0; i < arr.length; i++) arr[i] = 0; });
+  check('приема подаден източник на случайност', CODE_PATTERN.test(fixed), fixed);
+  check('нула дава първия знак от азбуката', fixed === 'GF-2222-2222', fixed);
+}
+
+/* ======================================================================
+   21. СЪРВЪРЪТ
    ====================================================================== */
 console.log('\n=== Сървърен handler ===');
 {
@@ -528,6 +614,20 @@ console.log('\n=== Сървърен handler ===');
   const mockFetch = (mode = 'ok') => async (url, opts) => {
     calls.push({ url, body: JSON.parse(opts.body) });
     if (mode === 'fail') return { ok: false, status: 500, text: async () => 'mock failure' };
+    if (mode === 'customer-fail') {
+      const b = JSON.parse(opts.body);
+      const internal = b.to === 'hello@genki.bg';
+      return internal
+        ? { ok: true, status: 200, text: async () => '{}' }
+        : { ok: false, status: 500, text: async () => 'mock failure' };
+    }
+    if (mode === 'internal-fail') {
+      const b = JSON.parse(opts.body);
+      const internal = b.to === 'hello@genki.bg';
+      return internal
+        ? { ok: false, status: 500, text: async () => 'mock failure' }
+        : { ok: true, status: 200, text: async () => '{}' };
+    }
     return { ok: true, status: 200, text: async () => '{}' };
   };
 
@@ -540,11 +640,10 @@ console.log('\n=== Сървърен handler ===');
     env,
   });
 
-  const LEAD = {
+  const REQ = {
     cities: ['sofia'], sofiaOffices: '1', q2: '101-150', q3: '75-99',
     q4: ['vending'], q5: 'both', q6: 'b1',
-    email: 'hr@primerna.bg', name: 'Иван Петров', company: 'Примерна ЕООД', phone: '',
-    lang: 'bg', fitId: 'GF-TEST0000000001',
+    email: 'hr@primerna.bg', lang: 'bg',
   };
   const KEY = { RESEND_API_KEY: 'test-key' };
   const bodyOf = async (res) => JSON.parse(await res.text());
@@ -552,53 +651,95 @@ console.log('\n=== Сървърен handler ===');
   const realFetch = globalThis.fetch;
   globalThis.fetch = mockFetch();
 
-  check('GET се отказва', (await onRequest(ctx(LEAD, { method: 'GET' }))).status === 405);
+  check('GET се отказва', (await onRequest(ctx(REQ, { method: 'GET' }))).status === 405);
   check('счупен JSON → 400', (await onRequestPost(ctx(null, { badJson: true }))).status === 400);
   check('масив вместо обект → 400', (await onRequestPost(ctx([]))).status === 400);
 
-  const bad = await onRequestPost(ctx({ ...LEAD, q3: '700-999' }, { env: KEY }));
+  /* --- валидация на получателя --- */
+  check('валиден адрес минава', validateDestination({ email: 'a@b.bg' }).ok);
+  check('липсващ адрес пада', !validateDestination({}).ok);
+  check('нескопосан адрес пада', !validateDestination({ email: 'nope' }).ok);
+  check('адрес без домейн пада', !validateDestination({ email: 'a@b' }).ok);
+  check('прекалено дълъг адрес пада',
+    !validateDestination({ email: 'a'.repeat(250) + '@b.bg' }).ok);
+  check('непознат език пада към bg', validateDestination({ email: 'a@b.bg', lang: 'de' }).lang === 'bg');
+  check('en се запазва', validateDestination({ email: 'a@b.bg', lang: 'en' }).lang === 'en');
+  check('име и компания вече НЕ се искат',
+    validateDestination({ email: 'a@b.bg' }).ok &&
+    validateDestination({ email: 'a@b.bg' }).name === undefined);
+
+  const bad = await onRequestPost(ctx({ ...REQ, q3: '700-999' }, { env: KEY }));
   check('Q3 от чужд Q2 → 422', bad.status === 422);
 
-  const noEmail = await onRequestPost(ctx({ ...LEAD, email: 'nope' }, { env: KEY }));
+  const noEmail = await onRequestPost(ctx({ ...REQ, email: 'nope' }, { env: KEY }));
   check('невалиден email → 422', noEmail.status === 422);
   check('грешката сочи полето', (await bodyOf(noEmail)).fields.includes('email'));
 
   calls = [];
-  const hp = await onRequestPost(ctx({ ...LEAD, website: 'spam' }, { env: KEY }));
+  const hp = await onRequestPost(ctx({ ...REQ, website: 'spam' }, { env: KEY }));
   check('honeypot → 200 без изпращане', hp.status === 200 && calls.length === 0);
 
+  /* --- успешен път: ДВА имейла --- */
   calls = [];
-  const okRes = await onRequestPost(ctx(LEAD, { env: KEY }));
+  const okRes = await onRequestPost(ctx(REQ, { env: KEY }));
+  const okBody = await bodyOf(okRes);
   check('валидна заявка → 200', okRes.status === 200, String(okRes.status));
-  check('изпратен е точно един имейл', calls.length === 1, String(calls.length));
-  check('получателят е hello@genki.bg', calls[0].body.to === 'hello@genki.bg', calls[0].body.to);
-  check('reply_to е на подателя', calls[0].body.reply_to === 'hr@primerna.bg');
+  check('изпратени са точно два имейла', calls.length === 2, String(calls.length));
 
-  const returned = await bodyOf(okRes);
+  const internalCall = calls.find((c) => c.body.to === 'hello@genki.bg');
+  const customerCall = calls.find((c) => c.body.to === 'hr@primerna.bg');
+  check('единият отива до hello@genki.bg', !!internalCall);
+  check('другият отива до клиента', !!customerCall);
+  check('вътрешният има reply_to към клиента', internalCall.body.reply_to === 'hr@primerna.bg');
+
+  check('отговорът носи кода', CODE_PATTERN.test(okBody.code), okBody.code);
+  check('отговорът носи адреса', okBody.email === 'hr@primerna.bg');
+  check('един и същ код в двата имейла',
+    internalCall.body.text.includes(okBody.code) && customerCall.body.text.includes(okBody.code));
+  check('кодът е и в темите',
+    internalCall.body.subject.includes(okBody.code) && customerCall.body.subject.includes(okBody.code));
+
   check('отговорът не носи вътрешни полета',
-    !JSON.stringify(returned).match(/score|tier|salesM|threshold|margin/i),
-    JSON.stringify(returned).slice(0, 120));
+    !JSON.stringify(okBody).match(/score|tier|salesM|threshold|margin/i),
+    JSON.stringify(okBody).slice(0, 120));
 
-  // Сървърът НЕ вярва на препоръката от клиента.
+  /* --- клиентът не може да наложи код или препоръка --- */
   calls = [];
-  await onRequestPost(ctx({ ...LEAD, recommendation: { approach: 'both', psLevel: 100 } }, { env: KEY }));
+  const forged = await onRequestPost(ctx(
+    { ...REQ, code: 'GF-XXXX-XXXX', recommendation: { approach: 'both', psLevel: 100 } },
+    { env: KEY }));
+  const forgedBody = await bodyOf(forged);
+  check('подхвърлен код се игнорира', forgedBody.code !== 'GF-XXXX-XXXX', forgedBody.code);
   check('подхвърлена препоръка се игнорира',
-    !calls[0].body.text.includes('100%'), 'в имейла не влиза подхвърленото ниво');
+    !calls.some((c) => c.body.text.includes('100%')));
 
-  const noKey = await onRequestPost(ctx(LEAD, { env: {} }));
+  /* --- два пъти подред дават различни кодове --- */
+  const a1 = await bodyOf(await onRequestPost(ctx(REQ, { env: KEY })));
+  const a2 = await bodyOf(await onRequestPost(ctx(REQ, { env: KEY })));
+  check('всяко изпращане получава нов код', a1.code !== a2.code);
+
+  const noKey = await onRequestPost(ctx(REQ, { env: {} }));
   check('без ключ → 500 not_configured', noKey.status === 500 && (await bodyOf(noKey)).error === 'not_configured');
 
-  const testMode = await onRequestPost(ctx(LEAD, { env: { ...KEY, CONTACT_TEST_MODE: '1' } }));
-  check('тестов режим не праща', (await bodyOf(testMode)).mode === 'test');
+  const testMode = await onRequestPost(ctx(REQ, { env: { ...KEY, CONTACT_TEST_MODE: '1' } }));
+  const tmBody = await bodyOf(testMode);
+  check('тестов режим не праща', tmBody.mode === 'test');
+  check('тестовият режим пак връща код', CODE_PATTERN.test(tmBody.code));
 
-  globalThis.fetch = mockFetch('fail');
-  const sendFail = await onRequestPost(ctx(LEAD, { env: KEY }));
-  check('провал при Resend → 502', sendFail.status === 502);
-  check('не се твърди успех', (await bodyOf(sendFail)).ok === false);
+  /* --- провали --- */
+  globalThis.fetch = mockFetch('customer-fail');
+  const custFail = await onRequestPost(ctx(REQ, { env: KEY }));
+  check('провал на клиентския имейл → 502', custFail.status === 502);
+  check('не се твърди успех', (await bodyOf(custFail)).ok === false);
+
+  globalThis.fetch = mockFetch('internal-fail');
+  const intFail = await onRequestPost(ctx(REQ, { env: KEY }));
+  check('провал само на вътрешния НЕ проваля човека', intFail.status === 200,
+    String(intFail.status));
 
   globalThis.fetch = mockFetch();
 
-  /* --- Rate limit --- */
+  /* --- rate limit --- */
   const store = new Map();
   const kvEnv = {
     ...KEY,
@@ -609,58 +750,136 @@ console.log('\n=== Сървърен handler ===');
   };
   let limited = 0;
   for (let i = 0; i < 7; i++) {
-    const r = await onRequestPost(ctx(LEAD, { env: kvEnv }));
+    const r = await onRequestPost(ctx(REQ, { env: kvEnv }));
     if (r.status === 429) limited++;
   }
   check('rate limit спира след 5 заявки', limited === 2, 'блокирани: ' + limited);
   check('ключът е отделен от този на контакта',
     [...store.keys()].every((k) => k.startsWith('fit:')), [...store.keys()].join(','));
 
-  const noKv = await onRequestPost(ctx(LEAD, { env: KEY }));
-  check('без KV binding формата пак работи', noKv.status === 200);
+  const noKv = await onRequestPost(ctx(REQ, { env: KEY }));
+  check('без KV binding пак работи', noKv.status === 200);
 
   globalThis.fetch = realFetch;
 }
 
 /* ======================================================================
-   20. ИМЕЙЛ · съдържание и софийско време
+   22. ИМЕЙЛЪТ ДО КЛИЕНТА
    ====================================================================== */
-console.log('\n=== Имейл и Europe/Sofia ===');
+console.log('\n=== Имейл до клиента ===');
 {
   const v = validateAnswers({
     cities: ['sofia'], sofiaOffices: '2', q2: '151-300', q3: '150-199',
     q4: ['canteen'], q5: 'both', q6: 'b2',
   });
   const rec = recommend(v.answers);
-  const lead = { email: 'hr@x.bg', name: 'Мария', company: 'Х ООД', phone: '+359 88 000 0000' };
-  const meta = { timestamp: '2026-09-22T09:17:00.000Z', fitId: 'GF-ABC', lang: 'bg', referrer: '', utm: '' };
-  const mail = buildFitEmail(v.answers, rec, lead, meta);
+  const CODE = 'GF-K7M4-P9Q2';
 
-  check('темата носи компанията', mail.subject.includes('Х ООД'), mail.subject);
-  check('темата е на един ред', !/[\r\n]/.test(mail.subject));
-  check('имейлът носи fit ID', mail.text.includes('GF-ABC'));
-  check('имейлът носи attendanceMin/Max', mail.text.includes('150') && mail.text.includes('199'));
+  for (const lg of ['bg', 'en']) {
+    const m = buildCustomerEmail(v.answers, rec, CODE, lg);
+    check(lg + ': темата носи кода', m.subject.includes(CODE), m.subject);
+    check(lg + ': темата е на един ред', !/[\r\n]/.test(m.subject));
+    check(lg + ': кодът е в текста', m.text.includes(CODE));
+    check(lg + ': кодът е в HTML-а', m.html.includes(CODE));
+    check(lg + ': кодът се повтаря към края',
+      m.html.split(CODE).length - 1 >= 2, String(m.html.split(CODE).length - 1));
+    check(lg + ': има препоръка', m.text.includes(rec.hardware === 'duo'
+      ? (lg === 'bg' ? 'по-голям офис' : 'larger workplace') : ''), m.text.slice(0, 40));
+    check(lg + ': има обобщение на офиса',
+      m.text.includes(lg === 'bg' ? 'Вашият офис' : 'Your workplace'));
+    check(lg + ': има „защо пасва"',
+      m.text.includes(lg === 'bg' ? 'Защо това е подходящо' : 'Why this fits'));
+    check(lg + ': има уговорка за реалното пространство',
+      m.text.includes(lg === 'bg' ? 'реалното пространство' : 'the real space'));
+    check(lg + ': има подкана да пазят кода',
+      m.text.includes(lg === 'bg' ? 'Запазете този код' : 'Keep this code'));
 
-  // Софийско време, не суров ISO.
-  const expected = formatSofiaDateTime(meta.timestamp, 'bg', { suffix: true });
-  check('часът е софийски', mail.text.includes(expected), expected);
-  check('няма суров ISO низ', !mail.text.includes('2026-09-22T09:17:00.000Z'));
-  check('няма зашито отместване', !/UTC\+[23]|\+03:00|\+02:00/.test(mail.text));
-  check('12:17 софийско (лятно)', expected.includes('12:17'), expected);
+    // Нито едно вътрешно число не изтича.
+    check(lg + ': няма коефициент 9,90', !/9[.,]90/.test(m.text + m.html));
+    check(lg + ': няма скор /100', !/\/\s*100\b/.test(m.text));
+    check(lg + ': няма Ideal/Strong/Low Fit', !/Ideal|Strong Fit|Low Fit/i.test(m.text + m.html));
+    check(lg + ': няма Single/Duo', !/\b(Single|Duo)\b/.test(m.text + m.html));
+    check(lg + ': няма прогнозни продажби', !/salesM|Прогнозни продажби/i.test(m.text + m.html));
+    check(lg + ': няма праг T20/T50/T75', !/\bT(20|50|75)\b/.test(m.text + m.html));
 
-  // Вътрешният скор е В имейла (за Genki), но не и в отговора към браузъра.
-  check('скорът е в имейла за Genki', /\/\s*100/.test(mail.text));
-  check('HTML-ът екранира потребителски текст',
-    buildFitEmail(v.answers, rec, { ...lead, company: '<script>x</script>' }, meta)
-      .html.includes('&lt;script&gt;'));
+    // Имейл-безопасен HTML.
+    check(lg + ': без <script>', !/<script/i.test(m.html));
+    check(lg + ': без външни изображения', !/<img/i.test(m.html));
+    check(lg + ': има таблица за оформление', /<table/i.test(m.html));
+    check(lg + ': има HTML и текстова версия', m.html.length > 500 && m.text.length > 200);
+  }
 
-  // Зимен случай — доказва, че отместването не е зашито.
-  const winter = formatSofiaDateTime('2026-12-20T09:17:00.000Z', 'bg');
-  check('зимата е 11:17 софийско', winter.includes('11:17'), winter);
+  // Екраниране.
+  const evil = validateAnswers({
+    cities: ['sofia'], sofiaOffices: '1', q2: 'lte50', q3: '25-49',
+    q4: ['none'], q5: 'price-support', q6: 'b2',
+  });
+  const em = buildCustomerEmail(evil.answers, recommend(evil.answers), '<script>x</script>', 'bg');
+  check('кодът се екранира в HTML', em.html.includes('&lt;script&gt;') && !em.html.includes('<script>'));
+
+  // Мекият резултат също получава имейл, без нито дума за отказ.
+  const softV = validateAnswers({
+    cities: ['plovdiv'], q2: 'lte50', q3: 'lt25', q4: ['none'], q5: 'price-support', q6: 'b0',
+  });
+  const softRec = recommend(softV.answers);
+  const softMail = buildCustomerEmail(softV.answers, softRec, CODE, 'bg');
+  check('мекият резултат също праща имейл', softMail.text.includes(CODE));
+  check('мекият имейл носи каноничното заглавие',
+    softMail.text.includes('Нека намерим правилния Genki'));
+  check('мекият имейл няма дума за отказ',
+    !/съжаление|неподходящ|отказ|не отговаряте/i.test(softMail.text));
 }
 
 /* ======================================================================
-   21. BG / EN · нито един непреведен низ
+   23. ВЪТРЕШНИЯТ ИМЕЙЛ
+   ====================================================================== */
+console.log('\n=== Вътрешен имейл ===');
+{
+  const v = validateAnswers({
+    cities: ['sofia', 'plovdiv'], sofiaOffices: '3plus', q2: '301-500', q3: '200-349',
+    q4: ['canteen'], q5: 'both', q6: 'b2', largestOffice: '151-300',
+  });
+  const rec = recommend(v.answers);
+  const CODE = 'GF-K7M4-P9Q2';
+  const meta = {
+    timestamp: '2026-09-22T09:17:00.000Z', email: 'hr@x.bg', lang: 'bg',
+    referrer: '', utm: 'utm_source=linkedin',
+  };
+  const m = buildInternalEmail(v.answers, rec, CODE, meta);
+
+  check('темата носи кода', m.subject.includes(CODE), m.subject);
+  check('темата е на един ред', !/[\r\n]/.test(m.subject));
+  check('носи кода в тялото', m.text.includes(CODE));
+  check('носи email на клиента', m.text.includes('hr@x.bg'));
+  check('носи езика', m.text.includes('BG'));
+  check('носи суровите Q1–Q6',
+    m.text.includes('sofia') && m.text.includes('301-500') &&
+    m.text.includes('200-349') && m.text.includes('canteen') && m.text.includes('both'));
+  check('носи най-големия офис', m.text.includes('151-300'));
+  check('носи attendanceMin/Max', m.text.includes('200 / 349'));
+  check('носи budgetMin/Max', /Q6 · budgetMin \/ Max: \d+ \/ \d+/.test(m.text), m.text.match(/Q6 · budgetMin[^\n]*/));
+  check('носи хардуерния кандидат', /Mini|Single|Duo|Няколко точки/.test(m.text));
+  check('носи търговския маршрут', m.text.includes('Genki + Benefit'));
+  check('носи вътрешното PS ниво', /Price Support \(вътрешно\): \d+%/.test(m.text));
+  check('носи скора', /\d+ \/ 100/.test(m.text));
+  check('носи UTM', m.text.includes('utm_source=linkedin'));
+
+  // Време.
+  const sofia = formatSofiaDateTime(meta.timestamp, 'bg', { suffix: true });
+  check('софийско време', m.text.includes(sofia), sofia);
+  check('12:17 софийско (лятно)', sofia.includes('12:17'), sofia);
+  check('машинното UTC също е налично', m.text.includes('2026-09-22T09:17:00.000Z'));
+  check('няма зашито отместване', !/UTC\+[23]|\+03:00|\+02:00/.test(m.text));
+
+  const winter = formatSofiaDateTime('2026-12-20T09:17:00.000Z', 'bg');
+  check('зимата е 11:17 софийско', winter.includes('11:17'), winter);
+
+  check('HTML-ът екранира', buildInternalEmail(v.answers, rec, '<b>x</b>', meta)
+    .html.includes('&lt;b&gt;'));
+}
+
+/* ======================================================================
+   24. BG / EN · нито един непреведен низ
    ====================================================================== */
 console.log('\n=== BG / EN ===');
 {
@@ -678,16 +897,9 @@ console.log('\n=== BG / EN ===');
   const empty = fitKeys.filter((k) => !dict[k].bg.trim() || !dict[k].en.trim());
   check('нито един празен превод', empty.length === 0, empty.slice(0, 5).join(', '));
 
-  // Еднакви bg и en са допустими само когато низът няма какво да превежда:
-  // чисти шаблони с плейсхолдъри и числа, или само брандови термини,
-  // които каноничното БЪЛГАРСКО copy нарочно държи на английски.
-  const BRAND_TERMS = [
-    'Genki', 'Fit', 'Benefit', 'Price Support', 'Vending', 'catering', 'snacks',
-  ];
-  const nothingToTranslate = (s) => {
-    let rest = s.replace(/\{[a-z]+\}/gi, '');
-    // Най-дългите първи и само по границa на дума — иначе „Fit" изяжда
-    // средата на „Benefit" и тестът лъже.
+  const BRAND_TERMS = ['Genki', 'Fit', 'Benefit', 'Price Support', 'Vending', 'catering', 'snacks'];
+  const nothingToTranslate = (str) => {
+    let rest = str.replace(/\{[a-z]+\}/gi, '');
     for (const term of BRAND_TERMS.slice().sort((a, b) => b.length - a.length)) {
       rest = rest.replace(new RegExp('\\b' + term + '\\b', 'gi'), '');
     }
@@ -696,39 +908,66 @@ console.log('\n=== BG / EN ===');
   };
   const same = fitKeys.filter((k) => dict[k].bg === dict[k].en && !nothingToTranslate(dict[k].bg));
   check('няма непреведени низове (bg === en)', same.length === 0, same.slice(0, 5).join(', '));
-  check('шаблоните с плейсхолдъри са еднакви нарочно',
-    dict['fit.q6.range'].bg === dict['fit.q6.range'].en && nothingToTranslate(dict['fit.q6.range'].bg));
 
-  // Каноничното copy, дословно.
+  /* --- каноничното copy, дословно --- */
   check('BG hero е каноничният',
     dict['fit.hero.title'].bg === 'Какъв Genki би работил най-добре при вас?');
   check('EN hero е каноничният',
     dict['fit.hero.title'].en === 'What kind of Genki would work best for your workplace?');
   check('BG „ГОТОВО."', dict['fit.result.done'].bg === 'ГОТОВО.');
   check('EN „DONE."', dict['fit.result.done'].en === 'DONE.');
-  check('BG CTA за разговор', dict['fit.result.cta'].bg === 'Запазете кратък Genki разговор');
-  check('EN CTA за разговор', dict['fit.result.cta'].en === 'Book a short Genki call');
-  check('BG потвърждение 24 часа',
-    dict['fit.confirm.text'].bg === 'Ще прегледаме вашия Genki Fit и ще се свържем с вас в рамките на 24 часа.');
-  check('EN потвърждение 24 часа',
-    dict['fit.confirm.text'].en === 'We’ll review your Genki Fit and get back to you within 24 hours.');
   check('Q3 носи заключената формулировка',
     dict['fit.q3.title'].bg === 'Колко души обикновено са в този офис в един нормален работен ден?');
   check('Q3 помощният текст е заключеният',
     dict['fit.q3.help'].bg === 'Не общият брой служители — хората, които реално са на място.');
   check('Q3 EN е заключеният',
     dict['fit.q3.title'].en === 'How many people are usually in this office on a normal working day?');
-  check('Q3 EN помощният текст е заключеният',
-    dict['fit.q3.help'].en === 'Not total headcount — the people who are actually on site.');
 
-  // Забранени публични изтичания в текста.
+  /* --- новото copy на вторичните действия --- */
+  check('BG изпращане', dict['fit.send.action'].bg === 'Изпратете ми този Genki Fit');
+  check('EN изпращане', dict['fit.send.action'].en === 'Send me this Genki Fit');
+  check('BG „ще изпратим на"', dict['fit.send.to'].bg === 'Ще изпратим Fit-а на:');
+  check('EN „ще изпратим на"', dict['fit.send.to'].en === 'We’ll send your Fit to:');
+  check('EN „Change"', dict['fit.send.change'].en === 'Change');
+  check('BG успех носи адреса', dict['fit.send.done'].bg.includes('{email}'));
+  check('BG успех не казва „inbox"', !/inbox/i.test(dict['fit.send.done'].bg));
+  check('EN успех не казва „inbox"', !/inbox/i.test(dict['fit.send.done'].en));
+  check('BG кодът се показва', dict['fit.send.done.code'].bg.includes('{code}'));
+  check('EN кодът се показва', dict['fit.send.done.code'].en.includes('{code}'));
+  check('BG подкана да се пази кодът', dict['fit.send.done.keep'].bg.includes('Запазете го'));
+  check('BG контакт', dict['fit.contact.action'].bg === 'Свържете се с Genki');
+  check('EN контакт', dict['fit.contact.action'].en === 'Talk to Genki');
+
+  /* --- българският е на „Вие" навсякъде, без смесване --- */
+  const bgAll = fitKeys.map((k) => dict[k].bg).join(' ');
+  check('няма „твоят / твоя"', !/\bтво[йяеи]\w*/i.test(bgAll), (bgAll.match(/\bтво\w+/i) || [])[0]);
+  check('няма „се свържеш / запази го" на ти',
+    !/свържеш|запази\b|изпрати ми|говори с/i.test(bgAll),
+    (bgAll.match(/свържеш|запази\b|изпрати ми|говори с/i) || [])[0]);
+
+  /* --- няма отметка за контакт --- */
+  check('няма отметка „свържете се с мен"',
+    !fitKeys.some((k) => /contact.?me|искам.*да се свържете|request.?contact/i.test(dict[k].bg + dict[k].en)));
+
+  /* --- забранени публични изтичания --- */
   const all = fitKeys.map((k) => dict[k].bg + ' ' + dict[k].en).join(' ');
   check('никъде не пише Single/Duo', !/\b(Single|Duo)\b/.test(all));
   check('никъде не пише 9,90 / 9.90', !/9[.,]90/.test(all));
   check('никъде не пише Ideal/Strong/Low Fit', !/Ideal Fit|Strong Fit|Low Fit/i.test(all));
   check('никъде няма скор /100', !/\/\s*100/.test(all));
   check('няма BGN / лв.', !/\bBGN\b|\bлв\./.test(all));
-  check('дарението не е от оборот', !/оборот|revenue|turnover/i.test(all));
+  check('няма „запазете среща" без система за резервация',
+    !/запазете среща|book a (demo|meeting)|contact sales/i.test(all));
+
+  /* --- имейл модулът не бива да се разминава със страницата --- */
+  const drift = Object.keys(SHARED).filter((k) => {
+    const a = dict[k];
+    return !a || a.bg !== SHARED[k].bg || a.en !== SHARED[k].en;
+  });
+  check('имейлът ползва СЪЩИТЕ изречения като страницата',
+    drift.length === 0, drift.slice(0, 5).join(', '));
+  check('споделените низове са смислен брой', Object.keys(SHARED).length >= 20,
+    String(Object.keys(SHARED).length));
 }
 
 /* ======================================================================

@@ -37,7 +37,9 @@ function patchFetch(win, mode) {
     calls.push({ url, body: JSON.parse(opts.body) });
     if (mode === 'throw') return Promise.reject(new Error('offline'));
     const status = mode === 'error' ? 502 : 200;
-    const payload = mode === 'error' ? { ok: false, error: 'send_failed' } : { ok: true };
+    const payload = mode === 'error'
+      ? { ok: false, error: 'send_failed' }
+      : { ok: true, code: 'GF-K7M4-P9Q2', email: JSON.parse(opts.body).email };
     return Promise.resolve({ ok: mode !== 'error', status, json: () => Promise.resolve(payload) });
   };
   return calls;
@@ -220,7 +222,7 @@ async function run(d, a) {
     f.remove();
   }
 
-  /* ================= 6. Резултат + събиране на контакт ================= */
+  /* ========== 6. Резултатът е героят; изпращането е по желание ========== */
   {
     const f = await load(1440, 900);
     const d = f.contentDocument;
@@ -237,65 +239,126 @@ async function run(d, a) {
       String(d.querySelectorAll('.fit-card').length));
     check('карта 1 носи слота F08', !!q(d, 'genki-slot[slot-id="F08"]'));
     check('карта 3 има 2–3 причини',
-      d.querySelectorAll('.fit-why__item').length >= 2 && d.querySelectorAll('.fit-why__item').length <= 3,
-      String(d.querySelectorAll('.fit-why__item').length));
+      d.querySelectorAll('.fit-why__item').length >= 2 && d.querySelectorAll('.fit-why__item').length <= 3);
+
+    /* СТОЙНОСТ ПЪРВО: резултатът се вижда без нито едно контактно поле. */
+    check('НЯМА email поле по подразбиране', !q(d, '#fit-email'));
+    check('НЯМА поле за име', !q(d, '#fit-name'));
+    check('НЯМА поле за компания', !q(d, '#fit-company'));
+    check('нищо не е изпратено', calls.length === 0);
+    check('няма отметка за контакт', d.querySelectorAll('input[type="checkbox"]').length === 0);
 
     const resultText = q(d, '[data-fit-result]').textContent;
     check('няма вътрешни имена Single/Duo', !/\b(Single|Duo)\b/.test(resultText));
     check('няма скор /100', !/\/\s*100/.test(resultText));
-    check('няма Ideal/Strong/Low Fit', !/Ideal|Strong Fit|Low Fit/i.test(resultText));
     check('няма коефициент 9,90', !/9[.,]90/.test(resultText));
-    check('има закръглен бюджет', /€[\d,]+/.test(resultText));
-    check('има уговорка за оглед', resultText.includes('потвърждава след кратък оглед'));
+    check('няма Ideal/Strong/Low Fit', !/Ideal|Strong Fit|Low Fit/i.test(resultText));
 
-    /* Събиране на контакт — резултатът остава видим. */
-    check('има въпрос за email', !!q(d, '#fit-email'));
-    check('НЯМА веднага име и компания', !q(d, '#fit-name'));
+    /* Йерархия: резултатът стои НАД вторичните действия. */
+    const cardsTop = q(d, '.fit-cards').getBoundingClientRect().top;
+    const actionsTop = q(d, '.fit-actions').getBoundingClientRect().top;
+    check('резултатът е над вторичните действия', cardsTop < actionsTop);
+    check('изпращането НЕ е primary бутон',
+      !q(d, '.fit-actions__send').classList.contains('btn--fit'));
+    check('изпращането е secondary', q(d, '.fit-actions__send').classList.contains('btn--secondary'));
 
+    /* Двете вторични действия. */
+    check('има действие за изпращане',
+      q(d, '.fit-actions__send').textContent.includes('Изпратете ми този Genki Fit'));
+    check('има действие към контакт',
+      q(d, '.fit-actions__contact').textContent.includes('Свържете се с Genki'));
+    check('контактът води към реалната страница',
+      q(d, '.fit-actions__contact').getAttribute('href') === 'contact.html');
+    check('няма „запазете среща"', !/запазете среща|book a (demo|meeting)/i.test(resultText));
+
+    /* Панелът се разгъва НА МЯСТО. */
+    check('панелът е скрит в началото', !visible(q(d, '[data-fit-send-panel]')));
+    check('бутонът обявява състоянието',
+      q(d, '.fit-actions__send').getAttribute('aria-expanded') === 'false');
+
+    q(d, '.fit-actions__send').click(); await wait(80);
+    check('панелът се разгъва', visible(q(d, '[data-fit-send-panel]')));
+    check('aria-expanded се обновява',
+      q(d, '.fit-actions__send').getAttribute('aria-expanded') === 'true');
+    check('резултатът още се вижда', d.querySelectorAll('.fit-card').length === 3);
+    check('няма модал', d.querySelectorAll('[role="dialog"]').length === 0);
+    check('появява се едно email поле', !!q(d, '#fit-email'));
+    check('полето е само едно', d.querySelectorAll('[data-fit-send-panel] input').length === 1);
+
+    /* Валидация. */
     q(d, '#fit-email').value = 'nonsense';
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    q(d, '.fit-send__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
     await wait(60);
-    check('невалиден email не минава', !!q(d, '#fit-email') && q(d, '#fit-email').classList.contains('is-invalid'));
+    check('невалиден email не минава', q(d, '#fit-email').classList.contains('is-invalid'));
     check('грешката е до полето', visible(q(d, '#fit-email-err')));
+    check('нищо не е изпратено', calls.length === 0);
 
     q(d, '#fit-email').value = 'hr@primerna.bg';
     q(d, '#fit-email').dispatchEvent(new f.contentWindow.Event('input', { bubbles: true }));
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
-    await wait(80);
-    check('стъпка 2 пита име и компания', !!q(d, '#fit-name') && !!q(d, '#fit-company'));
-    check('телефонът е по желание', !q(d, '#fit-phone').required);
-    check('резултатът още се вижда', d.querySelectorAll('.fit-card').length === 3);
-    check('нищо не е изпратено още', calls.length === 0);
-
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
-    await wait(60);
-    check('празни задължителни полета не минават', calls.length === 0);
-    check('има обобщение на грешката', visible(q(d, '.fit-lead .cform__summary')));
-
-    q(d, '#fit-name').value = 'Иван Петров';
-    q(d, '#fit-company').value = 'Примерна ЕООД';
-    q(d, '#fit-name').dispatchEvent(new f.contentWindow.Event('input', { bubbles: true }));
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
-    await wait(200);
+    q(d, '.fit-send__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(220);
 
     check('изпратена е една заявка', calls.length === 1, String(calls.length));
     if (calls.length) {
       const b = calls[0].body;
-      check('адресът е /api/genki-fit', calls[0].url === '/api/genki-fit', calls[0].url);
-      check('пътуват всички отговори',
+      check('адресът е /api/genki-fit', calls[0].url === '/api/genki-fit');
+      check('пътуват отговорите',
         b.q2 === '101-150' && b.q3 === '75-99' && b.q5 === 'both' && b.q6 === 'b2');
-      check('пътува fit ID', typeof b.fitId === 'string' && b.fitId.startsWith('GF-'), b.fitId);
+      check('пътува email', b.email === 'hr@primerna.bg');
       check('пътува езикът', b.lang === 'bg');
-      check('пътуват контактните данни', b.email === 'hr@primerna.bg' && b.company === 'Примерна ЕООД');
+      check('НЕ пътува име', b.name === undefined);
+      check('НЕ пътува компания', b.company === undefined);
+      check('НЕ пътува код от клиента', b.code === undefined && b.fitId === undefined);
       check('НЕ пътува препоръка от клиента', b.recommendation === undefined);
     }
 
-    check('показано е потвърждение', !!q(d, '.fit-confirm'));
-    check('потвърждението е 24 часа',
-      q(d, '.fit-confirm').textContent.includes('24 часа'));
-    check('CTA за разговор е чак сега',
-      q(d, '.fit-confirm__cta').textContent.includes('Запазете кратък Genki разговор'));
+    /* Успешно състояние. */
+    check('показано е изпратено състояние', !!q(d, '.fit-sent'));
+    const sentText = q(d, '.fit-sent').textContent;
+    check('успехът носи адреса', sentText.includes('hr@primerna.bg'), sentText);
+    check('успехът носи кода', sentText.includes('GF-K7M4-P9Q2'), sentText);
+    check('успехът НЕ казва „inbox"', !/inbox/i.test(sentText));
+    check('успехът подканва да се пази кодът', sentText.includes('Запазете го'));
     check('резултатът остава видим след изпращане', d.querySelectorAll('.fit-card').length === 3);
+    check('контактът остава достъпен', !!q(d, '.fit-sent__contact'));
+    f.remove();
+  }
+
+  /* ========== 6б. Запомнен адрес: потвърждение вместо ново поле ========== */
+  {
+    const f = await load(1440, 900);
+    const d = f.contentDocument;
+    const calls = patchFetch(f.contentWindow, 'error');   /* първо пада */
+
+    await run(d, {
+      cities: ['sofia'], sofiaOffices: '1', q2: '151-300', q3: '150-199',
+      q4: ['canteen'], q5: 'benefit', q6: 'b1',
+    });
+
+    q(d, '.fit-actions__send').click(); await wait(80);
+    q(d, '#fit-email').value = 'a@b.bg';
+    q(d, '.fit-send__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
+    await wait(220);
+
+    check('при грешка НЕ се твърди успех', !q(d, '.fit-sent'));
+    check('показва се съобщение за грешка', visible(q(d, '[data-fit-send-panel] .cform__summary')));
+    check('може да се опита пак', !q(d, '.fit-send__submit').disabled);
+
+    /* Затваряне и повторно отваряне — адресът е запомнен за сесията. */
+    q(d, '.fit-actions__send').click(); await wait(60);
+    q(d, '.fit-actions__send').click(); await wait(80);
+    check('вече НЕ показва празно поле', !q(d, '#fit-email'));
+    check('показва „Ще изпратим Fit-а на:"',
+      q(d, '.fit-send__to').textContent.includes('Ще изпратим Fit-а на:'));
+    check('показва запомнения адрес', q(d, '.fit-send__addr').textContent === 'a@b.bg');
+    check('има действие „Променете"', !!q(d, '.fit-send__change'));
+    check('бутонът е контекстен',
+      q(d, '.fit-send__submit').textContent.includes('Изпратете на a@b.bg'),
+      q(d, '.fit-send__submit').textContent);
+
+    q(d, '.fit-send__change').click(); await wait(80);
+    check('„Променете" връща полето', !!q(d, '#fit-email'));
+    check('полето е предварително попълнено', q(d, '#fit-email').value === 'a@b.bg');
     f.remove();
   }
 
@@ -316,30 +379,9 @@ async function run(d, a) {
       q(d, '.fit-result__title').textContent === 'Нека намерим правилния Genki за вашия екип');
     check('няма дума за отказ', !/съжаление|не отговаряте|неподходящ|отказ/i.test(text));
     check('има два абзаца', d.querySelectorAll('.fit-soft p').length === 2);
-    check('пак се събира контакт', !!q(d, '#fit-email'));
+    check('мекият резултат също не е заключен', !q(d, '#fit-email'));
+    check('пак има действие за изпращане', !!q(d, '.fit-actions__send'));
     check('изглежда равностойно — същият контейнер', !!q(d, '.fit-result__head'));
-    f.remove();
-  }
-
-  /* ================= 8. грешка от сървъра ================= */
-  {
-    const f = await load(1440, 900);
-    const d = f.contentDocument;
-    const calls = patchFetch(f.contentWindow, 'error');
-    await run(d, {
-      cities: ['sofia'], sofiaOffices: '1', q2: '151-300', q3: '150-199',
-      q4: ['canteen'], q5: 'benefit', q6: 'b1',
-    });
-    q(d, '#fit-email').value = 'a@b.bg';
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
-    await wait(80);
-    q(d, '#fit-name').value = 'А'; q(d, '#fit-company').value = 'Б';
-    q(d, '.fit-lead__form').dispatchEvent(new f.contentWindow.Event('submit', { bubbles: true, cancelable: true }));
-    await wait(200);
-    check('при грешка НЕ се твърди успех', !q(d, '.fit-confirm'));
-    check('показва се съобщение за грешка', visible(q(d, '.fit-lead .cform__summary')));
-    check('данните остават в полетата', q(d, '#fit-name').value === 'А');
-    check('може да се опита пак', !q(d, '.fit-lead .cform__submit').disabled);
     f.remove();
   }
 
@@ -408,6 +450,10 @@ async function run(d, a) {
       await wait(1100);
 
       check(name + ': резултатът се показа', d.querySelectorAll('.fit-card').length === 3);
+      check(name + ': резултатът не е заключен', !q(d, '#fit-email'));
+      q(d, '.fit-actions__send').click(); await wait(80);
+      check(name + ': панелът се разгъва на място', visible(q(d, '[data-fit-send-panel]')));
+      check(name + ': резултатът остава видим', d.querySelectorAll('.fit-card').length === 3);
       check(name + ': резултатът без хоризонтален скрол', de.scrollWidth <= w + 1,
         de.scrollWidth + ' > ' + w);
       check(name + ': картите се редят една под друга',

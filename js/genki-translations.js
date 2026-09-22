@@ -894,7 +894,6 @@ window.genkiTranslations = {
   'fit.result.c1':    { bg: 'Вашият Genki', en: 'Your Genki' },
   'fit.result.c2':    { bg: 'Нашата препоръка', en: 'Our recommendation' },
   'fit.result.c3':    { bg: 'Защо това е подходящо за вас', en: 'Why this fits your team' },
-  'fit.result.cta':   { bg: 'Запазете кратък Genki разговор', en: 'Book a short Genki call' },
   'fit.result.caveat':{ bg: 'Вероятна конфигурация. Точният вариант се потвърждава след кратък оглед на офиса.',
                         en: 'A likely configuration. The exact setup is confirmed after a short look at your workplace.' },
   'fit.result.budget':      { bg: 'Месечен бюджет на компанията', en: 'Monthly company budget' },
@@ -952,32 +951,41 @@ window.genkiTranslations = {
   'fit.soft.p2':      { bg: 'Нека разгледаме случая ви заедно и да намерим Genki вариант, който има смисъл за вашия екип и начина, по който работите.',
                         en: 'Let’s look at it together and find a Genki setup that makes sense for your team and the way you work.' },
 
-  /* --- Събиране на контакт --- */
-  'fit.lead.title':   { bg: 'Къде да изпратим вашия Genki Fit?', en: 'Where should we send your Genki Fit?' },
-  'fit.lead.email':   { bg: 'Работен email', en: 'Work email' },
-  'fit.lead.send':    { bg: 'Изпратете ми моя Genki Fit', en: 'Send me my Genki Fit' },
-  'fit.lead.title2':  { bg: 'Само още две неща, за да знаем с кого говорим.',
-                        en: 'Just two more things so we know who we’re speaking with.' },
-  'fit.lead.name':    { bg: 'Име', en: 'Name' },
-  'fit.lead.company': { bg: 'Компания', en: 'Company' },
-  'fit.lead.phone':   { bg: 'Телефон', en: 'Phone' },
-  'fit.lead.phone.note': { bg: 'ако предпочитате да се чуем', en: 'if you’d rather talk' },
-  'fit.lead.submit':  { bg: 'Изпратете', en: 'Submit' },
-  'fit.lead.sending': { bg: 'Изпращаме…', en: 'Sending…' },
+  /* --- Вторично действие: изпращане на Fit-а по email -------------------
+
+     Резултатът НЕ е заключен зад това. Човекът вече е получил стойност;
+     имейлът е негов избор, не наша такса за вход.
+
+     БЕЛЕЖКА ЗА СОБСТВЕНИКА: спецификацията даде това copy на „ти"
+     („Изпрати ми този Genki Fit", „Твоят код е…"). Тук е преведено на
+     „Вие", защото целият сайт и целият останал Genki Fit са на Вие, а
+     бриф раздел 6 и чеклистът в раздел 39 забраняват смесване. Смяната
+     обратно е на едно място. */
+  'fit.send.action':  { bg: 'Изпратете ми този Genki Fit', en: 'Send me this Genki Fit' },
+  'fit.send.email':   { bg: 'Работен email', en: 'Work email' },
+  'fit.send.to':      { bg: 'Ще изпратим Fit-а на:', en: 'We’ll send your Fit to:' },
+  'fit.send.change':  { bg: 'Променете', en: 'Change' },
+  'fit.send.submit':  { bg: 'Изпратете', en: 'Send' },
+  'fit.send.submit.to': { bg: 'Изпратете на {email}', en: 'Send to {email}' },
+  'fit.send.sending': { bg: 'Изпращаме…', en: 'Sending…' },
+  'fit.send.cancel':  { bg: 'Затворете', en: 'Close' },
+
+  'fit.send.done':      { bg: 'Готово. Изпратихме вашия Genki Fit на {email}.',
+                          en: 'Done. We’ve sent your Genki Fit to {email}.' },
+  'fit.send.done.code': { bg: 'Вашият код е {code}.', en: 'Your code is {code}.' },
+  'fit.send.done.keep': { bg: 'Запазете го — ако се свържете с нас по-късно, ще можем веднага да продължим оттук.',
+                          en: 'Keep it — if you get in touch later, we can pick up right where we left off.' },
+
+  /* --- Вторично действие: разговор с Genki ------------------------------
+     Води към реалната страница за контакт. Няма система за резервация,
+     затова няма и „Запазете среща". */
+  'fit.contact.action': { bg: 'Свържете се с Genki', en: 'Talk to Genki' },
 
   'fit.err.email':    { bg: 'Въведете валиден работен email.', en: 'Enter a valid work email.' },
-  'fit.err.name':     { bg: 'Въведете името си.', en: 'Enter your name.' },
-  'fit.err.company':  { bg: 'Въведете компанията си.', en: 'Enter your company.' },
-  'fit.err.summary':  { bg: 'Проверете отбелязаните полета.', en: 'Please check the highlighted fields.' },
   'fit.err.server':   { bg: 'Нещо се обърка при изпращането. Опитайте отново след малко.',
                         en: 'Something went wrong while sending. Please try again shortly.' },
   'fit.err.network':  { bg: 'Няма връзка със сървъра. Проверете интернет връзката си.',
                         en: 'No connection to the server. Please check your internet connection.' },
-
-  /* --- Потвърждение --- */
-  'fit.confirm.title':{ bg: 'Благодарим!', en: 'Thank you!' },
-  'fit.confirm.text': { bg: 'Ще прегледаме вашия Genki Fit и ще се свържем с вас в рамките на 24 часа.',
-                        en: 'We’ll review your Genki Fit and get back to you within 24 hours.' },
 
   /* --- Без JavaScript --- */
   'fit.nojs':         { bg: 'Genki Fit има нужда от JavaScript. Пишете ни и ще минем през въпросите заедно.',
