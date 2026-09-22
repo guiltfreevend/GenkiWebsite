@@ -77,3 +77,18 @@
 - Exit-intent detection uses multi-signal triggers
 - JS caching was a gotcha — needed cache-busting for ROI calculator scripts
 - 2026-05-11: Site-wide audit + remediation. The earlier 2026-01-30 entry "Updated CTAs from 'Book a Demo' to 'Book a Call'" is SUPERSEDED. Current standard is "Book a consultation" / "Запазете консултация" (no durations). Dietary track promises (vegan/gluten-free/etc.) are also REMOVED — only the wellness filter (no palm oil/HFCS/artificial sweeteners/colors/hydrogenated fats/MSG) is guaranteed. Meals/Fresh/Genki Meals copy is REMOVED — v1 ships snacks + drinks only (TREAT/CRUNCH/REFRESH). Authoritative copy rules now live in `CLAUDE.md` → "Locked Copy Rules — 2026-05-11". Audit findings: `Backups/2026-05-11-website-audit.md`.
+
+## 2026-09-20 — Coming Soon lockdown, собствен email backend, timezone стандарт
+
+- **Живият сайт е заключен зад Coming Soon.** Гейтът е `functions/_middleware.js` (Pages Function), не `switch-site.sh`. Старият скрипт е ОТМЕНЕН и опасен: писан е за macOS и на Mac ще се изпълни, ще копира `index-coming-soon.html` върху `index.html` и ще сложи JS редиректи, които се бият с middleware-а. Не го пускай.
+- **Гейтът не пипа `/api/*`, `/box*` и не-HTML файловете.** Пуска по разширение, не по списък с папки — списъкът винаги изостава от репото. Изключва се с `COMING_SOON=0` на Pages проекта, не с редакция на файл.
+- **Formspree отпадна.** Формата на Coming Soon пращаше към `formspree.io/f/mjgokaea` — чужд акаунт с включена reCAPTCHA, който връща 401 и captcha стена вместо доставка. Заменен с `functions/api/subscribe.js` → собствен Resend → `hello@genki.bg`.
+- **`functions/api/contact.js` е на production БЕЗ UI-а на 2.0.** Не е cherry-pick: commit `6d58423` носи и `v2/contact.html`, `js/genki-contact.js`, `css/genki-2.css` — взети са само двата файла поименно.
+- **Pages env vars влизат в сила при следващия deployment, не веднага.** Загубихме няколко кръга по това. Освен това един encrypted secret може да съществува с ПРАЗНА стойност — отстрани изглежда зададен, защото Cloudflare не показва съдържанието обратно.
+- **GENKI BUSINESS TIMEZONE = `Europe/Sofia`.** `lib/genki-time.js` е каноничният модул. Съхранявай абсолютни моменти в UTC където е полезно; показвай и групирай по ден в София. Никога суров ISO на човек, никога зашито `+2`/`+3`. Правилото е в `CLAUDE.md`.
+- **Бизнес денят се сменя в 00:00 София, не в 00:00 UTC.** Броенето на сканиранията в `qr.js` зависи от това.
+- **Прозрачността не се наследява като computed стойност.** `body{opacity:0}` направи целия сайт бял екран, а проверката на `h1` показваше `opacity: 1`. Тествай ЕФЕКТИВНАТА прозрачност по цялата верига нагоре — `tools/dev/test-coming-soon-visible.html`.
+- **Headless Chrome снимки лъжат при cross-origin iframe и при анимации.** Директното зареждане дава верния кадър; през рамка замръзва по средата. Windows не пуска прозорец под определена ширина — мобилното се проверява през iframe, не с `--window-size`.
+- **Preview deployment-ите бяха публични.** `genki-2-0-build.genkiwebsite.pages.dev` сервираше целия недовършен 2.0 на всеки, който знае адреса. Затворено с Cloudflare Access.
+- **⚠ Старият Resend ключ трябва да се ротира** — комитнат в `d644fc6`, файлът е изтрит, ключът остава в историята на публичното репо.
+
