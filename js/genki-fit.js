@@ -25,12 +25,18 @@
      Така стрелките, Tab, Space и екранните четци работят без нито един
      ARIA трик, а целият етикет е кликаема повърхност.
 
-   БЕЗ СЪХРАНЕНИЕ
-     Отговорите живеят в паметта на страницата и никъде другаде. Няма
-     localStorage, няма бисквитка, няма междинно пращане към сървъра.
-     Прогресивното записване и CRM-ът от бриф раздел 21 чакат етапа за
-     Privacy — да се събира нещо, което политиката още не описва, е точно
-     това, което брифът забранява.
+   ПРОГРЕСИВЕН ЗАПИС
+     След всяка ПОТВЪРДЕНА стъпка отговорите отиват на сървъра и се
+     записват в една Fit сесия. Веднъж потвърдено, нищо не може да
+     изчезне само защото човекът е затворил страницата.
+
+     НЕ се записва при зареждане, при фокус и при натискане на клавиш.
+     Нищо от това, което човекът още не е потвърдил, не пътува никъде.
+
+     Токенът на сесията стои в sessionStorage — живее само в този таб и
+     изчезва при затваряне. Нарочно НЕ е localStorage и НЕ е бисквитка:
+     целта е да не се създават няколко Fit кода при refresh, а не да се
+     проследява човекът във времето.
    ========================================================================== */
 
 import {
@@ -79,6 +85,7 @@ import {
 
   var state = {
     step: 0,                    // 0 = hero, 1..6 = въпроси
+    company: '',
     cities: [],
     sofiaOffices: null,
     q2: null,
@@ -95,6 +102,31 @@ import {
     calc:     root.querySelector('[data-fit-screen="calc"]'),
     result:   root.querySelector('[data-fit-screen="result"]'),
   };
+
+  /* --- Fit сесия --------------------------------------------------------
+     fitCode  е публичен: човекът го вижда и го казва по телефона.
+     token    е таен: само с него сървърът позволява промяна на сесията.
+              Затова не влиза в URL, в имейл или в текст за показване. */
+  var SS_TOKEN = 'genki_fit_token';
+  var SS_CODE = 'genki_fit_code';
+  var sessionToken = null;
+  var fitCode = null;
+
+  function readSession() {
+    try {
+      sessionToken = window.sessionStorage.getItem(SS_TOKEN) || null;
+      fitCode = window.sessionStorage.getItem(SS_CODE) || null;
+    } catch (e) { /* частен режим — сесията просто не преживява refresh */ }
+  }
+
+  function rememberSession(token, code) {
+    if (token) sessionToken = token;
+    if (code) fitCode = code;
+    try {
+      if (token) window.sessionStorage.setItem(SS_TOKEN, token);
+      if (code) window.sessionStorage.setItem(SS_CODE, code);
+    } catch (e) { /* виж горе */ }
+  }
 
   var qHost = root.querySelector('[data-fit-question]');
   var qProgress = root.querySelector('[data-fit-progress]');
@@ -163,6 +195,10 @@ import {
           type: 'single',
           options: optionsFrom(['1', '2', '3plus'], 'fit.q1.offices.'),
         } : null,
+        // Компанията е задължителна още тук: трябва да знаем чий е офисът
+        // дори когато човекът спре по средата. Това НЕ е седми въпрос —
+        // стои на същия екран.
+        textField: { key: 'company', label: t('fit.q1.company'), max: 160 },
         autoAdvance: false,
       };
     }
@@ -350,6 +386,59 @@ import {
       qHost.appendChild(subWrap);
     }
 
+    // Полето за компания и бележката за прозрачност — само на Q1.
+    if (spec.textField) {
+      var fieldWrap = document.createElement('div');
+      fieldWrap.className = 'fit-textfield';
+
+      var fLabel = document.createElement('label');
+      fLabel.className = 'cform__label';
+      fLabel.setAttribute('for', 'fit-' + spec.textField.key);
+      fLabel.textContent = spec.textField.label;
+
+      var fInput = document.createElement('input');
+      fInput.className = 'cform__input';
+      fInput.id = 'fit-' + spec.textField.key;
+      fInput.type = 'text';
+      fInput.autocomplete = 'organization';
+      fInput.maxLength = spec.textField.max;
+      fInput.required = true;
+      fInput.value = state[spec.textField.key] || '';
+      fInput.setAttribute('aria-describedby', 'fit-' + spec.textField.key + '-err');
+
+      var fErr = document.createElement('p');
+      fErr.className = 'cform__error';
+      fErr.id = 'fit-' + spec.textField.key + '-err';
+      fErr.hidden = true;
+
+      fInput.addEventListener('input', function () {
+        // Стойността живее в паметта. НИЩО не пътува към сървъра, докато
+        // човекът не потвърди стъпката.
+        state[spec.textField.key] = fInput.value;
+        if (fInput.classList.contains('is-invalid')) {
+          fInput.classList.remove('is-invalid');
+          fInput.removeAttribute('aria-invalid');
+          fErr.hidden = true;
+        }
+        clearError();
+      });
+
+      fieldWrap.appendChild(fLabel);
+      fieldWrap.appendChild(fInput);
+      fieldWrap.appendChild(fErr);
+      qHost.appendChild(fieldWrap);
+
+      // Прозрачност, преди първия запис. Кратко и без юридически тон.
+      var note = document.createElement('p');
+      note.className = 't-body-sm t-muted fit-privacy';
+      note.appendChild(document.createTextNode(t('fit.privacy.note') + ' '));
+      var link = document.createElement('a');
+      link.href = '/privacy';
+      link.textContent = t('fit.privacy.link');
+      note.appendChild(link);
+      qHost.appendChild(note);
+    }
+
     qProgress.textContent = t('fit.progress', { n: step });
     qProgress.setAttribute('aria-label', t('fit.a11y.step', { n: step }));
     qBar.style.setProperty('--fit-progress', (step / 6));
@@ -424,6 +513,7 @@ import {
   }
 
   function isAnswered(spec) {
+    if (spec.textField && !String(state[spec.textField.key] || '').trim()) return false;
     var v = state[spec.key];
     if (spec.type === 'multi') return Array.isArray(v) && v.length > 0;
     if (!v) return false;
@@ -447,7 +537,26 @@ import {
 
   function next() {
     var spec = questionSpec(state.step);
-    if (!isAnswered(spec)) { showError(); return; }
+    if (!isAnswered(spec)) {
+      // Ако липсва точно текстовото поле, грешката отива до него.
+      if (spec.textField && !String(state[spec.textField.key] || '').trim()) {
+        var input = document.getElementById('fit-' + spec.textField.key);
+        var err = document.getElementById('fit-' + spec.textField.key + '-err');
+        if (input && err) {
+          input.classList.add('is-invalid');
+          input.setAttribute('aria-invalid', 'true');
+          err.textContent = t('fit.err.company');
+          err.hidden = false;
+          input.focus();
+          return;
+        }
+      }
+      showError();
+      return;
+    }
+
+    // Стъпката е потвърдена — чак сега пътува към сървъра.
+    persistStep(state.step);
 
     if (state.step >= 6) { finish(); return; }
     state.step += 1;
@@ -479,6 +588,86 @@ import {
     // Кратка пауза прави резултата премерен, а не автоматичен. Никаква
     // фалшива „анализираме вашите данни" стъпка — само изчакване.
     window.setTimeout(renderResult, reducedMotion ? 0 : 900);
+  }
+
+  /* ======================================================================
+     ПРОГРЕСИВЕН ЗАПИС
+
+     Една заявка след всяка ПОТВЪРДЕНА стъпка. Изпраща се пълна снимка на
+     известното дотук, не разлика — така връщането назад и смяната на Q2
+     наистина изчистват зависимите Q3 и Q6 и от сървъра, а пропаднала
+     заявка се навакса от следващата.
+
+     Интерфейсът НИКОГА не чака мрежата: заявките вървят в подредена
+     опашка отстрани, а въпросите се сменят веднага.
+     ====================================================================== */
+
+  var saveQueue = Promise.resolve();
+
+  function answersPayload(step) {
+    var p = {
+      action: 'step',
+      step: step,
+      lang: lang(),
+      company: String(state.company || '').trim(),
+      cities: state.cities.slice(),
+      sofiaOffices: state.sofiaOffices,
+    };
+    if (sessionToken) p.token = sessionToken;
+    if (step >= 2) { p.q2 = state.q2; p.largestOffice = state.largestOffice; }
+    if (step >= 3) p.q3 = state.q3;
+    if (step >= 4) p.q4 = state.q4.slice();
+    if (step >= 5) p.q5 = state.q5;
+    if (step >= 6) p.q6 = state.q6;
+    return p;
+  }
+
+  function postJson(payload) {
+    return window.fetch('/api/genki-fit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; })
+        .then(function (body) { return { ok: res.ok, status: res.status, body: body }; });
+    });
+  }
+
+  function persistStep(step) {
+    saveQueue = saveQueue.then(function () { return sendStep(step, 0); });
+    return saveQueue;
+  }
+
+  function sendStep(step, attempt) {
+    var hadToken = !!sessionToken;
+
+    return postJson(answersPayload(step))
+      .then(function (r) {
+        if (r.ok && r.body && r.body.ok) {
+          rememberSession(r.body.token, r.body.code);
+          return true;
+        }
+        // Токенът вече не важи (изчистена база при разработка) — започва
+        // се наново, вместо да се блокира записът завинаги.
+        if (r.status === 404 && hadToken) {
+          sessionToken = null;
+          try { window.sessionStorage.removeItem('genki_fit_token'); } catch (e) {}
+          return sendStep(step, attempt + 1);
+        }
+        return retry(step, attempt, hadToken);
+      })
+      .catch(function () { return retry(step, attempt, hadToken); });
+  }
+
+  /* Един повторен опит, и то САМО за обновяване. Създаването нарочно не
+     се повтаря: ако отговорът се е загубил, но записът е минал, повторът
+     би родил втора сесия с втори Fit код. По-добре следващата стъпка да
+     навакса — тя носи същите отговори. */
+  function retry(step, attempt, hadToken) {
+    if (attempt >= 1 || !hadToken) return false;
+    return new Promise(function (resolve) {
+      window.setTimeout(function () { resolve(sendStep(step, attempt + 1)); }, 800);
+    });
   }
 
   /* ======================================================================
@@ -818,24 +1007,19 @@ import {
     labelNode.textContent = t('fit.send.sending');
     if (summary) summary.hidden = true;
 
-    var a = answers();
+    // Отговорите вече са на сървъра. Тук пътуват само токенът и адресът:
+    // сървърът вади сесията и смята препоръката наново от записаното.
     var payload = {
-      cities: a.q1.cities, sofiaOffices: a.q1.sofiaOffices,
-      q2: a.q2, q3: a.q3, q4: a.q4, q5: a.q5, q6: a.q6,
-      largestOffice: a.largestOffice,
+      action: 'send',
+      token: sessionToken,
       email: destEmail,
       lang: lang(),
     };
 
-    window.fetch('/api/genki-fit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then(function (res) {
-        return res.json().catch(function () { return {}; })
-          .then(function (body) { return { ok: res.ok, body: body }; });
-      })
+    // Ако последната стъпка още не е стигнала до сървъра, изчакваме я —
+    // иначе сесията още не е „completed" и изпращането ще бъде отказано.
+    saveQueue
+      .then(function () { return postJson(payload); })
       .then(function (r) {
         sending = false;
         if (!r.ok || !r.body || r.body.ok !== true || !r.body.code) {
@@ -936,6 +1120,10 @@ import {
       }
       if (window.GenkiI18n) window.GenkiI18n.apply(root);
     });
+
+    // Ако същият таб вече е започнал Fit, продължаваме СЪЩАТА сесия —
+    // за да не се раждат няколко Fit кода при refresh или Назад.
+    readSession();
 
     root.classList.add('fit--ready');
     show('hero');

@@ -1995,3 +1995,32 @@ genki-slot { display: block; }
   .fit-send { padding: var(--space-4); }
   .fit-send__submit { justify-self: stretch; width: 100%; }
 }
+
+/* --- Поле за компания в Q1 и бележката за прозрачност --------------------- */
+
+/* Единственото писане преди резултата. Стои под изборите, отделено с
+   косъмна линия, за да не изглежда като част от чиповете. */
+.fit-textfield {
+  max-width: 28rem;
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+.fit-textfield .cform__label { margin-bottom: var(--space-2); }
+
+/* Прозрачност, а не юридически блок: тиха бележка, не предупреждение. */
+.fit-privacy {
+  max-width: 34rem;
+  margin: var(--space-4) 0 0;
+}
+.fit-privacy a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fit-privacy a:hover { color: var(--color-accent); }
+.fit-privacy a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+@media (max-width: 639px) {
+  .fit-textfield { margin-top: var(--space-6); padding-top: var(--space-5); }
+}

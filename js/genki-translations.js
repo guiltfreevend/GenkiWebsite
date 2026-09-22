@@ -796,6 +796,13 @@ window.genkiTranslations = {
   'fit.a11y.progress':{ bg: 'Напредък в Genki Fit', en: 'Genki Fit progress' },
   'fit.err.choose':   { bg: 'Изберете поне един отговор, за да продължите.',
                         en: 'Choose at least one answer to continue.' },
+  'fit.err.company':  { bg: 'Въведете името на компанията.', en: 'Enter your company name.' },
+
+  /* Прозрачност преди първия запис. Кратко, човешко и без юридически тон
+     — не е декларация за съгласие и не твърди правни изводи. */
+  'fit.privacy.note': { bg: 'Отговорите ви се изпращат към Genki, за да подготвим препоръката.',
+                        en: 'Your answers are sent to Genki so we can prepare your recommendation.' },
+  'fit.privacy.link': { bg: 'Политика за поверителност', en: 'Privacy Policy' },
 
   /* --- Q1 --- */
   'fit.q1.title':     { bg: 'Къде имате офиси?', en: 'Where do you have offices?' },
@@ -805,6 +812,10 @@ window.genkiTranslations = {
   'fit.q1.burgas':    { bg: 'Бургас', en: 'Burgas' },
   'fit.q1.other':     { bg: 'Други градове', en: 'Other cities' },
   'fit.q1.offices':   { bg: 'Колко офиса имате в София?', en: 'How many offices do you have in Sofia?' },
+  /* Компанията е задължителна още на първата стъпка: трябва да знаем чий
+     е офисът дори когато човекът спре по средата. НЕ е седми въпрос —
+     стои на същия екран. */
+  'fit.q1.company':   { bg: 'Компания', en: 'Company' },
   'fit.q1.offices.1':    { bg: '1', en: '1' },
   'fit.q1.offices.2':    { bg: '2', en: '2' },
   'fit.q1.offices.3plus':{ bg: '3+', en: '3+' },

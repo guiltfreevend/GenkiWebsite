@@ -11,15 +11,47 @@ import {
   FORECAST, Q2_BANDS, Q3_RANGES_BY_Q2, ATTENDANCE_BOUNDS, HARDWARE_BOUNDARIES,
   q3RangesFor, attendanceBounds, hardwareCandidate, benefitFor,
   round50, expectedSales, psThresholds, budgetBands, findBand,
-  recommend, validateAnswers, PS_LEVELS, PS_LEVELS_AUTOMATIC, PS_MAX_AUTOMATIC,
+  recommend, validateAnswers, validateProgressive,
+  PS_LEVELS, PS_LEVELS_AUTOMATIC, PS_MAX_AUTOMATIC,
 } from '../../lib/genki-fit-logic.js';
 
-import { onRequest, onRequestPost, validateDestination } from '../../functions/api/genki-fit.js';
 import {
-  newFitCode, CODE_ALPHABET, CODE_PATTERN, buildCustomerEmail, buildInternalEmail, SHARED,
+  onRequest, onRequestPost, validateDestination, validateCompany,
+} from '../../functions/api/genki-fit.js';
+import {
+  newFitCode, CODE_ALPHABET, CODE_PATTERN, buildCustomerEmail, buildInternalEmail,
+  buildStepNotification, SHARED,
 } from '../../lib/genki-fit-email.js';
+import { newSessionToken, deriveFields, STATUS } from '../../lib/genki-fit-store.js';
 import { formatSofiaDateTime } from '../../lib/genki-time.js';
-import { readFileSync } from 'node:fs';
+import { readFileSync, rmSync } from 'node:fs';
+import { DatabaseSync } from 'node:sqlite';
+import { fileURLToPath } from 'node:url';
+
+/* --------------------------------------------------------------------------
+   Истински SQLite зад D1-съвместима обвивка.
+
+   Нарочно НЕ е ръчен mock: така схемата от migrations/ и точните SQL
+   заявки от lib/genki-fit-store.js се изпълняват наистина. Грешка в
+   името на колона пада тук, а не на production.
+   -------------------------------------------------------------------------- */
+const DB_FILE = fileURLToPath(new URL('./.fit-test.sqlite', import.meta.url));
+const SCHEMA = readFileSync(new URL('../../migrations/0001_genki_fit_sessions.sql', import.meta.url), 'utf8');
+
+function freshDb(persist) {
+  if (persist) { try { rmSync(DB_FILE); } catch (e) {} }
+  const sqlite = new DatabaseSync(persist ? DB_FILE : ':memory:');
+  sqlite.exec(SCHEMA);
+  const wrap = (sql, args) => ({
+    async run() { sqlite.prepare(sql).run(...args); return { success: true }; },
+    async first() { const r = sqlite.prepare(sql).get(...args); return r === undefined ? null : r; },
+    async all() { return { results: sqlite.prepare(sql).all(...args) }; },
+  });
+  return {
+    prepare: (sql) => ({ bind: (...args) => wrap(sql, args), ...wrap(sql, []) }),
+    _raw: sqlite,
+  };
+}
 
 let pass = 0;
 let fail = 0;
@@ -606,30 +638,78 @@ console.log('\n=== Genki Fit код ===');
 }
 
 /* ======================================================================
-   21. СЪРВЪРЪТ
+   21. ПРОГРЕСИВНА ВАЛИДАЦИЯ
    ====================================================================== */
-console.log('\n=== Сървърен handler ===');
+console.log('\n=== Прогресивна валидация ===');
+{
+  const full = { cities: ['sofia'], sofiaOffices: '1', q2: '101-150', q3: '75-99',
+                 q4: ['vending'], q5: 'both', q6: 'b1' };
+
+  check('стъпка 1 иска само Q1', validateProgressive({ cities: ['sofia'], sofiaOffices: '1' }, 1).ok);
+  check('стъпка 1 без град пада', validateProgressive({}, 1).errors.includes('q1'));
+  check('София без брой офиси пада',
+    validateProgressive({ cities: ['sofia'] }, 1).errors.includes('q1offices'));
+  check('не-София не иска брой офиси', validateProgressive({ cities: ['varna'] }, 1).ok);
+
+  check('стъпка 2 иска Q2', validateProgressive({ cities: ['varna'] }, 2).errors.includes('q2'));
+  check('стъпка 3 сверява Q3 срещу Q2',
+    validateProgressive({ ...full, q2: 'lte50', q3: '700-999' }, 3).errors.includes('q3'));
+  check('стъпка 6 сверява Q6', validateProgressive({ ...full, q6: 'b99' }, 6).errors.includes('q6'));
+  check('пълната стъпка 6 минава', validateProgressive(full, 6).ok);
+
+  // Ранната стъпка отсява по-късните отговори — иначе връщането назад
+  // оставя сесията вътрешно противоречива.
+  const two = validateProgressive(full, 2).answers;
+  check('стъпка 2 не носи Q3', two.q3 === null);
+  check('стъпка 2 не носи Q6', two.q6 === null);
+  check('стъпка 2 носи Q2', two.q2 === '101-150');
+
+  check('невалидна стъпка пада', validateProgressive(full, 9).errors.includes('step'));
+  check('нулева стъпка пада', validateProgressive(full, 0).errors.includes('step'));
+  check('непознати полета не влизат',
+    validateProgressive({ ...full, isAdmin: true }, 6).answers.isAdmin === undefined);
+
+  check('компанията се иска', !validateCompany({}).ok);
+  check('празна компания пада', !validateCompany({ company: '   ' }).ok);
+  check('компанията се изрязва', validateCompany({ company: '  Примерна ЕООД ' }).company === 'Примерна ЕООД');
+  check('валидна компания минава', validateCompany({ company: 'Х ООД' }).ok);
+}
+
+/* ======================================================================
+   22. ТАЕН ТОКЕН НА СЕСИЯТА
+   ====================================================================== */
+console.log('\n=== Токен на сесията ===');
+{
+  const t1 = newSessionToken();
+  check('токенът е 32 шестнайсетични знака', /^[0-9a-f]{32}$/.test(t1), t1);
+  check('два токена се различават', newSessionToken() !== newSessionToken());
+  check('токенът НЕ прилича на Fit код', !CODE_PATTERN.test(t1));
+
+  const many = Array.from({ length: 300 }, () => newSessionToken());
+  check('300 токена са уникални', new Set(many).size === 300);
+}
+
+/* ======================================================================
+   23. СЕСИЯТА — създаване, прогресивен запис, известия
+   ====================================================================== */
+console.log('\n=== Fit сесия ===');
 {
   let calls = [];
   const mockFetch = (mode = 'ok') => async (url, opts) => {
     calls.push({ url, body: JSON.parse(opts.body) });
     if (mode === 'fail') return { ok: false, status: 500, text: async () => 'mock failure' };
+    if (mode === 'throw') throw new Error('network down');
     if (mode === 'customer-fail') {
       const b = JSON.parse(opts.body);
-      const internal = b.to === 'hello@genki.bg';
-      return internal
+      return b.to === 'hello@genki.bg'
         ? { ok: true, status: 200, text: async () => '{}' }
         : { ok: false, status: 500, text: async () => 'mock failure' };
     }
-    if (mode === 'internal-fail') {
-      const b = JSON.parse(opts.body);
-      const internal = b.to === 'hello@genki.bg';
-      return internal
-        ? { ok: false, status: 500, text: async () => 'mock failure' }
-        : { ok: true, status: 200, text: async () => '{}' };
-    }
     return { ok: true, status: 200, text: async () => '{}' };
   };
+
+  const KEY = { RESEND_API_KEY: 'test-key' };
+  const bodyOf = async (res) => JSON.parse(await res.text());
 
   const ctx = (body, { env = {}, method = 'POST', badJson = false, ip = '9.9.9.9' } = {}) => ({
     request: {
@@ -638,133 +718,340 @@ console.log('\n=== Сървърен handler ===');
       json: async () => { if (badJson) throw new Error('bad json'); return body; },
     },
     env,
+    // Нарочно без waitUntil: така известието се изчаква и тестът е детерминиран.
   });
 
-  const REQ = {
-    cities: ['sofia'], sofiaOffices: '1', q2: '101-150', q3: '75-99',
-    q4: ['vending'], q5: 'both', q6: 'b1',
-    email: 'hr@primerna.bg', lang: 'bg',
+  const ANSWERS = {
+    company: 'Примерна ЕООД', cities: ['sofia'], sofiaOffices: '1',
+    q2: '101-150', q3: '75-99', q4: ['vending'], q5: 'both', q6: 'b1',
   };
-  const KEY = { RESEND_API_KEY: 'test-key' };
-  const bodyOf = async (res) => JSON.parse(await res.text());
+  const upTo = (step) => {
+    const p = { action: 'step', step, lang: 'bg', company: ANSWERS.company,
+                cities: ANSWERS.cities, sofiaOffices: ANSWERS.sofiaOffices };
+    if (step >= 2) p.q2 = ANSWERS.q2;
+    if (step >= 3) p.q3 = ANSWERS.q3;
+    if (step >= 4) p.q4 = ANSWERS.q4;
+    if (step >= 5) p.q5 = ANSWERS.q5;
+    if (step >= 6) p.q6 = ANSWERS.q6;
+    return p;
+  };
 
   const realFetch = globalThis.fetch;
   globalThis.fetch = mockFetch();
 
-  check('GET се отказва', (await onRequest(ctx(REQ, { method: 'GET' }))).status === 405);
-  check('счупен JSON → 400', (await onRequestPost(ctx(null, { badJson: true }))).status === 400);
-  check('масив вместо обект → 400', (await onRequestPost(ctx([]))).status === 400);
+  /* --- 23.1 Сесията се ражда на ПЪРВАТА потвърдена стъпка --- */
+  let store = freshDb(false);
+  let env = { ...KEY, GENKI_FIT_DB: store };
+  const countRows = () => store._raw.prepare('SELECT COUNT(*) AS n FROM fit_sessions').get().n;
 
-  /* --- валидация на получателя --- */
-  check('валиден адрес минава', validateDestination({ email: 'a@b.bg' }).ok);
-  check('липсващ адрес пада', !validateDestination({}).ok);
-  check('нескопосан адрес пада', !validateDestination({ email: 'nope' }).ok);
-  check('адрес без домейн пада', !validateDestination({ email: 'a@b' }).ok);
-  check('прекалено дълъг адрес пада',
-    !validateDestination({ email: 'a'.repeat(250) + '@b.bg' }).ok);
-  check('непознат език пада към bg', validateDestination({ email: 'a@b.bg', lang: 'de' }).lang === 'bg');
-  check('en се запазва', validateDestination({ email: 'a@b.bg', lang: 'en' }).lang === 'en');
-  check('име и компания вече НЕ се искат',
-    validateDestination({ email: 'a@b.bg' }).ok &&
-    validateDestination({ email: 'a@b.bg' }).name === undefined);
+  check('преди каквото и да е — нула сесии', countRows() === 0);
 
-  const bad = await onRequestPost(ctx({ ...REQ, q3: '700-999' }, { env: KEY }));
-  check('Q3 от чужд Q2 → 422', bad.status === 422);
+  // Празна/невалидна стъпка не ражда сесия: това е „само отворена страница".
+  await onRequestPost(ctx({ action: 'step', step: 1, lang: 'bg' }, { env }));
+  check('невалидна стъпка 1 НЕ ражда сесия', countRows() === 0);
 
-  const noEmail = await onRequestPost(ctx({ ...REQ, email: 'nope' }, { env: KEY }));
-  check('невалиден email → 422', noEmail.status === 422);
-  check('грешката сочи полето', (await bodyOf(noEmail)).fields.includes('email'));
+  await onRequestPost(ctx({ action: 'step', step: 1, company: 'Х', lang: 'bg' }, { env }));
+  check('липсващ град НЕ ражда сесия', countRows() === 0);
+
+  await onRequestPost(ctx({ ...upTo(1), company: '' }, { env }));
+  check('липсваща компания НЕ ражда сесия', countRows() === 0);
+  const noCompany = await onRequestPost(ctx({ ...upTo(1), company: '' }, { env }));
+  check('липсващата компания се отчита като грешка',
+    (await bodyOf(noCompany)).fields.includes('company'));
 
   calls = [];
-  const hp = await onRequestPost(ctx({ ...REQ, website: 'spam' }, { env: KEY }));
-  check('honeypot → 200 без изпращане', hp.status === 200 && calls.length === 0);
+  const r1 = await onRequestPost(ctx(upTo(1), { env }));
+  const b1 = await bodyOf(r1);
+  check('валидна стъпка 1 → 200', r1.status === 200, String(r1.status));
+  check('създадена е точно една сесия', countRows() === 1, String(countRows()));
+  check('връща се Fit код', CODE_PATTERN.test(b1.code), b1.code);
+  check('връща се таен токен', /^[0-9a-f]{32}$/.test(b1.token));
+  check('токенът НЕ е Fit кодът', b1.token !== b1.code);
+  check('стъпката е 1', b1.step === 1);
+  check('състоянието е in_progress', b1.status === STATUS.IN_PROGRESS);
 
-  /* --- успешен път: ДВА имейла --- */
+  const token = b1.token;
+  const code = b1.code;
+  const row = () => store._raw.prepare('SELECT * FROM fit_sessions WHERE fit_code = ?').get(code);
+
+  check('компанията е записана', row().company === 'Примерна ЕООД');
+  check('градовете са записани', row().q1_cities === '["sofia"]');
+  check('Q2 още е празен', row().q2_size_band === null);
+  check('има софийско време на създаване', /софийско време/.test(row().created_at_sofia));
+  check('машинното време е UTC ISO', /Z$/.test(row().created_at_utc));
+
+  /* --- 23.2 Известие след стъпката --- */
+  check('изпратено е известие', calls.length === 1, String(calls.length));
+  check('известието отива до hello@genki.bg', calls[0].body.to === 'hello@genki.bg');
+  check('темата носи кода и стъпката',
+    calls[0].body.subject === 'Genki Fit · ' + code + ' · Стъпка 1/6', calls[0].body.subject);
+  check('известието носи компанията', calls[0].body.text.includes('Примерна ЕООД'));
+  check('записано е, че известието е минало', row().notify_status === 'sent');
+  check('опитите са отбелязани', row().notify_attempts === 1, String(row().notify_attempts));
+
+  /* --- 23.3 Стъпки 2–6 обновяват СЪЩИЯ запис --- */
+  for (let step = 2; step <= 6; step++) {
+    calls = [];
+    const r = await onRequestPost(ctx({ ...upTo(step), token }, { env }));
+    const b = await bodyOf(r);
+    check('стъпка ' + step + ' → 200', r.status === 200);
+    check('стъпка ' + step + ': същата сесия', countRows() === 1, String(countRows()));
+    check('стъпка ' + step + ': СЪЩИЯТ Fit код', b.code === code, b.code);
+    check('стъпка ' + step + ': токен НЕ се връща пак', b.token === undefined);
+    check('стъпка ' + step + ': известие с пълната снимка', calls.length === 1);
+    check('стъпка ' + step + ': снимката носи компанията',
+      calls[0].body.text.includes('Примерна ЕООД'));
+  }
+
+  check('Q1 още е в записа след Q6', row().q1_cities === '["sofia"]');
+  check('Q2 е записан', row().q2_size_band === '101-150');
+  check('Q3 е записан с граници',
+    row().q3_label === '75-99' && row().q3_attendance_min === 75 && row().q3_attendance_max === 99);
+  check('Q4 е записан', row().q4_current_setup === '["vending"]');
+  check('Q5 е записан', row().q5_desired_value === 'both');
+  check('Q6 е записан с граници', row().q6_budget_band === 'b1' && row().q6_budget_min === 600);
+  check('състоянието е completed', row().status === STATUS.COMPLETED);
+  check('има време на завършване', !!row().completed_at_utc && !!row().completed_at_sofia);
+  check('изведеното е попълнено от сървъра',
+    !!row().derived_hardware && !!row().derived_route && !!row().derived_outcome);
+  check('последната тема казва „Завършен"',
+    calls[0].body.subject === 'Genki Fit · ' + code + ' · Завършен', calls[0].body.subject);
+
+  /* --- 23.4 Връщане назад: смяната на Q2 изчиства Q3 и Q6 --- */
   calls = [];
-  const okRes = await onRequestPost(ctx(REQ, { env: KEY }));
-  const okBody = await bodyOf(okRes);
-  check('валидна заявка → 200', okRes.status === 200, String(okRes.status));
-  check('изпратени са точно два имейла', calls.length === 2, String(calls.length));
+  const backPayload = { action: 'step', step: 2, token, lang: 'bg',
+                        company: ANSWERS.company, cities: ANSWERS.cities,
+                        sofiaOffices: ANSWERS.sofiaOffices, q2: '301-500' };
+  await onRequestPost(ctx(backPayload, { env }));
+  check('назад: Q2 е сменен', row().q2_size_band === '301-500');
+  check('назад: Q3 е изчистен', row().q3_label === null);
+  check('назад: границите са изчистени', row().q3_attendance_min === null);
+  check('назад: Q6 е изчистен', row().q6_budget_band === null);
+  check('назад: изведеното е изчистено', row().derived_route === null);
+  check('назад: сесията остава завършена веднъж завинаги',
+    row().status === STATUS.COMPLETED);
+  check('назад: докъде е стигнал не се връща назад',
+    row().last_completed_step === 6, String(row().last_completed_step));
+  check('назад: нова снимка е изпратена', calls.length === 1);
+  check('назад: пак същият код', calls[0].body.subject.includes(code));
 
-  const internalCall = calls.find((c) => c.body.to === 'hello@genki.bg');
-  const customerCall = calls.find((c) => c.body.to === 'hr@primerna.bg');
-  check('единият отива до hello@genki.bg', !!internalCall);
-  check('другият отива до клиента', !!customerCall);
-  check('вътрешният има reply_to към клиента', internalCall.body.reply_to === 'hr@primerna.bg');
+  /* --- 23.5 Сигурност --- */
+  const other = await onRequestPost(ctx({ ...upTo(2), token: 'deadbeef'.repeat(4) }, { env }));
+  check('непознат токен → 404', other.status === 404, String(other.status));
 
-  check('отговорът носи кода', CODE_PATTERN.test(okBody.code), okBody.code);
-  check('отговорът носи адреса', okBody.email === 'hr@primerna.bg');
-  check('един и същ код в двата имейла',
-    internalCall.body.text.includes(okBody.code) && customerCall.body.text.includes(okBody.code));
-  check('кодът е и в темите',
-    internalCall.body.subject.includes(okBody.code) && customerCall.body.subject.includes(okBody.code));
+  const byCode = await onRequestPost(ctx({ ...upTo(2), token: code }, { env }));
+  check('публичният Fit код НЕ може да променя сесия', byCode.status === 404, String(byCode.status));
+  check('сесията не е пипната от опита', row().q2_size_band === '301-500');
 
-  check('отговорът не носи вътрешни полета',
-    !JSON.stringify(okBody).match(/score|tier|salesM|threshold|margin/i),
-    JSON.stringify(okBody).slice(0, 120));
-
-  /* --- клиентът не може да наложи код или препоръка --- */
   calls = [];
-  const forged = await onRequestPost(ctx(
-    { ...REQ, code: 'GF-XXXX-XXXX', recommendation: { approach: 'both', psLevel: 100 } },
-    { env: KEY }));
+  const forged = await onRequestPost(ctx({
+    ...upTo(6), token,
+    code: 'GF-XXXX-XXXX', fitCode: 'GF-XXXX-XXXX',
+    recommendation: { approach: 'both', psLevel: 100 },
+    status: 'completed', createdAtUtc: '1999-01-01T00:00:00.000Z',
+    derived_ps_level: 100, notify_status: 'sent',
+  }, { env }));
   const forgedBody = await bodyOf(forged);
-  check('подхвърлен код се игнорира', forgedBody.code !== 'GF-XXXX-XXXX', forgedBody.code);
-  check('подхвърлена препоръка се игнорира',
-    !calls.some((c) => c.body.text.includes('100%')));
+  check('подхвърлен Fit код се игнорира', forgedBody.code === code, forgedBody.code);
+  check('подхвърлена препоръка се игнорира', row().derived_ps_level !== 100,
+    String(row().derived_ps_level));
+  check('подхвърлено време се игнорира', !row().created_at_utc.startsWith('1999'));
 
-  /* --- два пъти подред дават различни кодове --- */
-  const a1 = await bodyOf(await onRequestPost(ctx(REQ, { env: KEY })));
-  const a2 = await bodyOf(await onRequestPost(ctx(REQ, { env: KEY })));
-  check('всяко изпращане получава нов код', a1.code !== a2.code);
+  const skip = await onRequestPost(ctx({ action: 'step', step: 6, token, lang: 'bg',
+    company: 'Х', cities: ['sofia'], sofiaOffices: '1' }, { env }));
+  check('прескачане на стъпки без отговори → 422', skip.status === 422);
 
-  const noKey = await onRequestPost(ctx(REQ, { env: {} }));
-  check('без ключ → 500 not_configured', noKey.status === 500 && (await bodyOf(noKey)).error === 'not_configured');
+  /* --- 23.6 Без D1 не се твърди, че е записано --- */
+  const noDb = await onRequestPost(ctx(upTo(1), { env: { ...KEY } }));
+  check('без D1 → 500 not_configured',
+    noDb.status === 500 && (await bodyOf(noDb)).error === 'not_configured');
 
-  const testMode = await onRequestPost(ctx(REQ, { env: { ...KEY, CONTACT_TEST_MODE: '1' } }));
-  const tmBody = await bodyOf(testMode);
-  check('тестов режим не праща', tmBody.mode === 'test');
-  check('тестовият режим пак връща код', CODE_PATTERN.test(tmBody.code));
+  /* --- 23.7 Провалът на Resend НЕ губи данни --- */
+  globalThis.fetch = mockFetch('fail');
+  store = freshDb(false);
+  env = { ...KEY, GENKI_FIT_DB: store };
+  const failRes = await onRequestPost(ctx(upTo(1), { env }));
+  const failBody = await bodyOf(failRes);
+  const failRow = () => store._raw.prepare('SELECT * FROM fit_sessions WHERE fit_code = ?').get(failBody.code);
+  check('провал на имейла: заявката пак успява', failRes.status === 200);
+  check('провал на имейла: сесията Е записана', !!failRow());
+  check('провал на имейла: отговорите са там', failRow().company === 'Примерна ЕООД');
+  check('провал на имейла: отбелязано е failed', failRow().notify_status === 'failed');
+  check('провал на имейла: краен брой опити', failRow().notify_attempts === 3,
+    String(failRow().notify_attempts));
+  check('провал на имейла: записана е грешката', !!failRow().notify_error);
 
-  /* --- провали --- */
-  globalThis.fetch = mockFetch('customer-fail');
-  const custFail = await onRequestPost(ctx(REQ, { env: KEY }));
-  check('провал на клиентския имейл → 502', custFail.status === 502);
-  check('не се твърди успех', (await bodyOf(custFail)).ok === false);
-
-  globalThis.fetch = mockFetch('internal-fail');
-  const intFail = await onRequestPost(ctx(REQ, { env: KEY }));
-  check('провал само на вътрешния НЕ проваля човека', intFail.status === 200,
-    String(intFail.status));
+  calls = [];
+  globalThis.fetch = mockFetch('throw');
+  const throwRes = await onRequestPost(ctx({ ...upTo(2), token: failBody.token }, { env }));
+  check('мрежова грешка: заявката пак успява', throwRes.status === 200);
+  check('мрежова грешка: Q2 е записан', failRow().q2_size_band === '101-150');
+  check('мрежова грешка: без безкраен цикъл', calls.length === 3, String(calls.length));
+  check('мрежова грешка: няма втора сесия',
+    store._raw.prepare('SELECT COUNT(*) AS n FROM fit_sessions').get().n === 1);
 
   globalThis.fetch = mockFetch();
 
-  /* --- rate limit --- */
-  const store = new Map();
+  /* --- 23.8 Клиентът иска своя Fit --- */
+  store = freshDb(true);          // тази остава на диск за tools/dev/fit-sessions.mjs
+  env = { ...KEY, GENKI_FIT_DB: store };
+  const sRow = (c) => store._raw.prepare('SELECT * FROM fit_sessions WHERE fit_code = ?').get(c);
+
+  const cr = await bodyOf(await onRequestPost(ctx(upTo(1), { env })));
+  for (let step = 2; step <= 6; step++) {
+    await onRequestPost(ctx({ ...upTo(step), token: cr.token }, { env }));
+  }
+  check('готова сесия за изпращане', sRow(cr.code).status === STATUS.COMPLETED);
+
+  const noToken = await onRequestPost(ctx({ action: 'send', email: 'a@b.bg' }, { env }));
+  check('изпращане без токен → 404', noToken.status === 404);
+
+  const badEmail = await onRequestPost(ctx({ action: 'send', token: cr.token, email: 'nope' }, { env }));
+  check('невалиден адрес → 422', badEmail.status === 422);
+  check('адресът НЕ се записва при невалиден вход', sRow(cr.code).customer_email === null);
+
+  calls = [];
+  const sent = await onRequestPost(ctx({ action: 'send', token: cr.token, email: 'hr@primerna.bg', lang: 'bg' }, { env }));
+  const sentBody = await bodyOf(sent);
+  check('изпращането успява', sent.status === 200);
+  check('СЪЩИЯТ Fit код, не нов', sentBody.code === cr.code, sentBody.code);
+  check('връща се адресът', sentBody.email === 'hr@primerna.bg');
+  check('адресът е записан в сесията', sRow(cr.code).customer_email === 'hr@primerna.bg');
+  check('отбелязано е кога е изпратен', !!sRow(cr.code).customer_fit_sent_at);
+  check('не е създадена втора сесия',
+    store._raw.prepare('SELECT COUNT(*) AS n FROM fit_sessions').get().n === 1);
+
+  const toCustomer = calls.find((c) => c.body.to === 'hr@primerna.bg');
+  const toGenki = calls.find((c) => c.body.to === 'hello@genki.bg');
+  check('клиентът получава писмо', !!toCustomer);
+  check('Genki получава известие', !!toGenki);
+  check('клиентското писмо носи кода', toCustomer.body.text.includes(cr.code));
+  check('темата на известието казва „Клиентът поиска имейл"',
+    toGenki.body.subject === 'Genki Fit · ' + cr.code + ' · Клиентът поиска имейл',
+    toGenki.body.subject);
+  check('известието носи адреса на клиента', toGenki.body.text.includes('hr@primerna.bg'));
+  check('известието носи компанията', toGenki.body.text.includes('Примерна ЕООД'));
+
+  check('тайният токен НЕ влиза в клиентското писмо',
+    !toCustomer.body.text.includes(cr.token) && !toCustomer.body.html.includes(cr.token));
+  check('тайният токен НЕ влиза и във вътрешното писмо',
+    !toGenki.body.text.includes(cr.token) && !toGenki.body.html.includes(cr.token));
+
+  /* Незавършена сесия не може да праща Fit. */
+  const half = await bodyOf(await onRequestPost(ctx(upTo(1), { env })));
+  const halfSend = await onRequestPost(ctx({ action: 'send', token: half.token, email: 'a@b.bg' }, { env }));
+  check('незавършена сесия не изпраща Fit → 409', halfSend.status === 409, String(halfSend.status));
+
+  /* Провал на клиентското писмо не бива да твърди успех. */
+  globalThis.fetch = mockFetch('customer-fail');
+  const cf = await onRequestPost(ctx({ action: 'send', token: cr.token, email: 'x@y.bg' }, { env }));
+  check('провал на клиентското писмо → 502', cf.status === 502);
+  check('адресът НЕ се подменя при провал', sRow(cr.code).customer_email === 'hr@primerna.bg');
+  globalThis.fetch = mockFetch();
+
+  /* --- 23.9 Общи неща по заявката --- */
+  check('GET се отказва', (await onRequest(ctx(upTo(1), { env, method: 'GET' }))).status === 405);
+  check('счупен JSON → 400', (await onRequestPost(ctx(null, { env, badJson: true }))).status === 400);
+  check('масив вместо обект → 400', (await onRequestPost(ctx([], { env }))).status === 400);
+
+  const before = store._raw.prepare('SELECT COUNT(*) AS n FROM fit_sessions').get().n;
+  const hp = await onRequestPost(ctx({ ...upTo(1), website: 'spam' }, { env }));
+  check('honeypot → 200 без запис', hp.status === 200 &&
+    store._raw.prepare('SELECT COUNT(*) AS n FROM fit_sessions').get().n === before);
+
+  /* --- 23.10 Rate limit: два различни лимита --- */
+  const kvStore = new Map();
   const kvEnv = {
-    ...KEY,
+    ...KEY, GENKI_FIT_DB: store,
     GENKI_RATE: {
-      get: async (k) => store.get(k) || null,
-      put: async (k, v) => { store.set(k, v); },
+      get: async (k) => kvStore.get(k) || null,
+      put: async (k, v) => { kvStore.set(k, v); },
     },
   };
-  let limited = 0;
-  for (let i = 0; i < 7; i++) {
-    const r = await onRequestPost(ctx(REQ, { env: kvEnv }));
-    if (r.status === 429) limited++;
+  let stepLimited = 0;
+  for (let i = 0; i < 8; i++) {
+    const r = await onRequestPost(ctx(upTo(1), { env: kvEnv, ip: '5.5.5.5' }));
+    if (r.status === 429) stepLimited++;
   }
-  check('rate limit спира след 5 заявки', limited === 2, 'блокирани: ' + limited);
-  check('ключът е отделен от този на контакта',
-    [...store.keys()].every((k) => k.startsWith('fit:')), [...store.keys()].join(','));
+  check('осем стъпки НЕ се ограничават (лимитът е по-висок)', stepLimited === 0,
+    'блокирани: ' + stepLimited);
+  check('ключът за стъпки е отделен',
+    [...kvStore.keys()].some((k) => k.startsWith('fitstep:')), [...kvStore.keys()].join(','));
 
-  const noKv = await onRequestPost(ctx(REQ, { env: KEY }));
-  check('без KV binding пак работи', noKv.status === 200);
+  let sendLimited = 0;
+  for (let i = 0; i < 7; i++) {
+    const r = await onRequestPost(ctx({ action: 'send', token: cr.token, email: 'hr@primerna.bg' },
+      { env: kvEnv, ip: '6.6.6.6' }));
+    if (r.status === 429) sendLimited++;
+  }
+  check('изпращането към клиент остава стегнато (5 за 10 мин)', sendLimited === 2,
+    'блокирани: ' + sendLimited);
+  check('ключът за изпращане е отделен',
+    [...kvStore.keys()].some((k) => k.startsWith('fit:')), [...kvStore.keys()].join(','));
+
+  /* --- 23.11 Изведените полета се смятат на сървъра --- */
+  const d = deriveFields({ q1: { cities: ['sofia'], sofiaOffices: '1' },
+    q2: '101-150', q3: '75-99', q4: ['vending'], q5: 'both', q6: 'b1' });
+  check('изведено: хардуер', d.hardware === 'duo', d.hardware);
+  check('изведено: граници на посещаемостта', d.attendanceMin === 75 && d.attendanceMax === 99);
+  check('изведено: маршрут', d.route === 'both', d.route);
+  check('изведено: PS ниво не надхвърля 75', d.psLevel <= 75, String(d.psLevel));
+  const partial = deriveFields({ q1: { cities: ['sofia'], sofiaOffices: '1' }, q2: '101-150', q4: [] });
+  check('без Q3 няма хардуер', partial.hardware === null);
+  check('без Q6 няма маршрут', partial.route === null);
 
   globalThis.fetch = realFetch;
 }
 
 /* ======================================================================
-   22. ИМЕЙЛЪТ ДО КЛИЕНТА
+   24. ИЗВЕСТИЕТО Е МОМЕНТНА СНИМКА
+   ====================================================================== */
+console.log('\n=== Известието е снимка на цялата сесия ===');
+{
+  const snap = {
+    fitCode: 'GF-K7M4-P9Q2', status: 'in_progress', lastCompletedStep: 3, language: 'bg',
+    company: 'Примерна ЕООД', q1: { cities: ['sofia'], sofiaOffices: '2' },
+    largestOffice: '101-150', q2: '151-300', q3: '150-199',
+    attendanceMin: 150, attendanceMax: 199, q4: [], q5: null, q6: null,
+    budgetMin: null, budgetMax: null, hardware: 'duo', route: null, psLevel: null, outcome: null,
+    customerEmail: null, customerFitSentAt: null,
+    createdAtSofia: '22.09.2026 г., 12:00:00 ч. (софийско време)',
+    updatedAtSofia: '22.09.2026 г., 12:03:00 ч. (софийско време)', completedAtSofia: null,
+  };
+
+  const m = buildStepNotification(snap, 'step');
+  check('темата е „Стъпка 3/6"', m.subject === 'Genki Fit · GF-K7M4-P9Q2 · Стъпка 3/6', m.subject);
+  check('темата е на един ред', !/[\r\n]/.test(m.subject));
+
+  // Спрял след Q3 — писмото пак носи Q1 и Q2.
+  check('снимката носи Q1', m.text.includes('София'));
+  check('снимката носи компанията', m.text.includes('Примерна ЕООД'));
+  check('снимката носи Q2', m.text.includes('151–300'));
+  check('снимката носи най-големия офис', m.text.includes('101–150'));
+  check('снимката носи Q3', m.text.includes('150–199'));
+  check('снимката носи границите', m.text.includes('150 / 199'));
+  check('снимката носи докъде е стигнал', m.text.includes('3 / 6'));
+  check('снимката носи софийско време', m.text.includes('софийско време'));
+  check('снимката казва, че D1 е истината', m.text.includes('Каноничният запис е в D1'));
+  check('няма празни редове за незададени отговори', !m.text.includes('Q5 · Желана стойност'));
+
+  const done = buildStepNotification({ ...snap, status: 'completed', lastCompletedStep: 6,
+    q5: 'both', q6: 'b2', outcome: 'recommendation', route: 'both', psLevel: 50,
+    completedAtSofia: '22.09.2026 г., 12:05:00 ч. (софийско време)' }, 'completed');
+  check('темата при завършване', done.subject.endsWith('· Завършен'), done.subject);
+  check('завършването носи изведеното', done.text.includes('Price Support (вътрешно): 50%'));
+
+  const cust = buildStepNotification({ ...snap, customerEmail: 'a@b.bg' }, 'customer-sent');
+  check('темата при заявен имейл', cust.subject.endsWith('· Клиентът поиска имейл'), cust.subject);
+  check('носи адреса на клиента', cust.text.includes('a@b.bg'));
+
+  check('HTML-ът екранира', buildStepNotification({ ...snap, company: '<b>x</b>' }, 'step')
+    .html.includes('&lt;b&gt;'));
+  check('без <script>', !/<script/i.test(m.html));
+}
+
+/* ======================================================================
+   25. ИМЕЙЛЪТ ДО КЛИЕНТА
    ====================================================================== */
 console.log('\n=== Имейл до клиента ===');
 {
@@ -831,7 +1118,7 @@ console.log('\n=== Имейл до клиента ===');
 }
 
 /* ======================================================================
-   23. ВЪТРЕШНИЯТ ИМЕЙЛ
+   26. ВЪТРЕШНИЯТ ИМЕЙЛ
    ====================================================================== */
 console.log('\n=== Вътрешен имейл ===');
 {
@@ -879,7 +1166,7 @@ console.log('\n=== Вътрешен имейл ===');
 }
 
 /* ======================================================================
-   24. BG / EN · нито един непреведен низ
+   27. BG / EN · нито един непреведен низ
    ====================================================================== */
 console.log('\n=== BG / EN ===');
 {
