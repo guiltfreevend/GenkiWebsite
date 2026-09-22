@@ -4,6 +4,22 @@
 
 ---
 
+## ⛔ НИКОГА НЕ ИЗПЪЛНЯВАЙ `switch-site.sh`
+
+**`switch-site.sh` е ОТМЕНЕН (deprecated / CANCELLED). Не се пуска при никакви обстоятелства.**
+
+Защо:
+
+- **Противоречи на текущото production заключване.** Coming Soon се управлява от `functions/_middleware.js` на `main` — Pages Function, която гейтва всяка заявка. Скриптът не знае за нея и се бие с нея.
+- **Променя и разваля живия `index.html`.** Копира `index-coming-soon.html` върху `index.html` и вкарва `window.location.href` редиректи в другите страници.
+- **На macOS ще се изпълни.** Писан е за macOS `sed -i ''`. На старата Windows/WSL машина мълчеше; на този MacBook ще свърши работата си докрай.
+
+**Coming Soon се включва и изключва само през текущата production архитектура** — променливата `COMING_SOON` на Cloudflare Pages проекта (`0` изключва гейта) и `PREVIEW_TOKEN` за преглед. Никога чрез редакция на файлове и никога чрез този скрипт.
+
+Файлът **остава в репото** и **правата му не се променят** — това е нарочно решение, а не недоглеждане. Не го изтривай, не му сваляй `+x`, не го пускай.
+
+---
+
 ## 0. Начало на всяка сесия (ЗАДЪЛЖИТЕЛНО, преди каквото и да било друго)
 
 Прочети в този ред:
@@ -207,18 +223,31 @@ import { formatSofiaDateTime, formatSofiaDate, formatSofiaTime,
 
 ## 8. Deploy workflow (следвай точно)
 
+### Истината за deploy-а (обновено 2026-09-22)
+
+**Production е GitHub-connected.** Cloudflare Pages следи `main`:
+
+> **`git push origin main` МОЖЕ ДА ПРЕДИЗВИКА PRODUCTION DEPLOYMENT.**
+
+Push към `main` не е „синхронизация на репото". Това е публикуване. Третирай го като deploy, не като git операция.
+
+**Wrangler НЕ е нормалният път за deploy.** `npx wrangler pages deploy` се ползва само когато собственикът изрично го поиска за конкретния случай.
+
+**Наличието на `CLOUDFLARE_API_TOKEN` на машината НЕ е разрешение за deploy.** Токенът е в `~/.zshrc` и на този MacBook е зададен — това значи само, че командата технически би минала. Разрешението идва от собственика, всеки път, поотделно. Ако токенът спре да работи — нов от dash.cloudflare.com/profile/api-tokens (template „Edit Cloudflare Workers").
+
+### Работният ред
+
 1. Пиши кода.
 2. Тествай локално: `python3 -m http.server 8765` → `http://localhost:8765`
-3. **Одобрение от собственика.** Той тества локално. Deploy само след потвърждение.
+3. **Одобрение от собственика.** Той тества локално.
 4. Commit: `git add <файлове> && git commit -m "съобщение"`
-5. Deploy: `npx wrangler pages deploy . --project-name=genkiwebsite --branch=main --commit-dirty=true` (~2 секунди)
-6. Push: `git push origin main`
+5. Push — **само след изрично разрешение и само на посочения клон.** Работният клон е `genki-2.0-build`; push към него не пуска production deployment.
 
 Правила:
-- **Никога не push-вай и не deploy-вай без изрично разрешение.**
+- **Никога не push-вай и не deploy-вай без изрично разрешение.** Това важи двойно за `main`.
 - Всяка логическа промяна — отделен commit. Не се смесват несвързани промени.
 - `_headers` гарантира, че HTML не се кешира — deploy-ът се вижда веднага.
-- Wrangler auth: `CLOUDFLARE_API_TOKEN` в `~/.zshrc`. Ако спре да работи — нов токен от dash.cloudflare.com/profile/api-tokens (template „Edit Cloudflare Workers").
+- Coming Soon гейтът се управлява през променливите на Pages проекта, не през файлове и **никога** през `switch-site.sh` (виж предупреждението в началото на този файл).
 
 ## 9. Клон за работа
 
