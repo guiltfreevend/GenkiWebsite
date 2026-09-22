@@ -29,6 +29,54 @@
 
 Целият план, чеклистите по етапи и подробният отчет за етап 1 са в `docs/BUILD-PLAN.md`. Това е файлът, от който се разбира докъде сме стигнали.
 
+## Трите среди — коя за какво
+
+| Среда | За какво | Как се стига |
+| --- | --- | --- |
+| **Localhost** | вид, лайаут, copy, навигация, BG/EN, отзивчивост | `npm run dev` |
+| **Защитен Preview** | backend и интеграция: D1, Resend, Pages Functions | `https://genki-2-0-build.genkiwebsite.pages.dev` зад Cloudflare Access |
+| **Production** | Coming Soon до изрично разрешение за launch | `genki.bg` |
+
+### Localhost — основната среда за визуален преглед
+
+```
+cd /Users/tsvetelinas/Desktop/Business-Genki/GenkiWebsite
+npm run dev
+```
+
+Браузърът се отваря сам на **`http://localhost:8765/v2/`**. Нищо не се конфигурира, няма Access, няма променливи на средата.
+
+Сървърът е `tools/dev/serve.mjs` — без зависимости, повтаря разрешаването на „чисти" адреси на Cloudflare Pages, за да не се разминава прегледът с живото.
+
+**`/api/*` НЕ работи локално** — Pages Functions искат Cloudflare средата, D1 и Resend. Затова Genki Fit ще показва резултата, но изпращането по имейл се проверява на защитения Preview.
+
+> Старият скрипт `netlify dev` беше мъртъв — Netlify не се ползва от месеци. Заменен е.
+
+### Каноничните адреси за преглед
+
+| Страница | Localhost | Защитен Preview |
+| --- | --- | --- |
+| Начало | `/v2/` | `/v2/index.html` |
+| За компании | `/v2/companies.html` | `/v2/companies.html` |
+| Как работи | `/v2/how-it-works.html` | `/v2/how-it-works.html` |
+| Мисия | `/v2/mission.html` | `/v2/mission.html` |
+| Genki Fit | `/v2/genki-fit.html` | `/v2/genki-fit.html` |
+| Контакт | `/v2/contact.html` | `/v2/contact.html` |
+
+На Preview кратките адреси също работят: `/`, `/companies`, `/how-it-works`, `/mission`, `/genki-fit`, `/contact` пренасочват към съответната страница в `/v2/`.
+
+### ⚠ Защо Genki 2.0 живее под `/v2/`
+
+В корена на репото още стои **legacy Genki 1.0** — `index.html`, `companies.html`, `mission.html`, `contact.html` с Desk / Tower / Hub и старите цени. Genki 2.0 е в `v2/`, за да не се презапише живият сайт преди cut-over.
+
+Preview deployment-ите **нямат** `functions/_middleware.js` (той живее само на `main`), затова там нищо не гейтва корена. Без пренасочвания отварянето на `/companies` на Preview показваше стария сайт.
+
+Решено с блок в `_redirects`, който съществува **само на клона `genki-2.0-build`**. Production се строи от `main` и не е засегнат.
+
+Навигацията вътре в Genki 2.0 ползва **относителни** линкове, затова веднъж влязъл в `/v2/`, човек остава там. Пренасочванията затварят и обратния път: всеки legacy линк връща в 2.0.
+
+Пази се от `node tools/dev/test-links.mjs`.
+
 ## Клон
 Работи се в `genki-2.0-build`. `main` остава непокътнат и обслужва живия сайт до cut-over.
 

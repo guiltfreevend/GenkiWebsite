@@ -12,3 +12,37 @@
 # Products page retired 2026-05-21 — may return rebranded later.
 # 302 (not 301) so the redirect is not permanently cached.
 /products   /   302
+
+# ===== GENKI 2.0 — МАРШРУТИ ЗА ПРЕГЛЕД ==========================
+#
+# ВАЖНО: тези правила съществуват САМО на клона `genki-2.0-build`.
+# Production се строи от `main`, чийто `_redirects` НЕ ги съдържа —
+# затова genki.bg не е засегнат по никакъв начин.
+#
+# Защо са нужни: Genki 2.0 живее под /v2/, а в корена още стои legacy
+# Genki 1.0. Без тези правила отварянето на /companies на preview-а
+# показваше стария сайт — Desk / Tower / Hub и старите цени.
+#
+# 302, не 200: пренаписването (200) щеше да остави адреса на /companies,
+# а относителните връзки в страницата щяха да сочат обратно към корена и
+# пак да падат в 1.0. С 302 браузърът застава на /v2/... и навигацията
+# остава вътре в 2.0.
+#
+# Понеже legacy страниците също сочат към /companies, /mission и
+# /contact, същите правила затварят и обратния път: който и да е legacy
+# линк връща човека в Genki 2.0.
+#
+# ⚠ ПРИ CUT-OVER ТОЗИ БЛОК СЕ МАХА. Тогава `v2/*.html` се преместват в
+# корена и правилата биха сочили към несъществуващ /v2/. Записано е като
+# стъпка в docs/BUILD-PLAN.md.
+
+/                 /v2/index.html         302
+/index.html       /v2/index.html         302
+/companies        /v2/companies.html     302
+/companies.html   /v2/companies.html     302
+/how-it-works     /v2/how-it-works.html  302
+/mission          /v2/mission.html       302
+/mission.html     /v2/mission.html       302
+/genki-fit        /v2/genki-fit.html     302
+/contact          /v2/contact.html       302
+/contact.html     /v2/contact.html       302

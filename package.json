@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Genki wellness benefit landing pages",
   "scripts": {
-    "dev": "netlify dev",
+    "dev": "node tools/dev/serve.mjs",
+    "dev:v2": "node tools/dev/serve.mjs",
+    "test": "node tools/dev/test-time.mjs && node tools/dev/test-qr-time.mjs && node tools/dev/test-contact.mjs && node tools/dev/test-genki-fit.mjs && node tools/dev/test-links.mjs && node tools/sync-partials.js --check",
     "build": "echo 'No build step required'"
   },
   "dependencies": {},
