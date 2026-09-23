@@ -174,6 +174,76 @@ console.log('\n=== Футърът ===');
 }
 
 /* ======================================================================
+   2в. Размерите на визуалните слотове са съвместими със съотношенията
+
+   Пази конкретния дефект: регистърът носеше класовия размер за
+   „full-bleed hero" (2560×1440 = 16:9) върху слотове, чиято композиция
+   вече беше сменена на 4:5, 2:1, 3:4 и 3:2 — невъзможни двойки.
+
+   Каноничен източник: docs/GENKI-2.0-VISUAL-ASSET-PRODUCTION-PLAN.md.
+   ====================================================================== */
+console.log('\n=== Размери на визуалните слотове ===');
+{
+  const src = read('js/genki-site.js');
+  const body = src.slice(src.indexOf('var SLOTS'), src.indexOf('2. <genki-slot>'));
+  const re = /([A-Z]\d{2}):\s*\{\s*d:\s*'([^']+)',\s*m:\s*'([^']+)',\s*file:\s*'([^']+)',\s*mfile:\s*'([^']+)'/g;
+
+  const ratioOf = (r) => { const [a, b] = r.split('/').map(Number); return a / b; };
+  const pxOf = (p) => { const [a, b] = p.split('×').map(Number); return a / b; };
+
+  const slots = [];
+  let m;
+  while ((m = re.exec(body))) {
+    slots.push({ id: m[1], d: m[2], mo: m[3], file: m[4], mfile: m[5] });
+  }
+  check('регистърът се чете', slots.length >= 15, String(slots.length));
+
+  const bad = [];
+  for (const s of slots) {
+    if (Math.abs(ratioOf(s.d) - pxOf(s.file)) > 0.01) bad.push(`${s.id} desktop ${s.d} ≠ ${s.file}`);
+    if (Math.abs(ratioOf(s.mo) - pxOf(s.mfile)) > 0.01) bad.push(`${s.id} mobile ${s.mo} ≠ ${s.mfile}`);
+  }
+  check('всяка двойка съотношение/пиксели е съвместима', bad.length === 0, bad.slice(0, 4).join(' | '));
+
+  // Конкретните четири, които бяха сбъркани.
+  const byId = Object.fromEntries(slots.map((s) => [s.id, s]));
+  check('H01 вече не е 2560×1440', byId.H01 && byId.H01.file !== '2560×1440', byId.H01 && byId.H01.file);
+  check('C01 вече не е 2560×1440', byId.C01 && byId.C01.file !== '2560×1440', byId.C01 && byId.C01.file);
+  check('W01 вече не е 2560×1440', byId.W01 && byId.W01.file !== '2560×1440', byId.W01 && byId.W01.file);
+  check('M01 вече не е 2560×1440', byId.M01 && byId.M01.file !== '2560×1440', byId.M01 && byId.M01.file);
+
+  // Стойностите съвпадат със заключените в production плана.
+  const plan = read('docs/GENKI-2.0-VISUAL-ASSET-PRODUCTION-PLAN.md');
+  check('H01 2400×3000 е в плана', plan.includes('2400 × 3000'));
+  check('C01 3840×1920 е в плана', plan.includes('3840 × 1920'));
+  check('W01 1600×2133 е в плана', plan.includes('1600 × 2133'));
+  check('M01 2400×1600 е в плана', plan.includes('2400 × 1600'));
+
+  // Регистърът различава трите неща.
+  check('полето за файл се казва file', body.includes('file:'));
+  check('полето за екран се казва css', body.includes('css:'));
+  check('старите dpx/mpx ги няма', !body.includes('dpx:') && !body.includes('mpx:'));
+}
+
+/* ======================================================================
+   2г. Mission — на мобилно текстът е преди визуала
+   ====================================================================== */
+console.log('\n=== Mission mobile ред ===');
+{
+  const css = read('css/genki-2.css');
+  check('има правило за реда на мобилно',
+    /@media \(max-width: 767px\)[^}]*\{[^}]*\.hero--editorial__copy\s*\{\s*order:\s*-1/s.test(css) ||
+    css.includes('.hero--editorial__copy { order: -1; }'));
+  check('правилото е само под 768px', css.includes('@media (max-width: 767px)'));
+
+  // DOM редът НЕ се пипа — визуалът остава пръв, за да е вляво на desktop.
+  const html = read('v2/mission.html');
+  const vi = html.indexOf('hero--editorial__visual');
+  const ci = html.indexOf('hero--editorial__copy');
+  check('DOM редът е непроменен (визуалът пръв)', vi > 0 && ci > 0 && vi < ci);
+}
+
+/* ======================================================================
    3. Локалният сървър и командата
    ====================================================================== */
 console.log('\n=== Локален преглед ===');

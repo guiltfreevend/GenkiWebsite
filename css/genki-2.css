@@ -1367,6 +1367,16 @@ genki-slot { display: block; }
 
 .hero--editorial { padding-block: var(--hero-top) var(--section-y-md); }
 .hero--editorial__row { align-items: center; }
+
+/* На мобилно тезата идва ПРЕДИ кадъра.
+   В DOM визуалът стои пръв, защото на desktop той е вляво от текста. При
+   стифиране това буташе заглавието ~500 px под хедъра и основната мисъл
+   се виждаше твърде късно. `order` разменя само визуалния ред — DOM-ът и
+   редът за екранните четци остават същите, а desktop и таблет не се
+   пипат. */
+@media (max-width: 767px) {
+  .hero--editorial__copy { order: -1; }
+}
 .hero--editorial .t-label { margin-bottom: var(--space-3); }
 .hero--editorial__title { margin-bottom: var(--space-5); }
 
