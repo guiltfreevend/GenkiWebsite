@@ -75,8 +75,11 @@ window.genkiTranslations = {
   /* Правната идентичност е фиксирана (бриф раздел 25) и е еднаква на двата
      езика — фирмата има едно регистрирано наименование. */
   'footer.legal_line': {
-    bg: '© 2026 Genki · „Нортик Груп“ ЕООД · ЕИК 206451535',
-    en: '© 2026 Genki · „Нортик Груп“ ЕООД · ЕИК 206451535',
+    /* Решение на собственика 2026-09-23: видимият футър НЕ носи
+       фирмената идентичност. Юридическите факти остават непроменени в
+       Privacy Policy — там им е мястото. Нова фирма НЕ се измисля. */
+    bg: '© 2026 Genki',
+    en: '© 2026 Genki',
   },
 
   /* --------------------------------------------------- placeholder слот */
@@ -905,34 +908,40 @@ window.genkiTranslations = {
   'fit.result.c1':    { bg: 'Вашият Genki', en: 'Your Genki' },
   'fit.result.c2':    { bg: 'Нашата препоръка', en: 'Our recommendation' },
   'fit.result.c3':    { bg: 'Защо това е подходящо за вас', en: 'Why this fits your team' },
-  'fit.result.caveat':{ bg: 'Вероятна конфигурация. Точният вариант се потвърждава след кратък оглед на офиса.',
-                        en: 'A likely configuration. The exact setup is confirmed after a short look at your workplace.' },
+  'fit.result.caveat':{ bg: 'Вероятната конфигурация за този екип. Точният вариант потвърждаваме след кратък оглед на офиса.',
+                        en: 'The likely configuration for this team. We confirm the exact setup after a short look at your workplace.' },
   'fit.result.budget':      { bg: 'Месечен бюджет на компанията', en: 'Monthly company budget' },
   'fit.result.budget.approx':{ bg: 'около {amount}', en: 'around {amount}' },
   'fit.result.budget.exact': { bg: '{amount}', en: '{amount}' },
-  'fit.result.ps':    { bg: 'Препоръчана подкрепа на цената: {pct}%',
-                        en: 'Recommended price support: {pct}%' },
+  /* Процентът Price Support е ВЪТРЕШЕН (решение 2026-09-23). Остава в
+     D1, във вътрешното известие и в оперативните данни, но не се показва
+     нито в резултата, нито в имейла до клиента. Ключът е премахнат
+     нарочно, за да не се върне по невнимание. */
   'fit.result.restart':{ bg: 'Започнете отначало', en: 'Start over' },
 
   /* Карта 1 — вероятният размер. Без вътрешните имена Single и Duo. */
   'fit.hw.mini':      { bg: 'Компактен Genki за офиса ви', en: 'A compact Genki for your workplace' },
   'fit.hw.single':    { bg: 'Един Genki smart cooler', en: 'One Genki smart cooler' },
-  'fit.hw.duo':       { bg: 'Genki setup за по-голям офис', en: 'A Genki setup for a larger workplace' },
+  'fit.hw.duo':       { bg: 'Genki за по-голям офис', en: 'Genki for a larger workplace' },
   'fit.hw.multi':     { bg: 'Genki на няколко точки в офиса', en: 'A multi-point Genki setup' },
 
   /* Карта 2 — конфигурацията */
+  /* Смесеното „Genki + Benefit + Price Support" звучи като вътрешен код.
+     Публичните имена ползват реалните имена на слоевете на език, който
+     човек би казал на глас. Отклонение от каноничния документ, обявено в
+     docs/BUILD-PLAN.md. */
   'fit.ap.core':          { bg: 'Genki', en: 'Genki' },
-  'fit.ap.benefit':       { bg: 'Genki + Benefit', en: 'Genki + Benefit' },
-  'fit.ap.price-support': { bg: 'Genki + Price Support', en: 'Genki + Price Support' },
-  'fit.ap.both':          { bg: 'Genki + Benefit + Price Support', en: 'Genki + Benefit + Price Support' },
+  'fit.ap.benefit':       { bg: 'Genki Benefit', en: 'Genki Benefit' },
+  'fit.ap.price-support': { bg: 'Genki с подкрепа на цените', en: 'Genki with Price Support' },
+  'fit.ap.both':          { bg: 'Genki Benefit + подкрепа на цените', en: 'Genki Benefit + Price Support' },
   'fit.ap.core.note':     { bg: 'Базовият Genki, без месечна такса за компанията. Price Support може да се добави по всяко време.',
                             en: 'Core Genki, with no monthly company fee. Price Support can be added at any time.' },
   'fit.ap.benefit.note':  { bg: 'Benefit слоят прави Genki по-личен за екипа — персонализация, участие и събития.',
                             en: 'The Benefit layer makes Genki feel more personal — personalization, participation and events.' },
   'fit.ap.price-support.note': { bg: 'Компанията поема част от цената на всеки продукт, а екипът плаща по-малко.',
                                  en: 'The company covers part of the price of each product, so your team pays less.' },
-  'fit.ap.both.note':     { bg: 'Benefit слоят плюс подкрепа на цените — най-пълното Genki за екипа ви.',
-                            en: 'The Benefit layer plus price support — the fullest Genki for your team.' },
+  'fit.ap.both.note':     { bg: 'Benefit слой плюс подкрепа на цените — балансиран модел за вашия екип и бюджет.',
+                            en: 'The Benefit layer plus price support — a balanced model for your team and budget.' },
 
   /* Карта 3 — причините. Сглобяват се от отговорите, по 2–3 на резултат. */
   'fit.why.attendance':   { bg: 'При {range} души на място в нормален ден този размер Genki обикновено е правилният.',

@@ -210,6 +210,14 @@
   --section-y-md: clamp(4rem,   3.10rem + 3.8vw, 7.5rem);
   --section-y-lg: clamp(4.5rem, 3.30rem + 5.0vw, 10rem);
 
+  /* Въздухът МЕЖДУ хедъра и началото на hero-а.
+     Отделен токен, защото това не е обикновен section отстъп: хедърът
+     вече заема 72 px отгоре и когато се събере с --section-y-md/lg,
+     hero-ът изглежда паднал половин екран надолу.
+     Цел: 40-56 mobile · 56-72 tablet · 72-96 desktop.
+     Дава 44 @390 · 58 @768 · 82 @1440 · таван 96. */
+  --hero-top: clamp(2.75rem, 1.90rem + 3.6vw, 6rem);
+
   /* Хедър: цел 68-80 px desktop */
   --header-h: 4.5rem;          /* 72 */
   --header-h-mobile: 4rem;     /* 64 */

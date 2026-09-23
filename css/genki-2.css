@@ -781,7 +781,7 @@ genki-slot { display: block; }
    Mobile: label -> заглавие -> текст -> CTA -> едър визуал.
    Desktop: copy вляво, визуал вдясно, който излиза извън content grid-а. */
 
-.hero { padding-block: var(--section-y-md) var(--section-y-lg); }
+.hero { padding-block: var(--hero-top) var(--section-y-lg); }
 
 .hero__inner {
   display: flex;
@@ -1022,11 +1022,14 @@ genki-slot { display: block; }
 @media (min-width: 1024px) {
   /* Hero: copy вляво, визуал вдясно. Визуалът излиза извън content grid-а —
      заема и отстъпа на контейнера. */
-  .hero { padding-block: var(--section-y-lg); }
+  .hero { padding-block: var(--hero-top) var(--section-y-lg); }
 
   .hero__inner {
     flex-direction: row;
-    align-items: center;
+    /* Текстът тръгва ОТГОРЕ, не от средата. При центриране спрямо висок
+       4:5 визуал заглавието падаше ~280 px под хедъра и hero-ът
+       изглеждаше пропаднал половин екран надолу. */
+    align-items: start;
     gap: clamp(2rem, 1rem + 4vw, 5rem);
   }
 
@@ -1092,7 +1095,7 @@ genki-slot { display: block; }
    ширина, под него широк кадър на работното място. Дългото заглавие получава
    място и не пада на четири реда. */
 
-.hero--wide { padding-block: var(--section-y-md); }
+.hero--wide { padding-block: var(--hero-top) var(--section-y-md); }
 .hero--wide .t-label { margin-bottom: var(--space-3); }
 .hero--wide__title { margin-bottom: var(--space-8); max-width: 18ch; }
 .hero--wide__row { align-items: start; margin-bottom: var(--space-10); }
@@ -1203,7 +1206,7 @@ genki-slot { display: block; }
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--wide { padding-block: var(--section-y-md) var(--section-y-lg); }
+  .hero--wide { padding-block: var(--hero-top) var(--section-y-lg); }
   .hero--wide__actions { justify-self: end; align-self: start; }
 
   .price-band { padding: var(--space-12); }
@@ -1221,7 +1224,7 @@ genki-slot { display: block; }
 
 /* --- Hero: продуктов портрет -------------------------------------------- */
 
-.hero--portrait { padding-block: var(--section-y-md); }
+.hero--portrait { padding-block: var(--hero-top) var(--section-y-md); }
 .hero--portrait .t-label { margin-bottom: var(--space-3); }
 .hero--portrait__title { margin-bottom: var(--space-6); max-width: 20ch; }
 .hero--portrait__head { align-items: end; margin-bottom: var(--space-12); }
@@ -1339,7 +1342,7 @@ genki-slot { display: block; }
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--portrait { padding-block: var(--section-y-lg) var(--section-y-md); }
+  .hero--portrait { padding-block: var(--hero-top) var(--section-y-md); }
   .hero--portrait__visual { max-width: 26rem; }
 
   .flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8); }
@@ -1362,7 +1365,7 @@ genki-slot { display: block; }
    лента под заглавието, Как работи е центриран портрет — тук е обратното
    на Home и с пейзажно съотношение. */
 
-.hero--editorial { padding-block: var(--section-y-md); }
+.hero--editorial { padding-block: var(--hero-top) var(--section-y-md); }
 .hero--editorial__row { align-items: center; }
 .hero--editorial .t-label { margin-bottom: var(--space-3); }
 .hero--editorial__title { margin-bottom: var(--space-5); }
@@ -1435,7 +1438,7 @@ genki-slot { display: block; }
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--editorial { padding-block: var(--section-y-lg) var(--section-y-md); }
+  .hero--editorial { padding-block: var(--hero-top) var(--section-y-md); }
   .producers--wide { padding: var(--space-10) var(--space-12); }
 }
 
@@ -1448,6 +1451,9 @@ genki-slot { display: block; }
    е тиха връзка, не бутон.
    ========================================================================== */
 
+/* Контакт е .section--lg; горният отстъп идва от hero токена, за да е
+   в ритъм с останалите пет страници. */
+.contact { padding-block-start: var(--hero-top); }
 .contact__row { align-items: start; }
 .contact__title { margin-block: var(--space-4) var(--space-5); }
 
@@ -1583,6 +1589,10 @@ genki-slot { display: block; }
    там са езикът и изходът, — но футърът не бива да дърпа погледа. */
 .fit-focus .site-footer { display: none; }
 
+/* И четирите екрана на Genki Fit тръгват от една и съща височина — иначе
+   съдържанието подскача при смяна на екрана. Долният отстъп си остава
+   този на секцията. */
+.fit-screen { padding-block-start: var(--hero-top); }
 .fit-screen[hidden] { display: none; }
 
 /* `.btn` носи собствен display: inline-flex, който бие UA правилото за
@@ -1807,11 +1817,6 @@ genki-slot { display: block; }
 .fit-card--setup genki-slot { display: block; margin-bottom: var(--space-5); }
 
 .fit-card--offer { background: var(--color-bg-tint); border-color: var(--green-200); }
-.fit-card__ps {
-  margin: var(--space-4) 0 0;
-  font-weight: var(--weight-semibold);
-  color: var(--color-brand);
-}
 .fit-card__budget {
   margin-top: var(--space-5);
   padding-top: var(--space-4);

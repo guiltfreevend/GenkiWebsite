@@ -146,6 +146,34 @@ console.log('\n=== Маршрути за преглед в _redirects ===');
 }
 
 /* ======================================================================
+   2б. Видимият футър не носи фирмената идентичност
+
+   Решение на собственика 2026-09-23. Юридическите факти остават в
+   Privacy Policy — там им е мястото. Нова фирма НЕ се измисля.
+   ====================================================================== */
+console.log('\n=== Футърът ===');
+{
+  const LEGAL = /Нортик|Nortik|206451535|ЕИК\s*\d|UIC\s*\d/;
+  let dirty = [];
+  for (const n of V2_PAGES) {
+    if (LEGAL.test(read('v2/' + n + '.html'))) dirty.push(n);
+  }
+  check('нито една страница не носи фирмената идентичност', dirty.length === 0, dirty.join(','));
+  check('партиалът също е чист', !LEGAL.test(read('tools/partials/footer.html')));
+
+  const footer = read('tools/partials/footer.html');
+  check('футърът е „© 2026 Genki"', footer.includes('© 2026 Genki'));
+  check('Privacy линкът остава', footer.includes('/privacy'));
+  check('навигацията във футъра остава',
+    ['index.html', 'companies.html', 'contact.html'].every((h) => footer.includes(h)));
+  check('контактът остава', footer.includes('mailto:hello@genki.bg'));
+
+  // Правните страници НЕ се пипат — там идентичността трябва да стои.
+  check('Privacy пази фирмената идентичност',
+    existsSync(join(ROOT, 'privacy.html')) && /ЕИК|UIC/.test(read('privacy.html')));
+}
+
+/* ======================================================================
    3. Локалният сървър и командата
    ====================================================================== */
 console.log('\n=== Локален преглед ===');

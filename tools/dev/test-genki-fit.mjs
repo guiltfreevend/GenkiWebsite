@@ -1118,6 +1118,104 @@ console.log('\n=== Имейл до клиента ===');
 }
 
 /* ======================================================================
+   25б. ПРОЦЕНТЪТ PRICE SUPPORT Е ВЪТРЕШЕН
+
+   Решение 2026-09-23: нивото остава в D1, в оперативните данни и във
+   вътрешното известие, но НЕ се показва нито в резултата на екрана,
+   нито в имейла до клиента.
+   ====================================================================== */
+console.log('\n=== Price Support % не изтича към клиента ===');
+{
+  const v = validateAnswers({
+    cities: ['sofia'], sofiaOffices: '1', q2: '101-150', q3: '75-99',
+    q4: ['vending'], q5: 'both', q6: 'b3',
+  });
+  const rec = recommend(v.answers);
+  check('случаят наистина има PS ниво', rec.psLevel !== null, String(rec.psLevel));
+  check('нивото е допустимо', PS_LEVELS.includes(rec.psLevel), String(rec.psLevel));
+
+  for (const lg of ['bg', 'en']) {
+    const m = buildCustomerEmail(v.answers, rec, 'GF-K7M4-P9Q2', lg);
+    const all = m.text + ' ' + m.html + ' ' + m.subject;
+    check(lg + ': имейлът до клиента няма „NN%"', !/\b\d{1,3}\s?%/.test(m.text), 
+      (m.text.match(/\b\d{1,3}\s?%/) || [''])[0]);
+    check(lg + ': няма „подкрепа на цената: N%"',
+      !/подкрепа на цена[^.]{0,20}\d+\s?%/i.test(all));
+    check(lg + ': няма „price support: N%"', !/price support:?\s*\d+\s?%/i.test(all));
+    check(lg + ': самото ниво не се среща като число с %',
+      !all.includes(rec.psLevel + '%'), rec.psLevel + '%');
+    // Но бюджетът трябва да е там — него го показваме.
+    check(lg + ': закръгленият бюджет ОСТАВА', /€[\d,]+/.test(m.text));
+  }
+
+  // Вътрешните писма трябва да го ЗАПАЗЯТ.
+  const meta = { timestamp: '2026-09-23T09:00:00.000Z', email: 'a@b.bg', lang: 'bg', referrer: '', utm: '' };
+  const internal = buildInternalEmail(v.answers, rec, 'GF-K7M4-P9Q2', meta);
+  check('вътрешният имейл ПАЗИ нивото',
+    internal.text.includes(rec.psLevel + '%'), String(rec.psLevel));
+  check('вътрешният го етикетира като вътрешно',
+    internal.text.includes('Price Support (вътрешно)'));
+
+  const snap = {
+    fitCode: 'GF-K7M4-P9Q2', status: 'completed', lastCompletedStep: 6, language: 'bg',
+    company: 'Х ООД', q1: { cities: ['sofia'], sofiaOffices: '1' }, largestOffice: null,
+    q2: '101-150', q3: '75-99', attendanceMin: 75, attendanceMax: 99, q4: ['vending'],
+    q5: 'both', q6: 'b3', budgetMin: 1000, budgetMax: 1349,
+    hardware: 'duo', route: 'both', psLevel: rec.psLevel, outcome: 'recommendation',
+    customerEmail: null, customerFitSentAt: null,
+    createdAtSofia: '23.09.2026 г., 12:00:00 ч.', updatedAtSofia: '23.09.2026 г., 12:05:00 ч.',
+    completedAtSofia: '23.09.2026 г., 12:05:00 ч.',
+  };
+  check('известието към Genki също го пази',
+    buildStepNotification(snap, 'completed').text.includes(rec.psLevel + '%'));
+}
+
+/* ======================================================================
+   25в. ПУБЛИЧНОТО COPY НА РЕЗУЛТАТА
+   ====================================================================== */
+console.log('\n=== Публичното copy на резултата ===');
+{
+  const src = readFileSync(new URL('../../js/genki-translations.js', import.meta.url), 'utf8');
+  const sandbox = { window: {} };
+  new Function('window', src).call(sandbox, sandbox.window);
+  const dict = sandbox.window.genkiTranslations;
+
+  check('ключът за процента е премахнат', dict['fit.result.ps'] === undefined);
+
+  check('BG: „Genki за по-голям офис"', dict['fit.hw.duo'].bg === 'Genki за по-голям офис');
+  check('EN: „Genki for a larger workplace"', dict['fit.hw.duo'].en === 'Genki for a larger workplace');
+  check('никъде „Genki setup за"', !Object.values(dict).some((v) => /Genki setup за/.test(v.bg)));
+
+  check('BG: „Genki Benefit + подкрепа на цените"',
+    dict['fit.ap.both'].bg === 'Genki Benefit + подкрепа на цените');
+  check('BG вече не е „Genki + Benefit + Price Support"',
+    dict['fit.ap.both'].bg !== 'Genki + Benefit + Price Support');
+  check('BG: PS сам е „Genki с подкрепа на цените"',
+    dict['fit.ap.price-support'].bg === 'Genki с подкрепа на цените');
+  check('EN остава с истинските имена на слоевете',
+    dict['fit.ap.both'].en === 'Genki Benefit + Price Support');
+
+  check('BG уговорката е новата',
+    dict['fit.result.caveat'].bg === 'Вероятната конфигурация за този екип. Точният вариант потвърждаваме след кратък оглед на офиса.');
+  check('бюджетният етикет остава', dict['fit.result.budget'].bg === 'Месечен бюджет на компанията');
+  check('„около" остава', dict['fit.result.budget.approx'].bg === 'около {amount}');
+
+  check('BG бележката за „и двете" е новата',
+    dict['fit.ap.both.note'].bg.includes('балансиран модел'));
+
+  // Нито един публичен низ не бива да носи процент.
+  const publicKeys = Object.keys(dict).filter((k) => k.startsWith('fit.'));
+  const withPct = publicKeys.filter((k) => /\{pct\}|\d+\s?%/.test(dict[k].bg + dict[k].en));
+  check('нито един публичен низ не носи процент', withPct.length === 0, withPct.join(','));
+
+  // Футърът вече не носи фирмената идентичност.
+  check('футърът е само „© 2026 Genki"', dict['footer.legal_line'].bg === '© 2026 Genki');
+  check('футърът EN също', dict['footer.legal_line'].en === '© 2026 Genki');
+  check('няма Нортик в преводите',
+    !JSON.stringify(dict).includes('Нортик') && !JSON.stringify(dict).includes('206451535'));
+}
+
+/* ======================================================================
    26. ВЪТРЕШНИЯТ ИМЕЙЛ
    ====================================================================== */
 console.log('\n=== Вътрешен имейл ===');

@@ -765,9 +765,9 @@ import {
     c2.appendChild(el('h2', 't-heading fit-card__title', t('fit.ap.' + rec.approach)));
     c2.appendChild(el('p', 't-body fit-card__note', t('fit.ap.' + rec.approach + '.note')));
 
-    if (rec.psLevel) {
-      c2.appendChild(el('p', 't-body-sm fit-card__ps', t('fit.result.ps', { pct: rec.psLevel })));
-    }
+    // Процентът Price Support е ВЪТРЕШЕН и нарочно НЕ се показва тук.
+    // Живее в D1 и във вътрешното известие; клиентът вижда само
+    // закръгления месечен бюджет.
 
     if (rec.employerBudget) {
       var b = el('div', 'fit-card__budget');

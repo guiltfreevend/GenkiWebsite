@@ -448,6 +448,24 @@ async function run(d, a) {
     check('няма коефициент 9,90', !/9[.,]90/.test(resultText));
     check('няма Ideal/Strong/Low Fit', !/Ideal|Strong Fit|Low Fit/i.test(resultText));
 
+    /* Процентът Price Support е ВЪТРЕШЕН — не бива да се вижда никъде
+       на екрана с резултата. */
+    check('резултатът НЕ показва процент', !/\d{1,3}\s?%/.test(resultText),
+      (resultText.match(/\d{1,3}\s?%/) || [''])[0]);
+    check('няма „подкрепа на цената: N%"',
+      !/подкрепа на цена[^.]{0,20}\d/i.test(resultText));
+    check('няма елемент .fit-card__ps', !q(d, '.fit-card__ps'));
+
+    /* Новото публично copy. */
+    check('няма „Genki setup за"', !/Genki setup за/.test(resultText));
+    check('конфигурацията е на естествен български',
+      /Genki Benefit \+ подкрепа на цените|Genki с подкрепа на цените|Genki Benefit|^Genki$/m.test(resultText) ||
+      resultText.includes('Genki Benefit'), resultText.slice(0, 80));
+    check('уговорката е новата', resultText.includes('потвърждаваме след кратък оглед'));
+    check('бюджетът ОСТАВА', /около €[\d,]+/.test(resultText) || /€[\d,]+/.test(resultText));
+    check('футърът е само © 2026 Genki',
+      !d.querySelector('.site-footer').textContent.match(/Нортик|206451535/));
+
     /* Йерархия: резултатът стои НАД вторичните действия. */
     const cardsTop = q(d, '.fit-cards').getBoundingClientRect().top;
     const actionsTop = q(d, '.fit-actions').getBoundingClientRect().top;
