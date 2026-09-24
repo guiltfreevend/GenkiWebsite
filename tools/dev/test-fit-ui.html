@@ -125,7 +125,9 @@ async function run(d, a) {
     check('резултатът е скрит', !visible(q(d, '[data-fit-screen="result"]')));
     check('има бутон за старт', !!q(d, '[data-fit-start]'));
     check('заглавието е каноничното',
-      q(d, '.fit-hero__title').textContent.includes('Какъв Genki би работил'));
+      q(d, '.hero-full__title').textContent.includes('Какъв Genki би работил'));
+    check('стартовият екран е hero на цял екран', !!q(d, '.fit-hero.hero-full'));
+    check('hero-ът има слот F01', !!q(d, 'genki-slot[slot-id="F01"]'));
     check('футърът се вижда преди старт', visible(q(d, '.site-footer')));
 
     q(d, '[data-fit-start]').click();
@@ -431,7 +433,12 @@ async function run(d, a) {
     check('пише ГОТОВО.', q(d, '.fit-result__done').textContent === 'ГОТОВО.');
     check('три карти', d.querySelectorAll('.fit-card').length === 3,
       String(d.querySelectorAll('.fit-card').length));
-    check('карта 1 носи слота F08', !!q(d, 'genki-slot[slot-id="F08"]'));
+    /* F08 е ОТЛОЖЕН за V1: визуалната система е hero-only и резултатът
+       работи без снимка на хардуера. */
+    check('карта 1 НЯМА снимка (F08 е отложен)', !q(d, 'genki-slot[slot-id="F08"]'));
+    check('никъде в резултата няма слот', !q(d, '[data-fit-result] genki-slot'));
+    check('карта 1 пак носи вероятния размер',
+      q(d, '.fit-card--setup').textContent.trim().length > 20);
     check('карта 3 има 2–3 причини',
       d.querySelectorAll('.fit-why__item').length >= 2 && d.querySelectorAll('.fit-why__item').length <= 3);
 
@@ -611,7 +618,7 @@ async function run(d, a) {
     await wait(80);
     check('превключва на EN', d.documentElement.lang === 'en');
     check('hero е на английски',
-      q(d, '.fit-hero__title').textContent.includes('What kind of Genki'));
+      q(d, '.hero-full__title').textContent.includes('What kind of Genki'));
 
     q(d, '[data-fit-start]').click(); await wait(60);
     check('Q1 е на английски', title(d) === 'Where do you have offices?', title(d));

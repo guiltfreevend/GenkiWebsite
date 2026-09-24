@@ -100,42 +100,33 @@
   <main id="main">
 
     <!-- ====================================================================
-         HERO — C01
-
-         НЕ split като на Home. Home е продуктов портрет до заглавието; тук
-         заглавието заема цялата ширина, а под него ляга широк кадър на
-         работното място. Така двете страници имат различна структура, не
-         само различен текст — и дългото българско заглавие получава място
-         да не пада на четири реда.
+         HERO — един кадър на цял екран. Един от шестте за целия сайт.
+         Текстът стои долу вляво, затова обектът в кадъра е горе/вдясно.
+         Desktop и mobile са ОТДЕЛНИ файлове; подмяната е src + src-mobile.
          ==================================================================== -->
-    <section class="hero hero--wide">
-      <div class="container">
+    <section class="hero-full">
+      <genki-slot class="hero-full__media" slot-id="C01"
+                  shape="fill" priority="high"></genki-slot>
+      <span class="hero-full__scrim" aria-hidden="true"></span>
 
-        <p class="t-label reveal" data-i18n="companies.hero.label">GENKI ЗА КОМПАНИИ</p>
-        <h1 class="t-display hero--wide__title reveal" data-i18n="companies.hero.title">Benefit, който става част от ежедневието в офиса.</h1>
-
-        <div class="grid hero--wide__row">
-          <p class="t-subhead t-muted reveal" style="--m:4; --t:8; --d:6">
-            <span data-i18n="companies.hero.lead">По-добра храна в офиса, повече стойност за екипа и без да създаваме още една ежедневна задача за компанията.</span>
-          </p>
-          <p class="hero--wide__actions reveal" style="--m:4; --t:8; --d:4; --ds:9">
+      <div class="container hero-full__inner">
+        <div class="hero-full__copy">
+          <p class="t-label reveal" data-i18n="companies.hero.label">GENKI ЗА КОМПАНИИ</p>
+          <h1 class="hero-full__title reveal" data-i18n="companies.hero.title">Benefit, който става част от ежедневието в офиса.</h1>
+          <p class="t-subhead hero-full__lead reveal" data-i18n="companies.hero.lead">По-добра храна в офиса, повече стойност за екипа и без да създаваме още една ежедневна задача за компанията.</p>
+          <div class="hero-full__actions reveal">
             <a class="btn btn--fit" href="genki-fit.html">
               <span data-i18n="nav.fit_cta">Проверете вашия Genki Fit</span>
               <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
-          </p>
+          </div>
         </div>
-
-        <div class="hero--wide__visual reveal reveal--media">
-          <genki-slot slot-id="C01" ratio="2/1" mobile-ratio="4/5"
-                      shape="media" priority="high"></genki-slot>
-        </div>
-
       </div>
     </section>
 
     <!-- ====================================================================
-         GENKI СЕ ГРИЖИ ЗА ОСТАНАЛОТО — C02
+         GENKI СЕ ГРИЖИ ЗА ОСТАНАЛОТО
+         Типографска секция. C02 (ОТЛОЖЕН за след V1 — визуалната система е hero-only).
          Кадърът, който сваля страха от админ тежест: работата се върши и я
          вършим ние. Текстът вляво, визуалът вдясно (обратно на hero-то по-горе,
          за да не върви страницата в един ритъм).
@@ -144,7 +135,7 @@
       <div class="container">
         <div class="grid split-row">
 
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:5">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-label" data-i18n="companies.ops.label">GENKI СЕ ГРИЖИ ЗА ОСТАНАЛОТО</p>
             <h2 class="t-headline split-row__title" data-i18n="companies.ops.title">Вие давате benefit-а. Ние поемаме работата.</h2>
             <p class="t-body t-muted measure" data-i18n="companies.ops.lead">Ние поставяме Genki, зареждаме го, обслужваме го и следим какво хората реално избират, за да го подобряваме с времето.</p>
@@ -155,9 +146,6 @@
             </a>
           </div>
 
-          <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:6; --ds:7">
-            <genki-slot slot-id="C02" shape="media"></genki-slot>
-          </div>
 
         </div>
       </div>
@@ -264,7 +252,8 @@
     </section>
 
     <!-- ====================================================================
-         ЛЕСНО Е ДА ДОБАВИТЕ GENKI — C05 + Pilot (компонент)
+         ЛЕСНО Е ДА ДОБАВИТЕ GENKI — Pilot (компонент)
+         C05 (ОТЛОЖЕН за след V1 — визуалната система е hero-only).
          Съжителство, не замяна. C06 е nice-to-have: секцията трябва да работи
          и само с текст, затова визуалът стои встрани, а не носи смисъла.
          Pilot блокът е нарочно по-тих — не е основният път за покупка.
@@ -273,7 +262,7 @@
       <div class="container">
         <div class="grid split-row">
 
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:6">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-label" data-i18n="companies.easy.label">ЛЕСНО Е ДА ДОБАВИТЕ GENKI</p>
             <h2 class="t-headline split-row__title" data-i18n="companies.easy.title">Не е нужно да променяте всичко.</h2>
             <p class="t-body t-muted measure" data-i18n="companies.easy.p1">Genki е създаден да бъде по-пълното решение за офиса — храна, по-добро ежедневие, социален принос и грижа за екипа на едно място.</p>
@@ -287,12 +276,6 @@
             </p>
           </div>
 
-          <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:5; --ds:8">
-            <!-- Mobile е 3:2, не 4:5: кадърът показва кухня с три предмета един
-                 до друг и портретен crop ги изяжда. На mobile и трите слота
-                 на страницата иначе стават еднакви зелени правоъгълници. -->
-            <genki-slot slot-id="C05" mobile-ratio="3/2" shape="media"></genki-slot>
-          </div>
 
         </div>
 

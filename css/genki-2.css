@@ -777,42 +777,6 @@ genki-slot { display: block; }
 .section-head .t-label { margin-bottom: var(--space-3); }
 .section-head h2 { margin-bottom: var(--space-5); }
 
-/* --- Секция 1: Hero ------------------------------------------------------
-   Mobile: label -> заглавие -> текст -> CTA -> едър визуал.
-   Desktop: copy вляво, визуал вдясно, който излиза извън content grid-а. */
-
-.hero { padding-block: var(--hero-top) var(--section-y-lg); }
-
-.hero__inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-10);
-}
-
-.hero__title {
-  margin-block: var(--space-4) var(--space-5);
-  /* Българските думи в това заглавие са дълги. Пълният display размер го
-     разбива на четири реда в split колоната, а DESIGN-DIRECTION иска
-     най-много три-четири. Таванът пада до 80 px — още в целта 72-104. */
-  font-size: clamp(2.625rem, 1.60rem + 4.2vw, 5rem);
-}
-.hero__lead { max-width: 30ch; }
-.hero__actions { margin-top: var(--space-8); }
-
-.hero__visual { position: relative; }
-.hero__frame { position: relative; }
-
-/* 元気 — тих подпис в ъгъла на визуала. Награждава внимание, не е тема. */
-.hero__mark {
-  position: absolute;
-  right: var(--space-5);
-  bottom: var(--space-4);
-  font-size: var(--text-subhead);
-  color: var(--cream-200);
-  letter-spacing: 0.1em;
-  user-select: none;
-}
-
 /* --- Секция 2: Как работи ------------------------------------------------
    Един свързан процес. Тънка линия минава през четирите номера; на mobile
    слиза вертикално. Без икони, без кутии. */
@@ -1001,44 +965,11 @@ genki-slot { display: block; }
 
   .producers__slot { width: 5.5rem; height: 32px; }
 
-
-}
-
-/* --- Home на таблет ------------------------------------------------------
-   Между 768 и 1023 лайаутът още е на един стълб, но слотът вече е минал на
-   desktop кадъра. Портретен визуал на цялата ширина става 871 px висок и
-   изяжда екрана. Затова тук hero-то получава собствена композиция: по-тясно
-   поле, изместено надясно. */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero__frame {
-    max-width: 62%;
-    margin-inline-start: auto;
-  }
 }
 
 /* --- Home на desktop ----------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  /* Hero: copy вляво, визуал вдясно. Визуалът излиза извън content grid-а —
-     заема и отстъпа на контейнера. */
-  .hero { padding-block: var(--hero-top) var(--section-y-lg); }
-
-  .hero__inner {
-    flex-direction: row;
-    /* Текстът тръгва ОТГОРЕ, не от средата. При центриране спрямо висок
-       4:5 визуал заглавието падаше ~280 px под хедъра и hero-ът
-       изглеждаше пропаднал половин екран надолу. */
-    align-items: start;
-    gap: clamp(2rem, 1rem + 4vw, 5rem);
-  }
-
-  /* min-width: 0 е задължително. По подразбиране flex елементът е
-     min-width: auto и отказва да се свие под съдържанието си — а рамката
-     нарочно стърчи навън, което го надуваше и той изместваше лайаута. */
-  .hero__copy,
-  .hero__visual { flex: 1 1 50%; min-width: 0; }
-  .hero__frame { margin-inline-end: calc(-1 * var(--gutter)); }
 
   /* Четирите стъпки в един ред, със свързваща хоризонтална линия */
   .steps {
@@ -1080,27 +1011,6 @@ genki-slot { display: block; }
   .way { padding: var(--space-10); }
 
 }
-
-/* ==========================================================================
-   15. ЗА КОМПАНИИ
-
-   Страницата трябва да звучи по-търговски от Home, без да става корпоративна.
-   Разликите са структурни, не само в текста: огледален hero, по-широк кадър,
-   Benefit-ът разгърнат в типографска мрежа вместо в панел, Price Support
-   като отделна лента, светла бюджетна секция вместо тъмна.
-   ========================================================================== */
-
-/* --- Широк редакционен hero ----------------------------------------------
-   Различна СТРУКТУРА от Home, не само различен текст: заглавието на цялата
-   ширина, под него широк кадър на работното място. Дългото заглавие получава
-   място и не пада на четири реда. */
-
-.hero--wide { padding-block: var(--hero-top) var(--section-y-md); }
-.hero--wide .t-label { margin-bottom: var(--space-3); }
-.hero--wide__title { margin-bottom: var(--space-8); max-width: 18ch; }
-.hero--wide__row { align-items: start; margin-bottom: var(--space-10); }
-.hero--wide__actions { margin: 0; }
-.hero--wide__visual { margin: 0; }
 
 /* --- Split ред ----------------------------------------------------------- */
 
@@ -1195,43 +1105,14 @@ genki-slot { display: block; }
   margin-bottom: var(--space-10);
 }
 
-/* --- Таблет -------------------------------------------------------------- */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Широкият hero кадър няма нужда от стесняването, което портретният на
-     Home получава — 16:9 на цялата ширина е 392 px висок, не 871. */
-  .hero--wide__visual .slot { aspect-ratio: 2 / 1; }
-}
-
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--wide { padding-block: var(--hero-top) var(--section-y-lg); }
-  .hero--wide__actions { justify-self: end; align-self: start; }
 
   .price-band { padding: var(--space-12); }
 
   .split-row__copy .link-arrow { margin-top: var(--space-6); }
 }
-
-/* ==========================================================================
-   16. КАК РАБОТИ GENKI
-
-   Страницата е демонстрация на продукт. Трета структура на сайта: Home е
-   split, За компании е широка лента, тук е продуктов портрет с въздух
-   около себе си.
-   ========================================================================== */
-
-/* --- Hero: продуктов портрет -------------------------------------------- */
-
-.hero--portrait { padding-block: var(--hero-top) var(--section-y-md); }
-.hero--portrait .t-label { margin-bottom: var(--space-3); }
-.hero--portrait__title { margin-bottom: var(--space-6); max-width: 20ch; }
-.hero--portrait__head { align-items: end; margin-bottom: var(--space-12); }
-.hero--portrait__head .link-arrow { margin-top: var(--space-4); }
-
-/* Машината стои сама и центрирана. Тясно поле, много въздух. */
-.hero--portrait__visual { margin-inline: auto; max-width: 22rem; }
 
 /* Стрелката надолу се движи надолу, не настрани */
 .link-arrow:hover .btn__arrow--down,
@@ -1335,15 +1216,12 @@ genki-slot { display: block; }
 
 @media (min-width: 768px) {
   .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-10) var(--space-8); }
-  .hero--portrait__visual { max-width: 26rem; }
   .bars { height: 14rem; }
 }
 
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--portrait { padding-block: var(--hero-top) var(--section-y-md); }
-  .hero--portrait__visual { max-width: 26rem; }
 
   .flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8); }
 
@@ -1351,34 +1229,6 @@ genki-slot { display: block; }
 
   .bars { height: 18rem; }
 }
-
-/* ==========================================================================
-   17. МИСИЯ И ВЪЗДЕЙСТВИЕ
-
-   По-топла и по-редакционна страница. НЕ рустик и НЕ NGO: без кафяво-бежова
-   гама, без фиданки, без изгреви, без доброволци с жилетки. Топлината идва
-   от кремавото, от въздуха и от типографията, не от стокови снимки.
-   ========================================================================== */
-
-/* --- Hero: визуалът е вляво, текстът вдясно ------------------------------
-   Четвърта структура на сайта. Home е split с портрет вдясно, За компании е
-   лента под заглавието, Как работи е центриран портрет — тук е обратното
-   на Home и с пейзажно съотношение. */
-
-.hero--editorial { padding-block: var(--hero-top) var(--section-y-md); }
-.hero--editorial__row { align-items: center; }
-
-/* На мобилно тезата идва ПРЕДИ кадъра.
-   В DOM визуалът стои пръв, защото на desktop той е вляво от текста. При
-   стифиране това буташе заглавието ~500 px под хедъра и основната мисъл
-   се виждаше твърде късно. `order` разменя само визуалния ред — DOM-ът и
-   редът за екранните четци остават същите, а desktop и таблет не се
-   пипат. */
-@media (max-width: 767px) {
-  .hero--editorial__copy { order: -1; }
-}
-.hero--editorial .t-label { margin-bottom: var(--space-3); }
-.hero--editorial__title { margin-bottom: var(--space-5); }
 
 /* --- Лентата с производителите на цяла ширина ---------------------------- */
 
@@ -1448,7 +1298,6 @@ genki-slot { display: block; }
 /* --- Desktop ------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
-  .hero--editorial { padding-block: var(--hero-top) var(--section-y-md); }
   .producers--wide { padding: var(--space-10) var(--space-12); }
 }
 
@@ -1602,7 +1451,9 @@ genki-slot { display: block; }
 /* И четирите екрана на Genki Fit тръгват от една и съща височина — иначе
    съдържанието подскача при смяна на екрана. Долният отстъп си остава
    този на секцията. */
-.fit-screen { padding-block-start: var(--hero-top); }
+/* Въпросите, паузата и резултатът. Hero екранът е .hero-full и
+   носи собствения си отстъп. */
+.fit-screen:not(.hero-full) { padding-block-start: var(--hero-top); }
 .fit-screen[hidden] { display: none; }
 
 /* `.btn` носи собствен display: inline-flex, който бие UA правилото за
@@ -2038,4 +1889,141 @@ genki-slot { display: block; }
 
 @media (max-width: 639px) {
   .fit-textfield { margin-top: var(--space-6); padding-top: var(--space-5); }
+}
+
+/* ==========================================================================
+   HERO — ЕДНА СИСТЕМА ЗА ШЕСТТЕ СТРАНИЦИ  (решение 2026-09-24)
+
+   V1 минава на hero-only визуална система: всяка страница има ЕДИН кадър,
+   който заема първия екран, и нито една снимка по-надолу. Затова тук има
+   един споделен модел, не шест отделни hero варианта.
+
+   Кадърът е фон, текстът стои отгоре. Затова:
+   • тъмен градиент (scrim) гарантира контраст върху ЛЮБА снимка — това е
+     функция, не украса;
+   • текстът е долу вляво, значи обектът в кадъра трябва да е горе/вдясно;
+   • desktop и mobile са ОТДЕЛНИ файлове през <picture>, не един разтеглен.
+   ========================================================================== */
+
+.hero-full {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+  overflow: hidden;
+  /* Първият екран под хедъра. svh, защото 100vh на мобилно включва
+     лентата на браузъра и кадърът се изрязва отдолу. */
+  min-height: calc(100vh - var(--header-h-mobile));
+  padding-block: var(--section-y-lg) var(--section-y-md);
+  /* Докато няма файл, фонът е брандов, а не бял правоъгълник. */
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+}
+
+@supports (height: 100svh) {
+  .hero-full { min-height: calc(100svh - var(--header-h-mobile)); }
+}
+
+.hero-full__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+}
+
+/* Scrim. Плътен долу, където е текстът; почти нищо горе, за да диша
+   кадърът. Дава контраст независимо каква снимка ще влезе. */
+.hero-full__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgb(10 20 14 / 0.84) 0%,
+    rgb(10 20 14 / 0.52) 34%,
+    rgb(10 20 14 / 0.18) 62%,
+    rgb(10 20 14 / 0.06) 100%
+  );
+}
+
+.hero-full__inner { position: relative; width: 100%; }
+
+.hero-full__copy { max-width: 44rem; }
+
+.hero-full .t-label { color: var(--color-text-inverse-muted); }
+
+.hero-full__title {
+  margin-block: var(--space-4) var(--space-5);
+  /* Собствен размер: --text-display стига 88 px и разбива дългите
+     български заглавия на пет реда върху кадъра. */
+  font-size: clamp(2.625rem, 1.70rem + 3.9vw, 4.75rem);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-inverse);
+}
+
+.hero-full__lead {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--color-text-inverse-muted);
+}
+
+.hero-full__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-8);
+}
+.hero-full__actions .link-arrow { color: var(--color-text-inverse); }
+.hero-full__actions .link-arrow:hover { color: var(--cream-100); }
+.hero-full__note { margin: 0; color: var(--color-text-inverse-muted); }
+
+/* 元気 — подпис, не тема. Стои в ъгъла и възнаграждава вниманието. */
+.hero-full__mark {
+  position: absolute;
+  right: var(--gutter);
+  top: var(--space-8);
+  z-index: 1;
+  font-size: var(--text-subhead);
+  color: rgb(255 255 255 / 0.5);
+  letter-spacing: .12em;
+}
+
+/* Слотът запълва целия екран вместо да държи съотношение. */
+.slot--fill {
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: var(--radius-none);
+}
+/* Табелката на placeholder-а стои ГОРЕ, а не в средата: текстът на
+   hero-а е долу вляво и двете се застъпваха при преглед. С истинска
+   снимка табелката изчезва изцяло. */
+.slot--fill .slot__frame {
+  height: 100%;
+  justify-content: flex-start;
+  padding-top: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .hero-full { padding-block: var(--section-y-lg); }
+  .hero-full__mark { top: var(--space-10); }
+}
+
+@media (min-width: 1024px) {
+  .hero-full { min-height: calc(100vh - var(--header-h)); }
+  @supports (height: 100svh) {
+    .hero-full { min-height: calc(100svh - var(--header-h)); }
+  }
+}
+
+/* Много нисък екран (лаптоп в landscape, отворена конзола): hero-ът не
+   бива да изяде цялата страница и да скрие, че под него има съдържание. */
+@media (max-height: 560px) {
+  .hero-full { min-height: 32rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-full__media { transition: none; }
 }

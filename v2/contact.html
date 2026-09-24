@@ -108,14 +108,28 @@
          K01 (мини бранд визуал) е P2 и НЕ е използван — композицията е
          по-добра без него, а спецификацията казва да не се насилва.
          ==================================================================== -->
+    <!-- ---------------------------------------------------------------- K01
+         Контакт също отваря с кадър на цял екран. Заглавието живее тук;
+         формата остава веднага отдолу и не се утежнява. -->
+    <section class="hero-full">
+      <genki-slot class="hero-full__media" slot-id="K01"
+                  shape="fill" priority="high"></genki-slot>
+      <span class="hero-full__scrim" aria-hidden="true"></span>
+
+      <div class="container hero-full__inner">
+        <div class="hero-full__copy">
+          <p class="t-label reveal" data-i18n="contact.label">КОНТАКТ</p>
+          <h1 class="hero-full__title reveal" data-i18n="contact.title">Нека поговорим.</h1>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--lg contact">
       <div class="container">
         <div class="grid contact__row">
 
-          <!-- Кратко редакционно въведение -->
+          <!-- Въведението остава кратко: заглавието вече е в hero-а горе. -->
           <div class="contact__intro" style="--m:4; --t:8; --d:5">
-            <p class="t-label reveal" data-i18n="contact.label">КОНТАКТ</p>
-            <h1 class="t-headline contact__title reveal" data-i18n="contact.title">Нека поговорим.</h1>
             <p class="t-subhead t-muted measure reveal" data-i18n="contact.lead">Имате въпрос за Genki или искате да обсъдим вашия офис? Пишете ни и ще се свържем с вас в рамките на 24 часа.</p>
 
             <!-- Препратката към Genki Fit. Genki Fit остава основната

@@ -100,60 +100,52 @@
   <main id="main">
 
     <!-- ====================================================================
-         HERO — M01
-
-         Четвърта структура на сайта: Home е split с портрет вдясно,
-         За компании е широка лента под заглавието, Как работи е центриран
-         портрет — тук визуалът е ВЛЯВО и е пейзажен, а текстът вдясно.
-         По-топло и по-редакционно, но без рустик и без NGO естетика.
+         HERO — един кадър на цял екран. Един от шестте за целия сайт.
+         Текстът стои долу вляво, затова обектът в кадъра е горе/вдясно.
+         Desktop и mobile са ОТДЕЛНИ файлове; подмяната е src + src-mobile.
          ==================================================================== -->
-    <section class="hero hero--editorial">
-      <div class="container">
-        <div class="grid hero--editorial__row">
+    <section class="hero-full">
+      <genki-slot class="hero-full__media" slot-id="M01"
+                  shape="fill" priority="high"></genki-slot>
+      <span class="hero-full__scrim" aria-hidden="true"></span>
+      <span class="hero-full__mark t-jp" lang="ja" aria-hidden="true">元気</span>
 
-          <div class="hero--editorial__visual reveal reveal--media" style="--m:4; --t:8; --d:7">
-            <genki-slot slot-id="M01" ratio="3/2" mobile-ratio="4/5"
-                        shape="media" priority="high"></genki-slot>
-          </div>
-
-          <div class="hero--editorial__copy" style="--m:4; --t:8; --d:5; --ds:8">
-            <p class="t-label reveal" data-i18n="mission.hero.label">МИСИЯ И ВЪЗДЕЙСТВИЕ</p>
-            <h1 class="t-headline hero--editorial__title reveal" data-i18n="mission.hero.title">Доброто не трябва да е нещо извън ежедневието.</h1>
-            <p class="t-subhead t-muted reveal" data-i18n="mission.hero.lead">Genki е създаден така, че всеки ден да прави малко повече — за хората в офиса, за българските производители и за каузи, които имат значение.</p>
-          </div>
+      <div class="container hero-full__inner">
+        <div class="hero-full__copy">
+          <p class="t-label reveal" data-i18n="mission.hero.label">МИСИЯ И ВЪЗДЕЙСТВИЕ</p>
+          <h1 class="hero-full__title reveal" data-i18n="mission.hero.title">Доброто не трябва да е нещо извън ежедневието.</h1>
+          <p class="t-subhead hero-full__lead reveal" data-i18n="mission.hero.lead">Genki е създаден така, че всеки ден да прави малко повече — за хората в офиса, за българските производители и за каузи, които имат значение.</p>
 
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         GENKI PRODUCT STANDARD — M02
-         Близък продуктов кадър. Без печати, без значки и без думата „био"
-         върху несертифициран продукт.
+         GENKI PRODUCT STANDARD
+         Типографска секция. Снимката (M02) е отложена за след V1 —
+         визуалната система е hero-only.
          ==================================================================== -->
     <section class="section section--lg">
       <div class="container">
         <div class="grid split-row">
 
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:6">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-label" data-i18n="mission.standard.label">GENKI PRODUCT STANDARD</p>
             <h2 class="t-headline split-row__title" data-i18n="mission.standard.title">Не слагаме нещо вътре само защото се продава.</h2>
             <p class="t-body t-muted measure" data-i18n="mission.standard.lead">Всеки продукт трябва да заслужи мястото си в Genki — със състав, качество и формат, които имат смисъл за ежедневието в офиса.</p>
             <p class="t-subhead promise" data-i18n="mission.standard.close">Затова в Genki няма случайни продукти.</p>
           </div>
 
-          <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:5; --ds:8">
-            <genki-slot slot-id="M02" shape="media"></genki-slot>
-          </div>
 
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         БЪЛГАРСКО ПО ИЗБОР — M03 + лентата с логата
+         БЪЛГАРСКО ПО ИЗБОР — лентата с логата
+         M03 (ОТЛОЖЕН за след V1 — визуалната система е hero-only).
 
-         M03 е кадър от реален производител. Ако такъв няма, секцията работи
+         Секцията работи
          с лентата и текста — не се слага заместител и не се генерира
          фабрика. Логата чакат писмено разрешение от всеки производител.
          ==================================================================== -->
@@ -161,10 +153,7 @@
       <div class="container">
 
         <div class="grid split-row">
-          <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:5">
-            <genki-slot slot-id="M03" shape="media"></genki-slot>
-          </div>
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:6; --ds:7">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-label" data-i18n="mission.local.label">БЪЛГАРСКО ПО ИЗБОР</p>
             <h2 class="t-headline split-row__title" data-i18n="mission.local.title">Добрите местни продукти заслужават повече място.</h2>
             <p class="t-body t-muted measure" data-i18n="mission.local.lead">Затова работим с български производители и искаме Genki да бъде още един начин техните продукти да стигат до повече хора.</p>
@@ -220,19 +209,18 @@
     </section>
 
     <!-- ====================================================================
-         ЗАЕДНО ЗАД КАУЗИТЕ — M05
+         ЗАЕДНО ЗАД КАУЗИТЕ
+         M05 (ОТЛОЖЕН за след V1 — визуалната система е hero-only).
 
          Текстът изброява трите неща в едно изречение. НЕ се разбива на три
          карти — това би било нов текст и card soup.
 
-         M05 е nice-to-have и чака снимка от инициатива, която вече се е
-         случила. Нищо тук не се представя като документ за минало събитие.
          ==================================================================== -->
     <section class="section section--lg">
       <div class="container">
         <div class="grid split-row">
 
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:6">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-label" data-i18n="mission.causes.label">ЗАЕДНО ЗАД КАУЗИТЕ</p>
             <h2 class="t-headline split-row__title" data-i18n="mission.causes.title">Не просто даряваме. Даваме възможност и на екипа да участва.</h2>
             <p class="t-body t-muted measure" data-i18n="mission.causes.lead">С Genki Benefit хората могат да участват в избора на каузи, да виждат какво сме постигнали заедно и да се включат в годишна доброволческа инициатива.</p>
@@ -243,10 +231,6 @@
             </a>
           </div>
 
-          <div class="split-row__media reveal" style="--m:4; --t:8; --d:5; --ds:8">
-            <genki-slot slot-id="M05" shape="media"></genki-slot>
-            <p class="t-body-sm t-muted causes__note" data-i18n="mission.causes.pending">Визуален слот — чака реална снимка от инициатива, която вече се е случила</p>
-          </div>
 
         </div>
       </div>

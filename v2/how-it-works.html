@@ -100,43 +100,33 @@
   <main id="main">
 
     <!-- ====================================================================
-         HERO — W01
-
-         Трета структура на сайта, нарочно: Home е split, За компании е
-         широка лента, тук е продуктов портрет. Страницата е демонстрация
-         на продукт — машината стои сама, спокойно, с въздух около себе си.
+         HERO — един кадър на цял екран. Един от шестте за целия сайт.
+         Текстът стои долу вляво, затова обектът в кадъра е горе/вдясно.
+         Desktop и mobile са ОТДЕЛНИ файлове; подмяната е src + src-mobile.
          ==================================================================== -->
-    <section class="hero hero--portrait">
-      <div class="container">
+    <section class="hero-full">
+      <genki-slot class="hero-full__media" slot-id="W01"
+                  shape="fill" priority="high"></genki-slot>
+      <span class="hero-full__scrim" aria-hidden="true"></span>
 
-        <div class="grid hero--portrait__head">
-          <div style="--m:4; --t:8; --d:7">
-            <p class="t-label reveal" data-i18n="how.hero.label">КАК РАБОТИ GENKI</p>
-            <h1 class="t-display hero--portrait__title reveal" data-i18n="how.hero.title">Лесно за хората. Всичко останало е наша работа.</h1>
-          </div>
-          <div style="--m:4; --t:8; --d:4; --ds:9">
-            <p class="t-subhead t-muted reveal" data-i18n="how.hero.lead">Отваряте. Вземате каквото искате. Затваряте. Genki се грижи за останалото.</p>
-            <p class="reveal">
-              <!-- Котва надолу към самия процес. Стрелката е ↓, не →, както е
-                   в каноничния текст. -->
-              <a class="link-arrow" href="#purchase-flow">
-                <span data-i18n="how.hero.cta">Вижте го стъпка по стъпка</span>
-                <span class="btn__arrow btn__arrow--down" aria-hidden="true">↓</span>
-              </a>
-            </p>
+      <div class="container hero-full__inner">
+        <div class="hero-full__copy">
+          <p class="t-label reveal" data-i18n="how.hero.label">КАК РАБОТИ GENKI</p>
+          <h1 class="hero-full__title reveal" data-i18n="how.hero.title">Лесно за хората. Всичко останало е наша работа.</h1>
+          <p class="t-subhead hero-full__lead reveal" data-i18n="how.hero.lead">Отваряте. Вземате каквото искате. Затваряте. Genki се грижи за останалото.</p>
+          <div class="hero-full__actions reveal">
+            <a class="link-arrow" href="#purchase-flow">
+              <span data-i18n="how.hero.cta">Вижте го стъпка по стъпка</span>
+              <span class="btn__arrow btn__arrow--down" aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
-
-        <div class="hero--portrait__visual reveal reveal--media">
-          <genki-slot slot-id="W01" ratio="3/4" mobile-ratio="4/5"
-                      shape="media" priority="high"></genki-slot>
-        </div>
-
       </div>
     </section>
 
     <!-- ====================================================================
-         ПОКУПКАТА — W02 / W03 / W04
+         ПОКУПКАТА — четирите стъпки, изцяло типографски
+         W02 / W03 / W04 (ОТЛОЖЕН за след V1 — визуалната система е hero-only). Същото третиране като на Home.
 
          Четирите стъпки тук имат реални кадри, за разлика от Home, където
          същият процес е чисто типографски. Стъпка 04 е COMPONENT —
@@ -155,102 +145,29 @@
 
           <li class="flow__step reveal">
             <span class="flow__num" aria-hidden="true">01</span>
-            <div class="flow__media"><genki-slot slot-id="W02"></genki-slot></div>
             <h3 class="t-subhead flow__title" data-i18n="how.flow.s1_title">Карта</h3>
             <p class="t-body-sm t-muted" data-i18n="how.flow.s1_text">Доближавате или поставяте дебитната/кредитната си карта. Genki прави временна предварителна авторизация и отключва.</p>
           </li>
 
           <li class="flow__step reveal">
             <span class="flow__num" aria-hidden="true">02</span>
-            <div class="flow__media"><genki-slot slot-id="W03"></genki-slot></div>
             <h3 class="t-subhead flow__title" data-i18n="how.flow.s2_title">Вземете</h3>
             <p class="t-body-sm t-muted" data-i18n="how.flow.s2_text">Избирате каквото искате — един продукт или няколко.</p>
           </li>
 
           <li class="flow__step reveal">
             <span class="flow__num" aria-hidden="true">03</span>
-            <div class="flow__media"><genki-slot slot-id="W04"></genki-slot></div>
             <h3 class="t-subhead flow__title" data-i18n="how.flow.s3_title">Затворете</h3>
             <p class="t-body-sm t-muted" data-i18n="how.flow.s3_text">Затваряте вратата и продължавате с деня си.</p>
           </li>
 
           <li class="flow__step reveal">
             <span class="flow__num" aria-hidden="true">04</span>
-            <!-- W05 е COMPONENT. Отметка и кратко потвърждение — без суми,
+            <!-- Отметка и кратко потвърждение — без суми,
                  без артикули, без фалшива касова бележка с данни на
                  несъществуваща фирма. -->
-            <div class="flow__media flow__media--done">
-              <span class="done" aria-hidden="true">
-                <svg viewBox="0 0 48 48" width="40" height="40" fill="none"
-                     stroke="currentColor" stroke-width="3"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10 25l9 9 19-19"></path>
-                </svg>
-              </span>
-            </div>
-            <h3 class="t-subhead flow__title" data-i18n="how.flow.s4_title">Готово</h3>
-            <p class="t-body-sm t-muted" data-i18n="how.flow.s4_text">Genki отчита какво сте взели и таксува реалната стойност на покупката.</p>
-          </li>
 
-        </ol>
-
-        <!-- ================================================================
-             PUBLISH GATE — предварителна авторизация
-
-             Този текст НЕ се публикува, преди да съвпадне 1:1 с реалното
-             поведение на платежния доставчик. Бриф раздел 35, точка 13.
-
-             Вътрешната бележка от каноничния документ („IMPLEMENTATION
-             CHECK: потвърдете с избрания hardware/software provider, че
-             return-to-shelf поведението се отчита точно така във всички
-             V1 сценарии") остава ТУК, в коментар, и не влиза в страницата.
-             ================================================================ -->
-        <aside class="preauth reveal" data-publish-gate="payment-preauthorization">
-          <p class="t-body-sm" data-i18n="how.flow.preauth">Предварителната авторизация е временна. След покупката се начислява само стойността на взетите продукти, а останалата блокирана сума се освобождава. Времето за освобождаване може да зависи от вашата банка.</p>
-        </aside>
-
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         БЕЗ ИЗЛИШНИ СТЪПКИ
-         Без слот в asset документа. Типографски момент.
-         НЯМА твърдение, че продукт може да се върне на рафта — каноничният
-         текст също не го съдържа и то не е технически потвърдено.
-         ==================================================================== -->
-    <section class="section section--lg section--soft">
-      <div class="container">
-        <div class="grid">
-          <div style="--m:4; --t:8; --d:7; --ds:2">
-            <p class="t-label reveal" data-i18n="how.noscan.label">БЕЗ ИЗЛИШНИ СТЪПКИ</p>
-            <h2 class="t-headline noscan__title reveal" data-i18n="how.noscan.title">Няма какво да сканирате на излизане.</h2>
-            <p class="t-subhead t-muted measure reveal" data-i18n="how.noscan.lead">Genki следи какво се взима от рафтовете и автоматично свързва покупката с плащането.</p>
-            <p class="t-heading noscan__multi reveal" data-i18n="how.noscan.multi">Вземате няколко неща наведнъж? Няма проблем.</p>
-            <p class="t-subhead noscan__close reveal" data-i18n="how.noscan.close">Просто затваряте вратата.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         ЗАД КУЛИСИТЕ — W05
-         ==================================================================== -->
-    <section class="section section--lg">
-      <div class="container">
-        <!-- Заглавието е дълго и в тясна колона пада на шест реда. Затова
-             стои на цяла ширина над split-а, а не до визуала. -->
-        <div class="section-head">
-          <p class="t-label reveal" data-i18n="how.behind.label">ЗАД КУЛИСИТЕ</p>
-          <h2 class="t-headline measure-wide reveal" data-i18n="how.behind.title">Докато хората просто си взимат нещо, ние се грижим Genki да работи.</h2>
-        </div>
-
-        <div class="grid split-row">
-
-          <div class="split-row__media reveal reveal--media" style="--m:4; --t:8; --d:6">
-            <genki-slot slot-id="W05" shape="media"></genki-slot>
-          </div>
-
-          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:5; --ds:8">
+          <div class="split-row__copy reveal" style="--m:4; --t:8; --d:7">
             <p class="t-body t-muted measure" data-i18n="how.behind.lead">Следим наличностите, зареждаме, обслужваме машината и гледаме кои продукти се харесват и кои не.</p>
             <p class="t-subhead promise" data-i18n="how.behind.none">Няма заявки за зареждане. Няма следене на наличности. Няма още една задача за компанията.</p>
           </div>

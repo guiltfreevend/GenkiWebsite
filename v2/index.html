@@ -106,37 +106,29 @@
          content grid-а. Desktop и mobile са две отделни композиции, не един
          кадър с различен crop.
          ==================================================================== -->
-    <section class="hero">
-      <div class="container hero__inner">
+    <!-- ====================================================================
+         HERO — един кадър на цял екран. Един от шестте за целия сайт.
+         Текстът стои долу вляво, затова обектът в кадъра е горе/вдясно.
+         Desktop и mobile са ОТДЕЛНИ файлове; подмяната е src + src-mobile.
+         ==================================================================== -->
+    <section class="hero-full">
+      <genki-slot class="hero-full__media" slot-id="H01"
+                  shape="fill" priority="high"></genki-slot>
+      <span class="hero-full__scrim" aria-hidden="true"></span>
+      <span class="hero-full__mark t-jp" lang="ja" aria-hidden="true">元気</span>
 
-        <div class="hero__copy">
+      <div class="container hero-full__inner">
+        <div class="hero-full__copy">
           <p class="t-label reveal" data-i18n="home.hero.label">ЗАПОЗНАЙТЕ СЕ С GENKI</p>
-          <h1 class="t-display hero__title reveal" data-i18n="home.hero.title">По-добрата храна има място в офиса.</h1>
-          <p class="t-subhead t-muted hero__lead reveal" data-i18n="home.hero.lead">Умно и напълно обслужвано решение за по-добра храна в модерния офис.</p>
-          <p class="hero__actions reveal">
+          <h1 class="hero-full__title reveal" data-i18n="home.hero.title">По-добрата храна има място в офиса.</h1>
+          <p class="t-subhead hero-full__lead reveal" data-i18n="home.hero.lead">Умно и напълно обслужвано решение за по-добра храна в модерния офис.</p>
+          <div class="hero-full__actions reveal">
             <a class="btn btn--fit" href="companies.html">
               <span data-i18n="home.hero.cta">Вижте Genki за вашия офис</span>
               <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
-          </p>
-        </div>
-
-        <!-- Само .reveal, без .reveal--media: мащабът 1,03 разширява рамката,
-             която вече опира ръба на екрана, и предизвиква преливане преди
-             появата. Hero-то е над сгъвката и се появява веднага без него. -->
-        <div class="hero__visual reveal">
-          <!-- Излизането извън grid-а живее на този вътрешен блок, не на
-               flex детето: отрицателен margin върху flex елемент връща
-               мястото обратно в разпределението и визуалът прелива. -->
-          <div class="hero__frame">
-            <genki-slot slot-id="H01" ratio="4/5" mobile-ratio="3/4"
-                        shape="media" priority="high"></genki-slot>
-            <!-- Подписът 元気. Знаците остават текст; екранният четец ги
-                 прескача, защото не носят информация извън марката. -->
-            <span class="hero__mark t-jp" lang="ja" aria-hidden="true">元気</span>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -251,7 +243,7 @@
 
     <!-- ====================================================================
          СЕКЦИЯ 4 — БЮДЖЕТ
-         Без визуал (H05). Едро типографско изявление и един-единствен CTA —
+         Без визуал. Едро типографско изявление и един-единствен CTA —
          основната конверсия на сайта. Тъмнозеленото се появява точно тук и
          само тук на Home, за да носи тежест.
          ==================================================================== -->
@@ -285,10 +277,7 @@
 
         <!-- 1. Подбрано — продуктов кадър до текста -->
         <div class="grid why-row">
-          <div class="why-row__media reveal reveal--media" style="--m:4; --t:8; --d:6">
-            <genki-slot slot-id="H05" shape="media"></genki-slot>
-          </div>
-          <div class="why-row__copy reveal" style="--m:4; --t:8; --d:5; --ds:8">
+          <div class="why-row__copy reveal" style="--m:4; --t:8; --d:5; --ds:1">
             <h3 class="t-heading" data-i18n="home.why.curated_title">Подбрано, не просто заредено.</h3>
             <p class="t-body t-muted measure" data-i18n="home.why.curated_text">Всеки продукт трябва да покрива Genki Product Standard.</p>
           </div>

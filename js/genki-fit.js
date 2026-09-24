@@ -752,9 +752,9 @@ import {
     /* 1. Вашият Genki — вероятният размер, без вътрешни имена. */
     var c1 = el('article', 'fit-card fit-card--setup');
     c1.appendChild(el('p', 't-label fit-card__label', t('fit.result.c1')));
-    var slot = document.createElement('genki-slot');
-    slot.setAttribute('slot-id', 'F08');
-    c1.appendChild(slot);
+    // F08 е ОТЛОЖЕН за V1 (решение 2026-09-24): визуалната система е
+    // hero-only и резултатът няма нужда от снимка на хардуера, за да
+    // работи. Картата остава типографска.
     c1.appendChild(el('h2', 't-heading fit-card__title', t('fit.hw.' + rec.hardware)));
     c1.appendChild(el('p', 't-body-sm t-muted fit-card__caveat', t('fit.result.caveat')));
     cards.appendChild(c1);

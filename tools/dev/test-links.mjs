@@ -174,30 +174,34 @@ console.log('\n=== Футърът ===');
 }
 
 /* ======================================================================
-   2в. Размерите на визуалните слотове са съвместими със съотношенията
+   2в. HERO-ONLY визуална система  (решение 2026-09-24)
 
-   Пази конкретния дефект: регистърът носеше класовия размер за
-   „full-bleed hero" (2560×1440 = 16:9) върху слотове, чиято композиция
-   вече беше сменена на 4:5, 2:1, 3:4 и 3:2 — невъзможни двойки.
-
-   Каноничен източник: docs/GENKI-2.0-VISUAL-ASSET-PRODUCTION-PLAN.md.
+   V1 ползва ШЕСТ кадъра — по един на страница, всеки в две версии.
+   Всички снимки по-надолу са отложени. Този тест пази и двете:
+   че активните са точно шестте и че отложените не са се върнали.
    ====================================================================== */
-console.log('\n=== Размери на визуалните слотове ===');
+console.log('\n=== Hero-only визуална система ===');
 {
+  const ACTIVE = ['H01', 'C01', 'W01', 'M01', 'F01', 'K01'];
+  const DEFERRED = ['H05', 'C02', 'C05', 'W02', 'W03', 'W04', 'W05', 'M02', 'M03', 'M05', 'F08'];
+
   const src = read('js/genki-site.js');
   const body = src.slice(src.indexOf('var SLOTS'), src.indexOf('2. <genki-slot>'));
   const re = /([A-Z]\d{2}):\s*\{\s*d:\s*'([^']+)',\s*m:\s*'([^']+)',\s*file:\s*'([^']+)',\s*mfile:\s*'([^']+)'/g;
 
-  const ratioOf = (r) => { const [a, b] = r.split('/').map(Number); return a / b; };
-  const pxOf = (p) => { const [a, b] = p.split('×').map(Number); return a / b; };
-
   const slots = [];
   let m;
-  while ((m = re.exec(body))) {
-    slots.push({ id: m[1], d: m[2], mo: m[3], file: m[4], mfile: m[5] });
-  }
-  check('регистърът се чете', slots.length >= 15, String(slots.length));
+  while ((m = re.exec(body))) slots.push({ id: m[1], d: m[2], mo: m[3], file: m[4], mfile: m[5] });
+  const ids = slots.map((s) => s.id);
 
+  check('регистърът носи шестте hero + G05', slots.length === 7, ids.join(','));
+  for (const id of ACTIVE) check('регистърът има ' + id, ids.includes(id));
+  const leftovers = DEFERRED.filter((id) => ids.includes(id));
+  check('отложените ги няма в регистъра', leftovers.length === 0, leftovers.join(','));
+
+  /* Съотношение и пиксели винаги съвместими. */
+  const ratioOf = (r) => { const [a, b] = r.split('/').map(Number); return a / b; };
+  const pxOf = (p) => { const [a, b] = p.split('×').map(Number); return a / b; };
   const bad = [];
   for (const s of slots) {
     if (Math.abs(ratioOf(s.d) - pxOf(s.file)) > 0.01) bad.push(`${s.id} desktop ${s.d} ≠ ${s.file}`);
@@ -205,42 +209,66 @@ console.log('\n=== Размери на визуалните слотове ===')
   }
   check('всяка двойка съотношение/пиксели е съвместима', bad.length === 0, bad.slice(0, 4).join(' | '));
 
-  // Конкретните четири, които бяха сбъркани.
-  const byId = Object.fromEntries(slots.map((s) => [s.id, s]));
-  check('H01 вече не е 2560×1440', byId.H01 && byId.H01.file !== '2560×1440', byId.H01 && byId.H01.file);
-  check('C01 вече не е 2560×1440', byId.C01 && byId.C01.file !== '2560×1440', byId.C01 && byId.C01.file);
-  check('W01 вече не е 2560×1440', byId.W01 && byId.W01.file !== '2560×1440', byId.W01 && byId.W01.file);
-  check('M01 вече не е 2560×1440', byId.M01 && byId.M01.file !== '2560×1440', byId.M01 && byId.M01.file);
+  /* Шестте hero кадъра са в едно и също семейство размери: пълен екран. */
+  const heroes = slots.filter((s) => ACTIVE.includes(s.id));
+  check('всички hero са 16:9 на desktop', heroes.every((s) => s.d === '16/9'));
+  check('всички hero са 9:16 на mobile', heroes.every((s) => s.mo === '9/16'));
+  check('всички hero са 2560×1440 / 1080×1920',
+    heroes.every((s) => s.file === '2560×1440' && s.mfile === '1080×1920'));
+  check('точно 12 файла за производство', heroes.length * 2 === 12, String(heroes.length * 2));
 
-  // Стойностите съвпадат със заключените в production плана.
-  const plan = read('docs/GENKI-2.0-VISUAL-ASSET-PRODUCTION-PLAN.md');
-  check('H01 2400×3000 е в плана', plan.includes('2400 × 3000'));
-  check('C01 3840×1920 е в плана', plan.includes('3840 × 1920'));
-  check('W01 1600×2133 е в плана', plan.includes('1600 × 2133'));
-  check('M01 2400×1600 е в плана', plan.includes('2400 × 1600'));
-
-  // Регистърът различава трите неща.
-  check('полето за файл се казва file', body.includes('file:'));
-  check('полето за екран се казва css', body.includes('css:'));
   check('старите dpx/mpx ги няма', !body.includes('dpx:') && !body.includes('mpx:'));
+  check('регистърът казва, че V1 е hero-only', body.includes('HERO-ONLY'));
+  check('регистърът помни един брандиран хладилник',
+    body.includes('ЕДИН И СЪЩ брандиран'));
 }
 
 /* ======================================================================
-   2г. Mission — на мобилно текстът е преди визуала
+   2г. Всяка страница отваря с hero и няма отложени слотове
    ====================================================================== */
-console.log('\n=== Mission mobile ред ===');
+console.log('\n=== Страниците ===');
+{
+  const DEFERRED = /slot-id="(H05|C02|C05|W02|W03|W04|W05|M02|M03|M05|F08)"/;
+  const HERO_OF = {
+    index: 'H01', companies: 'C01', 'how-it-works': 'W01',
+    mission: 'M01', 'genki-fit': 'F01', contact: 'K01',
+  };
+
+  for (const [page, id] of Object.entries(HERO_OF)) {
+    const html = read('v2/' + page + '.html');
+    check(page + ' отваря с .hero-full', html.includes('class="hero-full'), page);
+    check(page + ' има hero слот ' + id, html.includes('slot-id="' + id + '"'));
+    check(page + ' слотът е fill', /slot-id="[A-Z]\d{2}"\s*\n?\s*shape="fill"/.test(html) || html.includes('shape="fill"'));
+    check(page + ' hero-ът зарежда с приоритет', html.includes('priority="high"'));
+    check(page + ' има scrim', html.includes('hero-full__scrim'));
+    check(page + ' няма отложен слот', !DEFERRED.test(html), (html.match(DEFERRED) || [])[0]);
+    /* Точно един genki-slot на страница: hero-ът. */
+    const n = (html.match(/<genki-slot/g) || []).length;
+    check(page + ' има точно един слот', n === 1, String(n));
+  }
+
+  /* Резултатът на Genki Fit вече не вмъква F08. */
+  const fitJs = read('js/genki-fit.js');
+  check('Genki Fit не вмъква F08', !fitJs.includes("'F08'"));
+  check('причината е записана в кода', fitJs.includes('hero-only'));
+}
+
+/* ======================================================================
+   2д. Hero системата е обща, не шест кръпки
+   ====================================================================== */
+console.log('\n=== Hero системата ===');
 {
   const css = read('css/genki-2.css');
-  check('има правило за реда на мобилно',
-    /@media \(max-width: 767px\)[^}]*\{[^}]*\.hero--editorial__copy\s*\{\s*order:\s*-1/s.test(css) ||
-    css.includes('.hero--editorial__copy { order: -1; }'));
-  check('правилото е само под 768px', css.includes('@media (max-width: 767px)'));
+  check('има .hero-full', css.includes('.hero-full {'));
+  check('пълни първия екран', css.includes('100svh') || css.includes('100vh'));
+  check('има scrim градиент', css.includes('.hero-full__scrim'));
+  check('слотът има fill режим', css.includes('.slot--fill'));
+  check('текстът е долу', css.includes('align-items: flex-end'));
 
-  // DOM редът НЕ се пипа — визуалът остава пръв, за да е вляво на desktop.
-  const html = read('v2/mission.html');
-  const vi = html.indexOf('hero--editorial__visual');
-  const ci = html.indexOf('hero--editorial__copy');
-  check('DOM редът е непроменен (визуалът пръв)', vi > 0 && ci > 0 && vi < ci);
+  /* Старите шест hero варианта са премахнати, а не оставени мъртви. */
+  for (const dead of ['.hero--wide', '.hero--portrait', '.hero--editorial', '.hero__frame']) {
+    check('мъртвият ' + dead + ' е премахнат', !css.includes(dead + ' '), dead);
+  }
 }
 
 /* ======================================================================
