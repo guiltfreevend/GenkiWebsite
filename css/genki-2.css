@@ -805,6 +805,8 @@ genki-slot { display: block; }
   width: 1px;
   background: var(--color-border-strong);
 }
+/* На mobile вертикалната линия свързва стъпките, затова последната няма.
+   На desktop релсата е хоризонтална и трябва да минава и над последната. */
 .step:last-child::before { display: none; }
 
 .step__num {
@@ -945,13 +947,18 @@ genki-slot { display: block; }
 .donation {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-5);
-  padding: var(--space-12) 0;
+  padding: var(--space-16) 0;
   border-top: var(--border-hairline);
   border-bottom: var(--border-hairline);
+  text-align: center;
 }
 
 .donation__title { color: var(--color-accent); }
+/* Центрираният текст иска собствена ширина — `measure` подравнява вляво
+   и изречението увисва накриво под заглавието. */
+.donation > .t-subhead { max-width: 44ch; margin-inline: auto; }
 
 .why-foot { margin-top: var(--space-12); }
 
@@ -977,18 +984,23 @@ genki-slot { display: block; }
     gap: var(--space-6);
   }
 
-  .step { padding-left: 0; padding-top: var(--space-10); }
+  /* Линията е РЕЛСА НАД числата, не през тях. Преди минаваше на
+     0.45rem — точно през средата на „01" — и изглеждаше зачеркнато. */
+  .step { padding-left: 0; padding-top: var(--space-12); }
 
   .step::before {
     left: 0;
     right: calc(-1 * var(--space-6));
-    top: 0.45rem;
+    top: 0;
     bottom: auto;
     width: auto;
     height: 1px;
   }
 
-  .step__num { top: 0; }
+  .step__num { top: var(--space-5); }
+
+  /* Релсата минава и над последната стъпка — спира точно на нейния край. */
+  .step:last-child::before { display: block; right: 0; }
 
   .ops {
     display: grid;
@@ -1980,16 +1992,6 @@ genki-slot { display: block; }
 .hero-full__actions .link-arrow:hover { color: var(--cream-100); }
 .hero-full__note { margin: 0; color: var(--color-text-inverse-muted); }
 
-/* 元気 — подпис, не тема. Стои в ъгъла и възнаграждава вниманието. */
-.hero-full__mark {
-  position: absolute;
-  right: var(--gutter);
-  top: var(--space-8);
-  z-index: 1;
-  font-size: var(--text-subhead);
-  color: rgb(255 255 255 / 0.5);
-  letter-spacing: .12em;
-}
 
 /* Слотът запълва целия екран вместо да държи съотношение. */
 .slot--fill {
@@ -2008,7 +2010,6 @@ genki-slot { display: block; }
 
 @media (min-width: 768px) {
   .hero-full { padding-block: var(--section-y-lg); }
-  .hero-full__mark { top: var(--space-10); }
 }
 
 @media (min-width: 1024px) {
